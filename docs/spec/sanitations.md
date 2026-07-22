@@ -3424,12 +3424,27 @@ After every regeneration, manually patch the three affected functions in `client
   }
   ```
 
+567. Expand coverage from 11 core tags to the full spec (480 operations)
+- **Original**: The first version of this connector was generated with `--tags` restricted to 11 core resource areas (Products, Customers, Sellers, Condition Records, Price Lists, Manual Price Lists, Calculation Grids, Quotes, Contracts, Attachments, Authentication) — 139 of the spec's 484 operations.
+- **Updated**: Removed the `--tags` filter entirely; the client now covers all remaining operations across the other 43 tags (Sales Compensations, Data Manager, Rebates, Optimization, Workflow, User Admin, Live Price Grids, Custom Forms, Comments, Notifications, etc.), plus the 139 core operationIds and 29 core schema renames from the prior pass, and the same treatment applied to the remaining 345 operationIds and 66 generic `InlineResponseNNN` schemas.
+- **Reason**: Full API coverage requested.
+
+568. Remove 4 generic catch-all operations that collide with specific Calculation Grid Item endpoints
+- **Original**: The spec defines both generic single-typeCode catch-all operations (`POST /add/{typeCode}` → `createObject`, `POST /delete/{typeCode}` → `deleteObject`, `POST /fetch/{typeCode}` → `listObjects`, `POST /fetch/{typeCode}/{id}` → `getObject`) and specific Calculation Grid Item endpoints with a single templated segment (`POST /add/CGI{keyNumber}`, `POST /delete/CGI{keyNumber}`, `POST /fetch/CGI{keyNumber}`, `POST /fetch/CGI{keyNumber}/{id}`). Both pairs template to the identical Ballerina resource path shape (a single path parameter segment), which `bal openapi`/Ballerina's resource-method dispatch cannot disambiguate — client generation failed with `redeclared symbol` errors.
+- **Updated**: Removed the 4 generic catch-all operations (`createObject`, `deleteObject`, `listObjects`, `getObject`) from the spec. All other type codes already have dedicated, specifically-named, more strongly-typed endpoints generated elsewhere in the client (e.g. `addProduct`, `addCustomer`, `addSeller`, etc.), so no unique functionality is lost except for arbitrary/future type codes that have no dedicated endpoint.
+- **Reason**: A genuine Ballerina resource-routing limitation — two distinct URL shapes that happen to template identically cannot coexist as separate resource methods on the same client class.
+
+569. Fix two malformed generated identifiers from special-character field names
+- **Original**: A field literally named `Margin %` in the JSON schema was generated as the Ballerina identifier `margin%` (an invalid identifier — `%` is not a valid character in an unescaped Ballerina identifier). Separately, a field literally named `""` (empty string) generated the annotation `@jsondata:Name {value: """"}`, which is not valid Ballerina string-literal syntax.
+- **Updated**: Renamed the Ballerina identifier to `marginPercent` (the `@jsondata:Name {value: "Margin %"}` annotation already preserves the real wire name). Fixed the second annotation to `@jsondata:Name {value: ""}`.
+- **Reason**: `bal build` fails outright without these — both are `bal openapi` codegen escaping bugs when a JSON field name contains characters that aren't valid in an unescaped Ballerina identifier or that need escaping inside a string literal.
+
 ## OpenAPI cli command
 
 The following command was used to generate the Ballerina client from the OpenAPI specification. The command should be executed from the repository root directory.
 
 ```bash
-bal openapi -i docs/spec/openapi.json -o ballerina --mode client --tags "Products,Customers,Sellers,Condition Records,Price Lists,Manual Price Lists,Calculation Grids,Quotes,Contracts (Agreements & Promotions),Attachments,Authentication" --license docs/license.txt
+bal openapi -i docs/spec/openapi.json -o ballerina --mode client --license docs/license.txt
 ```
 
 Note: The license year is hardcoded to 2026, change if necessary.

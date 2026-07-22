@@ -2,7 +2,7 @@
 
 [Pricefx](https://www.pricefx.com/) is a cloud-native pricing and revenue management platform that helps enterprises manage price lists, calculation grids, quotes, contracts, and rebate agreements across their sales organization.
 
-The `ballerinax/pricefx` connector offers APIs to connect and interact with the [Pricefx Backend API](https://api.pricefx.com/), covering the following resource areas: Products, Customers, Sellers, Condition records, Price lists, Manual price lists, Calculation grids, Quotes, Contracts (Agreements & Promotions), Attachments, and Authentication. The full Pricefx REST API surface is much larger (480+ operations across 54 tags); this connector currently covers the core master-data and quoting operations most integrations need.
+The `ballerinax/pricefx` connector offers APIs to connect and interact with the [Pricefx Backend API](https://api.pricefx.com/), covering nearly all 480 operations across master data (products, customers, sellers), pricing (price lists, manual price lists, calculation grids, condition records), sales (quotes, contracts, rebates, sales compensations), and platform administration (users, workflow, data manager, notifications, comments, custom forms, and more).
 
 ## Setup guide
 
