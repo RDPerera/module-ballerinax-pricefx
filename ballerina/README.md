@@ -1,9 +1,3 @@
-# Ballerina Pricefx connector
-
-[![Build](https://github.com/ballerina-platform/module-ballerinax-pricefx/actions/workflows/ci.yml/badge.svg)](https://github.com/ballerina-platform/module-ballerinax-pricefx/actions/workflows/ci.yml)
-[![GitHub Last Commit](https://img.shields.io/github/last-commit/ballerina-platform/module-ballerinax-pricefx.svg)](https://github.com/ballerina-platform/module-ballerinax-pricefx/commits/master)
-[![GitHub Issues](https://img.shields.io/github/issues/ballerina-platform/ballerina-library/module/pricefx.svg?label=Open%20Issues)](https://github.com/ballerina-platform/ballerina-library/labels/module%2Fpricefx)
-
 ## Overview
 
 [Pricefx](https://www.pricefx.com/) is a cloud-native pricing and revenue management platform that helps enterprises manage price lists, calculation grids, quotes, contracts, and rebate agreements across their sales organization.
