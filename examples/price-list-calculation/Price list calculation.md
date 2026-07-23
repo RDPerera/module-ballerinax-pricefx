@@ -1,10 +1,10 @@
-# Attachment upload workflow
+# Price list calculation
 
-Create an upload slot for a customer record, upload a file to it, then list the customer's files. Demonstrates the multi-step slot-then-upload pattern Pricefx uses for file attachments.
+Create a new price list, run its calculation, then fetch the calculated price list. Demonstrates the typical price-list authoring and recalculation flow.
 
 ## Prerequisites
 
-- Ballerina Swan Lake 2201.x or later
+- Ballerina Swan Lake 2201.12.x or later
 - Push the connector to the local repository:
   ```bash
   cd ballerina

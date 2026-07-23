@@ -1,10 +1,10 @@
-# Price list calculation
+# Product catalog management
 
-Create a new price list, run its calculation, then fetch the calculated price list. Demonstrates the typical price-list authoring and recalculation flow.
+Add a new product to the catalog, update one of its fields, then list matching products to confirm the change. Demonstrates the core create/update/list lifecycle for Pricefx product master data.
 
 ## Prerequisites
 
-- Ballerina Swan Lake 2201.x or later
+- Ballerina Swan Lake 2201.12.x or later
 - Push the connector to the local repository:
   ```bash
   cd ballerina
