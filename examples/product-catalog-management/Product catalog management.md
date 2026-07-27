@@ -12,7 +12,10 @@ Add a new product to the catalog, update one of its fields, then list matching p
   ```
 - Create a `Config.toml` in this directory:
   ```toml
-  token = "<your-pricefx-jwt-token>"
+  username = "<your-pricefx-username>"
+  password = "<your-pricefx-password>"
+  partition = "<your-partition>"
+  pricefxKey = "<your-pricefx-api-key>"
   serviceUrl = "https://<your-node>.pricefx.com/pricefx/<your-partition>"
   ```
 

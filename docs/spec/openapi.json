@@ -2132,7 +2132,7 @@
         ],
         "summary": "2. Upload a File",
         "description": "Uploads a file and adds it to the specified product.<p>\nTo upload a file you need to retrieve the slot ID using the **`/uploadmanager.newuploadslot`** (*Create an Upload Slot*) endpoint.\n\n<!-- theme: info-->\n>**Information**\n>\n>To upload a file you need to perform the following actions:\n>1. Create an Upload Slot\n>2. Upload a File\n>3. Delete an Upload Slot",
-        "operationId": "2UploadFile",
+        "operationId": "uploadProductImage",
         "parameters": [],
         "requestBody": {
           "description": "",

@@ -19,7 +19,10 @@ The `ballerinax/pricefx` connector provides practical examples illustrating usag
 
 2. For each example, create a `Config.toml` in the example directory with your Pricefx credentials:
    ```toml
-   token = "<your-pricefx-jwt-token>"
+   username = "<your-pricefx-username>"
+   password = "<your-pricefx-password>"
+   partition = "<your-partition>"
+   pricefxKey = "<your-pricefx-api-key>"
    serviceUrl = "https://<your-node>.pricefx.com/pricefx/<your-partition>"
    ```
 

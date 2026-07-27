@@ -12,7 +12,10 @@ Create an upload slot for a customer record, upload a file to it, then list the 
   ```
 - Create a `Config.toml` in this directory:
   ```toml
-  token = "<your-pricefx-jwt-token>"
+  username = "<your-pricefx-username>"
+  password = "<your-pricefx-password>"
+  partition = "<your-partition>"
+  pricefxKey = "<your-pricefx-api-key>"
   serviceUrl = "https://<your-node>.pricefx.com/pricefx/<your-partition>"
   ```
 

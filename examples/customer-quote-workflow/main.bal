@@ -3,18 +3,21 @@
 import ballerina/io;
 import ballerinax/pricefx;
 
-configurable string token = ?;
+configurable string username = ?;
+configurable string password = ?;
+configurable string partition = ?;
+configurable string pricefxKey = ?;
 configurable string serviceUrl = ?;
 
 public function main() returns error? {
-    pricefx:Client pricefxClient = check new ({auth: {xPriceFxJwt: token}}, serviceUrl = serviceUrl);
+    pricefx:Client pricefxClient = check new ({auth: {username, password, partition, pricefxKey}}, serviceUrl);
 
     // Step 1: Add a new customer
     pricefx:AddCustomerRequest customerRequest = {
         data: {customerId: "CUST-2001", name: "Acme Corp"},
         operation: "add"
     };
-    pricefx:customerResponse customerResult = check pricefxClient->/add/C.post(customerRequest);
+    pricefx:customerResponse customerResult = check pricefxClient->addCustomer(customerRequest);
     io:println("Added customer: ", customerResult);
 
     // Step 2: Create a quote for the new customer
@@ -49,7 +52,7 @@ public function main() returns error? {
         lastUpdateBy: 1
     };
     pricefx:UpsertQuoteRequest quoteRequest = {data: {quote: quote}};
-    pricefx:quoteResponse quoteResult = check pricefxClient->/quotemanager\.save.post(quoteRequest);
+    pricefx:quoteResponse quoteResult = check pricefxClient->upsertQuote(quoteRequest);
     io:println("Created quote: ", quoteResult);
 
     // Step 3: Submit the quote for approval
@@ -60,6 +63,6 @@ public function main() returns error? {
             quote: {typedId: "q-2026-001.QU", uniqueName: "q-2026-001", inputs: []}
         }
     };
-    pricefx:quoteResponse submitResult = check pricefxClient->/quotemanager\.submit.post(submitRequest);
+    pricefx:quoteResponse submitResult = check pricefxClient->submitQuote(submitRequest);
     io:println("Submitted quote: ", submitResult);
 }

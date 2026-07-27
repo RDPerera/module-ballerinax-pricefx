@@ -12,7 +12,10 @@ Create a new price list, run its calculation, then fetch the calculated price li
   ```
 - Create a `Config.toml` in this directory:
   ```toml
-  token = "<your-pricefx-jwt-token>"
+  username = "<your-pricefx-username>"
+  password = "<your-pricefx-password>"
+  partition = "<your-partition>"
+  pricefxKey = "<your-pricefx-api-key>"
   serviceUrl = "https://<your-node>.pricefx.com/pricefx/<your-partition>"
   ```
 

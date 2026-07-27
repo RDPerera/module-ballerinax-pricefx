@@ -12,24 +12,13 @@ The `ballerinax/pricefx` connector offers APIs to connect and interact with the 
 
 ## Setup guide
 
-To use the Pricefx connector, you need a Pricefx partition (a dedicated instance/environment) and either an account username/password or an API key.
+To use the Pricefx connector, you need your Pricefx username, password, and partition name. The connector exchanges these for a session token internally — there's no separate login step to perform yourself.
 
-### Step 1: Get a Pricefx partition
+- **Username** and **password** — your regular Pricefx login credentials
+- **Partition** — the name of your Pricefx partition
+- **Pricefx API key** (optional) — contact Pricefx Support to obtain one. When provided, the connector authenticates via the faster `POST /token` endpoint; otherwise it falls back to `GET /login/extended` (HTTP Basic auth)
 
-Pricefx doesn't offer public self-service sign-up for API access. Reach out to your Pricefx account contact (sales, customer success, or partner contact) to have a partition provisioned for you. You'll receive:
-
-- A **node hostname** (e.g. `yourcompany.pricefx.com`)
-- A **partition name** (e.g. `yourcompanypartition`)
-- Login credentials (username and password), and/or a **Pricefx-Key** API key
-
-### Step 2: Obtain an authentication token
-
-The Pricefx API uses a short-lived JWT (`X-PriceFx-jwt`) for authenticating requests. Obtain one via:
-
-- `GET /login/extended` — Basic-Auth-style login with your username/password (returns the token as part of the response), or
-- `POST /token` — pass your **Pricefx-Key** header along with a username/password/partition payload (recommended for server-to-server integrations)
-
-> See Pricefx's own [REST API integration guide](https://api.pricefx.com/rest-api/integration-guide) for full details on token acquisition and expiry (JWTs from `/login/extended` expire after 30 minutes).
+The connector also re-authenticates automatically whenever the session token expires (Pricefx JWTs are valid for around 30 minutes), so a long-lived `pricefx:Client` instance keeps working without manual re-initialization.
 
 ## Quickstart
 
@@ -44,20 +33,26 @@ import ballerinax/pricefx;
 
 ### Step 2: Instantiate a new connector
 
-1. Create a `Config.toml` file and configure the obtained JWT token, along with your Pricefx node and partition:
+1. Create a `Config.toml` file with your Pricefx credentials:
 
     ```toml
-    token = "<your-pricefx-jwt-token>"
+    username = "<your-pricefx-username>"
+    password = "<your-pricefx-password>"
+    partition = "<your-partition>"
+    pricefxKey = "<your-pricefx-api-key>"
     serviceUrl = "https://<your-node>.pricefx.com/pricefx/<your-partition>"
     ```
 
 2. Create a `pricefx:Client` instance:
 
     ```ballerina
-    configurable string token = ?;
+    configurable string username = ?;
+    configurable string password = ?;
+    configurable string partition = ?;
+    configurable string pricefxKey = ?;
     configurable string serviceUrl = ?;
 
-    final pricefx:Client pricefxClient = check new ({auth: {xPriceFxJwt: token}}, serviceUrl = serviceUrl);
+    final pricefx:Client pricefxClient = check new ({auth: {username, password, partition, pricefxKey}}, serviceUrl);
     ```
 
 ### Step 3: Invoke the connector operation
@@ -69,7 +64,7 @@ Now, utilize the available connector operations.
 ```ballerina
 public function main() returns error? {
     pricefx:ListPriceListsRequest payload = {};
-    pricefx:ListPriceListsResponse response = check pricefxClient->/fetch/PL.post(payload);
+    pricefx:ListPriceListsResponse response = check pricefxClient->listPriceLists(payload);
     io:println(response);
 }
 ```

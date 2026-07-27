@@ -3402,27 +3402,49 @@ These changes are done in order to improve the overall usability, and as workaro
 - **Updated**: Removed `requestBody` from both operations.
 - **Reason**: `bal openapi` rejects the spec outright without this — a genuine defect in the upstream Pricefx spec, not a flatten/align artifact.
 
-## Post-generation step: fix header-name mapping in `client.bal`
+## Post-generation architecture: `client.bal` wrapper with internal JWT auth
 
-`CreateAuthTokenHeaders`, `RefreshAuthTokenHeaders`, and `DeleteAuthTokenHeaders` each carry a
-`pricefxKey` field annotated `@http:Header {name: "Pricefx-Key"}`. The generated `client.bal` builds
-its outgoing header map via a plain `map<anydata> headerValues = {...headers};` spread, which uses the
-Ballerina field name (`pricefxKey`) as the map key and never consults the `@http:Header` annotation —
-so the real server never receives a `Pricefx-Key` header at all. This is a `bal openapi` client
-codegen limitation (the annotation is correctly emitted on the type but not honored when serializing
-headers in the generated resource function body), not fixable via spec sanitation.
+Generated with `--client-methods remote` (see the `bal openapi` command below), then post-processed
+into a generated/wrapper split, following the same pattern as
+[`module-ballerinax-sap.signavio`](https://github.com/ballerina-platform/module-ballerinax-sap.signavio):
 
-After every regeneration, manually patch the three affected functions in `client.bal`:
-- `post token` (`createAuthToken`) and `post token/refresh` (`refreshAuthToken`): replace
-  `map<anydata> headerValues = {...headers};` with `map<anydata> headerValues = {"Pricefx-Key": headers.pricefxKey};`
-- `delete token` (`deleteAuthToken`): replace it with an explicit optional check, since
-  `DeleteAuthTokenHeaders.pricefxKey` is optional:
-  ```ballerina
-  map<anydata> headerValues = {};
-  if headers.pricefxKey is string {
-      headerValues["Pricefx-Key"] = headers.pricefxKey;
-  }
-  ```
+- The raw `bal openapi` output is renamed to `oas_client.bal` (class renamed `Client` → `GeneratedClient`,
+  matching the existing convention of not re-exposing the generated class as the public API).
+- A hand-written `client.bal` wraps it: `public isolated client class Client` holds a single
+  `final GeneratedClient oasClient` and exposes all 480 operations as thin forwarding `remote`
+  functions. Each one calls `self.oasClient->method(...)`, checks `isAuthError(r)` (HTTP 401), and
+  if so calls `self.oasClient.reauthenticate()` and retries once before returning. `isAuthError` is
+  a small helper at the bottom of `client.bal`.
+- `types.bal`'s `ConnectionConfig` and a new `PricefxCredentials` type are hand-written overrides
+  (wrapped in a `// >>> MANUALLY MAINTAINED` / `// <<< END MANUALLY MAINTAINED` comment block) —
+  `bal openapi` does not produce them. `ConnectionConfig.auth` is `PricefxCredentials`
+  (`username`, `password`, `partition?`, `pricefxKey?`) instead of the auto-generated
+  `http:CredentialsConfig|ApiKeysConfig` union — callers configure Pricefx credentials directly,
+  never a pre-obtained token.
+- `GeneratedClient.init()` (in `oas_client.bal`) exchanges those credentials for a JWT itself: if
+  `pricefxKey` is set, via `POST /token` (JWT comes back in the JSON body); otherwise via
+  `GET /login/extended` with HTTP Basic auth (JWT comes back as an `X-PriceFx-jwt` cookie, which
+  the spec doesn't declare but the real API sets). The JWT is cached in a `lock`-protected field
+  and attached to every request via a `jwtHeaderValues` helper. `reauthenticate()` re-runs this
+  exchange and replaces the cached JWT; it's `public` so the wrapper's retry logic can call it.
+
+After every regeneration of `oas_client.bal`, reapply by hand:
+1. The class rename (`Client` → `GeneratedClient`), field/init/reauthenticate/jwtHeaderValues
+   changes described above, replacing the generated per-call
+   `if self.apiKeyConfig is ApiKeysConfig { headerValues[...] = ...; }` block with a single
+   `map<anydata> headerValues = self.jwtHeaderValues(headers);` call, everywhere it appears.
+2. The header-name-mapping fix for the three token-management operations. `CreateAuthTokenHeaders`,
+   `RefreshAuthTokenHeaders`, and `DeleteAuthTokenHeaders` each carry a `pricefxKey` field annotated
+   `@http:Header {name: "Pricefx-Key"}`, which a plain `{...headers}` spread doesn't honor (a
+   `bal openapi` codegen limitation — the annotation is emitted but not consulted when serializing
+   headers). Patch `createAuthToken` and `refreshAuthToken` to build
+   `self.jwtHeaderValues({"Pricefx-Key": headers.pricefxKey})` instead of spreading `headers`
+   directly; `deleteAuthToken` needs an explicit optional check first, since its `pricefxKey` field
+   is optional.
+3. `client.bal` itself (the wrapper) does not need hand-editing after a regeneration — only
+   `oas_client.bal`. If new operations are added, regenerate the forwarding wrapper mechanically
+   from `oas_client.bal`'s remote function signatures (name, parameters, return type) rather than
+   editing it by hand.
 
 567. Expand coverage from 11 core tags to the full spec (480 operations)
 - **Original**: The first version of this connector was generated with `--tags` restricted to 11 core resource areas (Products, Customers, Sellers, Condition Records, Price Lists, Manual Price Lists, Calculation Grids, Quotes, Contracts, Attachments, Authentication) — 139 of the spec's 484 operations.
@@ -3439,12 +3461,24 @@ After every regeneration, manually patch the three affected functions in `client
 - **Updated**: Renamed the Ballerina identifier to `marginPercent` (the `@jsondata:Name {value: "Margin %"}` annotation already preserves the real wire name). Fixed the second annotation to `@jsondata:Name {value: ""}`.
 - **Reason**: `bal build` fails outright without these — both are `bal openapi` codegen escaping bugs when a JSON field name contains characters that aren't valid in an unescaped Ballerina identifier or that need escaping inside a string literal.
 
+570. Rename an operationId that started with a digit
+- **Original**: `POST /productimages.upload/{slotId}/{sku}` was auto-assigned the operationId `2UploadFile` (derived mechanically from its summary, "2. Upload a File" — a numbered-step summary, not a parenthetical qualifier). A leading digit is not a valid Ballerina identifier character.
+- **Updated**: Renamed to `uploadProductImage`.
+- **Reason**: With `--client-methods remote` (see below), the operationId becomes the literal generated function name. `bal openapi` escapes invalid identifiers with a leading quote (`'2UploadFile`), which compiles but is non-idiomatic and awkward to call. This went unnoticed with resource methods, since resource functions are named from the HTTP method and path rather than the operationId.
+
+571. Escape a field named after a Ballerina reserved word
+- **Original**: `InlineResponse2008ResponseStateDefinitionSource.source` (wire name `Source`) was generated as the plain identifier `source`. `source` is a contextual reserved keyword in Ballerina (used in annotation-attachment-point syntax), so the compiler rejects it as an unescaped field name ("invalid token 'source'").
+- **Updated**: Escaped to `'source` in `types.bal` (the `@jsondata:Name {value: "Source"}` annotation already preserves the real wire name).
+- **Reason**: `bal build` fails outright without this — another `bal openapi` codegen gap (unlike most reserved-word field names elsewhere in this spec, which the tool already escapes correctly).
+
 ## OpenAPI cli command
 
 The following command was used to generate the Ballerina client from the OpenAPI specification. The command should be executed from the repository root directory.
 
 ```bash
-bal openapi -i docs/spec/openapi.json -o ballerina --mode client --license docs/license.txt
+bal openapi -i docs/spec/openapi.json -o ballerina --mode client --client-methods remote --license docs/license.txt
 ```
+
+This command overwrites `client.bal` directly — rename that output to `oas_client.bal` and reapply the post-generation wrapper architecture described above before committing.
 
 Note: The license year is hardcoded to 2026, change if necessary.

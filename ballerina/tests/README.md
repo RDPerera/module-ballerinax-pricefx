@@ -4,6 +4,8 @@ The connector generates a client for nearly all 480 operations in the Pricefx Ba
 
 Each test runs against a local mock server (`tests/mock_service.bal`) that returns realistic canned responses, so no real Pricefx credentials are required to run the suite. Since several Pricefx request schemas require non-empty nested arrays (e.g. a Quote's line items) that add no value to these wire-format checks, the mock service disables payload validation (`@http:ServiceConfig {validation: false}`) rather than requiring fully realistic business objects on every call.
 
+`Client.init()` performs a live authentication call (`POST /token`) against whichever server it's pointed at, including the mock — so the connector is constructed in `@test:BeforeSuite` rather than a module-level variable initializer, guaranteeing the mock listener is already up when that call is made.
+
 ## Running Tests
 
 ```bash
