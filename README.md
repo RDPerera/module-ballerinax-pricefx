@@ -39,8 +39,12 @@ import ballerinax/pricefx;
     username = "<your-pricefx-username>"
     password = "<your-pricefx-password>"
     partition = "<your-partition>"
-    pricefxKey = "<your-pricefx-api-key>"
     serviceUrl = "https://<your-node>.pricefx.com/pricefx/<your-partition>"
+
+    # Optional. Uncomment if you have a Pricefx API key - the connector then authenticates via
+    # the faster `POST /token`. Without it, the connector falls back to `GET /login/extended`
+    # (HTTP Basic auth), which needs no separate key but is slower per request.
+    # pricefxKey = "<your-pricefx-api-key>"
     ```
 
 2. Create a `pricefx:Client` instance:
@@ -49,10 +53,14 @@ import ballerinax/pricefx;
     configurable string username = ?;
     configurable string password = ?;
     configurable string partition = ?;
-    configurable string pricefxKey = ?;
+    configurable string? pricefxKey = ();
     configurable string serviceUrl = ?;
 
-    final pricefx:Client pricefxClient = check new ({auth: {username, password, partition, pricefxKey}}, serviceUrl);
+    pricefx:PricefxCredentials auth = {username, password, partition};
+    if pricefxKey is string {
+        auth.pricefxKey = pricefxKey;
+    }
+    final pricefx:Client pricefxClient = check new ({auth}, serviceUrl);
     ```
 
 ### Step 3: Invoke the connector operation

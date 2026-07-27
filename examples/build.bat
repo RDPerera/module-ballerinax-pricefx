@@ -29,8 +29,7 @@ set GRAALVM_FLAG=%~2
 :: Read Ballerina package name
 for /f "tokens=2 delims== " %%A in ('findstr /r "^name" "%BAL_HOME_DIR%\Ballerina.toml"') do (
     set BAL_PACKAGE_NAME=%%~A
-    set BAL_PACKAGE_NAME=!BAL_PACKAGE_NAME:"=!"
-    set BAL_PACKAGE_NAME=!BAL_PACKAGE_NAME:~0,-1!
+    set BAL_PACKAGE_NAME=!BAL_PACKAGE_NAME:"=!
 )
 
 :: Push the package to the local repository

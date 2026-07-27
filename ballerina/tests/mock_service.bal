@@ -96,7 +96,7 @@ service /pricefx/companypartition on ep0 {
         return {
             body: {
                 response: {
-                    data: {typedId: "3001.P", sku: "SKU-3001", label: "Wireless Mouse"},
+                    data: {typedId: "3001.P", sku: "SKU-3001", label: "Wireless Mouse", version: 1},
                     status: 200
                 }
             }

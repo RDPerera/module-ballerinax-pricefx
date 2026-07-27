@@ -6,11 +6,17 @@ import ballerinax/pricefx;
 configurable string username = ?;
 configurable string password = ?;
 configurable string partition = ?;
-configurable string pricefxKey = ?;
+configurable string? pricefxKey = ();
 configurable string serviceUrl = ?;
 
 public function main() returns error? {
-    pricefx:Client pricefxClient = check new ({auth: {username, password, partition, pricefxKey}}, serviceUrl);
+    // `pricefxKey` is optional: when set, the connector authenticates via the faster `POST /token`;
+    // otherwise it falls back to `GET /login/extended` (HTTP Basic auth).
+    pricefx:PricefxCredentials auth = {username, password, partition};
+    if pricefxKey is string {
+        auth.pricefxKey = pricefxKey;
+    }
+    pricefx:Client pricefxClient = check new ({auth}, serviceUrl);
 
     // Step 1: Add a new customer
     pricefx:AddCustomerRequest customerRequest = {

@@ -15,8 +15,12 @@ Add a new product to the catalog, update one of its fields, then list matching p
   username = "<your-pricefx-username>"
   password = "<your-pricefx-password>"
   partition = "<your-partition>"
-  pricefxKey = "<your-pricefx-api-key>"
   serviceUrl = "https://<your-node>.pricefx.com/pricefx/<your-partition>"
+
+  # Optional. Uncomment if you have a Pricefx API key - the connector then authenticates via
+  # the faster `POST /token`. Without it, the connector falls back to `GET /login/extended`
+  # (HTTP Basic auth), which needs no separate key but is slower per request.
+  # pricefxKey = "<your-pricefx-api-key>"
   ```
 
 ## Run the example
