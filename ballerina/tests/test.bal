@@ -66,6 +66,18 @@ function testLogin() returns error? {
 @test:Config {
     groups: ["mock_tests"]
 }
+function testReauthenticatesAndRetriesOnUnauthorized() returns error? {
+    // The mock's `/accountmanager.fetchusers` rejects its first call with a 401 (simulating an
+    // expired token) and succeeds afterwards. The wrapper should re-authenticate and replay the
+    // request transparently, so the caller sees a successful response rather than the 401.
+    Client pricefxClient = getPricefxClient();
+    oas:ListUsersResponse response = check pricefxClient->listUsers({});
+    test:assertTrue(response?.response !is (), "expected the retried request to succeed after re-authentication");
+}
+
+@test:Config {
+    groups: ["mock_tests"]
+}
 function testTfaAndCsrfHeadersAreMerged() returns error? {
     Client tfaCsrfClient = check new (
         {username, password, partition, tfaCode: "123456", csrfToken: "csrf-abc", validation: false},

@@ -22,6 +22,17 @@ import ballerinax/pricefx.oas;
 
 listener http:Listener ep0 = new (9090);
 
+// Counts calls to the `/accountmanager.fetchusers` mock below, which rejects its first call with a
+// 401 so `testReauthenticatesAndRetriesOnUnauthorized` can verify the wrapper's retry behaviour.
+isolated int listUsersCallCount = 0;
+
+isolated function nextListUsersCall() returns int {
+    lock {
+        listUsersCallCount += 1;
+        return listUsersCallCount;
+    }
+}
+
 // Payload validation is disabled here because several Pricefx request schemas mark large nested
 // arrays as non-empty (`minLength: 1`); populating full business-realistic graphs (e.g. a Quote's
 // line items) just to satisfy validation adds no value to these wire-format mock tests.
@@ -40,6 +51,23 @@ service /pricefx/companypartition on ep0 {
             token_type: "Bearer",
             expires_in: 3600,
             refresh_token: "mock-oauth2-refresh-token"
+        };
+    }
+
+    # Rejects its first call with a 401 and succeeds on every call after that, so tests can verify
+    # that the wrapper re-authenticates and replays the request once instead of surfacing the 401.
+    #
+    # + return - `401 Unauthorized` on the first call, `200 OK` afterwards
+    resource function post accountmanager\.fetchusers(@http:Payload oas:ListUsersRequest payload) returns oas:ListUsersResponse|http:Unauthorized {
+        if nextListUsersCall() == 1 {
+            return <http:Unauthorized>{body: {'error: "token expired"}};
+        }
+        return {
+            response: {
+                node: "companynode",
+                status: 200,
+                data: [{typedId: "1.US", loginName: "jdoe"}]
+            }
         };
     }
 

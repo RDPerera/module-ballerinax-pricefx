@@ -3441,16 +3441,19 @@ generated/wrapper split as
     has a real bug (see below) that can no longer be hand-patched now that generated code is
     off-limits, so the wrapper's bootstrap flow bypasses it entirely.
   - `self.config` (the wrapper's own `ConnectionConfig`, readonly-cloned in `init()`) is stored so
-    `reauthenticate()` can rebuild an equivalent `oas:Client` later. `ConnectionConfig` deliberately
-    **omits** `cookieConfig` (present in the generated `oas:ConnectionConfig`): its optional
-    `PersistentCookieHandler` field is a mutable `isolated object`, which is not `Cloneable`, so a
-    `ConnectionConfig` that includes it can never be `.cloneReadOnly()`'d — and this connector
-    doesn't rely on cookie-based session handling anyway (auth is handled explicitly via JWT or
-    Basic auth, never cookies).
+    `reauthenticate()` can rebuild an equivalent `oas:Client` later. Because it is stored as
+    `readonly &`, **every field of the wrapper's `ConnectionConfig` must be `Cloneable`** — which
+    rules out `http:CookieConfig`, whose optional `PersistentCookieHandler` field is a mutable
+    `isolated object`. Under the 2201.13.4-generated submodule the generated `oas:ConnectionConfig`
+    did expose `cookieConfig` and the wrapper had to deliberately omit it for this reason; the
+    current 2201.12.0-generated submodule (entry 574) doesn't expose it at all, so there is nothing
+    to omit today. Keep the constraint in mind if a future toolchain reintroduces it — this
+    connector never relies on cookie-based sessions anyway (auth is always explicit: JWT, OAuth2,
+    Basic, or a pre-signed external JWT).
 - `ballerina/types.bal` (root) is entirely hand-written and holds only wrapper-specific types:
-  `PricefxCredentials` (`username`, `password`, `partition`, `pricefxKey?`) and `ConnectionConfig`
-  (mirrors the generated `oas:ConnectionConfig`'s HTTP transport settings field-for-field, minus
-  `cookieConfig`). `ConnectionConfig` includes `PricefxCredentials` via `*PricefxCredentials;`
+  `PricefxCredentials` (all the credential options — see entries 572 and 573) and `ConnectionConfig`
+  (mirrors the generated `oas:ConnectionConfig`'s HTTP transport settings field-for-field, subject
+  to the `Cloneable` constraint above). `ConnectionConfig` includes `PricefxCredentials` via `*PricefxCredentials;`
   rather than nesting it under an `auth` field (unlike the generated
   `http:CredentialsConfig|oas:ApiKeysConfig` union), so callers construct a `Client` as
   `check new ({username, password, partition}, serviceUrl)` — credentials are top-level fields,
@@ -3510,20 +3513,33 @@ doc comment, never directly above the `*Type;` line itself.
 571. Escape a field named after a Ballerina reserved word
 - **Original**: `InlineResponse2008ResponseStateDefinitionSource.source` (wire name `Source`) was generated as the plain identifier `source`. `source` is a contextual reserved keyword in Ballerina (used in annotation-attachment-point syntax), so the compiler rejects it as an unescaped field name ("invalid token 'source'").
 - **Updated**: Escaped to `'source` in `types.bal` (the `@jsondata:Name {value: "Source"}` annotation already preserves the real wire name).
-- **Reason**: `bal build` fails outright without this — another `bal openapi` codegen gap (unlike most reserved-word field names elsewhere in this spec, which the tool already escapes correctly). Confirmed non-deterministic across regenerations of the identical spec: one regeneration produced this already correctly escaped (no fix needed that time), the very next regeneration (after adding the `oauth2` security scheme in entry 572) reproduced the original bug again. Always check for it after any regeneration rather than assuming either outcome.
+- **Reason**: `bal build` fails outright without this — another `bal openapi` codegen gap (unlike most reserved-word field names elsewhere in this spec, which the tool already escapes correctly). **Only reproduces on the pinned 2201.12.0 toolchain** — see entry 574; on 2201.13.4 the tool escapes it correctly on its own and this fix is unnecessary.
 
 572. Add an `oauth2` security scheme for the Authorization Code Grant flow
 - **Original**: The spec already documented the `/oauth/authorize` and `/oauth/token` operations (standard OAuth 2.0 Authorization Code Grant, RFC 6749) as plain operations, but declared no `oauth2`-type security scheme, so `bal openapi` never generated any OAuth2-aware auth configuration - `ConnectionConfig.auth` only ever offered `http:CredentialsConfig` (Basic) and `ApiKeysConfig` (the `X-PriceFx-jwt` header).
 - **Updated**: Added an `oauth2` security scheme (`type: oauth2`, `flows.authorizationCode` with `authorizationUrl: /oauth/authorize`, `tokenUrl: /oauth/token`) and `{"oauth2": []}` to the global `security` array.
 - **Reason**: Requested support for every auth method Pricefx's API documents, maximizing what's generated rather than hand-written. This one change alone makes `bal openapi` generate `oas:OAuth2RefreshTokenGrantConfig` (an inclusion of `http:OAuth2RefreshTokenGrantConfig`) as an additional `ConnectionConfig.auth` union member. Ballerina's `http`/`oauth2` modules have no client-side concept of the Authorization Code Grant itself (no library can automate obtaining the initial `code` - that inherently needs an interactive browser redirect), but they do fully support the **refresh token** grant: given a refresh token (obtained once, out-of-band, through the real Authorization Code Grant flow), the `http` module automatically fetches and refreshes access tokens and attaches `Authorization: Bearer <token>` to every request. That's the piece that actually needs to run unattended in a server-to-server connector, and it's now 100% generated - see `ballerina/client.bal`'s `createOasClient` for how the wrapper plugs a caller-supplied `oauth2ClientId`/`oauth2ClientSecret`/`oauth2RefreshToken` into it.
-- **Side effects discovered while adding this** (both confirmed via a from-scratch regeneration):
-  - The `ballerina/http` version resolved for the submodule changed (unrelated to this specific change - just not pinned), which changed several `ConnectionConfig` HTTP-transport fields' shapes: `followRedirects` and `socketConfig` disappeared, `http1Settings` became a locally-generated `oas:ClientHttp1Settings` (embeds a local `ProxyConfig`) instead of `http:ClientHttp1Settings`, several fields lost their `= {}` defaults (now plain `?`), and `timeout`'s default changed from `30` to `60`. The wrapper's own `ConnectionConfig` (`ballerina/types.bal`) and `createOasClient`'s field-by-field mapping had to be updated to match. **Always diff the actual generated `ConnectionConfig` after any regeneration** rather than assuming its shape is stable - it depends on which `http` version gets resolved, not just on the spec.
-  - With the `oauth2` scheme added, `bal openapi` stopped respecting the `X-PriceFx-jwt` security scheme's `x-ballerina-name: xPriceFxJwt` annotation - `ApiKeysConfig`'s field is now the raw escaped identifier `X\-PriceFx\-jwt` instead of the clean `xPriceFxJwt`. Everywhere the wrapper builds an `ApiKeysConfig` value, it now has to use the escaped field name.
+- **Note on `ConnectionConfig` shape changes seen alongside this work**: the generated `oas:ConnectionConfig` also changed shape around this time (`followRedirects` and `socketConfig` disappeared, `http1Settings` became a locally-generated `oas:ClientHttp1Settings` embedding a local `ProxyConfig` rather than `http:ClientHttp1Settings`, several fields lost their `= {}` defaults in favour of plain `?`, and `timeout`'s default went from `30` to `60`), so the wrapper's own `ConnectionConfig` in `ballerina/types.bal` and `createOasClient`'s field-by-field mapping had to be updated to match. This was **not** caused by adding the `oauth2` scheme — it is the same toolchain-version difference described in entry 574. Either way, the practical rule holds: **always diff the actual generated `ConnectionConfig` after any regeneration** rather than assuming its shape is stable.
 
 573. Support TFA, CSRF, and External JWT as static per-request headers
 - **Context**: Pricefx also documents two-factor auth (`PriceFx-TFA` header), CSRF protection (`X-PriceFx-Csrf-Token` header), and External JWT auth (a pre-signed JWT from a trusted external system, sent as `Authorization: BEARER <systemName>;<jwt>`). None of these can be generated: TFA and CSRF aren't auth *methods* at all (they're supplementary headers layered onto whatever primary auth is used), and adding them as `apiKey` security schemes was tried and rejected - `bal openapi` merges every `apiKey` scheme into a single `ApiKeysConfig` record with **all** fields required together, which would wrongly force a TFA code and CSRF token onto every JWT-only caller. External JWT's `BEARER <system>;<jwt>` value doesn't match any standard security scheme shape either.
 - **Solution**: `PricefxCredentials` gained `tfaCode?`, `csrfToken?`, `externalJwtSystemName?`, and `externalJwt?` fields (see `ballerina/types.bal`). `ballerina/client.bal`'s `buildStaticHeaders` turns whichever of these are set into a header map, and every one of the 480 forwarding functions merges it into that call's headers via a shared `mergeHeaders` helper (a mapping constructor can't spread two inclusive/open map types at once - `{...a, ...b}` - so the merge is a small loop instead). The three token-management operations (`createAuthToken`/`refreshAuthToken`/`deleteAuthToken`) are skipped, since their `headers` parameter is a specific record type, not the generic `map<string|string[]>` the merge needs.
 - **External JWT's underlying "base" auth is deliberately `ApiKeysConfig`, never `CredentialsConfig`**: `ConnectionConfig.auth` is a required field, so External-JWT-only callers (no username/password) still need *some* value there. The obvious-looking fix - a placeholder `http:CredentialsConfig` with dummy values - is wrong for two reasons, both confirmed via a real failing test before this was caught: (1) Ballerina's own `ClientBasicAuthHandler` rejects empty username/password outright ("Username or password cannot be empty"), and (2) even with non-empty placeholders, that handler's `enrich()` *unconditionally* overwrites any `Authorization` header via `req.setHeader(...)` - it does not check whether the request already carries one - which would silently clobber the real external JWT on every single request. `ApiKeysConfig` (with an empty `X\-PriceFx\-jwt` value) sidesteps this entirely: the generated `oas:Client.init()` only wires `httpClientConfig.auth` for the `http:CredentialsConfig` case, so choosing `ApiKeysConfig` means no client-level auth enrichment ever runs, and the wrapper's manually-merged `Authorization` header reaches the server untouched.
+
+574. Generate the submodule with the pinned 2201.12.0 toolchain, not whatever `bal` is on `PATH`
+- **Problem**: `bal openapi`'s output for this spec differs **materially** between Ballerina versions. The same, byte-identical spec generates ~2500 differing lines of `types.bal` between 2201.12.0 and 2201.13.4. Confirmed by generating the identical spec with both toolchains and diffing:
+  - **2201.13.4** honours the `X-PriceFx-jwt` security scheme's `x-ballerina-name: xPriceFxJwt`, producing a clean `ApiKeysConfig` field `xPriceFxJwt`; **2201.12.0 ignores it**, producing the raw escaped identifier `X\-PriceFx\-jwt`. Every place the wrapper constructs an `ApiKeysConfig` has to match whichever form is in play.
+  - **2201.13.4** correctly escapes reserved-word field names (`'source`, `'key`); **2201.12.0 does not**, which is the root cause of entry 571 (and the reason `'key` needs no fix today — 2201.12.0 happens to emit `key`, which is legal, whereas 2201.13.4 emits the also-legal `'key`).
+  - Type declaration *order* and the presence of some doc comments also differ.
+- **What went wrong here**: the first submodule commit was generated with the machine's native `bal` (2201.13.4) while `Ballerina.toml` pins `distribution = "2201.12.0"`. Later regenerations used a pinned 2201.12.0 Docker container, so the submodule silently changed shape mid-PR, and the earlier fix list (entry 571) appeared to "come and go" between regenerations. That looked like non-determinism in the tool; it was not — it was two different toolchains.
+- **Rule**: always regenerate with the toolchain matching `Ballerina.toml`'s `distribution`, e.g.
+  ```bash
+  docker run --rm -v "$PWD:/home/ballerina/pricefx" -v "$HOME/.ballerina:/home/ballerina/.ballerina" \
+    -w /home/ballerina/pricefx ballerina/ballerina:2201.12.0 \
+    bal openapi -i docs/spec/openapi.json -o ballerina/modules/oas --license docs/license.txt --client-methods remote --mode client
+  ```
+  The committed submodule is 2201.12.0 output. Verified reproducible: regenerating with 2201.12.0 yields a byte-identical `client.bal` and `utils.bal`, and a `types.bal` differing only by the three documented fixes (entries 569 and 571). If a future maintainer bumps the pinned distribution, expect the fix list in 569/571 to change and re-verify it from scratch rather than reapplying it blindly.
+- **Also note**: `bal openapi -o <dir>` does **not** create the output directory; it fails with a bare `<dir>/client.bal (No such file or directory)`. `mkdir -p` the target first.
 
 ## OpenAPI cli command
 
@@ -3533,11 +3549,16 @@ The following command was used to generate the Ballerina client from the OpenAPI
 bal openapi -i docs/spec/openapi.json -o ballerina/modules/oas --mode client --client-methods remote --license docs/license.txt
 ```
 
+Run it with the toolchain matching `Ballerina.toml`'s `distribution` (currently 2201.12.0) — **not**
+whatever `bal` happens to be on `PATH`, which produces materially different output. See entry 574
+for the exact Docker invocation and why this matters. Note also that the output directory must
+already exist (`mkdir -p ballerina/modules/oas`); `bal openapi` will not create it.
+
 This command generates directly into the `oas` submodule and never touches the hand-written
-`ballerina/client.bal` or `ballerina/types.bal`. After regenerating, reapply the two codegen-bug
-fixes from entry 569 (check whether the `'source` reserved-keyword escaping from entry 571 is
-still needed — it was already correctly escaped by the tool as of the last regeneration, which
-suggests either non-determinism in the tool or that the earlier bug had a different cause) before
-committing.
+`ballerina/client.bal` or `ballerina/types.bal`. After regenerating, reapply the three codegen-bug
+fixes from entries 569 and 571 (`marginPercent`, the empty `@jsondata:Name` value, and the
+`'source` escaping), then diff the regenerated `oas:ConnectionConfig` against the wrapper's own
+`ConnectionConfig` in `ballerina/types.bal` and against `createOasClient`'s field-by-field mapping,
+since its shape is not guaranteed stable across toolchain versions.
 
 Note: The license year is hardcoded to 2026, change if necessary.
