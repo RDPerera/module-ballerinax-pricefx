@@ -50,11 +50,11 @@ import ballerinax/pricefx;
     configurable string? pricefxKey = ();
     configurable string serviceUrl = ?;
 
-    pricefx:PricefxCredentials auth = {username, password, partition};
+    pricefx:ConnectionConfig config = {username, password, partition};
     if pricefxKey is string {
-        auth.pricefxKey = pricefxKey;
+        config.pricefxKey = pricefxKey;
     }
-    final pricefx:Client pricefxClient = check new ({auth}, serviceUrl);
+    final pricefx:Client pricefxClient = check new (config, serviceUrl);
     ```
 
 ### Step 3: Invoke the connector operation

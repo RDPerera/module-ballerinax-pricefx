@@ -38,7 +38,7 @@ function setUpPricefxClient() returns error? {
     // populating full business-realistic graphs (e.g. a oas:Quote's line items) just to satisfy
     // runtime validation adds no value to these wire-format tests. Real usage should leave
     // validation at its default (true).
-    Client newClient = check new ({auth: {username, password, partition, pricefxKey}, validation: false}, serviceUrl);
+    Client newClient = check new ({username, password, partition, pricefxKey, validation: false}, serviceUrl);
     lock {
         pricefxClientHolder = newClient;
     }

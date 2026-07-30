@@ -24,11 +24,11 @@ type ProductResponseData record {
 public function main() returns error? {
     // `pricefxKey` is optional: when set, the connector authenticates via the faster `POST /token`;
     // otherwise it falls back to HTTP Basic auth (`<partition>/<username>:<password>`).
-    pricefx:PricefxCredentials auth = {username, password, partition};
+    pricefx:ConnectionConfig config = {username, password, partition};
     if pricefxKey is string {
-        auth.pricefxKey = pricefxKey;
+        config.pricefxKey = pricefxKey;
     }
-    pricefx:Client pricefxClient = check new ({auth}, serviceUrl);
+    pricefx:Client pricefxClient = check new (config, serviceUrl);
 
     // Step 1: Add a new product
     oas:AddProductRequest addRequest = {

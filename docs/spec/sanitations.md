@@ -3450,9 +3450,11 @@ generated/wrapper split as
 - `ballerina/types.bal` (root) is entirely hand-written and holds only wrapper-specific types:
   `PricefxCredentials` (`username`, `password`, `partition`, `pricefxKey?`) and `ConnectionConfig`
   (mirrors the generated `oas:ConnectionConfig`'s HTTP transport settings field-for-field, minus
-  `cookieConfig`, with `auth: PricefxCredentials` in place of the generated
-  `http:CredentialsConfig|oas:ApiKeysConfig` union). Callers configure Pricefx credentials
-  directly and never handle a JWT themselves.
+  `cookieConfig`). `ConnectionConfig` includes `PricefxCredentials` via `*PricefxCredentials;`
+  rather than nesting it under an `auth` field (unlike the generated
+  `http:CredentialsConfig|oas:ApiKeysConfig` union), so callers construct a `Client` as
+  `check new ({username, password, partition}, serviceUrl)` — credentials are top-level fields,
+  not a separate `auth` record — and never handle a JWT themselves.
 
 A known, deliberately-unfixed limitation: the generated client's `createAuthToken`,
 `refreshAuthToken`, and `deleteAuthToken` operations remain reachable through the wrapper (as
@@ -3473,6 +3475,17 @@ needed), then regenerate the wrapper's forwarding functions mechanically from th
 remote function signatures (name, parameters, return type) rather than editing `client.bal` by
 hand — `init()`, `getOasClient()`, `reauthenticate()`, `createOasClient()`, `fetchAccessToken()`,
 and `isAuthError()` are the only parts of `client.bal` that require actual hand-authorship.
+
+**A `bal` 2201.12.0 parser gotcha found while writing `ConnectionConfig`**: a doc comment (`#
+...`) placed directly above a `*Type;` record-type-inclusion member breaks the parser outright —
+it emits nonsensical errors (`missing object keyword`, `'X' is not an object`, `field
+initialization not allowed in object type`, `invalid token '?'`) for every field that follows,
+as if it had switched into parsing an `object` type. Reproduced with a minimal two-file package
+(a closed record including another closed record via `*Creds;`, with a multi-line doc comment
+directly above the `*Creds;` line) — removing the doc comment (or moving it up to document the
+including type itself, as done here for `ConnectionConfig`) fixes it. Keep this in mind for any
+future record that uses type inclusion — document the included type's role on the *record's own*
+doc comment, never directly above the `*Type;` line itself.
 
 567. Expand coverage from 11 core tags to the full spec (480 operations)
 - **Original**: The first version of this connector was generated with `--tags` restricted to 11 core resource areas (Products, Customers, Sellers, Condition Records, Price Lists, Manual Price Lists, Calculation Grids, Quotes, Contracts, Attachments, Authentication) — 139 of the spec's 484 operations.

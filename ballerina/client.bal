@@ -28,8 +28,8 @@ public isolated client class Client {
     private final readonly & ConnectionConfig config;
     private final string serviceUrl;
 
-    # Gets invoked to initialize the `connector`. Exchanges `config.auth` for a JWT
-    # (`X-PriceFx-jwt`) when `pricefxKey` is set, or uses it directly as HTTP Basic auth
+    # Gets invoked to initialize the `connector`. Exchanges the given Pricefx credentials for a
+    # JWT (`X-PriceFx-jwt`) when `pricefxKey` is set, or uses them directly as HTTP Basic auth
     # otherwise; refreshed automatically when it expires.
     #
     # + config - The configurations to be used when initializing the `connector`
@@ -7611,7 +7611,7 @@ public isolated client class Client {
     }
 }
 
-# Builds a freshly authenticated `oas:Client`. When `config.auth.pricefxKey` is set, exchanges it
+# Builds a freshly authenticated `oas:Client`. When `config.pricefxKey` is set, exchanges it
 # for a JWT via `POST /token` and authenticates subsequent requests with `X-PriceFx-jwt`.
 # Otherwise, authenticates every request via HTTP Basic auth, using `<partition>/<username>` as
 # the Basic auth username, as Pricefx's API requires.
@@ -7621,12 +7621,12 @@ public isolated client class Client {
 # + return - A freshly authenticated `oas:Client`, or an error if authentication failed
 isolated function createOasClient(readonly & ConnectionConfig config, string serviceUrl) returns oas:Client|error {
     http:CredentialsConfig|oas:ApiKeysConfig auth;
-    string? pricefxKey = config.auth.pricefxKey;
+    string? pricefxKey = config.pricefxKey;
     if pricefxKey is string {
-        oas:tokenResponse tokenResp = check fetchAccessToken(serviceUrl, config.auth, pricefxKey);
+        oas:tokenResponse tokenResp = check fetchAccessToken(serviceUrl, config.username, config.password, config.partition, pricefxKey);
         auth = {xPriceFxJwt: tokenResp.access\-token};
     } else {
-        auth = {username: string `${config.auth.partition}/${config.auth.username}`, password: config.auth.password};
+        auth = {username: string `${config.partition}/${config.username}`, password: config.password};
     }
     oas:ConnectionConfig oasConfig = {
         auth,
@@ -7657,12 +7657,14 @@ isolated function createOasClient(readonly & ConnectionConfig config, string ser
 # incorrectly (see `docs/spec/sanitations.md`) and, being generated code, cannot be hand-patched.
 #
 # + serviceUrl - URL of the target service
-# + auth - The Pricefx credentials to authenticate with
+# + username - The Pricefx username
+# + password - The Pricefx password
+# + partition - The Pricefx partition name
 # + pricefxKey - The Pricefx API key
 # + return - The token response, or an error if authentication failed
-isolated function fetchAccessToken(string serviceUrl, PricefxCredentials auth, string pricefxKey) returns oas:tokenResponse|error {
+isolated function fetchAccessToken(string serviceUrl, string username, string password, string partition, string pricefxKey) returns oas:tokenResponse|error {
     http:Client tokenClient = check new (serviceUrl);
-    oas:GetAuthenticationTokenAPIv2Request payload = {username: auth.username, password: auth.password, partition: auth.partition};
+    oas:GetAuthenticationTokenAPIv2Request payload = {username, password, partition};
     http:Request request = new;
     request.setPayload(payload.toJson(), "application/json");
     map<string|string[]> httpHeaders = {"Pricefx-Key": pricefxKey};
