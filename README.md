@@ -16,7 +16,7 @@ To use the Pricefx connector, you need your Pricefx username, password, and part
 
 - **Username** and **password** — your regular Pricefx login credentials
 - **Partition** — the name of your Pricefx partition
-- **Pricefx API key** (optional) — contact Pricefx Support to obtain one. When provided, the connector authenticates via the faster `POST /token` endpoint; otherwise it falls back to `GET /login/extended` (HTTP Basic auth)
+- **Pricefx API key** (optional) — contact Pricefx Support to obtain one. When provided, the connector authenticates via the faster `POST /token` endpoint; otherwise it falls back to HTTP Basic auth (`<partition>/<username>:<password>` on every request)
 
 The connector also re-authenticates automatically whenever the session token expires (Pricefx JWTs are valid for around 30 minutes), so a long-lived `pricefx:Client` instance keeps working without manual re-initialization.
 
@@ -42,8 +42,8 @@ import ballerinax/pricefx;
     serviceUrl = "https://<your-node>.pricefx.com/pricefx/<your-partition>"
 
     # Optional. Uncomment if you have a Pricefx API key - the connector then authenticates via
-    # the faster `POST /token`. Without it, the connector falls back to `GET /login/extended`
-    # (HTTP Basic auth), which needs no separate key but is slower per request.
+    # the faster `POST /token`. Without it, the connector falls back to HTTP Basic auth
+    # (`<partition>/<username>:<password>`), which needs no separate key but is slower per request.
     # pricefxKey = "<your-pricefx-api-key>"
     ```
 

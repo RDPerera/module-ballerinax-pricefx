@@ -18,18 +18,19 @@
 // under the License.
 
 import ballerina/http;
+import ballerinax/pricefx.oas;
 
 listener http:Listener ep0 = new (9090);
 
 // Payload validation is disabled here because several Pricefx request schemas mark large nested
-// arrays as non-empty (`minLength: 1`); populating full business-realistic graphs (e.g. a Quote's
+// arrays as non-empty (`minLength: 1`); populating full business-realistic graphs (e.g. a oas:Quote's
 // line items) just to satisfy validation adds no value to these wire-format mock tests.
 @http:ServiceConfig {validation: false}
 service /pricefx/companypartition on ep0 {
     # User Login (V1)
     #
     # + return - OK
-    resource function get login/extended() returns UserLoginResponse {
+    resource function get login/extended() returns oas:UserLoginResponse {
         return {
             response: {
                 node: "companynode",
@@ -44,7 +45,7 @@ service /pricefx/companypartition on ep0 {
     # Add a Customer
     #
     # + return - Returns customer record details
-    resource function post add/C(@http:Payload AddCustomerRequest payload) returns CustomerResponseOk {
+    resource function post add/C(@http:Payload oas:AddCustomerRequest payload) returns CustomerResponseOk {
         return {
             body: {
                 response: {
@@ -58,7 +59,7 @@ service /pricefx/companypartition on ep0 {
     # Add a Condition Record Set
     #
     # + return - OK
-    resource function post add/CRCS(@http:Payload AddCRCSBody payload) returns ConditionRecordSetOperationEnvelopeOk {
+    resource function post add/CRCS(@http:Payload oas:AddCRCSBody payload) returns ConditionRecordSetOperationEnvelopeOk {
         return {
             body: {
                 response: {
@@ -75,7 +76,7 @@ service /pricefx/companypartition on ep0 {
     # Create a Manual Price List
     #
     # + return - Example response
-    resource function post add/MPL(@http:Payload CreateManualPriceListRequest payload) returns ManualpricelistResponseOk {
+    resource function post add/MPL(@http:Payload oas:CreateManualPriceListRequest payload) returns ManualpricelistResponseOk {
         return {
             body: {
                 response: {
@@ -92,7 +93,7 @@ service /pricefx/companypartition on ep0 {
     # Add a Product
     #
     # + return - Returns full record details
-    resource function post add/P(@http:Payload AddProductRequest payload) returns ProductResponseOk {
+    resource function post add/P(@http:Payload oas:AddProductRequest payload) returns ProductResponseOk {
         return {
             body: {
                 response: {
@@ -106,7 +107,7 @@ service /pricefx/companypartition on ep0 {
     # Add a Seller
     #
     # + return - OK
-    resource function post add/SL(@http:Payload AddSellerRequest payload) returns AddSellerEnvelopeOk {
+    resource function post add/SL(@http:Payload oas:AddSellerRequest payload) returns AddSellerEnvelopeOk {
         return {
             body: {
                 response: {
@@ -120,7 +121,7 @@ service /pricefx/companypartition on ep0 {
         };
     }
 
-    resource function post bdmanager\.list/[string typedId](@http:Payload BdmanagerListtypedIdBody payload) returns ListFilesEnvelopeOk {
+    resource function post bdmanager\.list/[string typedId](@http:Payload oas:BdmanagerListtypedIdBody payload) returns ListFilesEnvelopeOk {
         return {
             body: {
                 response: {
@@ -137,7 +138,7 @@ service /pricefx/companypartition on ep0 {
         };
     }
 
-    resource function post calculationgridmanager\.addgrid(@http:Payload AddCalculationGridRequest payload) returns AddCalculationGridResponseOk {
+    resource function post calculationgridmanager\.addgrid(@http:Payload oas:AddCalculationGridRequest payload) returns AddCalculationGridResponseOk {
         return {
             body: {
                 response: {
@@ -151,7 +152,7 @@ service /pricefx/companypartition on ep0 {
         };
     }
 
-    resource function post calculationgridmanager\.calculate/[string id](@http:Payload CalculateCalculationGridRequest payload) returns CalculateCalculationGridResponseOk {
+    resource function post calculationgridmanager\.calculate/[string id](@http:Payload oas:CalculateCalculationGridRequest payload) returns CalculateCalculationGridResponseOk {
         return {
             body: {
                 response: {
@@ -179,7 +180,7 @@ service /pricefx/companypartition on ep0 {
         };
     }
 
-    resource function post contractmanager\.save(@http:Payload UpsertContractRequest payload) returns ContractModelResponseOk {
+    resource function post contractmanager\.save(@http:Payload oas:UpsertContractRequest payload) returns ContractModelResponseOk {
         return {
             body: {
                 response: {
@@ -193,7 +194,7 @@ service /pricefx/companypartition on ep0 {
         };
     }
 
-    resource function post customermanager\.fetchformulafilteredcustomers(@http:Payload ListCustomersRequest payload) returns CustomerResponseOk {
+    resource function post customermanager\.fetchformulafilteredcustomers(@http:Payload oas:ListCustomersRequest payload) returns CustomerResponseOk {
         return {
             body: {
                 response: {
@@ -213,7 +214,7 @@ service /pricefx/companypartition on ep0 {
     # Delete a Customer
     #
     # + return - OK
-    resource function post delete/C(@http:Payload DeleteCustomerRequest payload) returns DeleteCustomerResponseOk {
+    resource function post delete/C(@http:Payload oas:DeleteCustomerRequest payload) returns DeleteCustomerResponseOk {
         return {
             body: {
                 response: {
@@ -243,7 +244,7 @@ service /pricefx/companypartition on ep0 {
     # Delete a Condition Records Set
     #
     # + return - OK
-    resource function post delete/CRCS(@http:Payload DcrmanagerDeletemassopidBody payload) returns ConditionRecordSetOperationEnvelopeOk {
+    resource function post delete/CRCS(@http:Payload oas:DcrmanagerDeletemassopidBody payload) returns ConditionRecordSetOperationEnvelopeOk {
         return {
             body: {
                 response: {
@@ -260,7 +261,7 @@ service /pricefx/companypartition on ep0 {
     # Delete a Product
     #
     # + return - OK
-    resource function post delete/P(@http:Payload DeleteProductRequest payload) returns DeleteProductResponseOk {
+    resource function post delete/P(@http:Payload oas:DeleteProductRequest payload) returns DeleteProductResponseOk {
         return {
             body: {
                 response: {
@@ -334,7 +335,7 @@ service /pricefx/companypartition on ep0 {
     # List Manual Price Lists
     #
     # + return - Example response
-    resource function post fetch/MPL(@http:Payload ListManualPriceListsRequest payload) returns ManualpricelistResponseOk {
+    resource function post fetch/MPL(@http:Payload oas:ListManualPriceListsRequest payload) returns ManualpricelistResponseOk {
         return {
             body: {
                 response: {
@@ -351,7 +352,7 @@ service /pricefx/companypartition on ep0 {
     # List Price Lists
     #
     # + return - OK
-    resource function post fetch/PL(@http:Payload ListPriceListsRequest payload) returns ListPriceListsResponseOk {
+    resource function post fetch/PL(@http:Payload oas:ListPriceListsRequest payload) returns ListPriceListsResponseOk {
         return {
             body: {
                 response: {
@@ -386,7 +387,7 @@ service /pricefx/companypartition on ep0 {
         };
     }
 
-    resource function post pricelistmanager\.add(@http:Payload CreatePriceListRequest payload) returns CreatePriceListResponseOk {
+    resource function post pricelistmanager\.add(@http:Payload oas:CreatePriceListRequest payload) returns CreatePriceListResponseOk {
         return {
             body: {
                 response: {
@@ -400,7 +401,7 @@ service /pricefx/companypartition on ep0 {
         };
     }
 
-    resource function post productmanager\.fetchformulafilteredproducts(@http:Payload ListProductsRequest payload) returns ProductResponseOk {
+    resource function post productmanager\.fetchformulafilteredproducts(@http:Payload oas:ListProductsRequest payload) returns ProductResponseOk {
         return {
             body: {
                 response: {
@@ -431,7 +432,7 @@ service /pricefx/companypartition on ep0 {
         };
     }
 
-    resource function post quotemanager\.fetchlist(@http:Payload ListQuotesRequest payload) returns ListQuotesResponseOk {
+    resource function post quotemanager\.fetchlist(@http:Payload oas:ListQuotesRequest payload) returns ListQuotesResponseOk {
         return {
             body: {
                 response: {
@@ -445,7 +446,7 @@ service /pricefx/companypartition on ep0 {
         };
     }
 
-    resource function post quotemanager\.save(@http:Payload UpsertQuoteRequest payload) returns QuoteResponseOk {
+    resource function post quotemanager\.save(@http:Payload oas:UpsertQuoteRequest payload) returns QuoteResponseOk {
         return {
             body: {
                 response: {
@@ -459,7 +460,7 @@ service /pricefx/companypartition on ep0 {
         };
     }
 
-    resource function post sellermanager\.fetchformulafilteredsellers(@http:Payload ListSellersRequest payload) returns ListSellersEnvelopeOk {
+    resource function post sellermanager\.fetchformulafilteredsellers(@http:Payload oas:ListSellersRequest payload) returns ListSellersEnvelopeOk {
         return {
             body: {
                 response: {
@@ -486,7 +487,7 @@ service /pricefx/companypartition on ep0 {
     # http:Unauthorized (Unauthorized - the login credentials were incorrect.
 # )
     # http:Forbidden (Forbidden - The request did not contain a valid Pricefx-Key, the provided credentials in `body` were incorrect, the user was banned or not found or device registration required.)
-    resource function post token(@http:Header {name: "Pricefx-Key"} string pricefxKey, @http:Payload GetAuthenticationTokenAPIv2Request payload) returns TokenResponseOk|GetAuthenticationTokenAPIv2400ResponseBadRequest|GetAuthenticationTokenAPIv2401ResponseUnauthorized|http:Forbidden {
+    resource function post token(@http:Header {name: "Pricefx-Key"} string pricefxKey, @http:Payload oas:GetAuthenticationTokenAPIv2Request payload) returns TokenResponseOk|GetAuthenticationTokenAPIv2400ResponseBadRequest|GetAuthenticationTokenAPIv2401ResponseUnauthorized|http:Forbidden {
         TokenResponseOk okResponse = {
             body: {
                 access\-token: "mock-access-token-abc123",
@@ -501,7 +502,7 @@ service /pricefx/companypartition on ep0 {
     # Update a Customer
     #
     # + return - Returns customer record details
-    resource function post update/C(@http:Payload UpdateCustomerRequest payload) returns CustomerResponseOk {
+    resource function post update/C(@http:Payload oas:UpdateCustomerRequest payload) returns CustomerResponseOk {
         return {
             body: {
                 response: {
@@ -516,7 +517,7 @@ service /pricefx/companypartition on ep0 {
     #
     # + payload - Updates specified fields of the record. Only one record can be updated per request (unless batched).<p>
     # + return - Returns full record details
-    resource function post update/P(@http:Payload UpdateProductRequest payload) returns ProductResponseOk {
+    resource function post update/P(@http:Payload oas:UpdateProductRequest payload) returns ProductResponseOk {
         return {
             body: {
                 response: {

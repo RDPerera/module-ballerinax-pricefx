@@ -2,6 +2,7 @@
 
 import ballerina/io;
 import ballerinax/pricefx;
+import ballerinax/pricefx.oas;
 
 configurable string username = ?;
 configurable string password = ?;
@@ -11,7 +12,7 @@ configurable string serviceUrl = ?;
 
 public function main() returns error? {
     // `pricefxKey` is optional: when set, the connector authenticates via the faster `POST /token`;
-    // otherwise it falls back to `GET /login/extended` (HTTP Basic auth).
+    // otherwise it falls back to HTTP Basic auth (`<partition>/<username>:<password>`).
     pricefx:PricefxCredentials auth = {username, password, partition};
     if pricefxKey is string {
         auth.pricefxKey = pricefxKey;
@@ -19,15 +20,15 @@ public function main() returns error? {
     pricefx:Client pricefxClient = check new ({auth}, serviceUrl);
 
     // Step 1: Add a new customer
-    pricefx:AddCustomerRequest customerRequest = {
+    oas:AddCustomerRequest customerRequest = {
         data: {customerId: "CUST-2001", name: "Acme Corp"},
         operation: "add"
     };
-    pricefx:customerResponse customerResult = check pricefxClient->addCustomer(customerRequest);
+    oas:customerResponse customerResult = check pricefxClient->addCustomer(customerRequest);
     io:println("Added customer: ", customerResult);
 
     // Step 2: Create a quote for the new customer
-    pricefx:QuotemanagersaveDataQuote quote = {
+    oas:QuotemanagersaveDataQuote quote = {
         outputs: [],
         createdByName: "Jane Doe",
         typedId: "10001.QU",
@@ -57,18 +58,18 @@ public function main() returns error? {
         calculationStatus: 0,
         lastUpdateBy: 1
     };
-    pricefx:UpsertQuoteRequest quoteRequest = {data: {quote: quote}};
-    pricefx:quoteResponse quoteResult = check pricefxClient->upsertQuote(quoteRequest);
+    oas:UpsertQuoteRequest quoteRequest = {data: {quote: quote}};
+    oas:quoteResponse quoteResult = check pricefxClient->upsertQuote(quoteRequest);
     io:println("Created quote: ", quoteResult);
 
     // Step 3: Submit the quote for approval
     // Note: `inputs` must contain at least one entry matching the quote's configured
     // input schema in a real Pricefx instance — left empty here for illustration.
-    pricefx:SubmitQuoteRequest submitRequest = {
+    oas:SubmitQuoteRequest submitRequest = {
         data: {
             quote: {typedId: "q-2026-001.QU", uniqueName: "q-2026-001", inputs: []}
         }
     };
-    pricefx:quoteResponse submitResult = check pricefxClient->submitQuote(submitRequest);
+    oas:quoteResponse submitResult = check pricefxClient->submitQuote(submitRequest);
     io:println("Submitted quote: ", submitResult);
 }

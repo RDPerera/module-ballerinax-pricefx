@@ -19,25 +19,26 @@
 
 import ballerina/constraint;
 import ballerina/http;
+import ballerinax/pricefx.oas;
 
 public type QuoteResponseOk record {|
     *http:Ok;
-    quoteResponse body;
+    oas:quoteResponse body;
 |};
 
 public type CustomerResponseOk record {|
     *http:Ok;
-    customerResponse body;
+    oas:customerResponse body;
 |};
 
 public type AddCalculationGridResponseOk record {|
     *http:Ok;
-    AddCalculationGridResponse body;
+    oas:AddCalculationGridResponse body;
 |};
 
 public type ProductResponseOk record {|
     *http:Ok;
-    productResponse body;
+    oas:productResponse body;
 |};
 
 public type GetAuthenticationTokenAPIv2401ResponseUnauthorized record {|
@@ -47,27 +48,27 @@ public type GetAuthenticationTokenAPIv2401ResponseUnauthorized record {|
 
 public type ListPriceListsResponseOk record {|
     *http:Ok;
-    ListPriceListsResponse body;
+    oas:ListPriceListsResponse body;
 |};
 
 public type ListFilesEnvelopeOk record {|
     *http:Ok;
-    ListFilesEnvelope body;
+    oas:ListFilesEnvelope body;
 |};
 
 public type CreateUploadSlotEnvelopeOk record {|
     *http:Ok;
-    CreateUploadSlotEnvelope body;
+    oas:CreateUploadSlotEnvelope body;
 |};
 
 public type ConditionRecordSetOperationEnvelopeOk record {|
     *http:Ok;
-    ConditionRecordSetOperationEnvelope body;
+    oas:ConditionRecordSetOperationEnvelope body;
 |};
 
 public type GetPriceListResponseOk record {|
     *http:Ok;
-    GetPriceListResponse body;
+    oas:GetPriceListResponse body;
 |};
 
 public type GetAuthenticationTokenAPIv2400ResponseBadRequest record {|
@@ -77,32 +78,32 @@ public type GetAuthenticationTokenAPIv2400ResponseBadRequest record {|
 
 public type CreatePriceListResponseOk record {|
     *http:Ok;
-    CreatePriceListResponse body;
+    oas:CreatePriceListResponse body;
 |};
 
 public type ContractModelResponseOk record {|
     *http:Ok;
-    contractModelResponse body;
+    oas:contractModelResponse body;
 |};
 
 public type ListCalculationGridsResponseOk record {|
     *http:Ok;
-    ListCalculationGridsResponse body;
+    oas:ListCalculationGridsResponse body;
 |};
 
 public type ListSellersEnvelopeOk record {|
     *http:Ok;
-    ListSellersEnvelope body;
+    oas:ListSellersEnvelope body;
 |};
 
 public type DeleteCustomerResponseOk record {|
     *http:Ok;
-    DeleteCustomerResponse body;
+    oas:DeleteCustomerResponse body;
 |};
 
 public type CalculateCalculationGridResponseOk record {|
     *http:Ok;
-    CalculateCalculationGridResponse body;
+    oas:CalculateCalculationGridResponse body;
 |};
 
 public type GetAuthenticationTokenAPIv2400Response record {
@@ -112,12 +113,12 @@ public type GetAuthenticationTokenAPIv2400Response record {
 
 public type ListConditionRecordSetsEnvelopeOk record {|
     *http:Ok;
-    ListConditionRecordSetsEnvelope body;
+    oas:ListConditionRecordSetsEnvelope body;
 |};
 
 public type ManualpricelistResponseOk record {|
     *http:Ok;
-    manualpricelistResponse body;
+    oas:manualpricelistResponse body;
 |};
 
 public type GetAuthenticationTokenAPIv2401Response record {
@@ -127,20 +128,20 @@ public type GetAuthenticationTokenAPIv2401Response record {
 
 public type AddSellerEnvelopeOk record {|
     *http:Ok;
-    AddSellerEnvelope body;
+    oas:AddSellerEnvelope body;
 |};
 
 public type TokenResponseOk record {|
     *http:Ok;
-    tokenResponse body;
+    oas:tokenResponse body;
 |};
 
 public type DeleteProductResponseOk record {|
     *http:Ok;
-    DeleteProductResponse body;
+    oas:DeleteProductResponse body;
 |};
 
 public type ListQuotesResponseOk record {|
     *http:Ok;
-    ListQuotesResponse body;
+    oas:ListQuotesResponse body;
 |};

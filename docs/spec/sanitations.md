@@ -3402,49 +3402,77 @@ These changes are done in order to improve the overall usability, and as workaro
 - **Updated**: Removed `requestBody` from both operations.
 - **Reason**: `bal openapi` rejects the spec outright without this — a genuine defect in the upstream Pricefx spec, not a flatten/align artifact.
 
-## Post-generation architecture: `client.bal` wrapper with internal JWT auth
+## Post-generation architecture: pristine generated submodule + hand-written wrapper
 
-Generated with `--client-methods remote` (see the `bal openapi` command below), then post-processed
-into a generated/wrapper split, following the same pattern as
-[`module-ballerinax-sap.signavio`](https://github.com/ballerina-platform/module-ballerinax-sap.signavio):
+Generated with `--client-methods remote` (see the `bal openapi` command below) directly into the
+`ballerina/modules/oas` submodule, which is never hand-edited — following the same
+generated/wrapper split as
+[`module-ballerinax-googleapis.gmail`](https://github.com/ballerina-platform/module-ballerinax-googleapis.gmail):
 
-- The raw `bal openapi` output is renamed to `oas_client.bal` (class renamed `Client` → `GeneratedClient`,
-  matching the existing convention of not re-exposing the generated class as the public API).
-- A hand-written `client.bal` wraps it: `public isolated client class Client` holds a single
-  `final GeneratedClient oasClient` and exposes all 480 operations as thin forwarding `remote`
-  functions. Each one calls `self.oasClient->method(...)`, checks `isAuthError(r)` (HTTP 401), and
-  if so calls `self.oasClient.reauthenticate()` and retries once before returning. `isAuthError` is
-  a small helper at the bottom of `client.bal`.
-- `types.bal`'s `ConnectionConfig` and a new `PricefxCredentials` type are hand-written overrides
-  (wrapped in a `// >>> MANUALLY MAINTAINED` / `// <<< END MANUALLY MAINTAINED` comment block) —
-  `bal openapi` does not produce them. `ConnectionConfig.auth` is `PricefxCredentials`
-  (`username`, `password`, `partition?`, `pricefxKey?`) instead of the auto-generated
-  `http:CredentialsConfig|ApiKeysConfig` union — callers configure Pricefx credentials directly,
-  never a pre-obtained token.
-- `GeneratedClient.init()` (in `oas_client.bal`) exchanges those credentials for a JWT itself: if
-  `pricefxKey` is set, via `POST /token` (JWT comes back in the JSON body); otherwise via
-  `GET /login/extended` with HTTP Basic auth (JWT comes back as an `X-PriceFx-jwt` cookie, which
-  the spec doesn't declare but the real API sets). The JWT is cached in a `lock`-protected field
-  and attached to every request via a `jwtHeaderValues` helper. `reauthenticate()` re-runs this
-  exchange and replaces the cached JWT; it's `public` so the wrapper's retry logic can call it.
+- `ballerina/modules/oas/{client.bal,types.bal,utils.bal}` is the **unmodified** `bal openapi`
+  output (aside from the two codegen-bug fixes in entry 569, which are compile-blocking and have
+  nothing to do with auth). The class is `public isolated client class Client`, referenced from
+  outside the submodule as `oas:Client`. This means regenerating the submodule is always safe:
+  `bal openapi -i docs/spec/openapi.json -o ballerina/modules/oas --client-methods remote --mode
+  client --license docs/license.txt` can be rerun at any time without reconciling hand-written
+  changes into generated files.
+- `ballerina/modules/oas` must be listed in the root `Ballerina.toml`'s `export` array
+  (`export = ["pricefx", "pricefx.oas"]`). The wrapper's public remote functions return and accept
+  `oas:X` types directly (no request/response type conversion layer, unlike gmail's
+  `convertOASXToX()` functions — impractical to hand-write and maintain for 480 operations), so
+  submodule types are part of the wrapper's public API surface and must be externally resolvable.
+- The root `ballerina/client.bal` is entirely hand-written and holds all customization:
+  - `public isolated client class Client` has a **non-`final`** `oas:Client oasClient` field
+    (guarded by `lock` via `getOasClient()`/direct assignment), because the generated client's own
+    fields are `final` — refreshing auth means constructing a whole new `oas:Client` instance and
+    swapping it in, not mutating the existing one.
+  - `init()` and `reauthenticate()` both call a private `createOasClient()` helper that builds a
+    fresh `oas:Client`: if `auth.pricefxKey` is set, it exchanges credentials for a JWT via
+    `fetchAccessToken()` (see below) and constructs `oas:ApiKeysConfig{xPriceFxJwt: <token>}`;
+    otherwise it authenticates every request via HTTP Basic auth, using
+    `${partition}/${username}` as the Basic auth username (Pricefx requires the partition-prefixed
+    form — a bare username is rejected).
+  - Every one of the 480 operations is a thin forwarding `remote` function: read the current
+    `oas:Client` via `getOasClient()`, call the operation, check `isAuthError(r)` (HTTP 401), and
+    if so call `self.reauthenticate()` and retry once against the freshly-rebuilt client.
+    `isAuthError` is a small helper at the bottom of `client.bal`.
+  - `fetchAccessToken()` makes its **own** raw `http:Client` call to `POST /token` rather than
+    going through the generated `oas:Client.createAuthToken()` operation. That generated operation
+    has a real bug (see below) that can no longer be hand-patched now that generated code is
+    off-limits, so the wrapper's bootstrap flow bypasses it entirely.
+  - `self.config` (the wrapper's own `ConnectionConfig`, readonly-cloned in `init()`) is stored so
+    `reauthenticate()` can rebuild an equivalent `oas:Client` later. `ConnectionConfig` deliberately
+    **omits** `cookieConfig` (present in the generated `oas:ConnectionConfig`): its optional
+    `PersistentCookieHandler` field is a mutable `isolated object`, which is not `Cloneable`, so a
+    `ConnectionConfig` that includes it can never be `.cloneReadOnly()`'d — and this connector
+    doesn't rely on cookie-based session handling anyway (auth is handled explicitly via JWT or
+    Basic auth, never cookies).
+- `ballerina/types.bal` (root) is entirely hand-written and holds only wrapper-specific types:
+  `PricefxCredentials` (`username`, `password`, `partition`, `pricefxKey?`) and `ConnectionConfig`
+  (mirrors the generated `oas:ConnectionConfig`'s HTTP transport settings field-for-field, minus
+  `cookieConfig`, with `auth: PricefxCredentials` in place of the generated
+  `http:CredentialsConfig|oas:ApiKeysConfig` union). Callers configure Pricefx credentials
+  directly and never handle a JWT themselves.
 
-After every regeneration of `oas_client.bal`, reapply by hand:
-1. The class rename (`Client` → `GeneratedClient`), field/init/reauthenticate/jwtHeaderValues
-   changes described above, replacing the generated per-call
-   `if self.apiKeyConfig is ApiKeysConfig { headerValues[...] = ...; }` block with a single
-   `map<anydata> headerValues = self.jwtHeaderValues(headers);` call, everywhere it appears.
-2. The header-name-mapping fix for the three token-management operations. `CreateAuthTokenHeaders`,
-   `RefreshAuthTokenHeaders`, and `DeleteAuthTokenHeaders` each carry a `pricefxKey` field annotated
-   `@http:Header {name: "Pricefx-Key"}`, which a plain `{...headers}` spread doesn't honor (a
-   `bal openapi` codegen limitation — the annotation is emitted but not consulted when serializing
-   headers). Patch `createAuthToken` and `refreshAuthToken` to build
-   `self.jwtHeaderValues({"Pricefx-Key": headers.pricefxKey})` instead of spreading `headers`
-   directly; `deleteAuthToken` needs an explicit optional check first, since its `pricefxKey` field
-   is optional.
-3. `client.bal` itself (the wrapper) does not need hand-editing after a regeneration — only
-   `oas_client.bal`. If new operations are added, regenerate the forwarding wrapper mechanically
-   from `oas_client.bal`'s remote function signatures (name, parameters, return type) rather than
-   editing it by hand.
+A known, deliberately-unfixed limitation: the generated client's `createAuthToken`,
+`refreshAuthToken`, and `deleteAuthToken` operations remain reachable through the wrapper (as
+`pricefxClient->createAuthToken(...)`, etc. — every generated operation is forwarded, including
+these), but calling them **directly** still hits a genuine `bal openapi` codegen bug: their header
+parameter types (`CreateAuthTokenHeaders`, etc.) carry a `pricefxKey` field annotated
+`@http:Header {name: "Pricefx-Key"}`, but the generated function body builds the outgoing headers
+via a plain `map<anydata> headerValues = {...headers};` spread, which uses the record's Ballerina
+field name (`pricefxKey`) as the header key, not the annotation's real wire name
+(`Pricefx-Key`) — so the request is always sent with the wrong header name and Pricefx rejects it
+with `400 no header value found for 'Pricefx-Key'`. This can no longer be hand-patched (generated
+code is off-limits), so it is left as-is; callers who need this exchange should rely on the
+wrapper's own automatic JWT bootstrap (set `pricefxKey` in `PricefxCredentials`) rather than
+calling `createAuthToken` directly. There is no test for `createAuthToken` for this reason.
+
+If new operations are added to the spec, regenerate the submodule (safe, no reconciliation
+needed), then regenerate the wrapper's forwarding functions mechanically from the submodule's
+remote function signatures (name, parameters, return type) rather than editing `client.bal` by
+hand — `init()`, `getOasClient()`, `reauthenticate()`, `createOasClient()`, `fetchAccessToken()`,
+and `isAuthError()` are the only parts of `client.bal` that require actual hand-authorship.
 
 567. Expand coverage from 11 core tags to the full spec (480 operations)
 - **Original**: The first version of this connector was generated with `--tags` restricted to 11 core resource areas (Products, Customers, Sellers, Condition Records, Price Lists, Manual Price Lists, Calculation Grids, Quotes, Contracts, Attachments, Authentication) — 139 of the spec's 484 operations.
@@ -3476,9 +3504,14 @@ After every regeneration of `oas_client.bal`, reapply by hand:
 The following command was used to generate the Ballerina client from the OpenAPI specification. The command should be executed from the repository root directory.
 
 ```bash
-bal openapi -i docs/spec/openapi.json -o ballerina --mode client --client-methods remote --license docs/license.txt
+bal openapi -i docs/spec/openapi.json -o ballerina/modules/oas --mode client --client-methods remote --license docs/license.txt
 ```
 
-This command overwrites `client.bal` directly — rename that output to `oas_client.bal` and reapply the post-generation wrapper architecture described above before committing.
+This command generates directly into the `oas` submodule and never touches the hand-written
+`ballerina/client.bal` or `ballerina/types.bal`. After regenerating, reapply the two codegen-bug
+fixes from entry 569 (check whether the `'source` reserved-keyword escaping from entry 571 is
+still needed — it was already correctly escaped by the tool as of the last regeneration, which
+suggests either non-determinism in the tool or that the earlier bug had a different cause) before
+committing.
 
 Note: The license year is hardcoded to 2026, change if necessary.
