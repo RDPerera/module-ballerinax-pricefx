@@ -15,47 +15,76 @@
 // under the License.
 
 import ballerina/http;
+import ballerinax/pricefx.oas;
 
-# Pricefx account credentials. The connector uses these to transparently obtain a JWT
-# (`X-PriceFx-jwt`) - no separate login step is required from the caller.
+# Pricefx account credentials and authentication options. Exactly one of the following
+# combinations must be provided:
+#
+# - `username` + `password` + `partition` (+ optional `pricefxKey`) - the connector authenticates
+#   via `POST /token` when `pricefxKey` is set, or via HTTP Basic auth otherwise
+# - `oauth2ClientId` + `oauth2RefreshToken` (+ optional `oauth2ClientSecret`) - OAuth 2.0, using a
+#   refresh token obtained beforehand through Pricefx's Authorization Code Grant flow (that initial
+#   exchange requires an interactive browser redirect and can't be automated by this connector -
+#   see Pricefx's OAuth 2.0 documentation). The connector automatically refreshes the access token
+#   as needed
+# - `externalJwtSystemName` + `externalJwt` - a pre-signed JWT from a trusted external system,
+#   configured on the Pricefx side via `externalJWTConfiguration`
+#
+# `tfaCode` and `csrfToken` are independent of the above and can be set alongside any of them.
 public type PricefxCredentials record {|
     # Your Pricefx username
-    string username;
+    string username?;
     # Your Pricefx password
-    string password;
+    string password?;
     # Your Pricefx partition name
-    string partition;
+    string partition?;
     # A Pricefx API key (contact Pricefx Support to obtain one). When set, authentication uses
     # `POST /token`, which is faster and recommended for server-to-server integrations. When
     # absent, authentication falls back to HTTP Basic auth (`<partition>/<username>:<password>`),
     # which needs no separate API key but is slower per request
     string pricefxKey?;
+    # OAuth 2.0 client identifier, as registered in Pricefx's `oauthConfiguration`
+    string oauth2ClientId?;
+    # OAuth 2.0 client secret, if one was configured for the client
+    string oauth2ClientSecret?;
+    # A refresh token previously obtained through Pricefx's OAuth 2.0 Authorization Code Grant
+    # flow. The connector uses it to fetch (and automatically refresh) access tokens
+    string oauth2RefreshToken?;
+    # A cleartext two-factor authentication code, sent as the `PriceFx-TFA` header on every
+    # request. Only required when the calling user has TFA enabled and no session cookie exists
+    string tfaCode?;
+    # A CSRF token, sent as the `X-PriceFx-Csrf-Token` header on every request. Only required when
+    # the partition has CSRF protection enabled
+    string csrfToken?;
+    # The name of the external system trusted via Pricefx's `externalJWTConfiguration`, used
+    # together with `externalJwt`
+    string externalJwtSystemName?;
+    # A JWT signed by the external system named in `externalJwtSystemName`, sent as
+    # `Authorization: BEARER <externalJwtSystemName>;<externalJwt>` on every request
+    string externalJwt?;
 |};
 
 # Provides a set of configurations for controlling the behaviours when communicating with a remote
-# HTTP endpoint. Includes `PricefxCredentials` directly (`username`, `password`, `partition`,
-# `pricefxKey?`), exchanged internally for a short-lived JWT (or used directly as HTTP Basic auth).
-# The client automatically re-authenticates and retries once whenever a request comes back
-# unauthenticated, so a long-lived client instance keeps working without manual re-initialization.
+# HTTP endpoint. Includes `PricefxCredentials` directly. The client automatically re-authenticates
+# and retries once whenever a request comes back unauthenticated, so a long-lived client instance
+# keeps working without manual re-initialization.
 @display {label: "Connection Config"}
 public type ConnectionConfig record {|
     *PricefxCredentials;
     # The HTTP version understood by the client
     http:HttpVersion httpVersion = http:HTTP_2_0;
     # Configurations related to HTTP/1.x protocol
-    http:ClientHttp1Settings http1Settings = {};
+    oas:ClientHttp1Settings http1Settings?;
     # Configurations related to HTTP/2 protocol
-    http:ClientHttp2Settings http2Settings = {};
+    http:ClientHttp2Settings http2Settings?;
     # The maximum time to wait (in seconds) for a response before closing the connection
-    decimal timeout = 30;
+    decimal timeout = 60;
     # The choice of setting `forwarded`/`x-forwarded` header
     string forwarded = "disable";
-    # Configurations associated with Redirection
-    http:FollowRedirects followRedirects?;
     # Configurations associated with request pooling
     http:PoolConfiguration poolConfig?;
     # HTTP caching related configurations
-    http:CacheConfig cache = {};
+    http:CacheConfig cache?;
     # Specifies the way of handling compression (`accept-encoding`) header
     http:Compression compression = http:COMPRESSION_AUTO;
     # Configurations associated with the behaviour of the Circuit Breaker
@@ -63,13 +92,11 @@ public type ConnectionConfig record {|
     # Configurations associated with retrying
     http:RetryConfig retryConfig?;
     # Configurations associated with inbound response size limits
-    http:ResponseLimitConfigs responseLimits = {};
+    http:ResponseLimitConfigs responseLimits?;
     # SSL/TLS-related options
     http:ClientSecureSocket secureSocket?;
     # Proxy server related options
     http:ProxyConfig proxy?;
-    # Provides settings related to client socket configuration
-    http:ClientSocketConfig socketConfig = {};
     # Enables the inbound payload validation functionality which provided by the constraint package. Enabled by default
     boolean validation = true;
     # Enables relaxed data binding on the client side. When enabled, `nil` values are treated as optional,

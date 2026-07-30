@@ -128,17 +128,18 @@ public type QuotemanagersaveDataQuoteLineItems record {
     decimal lastUpdateBy;
 };
 
+# 
 public type ImportDataLoadRequest record {
     DatamartimportdataloadsData data;
 };
 
 # Represents the Headers record for the operation: refreshAuthToken
 public type RefreshAuthTokenHeaders record {
-    # The Pricefx API key. Contact Pricefx Support to get your Pricefx-Key
     @http:Header {name: "Pricefx-Key"}
     string pricefxKey;
 };
 
+# 
 public type DeleteRebateAgreementRequest record {
     DeleteTypeCodeData data;
 };
@@ -160,10 +161,6 @@ public type LoaddataCXData record {
     anydata[] header;
 };
 
-public type UpdateCompensationTypeEnvelope record {
-    UpdateCompensationTypeResponse response?;
-};
-
 public type UpdateAITOldValues record {
     string typedId?;
     string uniqueName?;
@@ -174,12 +171,17 @@ public type UpdateAITOldValues record {
     int level?;
     string label?;
     @jsondata:Name {value: "_key"}
-    string 'key?;
+    string key?;
     int version?;
     string createDate?;
     int lastUpdateBy?;
 };
 
+public type UpdateCompensationTypeEnvelope record {
+    UpdateCompensationTypeResponse response?;
+};
+
+# 
 public type DeleteProductsFromManualPriceListRequest record {
     ManualpricelistmanagerdeleteidbatchData data;
 };
@@ -188,14 +190,9 @@ public type CommentmanagerEdittypedIdBody record {
     CommentmanageredittypedIdData data?;
 };
 
+# 
 public type InsertBulkDataToLookupTableRequest record {
     LookuptablemanagerloaddataTypeCodeData data;
-};
-
-public type WorkflowsmanageraddapprovercurrentStepIdData record {
-    @constraint:String {minLength: 1}
-    string addStepCurrentStepId;
-    WorkflowsmanageraddapprovercurrentStepIdDataAddStepStepInstance addStepStepInstance;
 };
 
 public type ListLivePriceGridsResponseResponseData record {
@@ -240,6 +237,12 @@ public type ListLivePriceGridsResponseResponseData record {
     decimal lastUpdateBy?;
     @constraint:String {minLength: 1}
     string status?;
+};
+
+public type WorkflowsmanageraddapprovercurrentStepIdData record {
+    @constraint:String {minLength: 1}
+    string addStepCurrentStepId;
+    WorkflowsmanageraddapprovercurrentStepIdDataAddStepStepInstance addStepStepInstance;
 };
 
 public type AddWatcherStepResponseResponseWorkflowSubSteps record {
@@ -397,12 +400,6 @@ public type InlineResponse2002ResponseData record {
     int lastUpdateBy?;
 };
 
-# Represents the Queries record for the operation: calculateModelObjectStep
-public type CalculateModelObjectStepQueries record {
-    # Specify the step name to set the last step of the calculation (all steps before are executed, until `toStep` is reached)
-    string toStep?;
-};
-
 # The type code is NTF
 public type Notification record {
     string typedId?;
@@ -429,6 +426,16 @@ public type Notification record {
     int lastUpdateBy?;
 };
 
+# Represents the Queries record for the operation: calculateModelObjectStep
+public type CalculateModelObjectStepQueries record {
+    # Specify the step name to set the last step of the calculation (all steps before are executed, until `toStep` is reached)
+    string toStep?;
+};
+
+public type ClicmanagerAdditemstypedIdBody record {
+    ClicmanageradditemstypedIdData data?;
+};
+
 public type InlineResponse2008ResponseStateDefinitionScopeScope record {
     @jsondata:Name {value: "ProductMinMarginPercent"}
     int? productMinMarginPercent?;
@@ -442,10 +449,6 @@ public type InlineResponse2008ResponseStateDefinitionScopeScope record {
     int? customerMinRevenue?;
     @jsondata:Name {value: "ProductMinRevenue"}
     int? productMinRevenue?;
-};
-
-public type ClicmanagerAdditemstypedIdBody record {
-    ClicmanageradditemstypedIdData data?;
 };
 
 public type DeleteCalculationGridItemResponse record {
@@ -491,10 +494,12 @@ public type InlineResponse2008ResponseData record {
     int lastUpdateBy?;
 };
 
+# 
 public type RecalculateQuoteRequest record {
     QuotemanagerpriceData data;
 };
 
+# 
 public type UpdateLookupTableValueRequest record {
     LookuptablemanagerupdatetableIdData data;
     @constraint:String {minLength: 1}
@@ -508,7 +513,6 @@ public type UpdateCalculationGridRequest record {
     UpdateCGData data?;
     string textMatchStyle?;
     string operationType?;
-    # The type code is CG
     CalculationGrid oldValues?;
 };
 
@@ -526,6 +530,7 @@ public type RebaterecordgroupMasssubmittypedIdBody record {
     RebaterecordgroupmasssubmittypedIdData data?;
 };
 
+# 
 public type ListRebateAgreementItemsResponse record {
     ListRebateAgreementItemsResponseResponse response?;
 };
@@ -553,6 +558,7 @@ public type ListPriceListsResponseResponse record {
     decimal status?;
 };
 
+# 
 public type CreateDataManagerEntityRequest record {
     DatamartnewfcTypeCodeData data;
 };
@@ -568,14 +574,14 @@ public type ClicmanagerfetchtypedIdData record {
     string operator?;
 };
 
-public type DatamartsqlqueryDataSourcesS0 record {
-    DatamartsqlqueryDataSourcesS0Query query?;
-};
-
 public type InlineResponse20064Data record {
     InlineResponse20064DataResult[] result?;
     InlineResponse20064DataStats stats?;
     string resultType?;
+};
+
+public type DatamartsqlqueryDataSourcesS0 record {
+    DatamartsqlqueryDataSourcesS0Query query?;
 };
 
 public type DMDataLoadSchedules record {
@@ -640,7 +646,6 @@ public type GetLogicResponseResponseElements record {
 };
 
 public type CompensationsaveData record {
-    # The Compensation object. The type code is CO
     Compensation compensation?;
 };
 
@@ -660,6 +665,7 @@ public type UpdatePData record {
     string label?;
 };
 
+# 
 public type DeleteProductsFromManualPriceListResponse record {
     DeleteProductsFromManualPriceListResponseResponse response?;
 };
@@ -702,6 +708,7 @@ public type GetDefaultPricingLogicNameResponseResponseData record {
     anydata label?;
 };
 
+# 
 public type contractModelResponse record {
     contractModelResponse_response response?;
 };
@@ -776,6 +783,7 @@ public type RevokeDealResponseResponse record {
     decimal status?;
 };
 
+# 
 public type ListLibrariesResponse record {
     ListLibrariesResponseResponse response?;
 };
@@ -784,6 +792,12 @@ public type DatamartsqlqueryDataSourcesS0QueryProjectionsQuantity record {
     string expression?;
     boolean advancedProjection?;
     DatamartsqlqueryDataSourcesS0QueryProjectionsQuantityParameters parameters?;
+};
+
+public type InlineResponse2006Response record {
+    string node?;
+    DMDataLoad[] data?;
+    int status?;
 };
 
 public type GetCompetitionDataResponseResponse record {
@@ -798,12 +812,6 @@ public type GetCompetitionDataResponseResponse record {
     decimal status?;
 };
 
-public type InlineResponse2006Response record {
-    string node?;
-    DMDataLoad[] data?;
-    int status?;
-};
-
 public type UpdateCFOTOldValuesConfiguration record {
     UpdateCFOTOldValuesConfigurationDefault default?;
 };
@@ -811,7 +819,6 @@ public type UpdateCFOTOldValuesConfiguration record {
 # The Type code is CFOT
 public type CustomFormType record {
     string typedId?;
-    # Schema for definition of steps and tabs. This object can contains `tabs` array with tabs specifications or `steps` array (categories) with tabs inside
     Configuration configuration?;
     string lastUpdateDate?;
     # A name of application module, in which the user interface will show the menu item, which opens a page with a list of custom forms of this type. This is meaningful only when embedded is `false`
@@ -857,18 +864,18 @@ public type typecodesResponse_response record {
     decimal status?;
 };
 
-public type ProductmanagerquicksearchData record {
-    # Enter the term you want to search
-    @constraint:String {minLength: 1}
-    string q;
-};
-
 public type DeleteLookupTableResponseResponse record {
     @constraint:String {minLength: 1}
     string node;
     @constraint:Array {minLength: 1}
     DeleteLookupTableResponseResponseData[] data;
     decimal status;
+};
+
+public type ProductmanagerquicksearchData record {
+    # Enter the term you want to search
+    @constraint:String {minLength: 1}
+    string q;
 };
 
 public type RebateAgreementLineItems record {
@@ -947,9 +954,6 @@ public type DenyDocumentResponseResponseWorkflow record {
     string isAddStepRestrictedToWFAdmin?;
 };
 
-# The icon is provided by DynamicIcon component, so the icon has to be defined there
-public type Icon "angle-double-left"|"angle-down"|"angle-down-b"|"angle-right"|"arrow-down"|"arrow-right"|"arrow-up"|"bars"|"bell"|"blue"|"brackets-curly"|"calculator"|"calculator-alt"|"calendar-alt"|"chart-line"|"check"|"check-circle"|"circle"|"clipboard-notes"|"cog"|"comment-alt-message"|"comparison"|"compress-arrows"|"constructor"|"copy"|"corner-up-left"|"corner-up-right"|"critical"|"crosshair"|"dashboard"|"database"|"ellipsis-h"|"equal-circle"|"exclamation-octagon"|"exclamation-octagon-solid"|"exclamation-triangle"|"exclamation-triangle-solid"|"external-link-alt"|"eye"|"file"|"file-check-alt"|"file-copy-alt"|"file-edit-alt"|"file-info-alt"|"file-plus-alt"|"filter"|"folder"|"folder-medical"|"folder-open"|"fullscreen-exit"|"green"|"import"|"info-circle"|"key"|"layer-group"|"layer-group-slash"|"link-broken"|"link-h"|"message"|"minus"|"minus-circle"|"minus-square"|"multiply"|"pause"|"pen"|"play"|"plus"|"plus-circle"|"plus-square"|"process"|"puzzle-piece"|"question"|"question-circle"|"red"|"redo"|"retweet"|"search"|"search-minus"|"sliders-v-alt"|"sync"|"times"|"times-circle"|"trash-alt"|"upload"|"user"|"wrench"|"yellow";
-
 public type SX10Inner record {
     string typedId?;
     string lastUpdateDate?;
@@ -973,6 +977,10 @@ public type SX10Inner record {
     int lastUpdateBy?;
 };
 
+# The icon is provided by DynamicIcon component, so the icon has to be defined there
+public type Icon "angle-double-left"|"angle-down"|"angle-down-b"|"angle-right"|"arrow-down"|"arrow-right"|"arrow-up"|"bars"|"bell"|"blue"|"brackets-curly"|"calculator"|"calculator-alt"|"calendar-alt"|"chart-line"|"check"|"check-circle"|"circle"|"clipboard-notes"|"cog"|"comment-alt-message"|"comparison"|"compress-arrows"|"constructor"|"copy"|"corner-up-left"|"corner-up-right"|"critical"|"crosshair"|"dashboard"|"database"|"ellipsis-h"|"equal-circle"|"exclamation-octagon"|"exclamation-octagon-solid"|"exclamation-triangle"|"exclamation-triangle-solid"|"external-link-alt"|"eye"|"file"|"file-check-alt"|"file-copy-alt"|"file-edit-alt"|"file-info-alt"|"file-plus-alt"|"filter"|"folder"|"folder-medical"|"folder-open"|"fullscreen-exit"|"green"|"import"|"info-circle"|"key"|"layer-group"|"layer-group-slash"|"link-broken"|"link-h"|"message"|"minus"|"minus-circle"|"minus-square"|"multiply"|"pause"|"pen"|"play"|"plus"|"plus-circle"|"plus-square"|"process"|"puzzle-piece"|"question"|"question-circle"|"red"|"redo"|"retweet"|"search"|"search-minus"|"sliders-v-alt"|"sync"|"times"|"times-circle"|"trash-alt"|"upload"|"user"|"wrench"|"yellow";
+
+# 
 public type CreatePriceListResponse record {
     CreatePriceListResponseResponse response?;
 };
@@ -1099,6 +1107,13 @@ public type MassEditDatamartResponseResponse record {
     decimal status?;
 };
 
+# OAuth2 Refresh Token Grant Configs
+public type OAuth2RefreshTokenGrantConfig record {|
+    *http:OAuth2RefreshTokenGrantConfig;
+    # Refresh URL
+    string refreshUrl = "https://companynode.pricefx.com/pricefx/companypartition/oauth/token";
+|};
+
 public type DenyDocumentResponseResponseWorkflowSteps record {
     @constraint:String {minLength: 1}
     string reason;
@@ -1147,6 +1162,12 @@ public type ListCustomFormsEnvelope record {
     ListCustomFormsResponse response?;
 };
 
+public type I18nmanagerputData record {
+    I18nmanagerputDataMessages messages?;
+    # Set to `true` to add messages Partition-wide, or  `false` to add Private messages
+    boolean partitionWideOverride?;
+};
+
 public type ListDataLoadsWithValidationResponseResponseCalculationConfig record {
     @constraint:String {minLength: 1}
     string formulaName?;
@@ -1156,12 +1177,6 @@ public type ListDataLoadsWithValidationResponseResponseCalculationConfig record 
     record {}[] mappingParams?;
     record {}[] feederInputParams?;
     record {}[] outputElements?;
-};
-
-public type I18nmanagerputData record {
-    I18nmanagerputDataMessages messages?;
-    # Set to `true` to add messages Partition-wide, or  `false` to add Private messages
-    boolean partitionWideOverride?;
 };
 
 public type UpdateCData record {
@@ -1207,6 +1222,7 @@ public type dataElementsItemsObject record {
     string formulaExpression?;
 };
 
+# 
 public type UpsertCustomerExtensionResponse record {
     UpsertCustomerExtensionResponseResponse response;
 };
@@ -1217,14 +1233,6 @@ public type InlineResponse2003Response record {
     int status?;
 };
 
-public type DeletePriceListResponseResponse record {
-    @constraint:String {minLength: 1}
-    string node?;
-    @constraint:Array {minLength: 1}
-    DeletePriceListResponseResponseData[] data?;
-    decimal status?;
-};
-
 public type ListLogicsResponseResponseData record {
     @constraint:String {minLength: 1}
     string uniqueName?;
@@ -1232,19 +1240,12 @@ public type ListLogicsResponseResponseData record {
     string label?;
 };
 
-public type UpdateCFOTOldValues record {
-    string typedId?;
-    string uniqueName?;
-    UpdateCFOTOldValuesConfiguration configuration?;
-    int createdBy?;
-    string lastUpdateDate?;
-    string module?;
-    string headerFormulaName?;
-    string label?;
-    int version?;
-    boolean embedded?;
-    string createDate?;
-    int lastUpdateBy?;
+public type DeletePriceListResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:Array {minLength: 1}
+    DeletePriceListResponseResponseData[] data?;
+    decimal status?;
 };
 
 public type InlineResponse20045ResponseWorkflowSteps record {
@@ -1277,6 +1278,21 @@ public type InlineResponse20045ResponseWorkflowSteps record {
     string[] userNames?;
     string? comment?;
     string? mandatoryComments?;
+};
+
+public type UpdateCFOTOldValues record {
+    string typedId?;
+    string uniqueName?;
+    UpdateCFOTOldValuesConfiguration configuration?;
+    int createdBy?;
+    string lastUpdateDate?;
+    string module?;
+    string headerFormulaName?;
+    string label?;
+    int version?;
+    boolean embedded?;
+    string createDate?;
+    int lastUpdateBy?;
 };
 
 public type DeleteCustomerExtensionResponseResponseData record {
@@ -1336,6 +1352,7 @@ public type AddLookupTableResponseResponseData record {
     boolean isPlasma;
 };
 
+# 
 public type MassEditResponse record {
     MassEditResponseResponse response?;
 };
@@ -1388,6 +1405,11 @@ public type quoteResponse_response record {
     decimal status?;
 };
 
+public type KvserviceputkeytableNameDataKeys record {
+    string sku?;
+    string customer?;
+};
+
 public type CustomformaddData record {
     # The `typedId` of the Custom Form Type
     @constraint:String {minLength: 1}
@@ -1397,16 +1419,10 @@ public type CustomformaddData record {
     string label;
 };
 
-public type KvserviceputkeytableNameDataKeys record {
-    string sku?;
-    string customer?;
-};
-
 public type UpdateManualPriceListRequest record {
     ManualpricelistmanagerupdateidrecalculateData data;
     string textMatchStyle?;
     string operationType?;
-    # The type code is MPLI
     ManualPricelistItem oldValues?;
 };
 
@@ -1688,7 +1704,6 @@ public type CompensationSignature record {
 
 public type ListCustomFormsResponse record {
     string node?;
-    # The Type code is CFO
     CustomForm data?;
     int status?;
 };
@@ -1706,6 +1721,11 @@ public type SaveCompensationRecordResponseResponse record {
     string node?;
     CompensationRecord[] data?;
     int status?;
+};
+
+# 
+public type JobStatusTrackerResponse record {
+    JobStatusTrackerResponse_response response?;
 };
 
 public type UpdateCOldValues record {
@@ -1759,10 +1779,6 @@ public type UpdateCOldValues record {
     decimal nodeId;
     anydata attribute30?;
     decimal lastUpdateBy;
-};
-
-public type JobStatusTrackerResponse record {
-    JobStatusTrackerResponse_response response?;
 };
 
 public type ImportmanagerMassedittypedIdBody record {
@@ -1857,6 +1873,7 @@ public type ImportSellerExtensionFileQueries record {
     string truncate?;
 };
 
+# 
 public type ListProductsFromManualPriceListRequest record {
     decimal startRow?;
     @constraint:String {minLength: 1}
@@ -2070,10 +2087,12 @@ public type CommentmanagerreplyData record {
     string body?;
 };
 
+# 
 public type AddProductsToManualPriceListNoRecalcRequest record {
     ManualpricelistmanageraddidrecalculateData data;
 };
 
+# 
 public type ChangeCurrentUserPasswordResponse record {
     AddPriceGridItemsToPriceGridResponseResponse response?;
 };
@@ -2102,6 +2121,22 @@ public type RebateagreementfetchitemsDataRebateAgreement record {
     decimal nodeId?;
     @constraint:String {minLength: 1}
     string startDate?;
+};
+
+public type InlineResponse2013ResponseData record {
+    string typedId?;
+    string managerUN?;
+    string lastUpdateDate?;
+    string? originalValue?;
+    KvservicefetchtableNameData targetPrimaryKeys?;
+    string typeOfChange?;
+    int version?;
+    string createdBy?;
+    string? validationErrors?;
+    InlineResponse2013ResponseValue value?;
+    string columnName?;
+    string createDate?;
+    string lastUpdateBy?;
 };
 
 public type AddCalculationResponse record {
@@ -2171,6 +2206,7 @@ public type DatamartsqlqueryDataSources record {
     DatamartsqlqueryDataSourcesS0 s1?;
 };
 
+# 
 public type CopyLogicResponse record {
     CopyLogicResponseResponse response?;
 };
@@ -2183,10 +2219,6 @@ public type ListProductExtensionObjectsQueries record {
     "true"|"false" useColumnNames = "true";
 };
 
-public type PerformMassActionResponse record {
-    AddPriceGridItemsToPriceGridResponseResponse response?;
-};
-
 public type CommentmanagerFetchthreadstypedIdBody record {
     int startRow?;
     string textMatchStyle?;
@@ -2195,6 +2227,11 @@ public type CommentmanagerFetchthreadstypedIdBody record {
     string operationType?;
     string[] sortBy?;
     record {}? oldValues?;
+};
+
+# 
+public type PerformMassActionResponse record {
+    AddPriceGridItemsToPriceGridResponseResponse response?;
 };
 
 public type ListUsersUserGroupsResponseResponse record {
@@ -2254,14 +2291,18 @@ public type CompensationRecordSetCalculation record {
     "DRAFT"|"PENDING"|"SCHEDULED"|"PROCESSING"|"SCHEDULED_DIRTY"|"ERROR"|"READY"|"CANCELLED" status?;
 };
 
+# 
 public type DeactivateWorkflowDelegationRequest record {
     DeleteTypeCodeData data;
 };
 
-public type UpsertLookupTableValueRequest record {
-    LookuptablemanagerintegratetableIdData data;
+public type InlineResponse20078Response record {
+    string node?;
+    CommentThread data?;
+    int status?;
 };
 
+# 
 public type ListPriceListItemsRequest record {
     # The number of the first row that defines the start of the result set's returned objects. Use this parameter if you want to implement paging for results
     decimal startRow?;
@@ -2275,17 +2316,17 @@ public type ListPriceListItemsRequest record {
     anydata oldValues?;
 };
 
-public type InlineResponse20078Response record {
-    string node?;
-    # The type code is CMTRD
-    CommentThread data?;
-    int status?;
+# 
+public type UpsertLookupTableValueRequest record {
+    LookuptablemanagerintegratetableIdData data;
 };
 
+# 
 public type quoteResponse record {
     quoteResponse_response response?;
 };
 
+# 
 public type ListBoMForProductResponse record {
     ListBoMForProductResponseResponse response?;
 };
@@ -2301,7 +2342,6 @@ public type AccountmanagerassigngroupBRbusinessroleIdData record {
 public type LoaddataPData record {
     # Specify the field values in the same order as specified in the header object
     anydata[][] data;
-    # Specify options of the bulk data insertion
     LoaddataPDataOptions options?;
     # Specify header field names (table columns) of the record in the target table
     string[] header;
@@ -2312,17 +2352,18 @@ public type PricegridmanagerrejectidData record {
     string[] ids;
 };
 
-public type ListQuotesResponse record {
-    ListQuotesResponseResponse response?;
+public type AddCompensationTypeRequest record {
+    AddCOHTData data?;
+    string operation;
 };
 
 public type QuotemanagerpriceData record {
     QuotemanagerpriceDataQuote quote;
 };
 
-public type AddCompensationTypeRequest record {
-    AddCOHTData data?;
-    string operation;
+# 
+public type ListQuotesResponse record {
+    ListQuotesResponseResponse response?;
 };
 
 public type ListKVTablesResponse record {
@@ -2333,6 +2374,7 @@ public type CreateUploadSlotEnvelope record {
     InlineResponse200Response response?;
 };
 
+# 
 public type ListManualPriceListsRequest record {
     decimal startRow?;
     @constraint:String {minLength: 1}
@@ -2357,10 +2399,12 @@ public type I18nmanagerPutBody record {
     I18nmanagerputData data?;
 };
 
+# 
 public type GetLivePriceGridResponse record {
     GetLivePriceGridResponseResponse response;
 };
 
+# 
 public type SearchProductURLResponse record {
     SearchProductResponseResponse response?;
 };
@@ -2382,7 +2426,6 @@ public type ListAccrualRecordsResponseResponse record {
 
 public type ChangeCustomFormStatusResponseResponse record {
     string node?;
-    # The Type code is CFO
     CustomForm data?;
     int status?;
 };
@@ -2420,6 +2463,28 @@ public type UpsertKVKeyResponse record {
     UpsertKVKeyResponseResponse response?;
 };
 
+# The type code is PLTT
+public type PriceListType record {
+    string lastUpdateByName?;
+    PriceListTypeTypeConfiguration typeConfiguration?;
+    string createdByName?;
+    string dimensionType?;
+    string typedId?;
+    string targetDate?;
+    string lastUpdateDate?;
+    record {} contextualActions?;
+    string label?;
+    int version?;
+    string uniqueName?;
+    record {} buttonsConfiguration?;
+    int createdBy?;
+    string headerFormulaName?;
+    int id?;
+    string calculationFormulaName?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
 public type ContractLineItems record {
     record {}[] outputs?;
     string typedId?;
@@ -2449,38 +2514,18 @@ public type ContractLineItems record {
     int lastUpdateBy?;
 };
 
-# The type code is PLTT
-public type PriceListType record {
-    string lastUpdateByName?;
-    PriceListTypeTypeConfiguration typeConfiguration?;
-    string createdByName?;
-    string dimensionType?;
-    string typedId?;
-    string targetDate?;
-    string lastUpdateDate?;
-    record {} contextualActions?;
-    string label?;
-    int version?;
-    string uniqueName?;
-    record {} buttonsConfiguration?;
-    int createdBy?;
-    string headerFormulaName?;
-    int id?;
-    string calculationFormulaName?;
-    string createDate?;
-    int lastUpdateBy?;
-};
-
+# 
 public type ListDataLoadsWithValidationResponse record {
     ListDataLoadsWithValidationResponseResponse response?;
 };
 
-public type GenerateJWTTokenResponse record {
-    GenerateJWTTokenResponseResponse response?;
-};
-
 public type FetchCRCIMBody record {
     FetchCRCIMData data?;
+};
+
+# 
+public type GenerateJWTTokenResponse record {
+    GenerateJWTTokenResponseResponse response?;
 };
 
 public type DcrmanageraddmassopidDataMassEditRecords record {
@@ -2505,10 +2550,10 @@ public type PricegridmanagermassactionidDataCriteria record {
 };
 
 public type RebaterecordgroupcalculatetypedIdData record {
-    # The type code is RRG
     RebateRecordGroup rebateRecordGroup?;
 };
 
+# 
 public type productResponse record {
     anydata response?;
 };
@@ -2528,6 +2573,11 @@ public type UpsertObjectReturnOldDataResponseResponse record {
     decimal status;
 };
 
+public type OptimizationModelimportBody record {
+    # ZIP file containing one or more JSON model files
+    record {byte[] fileContent; string fileName;} file?;
+};
+
 public type CustomFormParameterConfig record {
     record {}? property2?;
     record {}? property1?;
@@ -2537,17 +2587,13 @@ public type UpdateSellerEnvelope record {
     UpdateSellerResponse response?;
 };
 
-public type OptimizationModelimportBody record {
-    # ZIP file containing one or more JSON model files
-    record {byte[] fileContent; string fileName;} file?;
-};
-
+# 
 public type CalculateCFSResponse record {
     CalculateCFSResponseResponse response?;
 };
 
+# 
 public type UpdateActionItemRequest record {
-    # `data` should contain the `typedId` of the Action Item you want to update and the updated field
     UpdateAIData data;
     @constraint:String {minLength: 1}
     string textMatchStyle?;
@@ -2557,7 +2603,6 @@ public type UpdateActionItemRequest record {
 };
 
 public type UpdateCompensationRecordRequest record {
-    # The `CompensationRecord` object. The type code is COR
     CompensationRecord data?;
 };
 
@@ -2568,8 +2613,13 @@ public type UpdatePLTTBody record {
     ConditionrecordsetupdateidOldValues oldValues?;
 };
 
-public type ApproveDocumentRequest record {
-    WorkflowsmanagerapprovecurrentStepIdData data;
+public type ListAttributeFieldsMetadataResponseData record {
+    @constraint:Array {minLength: 1}
+    ListAttributeFieldsMetadataResponseAttributeMetas[] attributeMetas?;
+    ListAttributeFieldsMetadataResponseJsonSchema jsonSchema?;
+    record {}[] attributeMetaSignificantFields?;
+    @constraint:String {minLength: 1}
+    string attributeMetaTypeCode?;
 };
 
 public type CopyUserResponseResponseBusinessRoles record {
@@ -2591,17 +2641,9 @@ public type CopyUserResponseResponseBusinessRoles record {
     decimal lastUpdateBy?;
 };
 
-public type ListAttributeFieldsMetadataResponseData record {
-    @constraint:Array {minLength: 1}
-    ListAttributeFieldsMetadataResponseAttributeMetas[] attributeMetas?;
-    ListAttributeFieldsMetadataResponseJsonSchema jsonSchema?;
-    record {}[] attributeMetaSignificantFields?;
-    @constraint:String {minLength: 1}
-    string attributeMetaTypeCode?;
-};
-
-public type DeleteProductRequest record {
-    DeletePData data;
+# 
+public type ApproveDocumentRequest record {
+    WorkflowsmanagerapprovecurrentStepIdData data;
 };
 
 # Filter Group for hiding or disabling steps or tabs
@@ -2611,6 +2653,11 @@ public type Group record {|
     Filter[] criteria;
     "and"|"or"|"not" operator;
 |};
+
+# 
+public type DeleteProductRequest record {
+    DeletePData data;
+};
 
 public type ListUsersResponseResponse record {
     @constraint:String {minLength: 1}
@@ -2627,12 +2674,12 @@ public type SaveCompensationRecordResponse record {
     SaveCompensationRecordResponseResponse response?;
 };
 
+# 
 public type CopyRolesRequest record {
     AccountmanagercopyrolesData data;
 };
 
 public type SaveModelRequest record {
-    # The Type code is MO
     ModelObject data?;
     OptimizationmodelsavetypedIdstepNameOldValues oldValues;
 };
@@ -2698,23 +2745,23 @@ public type DatamartqueryDataQueryOptions record {
     string[] distribution?;
 };
 
-public type ParallelCalculationEnvelope record {
-    InlineResponse2009Response response?;
-};
-
 # Represents the Headers record for the operation: createAuthToken
 public type CreateAuthTokenHeaders record {
-    # The Pricefx API key. Contact Pricefx Support to get your Pricefx-Key
     @http:Header {name: "Pricefx-Key"}
     string pricefxKey;
 };
 
-public type AssignUserToUserGroupRequest record {
-    AccountmanagerassigngroupuserIdData data;
+public type ParallelCalculationEnvelope record {
+    InlineResponse2009Response response?;
 };
 
 public type UpdateCompensationRecordResponse record {
     SaveCompensationRecordResponseResponse response?;
+};
+
+# 
+public type AssignUserToUserGroupRequest record {
+    AccountmanagerassigngroupuserIdData data;
 };
 
 # The Seller Extension object. The type code is SX3 (contains 3 attribute fields)
@@ -2788,6 +2835,9 @@ public type QuoteTmp record {
     int lastUpdateBy?;
 };
 
+# The Seller Extension object. The type code is SX6 (contains 6 attribute fields)
+public type SX6 SX6Inner[];
+
 public type GetCustomFormResponseResponse record {
     @constraint:String {minLength: 1}
     string node?;
@@ -2795,9 +2845,6 @@ public type GetCustomFormResponseResponse record {
     GetCustomFormResponseResponseData[] data?;
     decimal status?;
 };
-
-# The Seller Extension object. The type code is SX6 (contains 6 attribute fields)
-public type SX6 SX6Inner[];
 
 # The Seller Extension object. The type code is SX58 (contains 8 attribute fields)
 public type SX8 SX8Inner[];
@@ -3015,17 +3062,30 @@ public type DeleteCustomerExtensionResponseResponse record {
     decimal status;
 };
 
+# 
 public type DeleteLookupTableRequest record {
-    DeleteTypeCodeData data;
-};
-
-public type DeleteUserRequest record {
     DeleteTypeCodeData data;
 };
 
 public type InlineResponse2008ResponseStateConfigurationObjectives record {
     @jsondata:Name {value: "Objectives"}
     InlineResponse2008ResponseStateConfigurationObjectivesObjectives objectives?;
+};
+
+# 
+public type DeleteUserRequest record {
+    DeleteTypeCodeData data;
+};
+
+public type ListCustomFormTypesResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    decimal startRow?;
+    @constraint:Array {minLength: 1}
+    ListCustomFormTypesResponseResponseData[] data?;
+    decimal endRow?;
+    decimal totalRows?;
+    decimal status?;
 };
 
 public type ListRollupsResponseResponseQueryDtoProjections record {
@@ -3043,17 +3103,6 @@ public type ListRollupsResponseResponseQueryDtoProjections record {
     ListRollupsResponseResponseQueryDtoProjectionsCosts marginPercent?;
 };
 
-public type ListCustomFormTypesResponseResponse record {
-    @constraint:String {minLength: 1}
-    string node?;
-    decimal startRow?;
-    @constraint:Array {minLength: 1}
-    ListCustomFormTypesResponseResponseData[] data?;
-    decimal endRow?;
-    decimal totalRows?;
-    decimal status?;
-};
-
 public type ListRebateAgreementItemsResponseResponse record {
     @constraint:String {minLength: 1}
     string node?;
@@ -3068,7 +3117,6 @@ public type ListRebateAgreementItemsResponseResponse record {
 public type DatamartloaddatadatasourceUniqueNameData record {
     # The data as a list of lists, with the inner lists representing rows, its field values appearing in the same order as specified in the `header` list
     anydata[][] data;
-    # Specify options of the bulk data insertion
     DatamartloaddatadatasourceUniqueNameDataOptions options?;
     # Specify header field names (table columns) of the record in the target Data Source
     string[] header;
@@ -3180,6 +3228,7 @@ public type ListRebateAgreementsResponseResponseData record {
     string rootUniqueName?;
 };
 
+# 
 public type MassEditRequest1 record {
     DatamartmassedittypedIdData data;
 };
@@ -3220,6 +3269,7 @@ public type LivePriceGridType record {
     int lastUpdateBy?;
 };
 
+# 
 public type ValidateWorkflowDelegationRequest record {
     WorkflowdelegationmanageraddData data;
 };
@@ -3472,15 +3522,15 @@ public type SamlSignOnQueries record {
     boolean keepSession?;
 };
 
+public type DeleteConditionTypeRequest record {
+    DeleteCOCTData data;
+};
+
 public type CustomermanagerassignDataCustomerGroup record {
     # The label of the customer assignment
     @constraint:String {minLength: 1}
     string label;
     CustomermanagerassignDataCustomerGroupCustomerFilterCriteria customerFilterCriteria?;
-};
-
-public type DeleteConditionTypeRequest record {
-    DeleteCOCTData data;
 };
 
 public type ImportmanagermassedittypedIdDataFilterCriteriaCriteria record {
@@ -3491,20 +3541,21 @@ public type ImportmanagermassedittypedIdDataFilterCriteriaCriteria record {
     string operator?;
 };
 
+# 
 public type CreateCustomFormRequest record {
     CustomformaddData data;
     @constraint:String {minLength: 1}
     string operation?;
 };
 
-public type DeleteLookupTableValueResponse1 record {
-    DeleteLookupTableValueResponse1Response response;
-};
-
 public type WithdrawDocumentResponseResponseData record {
     WithdrawDocumentResponseResponseWorkflow workflow?;
     @constraint:String {minLength: 1}
     string resultType?;
+};
+
+public type DeleteLookupTableValueResponse1 record {
+    DeleteLookupTableValueResponse1Response response;
 };
 
 public type FetchActivitiesEnvelope record {
@@ -3583,10 +3634,12 @@ public type SubmitCalculationGridItemResponse record {
     AddCalculationGridResponseResponse response?;
 };
 
+# 
 public type pricegriditemResponse record {
     pricegriditemResponse_response response?;
 };
 
+# 
 public type AddProductsToManualPriceListNoRecalcResponse record {
     AddPriceGridItemsToPriceGridResponseResponse response?;
 };
@@ -3640,12 +3693,12 @@ public type manualpricelistResponse_response_data record {
     decimal lastUpdateBy?;
 };
 
-public type UpdateSellerExtensionEnvelope record {
-    UpdateSellerExtensionResponse response?;
-};
-
 public type UpdateCalculationGridItemResponse record {
     AddCalculationGridItemResponseResponse response?;
+};
+
+public type UpdateSellerExtensionEnvelope record {
+    UpdateSellerExtensionResponse response?;
 };
 
 public type UpsertLookupTableValueResponseResponseData record {
@@ -3684,6 +3737,7 @@ public type InsertBulkDataFromFileAsyncRequest record {
     string joinFields?;
 };
 
+# 
 public type InsertBulkDataRequest record {
     LoaddataTypeCodeData data;
 };
@@ -3721,23 +3775,8 @@ public type contractModelResponse_response_outputs record {
 
 public type AddSellerResponse record {
     string node?;
-    # The Seller object. The type code is SL
     Seller data?;
     int status?;
-};
-
-public type CompensationRecordSetCalculationCalculationConfig record {
-    string? formulaName?;
-    string? feederFormulaName?;
-    string? simulationSet?;
-    string? targetDate?;
-    record {}[] inputParams?;
-    string? skuField?;
-    record {}[] mappingParams?;
-    string? targetDateField?;
-    CompensationLineItemInputs[] feederInputParams?;
-    string[]? targetFields?;
-    CompensationRecordSetCalculationCalculationConfigOutputElements[] outputElements?;
 };
 
 public type UpdateClaimTypeResponseResponseData record {
@@ -3756,6 +3795,20 @@ public type UpdateClaimTypeResponseResponseData record {
     int lastUpdateBy?;
 };
 
+public type CompensationRecordSetCalculationCalculationConfig record {
+    string? formulaName?;
+    string? feederFormulaName?;
+    string? simulationSet?;
+    string? targetDate?;
+    record {}[] inputParams?;
+    string? skuField?;
+    record {}[] mappingParams?;
+    string? targetDateField?;
+    CompensationLineItemInputs[] feederInputParams?;
+    string[]? targetFields?;
+    CompensationRecordSetCalculationCalculationConfigOutputElements[] outputElements?;
+};
+
 public type ContractmanageradditemsDataContractProductGroup record {
     anydata productFieldName?;
     anydata productFieldLabel?;
@@ -3765,6 +3818,7 @@ public type ContractmanageradditemsDataContractProductGroup record {
     ContractmanageradditemsDataContractProductGroupProductFilterCriteria productFilterCriteria?;
 };
 
+# 
 public type customerResponse record {
     anydata response?;
 };
@@ -3786,6 +3840,11 @@ public type CompensationRecordAgreementTerms record {|
     record {}...;
 |};
 
+public type ClicmanagerdeleteRebateCalculationData record {
+    string typedId?;
+};
+
+# 
 public type ListRebateAgreementItemsRequest record {
     decimal startRow?;
     @constraint:String {minLength: 1}
@@ -3799,8 +3858,13 @@ public type ListRebateAgreementItemsRequest record {
     boolean distinctResults?;
 };
 
-public type ClicmanagerdeleteRebateCalculationData record {
-    string typedId?;
+public type ListCalculationsResponseResponse record {
+    string node?;
+    int startRow?;
+    CompensationRecordSetCalculation[] data?;
+    int endRow?;
+    int totalRows?;
+    int status?;
 };
 
 # Options applicable for splicing process of the Condition Records
@@ -3813,22 +3877,12 @@ public type LoaddataTypeCodeDataOptionsConditionRecordsSplicing record {
     boolean supersedeRecords = false;
 };
 
-public type ListCalculationsResponseResponse record {
-    string node?;
-    int startRow?;
-    CompensationRecordSetCalculation[] data?;
-    int endRow?;
-    int totalRows?;
-    int status?;
-};
-
 public type AddCFOTData record {
     # A name of the Custom Form Type
     @constraint:String {minLength: 1}
     string uniqueName;
     # List of entities, which are allowed to embed this custom form type (Quote, standalone Custom Form). This is meaningful only when embedded is `true`
     string supportedParentTypeCodes?;
-    # Applies only to standalone Custom Forms, add a JSON definition describing the content of the Custom Form – its steps and tabs
     AddCFOTDataConfiguration configuration?;
     # Applies to standalone Custom Forms. Select a module in whose main menu you want to have this Custom Form available
     @constraint:String {minLength: 1}
@@ -3869,20 +3923,18 @@ public type assignmentResponse_response_data record {
     decimal lastUpdateBy?;
 };
 
+# 
 public type ListGroupsOfBusinessRoleResponse record {
     ListRolesOfBusinessRoleResponseResponse response?;
 };
 
+# 
 public type loaddataResponse record {
     loaddataResponse_response response?;
 };
 
 public type DatamartsqlqueryDataSourcesS0QueryProjectionsQuantityParameters record {
     string 'field?;
-};
-
-public type AssignRoleToUserResponse record {
-    AddPriceGridItemsToPriceGridResponseResponse response?;
 };
 
 public type UpdateClaimTypeRequest record {
@@ -3893,11 +3945,15 @@ public type UpdateClaimTypeRequest record {
 };
 
 public type SaveRebateCalculationRequest record {
-    # The type code is RRSC
     RebateRecordSetCalculation data?;
     string textMatchStyle?;
     string operationType?;
     record {}? oldValues?;
+};
+
+# 
+public type AssignRoleToUserResponse record {
+    AddPriceGridItemsToPriceGridResponseResponse response?;
 };
 
 # Specify options of the bulk data insertion
@@ -3911,6 +3967,10 @@ public type ClicmanagerImportlineitemstypedIdBody record {
 
 public type DataChangeRequestMassChangeEnvelope record {
     InlineResponse20041Response response?;
+};
+
+public type AccountmanagerChangetermsofuseBody record {
+    AccountmanagerchangetermsofuseData[] data?;
 };
 
 public type ExecuteDataLoadLogicResponseResponseContextParameters record {
@@ -3938,18 +3998,15 @@ public type ExecuteDataLoadLogicResponseResponseContextParameters record {
     anydata value?;
 };
 
-public type AccountmanagerChangetermsofuseBody record {
-    AccountmanagerchangetermsofuseData[] data?;
+public type ListRecommendationsRequest record {
+    RecommendationsrecommendData data;
 };
 
 public type GetCustomFormResponseResponseCustomFormTypeObjectConfiguration record {
     GetCustomFormResponseResponseCustomFormTypeObjectConfigurationDefault default?;
 };
 
-public type ListRecommendationsRequest record {
-    RecommendationsrecommendData data;
-};
-
+# 
 public type AddLookupTableRequest record {
     LookuptablemanageraddData data;
     @constraint:String {minLength: 1}
@@ -3973,6 +4030,7 @@ public type FormulamanagerexecutelibraryfunctionformulaNameelementNamefunctionNa
     boolean allowObjectMods?;
 };
 
+# 
 public type DeletePriceListItemResponse record {
     DeletePriceListItemResponseResponse response?;
 };
@@ -4021,6 +4079,7 @@ public type ExecuteAssignedLogicResponseResponseData record {
     string resultLabel?;
 };
 
+# 
 public type ListAllLookupTablesRequest record {
     # The number of the first row that defines the start of the result set's returned objects. Use this parameter if you want to implement paging for results
     decimal startRow?;
@@ -4035,6 +4094,20 @@ public type ListAllLookupTablesRequest record {
     anydata oldValues?;
 };
 
+public type FetchPendingReviewsEnvelope record {
+    InlineResponse2011Response response?;
+};
+
+public type InlineResponse2011ResponseData record {
+    string subStepLabel?;
+    string documentLabel?;
+    string userGroupName?;
+    string liGroupName?;
+    string documentUniqueName?;
+    string stepLabel?;
+    string documentTypedId?;
+};
+
 public type InlineResponse20064DataStatsQuerierStoreChunk record {
     int headChunkBytes?;
     int decompressedBytes?;
@@ -4047,12 +4120,13 @@ public type InlineResponse20064DataStatsQuerierStoreChunk record {
     int headChunkStructuredMetadataBytes?;
 };
 
-public type GetOneTimeTokenResponse record {
-    GenerateJWTTokenResponseResponse response?;
-};
-
 public type InlineResponse20076ResponseData record {
     string deletedItem?;
+};
+
+# 
+public type GetOneTimeTokenResponse record {
+    GenerateJWTTokenResponseResponse response?;
 };
 
 public type InlineResponse20034ResponseData record {
@@ -4289,6 +4363,7 @@ public type WithdrawDocumentResponseResponseWorkflowSteps record {
     record {}[] mandatoryComments?;
 };
 
+# 
 public type DeleteCalculatedFieldSetRequest record {
     DeleteTypeCodeData data;
 };
@@ -4311,6 +4386,7 @@ public type LookuptablemanagerupdatetableIdData record {
     string attribute1;
 };
 
+# 
 public type UpsertProductExtensionRequest record {
     IntegratePXData data;
 };
@@ -4329,6 +4405,7 @@ public type SubmitRebateRecordGroupResponse record {
     int status?;
 };
 
+# 
 public type tokenResponse record {
     string access\-token;
     string refresh\-token;
@@ -4336,12 +4413,12 @@ public type tokenResponse record {
     decimal expires\-in;
 };
 
-public type DatamartsqlqueryDataSourcesS0QueryOptions record {
-    string currency?;
-};
-
 public type CommentmanagerReplyBody record {
     CommentmanagerreplyData data?;
+};
+
+public type DatamartsqlqueryDataSourcesS0QueryOptions record {
+    string currency?;
 };
 
 public type ListAllLookupTablesResponseResponseData record {
@@ -4386,7 +4463,6 @@ public type DcrmanagerUpdatemassopidBody record {
     DcrmanagerupdatemassopidData data?;
     string textMatchStyle?;
     string operationType?;
-    # The type code is DCRMC
     DataChangeRequestMassChange oldValues?;
 };
 
@@ -4407,6 +4483,7 @@ public type DeleteObjectsResponseResponse record {
     decimal status?;
 };
 
+# 
 public type CalculateManualPriceListResponse record {
     MassEditDatamartResponseResponse response?;
 };
@@ -4420,10 +4497,12 @@ public type ProductmanagerfetchformulafilteredproductsDataCriteria record {
     "equals"|"iEquals"|"notEqual"|"iNotEqual"|"isNull"|"notNull"|"contains"|"iContains"|"containsPattern"|"iContainsPattern"|"notContains"|"iNotContains"|"startsWith"|"iStartsWith"|"notStartsWith"|"iNotStartsWith"|"endsWith"|"iEndsWith"|"notEndsWith"|"iNotEndsWith"|"iBetween"|"iBetweenInclusive"|"inSet"|"notInSet" operator?;
 };
 
+# 
 public type CreateCustomFormEnvelope record {
     CreateCustomFormResponse response?;
 };
 
+# 
 public type UploadBulkDataToDataSourceRequest record {
     DatamartloaddatadatasourceUniqueNameData data;
 };
@@ -4445,6 +4524,11 @@ public type InlineResponse20063Response record {
     int status?;
 };
 
+public type SubmitProductsResponseResponseItemExtensions record {
+    SubmitProductsResponseResponseItemExtensionsCellStyles cellStyles;
+};
+
+# 
 public type ListAllLookupTableValuesRequest record {
     # The number of the first row that defines the start of the result set's returned objects. Use this parameter if you want to implement paging for results
     decimal startRow?;
@@ -4456,10 +4540,6 @@ public type ListAllLookupTableValuesRequest record {
     string operationType?;
     record {}[] sortBy?;
     anydata oldValues?;
-};
-
-public type SubmitProductsResponseResponseItemExtensions record {
-    SubmitProductsResponseResponseItemExtensionsCellStyles cellStyles;
 };
 
 public type ListEventTasksEnvelope record {
@@ -4481,6 +4561,27 @@ public type AddCFOTDataConfigurationDefaultTabsDetails record {
     string 'type;
 };
 
+# Proxy server configurations to be used with the HTTP client endpoint.
+public type ProxyConfig record {|
+    # Host name of the proxy server
+    string host = "";
+    # Proxy server port
+    int port = 0;
+    # Proxy server username
+    string userName = "";
+    # Proxy server password
+    @display {label: "", kind: "password"}
+    string password = "";
+|};
+
+public type ExecuteModelLogicResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    record {}[] data?;
+    decimal status?;
+};
+
+# 
 public type ListQuotesRequest record {
     # The number of the first row that defines the start of the result set's returned objects. Use this parameter if you want to implement paging for results
     decimal startRow?;
@@ -4494,17 +4595,6 @@ public type ListQuotesRequest record {
     anydata oldValues?;
 };
 
-public type ExecuteModelLogicResponseResponse record {
-    @constraint:String {minLength: 1}
-    string node?;
-    record {}[] data?;
-    decimal status?;
-};
-
-public type DatamartsqlqueryDataWith record {
-    string w0?;
-};
-
 public type OptimizationupdatejstData record {
     OptimizationupdatejstDataLogEvents[] logEvents?;
     string[] calculationMessages?;
@@ -4514,6 +4604,11 @@ public type OptimizationupdatejstData record {
     string status?;
 };
 
+public type DatamartsqlqueryDataWith record {
+    string w0?;
+};
+
+# 
 public type ExportCSVFileRequest record {
     DatamartexportdataxlsxData data;
 };
@@ -4527,6 +4622,7 @@ public type InlineResponse20087Response record {
     int status?;
 };
 
+# 
 public type UpdateCustomerRequest record {
     UpdateCData data;
     @constraint:String {minLength: 1}
@@ -4545,18 +4641,19 @@ public type CommentmanageraddData record {
     string body?;
 };
 
+# 
 public type DeleteObjectsForceFilterRequest record {
     DeleteTypeCodebatchforcefilterData data;
+};
+
+public type SubmitDCRResponse record {
+    AddDCRResponseResponse response?;
 };
 
 public type AddCompensationTypeResponse record {
     string node?;
     CompensationHeaderType[] data?;
     int status?;
-};
-
-public type SubmitDCRResponse record {
-    AddDCRResponseResponse response?;
 };
 
 public type NotificationsendData record {
@@ -4743,10 +4840,16 @@ public type InlineResponse20045ResponseWorkflow record {
     string isAddStepRestrictedToWFAdmin?;
 };
 
+# Represents the Queries record for the operation: downloadFile
+public type DownloadFileQueries record {
+    # Use `file` to download the binary content
+    string output?;
+};
+
+# 
 public type UpdateProductRequest record {
     # Set to `true` when this operation should NOT trigger an update event (where applicable)
     string noEvent?;
-    # Enter new field values. Multiple values can be updated. In our example the unitOfMeasure and label properties were updated
     UpdatePData data;
     @constraint:String {minLength: 1}
     string textMatchStyle?;
@@ -4754,12 +4857,6 @@ public type UpdateProductRequest record {
     @constraint:String {minLength: 1}
     string operationType?;
     UpdatePOldValues oldValues;
-};
-
-# Represents the Queries record for the operation: downloadFile
-public type DownloadFileQueries record {
-    # Use `file` to download the binary content
-    string output?;
 };
 
 public type CompensationRecordCalculationResults record {
@@ -4797,6 +4894,7 @@ public type GetCalculationGridItemResponseResponse record {
     int status?;
 };
 
+# 
 public type dmobjectResponse record {
     dmobjectResponse_response response?;
 };
@@ -4902,6 +5000,7 @@ public type InlineResponse2009ResponseState record {
     InlineResponse2009ResponseStateTwoTabs twoTabs?;
 };
 
+# 
 public type GenerateParametersRequest record {
     FormulamanagertestparamsData data;
 };
@@ -5070,6 +5169,11 @@ public type QuotemanagersaveDataQuote record {
     decimal lastUpdateBy;
 };
 
+# 
+public type UpsertContractRequest record {
+    ContractmanagersaveData data;
+};
+
 public type QuotemanagerpriceDataQuote record {
     record {}[] outputs;
     @constraint:String {minLength: 1}
@@ -5145,10 +5249,6 @@ public type QuotemanagerpriceDataQuote record {
     decimal lastUpdateBy;
 };
 
-public type UpsertContractRequest record {
-    ContractmanagersaveData data;
-};
-
 public type CalculateCFSResponseResponseData record {
     anydata processingStart?;
     @constraint:String {minLength: 1}
@@ -5207,6 +5307,7 @@ public type QueryDataManagerObjectResponseResponse record {
     decimal status?;
 };
 
+# 
 public type GetDMObjectResponse record {
     GetDMObjectResponseResponse response?;
 };
@@ -5265,6 +5366,19 @@ public type LoaddataPXDataOptions record {
     # A list of fields (that also need to appear in `header` and `data) that make up the business key
     string[] joinFields?;
     boolean detectJoinFields = true;
+};
+
+public type CompensationRecordCalculationBase record {
+    record {}[] excludedCustomerGroups?;
+    string dateDimFieldName?;
+    record {}[] includedSellerReferences?;
+    record {}[] includedCustomerGroups?;
+    record {}[] excludedTimePeriods?;
+    record {}[] excludedproductGroups?;
+    string[] otherFilters?;
+    record {}[] includedProductGroups?;
+    record {}[] excludedSellerReferences?;
+    CompensationLineItemCalculationBaseIncludedTimePeriods[] includedTimePeriods?;
 };
 
 public type QuotemanagersubmitDataQuote record {
@@ -5342,24 +5456,12 @@ public type QuotemanagersubmitDataQuote record {
     decimal lastUpdateBy?;
 };
 
-public type CompensationRecordCalculationBase record {
-    record {}[] excludedCustomerGroups?;
-    string dateDimFieldName?;
-    record {}[] includedSellerReferences?;
-    record {}[] includedCustomerGroups?;
-    record {}[] excludedTimePeriods?;
-    record {}[] excludedproductGroups?;
-    string[] otherFilters?;
-    record {}[] includedProductGroups?;
-    record {}[] excludedSellerReferences?;
-    CompensationLineItemCalculationBaseIncludedTimePeriods[] includedTimePeriods?;
-};
-
 public type CompensationRecordCalculationBaseAsAdvancedFilterCriteria record {|
     string? _constructor?;
     record {}?...;
 |};
 
+# 
 public type AssignGroupToBusinessRoleResponse record {
     AddPriceGridItemsToPriceGridResponseResponse response?;
 };
@@ -5387,10 +5489,6 @@ public type ClicmanageradditemstypedIdDataContractTermTypes record {
     string contractTermType?;
     ClicmanageradditemstypedIdDataInputs[] inputs?;
     string label?;
-};
-
-public type RecalculateClicEnvelope record {
-    InlineResponse20031Response response?;
 };
 
 # The type code is CRCI12.<p>
@@ -5471,6 +5569,10 @@ public type ConditionRecordItem12Key record {
     int lastUpdateBy?;
 };
 
+public type RecalculateClicEnvelope record {
+    InlineResponse20031Response response?;
+};
+
 public type UpdatePGTTData record {
     string lastUpdateByName?;
     UpdatePGTTDataTypeConfiguration typeConfiguration?;
@@ -5522,6 +5624,7 @@ public type assignmentResponse_response_customerGroup_customerFilterCriteria_cri
     string[] value?;
 };
 
+# 
 public type DenyDocumentResponse record {
     DenyDocumentResponseResponse response?;
 };
@@ -5567,7 +5670,6 @@ public type InlineResponse20031ResponseData record {
     string expiryDate?;
     # Returns `true` when a folder is added, renamed,  deleted, or moved
     boolean folderChanged?;
-    # Stats result of the currently performed calculation
     InlineResponse20031ResponseDurations durations?;
     # Returns `lineId` when an input is added, or updated by a header logic
     string[] inputChanged?;
@@ -5663,15 +5765,12 @@ public type ConfigurationStorageOperationEnvelope record {
 public type OauthAuthorizeQueries record {
     # The scope of the access request
     string scope?;
-    # Value MUST be set to "code"
     @http:Query {name: "response_type"}
     string responseType;
-    # The URL to redirect to after authorization has been granted
     @http:Query {name: "redirect_uri"}
     string redirectUri?;
     # An opaque value used by the client to maintain state between the request and callback
     string state?;
-    # The client identifier
     @http:Query {name: "client_id"}
     string clientId;
 };
@@ -5684,17 +5783,15 @@ public type InsertBulkDataFromFileResponse record {
 public type OauthTokenQueries record {
     # The authorization code received from the authorization server
     string code;
-    # Value MUST be set to "authorization_code"
     @http:Query {name: "grant_type"}
     string grantType;
-    # Required if the "redirect_uri" parameter was included in the authorization request and their values MUST be identical
     @http:Query {name: "redirect_uri"}
     string redirectUri?;
-    # Required if the client is not authenticating with the authorization server
     @http:Query {name: "client_id"}
     string clientId?;
 };
 
+# 
 public type CountMassActionItemsRequest record {
     PricegridmanagermassactioncountidData data;
 };
@@ -5727,6 +5824,7 @@ public type InlineResponse2008ResponseStateConfigurationAdvancedAdvanced record 
     int maxDurationMinutes?;
 };
 
+# 
 public type TestLogicRequest record {
     FormulamanagertestexecData data;
 };
@@ -5801,10 +5899,12 @@ public type rebateagreementResponse_response_viewState record {
     anydata selectedNodes?;
 };
 
+# 
 public type CopyRolesResponse record {
     AddPriceGridItemsToPriceGridResponseResponse response?;
 };
 
+# 
 public type AssignUserGroupToUsersRequest record {
     AccountmanagerassigngroupData data;
 };
@@ -5878,6 +5978,10 @@ public type RebaterecordgrouppreviewtypedIdDataRebateRecordGroup record {
     int lastUpdateBy?;
 };
 
+public type NotificationSetreadBody record {
+    NotificationsetreadData data?;
+};
+
 public type DMDataLoadProgressInfo record {
     boolean running?;
     boolean success?;
@@ -5887,10 +5991,6 @@ public type DMDataLoadProgressInfo record {
     boolean failed?;
     int errors?;
     "WAITING_FOR_DISPATCH"|"QUEUED_FOR_EXECUTION"|"PROCESSING"|"FAILED"|"FINISHED"|"CANCELLED"|"INTERRUPTED" status?;
-};
-
-public type NotificationSetreadBody record {
-    NotificationsetreadData data?;
 };
 
 public type InlineResponse20045ResponseData record {
@@ -5963,8 +6063,8 @@ public type ListCalculatedFieldSetsResponseResponseData record {
     string status?;
 };
 
+# 
 public type UpsertObjectRequest record {
-    # Specify field names and values you want to insert or update
     IntegrateTypeCodeData data;
 };
 
@@ -6080,10 +6180,12 @@ public type InlineResponse20064DataStatsQuerierStore record {
     int chunksDownloadTime?;
 };
 
+# 
 public type userResponse record {
     userResponse_response response?;
 };
 
+# 
 public type AddWatcherStepResponse record {
     AddWatcherStepResponseResponse response?;
 };
@@ -6095,6 +6197,7 @@ public type UpdateAITBody record {
     UpdateAITOldValues oldValues?;
 };
 
+# 
 public type ListProductSetsResponse record {
     ListProductSetsResponseResponse response?;
 };
@@ -6163,6 +6266,7 @@ public type DeleteCommentEnvelope record {
     InlineResponse20076Response response?;
 };
 
+# 
 public type ListCustomFormTypesRequest record {
     decimal startRow?;
     @constraint:String {minLength: 1}
@@ -6172,15 +6276,6 @@ public type ListCustomFormTypesRequest record {
     @constraint:String {minLength: 1}
     string operationType?;
     anydata oldValues?;
-};
-
-public type ListCompensationTypesResponse record {
-    string node?;
-    int startRow?;
-    CompensationHeaderType[] data?;
-    int endRow?;
-    int totalRows?;
-    int status?;
 };
 
 public type UserBusinessRoles record {
@@ -6194,6 +6289,15 @@ public type UserBusinessRoles record {
     int version?;
     string createDate?;
     int lastUpdateBy?;
+};
+
+public type ListCompensationTypesResponse record {
+    string node?;
+    int startRow?;
+    CompensationHeaderType[] data?;
+    int endRow?;
+    int totalRows?;
+    int status?;
 };
 
 public type ListElementsResponseResponse record {
@@ -6271,8 +6375,25 @@ public type CreateSignatureRequest record {
     CompensationcreatesignaturetypedIdData data?;
 };
 
+# 
 public type AssignRoleToUsersResponse record {
     AddPriceGridItemsToPriceGridResponseResponse response?;
+};
+
+# 
+public type AssignUserToUserGroupResponse record {
+    RevokeDealResponseResponse response?;
+};
+
+public type ContractmanagersaveDataContractProductGroup record {
+    @constraint:String {minLength: 1}
+    string productFieldName?;
+    @constraint:String {minLength: 1}
+    string productFieldLabel?;
+    @constraint:String {minLength: 1}
+    string productFieldValue?;
+    anydata label?;
+    anydata productFilterCriteria?;
 };
 
 public type RebateagreementsaveDataRebateAgreementInputs record {
@@ -6299,21 +6420,6 @@ public type RebateagreementsaveDataRebateAgreementInputs record {
     @constraint:String {minLength: 1}
     string name?;
     RebateagreementsaveDataRebateAgreementValue value?;
-};
-
-public type AssignUserToUserGroupResponse record {
-    RevokeDealResponseResponse response?;
-};
-
-public type ContractmanagersaveDataContractProductGroup record {
-    @constraint:String {minLength: 1}
-    string productFieldName?;
-    @constraint:String {minLength: 1}
-    string productFieldLabel?;
-    @constraint:String {minLength: 1}
-    string productFieldValue?;
-    anydata label?;
-    anydata productFilterCriteria?;
 };
 
 public type DeleteKVKeyRequest record {
@@ -6381,7 +6487,6 @@ public type ClaimTypeConfigurationColumnsSku record {
 };
 
 public type UpdateJCSBody record {
-    # The type code is JCS. Stores configuration for **Strategy Designer** and **Formula Designer**
     JsonConfigurationStorage data?;
     ConditionrecordsetupdateidOldValues oldValues?;
 };
@@ -6392,6 +6497,7 @@ public type UpdateCLTDataConfigurationColumnsSku record {
     string? name?;
 };
 
+# 
 public type DeleteObjectsResponse record {
     DeleteObjectsResponseResponse response?;
 };
@@ -6403,6 +6509,7 @@ public type LookuptablemanagerloaddataTypeCodeData record {
     anydata[] header;
 };
 
+# 
 public type ListWorkflowsResponse record {
     ListWorkflowsResponseResponse response?;
 };
@@ -6416,12 +6523,13 @@ public type ListClaimTypesResponseResponse record {
     int status?;
 };
 
-public type GenerateParametersResponse record {
-    ListElementsResponseResponse response?;
-};
-
 public type QueryApiExecuteEnvelope record {
     InlineResponse20084Response response?;
+};
+
+# 
+public type GenerateParametersResponse record {
+    ListElementsResponseResponse response?;
 };
 
 # The type code is CX10
@@ -6469,7 +6577,7 @@ public type PricegridmanagerupdateidOldValues record {
     string label?;
     boolean completeResultsAvailable?;
     @jsondata:Name {value: "_key"}
-    string 'key?;
+    string key?;
     decimal version;
     boolean manualPriceExpired?;
     decimal createdBy?;
@@ -6493,12 +6601,13 @@ public type InlineResponse20048Response record {
     int status?;
 };
 
-public type GetLogicReferencesResponse record {
-    GetLogicReferencesResponseResponse response;
-};
-
 public type ResolveCommentEnvelope record {
     InlineResponse20078Response response?;
+};
+
+# 
+public type GetLogicReferencesResponse record {
+    GetLogicReferencesResponseResponse response;
 };
 
 public type DatamartrundataloadDataCalculationConfig record {
@@ -6517,14 +6626,6 @@ public type RebateagreementfetchitemsData record {
     RebateagreementfetchitemsDataRebateAgreement rebateAgreement?;
 };
 
-public type DeletePriceListItemResponseResponse record {
-    @constraint:String {minLength: 1}
-    string node?;
-    string csrfToken?;
-    string[] data?;
-    decimal status?;
-};
-
 public type ListRebateCalculationsResponseResponse record {
     string node?;
     int startRow?;
@@ -6532,6 +6633,14 @@ public type ListRebateCalculationsResponseResponse record {
     int endRow?;
     int totalRows?;
     int status?;
+};
+
+public type DeletePriceListItemResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    string csrfToken?;
+    string[] data?;
+    decimal status?;
 };
 
 public type quoteResponse_response_lineItems record {
@@ -6564,13 +6673,13 @@ public type quoteResponse_response_lineItems record {
     decimal lastUpdateBy;
 };
 
-public type ValidateClaimItemsResponse record {
-    ValidateClaimItemsResponseResponse response?;
-};
-
 public type QueryapiexecuteDataQueryTable record {
     string dataSourceUniqueName?;
     string kind?;
+};
+
+public type ValidateClaimItemsResponse record {
+    ValidateClaimItemsResponseResponse response?;
 };
 
 public type PricegridmanagerdeleteidbatchDataFilterCriteriaCriteria record {
@@ -6867,6 +6976,7 @@ public type ListPendingApprovalsResponseResponseData record {
     decimal lastUpdateBy?;
 };
 
+# 
 public type ListUserPendingApprovalsResponse record {
     ListPendingApprovalsResponseResponse response?;
 };
@@ -6942,6 +7052,7 @@ public type JobStatusTrackerResponse_response record {
     decimal status?;
 };
 
+# 
 public type UpsertProductManualPriceListRequest record {
     ManualpricelistmanagerintegrateidData data;
 };
@@ -6956,6 +7067,7 @@ public type LookuptablemanagerdeletetableIdbatchDataFilterCriteriaCriteria recor
     string operator?;
 };
 
+# 
 public type MassUpdateRequest record {
     MasseditTypeCodeData data;
 };
@@ -7185,6 +7297,7 @@ public type CreateWorkflowDelegationResponseResponse record {
     decimal status?;
 };
 
+# 
 public type SyntaxCheckRequest record {
     FormulamanagercheckData data;
 };
@@ -7195,6 +7308,10 @@ public type ProductmanagerimportproductcompetitionData record {
     "INSERT"|"UPDATE" importStrategy;
     @constraint:Array {minLength: 1}
     ProductmanagerimportproductcompetitionDataProducts[] products;
+};
+
+public type RebaterecordgroupmasssubmittypedIdData record {
+    RebaterecordgroupmasssubmittypedIdDataFilterCriteria filterCriteria?;
 };
 
 # JSON that represents the whole draft formula (the same format as used for the update command)
@@ -7209,10 +7326,6 @@ public type FormulamanagertestparamsDataTestFormula record {
     string validAfter;
     @constraint:String {minLength: 1}
     string status;
-};
-
-public type RebaterecordgroupmasssubmittypedIdData record {
-    RebaterecordgroupmasssubmittypedIdDataFilterCriteria filterCriteria?;
 };
 
 public type ListFilesEnvelope record {
@@ -7461,7 +7574,6 @@ public type ListCompensationPlansResponse record {
 public type CreateCustomFormResponse record {
     @constraint:String {minLength: 1}
     string node?;
-    # The Type code is CFO
     CustomForm data?;
     decimal status?;
 };
@@ -7493,14 +7605,15 @@ public type AddMPLData record {
     string status;
 };
 
-public type MassEditManualPriceListResponse record {
-    MassEditManualPriceListResponseResponse response?;
-};
-
 public type ContractmanagersaveDataContractServerMessagesExtended record {
     anydata 'key?;
     @constraint:String {minLength: 1}
     string message;
+};
+
+# 
+public type MassEditManualPriceListResponse record {
+    MassEditManualPriceListResponseResponse response?;
 };
 
 public type RebaterecordgroupmasssubmittypedIdDataFilterCriteria record {
@@ -7540,19 +7653,18 @@ public type InlineResponse2009ResponseJobSettings record {
     string uuid?;
 };
 
+# Represents the Queries record for the operation: downloadLivePriceGridExcelFile
+public type DownloadLivePriceGridExcelFileQueries record {
+    # Specifies the template to be used when exporting a file
+    string templateName?;
+};
+
 public type FormulamanagertestparamsData record {
     string item?;
     # The validity date of the formula
     @constraint:String {minLength: 1}
     string targetDate;
-    # JSON that represents the whole draft formula (the same format as used for the update command)
     FormulamanagertestparamsDataTestFormula testFormula;
-};
-
-# Represents the Queries record for the operation: downloadLivePriceGridExcelFile
-public type DownloadLivePriceGridExcelFileQueries record {
-    # Specifies the template to be used when exporting a file
-    string templateName?;
 };
 
 # Object with custom translations with structure. It tries to pick label according to your language, otherwise it pick label from `""` key. After that translationKey is used
@@ -7663,6 +7775,7 @@ public type UpdateCLData record {
     int version;
 };
 
+# 
 public type GetDefaultPricingLogicNameResponse record {
     GetDefaultPricingLogicNameResponseResponse response?;
 };
@@ -7672,6 +7785,7 @@ public type UpdateSXData record {
     string typedId;
 };
 
+# 
 public type UpdateWorkflowDelegationResponse record {
     UpdateWorkflowDelegationResponseResponse response?;
 };
@@ -7685,6 +7799,7 @@ public type AccountmanagerfetchusersData record {
     string operator?;
 };
 
+# 
 public type AssignBusinessRoleResponse record {
     AddPriceGridItemsToPriceGridResponseResponse response?;
 };
@@ -7710,13 +7825,13 @@ public type ListDataLoadsResponseResponseCalculationConfig record {
     record {}[] outputElements?;
 };
 
+# 
 public type UpsertCustomerExtensionRequest record {
     IntegrateCData data;
 };
 
 # Represents the Headers record for the operation: deleteAuthToken
 public type DeleteAuthTokenHeaders record {
-    # The Pricefx API key. Contact Pricefx Support to get your Pricefx-Key
     @http:Header {name: "Pricefx-Key"}
     string pricefxKey?;
 };
@@ -7850,39 +7965,33 @@ public type ListDataLoadsResponseResponse record {
 @display {label: "Connection Config"}
 public type ConnectionConfig record {|
     # Provides Auth configurations needed when communicating with a remote HTTP endpoint.
-    http:CredentialsConfig|ApiKeysConfig auth;
+    http:BearerTokenConfig|OAuth2RefreshTokenGrantConfig|http:CredentialsConfig|ApiKeysConfig auth;
     # The HTTP version understood by the client
     http:HttpVersion httpVersion = http:HTTP_2_0;
     # Configurations related to HTTP/1.x protocol
-    http:ClientHttp1Settings http1Settings = {};
+    ClientHttp1Settings http1Settings?;
     # Configurations related to HTTP/2 protocol
-    http:ClientHttp2Settings http2Settings = {};
+    http:ClientHttp2Settings http2Settings?;
     # The maximum time to wait (in seconds) for a response before closing the connection
-    decimal timeout = 30;
+    decimal timeout = 60;
     # The choice of setting `forwarded`/`x-forwarded` header
     string forwarded = "disable";
-    # Configurations associated with Redirection
-    http:FollowRedirects followRedirects?;
     # Configurations associated with request pooling
     http:PoolConfiguration poolConfig?;
     # HTTP caching related configurations
-    http:CacheConfig cache = {};
+    http:CacheConfig cache?;
     # Specifies the way of handling compression (`accept-encoding`) header
     http:Compression compression = http:COMPRESSION_AUTO;
     # Configurations associated with the behaviour of the Circuit Breaker
     http:CircuitBreakerConfig circuitBreaker?;
     # Configurations associated with retrying
     http:RetryConfig retryConfig?;
-    # Configurations associated with cookies
-    http:CookieConfig cookieConfig?;
     # Configurations associated with inbound response size limits
-    http:ResponseLimitConfigs responseLimits = {};
+    http:ResponseLimitConfigs responseLimits?;
     # SSL/TLS-related options
     http:ClientSecureSocket secureSocket?;
     # Proxy server related options
     http:ProxyConfig proxy?;
-    # Provides settings related to client socket configuration
-    http:ClientSocketConfig socketConfig = {};
     # Enables the inbound payload validation functionality which provided by the constraint package. Enabled by default
     boolean validation = true;
     # Enables relaxed data binding on the client side. When enabled, `nil` values are treated as optional, 
@@ -7890,8 +7999,8 @@ public type ConnectionConfig record {|
     boolean laxDataBinding = true;
 |};
 
+# 
 public type UpsertProductRequest record {
-    # Specify field names and values you want to insert or update
     IntegratePData data;
 };
 
@@ -7940,6 +8049,7 @@ public type ListEntityFieldsResponseResponseData record {
     string typeCode?;
 };
 
+# 
 public type DeleteWorkflowDelegationResponse record {
     CreateWorkflowDelegationResponseResponse response?;
 };
@@ -8070,14 +8180,16 @@ public type RebateRecordGroupCalculationResults record {
     string resultLabel?;
 };
 
-public type DeleteBusinessRoleRequest record {
-    AccountmanagerdeletebusinessroleData data;
-};
-
 public type NotificationSendBody record {
     NotificationsendData data?;
 };
 
+# 
+public type DeleteBusinessRoleRequest record {
+    AccountmanagerdeletebusinessroleData data;
+};
+
+# 
 public type UpdateLivePriceGridItemRequest record {
     PricegridmanagerupdateidData data;
     @constraint:String {minLength: 1}
@@ -8085,10 +8197,10 @@ public type UpdateLivePriceGridItemRequest record {
     # Must be 'update' or null or omitted
     @constraint:String {minLength: 1}
     string operationType?;
-    # Values of the object before the update. Especially important is `typedId` (to identify the object to update) and `version` (to detect date inconsistencies)
     PricegridmanagerupdateidOldValues oldValues?;
 };
 
+# 
 public type DeleteUserGroupResponse record {
     DeleteUserGroupResponseResponse response?;
 };
@@ -8239,6 +8351,7 @@ public type CX6 record {
     int lastUpdateBy?;
 };
 
+# 
 public type ListCustomerAssignmentsRequest record {
     decimal startRow?;
     @constraint:String {minLength: 1}
@@ -8335,17 +8448,16 @@ public type ApproveDocumentResponseResponseWorkflow record {
     string isAddStepRestrictedToWFAdmin?;
 };
 
+# 
 public type UpdateObjectReturnOldDataRequest record {
     # Set to `true` when this operation should NOT trigger an update event (where applicable)
     string noEvent?;
-    # Enter new field values. Multiple values can be updated. In our example the unitOfMeasure and label properties were updated
     UpdatePData data;
     @constraint:String {minLength: 1}
     string textMatchStyle?;
     # Must be 'update' or null or omitted
     @constraint:String {minLength: 1}
     string operationType?;
-    # Values of the object before the update. Especially important are `typedId` (to identify the object to update) and `version` (to detect date inconsistencies)
     UpdateTypeCodereturnolddataOldValues oldValues;
 };
 
@@ -8357,6 +8469,7 @@ public type InlineResponse20056Response record {
     int status?;
 };
 
+# 
 public type DeleteCustomerResponse record {
     DeleteCustomerResponseResponse response;
 };
@@ -8436,6 +8549,7 @@ public type OptimizationmodelcalcexectypedIdstepNamecalcNameitemDataCriteria rec
     string operator;
 };
 
+# 
 public type UpsertQuoteRequest record {
     QuotemanagersaveData data;
 };
@@ -8479,14 +8593,14 @@ public type ImportmanagersubmittypedIdData record {
     ImportmanagersubmittypedIdDataImportOptions importOptions?;
 };
 
-public type BulkDataUploadEnvelope record {
-    InlineResponse2005Response response?;
-};
-
 # Represents the Queries record for the operation: exportCsvFile
 public type ExportCsvFileQueries record {
     # Set this parameter to override the default timeout (60 seconds) of the query. The maximum allowed timeout is 300 seconds. The default timeout value and the maximum timeout value can be configured in the backend. Setting higher timeout can be useful, for example, when a query takes long time (e.g., when processing large tables)
     string timeout = "60";
+};
+
+public type BulkDataUploadEnvelope record {
+    InlineResponse2005Response response?;
 };
 
 public type ListAllLookupTablesResponseResponse record {
@@ -8512,6 +8626,7 @@ public type InlineResponse20077Response record {
     int status?;
 };
 
+# 
 public type GenerateJWTTokenTimeLimitedResponse record {
     GenerateJWTTokenResponseResponse response?;
 };
@@ -8546,16 +8661,18 @@ public type UpdateCLTDataConfigurationColumns record {
     UpdateCLTDataConfigurationColumnsSku sku?;
 };
 
+# 
 public type ListLogicInputFieldsResponse record {
     ListElementsResponseResponse response?;
 };
 
-public type DeleteProductFromManualPriceListRequest record {
-    ManualpricelistmanagerdeleteidData data;
-};
-
 public type ListCompensationRecordsResponse record {
     ListCompensationRecordsResponseResponse response?;
+};
+
+# 
+public type DeleteProductFromManualPriceListRequest record {
+    ManualpricelistmanagerdeleteidData data;
 };
 
 public type RebateagreementfetchitemsDataRebateAgreementInputs record {
@@ -8717,16 +8834,19 @@ public type dmobjectResponse_response record {
 };
 
 public type AddConditionTypeRequest record {
-    # The CompensationConditionType object. The type code is COCT.<p>
-    # Defines which logic will be used to calculate particular Compensation Condition Type and what parameters (in attributeX fields) will be available to the logic when it executes.
-    # 
-    # Whether you use a different logic for various Compensation Condition Types or the same logic, depends on how much different the processes behind the various Compensation Condition Types are.</p>
     CompensationConditionType data?;
     string operationType?;
 };
 
+# 
 public type CopyPriceGridResponse record {
     CopyPriceGridResponseResponse response;
+};
+
+public type UpdatePGTTDataTypeConfiguration record {
+    string[] elementNames?;
+    string dynamicItemMode?;
+    string resultElementName?;
 };
 
 public type SubmitProductsResponseResponse record {
@@ -8735,12 +8855,6 @@ public type SubmitProductsResponseResponse record {
     @constraint:Array {minLength: 1}
     SubmitProductsResponseResponseData[] data?;
     decimal status;
-};
-
-public type UpdatePGTTDataTypeConfiguration record {
-    string[] elementNames?;
-    string dynamicItemMode?;
-    string resultElementName?;
 };
 
 public type LivePriceGridTypeTypeConfigurationCalculationLogicInputs record {
@@ -8753,6 +8867,7 @@ public type LivePriceGridTypeTypeConfigurationCalculationLogicInputs record {
     record {} formattingOptions?;
 };
 
+# 
 public type SubmitQuoteContractRebateAgreementResponse record {
     SubmitQuoteContractRebateAgreementResponseResponse response?;
 };
@@ -8792,6 +8907,7 @@ public type GetCustomFormResponseResponseCustomFormTypeObject record {
     decimal lastUpdateBy?;
 };
 
+# 
 public type InsertBulkProductsRequest record {
     LoaddataPData data;
 };
@@ -8824,13 +8940,13 @@ public type ContractmanagersaveDataContractInputs record {
     anydata valueOptions?;
 };
 
+public type ListCommentThreadsEnvelope record {
+    InlineResponse20077Response response?;
+};
+
 public type DeleteDCRIRequest record {
     DeleteSLData data;
     string operationType;
-};
-
-public type ListCommentThreadsEnvelope record {
-    InlineResponse20077Response response?;
 };
 
 public type GetLogicResponseResponseData record {
@@ -8865,6 +8981,7 @@ public type GetLogicResponseResponseData record {
     decimal lastUpdateBy?;
 };
 
+# 
 public type SubmitProductsRequest record {
     PricegridmanageracceptidData data;
 };
@@ -8876,10 +8993,12 @@ public type UpdateCRCIMBody record {
     UpdateCRCIMOldValues oldValues?;
 };
 
+# 
 public type ListChartsResponse record {
     ListChartsResponseResponse response?;
 };
 
+# 
 public type AddPriceGridItemsRequest record {
     PricegridmanagerdeleteidbatchData data;
 };
@@ -8892,10 +9011,8 @@ public type CalculateCFSResponseResponse record {
     decimal status?;
 };
 
-public type AddProductRequest record {
-    AddPData data;
-    @constraint:String {minLength: 1}
-    string operation;
+public type CommentmanagerAddBody record {
+    CommentmanageraddData data?;
 };
 
 public type DenyDocumentResponseResponseWorkflowSubSteps record {
@@ -8922,15 +9039,11 @@ public type DenyDocumentResponseResponseWorkflowSubSteps record {
     decimal approvedCount;
 };
 
-public type CommentmanagerAddBody record {
-    # `typedId of the object to which you want to add a comment
-    CommentmanageraddData data?;
-};
-
-public type AddConditionTypeResponse record {
-    string node?;
-    CompensationConditionType[] data?;
-    int status?;
+# 
+public type AddProductRequest record {
+    AddPData data;
+    @constraint:String {minLength: 1}
+    string operation;
 };
 
 public type ContractSignature record {
@@ -8949,17 +9062,22 @@ public type ContractSignature record {
     "sent"|"delivered"|"signed"|"completed"|"declined"|"voided"|"processing"|"error"|"cancelling" status?;
 };
 
-public type CreateCustomFormTypeResponseResponse record {
-    @constraint:String {minLength: 1}
+public type AddConditionTypeResponse record {
     string node?;
-    # The Type code is CFOT
-    CustomFormType data?;
-    decimal status?;
+    CompensationConditionType[] data?;
+    int status?;
 };
 
 public type CommentmanageredittypedIdData record {
     # Specify the new text content of the comm
     string body?;
+};
+
+public type CreateCustomFormTypeResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    CustomFormType data?;
+    decimal status?;
 };
 
 public type InsertBulkDataFromFileResponseResponseData record {
@@ -8969,17 +9087,16 @@ public type InsertBulkDataFromFileResponseResponseData record {
     int invalidRecords?;
 };
 
+# 
 public type UpdateObjectRequest record {
     # Set to `true` when this operation should NOT trigger an update event (where applicable)
     string noEvent?;
-    # Enter new field values. Multiple values can be updated. In our example the unitOfMeasure and label properties were updated
     UpdatePData data;
     @constraint:String {minLength: 1}
     string textMatchStyle?;
     # Must be 'update' or null or omitted
     @constraint:String {minLength: 1}
     string operationType?;
-    # Values of the object before the update. Especially important are `typedId` (to identify the object to update) and `version` (to detect date inconsistencies)
     UpdateTypeCodereturnolddataOldValues oldValues;
 };
 
@@ -8999,6 +9116,15 @@ public type InlineResponse2008ResponseStateConfigurationObjectivesObjectives rec
     record {}[] customerGroupRevenueTarget?;
     @jsondata:Name {value: "RevenueMarginMixCoeff"}
     int revenueMarginMixCoeff?;
+};
+
+public type InlineResponse20050ResponseData record {
+    string localeLanguage?;
+    InlineResponse20050ResponseLocaleData[] localeData?;
+};
+
+public type ClicmanagerupdatelineitemstypedIdData record {
+    ClicmanagerupdatelineitemstypedIdDataLineItems[] lineItems;
 };
 
 public type ListAttributeFieldsMetadataResponseJsonSchemaProperties record {
@@ -9042,15 +9168,6 @@ public type ListAttributeFieldsMetadataResponseJsonSchemaProperties record {
     ListAttributeFieldsMetadataResponseJsonSchemaPropertiesVersion lastUpdateBy;
 };
 
-public type ClicmanagerupdatelineitemstypedIdData record {
-    ClicmanagerupdatelineitemstypedIdDataLineItems[] lineItems;
-};
-
-public type InlineResponse20050ResponseData record {
-    string localeLanguage?;
-    InlineResponse20050ResponseLocaleData[] localeData?;
-};
-
 public type AddActionItemResponseResponse record {
     string node?;
     ActionItem[] data?;
@@ -9077,6 +9194,7 @@ public type InlineResponse20034Response record {
     int status?;
 };
 
+# 
 public type InsertBulkProductExtensionsRequest record {
     LoaddataPXData data;
 };
@@ -9159,6 +9277,7 @@ public type GetCLICresponse record {
     GetCLICresponseResponse response?;
 };
 
+# 
 public type ListProductsRequest record {
     # The number of the first row that defines the start of the result set's returned objects. Use this parameter if you want to implement paging for results
     decimal startRow?;
@@ -9170,15 +9289,15 @@ public type ListProductsRequest record {
     string operationType?;
 };
 
-public type AddRRSCBody record {
-    AddRRSCData data?;
-    string operationType?;
-};
-
 # Represents the Queries record for the operation: queryApiExecute
 public type QueryApiExecuteQueries record {
     # Query timeout in seconds (default: 60, max: 300)
     int timeout?;
+};
+
+public type AddRRSCBody record {
+    AddRRSCData data?;
+    string operationType?;
 };
 
 public type DeletePriceListResponseResponseData record {
@@ -9243,6 +9362,7 @@ public type DeletePriceListResponseResponseData record {
     string status?;
 };
 
+# 
 public type AssignUserGroupToUsersResponse record {
     AddPriceGridItemsToPriceGridResponseResponse response?;
 };
@@ -9284,6 +9404,23 @@ public type QuotemanagersubmitDataQuoteInputs record {
     string value?;
 };
 
+# The type code is PX3
+public type PX3 record {
+    string typedId?;
+    int createdBy?;
+    string lastUpdateDate?;
+    @constraint:String {maxLength: 255}
+    string name?;
+    anydata attribute1?;
+    anydata attribute3?;
+    anydata attribute2?;
+    @constraint:String {maxLength: 255}
+    string sku?;
+    int version?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
 public type DeleteProductExtensionResponseResponseData record {
     decimal version;
     @constraint:String {minLength: 1}
@@ -9308,27 +9445,15 @@ public type DeleteProductExtensionResponseResponseData record {
     anydata attribute6?;
 };
 
-# The type code is PX3
-public type PX3 record {
-    string typedId?;
-    int createdBy?;
-    string lastUpdateDate?;
-    @constraint:String {maxLength: 255}
-    string name?;
-    anydata attribute1?;
-    anydata attribute3?;
-    anydata attribute2?;
-    @constraint:String {maxLength: 255}
-    string sku?;
-    int version?;
-    string createDate?;
-    int lastUpdateBy?;
-};
-
 public type CalculatePricelistResponseResponse record {
     string node?;
     JobStatusTracker[] data?;
     int status?;
+};
+
+public type ConditionrecordsetUpdateidBody record {
+    record {} data?;
+    ConditionrecordsetupdateidOldValues oldValues?;
 };
 
 public type MasseditTypeCodeDataFilterCriteriaCriteria record {
@@ -9339,11 +9464,6 @@ public type MasseditTypeCodeDataFilterCriteriaCriteria record {
     string[] value?;
     @constraint:String {minLength: 1}
     string operator;
-};
-
-public type ConditionrecordsetUpdateidBody record {
-    record {} data?;
-    ConditionrecordsetupdateidOldValues oldValues?;
 };
 
 public type DatamartimportdataloadsData record {
@@ -9375,14 +9495,6 @@ public type PX6 record {
     string sku?;
     string createDate?;
     int lastUpdateBy?;
-};
-
-public type CreatePriceListResponseResponse record {
-    @constraint:String {minLength: 1}
-    string node?;
-    @constraint:Array {minLength: 1}
-    CreatePriceListResponseResponseData[] data?;
-    decimal status?;
 };
 
 # The type code is PX8
@@ -9429,6 +9541,15 @@ public type GetCLICresponseResponseOutputs record {
     int displayOptions?;
 };
 
+public type CreatePriceListResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:Array {minLength: 1}
+    CreatePriceListResponseResponseData[] data?;
+    decimal status?;
+};
+
+# 
 public type ListCustomerExtensionObjectsRequest record {
     decimal startRow?;
     @constraint:String {minLength: 1}
@@ -9551,7 +9672,7 @@ public type Contract record {
 
 # Provides API key configurations needed when communicating with a remote HTTP endpoint.
 public type ApiKeysConfig record {|
-    string xPriceFxJwt;
+    string X\-PriceFx\-jwt;
 |};
 
 # The type code is IM
@@ -9589,6 +9710,7 @@ public type ModelCalculationStepEnvelope record {
     InlineResponse2008Response response?;
 };
 
+# 
 public type GetCustomerRequest record {
     RebateagreementadditemsData data?;
 };
@@ -9601,6 +9723,7 @@ public type CompensationProductGroup record {
     record {|record {}...;|} productFilterCriteria?;
 };
 
+# 
 public type DeleteActionItemRequest record {
     DeleteTypeCodeData data;
 };
@@ -9610,6 +9733,7 @@ public type DeleteTypeCodeData record {
     string typedId;
 };
 
+# 
 public type ListProductExtensionObjectsRequest record {
     decimal startRow?;
     @constraint:String {minLength: 1}
@@ -9629,8 +9753,17 @@ public type InlineResponse2003ResponseViewState record {
     string[] selectedNodes?;
 };
 
+# 
 public type ChangeUserPasswordRequest record {
     AccountmanagerchangepassworduserIdData data;
+};
+
+public type BdmanagerListtypedIdBody record {
+    int startRow?;
+    string textMatchStyle?;
+    int endRow?;
+    string operationType?;
+    record {}? oldValues?;
 };
 
 public type GetCustomFormResponseResponseInputs record {
@@ -9656,14 +9789,6 @@ public type GetCustomFormResponseResponseInputs record {
     @constraint:String {minLength: 1}
     string name?;
     decimal value?;
-};
-
-public type BdmanagerListtypedIdBody record {
-    int startRow?;
-    string textMatchStyle?;
-    int endRow?;
-    string operationType?;
-    record {}? oldValues?;
 };
 
 public type CustomermanagerassignDataCustomerGroupCustomerFilterCriteriaCriteria record {
@@ -9695,14 +9820,13 @@ public type ListActionTypesResponse record {
     ListActionTypesResponseResponse response?;
 };
 
+# 
 public type Tab record {|
-    # Object with custom translations with structure. It tries to pick label according to your language, otherwise it pick label from `""` key. After that translationKey is used
     LabelTranslations labelTranslations?;
     # Key used to find build-in translation for Tab name. If such key exist, the translation will be used. Otherwise this string will show up on the screen
     string translationKey?;
     # Tab unique name. It can be used in URL, use URL-safe letters
     string name;
-    # The icon is provided by DynamicIcon component, so the icon has to be defined there
     Icon icon?;
     TabParameterMapping parameterMapping?;
     # User group view permissions. The list of user groups which can view the tab
@@ -9711,11 +9835,9 @@ public type Tab record {|
     string userGroupEdit?;
     # Unique identifier for dashboard or logic. The value here depends on the widget used on the Tab
     string typeReference?;
-    # Filter can be a rule or a group of rules with a combining operator
     Filter hiddenCheck?;
     # Name of the widget you would like to see on the tab. In case of dashboard, if you can specify the dashboard name via typeReference attribute
     "header"|"items"|"attachments"|"actions"|"notes"|"customForms"|"workflow"|"workflowHistory"|"messages"|"dashboard"|"details"|"documents"|"configurationWizards"|"externalApp" 'type;
-    # Filter can be a rule or a group of rules with a combining operator
     Filter disableCheck?;
     # Static parameters for the tab. Will be passed to the tab logic (e.g. dashboard) without any changes. They can be extracted by DynamicTabs.getParameters(tab, entity) in TabComponent
     record {} parameters?;
@@ -9768,8 +9890,16 @@ public type DatamartupdatedataloadData record {
     string status?;
 };
 
+# 
 public type SubmitContractRequest record {
     ContractmanagersubmitData data;
+};
+
+public type DcrmanagerupdatemassopidDataMassChangeFilter record {
+    @jsondata:Name {value: "_constructor"}
+    string constructor?;
+    DcrmanagerupdatemassopidDataMassChangeFilterCriteria[] criteria?;
+    string operator?;
 };
 
 public type RebateRecordSetCalculationRebateRecordSet record {
@@ -9796,13 +9926,7 @@ public type RebateRecordSetCalculationRebateRecordSet record {
     "DRAFT"|"PENDING"|"SCHEDULED"|"PROCESSING"|"SCHEDULED_DIRTY"|"ERROR"|"READY"|"CANCELLED" status?;
 };
 
-public type DcrmanagerupdatemassopidDataMassChangeFilter record {
-    @jsondata:Name {value: "_constructor"}
-    string constructor?;
-    DcrmanagerupdatemassopidDataMassChangeFilterCriteria[] criteria?;
-    string operator?;
-};
-
+# 
 public type GetAuthenticationTokenAPIv2Request record {
     # A clear-text password
     @constraint:String {minLength: 1}
@@ -9819,6 +9943,11 @@ public type InlineResponse20051Response record {
     int status?;
 };
 
+# 
+public type contractResponse record {
+    contractResponse_response response?;
+};
+
 public type GetProductSetResponseResponseProducts record {
     @constraint:Array {minLength: 1}
     GetProductSetResponseResponseAttributes[] attributes?;
@@ -9826,8 +9955,9 @@ public type GetProductSetResponseResponseProducts record {
     string id;
 };
 
-public type contractResponse record {
-    contractResponse_response response?;
+# 
+public type ListCustomFormTypesResponse record {
+    ListCustomFormTypesResponseResponse response?;
 };
 
 # The type code is MPLI
@@ -9883,10 +10013,6 @@ public type ManualPricelistItem record {
     int lastUpdateBy?;
 };
 
-public type ListCustomFormTypesResponse record {
-    ListCustomFormTypesResponseResponse response?;
-};
-
 public type UpdateCFOTData record {
     string typedId?;
     string[]|string? supportedParentTypeCodes?;
@@ -9896,6 +10022,7 @@ public type UpdateCFOTData record {
     string? workflowFormulaName?;
 };
 
+# 
 public type GetDMObjectNoCountResponse record {
     GetDMObjectNoCountResponseResponse response?;
 };
@@ -10044,23 +10171,34 @@ public type PricelistItem record {
     string? attribute73?;
 };
 
-public type AddLookupTableResponse record {
-    AddLookupTableResponseResponse response;
-};
-
 public type ContractServerMessagesExtended record {
     string message?;
     string 'key?;
+};
+
+# 
+public type AddLookupTableResponse record {
+    AddLookupTableResponseResponse response;
 };
 
 public type DatamartgetfcsTypeCodeDataCriteria record {
     # Specify a name of the field of the DM entity
     @constraint:String {minLength: 1}
     string fieldName?;
+    # 
     @constraint:String {minLength: 1}
     string value?;
     # Specify an operator of the filter criteria
     "equals"|"iEquals"|"notEqual"|"iNotEqual"|"isNull"|"notNull"|"contains"|"iContains"|"containsPattern"|"iContainsPattern"|"notContains"|"iNotContains"|"startsWith"|"iStartsWith"|"notStartsWith"|"iNotStartsWith"|"endsWith"|"iEndsWith"|"notEndsWith"|"iNotEndsWith"|"iBetween"|"iBetweenInclusive"|"inSet"|"notInSet" operator?;
+};
+
+public type ListConditionTypesResponse record {
+    string node?;
+    int startRow?;
+    CompensationConditionType[] data?;
+    int endRow?;
+    int totalRows?;
+    int status?;
 };
 
 public type GetPriceListResponseResponse record {
@@ -10073,15 +10211,7 @@ public type GetPriceListResponseResponse record {
     decimal status?;
 };
 
-public type ListConditionTypesResponse record {
-    string node?;
-    int startRow?;
-    CompensationConditionType[] data?;
-    int endRow?;
-    int totalRows?;
-    int status?;
-};
-
+# 
 public type AssignGroupToBusinessRoleRequest record {
     AccountmanagerassigngroupBRbusinessroleIdData data;
 };
@@ -10090,12 +10220,13 @@ public type GetClaimItemsSummaryResponse record {
     GetClaimItemsSummaryResponseResponse response?;
 };
 
+# 
 public type DenyCalculationGridItemRequest record {
     CalculationgridmanagerrejectidData data;
 };
 
-public type UpsertRebateAgreementRequest record {
-    RebateagreementsaveData data?;
+public type DeleteCOHTBody record {
+    DeleteSLData data;
 };
 
 public type contractModelResponse_response_calculationBase record {
@@ -10114,8 +10245,9 @@ public type contractModelResponse_response_calculationBase record {
     string dateDimFieldName;
 };
 
-public type DeleteCOHTBody record {
-    DeleteSLData data;
+# 
+public type UpsertRebateAgreementRequest record {
+    RebateagreementsaveData data?;
 };
 
 public type LookuptablemanagerfetchData record {
@@ -10167,10 +10299,12 @@ public type AddPGTTBody record {
     string operationType?;
 };
 
+# 
 public type DeleteWorkflowDelegationRequest record {
     WorkflowdelegationmanagerdeleteData data;
 };
 
+# 
 public type SubmitQuoteRequest record {
     QuotemanagersubmitData data;
 };
@@ -10179,14 +10313,15 @@ public type ListAttributeFieldsMetadataResponseJsonSchema record {
     ListAttributeFieldsMetadataResponseJsonSchemaProperties properties?;
 };
 
-public type ListCalculatedFieldSetsResponse record {
-    ListCalculatedFieldSetsResponseResponse response?;
-};
-
 # Represents the Queries record for the operation: listCommentThreads
 public type ListCommentThreadsQueries record {
     # `true` - get only comments for "Items for Review" section<br>`false` - get "Other Items" section<br>`null` - get all comments
     string getMyComments?;
+};
+
+# 
+public type ListCalculatedFieldSetsResponse record {
+    ListCalculatedFieldSetsResponseResponse response?;
 };
 
 public type SubmitProductsResponseResponseItemExtensionsCellStyles record {
@@ -10373,15 +10508,17 @@ public type CustomformdeleteData record {
     string[] typedIds;
 };
 
-public type DeleteLogicResponse record {
-    DeleteLogicResponseResponse response?;
-};
-
 public type InlineResponse2008ResponseStateConfigurationAdvanced record {
     @jsondata:Name {value: "Advanced"}
     InlineResponse2008ResponseStateConfigurationAdvancedAdvanced advanced?;
 };
 
+# 
+public type DeleteLogicResponse record {
+    DeleteLogicResponseResponse response?;
+};
+
+# 
 public type ListLivePriceGridsRequest record {
     # The number of the first row that defines the start of the result set's returned objects. Use this parameter if you want to implement paging for results
     decimal startRow?;
@@ -10459,6 +10596,7 @@ public type ListDataLoadsWithValidationResponseResponseData record {
     string incLoadDate?;
 };
 
+# 
 public type ExecuteAssignedLogicResponse record {
     ExecuteAssignedLogicResponseResponse response?;
 };
@@ -10493,7 +10631,6 @@ public type quoteResponse_response_inputs record {
 
 public type ImportCompetitionDataResponseResponseDataErrorRecords record {
     string[] errorMessages?;
-    # The error record from the request
     ImportCompetitionDataResponseResponseDataRecord 'record?;
 };
 
@@ -10530,6 +10667,7 @@ public type UpdateClicEnvelope record {
     InlineResponse20029Response response?;
 };
 
+# 
 public type UpdateManualPriceListResponse record {
     MassEditManualPriceListResponseResponse response?;
 };
@@ -10752,10 +10890,6 @@ public type CompensationAccrualRecord record {
     string attribute73?;
 };
 
-public type DatamartsqlqueryDataSourcesS0QueryProjectionsMonth record {
-    string expression?;
-};
-
 public type SX6Inner record {
     string typedId?;
     string lastUpdateDate?;
@@ -10775,6 +10909,10 @@ public type SX6Inner record {
     int lastUpdateBy?;
 };
 
+public type DatamartsqlqueryDataSourcesS0QueryProjectionsMonth record {
+    string expression?;
+};
+
 public type InlineResponse2008ResponseJobSettings record {
     string calculableObjectTypedId?;
     string? queueName?;
@@ -10790,16 +10928,6 @@ public type InlineResponse2008ResponseJobSettings record {
     string uuid?;
 };
 
-# Represents the Queries record for the operation: executeLogicWithout
-public type ExecuteLogicWithoutQueries record {
-    # Specifies the format of the output file
-    "json"|"xls"|"csv"|"pdf" output?;
-    # Sets the name of the output file
-    string fileName?;
-    # Specifies the template to be used when exporting a file
-    string templateName?;
-};
-
 public type ManualpricelistmanagermasseditidDataFilterCriteriaCriteria record {
     @constraint:String {minLength: 1}
     string fieldName;
@@ -10811,9 +10939,18 @@ public type ManualpricelistmanagermasseditidDataFilterCriteriaCriteria record {
     string operator;
 };
 
+# Represents the Queries record for the operation: executeLogicWithout
+public type ExecuteLogicWithoutQueries record {
+    # Specifies the format of the output file
+    "json"|"xls"|"csv"|"pdf" output?;
+    # Sets the name of the output file
+    string fileName?;
+    # Specifies the template to be used when exporting a file
+    string templateName?;
+};
+
 public type DeleteSellerResponse record {
     string node?;
-    # The Seller object. The type code is SL
     Seller data?;
     int status?;
 };
@@ -10847,6 +10984,7 @@ public type DeleteBusinessRoleResponseResponseData record {
     decimal lastUpdateBy?;
 };
 
+# 
 public type AddContractLineItemsRequest record {
     ContractmanageradditemsData data?;
 };
@@ -10872,6 +11010,10 @@ public type GetDCRRequestChangeOnly record {
     string operationType;
 };
 
+public type AddCalculationGridResponse record {
+    AddCalculationGridResponseResponse response?;
+};
+
 public type IntegrateCData record {
     @constraint:String {minLength: 1}
     string name;
@@ -10881,12 +11023,9 @@ public type IntegrateCData record {
     string attribute1?;
 };
 
+# 
 public type ListFunctionsResponse record {
     ListFunctionsResponseResponse response?;
-};
-
-public type AddCalculationGridResponse record {
-    AddCalculationGridResponseResponse response?;
 };
 
 public type ClicmanagersetlostreasontypedIdData record {
@@ -10898,6 +11037,7 @@ public type ClicmanagersetlostreasontypedIdData record {
 
 public type CompensationCalculationBaseOtherFilters OtherFiltersAnyOf1|OtherFiltersOtherFiltersAnyOf12|OtherFiltersOtherFiltersOtherFiltersAnyOf123|OtherFiltersOtherFiltersOtherFiltersOtherFiltersAnyOf1234|OtherFiltersOtherFiltersOtherFiltersOtherFiltersOtherFiltersAnyOf12345|OtherFiltersOtherFiltersOtherFiltersOtherFiltersOtherFiltersOtherFiltersAnyOf123456?;
 
+# 
 public type ApproveDocumentResponse record {
     ApproveDocumentResponseResponse response?;
 };
@@ -10985,6 +11125,7 @@ public type InlineResponse20064DataStatsCacheChunk record {
     int downloadTime?;
 };
 
+# 
 public type GetProductSetRequest record {
     # The number of the first row that defines the start of the result set's returned objects. Use this parameter if you want to implement paging for results
     decimal startRow?;
@@ -11004,6 +11145,10 @@ public type LookuptablemanagermassedittableIdDataMassEditRecords record {
     string fieldValue;
 };
 
+public type FetchCRCIMData record {
+    int conditionRecordSetId?;
+};
+
 public type ListCompensationPlansRequest record {
     int startRow?;
     string textMatchStyle?;
@@ -11011,10 +11156,6 @@ public type ListCompensationPlansRequest record {
     int endRow?;
     string operationType?;
     record {}? oldValues?;
-};
-
-public type FetchCRCIMData record {
-    int conditionRecordSetId?;
 };
 
 # Values of the object before the update. Especially important is `typedId` (to identify the object to update) and `version` (to detect date inconsistencies)
@@ -11028,7 +11169,7 @@ public type PricegridmanagerupdateidnorecalcOldValues record {
     string label?;
     boolean completeResultsAvailable?;
     @jsondata:Name {value: "_key"}
-    string 'key?;
+    string key?;
     decimal version;
     boolean manualPriceExpired?;
     decimal createdBy?;
@@ -11048,6 +11189,7 @@ public type ActivitylogfetchData record {
     string operator?;
 };
 
+# 
 public type ImportCompetitionDataResponse record {
     ImportCompetitionDataResponseResponse response;
 };
@@ -11067,6 +11209,7 @@ public type DcrmanagerupdatemassopidDataMassChangeFilterCriteria record {
     string operator?;
 };
 
+# 
 public type ChangeUserPasswordResponse record {
     AddPriceGridItemsToPriceGridResponseResponse response?;
 };
@@ -11096,10 +11239,12 @@ public type UpdateClaimTypeResponseResponse record {
     int status?;
 };
 
+# 
 public type ExecuteDataLoadLogicResponse record {
     ExecuteDataLoadLogicResponseResponse response?;
 };
 
+# 
 public type DeleteBusinessRoleResponse record {
     DeleteBusinessRoleResponseResponse response?;
 };
@@ -11280,6 +11425,7 @@ public type InlineResponse2009ResponseData record {
     int lastUpdateBy?;
 };
 
+# 
 public type pricelistitemResponse record {
     pricelistitemResponse_response response?;
 };
@@ -11326,22 +11472,9 @@ public type PriceListTypeTypeConfiguration record {
     boolean shotgunModeEnabled?;
 };
 
+# 
 public type ListUserBusinessRolesResponse record {
     ListUsersUserGroupsResponseResponse response?;
-};
-
-public type UpdateLookupTableValueResponse record {
-    UpdateLookupTableValueResponseResponse response;
-};
-
-public type CustomermanagerassignDataCustomerGroupCustomerFilterCriteria record {
-    @jsondata:Name {value: "_constructor"}
-    string constructor;
-    # Specify customers you want to assign by the filter settings (`fielName`:`value`)
-    @constraint:Array {minLength: 1}
-    CustomermanagerassignDataCustomerGroupCustomerFilterCriteriaCriteria[] criteria;
-    @constraint:String {minLength: 1}
-    string operator?;
 };
 
 public type ListSellersRequest record {
@@ -11362,6 +11495,22 @@ public type ListJSTResponseResponse record {
     int status?;
 };
 
+# 
+public type UpdateLookupTableValueResponse record {
+    UpdateLookupTableValueResponseResponse response;
+};
+
+public type CustomermanagerassignDataCustomerGroupCustomerFilterCriteria record {
+    @jsondata:Name {value: "_constructor"}
+    string constructor;
+    # Specify customers you want to assign by the filter settings (`fielName`:`value`)
+    @constraint:Array {minLength: 1}
+    CustomermanagerassignDataCustomerGroupCustomerFilterCriteriaCriteria[] criteria;
+    @constraint:String {minLength: 1}
+    string operator?;
+};
+
+# 
 public type ExecuteModelLogicResponse record {
     ExecuteModelLogicResponseResponse response?;
 };
@@ -11399,6 +11548,18 @@ public type AddDCRIResponse record {
     AddDCRIResponseResponse response?;
 };
 
+# Provides settings related to HTTP/1.x protocol.
+public type ClientHttp1Settings record {|
+    # Specifies whether to reuse a connection for multiple requests
+    http:KeepAlive keepAlive = http:KEEPALIVE_AUTO;
+    # The chunking behaviour of the request
+    http:Chunking chunking = http:CHUNKING_AUTO;
+    # Proxy server related options
+    ProxyConfig proxy?;
+|};
+
+public type OtherFiltersOtherFiltersOtherFiltersAnyOf123 decimal?;
+
 public type WithdrawDocumentResponseResponseWorkflow record {
     @constraint:String {minLength: 1}
     string workflowStatus?;
@@ -11425,12 +11586,11 @@ public type WithdrawDocumentResponseResponseWorkflow record {
     string isAddStepRestrictedToWFAdmin?;
 };
 
-public type OtherFiltersOtherFiltersOtherFiltersAnyOf123 decimal?;
-
 public type DeleteActionItemResponse record {
     AddActionItemResponseResponse response?;
 };
 
+# 
 public type DeleteProductExtensionResponse record {
     DeleteProductExtensionResponseResponse response;
 };
@@ -11492,6 +11652,7 @@ public type GetConfigurationStorageEnvelope record {
     InlineResponse20058Response response?;
 };
 
+# 
 public type CopyLookupTableResponse record {
     CopyLookupTableResponseResponse response;
 };
@@ -11516,18 +11677,18 @@ public type QueryapiExecuteBody record {
     QueryapiexecuteData data?;
 };
 
-public type CustomFormFilter record {|
-    record {} property1?;
-    record {} property2?;
-    record {}...;
-|};
-
 public type CommentmanagerfetchthreadstypedIdData record {
     @jsondata:Name {value: "_constructor"}
     string constructor?;
     SellermanagerfetchformulafilteredsellersDataCriteria[] criteria?;
     string operator?;
 };
+
+public type CustomFormFilter record {|
+    record {} property1?;
+    record {} property2?;
+    record {}...;
+|};
 
 public type UpdateClicLineItemsEnvelope record {
     InlineResponse20042Response response?;
@@ -11539,13 +11700,13 @@ public type InlineResponse20055Response record {
     int status?;
 };
 
+public type ClicFolderStatsEnvelope record {
+    InlineResponse20079Response response?;
+};
+
 public type DcrmanageraddData record {
     string dcrTypeName;
     string label?;
-};
-
-public type ClicFolderStatsEnvelope record {
-    InlineResponse20079Response response?;
 };
 
 public type FetchJCSData record {
@@ -11555,6 +11716,7 @@ public type FetchJCSData record {
     string operator?;
 };
 
+# 
 public type ListRollupsRequest record {
     decimal startRow?;
     @constraint:String {minLength: 1}
@@ -11566,6 +11728,7 @@ public type ListRollupsRequest record {
     anydata oldValues?;
 };
 
+# 
 public type ListElementsResponse record {
     ListElementsResponseResponse response?;
 };
@@ -11583,6 +11746,11 @@ public type SaveCompensationRecordRequest record {
     CompensationrecordsaveData data?;
 };
 
+public type DataChangeRequestItemOldValues record {
+    string newValue?;
+    string oldValue?;
+};
+
 public type DMDataLoadPre80CalculationConfig record {
     string formulaName?;
     string feederFormulaName?;
@@ -11595,11 +11763,6 @@ public type DMDataLoadPre80CalculationConfig record {
     ContractInputs[] feederInputParams?;
     string[] targetFields?;
     CompensationRecordSetCalculationCalculationConfigOutputElements[] outputElements?;
-};
-
-public type DataChangeRequestItemOldValues record {
-    string newValue?;
-    string oldValue?;
 };
 
 public type GetProductSetResponseResponse record {
@@ -11647,10 +11810,7 @@ public type PreviewCustomFormWorkflowResponseResponseWorkflowSteps record {
     record {}? mandatoryComments?;
 };
 
-public type GetProductSetResponse record {
-    GetProductSetResponseResponse response;
-};
-
+# 
 public type UpdateDataManagerEntityRequest record {
     DatamartupdatefcTypeCodeData data?;
     @constraint:String {minLength: 1}
@@ -11668,6 +11828,11 @@ public type CompensationLineItemCalculationBase record {
     record {}[] includedProductGroups?;
     record {}[] excludedSellerReferences?;
     CompensationLineItemCalculationBaseIncludedTimePeriods[] includedTimePeriods?;
+};
+
+# 
+public type GetProductSetResponse record {
+    GetProductSetResponseResponse response;
 };
 
 public type FormulamanagertestparamsDataTestFormulaElements record {
@@ -11726,6 +11891,7 @@ public type DeletePLTTBody record {
     string operationType?;
 };
 
+# 
 public type AddPriceGridItemsToPriceGridResponse record {
     AddPriceGridItemsToPriceGridResponseResponse response?;
 };
@@ -11844,12 +12010,13 @@ public type ListRollupsResponseResponseQueryDto record {
     boolean rollup?;
 };
 
+# The Seller object. The type code is SL
+public type Seller SellerInner[];
+
+# 
 public type CreateWorkflowDelegationRequest record {
     WorkflowdelegationmanageraddData data;
 };
-
-# The Seller object. The type code is SL
-public type Seller SellerInner[];
 
 public type DeleteNotificationEnvelope record {
     InlineResponse20040Response response?;
@@ -11867,6 +12034,8 @@ public type ValidateClaimItemsResponseResponse record {
     int status?;
 };
 
+public type ListCustomerExtensionObjectsResponseResponseData CX3|CX6|CX8|CX10|CX20|CX30|CX50;
+
 public type AccountmanagerchangepasswordData record {
     # The current password. Necessary when changing own password
     @constraint:String {maxLength: 255, minLength: 1}
@@ -11875,8 +12044,6 @@ public type AccountmanagerchangepasswordData record {
     @constraint:String {maxLength: 255, minLength: 1}
     string newPassword;
 };
-
-public type ListCustomerExtensionObjectsResponseResponseData CX3|CX6|CX8|CX10|CX20|CX30|CX50;
 
 public type CompensationcreatesignaturetypedIdData record {
     string note;
@@ -11978,6 +12145,7 @@ public type PreviewCustomFormWorkflowResponseResponse record {
     int status?;
 };
 
+# 
 public type AddProductsToManualPriceListRequest record {
     ManualpricelistmanageraddidrecalculateData data;
 };
@@ -12002,6 +12170,7 @@ public type CalculateCFSResponseResponseJobSettings record {
     string uuid?;
 };
 
+# 
 public type ListModelLogicParametersResponse record {
     ListModelLogicParametersResponseResponse response?;
 };
@@ -12014,6 +12183,12 @@ public type InlineResponse201ResponseErrorsMessage record {
     string? errorMessage?;
 };
 
+public type InlineResponse2009ResponseStateTwoTabsTab2MatrixEntry record {
+    string col2?;
+    boolean selected?;
+    string col1?;
+};
+
 public type WorkflowdelegationmanagerupdateData record {
     @constraint:String {minLength: 1}
     string note?;
@@ -12021,23 +12196,9 @@ public type WorkflowdelegationmanagerupdateData record {
     string typedId;
 };
 
-public type InlineResponse2009ResponseStateTwoTabsTab2MatrixEntry record {
-    string col2?;
-    boolean selected?;
-    string col1?;
-};
-
 public type RecalculateCalculationOfStepResponseResponseStateTwoTabs record {
     RecalculateCalculationOfStepResponseResponseStateTwoTabsTab1 tab1?;
     RecalculateCalculationOfStepResponseResponseStateTwoTabsTab2 tab2?;
-};
-
-# Represents the Queries record for the operation: listAttributeFieldsMetadata
-public type ListAttributeFieldsMetadataQueries record {
-    # The ID of the Company Parameters table when retrieving MLTV (`MatrixLookupTableValue`)
-    string lookupTableId?;
-    # The name of the PX or CX category
-    string name?;
 };
 
 public type InlineResponse20037ResponseItem record {
@@ -12088,6 +12249,14 @@ public type InlineResponse20037ResponseItem record {
     int lastUpdateBy?;
 };
 
+# Represents the Queries record for the operation: listAttributeFieldsMetadata
+public type ListAttributeFieldsMetadataQueries record {
+    # The ID of the Company Parameters table when retrieving MLTV (`MatrixLookupTableValue`)
+    string lookupTableId?;
+    # The name of the PX or CX category
+    string name?;
+};
+
 public type UpsertCustomerExtensionResponseResponseData record {
     decimal version;
     @constraint:String {minLength: 1}
@@ -12118,10 +12287,6 @@ public type JobStatusTrackerJobSettingsDistributedAction record {
     record {}|boolean? agentOption1?;
 };
 
-public type ListRollupsResponse record {
-    ListRollupsResponseResponse response?;
-};
-
 public type contractModelResponse_response_calculationBase_includedTimePeriods record {
     @constraint:String {minLength: 1}
     string timeUnit;
@@ -12130,6 +12295,11 @@ public type contractModelResponse_response_calculationBase_includedTimePeriods r
     @constraint:String {minLength: 1}
     string endDate;
     boolean single;
+};
+
+# 
+public type ListRollupsResponse record {
+    ListRollupsResponseResponse response?;
 };
 
 # Specify options of the bulk data insertion
@@ -12193,22 +12363,23 @@ public type CreateSignatureResponse record {
     UpsertCompensationPlanResponseResponse response?;
 };
 
+public type ClicmanagercreateTypeCodeData record {
+    Quote quote?;
+};
+
 public type contractModelResponse_response_parameterConfig record {
     @constraint:String {minLength: 1}
     string dataType?;
 };
 
-public type ClicmanagercreateTypeCodeData record {
-    # The type code is Q
-    Quote quote?;
-};
-
+# 
 public type AssignCustomersRequest record {
     CustomermanagerassignData data;
     @constraint:String {minLength: 1}
     string operation = "add";
 };
 
+# 
 public type GetActionStatusResponse record {
     GetActionStatusResponseResponse response?;
 };
@@ -12233,6 +12404,7 @@ public type AddPGTTData record {
 
 public type ListCalculationGridItemsResponseResponseData CalculationGridItem1Key|CalculationGridItem2Key|CalculationGridItem3Key|CalculationGridItem4Key|CalculationGridItem5Key|CalculationGridItem6Key;
 
+# 
 public type ListProductsFromManualPriceListResponse record {
     ListProductsFromManualPriceListResponseResponse response?;
 };
@@ -12278,10 +12450,12 @@ public type FetchCGIkeyNumberData record {
     string calculationGridId;
 };
 
+# 
 public type ListPriceListsResponse record {
     ListPriceListsResponseResponse response?;
 };
 
+# 
 public type CancelCalculationResponse record {
     CancelCalculationResponseResponse response;
 };
@@ -12295,6 +12469,13 @@ public type typecodesResponse_response_data record {
     string className?;
     @constraint:String {minLength: 1}
     string codeString?;
+};
+
+public type UpdateCompensationTypeRequest record {
+    UpdateCOHTData data;
+    string textMatchStyle?;
+    string operationType;
+    UpdateCOHTOldValues oldValues?;
 };
 
 # Specify field names and values you want to insert or update
@@ -12319,13 +12500,6 @@ public type IntegrateTypeCodeData record {
     string attribute2?;
     @constraint:String {minLength: 1}
     string sku;
-};
-
-public type UpdateCompensationTypeRequest record {
-    UpdateCOHTData data;
-    string textMatchStyle?;
-    string operationType;
-    UpdateCOHTOldValues oldValues?;
 };
 
 public type OptimizationUpdatejstBody record {
@@ -12492,12 +12666,13 @@ public type PricelistmanageraddidDataConfiguration record {
     boolean shotgunModeEnabled?;
 };
 
-public type GetPriceListResponse record {
-    GetPriceListResponseResponse response?;
-};
-
 public type ManualpricelistmanagerdeleteidbatchData record {
     ManualpricelistmanagerdeleteidbatchDataFilterCriteria filterCriteria;
+};
+
+# 
+public type GetPriceListResponse record {
+    GetPriceListResponseResponse response?;
 };
 
 public type FetchCPRBody record {
@@ -12536,16 +12711,16 @@ public type AddSellerExtensionResponseResponse record {
 };
 
 public type AddActionTypeRequest record {
-    # The type code is AIT.
-    # >Action Types can be added or edited via UI: <b>Administration</b> > <b>Configuration</b> > <b>Actions</b> > <b>Action Types</b>
     ActionItemType data?;
     string operation;
 };
 
+# 
 public type ListUsersUserGroupsResponse record {
     ListUsersUserGroupsResponseResponse response?;
 };
 
+# 
 public type AddUserRequest record {
     AddUData data;
     @constraint:String {minLength: 1}
@@ -12578,8 +12753,13 @@ public type ClicmanagerUpdatetypedIdBody record {
     Quote|Compensation|Contract|RebateAgreement data?;
 };
 
+# 
 public type MassEditMPLRequest record {
     ManualpricelistmanagermasseditidData data;
+};
+
+public type ListEmailTasksEnvelope record {
+    InlineResponse20062Response response?;
 };
 
 public type DatamartsqlqueryDataSourcesS0QueryProjections record {
@@ -12587,10 +12767,6 @@ public type DatamartsqlqueryDataSourcesS0QueryProjections record {
     DatamartsqlqueryDataSourcesS0QueryProjectionsMonth month?;
     @jsondata:Name {value: "Quantity"}
     DatamartsqlqueryDataSourcesS0QueryProjectionsQuantity quantity?;
-};
-
-public type ListEmailTasksEnvelope record {
-    InlineResponse20062Response response?;
 };
 
 public type ClicmanageradditemstypedIdDataInputs record {
@@ -12626,6 +12802,7 @@ public type QuotemanagersaveDataQuoteInputs record {
     string value;
 };
 
+# 
 public type AssignBusinessRoleToUserResponse record {
     AddPriceGridItemsToPriceGridResponseResponse response?;
 };
@@ -12634,17 +12811,27 @@ public type AddPGTTDataButtonsConfiguration record {
     string key3?;
 };
 
+public type CustomformsearchData record {
+    @jsondata:Name {value: "_constructor"}
+    string constructor?;
+    FetchAIData[] criteria?;
+    string operator?;
+};
+
 public type CustomFormServerMessagesExtended record {
     string 'source?;
     string message?;
     string 'key?;
 };
 
-public type CustomformsearchData record {
-    @jsondata:Name {value: "_constructor"}
-    string constructor?;
-    FetchAIData[] criteria?;
-    string operator?;
+# 
+public type AssignRoleToUsersRequest record {
+    AccountmanagerassignroleData data;
+};
+
+# 
+public type ListAttributeFieldsMetadata record {
+    ListAttributeFieldsMetadataResponse response?;
 };
 
 public type contractResponse_response record {
@@ -12656,14 +12843,6 @@ public type contractResponse_response record {
     @constraint:Array {minLength: 1}
     contractResponse_response_data[] data?;
     decimal endRow?;
-};
-
-public type AssignRoleToUsersRequest record {
-    AccountmanagerassignroleData data;
-};
-
-public type ListAttributeFieldsMetadata record {
-    ListAttributeFieldsMetadataResponse response?;
 };
 
 public type DeleteLogicResponseResponseData record {
@@ -12694,12 +12873,19 @@ public type DeleteLogicResponseResponseData record {
     decimal lastUpdateBy?;
 };
 
+# 
 public type RestoreDefaultDataSourcesResponse record {
     RestoreDefaultDataSourcesResponseResponse response?;
 };
 
 public type DeleteSellerEnvelope record {
     DeleteSellerResponse response?;
+};
+
+public type InlineResponse2011Response record {
+    string node?;
+    InlineResponse2011ResponseData[] data?;
+    int status?;
 };
 
 public type DenyDocumentResponseResponseData record {
@@ -12953,11 +13139,6 @@ public type CalculationGridItem4Key record {
     int lastUpdateBy?;
 };
 
-public type DeleteCGIkeyNumberData record {
-    # `typedId` of the CGI you want to delete
-    string typedId;
-};
-
 # The type code is BR
 public type BusinessRole record {
     string typedId?;
@@ -12974,6 +13155,12 @@ public type BusinessRole record {
     int lastUpdateBy?;
 };
 
+public type DeleteCGIkeyNumberData record {
+    # `typedId` of the CGI you want to delete
+    string typedId;
+};
+
+# 
 public type ListContractsRequest record {
     # The number of the first row that defines the start of the result set's returned objects. Use this parameter if you want to implement paging for results
     decimal startRow?;
@@ -13058,8 +13245,13 @@ public type AddLookupTableResponseResponse record {
     decimal status;
 };
 
+# 
 public type InsertBulkCustomersRequest record {
     LoaddataCData data;
+};
+
+public type MassEditImportsEnvelope record {
+    InlineResponse2013Response response?;
 };
 
 public type DatamartmassedittypedIdData record {
@@ -13403,6 +13595,7 @@ public type contractModelResponse_response_inputs record {
     anydata valueOptions?;
 };
 
+# 
 public type ExecuteLogicResponse record {
     ExecuteAssignedLogicResponseResponse response?;
 };
@@ -13418,6 +13611,7 @@ public type InlineResponse20031ResponseInputs record {
     record {} formattingOptions?;
 };
 
+# 
 public type ImportCompetitionDataRequest record {
     ProductmanagerimportproductcompetitionData data;
 };
@@ -13432,6 +13626,7 @@ public type ApproveDocumentResponseResponseData record {
     string resultType?;
 };
 
+# 
 public type generalResponse record {
     generalResponse_response response?;
 };
@@ -13544,6 +13739,7 @@ public type UpdateCRCIMOldValues record {
     int version?;
 };
 
+# 
 public type CalculatePriceGridResponse record {
     CalculatePriceGridResponseResponse response;
 };
@@ -13561,17 +13757,18 @@ public type ClicmanagerimportlineitemstypedIdDataInputs record {
     string value?;
 };
 
+# 
 public type UpdateLookupTableResponse record {
     DeleteLookupTableResponseResponse response;
-};
-
-public type ContractmanagersubmitData record {
-    ContractmanagersubmitDataContract contract;
 };
 
 public type AddSellerRequest record {
     AddSLData data?;
     string operation;
+};
+
+public type ContractmanagersubmitData record {
+    ContractmanagersubmitDataContract contract;
 };
 
 public type TruncateKVTableResponseResponse record {
@@ -13605,6 +13802,17 @@ public type ContractmanagersaveDataContractInputs1 record {
     anydata inheritedValue?;
 };
 
+# 
+public type MassEditPriceGridItemsResponse record {
+    MassEditPriceGridItemsResponseResponse response;
+};
+
+# Stats result of the currently performed calculation
+public type InlineResponse20031ResponseDurations record {
+    InlineResponse20031ResponseDurationsHeader[] header?;
+    record {}[] items?;
+};
+
 public type AddCData record {
     @constraint:String {minLength: 1}
     string customerId;
@@ -13616,16 +13824,6 @@ public type AddCData record {
     string userGroupEdit?;
     @constraint:String {minLength: 1}
     string attribute2?;
-};
-
-public type MassEditPriceGridItemsResponse record {
-    MassEditPriceGridItemsResponseResponse response;
-};
-
-# Stats result of the currently performed calculation
-public type InlineResponse20031ResponseDurations record {
-    InlineResponse20031ResponseDurationsHeader[] header?;
-    record {}[] items?;
 };
 
 public type InlineResponse20082ResponseData record {
@@ -13671,10 +13869,6 @@ public type UpdatePGTTOldValues record {
     int lastUpdateBy?;
 };
 
-public type GetCompetitionDataResponse record {
-    GetCompetitionDataResponseResponse response?;
-};
-
 public type ListCustomFormTypesResponseResponseData record {
     @constraint:String {minLength: 1}
     string typedId?;
@@ -13693,6 +13887,11 @@ public type ListCustomFormTypesResponseResponseData record {
     @constraint:String {minLength: 1}
     string createDate?;
     decimal lastUpdateBy?;
+};
+
+# 
+public type GetCompetitionDataResponse record {
+    GetCompetitionDataResponseResponse response?;
 };
 
 public type GetexternalapppropertiesResponse record {
@@ -13759,10 +13958,12 @@ public type rebateagreementResponse_response_value record {
     string customerFieldLabel?;
 };
 
+# 
 public type SubmitQuoteContractRebateAgreementRequest record {
     ClicmanagersubmittypedIdData data?;
 };
 
+# 
 public type UpsertLookupTableValueResponse record {
     UpsertLookupTableValueResponseResponse response;
 };
@@ -13810,6 +14011,7 @@ public type InlineResponse20085ResponseColumns record {
     string 'type?;
 };
 
+# 
 public type MassUpdateResponse record {
     MassUpdateResponseResponse response?;
 };
@@ -13841,14 +14043,15 @@ public type AddWatcherStepResponseResponseWorkflow record {
     string isAddStepRestrictedToWFAdmin?;
 };
 
-public type AssignBusinessRoleToUserRequest record {
-    AccountmanagerassignbusinessroleuserIdData data;
-};
-
 public type AddCalculationGridItemResponseResponse record {
     string node?;
     CalculationGridItem6Key[] data?;
     int status?;
+};
+
+# 
+public type AssignBusinessRoleToUserRequest record {
+    AccountmanagerassignbusinessroleuserIdData data;
 };
 
 public type OptimizationmodelfetchpciDataCriteria record {
@@ -13916,18 +14119,18 @@ public type rebateagreementResponse_response record {
     decimal status;
 };
 
-public type AssignBusinessRoleRequest record {
-    AccountmanagerassignbusinessroleData data;
-};
-
 public type ListSellersResponse record {
     string node?;
     int startRow?;
-    # The Seller object. The type code is SL
     Seller data?;
     int endRow?;
     int totalRows?;
     int status?;
+};
+
+# 
+public type AssignBusinessRoleRequest record {
+    AccountmanagerassignbusinessroleData data;
 };
 
 # Represents the Queries record for the operation: fetchDataMartObject
@@ -13977,6 +14180,15 @@ public type CalculationGrid record {
     "DRAFT"|"PENDING"|"SCHEDULED"|"PROCESSING"|"SCHEDULED_DIRTY"|"ERROR"|"READY"|"CANCELLED" status?;
 };
 
+public type ListCalculationsRequest record {
+    int startRow?;
+    string textMatchStyle?;
+    SellermanagerfetchformulafilteredsellersData data?;
+    int endRow?;
+    string operationType?;
+    record {}? oldValues?;
+};
+
 public type CustomFormInputs record {
     string? labelTranslations?;
     boolean? addUnknownValues?;
@@ -13999,28 +14211,14 @@ public type CustomFormInputs record {
     int? value?;
 };
 
-public type ListCalculationsRequest record {
-    int startRow?;
-    string textMatchStyle?;
-    SellermanagerfetchformulafilteredsellersData data?;
-    int endRow?;
-    string operationType?;
-    record {}? oldValues?;
-};
-
 public type QuotemanagerchangestatusidentifierData record {
     @constraint:String {minLength: 1}
     string targetStatus;
 };
 
+# 
 public type CreateRevisionRequest record {
     PricelistmanageraddidData data;
-};
-
-public type MasseditTypeCodeData record {
-    MasseditTypeCodeDataFilterCriteria filterCriteria;
-    @constraint:Array {minLength: 1}
-    MasseditTypeCodeDataMassEditRecords[] massEditRecords;
 };
 
 public type I18nmanagerdeleteKeysData record {
@@ -14030,10 +14228,17 @@ public type I18nmanagerdeleteKeysData record {
     boolean partitionWideOverride?;
 };
 
+public type MasseditTypeCodeData record {
+    MasseditTypeCodeDataFilterCriteria filterCriteria;
+    @constraint:Array {minLength: 1}
+    MasseditTypeCodeDataMassEditRecords[] massEditRecords;
+};
+
 public type RunRebateCalculationResponse record {
     CalculatePricelistResponseResponse response?;
 };
 
+# 
 public type MassEditPriceGridItemsRequest record {
     PricegridmanagermasseditidData data?;
 };
@@ -14076,19 +14281,12 @@ public type UpdateAIData record {
     decimal assignedTo?;
 };
 
+# 
 public type AddLookupTableValueRequest record {
     LookuptablemanagerintegratetableIdData data;
     # Must be 'add' or null or omitted
     @constraint:String {minLength: 1}
     string operation?;
-};
-
-public type AddLookupTableValueResponse record {
-    AddLookupTableValueResponseResponse response;
-};
-
-public type ValidateWorkflowDelegationResponse record {
-    AddPriceGridItemsToPriceGridResponseResponse response?;
 };
 
 public type KvservicecreatetabletableNameDataKeys record {
@@ -14099,6 +14297,16 @@ public type KvservicecreatetabletableNameDataKeys record {
     boolean isPrimaryKey?;
     # A unique name of the column. Only lower case letters, numbers and underscores are allowed. Do not use special characters
     string columnName?;
+};
+
+# 
+public type AddLookupTableValueResponse record {
+    AddLookupTableValueResponseResponse response;
+};
+
+# 
+public type ValidateWorkflowDelegationResponse record {
+    AddPriceGridItemsToPriceGridResponseResponse response?;
 };
 
 public type InlineResponse20049Response record {
@@ -14129,21 +14337,9 @@ public type ListRebateCalculationsResponse record {
     ListRebateCalculationsResponseResponse response?;
 };
 
+# 
 public type ListUsersResponse record {
     ListUsersResponseResponse response?;
-};
-
-public type ListDelegatedWorkflowsRequest record {
-    # The number of the first row that defines the start of the result set's returned objects. Use this parameter if you want to implement paging for results
-    decimal startRow?;
-    @constraint:String {minLength: 1}
-    string textMatchStyle?;
-    LookuptablemanagerfetchData data?;
-    # The number of the end row that defines the end of the result set's returned objects. Use this parameter if you want to implement paging for results
-    decimal endRow = 300;
-    @constraint:String {minLength: 1}
-    string operationType?;
-    anydata oldValues?;
 };
 
 public type GetCLICresponseResponseData record {
@@ -14170,6 +14366,20 @@ public type GetCLICresponseResponseData record {
     string startDate?;
     string createDate?;
     int lastUpdateBy?;
+};
+
+# 
+public type ListDelegatedWorkflowsRequest record {
+    # The number of the first row that defines the start of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal startRow?;
+    @constraint:String {minLength: 1}
+    string textMatchStyle?;
+    LookuptablemanagerfetchData data?;
+    # The number of the end row that defines the end of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal endRow = 300;
+    @constraint:String {minLength: 1}
+    string operationType?;
+    anydata oldValues?;
 };
 
 public type UpsertCompensationPlanResponse record {
@@ -14484,7 +14694,6 @@ public type UpdatePricelistDetailRequest record {
     PricelistmanagerupdateidData data;
     string textMatchStyle?;
     string operationType?;
-    # The type code is PLI
     PricelistItem oldValues;
 };
 
@@ -14502,25 +14711,25 @@ public type ManualpricelistmanageraddidrecalculateData record {
     string[] skus;
 };
 
+public type GetLogicResponse record {
+    GetLogicResponseResponse response?;
+};
+
 public type ConvertPriceListResponseResponseData record {
     # The ID of the created Price List
     decimal pricelistId?;
 };
 
-public type GetLogicResponse record {
-    GetLogicResponseResponse response?;
+# 
+public type SubmitCalculationGridItemRequest record {
+    PricegridmanageracceptidData data;
 };
 
 public type SaveCalculationRequest record {
-    # The CompensationRecordSetCalculation object. The type code is CORSC
     CompensationRecordSetCalculation data?;
     string textMatchStyle?;
     string operationType?;
     record {}? oldValues?;
-};
-
-public type SubmitCalculationGridItemRequest record {
-    PricegridmanageracceptidData data;
 };
 
 public type WorkflowdelegationmanageraddData record {
@@ -14547,6 +14756,7 @@ public type WorkflowdelegationmanageraddData record {
     string startDate;
 };
 
+# 
 public type WithdrawDocumentResponse record {
     WithdrawDocumentResponseResponse response?;
 };
@@ -14567,6 +14777,31 @@ public type CalculationrecordcalculatesetData record {
     string createDate?;
     int lastUpdateBy?;
     string status?;
+};
+
+public type AddPGTTDataTypeConfiguration record {
+    string uomOverrideElementName?;
+    int maxIncreasePct?;
+    string[] hiddenElementNames?;
+    string[] userCanToggleVisibility?;
+    string[] overridableFields?;
+    int relativeTargetDateDays?;
+    AddPGTTDataTypeConfigurationCalculationLogicInputs[] calculationLogicInputs?;
+    string preferencesSource?;
+    string[] calcLogicInputsOverridableFields?;
+    DcrmanagerupdatemassopidDataMassChangeFilter productFilterCriteria?;
+    string autoApproveElementName?;
+    boolean allowColumnTypeChange?;
+    AddPGTTDataTypeConfigurationHeaderInputs[] headerInputs?;
+    int maxDecreasePct?;
+    string[] elementNames?;
+    string[] approvalTriggerFields?;
+    string[] approvalMappings?;
+    string manualResultExpiryElementName?;
+    string dynamicItemMode?;
+    string currencyOverrideElementName?;
+    string resultElementName?;
+    boolean shotgunModeEnabled?;
 };
 
 public type ListRebateAgreementItemsResponseResponseData record {
@@ -14620,29 +14855,12 @@ public type ListRebateAgreementItemsResponseResponseData record {
     decimal lastUpdateBy?;
 };
 
-public type AddPGTTDataTypeConfiguration record {
-    string uomOverrideElementName?;
-    int maxIncreasePct?;
-    string[] hiddenElementNames?;
-    string[] userCanToggleVisibility?;
-    string[] overridableFields?;
-    int relativeTargetDateDays?;
-    AddPGTTDataTypeConfigurationCalculationLogicInputs[] calculationLogicInputs?;
-    string preferencesSource?;
-    string[] calcLogicInputsOverridableFields?;
-    DcrmanagerupdatemassopidDataMassChangeFilter productFilterCriteria?;
-    string autoApproveElementName?;
-    boolean allowColumnTypeChange?;
-    AddPGTTDataTypeConfigurationHeaderInputs[] headerInputs?;
-    int maxDecreasePct?;
-    string[] elementNames?;
-    string[] approvalTriggerFields?;
-    string[] approvalMappings?;
-    string manualResultExpiryElementName?;
-    string dynamicItemMode?;
-    string currencyOverrideElementName?;
-    string resultElementName?;
-    boolean shotgunModeEnabled?;
+public type SaveModelResponse record {
+    SaveModelResponseResponse response?;
+};
+
+public type RejectClaimItemsRequest record {
+    ClaimmanagervalidateitemstypedIdData data?;
 };
 
 public type ContractmanagersaveDataContract record {
@@ -14712,14 +14930,6 @@ public type ContractmanagersaveDataContract record {
     decimal lastUpdateBy;
 };
 
-public type SaveModelResponse record {
-    SaveModelResponseResponse response?;
-};
-
-public type RejectClaimItemsRequest record {
-    ClaimmanagervalidateitemstypedIdData data?;
-};
-
 # Represents the Queries record for the operation: exportDatamart
 public type ExportDatamartQueries record {
     # The maximum number of returned rows
@@ -14771,22 +14981,18 @@ public type ContractmanagersaveDataContractLineItems record {
 };
 
 public type Step record {
-    # Object with custom translations with structure. It tries to pick label according to your language, otherwise it pick label from `""` key. After that translationKey is used
     LabelTranslations labelTranslations?;
     # If such key exist, the translation will be used. Otherwise this string will show up on the screen
     string translationKey?;
     # It can be used in URL, so use URL-safe letters
     string name?;
-    # The icon is provided by DynamicIcon component, so the icon has to be defined there
     Icon icon?;
     Tab[] tabs?;
     # List of user groups names (separated by comma), which can view the step
     string userGroupViewDetails?;
     # List of user groups names (separated by comma), which can edit the step
     string userGroupEdit?;
-    # Filter can be a rule or a group of rules with a combining operator
     Filter hiddenCheck?;
-    # Filter can be a rule or a group of rules with a combining operator
     Filter disableCheck?;
 };
 
@@ -14816,6 +15022,10 @@ public type contractModelResponse_response_inputs_1 record {
     anydata valueOptions?;
 };
 
+public type ProductAttributeMetaEnvelope record {
+    InlineResponse20071Response response?;
+};
+
 public type InlineResponse20064DataStatsSummary record {
     int shards?;
     int bytesProcessedPerSecond?;
@@ -14831,10 +15041,6 @@ public type InlineResponse20064DataStatsSummary record {
     int totalEntriesReturned?;
 };
 
-public type ProductAttributeMetaEnvelope record {
-    InlineResponse20071Response response?;
-};
-
 public type PricegridmanagerfetchidData record {
     @jsondata:Name {value: "_constructor"}
     string constructor?;
@@ -14844,6 +15050,7 @@ public type PricegridmanagerfetchidData record {
     string operator?;
 };
 
+# 
 public type AddCustomerRequest record {
     AddCData data;
     @constraint:String {minLength: 1}
@@ -14909,6 +15116,15 @@ public type UpdatePOldValues record {
     decimal lastUpdateBy?;
 };
 
+public type ListCompensationRecordsRequest record {
+    int startRow?;
+    string textMatchStyle?;
+    SellermanagerfetchformulafilteredsellersData data?;
+    int endRow?;
+    string operationType?;
+    record {} oldValues?;
+};
+
 public type ListRollupsResponseResponse record {
     @constraint:String {minLength: 1}
     string node?;
@@ -14917,15 +15133,6 @@ public type ListRollupsResponseResponse record {
     ListRollupsResponseResponseData[] data?;
     decimal endRow?;
     decimal status?;
-};
-
-public type ListCompensationRecordsRequest record {
-    int startRow?;
-    string textMatchStyle?;
-    SellermanagerfetchformulafilteredsellersData data?;
-    int endRow?;
-    string operationType?;
-    record {} oldValues?;
 };
 
 public type InlineResponse20046Response record {
@@ -14952,6 +15159,12 @@ public type GetDMObjectRequest record {
     anydata oldValues?;
     # set to `true` to return only unique values
     boolean distinctResults?;
+};
+
+public type QuotemanagerpriceDataQuoteViewState record {
+    anydata openFolders?;
+    anydata gridViewState?;
+    record {}[] selectedNodes;
 };
 
 public type GetCompetitionDataResponseResponseData record {
@@ -14989,12 +15202,6 @@ public type GetCompetitionDataResponseResponseData record {
     anydata infoDate?;
 };
 
-public type QuotemanagerpriceDataQuoteViewState record {
-    anydata openFolders?;
-    anydata gridViewState?;
-    record {}[] selectedNodes;
-};
-
 public type ListRolesOfBusinessRoleResponseResponse record {
     @constraint:String {minLength: 1}
     string node?;
@@ -15004,10 +15211,12 @@ public type ListRolesOfBusinessRoleResponseResponse record {
     decimal status?;
 };
 
+# 
 public type GetQuoteContractRebateAgreementResponse record {
     GetQuoteContractRebateAgreementResponseResponse response?;
 };
 
+# 
 public type RunDataLoadRequest record {
     DatamartrundataloadData data?;
 };
@@ -15190,10 +15399,6 @@ public type RebateAgreement record {
     int lastUpdateBy?;
 };
 
-public type PricelistmanagersubmitidData record {
-    string actionComment?;
-};
-
 # The type code is AIT.
 # >Action Types can be added or edited via UI: <b>Administration</b> > <b>Configuration</b> > <b>Actions</b> > <b>Action Types</b>
 public type ActionItemType record {
@@ -15214,6 +15419,10 @@ public type ActionItemType record {
     int version?;
     string createDate?;
     int lastUpdateBy?;
+};
+
+public type PricelistmanagersubmitidData record {
+    string actionComment?;
 };
 
 public type InlineResponse201ResponseErrorsStatus record {
@@ -15254,19 +15463,6 @@ public type ImportmanagermassedittypedIdDataMassEditRecords record {
     string fieldValue?;
 };
 
-public type AccountmanagerassignbusinessroleData record {
-    # `TypedId` of the business role you want to assign or revoke. Either `typedId` or `uniqeName` is required
-    @constraint:String {minLength: 1}
-    string typedId;
-    # `uniqueName` of the business role you want to assign or revoke. Either `typedId` or `uniqeName` is required
-    @constraint:String {minLength: 1}
-    string uniqueName;
-    # The list of users' `typedId`s or `loginName`. Can be mixed
-    string[] users;
-    # Set to `true` to assign the user to the business role. Set `false` to remove the business role from the user
-    boolean assign;
-};
-
 public type contractModelResponse_response_lineItems record {
     anydata version?;
     anydata typedId?;
@@ -15302,6 +15498,24 @@ public type contractModelResponse_response_lineItems record {
     decimal lastUpdateBy?;
     @constraint:String {minLength: 1}
     string contractTermType?;
+};
+
+public type AccountmanagerassignbusinessroleData record {
+    # `TypedId` of the business role you want to assign or revoke. Either `typedId` or `uniqeName` is required
+    @constraint:String {minLength: 1}
+    string typedId;
+    # `uniqueName` of the business role you want to assign or revoke. Either `typedId` or `uniqeName` is required
+    @constraint:String {minLength: 1}
+    string uniqueName;
+    # The list of users' `typedId`s or `loginName`. Can be mixed
+    string[] users;
+    # Set to `true` to assign the user to the business role. Set `false` to remove the business role from the user
+    boolean assign;
+};
+
+public type InlineResponse2008ResponseStateDefinition record {
+    InlineResponse2008ResponseStateDefinitionScope scope?;
+    InlineResponse2008ResponseStateDefinitionSource 'source?;
 };
 
 public type ContractmanagersubmitDataContract record {
@@ -15373,28 +15587,24 @@ public type ContractmanagersubmitDataContract record {
     decimal lastUpdateBy?;
 };
 
-public type InlineResponse2008ResponseStateDefinition record {
-    InlineResponse2008ResponseStateDefinitionScope scope?;
-    InlineResponse2008ResponseStateDefinitionSource 'source?;
-};
-
 public type AddConditionTypeEnvelope record {
     AddConditionTypeResponse response?;
+};
+
+# 
+public type DenyLivePriceGridItemRequest record {
+    PricegridmanagerrejectidData data;
 };
 
 public type LoaddataTypeCodeData record {
     # Specify the field values in the same order as specified in the header object
     anydata[][] data;
-    # Specify options of the bulk data insertion
     LoaddataTypeCodeDataOptions options?;
     # Specify header field names (table columns) of the record in the target table
     anydata[] header;
 };
 
-public type DenyLivePriceGridItemRequest record {
-    PricegridmanagerrejectidData data;
-};
-
+# 
 public type ListProductSetsRequest record {
     # The number of the first row that defines the start of the result set's returned objects. Use this parameter if you want to implement paging for results
     decimal startRow?;
@@ -15497,6 +15707,20 @@ public type CreatePriceListResponseResponseData record {
     string status?;
 };
 
+public type ClicmanagersendemailData record {
+    # `typedId` of the Quote you want to send as an email attachament
+    string typedId;
+    # `typedId` of the attachment you want to send together with the Quote. This must be an existing attachment. You can upload a file on the **Attachments** tab of the document
+    string attachedFiles?;
+    # A name of the existing template. See the [Publishing Templates](https://pricefx.atlassian.net/wiki/display/UNITY/Publishing+Templates) documentation
+    string templateName;
+    # Select the type of the attachment template
+    "WORD"|"PDF"|"EXCEL" attachmentType;
+    string subject;
+    ClicmanagersendemailDataRecipients[] recipients;
+    string emailText?;
+};
+
 public type SX50Inner record {
     string typedId?;
     string? attribute39?;
@@ -15560,20 +15784,6 @@ public type SX50Inner record {
     int lastUpdateBy?;
 };
 
-public type ClicmanagersendemailData record {
-    # `typedId` of the Quote you want to send as an email attachament
-    string typedId;
-    # `typedId` of the attachment you want to send together with the Quote. This must be an existing attachment. You can upload a file on the **Attachments** tab of the document
-    string attachedFiles?;
-    # A name of the existing template. See the [Publishing Templates](https://pricefx.atlassian.net/wiki/display/UNITY/Publishing+Templates) documentation
-    string templateName;
-    # Select the type of the attachment template
-    "WORD"|"PDF"|"EXCEL" attachmentType;
-    string subject;
-    ClicmanagersendemailDataRecipients[] recipients;
-    string emailText?;
-};
-
 public type QuotemanagersaveDataQuoteViewState record {
     anydata openFolders?;
     anydata gridViewState?;
@@ -15609,6 +15819,7 @@ public type RecalculateCalculationOfStepResponseResponse record {
     int status?;
 };
 
+# 
 public type ListRebateAgreementsRequest record {
     decimal startRow?;
     @constraint:String {minLength: 1}
@@ -15628,6 +15839,7 @@ public type CompensationLineItemCalculationBaseIncludedTimePeriods record {
     "DAY"|"WEEK"|"MONTH"|"QUARTER"|"YEAR" timeUnit?;
 };
 
+# 
 public type ListPriceListsRequest record {
     # The number of the first row that defines the start of the result set's returned objects. Use this parameter if you want to implement paging for results
     decimal startRow?;
@@ -15720,6 +15932,7 @@ public type AccountmanagerdeletebusinessroleData record {
     string typedId;
 };
 
+# 
 public type ExecuteLogicReadOnlyResponse record {
     ExecuteLogicWithoutProductContextResponseResponse response?;
 };
@@ -15755,7 +15968,6 @@ public type UpdateDCRIRequest record {
     DcrmanagerupdateidData data;
     string textMatchStyle?;
     string operationType?;
-    # The type code is DCRI
     DataChangeRequestItem oldValues;
 };
 
@@ -15773,6 +15985,7 @@ public type FetchPLDataCriteria record {
     string operator?;
 };
 
+# 
 public type DeleteColumnValuesResponse record {
     RevokeDealResponseResponse response?;
 };
@@ -15780,6 +15993,7 @@ public type DeleteColumnValuesResponse record {
 # The Seller Extension object. The type code is SX20 (contains 20 attribute fields)
 public type SX20 SX20Inner[];
 
+# 
 public type ExecuteLogicWithoutProductContextResponse record {
     ExecuteLogicWithoutProductContextResponseResponse response?;
 };
@@ -15822,6 +16036,7 @@ public type SX8Inner record {
     int lastUpdateBy?;
 };
 
+# 
 public type ListPendingApprovalsResponse record {
     ListPendingApprovalsResponseResponse response?;
 };
@@ -15840,6 +16055,7 @@ public type SellermanagerfetchformulafilteredsellersDataCriteria record {
     string operator?;
 };
 
+# 
 public type DeleteCustomerRequest record {
     DeleteTypeCodeData data;
 };
@@ -15921,6 +16137,7 @@ public type contractModelResponse_response_data record {
     string rootUniqueName?;
 };
 
+# 
 public type CreateCustomFormTypeResponse record {
     CreateCustomFormTypeResponseResponse response?;
 };
@@ -15938,6 +16155,7 @@ public type ListLivePriceGridsResponseResponse record {
     decimal status?;
 };
 
+# 
 public type manualpricelistResponse record {
     manualpricelistResponse_response response?;
 };
@@ -15991,6 +16209,7 @@ public type InlineResponse200ResponseData record {
     string id?;
 };
 
+# 
 public type DenyDocumentRequest record {
     WorkflowsmanagerapprovecurrentStepIdData data;
 };
@@ -16103,35 +16322,6 @@ public type AddWatcherStepResponseResponseData record {
     string resultType?;
 };
 
-public type AccountmanagerassignbusinessroleuserIdData record {
-    # `TypedId` of the business role you want to assign or revoke. Either `typedId` or `uniqeName` is required
-    @constraint:String {minLength: 1}
-    string typedId;
-    # `uniqueName` of the role you want to assign or revoke. Either `typedId` or `uniqeName` is required
-    @constraint:String {minLength: 1}
-    string uniqueName;
-    # Set to `true` to assign the business role to the user. Set `false` to remove the business role from the user
-    boolean assign;
-};
-
-public type AddCalculationResponseResponse record {
-    string node?;
-    CompensationRecordSetCalculation[] data?;
-    int status?;
-};
-
-public type ListClaimsRequest record {
-    # The number of the first row that defines the start of the result set's returned objects. Use this parameter if you want to implement paging for results
-    decimal startRow?;
-    @constraint:String {minLength: 1}
-    string textMatchStyle?;
-    # The number of the end row that defines the end of the result set's returned objects. Use this parameter if you want to implement paging for results
-    decimal endRow = 300;
-    @constraint:String {minLength: 1}
-    string operationType?;
-    anydata oldValues?;
-};
-
 # The type code is DCRI
 public type DataChangeRequestItem record {
     string? key1?;
@@ -16192,6 +16382,36 @@ public type DataChangeRequestItem record {
     record {|string[]...;|}? changeRef?;
     anydata attribute30?;
     int lastUpdateBy?;
+};
+
+public type AddCalculationResponseResponse record {
+    string node?;
+    CompensationRecordSetCalculation[] data?;
+    int status?;
+};
+
+public type AccountmanagerassignbusinessroleuserIdData record {
+    # `TypedId` of the business role you want to assign or revoke. Either `typedId` or `uniqeName` is required
+    @constraint:String {minLength: 1}
+    string typedId;
+    # `uniqueName` of the role you want to assign or revoke. Either `typedId` or `uniqeName` is required
+    @constraint:String {minLength: 1}
+    string uniqueName;
+    # Set to `true` to assign the business role to the user. Set `false` to remove the business role from the user
+    boolean assign;
+};
+
+# 
+public type ListClaimsRequest record {
+    # The number of the first row that defines the start of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal startRow?;
+    @constraint:String {minLength: 1}
+    string textMatchStyle?;
+    # The number of the end row that defines the end of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal endRow = 300;
+    @constraint:String {minLength: 1}
+    string operationType?;
+    anydata oldValues?;
 };
 
 public type InlineResponse2012Data record {
@@ -16379,10 +16599,7 @@ public type LokiLogEnvelope record {
     string status?;
 };
 
-public type UpsertObjectReturnOldDataResponse record {
-    UpsertObjectReturnOldDataResponseResponse response;
-};
-
+# 
 public type ListProductsRequest1 record {
     decimal startRow?;
     @constraint:String {minLength: 1}
@@ -16397,6 +16614,11 @@ public type ListProductsRequest1 record {
     boolean distinctResults?;
 };
 
+# 
+public type UpsertObjectReturnOldDataResponse record {
+    UpsertObjectReturnOldDataResponseResponse response;
+};
+
 public type ListAttributeFieldsMetadataResponse record {
     @constraint:String {minLength: 1}
     string node?;
@@ -16405,6 +16627,15 @@ public type ListAttributeFieldsMetadataResponse record {
     @constraint:Array {minLength: 1}
     ListAttributeFieldsMetadataResponseData[] data?;
     decimal status?;
+};
+
+public type InlineResponse20033Response record {
+    string node?;
+    int startRow?;
+    BinaryData[] data?;
+    int endRow?;
+    int totalRows?;
+    int status?;
 };
 
 public type ContractmanagersaveDataContractProductGroup1 record {
@@ -16416,15 +16647,6 @@ public type ContractmanagersaveDataContractProductGroup1 record {
     string productFieldValue;
     anydata label?;
     anydata productFilterCriteria?;
-};
-
-public type InlineResponse20033Response record {
-    string node?;
-    int startRow?;
-    BinaryData[] data?;
-    int endRow?;
-    int totalRows?;
-    int status?;
 };
 
 public type CopyLogicResponseResponseData record {
@@ -16466,6 +16688,16 @@ public type ContractmanagersaveDataContractParameterConfig record {
     string dataType?;
 };
 
+public type ListConditionTypesRequest record {
+    int startRow?;
+    string textMatchStyle?;
+    LookuptablemanagerdeletetableIdbatchDataFilterCriteria data?;
+    int endRow?;
+    string operationType?;
+    record {}? oldValues?;
+};
+
+# 
 public type GetDMObjectNoCountRequest record {
     decimal startRow?;
     @constraint:String {minLength: 1}
@@ -16477,17 +16709,9 @@ public type GetDMObjectNoCountRequest record {
     anydata oldValues?;
 };
 
+# 
 public type ListDataLoadsResponse record {
     ListDataLoadsResponseResponse response?;
-};
-
-public type ListConditionTypesRequest record {
-    int startRow?;
-    string textMatchStyle?;
-    LookuptablemanagerdeletetableIdbatchDataFilterCriteria data?;
-    int endRow?;
-    string operationType?;
-    record {}? oldValues?;
 };
 
 public type ConditionRecordItemMetaEnvelope record {
@@ -16505,13 +16729,13 @@ public type ManualpricelistmanagerintegrateidData record {
     string sku;
 };
 
+public type MassSubmitRebateRecordGroupsEnvelope record {
+    CalculatePricelistResponseResponse response?;
+};
+
 public type DeleteSXData record {
     # `typedId` of the Seller Extension you want to delete
     string typedId?;
-};
-
-public type MassSubmitRebateRecordGroupsEnvelope record {
-    CalculatePricelistResponseResponse response?;
 };
 
 public type AddPGTTDataCustomActionLogics record {
@@ -16598,6 +16822,7 @@ public type QuoteLineItems record {
     int lastUpdateBy?;
 };
 
+# 
 public type ListRolesOfBusinessRoleResponse record {
     ListRolesOfBusinessRoleResponseResponse response?;
 };
@@ -16658,10 +16883,12 @@ public type ContractmanageradditemsDataContractInputs record {
     anydata value?;
 };
 
+# 
 public type AddWatcherStepRequest record {
     WorkflowsmanageraddwatchercurrentStepIdData data;
 };
 
+# 
 public type SetDefaultPricingLogicResponse record {
     GetDefaultPricingLogicNameResponseResponse response?;
 };
@@ -16762,6 +16989,12 @@ public type DatamartsqlqueryDataSourcesS0QueryDimensionFilters record {
     string[] invoiceDateYear?;
 };
 
+public type WorkflowsmanageraddwatchercurrentStepIdData record {
+    @constraint:String {minLength: 1}
+    string addStepCurrentStepId;
+    WorkflowsmanageraddwatchercurrentStepIdDataAddStepStepInstance addStepStepInstance;
+};
+
 public type GetWorkflowDocumentResponseResponseWorkflowSteps record {
     @constraint:String {minLength: 1}
     string reason?;
@@ -16805,12 +17038,6 @@ public type GetWorkflowDocumentResponseResponseWorkflowSteps record {
     anydata[] mandatoryComments?;
 };
 
-public type WorkflowsmanageraddwatchercurrentStepIdData record {
-    @constraint:String {minLength: 1}
-    string addStepCurrentStepId;
-    WorkflowsmanageraddwatchercurrentStepIdDataAddStepStepInstance addStepStepInstance;
-};
-
 public type InlineResponse20062Response record {
     string node?;
     int startRow?;
@@ -16827,6 +17054,14 @@ public type InlineResponse2009ResponseStateTwoTabsTab2 record {
     string optionEntry?;
     @jsondata:Name {value: "MatrixEntry"}
     InlineResponse2009ResponseStateTwoTabsTab2MatrixEntry[] matrixEntry?;
+};
+
+# Represents the Queries record for the operation: listCustomerExtensionObjects
+public type ListCustomerExtensionObjectsQueries record {
+    # Specifies the format of the output file
+    "json"|"xls"|"csv"|"pdf" output?;
+    # Set to **false** to retrieve the table with labels (as used in the database) instead of names in the table header
+    "true"|"false" useColumnNames = "true";
 };
 
 public type CalculatePriceGridResponseResponseJobSettings record {
@@ -16847,14 +17082,6 @@ public type CalculatePriceGridResponseResponseJobSettings record {
     string partitionUUID;
     @constraint:String {minLength: 1}
     string uuid;
-};
-
-# Represents the Queries record for the operation: listCustomerExtensionObjects
-public type ListCustomerExtensionObjectsQueries record {
-    # Specifies the format of the output file
-    "json"|"xls"|"csv"|"pdf" output?;
-    # Set to **false** to retrieve the table with labels (as used in the database) instead of names in the table header
-    "true"|"false" useColumnNames = "true";
 };
 
 public type InlineResponse20079Response record {
@@ -16946,7 +17173,6 @@ public type Compensation record {
     int createdBy?;
     "SUCCESS"|"COMMAND_GENERAL_ERROR"|"COMMAND_GENERAL_ERROR_WITH_MSG"|"COMMAND_GENERAL_ERROR_CONFLICT"|"COMMAND_GENERAL_ERROR_CONFLICT_FIELD"|"COMMAND_NOT_FOUND"|"COMMAND_CONFIG_ERROR"|"COMMAND_CONTEXT_PATH_NOTFOUND"|"COMMAND_NOT_AUTHORIZED"|"COMMAND_INVALID_PARAMETERS"|"COMMAND_FORBIDDEN_IN_K8S"|"COMMAND_FORBIDDEN_IN_READONLYMODE"|"COMMAND_FORM_TOO_LARGE"|"OBJECT_NOT_FOUND"|"LOGIN_FAILURE"|"LOGIN_FAILURE_BANNED"|"LOGIN_FAILURE_TFA"|"LOGIN_FAILURE_INACTIVE_OR_EXPIRED"|"PARTITION_UNKNOWN"|"COPY_OF_PREFIX"|"SIM_OF_PREFIX"|"TOO_MANY_WARNINGS"|"NO_NAME"|"ERROR_MESSAGE"|"ERROR_STATUS"|"ERROR_HTTPCODE"|"ERROR_ACTION"|"ERROR_TIMESTAMP"|"INVALID"|"FORMULA_ERROR"|"DEFAULT_FORMULA_NOT_FOUND"|"FORMULA_NOT_FOUND"|"FORMULA_NOT_FOUND_FOR"|"FE_SYNTAX_ERROR"|"FE_UNKNOWN_SYMBOL_ERROR"|"FE_WRONG_NUMBER_OF_ARGS"|"FE_ILLEGAL_OPERATION"|"FE_ILLEGAL_ARGUMENT"|"FE_ILLEGAL_STATUS"|"FE_UNDEFINED_FUNCTION"|"FE_UNDEFINED_UNIT"|"FE_UNDEFINED_VARIABLE"|"FE_FLEXCHART_UNSUPPORTED_FEATURE"|"FE_FLEXCHART_UNRECOGNIZED_OPTION"|"FE_FLEXCHART_INVALID_OPTION"|"FE_FLEXCHART_FORBIDDEN_OPTION"|"FE_FLEXCHART_INVALID_JSON"|"FE_FLEXCHART_GENERIC_ERROR"|"FE_EMBEDDED_DASHBOARD_API_MALFORMED_CONF"|"FE_EMBEDDED_DASHBOARD_API_FUNCTION_DOES_NOT_EXIST"|"FE_EMBEDDED_DASHBOARD_API_ILLEGAL_FUNCTION_CALL"|"FE_EMBEDDED_DASHBOARD_API_ILLEGAL_ARGUMENT"|"FE_WARNING_FLEXCHART_UNRECOGNIZED_TEMPLATE"|"FE_WARNING_ATTRIBUTE_NOTFOUND"|"FE_WARNING_PRODUCT_NOTSET"|"FE_WARNING_PRODUCT_NOTFOUND"|"FE_WARNING_PRODUCTATTRIBUTE_NOTFOUND"|"FE_WARNING_PRODUCTATTRIBUTE_AMIBGUOUS"|"FE_WARNING_CUSTOMER_NOTSET"|"FE_WARNING_CUSTOMER_NOTFOUND"|"FE_WARNING_CUSTOMERATTRIBUTE_NOTFOUND"|"FE_WARNING_CUSTOMERATTRIBUTE_AMIBGUOUS"|"FE_WARNING_VLOOKUP_TABLE_NOTFOUND"|"FE_WARNING_VLOOKUP_KEY_NOTFOUND"|"FE_WARNING_VLOOKUP_KEY_ISNULL"|"FE_WARNING_VLOOKUP_AMIBGUOUS"|"FE_WARNING_VLOOKUP_AMIBGUOUS_NOKEY"|"FE_WARNING_CONTEXT_NOTFOUND"|"FE_WARNING_CONTEXT_AMIBGUOUS"|"FE_WARNING_USERENTRY_NOTFOUND"|"FE_WARNING_CONFIGURATOR_NOTFOUND"|"FE_WARNING_OPTION_NOTFOUND"|"FE_WARNING_FUNCTIONCALL_AMIBGUOUS"|"FE_WARNING_ARITHMETICEXCEPTION"|"FE_WARNING_PRICELIST_ITEMNOTFOUND"|"FE_INFO_DATAMARTQUERY_USINGCACHEDRESULT"|"FE_WARNING_DATAMARTQUERY_INVALIDQUERY"|"FE_WARNING_DATAMARTQUERY_MAXROWSEXCEEDED"|"FE_WARNING_DATAMARTLOOKUP_QUERYNOTFOUND"|"FE_WARNING_DATAMARTLOOKUP_FIELDNOTFOUND"|"FE_WARNING_DATAMARTLOOKUP_INVALIDFILTER"|"FE_WARNING_DATAMARTLOOKUP_MAXROWSEXCEEDED"|"FE_WARNING_COULD_NOT_COMBINE_ELEMENTS"|"FE_WARNING_PRODUCT_EXTENSION_NAME_NOTSET"|"FE_WARNING_CUSTOMER_EXTENSION_NAME_NOTSET"|"FE_WARNING_PRICERECORD_NOTFOUND"|"FE_WARNING_PRODUCTGROUP_NOTFOUND"|"FE_WARNING_CUSTOMERGROUP_NOTFOUND"|"FE_WARNING_SELLERGROUP_NOTFOUND"|"FE_WARNING_ANYUSER_NOTFOUND"|"FE_WARNING_MULTITIERENTRY_NOTFOUND"|"FE_WARNING_DATASOURCE_NOTFOUND"|"FE_WARNING_FIELD_NOTFOUND"|"FE_WARNING_REBATERECORD_NOTFOUND"|"FE_WARNING_CONTEXTSKUSET_NOTSETORMALFORMED"|"FE_WARNING_FILTERBUILDERUSERENTRY_NOTFOUND"|"FE_WARNING_FILTERBUILDERUSERENTRY_ILLEGALVALUE"|"FE_WARNING_DMFILTERBUILDERUSERENTRY_NOTFOUND"|"FE_WARNING_DMFILTERBUILDERUSERENTRY_ILLEGALVALUE"|"FE_WARNING_REBATE_AGREEMENT_NOTFOUND"|"FE_WARNING_REBATE_AGREEMENT_ATTRIBUTE_NOTFOUND"|"FE_WARNING_CLAIM_WRONG_VALIDATION_STATE"|"FE_WARNING_HOOK_GENERIC_ERROR"|"FE_WARNING_HOOK_GENERIC_DENIED_MESSAGE"|"FE_WARNING_PARENT_NOTFOUND"|"FE_WARNING_MAX_RESULTS_SIZE_EXCEEDED"|"FE_WARNING_MISSING_BUSINESSKEY_VALUE"|"VALIDATION_SKU_MISSING"|"VALIDATION_PARTITION_USERNAME_UPDATE"|"VALIDATION_PARTITION_PASSWORD_UPDATE"|"VALIDATION_PARTITION_NULL"|"VALIDATION_PARTITION_MISMATCH"|"VALIDATION_CUSTOMERID_MISSING"|"VALIDATION_SELLERID_MISSING"|"VALIDATION_DUPLICATE_BUSINESSKEY"|"VALIDATION_DUPLICATE_BUSINESSKEY_PARAMETERIZED"|"VALIDATION_DYNAMIC_TABS_DUPLICATED_CUSTOM_FORMS"|"VALIDATION_DYNAMIC_TABS_STANDALONE_CUSTOM_FORM"|"VALIDATION_DYNAMIC_TABS_UNSUPPORTED_TYPE_CUSTOM_FORM"|"VALIDATION_DYNAMIC_TABS_MISSING_TAB"|"VALIDATION_NEWER_VERSION_EXISTS"|"VALIDATION_FORMULAELEMENT_EMPTYNAME"|"VALIDATION_FORMULAELEMENT_INVALIDNAME"|"VALIDATION_FAILED"|"VALIDATION_FIELD_DUPLICATE_VALUE"|"VALIDATION_FIELD_MISSING"|"VALIDATION_FIELD_INVALID_CHARS"|"VALIDATION_FIELD_INVALID"|"VALIDATION_FIELD_TOO_BIG"|"VALIDATION_FIELD_TOO_BIG_WITH_MSG"|"VALIDATION_NUMBER_TOO_BIG"|"VALIDATION_STATUS_RESTRICTED"|"VALIDATION_USERGROUP_RESTRICTED"|"VALIDATION_WORKFLOW_RESTRICTED"|"VALIDATION_EDIT_NOT_AUTHORIZED"|"VALIDATION_DELETE_NOT_AUTHORIZED"|"VALIDATION_ADD_NOT_AUTHORIZED"|"VALIDATION_INVALID_STATUS"|"VALIDATION_LINKED_OBJ_NOT_SAVED"|"VALIDATION_BOTH_SKU_AND_PRODUCTGROUP_PRESENTED"|"VALIDATION_BOTH_CUSTOMERID_AND_CUSTOMERGROUP_PRESENTED"|"VALIDATION_PLASMA_DELETE"|"VALIDATION_PLASMA_MISMATCH"|"VALIDATION_PLASMA_UPDATE"|"VALIDATION_PWDCOMPLEXITYRULES_INVALID_PASSWORD"|"VALIDATION_PWNED_PASSWORD"|"VALIDATION_INVALID_OLD_PASSWORD"|"VALIDATION_APPLICATIONPROPERTIES_PWDCOMPLEXITYRULES_UNKNOWN"|"VALIDATION_FORMULA_WITH_NAME_AND_DIFFERENT_NATURE_EXISTS"|"VALIDATION_FORMULA_WORKFLOWTYPE_NOTALIGNED"|"VALIDATION_DATE_CONFLICT_WITH"|"VALIDATION_INVALID_ENDDATE"|"VALIDATION_MISSING_DRIVERS"|"VALIDATION_APPLICATIONPROPERTIES_REVISIONPATTERN_FIELD_MISSING"|"VALIDATION_IMPORT_EXCEL_INVALID_HEADER"|"VALIDATION_WARNING_BUSINESS_KEYS_LENGTHS_EXCEEDED"|"VALIDATION_MULTIPLE_FORMULA_INHERITANCE_NOT_ALLOWED"|"VALIDATION_NATURE_NOT_ALLOWED_FOR_INHERITANCE"|"VALIDATION_PARENT_AND_CHILD_NATURES_DO_NOT_MATCH"|"PL_ALERT_PRICEDEVIATION_TOO_HIGH"|"PL_WRONG_TYPE"|"PL_ALREADY_APPROVED"|"PL_NOTFOUND"|"PL_CAN_CONVERT_TO_APPROVED"|"CALC_ALREADY_FINISHED"|"CALC_CANCEL_QUEUED"|"CALC_SERIALIZATION_ERROR"|"NO_MAPPING"|"PG_ISEMPTY"|"PGI_OFNONEXISTENTSKU_SKIPPED"|"PGI_OFNONEXISTENTSKU_INVALIDATED"|"PGI_OFNONEXISTENTSKU_HARDDELETED"|"PGI_OFNONEXISTENTSKU_SOFTDELETED"|"SIM_ISEMPTY"|"SIM_BASEPL_INVALID"|"NOT_ENOUGH_LICENSES"|"CANNOT_EXPAND_SCOPE_BUSINESSROLE"|"ACCESS_DENIED"|"DM_DEPLOYMENT_IN_PROGRESS"|"DM_OBJECT_ISLOCKED"|"DM_DEFAULT_DS_CREATION_FAILED"|"DM_SCHEMA_INTEGRITY_ERROR"|"DM_ACTION_NOTALLOWED"|"DM_VALIDATION_MAXROWS_EXCEEDED"|"DM_VALIDATION_HEADER_INVALIDFIELD"|"DM_VALIDATION_FIELD_UNKNOWN"|"DM_VALIDATION_KEYFIELD_MISSING"|"DM_VALIDATION_FIELD_MISSING"|"DM_VALIDATION_ROW_INVALIDFORMAT"|"DM_VALIDATION_ROW_FIELDMISMATCH"|"DM_VALIDATION_FIELD_INVALIDVALUE"|"DM_VALIDATION_INVALID"|"DM_VALIDATION_DM_FIELD_AMBIGIOUS"|"DM_VALIDATION_SCHEMA_FIELDCONFLICT"|"DM_VALIDATION_SCHEMA_AMBIGUOUSFIELDTYPE"|"DM_VALIDATION_SCHEMA_CIRCULARDEPENDENCY"|"DM_VALIDATION_DS_INVALID"|"DM_VALIDATION_DM_INVALID"|"DM_VALIDATION_FC_DEPENDENTONINVALIDFC"|"DM_VALIDATION_FC_INVALIDFIELDS"|"DM_VALIDATION_FC_INVALIDCALCULATEDFIELDS"|"DM_VALIDATION_FC_INVALIDNAME"|"DM_VALIDATION_FC_DUPLICATEFIELDS"|"DM_VALIDATION_DS_NOKEY"|"DM_VALIDATION_DS_AMBIGUOUSCCY"|"DM_VALIDATION_DS_AMBIGUOUSUOM"|"DM_VALIDATION_DS_MISSINGKEYFIELDS"|"DM_VALIDATION_DM_NOKEY"|"DM_VALIDATION_DM_SOURCE_MISSING"|"DM_VALIDATION_DM_FIELD_UNKNOWN"|"DM_VALIDATION_DM_INVALIDFIELDS"|"DM_VALIDATION_DEPENDENCIES_MISSING"|"DM_VALIDATION_SOURCE_NOTACCESSIBLE"|"DM_VALIDATION_SOURCE_FIELD_UNKNOWN"|"DM_VALIDATION_SOURCE_FIELD_MISSING"|"DM_VALIDATION_SYSTEM_GENERATED_DATASOURCE"|"DM_VALIDATION_CFS_KEYNOTALLOWED"|"DM_VALIDATION_KEYFIELD_INVALIDTYPE"|"DM_VALIDATION_FIELD_INVALIDNAME"|"DM_VALIDATION_FIELD_INVALIDTYPE"|"DM_VALIDATION_FIELD_INVALIDEXPRESSION"|"DM_VALIDATION_QUERY_SOURCE_MISSING"|"DM_VALIDATION_QUERY_NOTQUERYABLE"|"DM_VALIDATION_QUERY_INVALIDCCYCODE"|"DM_VALIDATION_QUERY_CANNOTGENSTATPROJ"|"DM_VALIDATION_QUERY_PROJ_INVALID"|"DM_VALIDATION_QUERY_PROJ_INVALIDTYPE"|"DM_VALIDATION_QUERY_PROJ_INVALIDCALCMODE"|"DM_VALIDATION_QUERY_PROJ_CANNOTROLLUP"|"DM_VALIDATION_QUERY_PROJ_CANNOTGENSTATPROJ"|"DM_VALIDATION_QUERY_PROJ_INVALIDDEFAULT"|"DM_VALIDATION_QUERY_EXPR_UNKNOWNIDENTIFIER"|"DM_VALIDATION_QUERY_ROWLIMIT_INVALID"|"DM_VALIDATION_QUERY_PIVOTCOLUMNLIMIT"|"DM_VALIDATION_QUERY_FILTER_INVALID"|"DM_VALIDATION_QUERY_MISSING_SQL"|"DM_VALIDATION_DUPLICATE"|"DM_VALIDATION_AMBIGUOUS"|"DM_LABEL_CALENDAR"|"DM_LABEL_TIMEDIM_DAY"|"DM_LABEL_TIMEDIM_WEEK"|"DM_LABEL_TIMEDIM_MONTH"|"DM_LABEL_TIMEDIM_QUARTER"|"DM_LABEL_TIMEDIM_YEAR"|"DM_LABEL_DEFAULTFEED2DSFORMULA"|"DM_DATASOURCES"|"DM_VALIDATION_PARTITIONING_KEY_MORE_THAN_ONE"|"DM_VALIDATION_PARTITIONING_KEY_HAS_TO_BE_DATE"|"DM_VALIDATION_FIELD_PARTITIONING_KEY_HAS_TO_BE_DATE"|"DM_VALIDATION_PARTITIONING_NO_EFFECT_ON_EXISTING"|"DM_QUERY_TIMEOUT"|"JST_CANNOT_START"|"IMPORTFILE_VALIDATION_ERROR_DATASOURCE"|"IMPORTFILE_VALIDATION_ERROR_LIST"|"IMPORTFILE_VALIDATION_ERROR_READONLY"|"IMPORTFILE_VALIDATION_ERROR_REQUIRED"|"IMPORTFILE_VALIDATION_ERROR_START"|"IMPORTFILE_VALIDATION_ERROR_FIELDTYPE"|"IMPORTFILE_VALIDATION_ERROR_FILTER"|"IMPORTFILE_VALIDATION_ERROR_HEADER"|"MODEL_MODELTYPE_NOT_FOUND"|"MODEL_CALCSTEP_NOT_FOUND"|"MODEL_NATURE_NOT_FOUND"|"MODEL_TYPE_DEFINITION_INVALID"|"MODEL_NOT_SPECIFIED"|"MODEL_RECORD_NOT_SPECIFIED"|"ROLLUP_INVALID"|"QUOTE_USERGROUP_RESTRICTED"|"QUOTE_CALCULATED"|"QUOTE_CALCULATED_WITHERRORS"|"QUOTE_SUBMITTED"|"QUOTE_SAVED"|"QUOTE_SUPERSEDEDBY"|"QUOTE_PRODUCTSNOTADDED"|"QUOTE_ALREADY_EXPIRED"|"QUOTE_TESTRESULTELEMENTNAME"|"QUOTE_LINEITEMS_DOTOMATCHQPF"|"QUOTE_QPF_COMPUTATION_FAILED"|"QUOTE_COULD_NOT_CONVERT_TO_DEAL"|"QUOTE_NON_EXISTENT_SKUS"|"QUOTE_WASDELETEDONSERVER"|"QUOTETYPE_DEFAULTTYPE_DELETE_NOTALLOWED"|"QUOTETYPE_DEFAULTTYPE_EDIT_NOTALLOWED"|"QUOTETYPE_EDIT_NOTALLOWED"|"QUOTETYPE_MISSING"|"HEADER_PREPHASE_ELEMENTPOSTFIX"|"HEADER_POSTPHASE_ELEMENTPOSTFIX"|"RBA_USERGROUP_RESTRICTED"|"RBA_CALCULATED"|"RBA_CALCULATED_WITHERRORS"|"RBA_SUBMITTED"|"RBA_SAVED"|"RBA_SUPERSEDEDBY"|"RBA_ITEMSNOTADDED"|"RBA_TESTRESULTELEMENTNAME"|"RBA_WASDELETEDONSERVER"|"REBATETYPE_MISSING"|"RBA_LINEITEMS_DONOTMATCHRBTF"|"RBA_RBTF_COMPUTATION_FAILED"|"RBA_HEADERREBATETYPE_MISSING"|"HEADERREBATETYPE_DEFAULTTYPE_DELETE_NOTALLOWED"|"HEADERREBATETYPE_EDIT_NOTALLOWED"|"HEADERREBATETYPE_MISSING"|"COMPENSATION_CONDITIONTYPE_MISSING"|"COMPENSATION_USERGROUP_RESTRICTED"|"COMPENSATION_CALCULATED"|"COMPENSATION_CALCULATED_WITHERRORS"|"COMPENSATION_SUBMITTED"|"COMPENSATION_SAVED"|"COMPENSATION_SUPERSEDEDBY"|"COMPENSATION_ITEMSNOTADDED"|"COMPENSATION_TESTRESULTELEMENTNAME"|"COMPENSATION_WASDELETEDONSERVER"|"COMPENSATION_LINEITEMS_DONOTMATCHRBTF"|"COMPENSATION_RBTF_COMPUTATION_FAILED"|"COMPENSATION_COMPENSATIONHEADERTYPE_MISSING"|"COMPENSATIONHEADERTYPE_DEFAULTTYPE_DELETE_NOTALLOWED"|"COMPENSATIONHEADERTYPE_EDIT_NOTALLOWED"|"COMPENSATIONHEADERTYPE_MISSING"|"COR_CALCULATED"|"COR_CALCULATED_WITHERRORS"|"COR_SUBMITTED"|"COR_SAVED"|"RR_CALCULATED"|"RR_CALCULATED_WITHERRORS"|"RR_SUBMITTED"|"RR_SAVED"|"MR_CALCULATED"|"MR_CALCULATED_WITHERRORS"|"MR_SUBMITTED"|"MR_SAVED"|"MR_WARNING_NOTALLRECORDSSUBMITTED"|"CONTRACT_SAVED"|"CONTRACT_SUPERSEDEDBY"|"CONTRACT_CALCULATED"|"CONTRACT_CALCULATED_WITHERRORS"|"CONTRACT_SUBMITTED"|"CONTRACT_ITEMSNOTADDED"|"CONTRACT_INVALID_CUSTOMER_GROUP"|"CONTRACT_INVALID_CUSTOMER_GROUP_FOR_LINE"|"CONTRACT_INVALID_PRODUCT_GROUP"|"CONTRACT_INVALID_PRODUCT_GROUP_FOR_LINE"|"CONTRACT_INVALID_SELLER_REFERENCE"|"CONTRACT_INVALID_SELLER_REFERENCE_FOR_LINE"|"CONTRACT_TESTRESULTELEMENTNAME"|"CONTRACT_LINEITEMS_DONOTMATCHCTTF"|"CONTRACT_CTTF_COMPUTATION_FAILED"|"CONTRACT_WASDELETEDONSERVER"|"CONTRACTTERMTYPE_MISSING"|"CUSTOM_FORM_CALCULATED_WITH_ERRORS"|"CUSTOM_FORM_UNDELETABLE_STATUS"|"VIEW_EDIT_RESTRICTED_BY_FORMULA_ENTITLEMENT_FILTER"|"WORKFLOW_PREVIEW_NO_APPROVAL_REQUIRED"|"WORKFLOW_ERROR"|"WORKFLOW_ONBEHALF_MESSAGE"|"WORKFLOW_USERGROUP_INFORMATION_ERROR"|"WORKFLOW_INVALID_EMAILS_IN_WATCHER_STEP"|"WORKFLOW_MAIL_ERROR_USER_MAIL_NOT_DEFINED"|"WORKFLOW_STEP_USER_CANNOT_EXECUTE_STEP"|"WORKFLOW_STEP_USER_CANNOT_EXECUTE_STEP_ONBEHALF"|"WORKFLOW_STEP_USER_CANNOT_EXECUTE_STEP_SUBMITTER"|"WORKFLOW_STEP_WRONG_STEP_BEING_EXECUTED"|"WORKFLOW_USER_INFORMATION_ERROR"|"WORKFLOW_ATTACHMENT_NOT_FOUND_ERROR"|"WORKFLOW_MANDATORY_COMMENT_MISSING_ERROR"|"WORKFLOW_MANDATORY_COMMENT_IMPOSSIBLE_ERROR"|"WORKFLOW_MAX_CUMULATIVE_SIZE_OF_ATTACHMENTS_EXCEEDED_ERROR"|"WORKFLOW_MULTIPLE_ATTACHMENTS_WITH_SAME_NAME_ERROR"|"WORKFLOW_MAX_NUMBER_OF_ATTACHMENTS_EXCEEDED_ERROR"|"WORKFLOW_NOT_FOUND"|"WORKFLOW_STEPEXECUTIONSTATUS_INITIALIZED"|"WORKFLOW_STEPEXECUTIONSTATUS_PREEXECUTED"|"WORKFLOW_STEPEXECUTIONSTATUS_EXECUTEDDENIED"|"WORKFLOW_STEPEXECUTIONSTATUS_EXECUTEDWITHDRAWN"|"WORKFLOW_STEPEXECUTIONSTATUS_EXECUTEDAPPROVED"|"WORKFLOW_STEP_NON_ALLOWED_DENIAL_REASON"|"WORKFLOW_STEP_USER_CANNOT_ADD_STEP"|"WORKFLOW_STEP_USER_CANNOT_APPROVE_MORE_THAN_ONCE"|"WORKFLOW_APPROVERS"|"WORKFLOW_DELEGATION_COMBINED"|"WORKFLOW_DELEGATION_DELEGATED"|"WORKFLOW_DELEGATION_NONE"|"WORKFLOW_USER_USERGROUP_NOT_DEFINED_ERROR"|"WORKFLOW_USER_USERGROUP_BOTH_DEFINED_ERROR"|"SUBMIT_NOT_ALLOWED"|"PREVIEW_NOT_ALLOWED"|"REVOKE_NOT_ALLOWED"|"PO_NOT_ENABLED"|"PO_OPTIMIZER_NOT_ENABLED"|"CALCULATIONFLOW_EDITING_OF_DEPLOYEDFLOW_NOT_ALLOWED"|"WORKFLOW_STEPEXECUTIONSTATUS_ALREADYSATISFIED"|"DCR_DUPLICATE_KEY"|"BINARY_RESP_ERR_ATTACHMENT_CONTENT"|"ACTION_NOT_ALLOWED"|"COMMON_ERROR"|"PRICELISTTYPE_EDIT_NOTALLOWED"|"SIGNATURE_ABORTED"|"DOCX_CONVERSION_NOT_AVAILABLE"|"DOCX_CONVERSION_FAILED"|"RECIPIENTS" calculationWithErrorsMsg?;
     string? approvalRequiredEmailAttachmentsJson?;
-    # Contains some (limited) information about the state of the front-end application. See [View State](https://pricefx.atlassian.net/wiki/spaces/KB/pages/3887824922)
     CompensationViewState? viewState?;
     string? prevRev?;
     int calculationStatus?;
@@ -16975,17 +17201,18 @@ public type InlineResponse20050ResponseLocaleData record {
     string 'key?;
 };
 
-public type AddSellerExtensionRequest record {
-    AddSXData data?;
-    string operation;
-};
-
 public type InlineResponse20029Response record {
     string node?;
     InlineResponse20029ResponseData[] data?;
     int status?;
 };
 
+public type AddSellerExtensionRequest record {
+    AddSXData data?;
+    string operation;
+};
+
+# 
 public type UpdateLivePriceGridItemNoRecalcRequest record {
     PricegridmanagerupdateidData data;
     @constraint:String {minLength: 1}
@@ -16993,7 +17220,6 @@ public type UpdateLivePriceGridItemNoRecalcRequest record {
     # Must be 'update' or null or omitted
     @constraint:String {minLength: 1}
     string operationType?;
-    # Values of the object before the update. Especially important is `typedId` (to identify the object to update) and `version` (to detect date inconsistencies)
     PricegridmanagerupdateidnorecalcOldValues oldValues?;
 };
 
@@ -17016,6 +17242,7 @@ public type CreateUploadSlotResponseData record {
     string id?;
 };
 
+# 
 public type CountMassActionItemsResponse record {
     CountMassActionItemsResponseResponse response?;
 };
@@ -17075,6 +17302,16 @@ public type DeleteUserGroupResponseResponse record {
     decimal status?;
 };
 
+public type DatamartqueryDataQueryProjections record {
+    @jsondata:Name {value: "bubbleSize_n"}
+    DatamartqueryDataQueryProjectionsBubbleSize bubbleSizeN?;
+    DatamartqueryDataQueryProjectionsBubbleSize bubbleSize?;
+    DatamartqueryDataQueryProjectionsBubbleSize x?;
+    DatamartqueryDataQueryProjectionsBandBy bandBy;
+    DatamartqueryDataQueryProjectionsBubbleSize y?;
+    DatamartqueryDataQueryProjectionsBandBy groupBy?;
+};
+
 # Specify field names and values you want to insert or update
 public type IntegrateTypeCodereturnolddataData record {
     @constraint:String {minLength: 1}
@@ -17097,16 +17334,6 @@ public type IntegrateTypeCodereturnolddataData record {
     string sku;
 };
 
-public type DatamartqueryDataQueryProjections record {
-    @jsondata:Name {value: "bubbleSize_n"}
-    DatamartqueryDataQueryProjectionsBubbleSize bubbleSizeN?;
-    DatamartqueryDataQueryProjectionsBubbleSize bubbleSize?;
-    DatamartqueryDataQueryProjectionsBubbleSize x?;
-    DatamartqueryDataQueryProjectionsBandBy bandBy;
-    DatamartqueryDataQueryProjectionsBubbleSize y?;
-    DatamartqueryDataQueryProjectionsBandBy groupBy?;
-};
-
 public type InlineResponse2009ResponseStateTwoTabs record {
     RecalculateCalculationOfStepResponseResponseStateTwoTabsTab1 tab1?;
     InlineResponse2009ResponseStateTwoTabsTab2 tab2?;
@@ -17114,22 +17341,24 @@ public type InlineResponse2009ResponseStateTwoTabs record {
 
 public type GetCalculationGridItemResponseResponseData CalculationGridItem6Key|CalculationGridItem5Key|CalculationGridItem4Key|CalculationGridItem3Key|CalculationGridItem2Key|CalculationGridItem1Key;
 
-public type SearchProductRequest record {
-    ProductmanagerquicksearchData data;
-};
-
+# 
 public type CreateWorkflowDelegationResponse record {
     CreateWorkflowDelegationResponseResponse response?;
 };
 
-public type AddSellerEnvelope record {
-    AddSellerResponse response?;
+# 
+public type SearchProductRequest record {
+    ProductmanagerquicksearchData data;
 };
 
 public type InlineResponse20076Response record {
     string node?;
     InlineResponse20076ResponseData[] data?;
     int status?;
+};
+
+public type AddSellerEnvelope record {
+    AddSellerResponse response?;
 };
 
 public type CalculationGridItem1KeyCalculationResults record {
@@ -17196,6 +17425,7 @@ public type NotificationsendDataNotification record {
     string status;
 };
 
+# 
 public type ListUsersRequest record {
     # The number of the first row that defines the start of the result set's returned objects. Use this parameter if you want to implement paging for results
     decimal startRow?;
@@ -17285,6 +17515,16 @@ public type AddActionTypeResponseResponse record {
     int status?;
 };
 
+public type InlineResponse2013Response record {
+    string node?;
+    InlineResponse2013ResponseData[] data?;
+    int status?;
+};
+
+public type CommentOperationEnvelope record {
+    InlineResponse20075Response response?;
+};
+
 public type ListRollupsResponseResponseQueryDtoOptions record {
     @constraint:String {minLength: 1}
     string currency?;
@@ -17296,22 +17536,22 @@ public type CalculateRebateRecordGroupResponse record {
     int status?;
 };
 
-public type CommentOperationEnvelope record {
-    InlineResponse20075Response response?;
-};
-
+# 
 public type DeleteProductResponse record {
     DeleteObjectResponseResponse response;
 };
 
+# 
 public type AddProductsToQuoteRequest record {
     QuotemanageraddproductsData data;
 };
 
+# 
 public type ProductExtensionResponse record {
     ProductExtensionResponse_response response?;
 };
 
+# 
 public type InsertBulkProductExtensionsRequest1 record {
     LoaddataSXData data;
 };
@@ -17321,6 +17561,7 @@ public type AddCFOTDataConfiguration record {
     AddCFOTDataConfigurationDefault default?;
 };
 
+# 
 public type assignmentResponse record {
     assignmentResponse_response response?;
 };
@@ -17355,6 +17596,7 @@ public type TabParameterMapping record {|
     string...;
 |};
 
+# 
 public type MassEditDatamartResponse record {
     MassEditDatamartResponseResponse response?;
 };
@@ -17381,6 +17623,7 @@ public type MasseditTypeCodeDataMassEditRecords record {
     string fieldValue;
 };
 
+# 
 public type QueryDataManagerObjectRequest record {
     decimal startRow?;
     @constraint:String {minLength: 1}
@@ -17675,6 +17918,7 @@ public type CalculatePriceGridResponseResponse record {
     decimal status;
 };
 
+# 
 public type CreatePriceListRequest record {
     PricelistmanageraddidData data;
 };
@@ -17690,6 +17934,7 @@ public type InlineResponse20037Response record {
     int status?;
 };
 
+# 
 public type ListLivePriceGridItemsResponse record {
     ListLivePriceGridItemsResponseResponse response?;
 };
@@ -17702,6 +17947,7 @@ public type generalResponse_response record {
     int endRow?;
 };
 
+# 
 public type logicResponse record {
     logicResponse_response response?;
 };
@@ -17719,6 +17965,14 @@ public type ConditionRecordSetItemsEnvelope record {
     InlineResponse20066Response response?;
 };
 
+public type ListCustomerExtensionObjectsResponseResponse record {
+    string node?;
+    ListCustomerExtensionObjectsResponseResponseData[] data?;
+    int endRow?;
+    int totalRows?;
+    int status?;
+};
+
 public type CountMassActionItemsResponseResponse record {
     @constraint:String {minLength: 1}
     string node?;
@@ -17726,14 +17980,6 @@ public type CountMassActionItemsResponseResponse record {
     # The number of affected items by the mass action operation
     decimal totalRows?;
     decimal status?;
-};
-
-public type ListCustomerExtensionObjectsResponseResponse record {
-    string node?;
-    ListCustomerExtensionObjectsResponseResponseData[] data?;
-    int endRow?;
-    int totalRows?;
-    int status?;
 };
 
 public type OptimizationmodelexportData record {
@@ -17745,17 +17991,6 @@ public type ConditionrecordsetfetchCRCI3DataCriteria record {
     string fieldName?;
     string|int value?;
     string operator?;
-};
-
-public type ListDataLoadsWithValidationResponseResponse record {
-    @constraint:String {minLength: 1}
-    string node?;
-    @constraint:String {minLength: 1}
-    string csrfToken?;
-    @constraint:Array {minLength: 1}
-    ListDataLoadsWithValidationResponseResponseData[] data?;
-    decimal endRow?;
-    decimal status?;
 };
 
 public type CompensationLineItems record {
@@ -17787,6 +18022,17 @@ public type CompensationLineItems record {
     boolean containsProductImage?;
     string? startDate?;
     int lastUpdateBy?;
+};
+
+public type ListDataLoadsWithValidationResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:String {minLength: 1}
+    string csrfToken?;
+    @constraint:Array {minLength: 1}
+    ListDataLoadsWithValidationResponseResponseData[] data?;
+    decimal endRow?;
+    decimal status?;
 };
 
 public type DeleteCOData record {
@@ -17856,6 +18102,7 @@ public type CompensationConditionType record {
     int lastUpdateBy?;
 };
 
+# 
 public type CreateManualPriceListRequest record {
     @constraint:String {minLength: 1}
     string textMatchStyle;
@@ -17865,6 +18112,7 @@ public type CreateManualPriceListRequest record {
     anydata oldValues?;
 };
 
+# 
 public type DeleteCustomerExtensionResponse record {
     DeleteCustomerExtensionResponseResponse response;
 };
@@ -17882,13 +18130,20 @@ public type UpdateCalculationGridItemRequest record {
     CalculationgridmanagerupdateidData data;
     string textMatchStyle?;
     string operationType?;
-    # The type code is CGI6
     CalculationGridItem6Key oldValues?;
+};
+
+public type DataChangeRequestMassChangeMassChangeDefinitions record {
+    string? changeStateReason?;
+    string fieldName?;
+    int? precision?;
+    "="|"+"|"-"|"*" massEditOperator?;
+    string fieldValue?;
+    "edit"|"recalculate" itemAction?;
 };
 
 # Specify options of the bulk data insertion
 public type LoaddataTypeCodeDataOptions record {
-    # Options applicable only for the CRCP data load
     LoaddataTypeCodeDataOptionsConditionRecords conditionRecords?;
     # A list of fields (that also need to appear in `header` and `data`) that make up the business key
     string[] joinFields;
@@ -17900,15 +18155,6 @@ public type ManualpricelistmanagerupdateidrecalculateData record {
     # `typedId` of the item (`MPLI`) you want to update
     string typedId;
     string currency?;
-};
-
-public type DataChangeRequestMassChangeMassChangeDefinitions record {
-    string? changeStateReason?;
-    string fieldName?;
-    int? precision?;
-    "="|"+"|"-"|"*" massEditOperator?;
-    string fieldValue?;
-    "edit"|"recalculate" itemAction?;
 };
 
 public type UpdateConditionTypeEnvelope record {
@@ -17951,6 +18197,7 @@ public type InlineResponse20064DataStats record {
     InlineResponse20064DataStatsQuerier querier?;
 };
 
+# 
 public type ListDataManagerEntitiesRequest record {
     DatamartgetfcsTypeCodeData data?;
 };
@@ -18177,6 +18424,7 @@ public type SendEmailRequest record {
     ClicmanagersendemailData data;
 };
 
+# 
 public type DeletePriceListRequest record {
     DeleteTypeCodeData data;
 };
@@ -18194,6 +18442,7 @@ public type CalculatePricelistRequest record {
     boolean fullListRecalc = false;
 };
 
+# 
 public type DeleteLookupTableValueResponse record {
     UpdateLookupTableValueResponseResponse response;
 };
@@ -18209,6 +18458,7 @@ public type ContractmanagersaveDataContractCalculationBaseIncludedProductGroups 
     anydata productFilterCriteria?;
 };
 
+# 
 public type AddApproverStepResponse record {
     WithdrawDocumentResponseResponse response?;
 };
@@ -18220,6 +18470,7 @@ public type InlineResponse20084Response record {
     int status?;
 };
 
+# 
 public type AddApproverStepRequest record {
     WorkflowsmanageraddapprovercurrentStepIdData data;
 };
@@ -18412,7 +18663,6 @@ public type FormulamanagertestexecData record {
     @constraint:String {minLength: 1}
     string targetDate?;
     string natureValue?;
-    # The `Formula` object. The type code is F
     PricingFormula testFormula;
     string 'type?;
     boolean allowObjectMods?;
@@ -18431,6 +18681,32 @@ public type InlineResponse20031Response record {
     string node?;
     InlineResponse20031ResponseData[] data?;
     int status?;
+};
+
+public type rebateagreementResponse_response_inputs record {
+    @constraint:String {minLength: 1}
+    string name?;
+    @constraint:String {minLength: 1}
+    string label?;
+    anydata lookupTableId?;
+    anydata url?;
+    @constraint:String {minLength: 1}
+    string 'type?;
+    rebateagreementResponse_response_value value?;
+    @constraint:String {minLength: 1}
+    string valueHint?;
+    anydata readOnly?;
+    anydata filter?;
+    anydata parameterGroup?;
+    anydata required?;
+    anydata labelTranslations?;
+    anydata addUnknownValues?;
+    anydata typedId?;
+    anydata alwaysEditable?;
+    record {}[] inputs?;
+    record {} parameterConfig?;
+    record {} formattingOptions?;
+    anydata valueOptions?;
 };
 
 public type GetWorkflowDocumentResponseResponseWorkflow record {
@@ -18461,32 +18737,6 @@ public type GetWorkflowDocumentResponseResponseWorkflow record {
     string isAddStepRestrictedToWFAdmin?;
 };
 
-public type rebateagreementResponse_response_inputs record {
-    @constraint:String {minLength: 1}
-    string name?;
-    @constraint:String {minLength: 1}
-    string label?;
-    anydata lookupTableId?;
-    anydata url?;
-    @constraint:String {minLength: 1}
-    string 'type?;
-    rebateagreementResponse_response_value value?;
-    @constraint:String {minLength: 1}
-    string valueHint?;
-    anydata readOnly?;
-    anydata filter?;
-    anydata parameterGroup?;
-    anydata required?;
-    anydata labelTranslations?;
-    anydata addUnknownValues?;
-    anydata typedId?;
-    anydata alwaysEditable?;
-    record {}[] inputs?;
-    record {} parameterConfig?;
-    record {} formattingOptions?;
-    anydata valueOptions?;
-};
-
 # The type code is CRCS.<p>
 # **MassEditable**: no<br>
 # **bulkLoadable**: no
@@ -18513,12 +18763,6 @@ public type ConditionRecordSet record {
     int lastUpdateBy?;
 };
 
-# Represents the Queries record for the operation: queryDataManagerObject
-public type QueryDataManagerObjectQueries record {
-    # Set this parameter to override the default timeout (60 seconds) of the query. The maximum allowed timeout is 300 seconds. The default timeout value and the maximum timeout value can be configured in the backend. Setting higher timeout can be useful, for example, when a query takes long time (e.g., when processing large tables)
-    string timeout = "60";
-};
-
 # The type code is SAT
 public type SecurityAuditTrail record {
     string typedId?;
@@ -18540,18 +18784,25 @@ public type SecurityAuditTrail record {
     int lastUpdateBy?;
 };
 
+# Represents the Queries record for the operation: queryDataManagerObject
+public type QueryDataManagerObjectQueries record {
+    # Set this parameter to override the default timeout (60 seconds) of the query. The maximum allowed timeout is 300 seconds. The default timeout value and the maximum timeout value can be configured in the backend. Setting higher timeout can be useful, for example, when a query takes long time (e.g., when processing large tables)
+    string timeout = "60";
+};
+
 public type InlineResponse2005Response record {
     string node?;
     InlineResponse2005ResponseData[] data?;
     int status?;
 };
 
-public type CopyUserResponse record {
-    CopyUserResponseResponse response?;
-};
-
 public type ListUniqueCLICItemsResponse record {
     ListUniqueCLICItemsResponseResponse response?;
+};
+
+# 
+public type CopyUserResponse record {
+    CopyUserResponseResponse response?;
 };
 
 public type ListCompensationTypesRequest record {
@@ -18591,13 +18842,13 @@ public type ConditionRecordItemAttributeMeta record {
     int lastUpdateBy?;
 };
 
+# 
 public type AssignRoleToBusinessRoleResponse record {
     AddPriceGridItemsToPriceGridResponseResponse response?;
 };
 
 # Options applicable only for the CRCP data load
 public type LoaddataTypeCodeDataOptionsConditionRecords record {
-    # Options applicable for splicing process of the Condition Records
     LoaddataTypeCodeDataOptionsConditionRecordsSplicing splicing?;
 };
 
@@ -18609,12 +18860,12 @@ public type ListAllLookupTableValuesQueries record {
     "true"|"false" useColumnNames = "true";
 };
 
-public type RebateagreementsaveData record {
-    RebateagreementsaveDataRebateAgreement rebateAgreement?;
-};
-
 public type ListSecurityConfigEventsEnvelope record {
     InlineResponse20061Response response?;
+};
+
+public type RebateagreementsaveData record {
+    RebateagreementsaveDataRebateAgreement rebateAgreement?;
 };
 
 # Represents the Queries record for the operation: getLokiLog
@@ -18625,11 +18876,6 @@ public type GetLokiLogQueries record {
     string 'limit;
     # `forward` to retrieve the logs that were generated after the specified start time
     "forward"|"backward" direction;
-};
-
-public type CompensationrecordsaveData record {
-    # The `CompensationRecord` object. The type code is COR
-    CompensationRecord compensationRecord?;
 };
 
 # The type code is DCR
@@ -18664,6 +18910,11 @@ public type DataChangeRequest record {
     int lastUpdateBy?;
 };
 
+public type CompensationrecordsaveData record {
+    CompensationRecord compensationRecord?;
+};
+
+# 
 public type ListWorkflowsRequest record {
     # The number of the first row that defines the start of the result set's returned objects. Use this parameter if you want to implement paging for results
     decimal startRow?;
@@ -18699,6 +18950,7 @@ public type AddPData record {
     string sku;
 };
 
+# 
 public type GetCompetitionDataRequest record {
     # The number of the first row that defines the start of the result set's returned objects. Use this parameter if you want to implement paging for results
     decimal startRow?;
@@ -18709,14 +18961,6 @@ public type GetCompetitionDataRequest record {
     @constraint:String {minLength: 1}
     string operationType?;
     anydata oldValues?;
-};
-
-public type GetWorkflowDocumentResponseResponse record {
-    @constraint:String {minLength: 1}
-    string node?;
-    @constraint:Array {minLength: 1}
-    GetWorkflowDocumentResponseResponseData[] data?;
-    int status?;
 };
 
 public type ListDataLoadsResponseResponseData record {
@@ -18766,10 +19010,19 @@ public type ListDataLoadsResponseResponseData record {
     string status?;
 };
 
+public type GetWorkflowDocumentResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:Array {minLength: 1}
+    GetWorkflowDocumentResponseResponseData[] data?;
+    int status?;
+};
+
 public type CopyQuoteEnvelope record {
     InlineResponse2003Response response?;
 };
 
+# 
 public type DeleteLivePriceGridResponse record {
     DeleteLivePriceGridResponseResponse response;
 };
@@ -18835,6 +19088,7 @@ public type PricelistmanagerupdateidData record {
     string comments?;
 };
 
+# 
 public type DeleteLookupTableValueRequest record {
     DeleteTypeCodeData data;
 };
@@ -18905,10 +19159,6 @@ public type DeleteObjectResponseResponseData record {
     anydata attribute30?;
 };
 
-public type ExportDatamartRequest record {
-    DatamartexportfcTypedIdOrSourceNameData data?;
-};
-
 public type InlineResponse20059Response record {
     string node?;
     int startRow?;
@@ -18918,6 +19168,12 @@ public type InlineResponse20059Response record {
     int status?;
 };
 
+# 
+public type ExportDatamartRequest record {
+    DatamartexportfcTypedIdOrSourceNameData data?;
+};
+
+# 
 public type DeletePriceGridItemRequest record {
     DeleteTypeCodeData data;
 };
@@ -18973,6 +19229,12 @@ public type dmobjectResponse_response_data record {
     boolean isPlasma?;
 };
 
+# Represents the Queries record for the operation: getClicFolderStats
+public type GetClicFolderStatsQueries record {
+    # If set to true, returns a list of line item IDs inside the folders instead of their count
+    boolean withLineIds?;
+};
+
 # Represents the Queries record for the operation: getDataMartObject
 public type GetDataMartObjectQueries record {
     # Output format
@@ -18987,12 +19249,6 @@ public type GetDataMartObjectQueries record {
 
 public type AddActionTypeResponse record {
     AddActionTypeResponseResponse response?;
-};
-
-# Represents the Queries record for the operation: getClicFolderStats
-public type GetClicFolderStatsQueries record {
-    # If set to true, returns a list of line item IDs inside the folders instead of their count
-    boolean withLineIds?;
 };
 
 public type SubmitDCRAsyncResponse record {
@@ -19028,13 +19284,8 @@ public type ListAllLookupTableValuesResponseResponse record {
 
 public type AddJCSBody record {
     string textMatchStyle?;
-    # The type code is JCS. Stores configuration for **Strategy Designer** and **Formula Designer**
     JsonConfigurationStorage data?;
     string operationType?;
-};
-
-public type DeletePriceListItemRequest record {
-    PricelistmanagerdeletePLidbatchData data;
 };
 
 # The Compensation Header Type object. The type code is COHT
@@ -19042,7 +19293,6 @@ public type CompensationHeaderType record {
     string typedId?;
     int|string|decimal|string|string|string? attribute19?;
     int|string|decimal|string|string|string? attribute18?;
-    # A configuration (as JSON string) of the detail page. You can configure e.g., the additional tabs on Compensation Plan detail page, which will show information in form of a dashboard. See  [Detail Page Layout and Dynamic Tabs](https://pricefx.atlassian.net/wiki/spaces/KB/pages/3980492805) for more details
     CompensationHeaderTypeConfiguration? configuration?;
     int|string|decimal|string|string|string? attribute17?;
     string lastUpdateDate?;
@@ -19095,6 +19345,12 @@ public type CompensationHeaderType record {
     int lastUpdateBy?;
 };
 
+# 
+public type DeletePriceListItemRequest record {
+    PricelistmanagerdeletePLidbatchData data;
+};
+
+# 
 public type AssignRoleToBusinessRoleRequest record {
     AccountmanagerassignroleBRbusinessroleIdData data;
 };
@@ -19108,16 +19364,17 @@ public type DeleteLookupTableValueResponse1Response record {
     decimal status;
 };
 
+# 
 public type UpdateUserRequest record {
     UpdateUData data;
     @constraint:String {minLength: 1}
     string textMatchStyle?;
     @constraint:String {minLength: 1}
     string operationType?;
-    # Values before the update
     UpdateUOldValues oldValues;
 };
 
+# 
 public type DeletePriceGridItemFilterRequest record {
     PricegridmanagerdeleteidbatchData data;
 };
@@ -19166,16 +19423,6 @@ public type InlineResponse20063ResponseData record {
     boolean activated?;
     string createDate?;
     int lastUpdateBy?;
-};
-
-public type DeleteUploadSlotResponseResponse record {
-    @constraint:String {minLength: 1}
-    string node;
-    @constraint:String {minLength: 1}
-    string csrfToken;
-    @constraint:Array {minLength: 1}
-    DeleteUploadSlotResponseResponseData[] data;
-    decimal status;
 };
 
 # The type code is DMDL
@@ -19232,6 +19479,16 @@ public type DMDataLoad record {
     "DRAFT"|"PENDING"|"SCHEDULED"|"PROCESSING"|"SCHEDULED_DIRTY"|"ERROR"|"READY"|"CANCELLED" status?;
 };
 
+public type DeleteUploadSlotResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node;
+    @constraint:String {minLength: 1}
+    string csrfToken;
+    @constraint:Array {minLength: 1}
+    DeleteUploadSlotResponseResponseData[] data;
+    decimal status;
+};
+
 public type InlineResponse20088ResponseData record {
     @jsondata:Name {value: "MCP_tool_parameters_read"}
     string mCPToolParametersRead?;
@@ -19259,12 +19516,13 @@ public type UserLoginResponse record {
 
 public type InlineResponse20029ResponseData Quote|Compensation|Contract|RebateAgreement;
 
-public type RunDataLoadResponse record {
-    RunDataLoadResponseResponse response?;
-};
-
 public type DataDataOneOf12 record {
     int version?;
+};
+
+# 
+public type RunDataLoadResponse record {
+    RunDataLoadResponseResponse response?;
 };
 
 public type ContractOutputs record {
@@ -19335,6 +19593,7 @@ public type WorkflowsmanagerfetchData record {
     "and"|"or" operator?;
 };
 
+# 
 public type DeletePriceListResponse record {
     DeletePriceListResponseResponse response?;
 };
@@ -19346,8 +19605,13 @@ public type ClicmanagerupdatelineitemstypedIdDataLineItems record {
     int version;
 };
 
+# 
 public type DeleteCustomFormTypeEnvelope record {
     CreateCustomFormTypeResponseResponse response?;
+};
+
+public type UpdateCalculationGridResponse record {
+    AddCalculationGridResponseResponse response?;
 };
 
 public type MassEditManualPriceListResponseResponse record {
@@ -19356,10 +19620,6 @@ public type MassEditManualPriceListResponseResponse record {
     # A single item array with a string that represents the number of rows changed
     string[] data?;
     decimal status?;
-};
-
-public type UpdateCalculationGridResponse record {
-    AddCalculationGridResponseResponse response?;
 };
 
 public type ListRollupsResponseResponseQueryDtoProjectionsRegion record {
@@ -19431,10 +19691,12 @@ public type KvservicecreatetabletableNameData record {
     KvservicecreatetabletableNameDataKeys[] keys?;
 };
 
+# 
 public type ListLogicsResponse record {
     ListLogicsResponseResponse response?;
 };
 
+# 
 public type ExecuteModelLogicRequest record {
     record {} data?;
 };
@@ -19498,6 +19760,7 @@ public type UpdateTypeCodereturnolddataOldValues record {
     decimal lastUpdateBy?;
 };
 
+# 
 public type DeleteLivePriceGridRequest record {
     DeleteTypeCodeData data;
 };
@@ -19943,7 +20206,6 @@ public type InlineResponse20088Response record {
 
 public type UpdateCustomFormResponse record {
     string node?;
-    # The Type code is CFO
     CustomForm data?;
     int status?;
 };
@@ -19964,6 +20226,7 @@ public type InlineResponse20024Response record {
     int status?;
 };
 
+# 
 public type ListCustomersRequest record {
     # The number of the first row that defines the start of the result set's returned objects. Use this parameter if you want to implement paging for results
     decimal startRow?;
@@ -20212,22 +20475,21 @@ public type QueryApiMetadataEnvelope record {
     InlineResponse20085Response response?;
 };
 
+# 
 public type ListRebateAgreementsResponse record {
     ListRebateAgreementsResponseResponse response?;
 };
 
+# 
 public type rebateagreementResponse record {
     rebateagreementResponse_response response?;
 };
 
+# 
 public type CreateCustomFormTypeRequest record {
     AddCFOTData data;
     @constraint:String {minLength: 1}
     string operation;
-};
-
-public type DeleteUploadSlotResponse record {
-    DeleteUploadSlotResponseResponse response;
 };
 
 public type logicResponse_response_formula record {
@@ -20257,6 +20519,11 @@ public type logicResponse_response_formula record {
     @constraint:String {minLength: 1}
     string lastUpdateDate?;
     decimal lastUpdateBy?;
+};
+
+# 
+public type DeleteUploadSlotResponse record {
+    DeleteUploadSlotResponseResponse response;
 };
 
 # The type code is PX20
@@ -20314,7 +20581,6 @@ public type PX20 record {
 };
 
 public type RebaterecordCalculatesetBody record {
-    # The type code is RRSC
     RebateRecordSetCalculation data?;
 };
 
@@ -20351,12 +20617,13 @@ public type PricegridmanagermassactionidData record {
     string operator;
 };
 
-public type DeleteCFOTBody record {
-    DeleteTypeCodeData data;
-};
-
 public type AddSellerExtensionResponse record {
     AddSellerExtensionResponseResponse response?;
+};
+
+# 
+public type DeleteCFOTBody record {
+    DeleteTypeCodeData data;
 };
 
 public type ImportCompetitionDataResponseResponseData record {
@@ -20397,6 +20664,7 @@ public type ConditionrecordsetfetchCRCI3Data record {
     string operator?;
 };
 
+# 
 public type DeleteLookupTableResponse record {
     DeleteLookupTableResponseResponse response;
 };
@@ -20499,15 +20767,16 @@ public type RunCalculationRequest record {
     CalculationrecordcalculatesetData data?;
 };
 
-public type QueryDataManagerObjectResponse record {
-    QueryDataManagerObjectResponseResponse response?;
-};
-
 public type SellermanagerfetchformulafilteredsellersData record {
     @jsondata:Name {value: "_constructor"}
     string constructor?;
     SellermanagerfetchformulafilteredsellersDataCriteria[] criteria?;
     string operator?;
+};
+
+# 
+public type QueryDataManagerObjectResponse record {
+    QueryDataManagerObjectResponseResponse response?;
 };
 
 public type ClicmanagerdeleteCompensationCalculationData record {
@@ -20541,13 +20810,14 @@ public type OptimizationupdatejstDataLogEvents record {
     string message?;
 };
 
+public type DataOneOf1 DataOneOf1_inner[];
+
 public type TypedIdslotIdBody record {
     # A **base64** encoded file data
     record {byte[] fileContent; string fileName;} file?;
 };
 
-public type DataOneOf1 DataOneOf1_inner[];
-
+# 
 public type RevokeDealResponse record {
     RevokeDealResponseResponse response?;
 };
@@ -20572,12 +20842,17 @@ public type AddDCRResponse record {
     AddDCRResponseResponse response?;
 };
 
+# 
 public type DeactivateWorkflowDelegationResponse record {
     DeactivateWorkflowDelegationResponseResponse response;
 };
 
 public type DeleteClaimTypeRequest record {
     DeleteSLData data;
+};
+
+public type OptimizationmodelcalcexectypedIdstepNamecalcNameitemData record {
+    OptimizationmodelcalcexectypedIdstepNamecalcNameitemDataCriteria1[] criteria;
 };
 
 public type InlineResponse2003ResponseInputs record {
@@ -20604,14 +20879,6 @@ public type InlineResponse2003ResponseInputs record {
     string value?;
 };
 
-public type OptimizationmodelcalcexectypedIdstepNamecalcNameitemData record {
-    OptimizationmodelcalcexectypedIdstepNamecalcNameitemDataCriteria1[] criteria;
-};
-
-public type MarkOfferAsLostRequest record {
-    QuotemanagerchangestatusidentifierData data;
-};
-
 public type JobStatusTrackerJobSettings record {
     string calculableObjectTypedId?;
     string? queueName?;
@@ -20625,6 +20892,11 @@ public type JobStatusTrackerJobSettings record {
     string jobType?;
     string partitionUUID?;
     string uuid?;
+};
+
+# 
+public type MarkOfferAsLostRequest record {
+    QuotemanagerchangestatusidentifierData data;
 };
 
 # Specify values of the object before the update. Especially important are typedId (to identify the object to update) and version (to detect date inconsistencies)
@@ -20683,6 +20955,14 @@ public type UpsertKVKeyResponseResponse record {
     string node?;
     string csrfToken?;
     record {}? data?;
+    int status?;
+};
+
+public type InlineResponse20067Response record {
+    string node?;
+    int startRow?;
+    PriceListType[] data?;
+    int endRow?;
     int status?;
 };
 
@@ -20852,14 +21132,6 @@ public type RebaterecordgroupPreviewtypedIdBody record {
     RebaterecordgrouppreviewtypedIdData data?;
 };
 
-public type InlineResponse20067Response record {
-    string node?;
-    int startRow?;
-    PriceListType[] data?;
-    int endRow?;
-    int status?;
-};
-
 public type PricelistmanagerCalculateidBody record {
     CalculatePricelistRequest data?;
 };
@@ -20927,16 +21199,9 @@ public type CustomformupdateData record {
     string label?;
 };
 
+# 
 public type DeleteCustomerExtensionRequest record {
     DeleteTypeCodeData data;
-};
-
-public type AssignRoleToUserRequest record {
-    AccountmanagerassignroleuserIdData data;
-};
-
-public type ListCalculationGridsResponse record {
-    ListCalculationGridsResponseResponse response?;
 };
 
 # The type code is PCI
@@ -20958,6 +21223,15 @@ public type ParallelCalculationItem record {
     "CREATED"|"CALCULATED"|"FAILED" status?;
     string createDate?;
     int lastUpdateBy?;
+};
+
+public type ListCalculationGridsResponse record {
+    ListCalculationGridsResponseResponse response?;
+};
+
+# 
+public type AssignRoleToUserRequest record {
+    AccountmanagerassignroleuserIdData data;
 };
 
 public type ImportmanagermassedittypedIdData record {
@@ -20988,6 +21262,7 @@ public type GetCalculationGridItemResponse record {
     GetCalculationGridItemResponseResponse response?;
 };
 
+# 
 public type InsertBulkDataLookupTableResponse record {
     InsertBulkDataLookupTableResponseResponse response;
 };
@@ -21058,9 +21333,13 @@ public type InlineResponse200Response record {
     int status?;
 };
 
+# 
 public type AddActionItemRequest record {
-    # The type code is AI
     ActionItem data;
+};
+
+public type InlineResponse2013ResponseValue record {
+    string attribute18?;
 };
 
 public type InsertBulkDataFromFileResponseResponse record {
@@ -21147,18 +21426,20 @@ public type ListUsersUserGroupsResponseResponseData record {
     decimal lastUpdateBy?;
 };
 
+# 
 public type DeleteDataManagerEntityResponse record {
     AddPriceGridItemsToPriceGridResponseResponse response?;
-};
-
-public type ExportDatamartResponse record {
-    ExportDatamartResponseResponse response?;
 };
 
 public type DataOneOf1_inner record {
     string typedId?;
     int version?;
     string lineId?;
+};
+
+# 
+public type ExportDatamartResponse record {
+    ExportDatamartResponseResponse response?;
 };
 
 public type RecalculateCalculationOfStepResponse record {
@@ -21200,10 +21481,12 @@ public type SubmitQuoteContractRebateAgreementResponseResponseInputs record {
     anydata valueOptions?;
 };
 
+# 
 public type ListEntityFieldsResponse record {
     ListEntityFieldsResponseResponse response?;
 };
 
+# 
 public type typecodesResponse record {
     typecodesResponse_response response?;
 };
@@ -21213,13 +21496,13 @@ public type CalculationgridmanagerupdateidData record {
     string key6?;
 };
 
+public type RebateRecordGroupWorkflowEnvelope record {
+    InlineResponse20045Response response?;
+};
+
 public type DeleteCalculationGridItemRequest record {
     DeleteCGIkeyNumberData data;
     string operationType;
-};
-
-public type RebateRecordGroupWorkflowEnvelope record {
-    InlineResponse20045Response response?;
 };
 
 public type DatamartsqlqueryData record {
@@ -21238,10 +21521,6 @@ public type AccountmanagercopyrolesData record {
     string 'from;
     # The `typedId`s of target users
     string[] to;
-};
-
-public type UpsertCustomerRequest record {
-    IntegrateCData data;
 };
 
 public type ListUsersResponseResponseData record {
@@ -21269,6 +21548,12 @@ public type ListUsersResponseResponseData record {
     decimal lastUpdateBy?;
 };
 
+# 
+public type UpsertCustomerRequest record {
+    IntegrateCData data;
+};
+
+# 
 public type ListLivePriceGridItemsRequest record {
     # The number of the first row that defines the start of the result set's returned objects. Use this parameter if you want to implement paging for results
     decimal startRow?;
@@ -21315,6 +21600,11 @@ public type PerformMassActionRequest record {
     PricegridmanagermassactionidData data;
 };
 
+public type DcrmanagerupdatemassopidData record {
+    string typedId?;
+    DcrmanagerupdatemassopidDataMassChange massChange?;
+};
+
 public type ListClaimTypesResponseResponseConfigurationColumns record {
     ListClaimTypesResponseResponseConfigurationColumnsSku totalAmount?;
     ListClaimTypesResponseResponseConfigurationColumnsSku quantity?;
@@ -21329,15 +21619,11 @@ public type ListClaimTypesResponseResponseConfigurationColumns record {
     ListClaimTypesResponseResponseConfigurationColumnsSku sku?;
 };
 
-public type DcrmanagerupdatemassopidData record {
-    string typedId?;
-    DcrmanagerupdatemassopidDataMassChange massChange?;
-};
-
 public type ParallelCalculationItemInputs record {
     record {} additionalProperties?;
 };
 
+# 
 public type InsertBulkCustomerExtensionsRequest record {
     LoaddataCXData data;
 };
@@ -21347,6 +21633,7 @@ public type InlineResponse2008ResponseStateDefinitionSource record {
     InlineResponse2008ResponseStateDefinitionSourceSource 'source?;
 };
 
+# 
 public type GetCustomFormResponse record {
     GetCustomFormResponseResponse response?;
 };
@@ -21394,10 +21681,6 @@ public type QuotemanagersubmitDataQuoteLineItems record {
     decimal lastUpdateBy?;
 };
 
-public type DeleteProductExtensionRequest record {
-    DeleteTypeCodeData data;
-};
-
 public type LookuptablemanagerdeletetableIdbatchDataFilterCriteria record {
     @jsondata:Name {value: "_constructor"}
     string constructor?;
@@ -21405,6 +21688,12 @@ public type LookuptablemanagerdeletetableIdbatchDataFilterCriteria record {
     string operator?;
 };
 
+# 
+public type DeleteProductExtensionRequest record {
+    DeleteTypeCodeData data;
+};
+
+# 
 public type SubmitProductsResponse record {
     SubmitProductsResponseResponse response?;
 };
@@ -21517,6 +21806,7 @@ public type CustomForm record {
     int lastUpdateBy?;
 };
 
+# 
 public type UpdateWorkflowDelegationRequest record {
     WorkflowdelegationmanagerupdateData data;
 };
@@ -21607,7 +21897,6 @@ public type CommentThread record {
 
 public type UpdateSellerResponse record {
     string node?;
-    # The Seller object. The type code is SL
     Seller data?;
     int status?;
 };
@@ -21640,22 +21929,24 @@ public type ListWorkflowsResponseResponse record {
     decimal status?;
 };
 
+# 
 public type ListLivePriceGridsResponse record {
     ListLivePriceGridsResponseResponse response?;
 };
 
+# 
 public type ListUserRolesResponse record {
     ListUsersUserGroupsResponseResponse response?;
-};
-
-public type ListClaimsResponse record {
-    ListClaimsResponseResponse response?;
 };
 
 public type GetClaimItemsSummaryResponseResponse record {
     string node?;
     GetClaimItemsSummaryResponseResponseData[] data?;
     int status?;
+};
+
+public type ListClaimsResponse record {
+    ListClaimsResponseResponse response?;
 };
 
 public type pricegriditemResponse_response_data record {
@@ -21813,6 +22104,7 @@ public type pricegriditemResponse_response_data record {
     boolean completeResultsAvailable?;
 };
 
+# 
 public type ListDelegatedWorkflowsResponse record {
     ListDelegatedWorkflowsResponseResponse response?;
 };
@@ -21825,8 +22117,10 @@ public type RunDataLoadResponseResponse record {
     decimal status?;
 };
 
-public type ListAllLookupTableValuesResponse record {
-    ListAllLookupTableValuesResponseResponse response?;
+public type AddDCRResponseResponse record {
+    string node?;
+    DataChangeRequest[] data?;
+    int status?;
 };
 
 # Represents the Queries record for the operation: recalculateQuoteContractRebate
@@ -21835,10 +22129,9 @@ public type RecalculateQuoteContractRebateQueries record {
     string validationType?;
 };
 
-public type AddDCRResponseResponse record {
-    string node?;
-    DataChangeRequest[] data?;
-    int status?;
+# 
+public type ListAllLookupTableValuesResponse record {
+    ListAllLookupTableValuesResponseResponse response?;
 };
 
 public type GetLivePriceGridResponseResponse record {
@@ -21864,6 +22157,12 @@ public type DcrmanageraddmassopidData record {
 
 public type DeleteCustomFormRequest record {
     CustomformdeleteData data?;
+};
+
+public type LookuptablemanagermassedittableIdData record {
+    LookuptablemanagermassedittableIdDataFilterCriteria filterCriteria;
+    @constraint:Array {minLength: 1}
+    LookuptablemanagermassedittableIdDataMassEditRecords[] massEditRecords;
 };
 
 public type AddLookupTableValueResponseResponseData record {
@@ -21895,21 +22194,19 @@ public type AddLookupTableValueResponseResponseData record {
     decimal lastUpdateBy;
 };
 
+# 
 public type UpdateLookupTableRequest record {
-    # Enter values you want to update in the "field name = value" fashion. Multiple field values in one request can be updated
     LookuptablemanagerupdateData data;
     @constraint:String {minLength: 1}
     string textMatchStyle?;
     @constraint:String {minLength: 1}
     string operationType?;
-    # Specify values of the object before the update. Especially important are typedId (to identify the object to update) and version (to detect date inconsistencies)
     LookuptablemanagerupdateOldValues oldValues;
 };
 
-public type LookuptablemanagermassedittableIdData record {
-    LookuptablemanagermassedittableIdDataFilterCriteria filterCriteria;
-    @constraint:Array {minLength: 1}
-    LookuptablemanagermassedittableIdDataMassEditRecords[] massEditRecords;
+public type FetchCPRData record {
+    FetchAIData[] criteria?;
+    string operator?;
 };
 
 public type InlineResponse20045Response record {
@@ -21918,11 +22215,7 @@ public type InlineResponse20045Response record {
     int status?;
 };
 
-public type FetchCPRData record {
-    FetchAIData[] criteria?;
-    string operator?;
-};
-
+# 
 public type SearchProductResponse record {
     SearchProductResponseResponse response?;
 };
@@ -21982,8 +22275,8 @@ public type GetLivePriceGridResponseResponseData record {
     decimal id?;
 };
 
+# 
 public type UpsertObjectReturnOldDataRequest record {
-    # Specify field names and values you want to insert or update
     IntegrateTypeCodereturnolddataData data;
 };
 
@@ -21994,10 +22287,6 @@ public type DMDataLoadTestResult record {
     ContractOutputs[] initResult?;
     record {}[] summaryResult?;
     record {|string...;|} inputRow?;
-};
-
-public type ListCompensationTypesEnvelope record {
-    ListCompensationTypesResponse response?;
 };
 
 public type BdmanagerupdatetypedIdData record {
@@ -22015,6 +22304,10 @@ public type BdmanagerupdatetypedIdData record {
     int lastUpdateBy?;
 };
 
+public type ListCompensationTypesEnvelope record {
+    ListCompensationTypesResponse response?;
+};
+
 public type UpdateCLTData record {
     string typedId;
     UpdateCLTDataConfiguration configuration;
@@ -22022,6 +22315,10 @@ public type UpdateCLTData record {
 
 public type I18nmanagerDeleteKeysBody record {
     I18nmanagerdeleteKeysData data?;
+};
+
+public type I18nmanagerputDataMessages record {
+    string testKey?;
 };
 
 public type GetCustomFormResponseResponseCustomFormTypeObjectConfigurationDefaultTabsDetails record {
@@ -22035,27 +22332,25 @@ public type GetCustomFormResponseResponseCustomFormTypeObjectConfigurationDefaul
     string 'type;
 };
 
-public type I18nmanagerputDataMessages record {
-    string testKey?;
-};
-
+# 
 public type ListAllLookupTablesResponse record {
     ListAllLookupTablesResponseResponse response?;
 };
 
+# 
 public type DeleteDataManagerEntityRequest record {
     DatamartdeletefcTypeCodeData data;
-};
-
-public type UpdateCGData record {
-    string typedId?;
-    string label?;
 };
 
 public type InlineResponse20070Response record {
     string node?;
     LivePriceGridType[] data?;
     int status?;
+};
+
+public type UpdateCGData record {
+    string typedId?;
+    string label?;
 };
 
 public type contractModelResponse_response_calculationBase_includedProductGroups record {
@@ -22158,10 +22453,12 @@ public type SetClicLostReasonEnvelope record {
     MarkOfferLostWithReasonResponse response?;
 };
 
+# 
 public type ConvertPriceListResponse record {
     ConvertPriceListResponseResponse response?;
 };
 
+# 
 public type CreateUploadSlotResponse record {
     @constraint:String {minLength: 1}
     string node?;
@@ -22183,7 +22480,7 @@ public type UpdateUOldValues record {
     boolean noSession?;
     record {}[] businessRoles?;
     @jsondata:Name {value: "_key"}
-    string 'key;
+    string key;
     anydata customerFilterCriteria?;
     @constraint:String {minLength: 1}
     string defaultUserGroupViewDetails;
@@ -22222,17 +22519,18 @@ public type UpdateUOldValues record {
     anydata extendedData?;
 };
 
+# 
 public type MassEditRequest record {
     LookuptablemanagermassedittableIdData data;
-};
-
-public type GetSignatureStatusResponse record {
-    UpsertCompensationPlanResponseResponse response?;
 };
 
 public type CalculateCalculationGridRequest record {
     # A user-defined priority
     0|1|2|3|4|5|6|7|8|9 priority?;
+};
+
+public type GetSignatureStatusResponse record {
+    UpsertCompensationPlanResponseResponse response?;
 };
 
 public type QuotemanageraddproductsDataQuote record {
@@ -22308,8 +22606,16 @@ public type QuotemanageraddproductsDataQuote record {
     decimal lastUpdateBy;
 };
 
+# 
 public type ExportExcelFileRequest record {
     DatamartexportdataxlsxData data;
+};
+
+public type PricelistmanagerdeletePLidbatchDataFilterCriteria record {
+    @constraint:Array {minLength: 1}
+    PricelistmanagerdeletePLidbatchDataFilterCriteriaCriteria[] criteria;
+    @constraint:String {minLength: 1}
+    string operator;
 };
 
 public type CopyLookupTableResponseResponseData record {
@@ -22346,13 +22652,6 @@ public type CopyLookupTableResponseResponseData record {
     decimal lastUpdateBy;
     decimal id;
     boolean isPlasma;
-};
-
-public type PricelistmanagerdeletePLidbatchDataFilterCriteria record {
-    @constraint:Array {minLength: 1}
-    PricelistmanagerdeletePLidbatchDataFilterCriteriaCriteria[] criteria;
-    @constraint:String {minLength: 1}
-    string operator;
 };
 
 public type RecalculateCalculationOfStepResponseResponseStateTwoTabsTab2 record {
@@ -22405,14 +22704,15 @@ public type RecalculateCalculationOfStepResponseResponseStateTwoTabsTab1 record 
     boolean queryFail?;
 };
 
-public type ChangeCurrentUserPasswordRequest record {
-    AccountmanagerchangepasswordData data;
-};
-
 public type InlineResponse20075Response record {
     string node?;
     CommentThread[] data?;
     int status?;
+};
+
+# 
+public type ChangeCurrentUserPasswordRequest record {
+    AccountmanagerchangepasswordData data;
 };
 
 public type UpdateSXBody record {
@@ -22436,6 +22736,7 @@ public type ListEntityFieldsQueries record {
     string name?;
 };
 
+# 
 public type DeleteManualPriceListRequest record {
     DeleteTypeCodeData data;
     @constraint:String {minLength: 1}
@@ -22456,6 +22757,5 @@ public type ListPendingApprovalsResponseResponse record {
 };
 
 public type DeleteUserGroupRequest record {
-    # `data` must contain the `typedId` of the user group object you want to delete or all business key fields of that object type.'
     AccountmanagerdeletegroupData data;
 };

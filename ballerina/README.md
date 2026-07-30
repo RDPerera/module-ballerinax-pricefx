@@ -6,13 +6,18 @@ The `ballerinax/pricefx` connector offers APIs to connect and interact with the 
 
 ## Setup guide
 
-To use the Pricefx connector, you need your Pricefx username, password, and partition name. The connector exchanges these for a session token internally — there's no separate login step to perform yourself.
+The connector supports several ways to authenticate with Pricefx, configured through `PricefxCredentials`/`ConnectionConfig`. Provide exactly one of the following credential combinations:
 
-- **Username** and **password** — your regular Pricefx login credentials
-- **Partition** — the name of your Pricefx partition
-- **Pricefx API key** (optional) — contact Pricefx Support to obtain one. When provided, the connector authenticates via the faster `POST /token` endpoint; otherwise it falls back to HTTP Basic auth (`<partition>/<username>:<password>` on every request)
+- **Username + password + partition** (+ optional **Pricefx API key**) — the most common setup. Contact Pricefx Support for an API key if you want the faster `POST /token` exchange; without one, the connector falls back to HTTP Basic auth (`<partition>/<username>:<password>` on every request).
+- **OAuth 2.0** — provide `oauth2ClientId`, `oauth2RefreshToken`, and optionally `oauth2ClientSecret`. The refresh token must be obtained once beforehand through Pricefx's Authorization Code Grant flow (`GET /pricefx/{partition}/oauth/authorize`, then `POST /pricefx/{partition}/oauth/token`) — that initial exchange needs an interactive browser redirect and can't be automated by this connector. Once you have a refresh token, the connector fetches and refreshes access tokens automatically.
+- **External JWT** — provide `externalJwtSystemName` and `externalJwt`, if your organization has a trust relationship configured on the Pricefx side (`externalJWTConfiguration`) with an external system that signs JWTs on your behalf.
 
-The connector also re-authenticates automatically whenever the session token expires (Pricefx JWTs are valid for around 30 minutes), so a long-lived `pricefx:Client` instance keeps working without manual re-initialization.
+Independently of the above, you can also set:
+
+- **`tfaCode`** — a two-factor authentication code, if your user has TFA enabled
+- **`csrfToken`** — a CSRF token, if your partition has CSRF protection enabled
+
+The connector automatically re-authenticates and retries once whenever a request comes back unauthenticated (JWTs and OAuth2 access tokens are short-lived), so a long-lived `pricefx:Client` instance keeps working without manual re-initialization.
 
 ## Quickstart
 
@@ -23,6 +28,7 @@ To use the `pricefx` connector in your Ballerina application, update the `.bal` 
 ```ballerina
 import ballerina/io;
 import ballerinax/pricefx;
+import ballerinax/pricefx.oas;
 ```
 
 ### Step 2: Instantiate a new connector
@@ -57,6 +63,17 @@ import ballerinax/pricefx;
     final pricefx:Client pricefxClient = check new (config, serviceUrl);
     ```
 
+    Or, using OAuth 2.0 instead:
+
+    ```ballerina
+    pricefx:ConnectionConfig config = {
+        oauth2ClientId,
+        oauth2ClientSecret,
+        oauth2RefreshToken
+    };
+    final pricefx:Client pricefxClient = check new (config, serviceUrl);
+    ```
+
 ### Step 3: Invoke the connector operation
 
 Now, utilize the available connector operations.
@@ -65,8 +82,8 @@ Now, utilize the available connector operations.
 
 ```ballerina
 public function main() returns error? {
-    pricefx:ListPriceListsRequest payload = {};
-    pricefx:ListPriceListsResponse response = check pricefxClient->listPriceLists(payload);
+    oas:ListPriceListsRequest payload = {};
+    oas:ListPriceListsResponse response = check pricefxClient->listPriceLists(payload);
     io:println(response);
 }
 ```

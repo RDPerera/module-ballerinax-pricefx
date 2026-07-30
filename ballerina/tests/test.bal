@@ -35,7 +35,7 @@ isolated Client? pricefxClientHolder = ();
 function setUpPricefxClient() returns error? {
     // Constraint validation is disabled here only for the mock/live smoke-test client: several
     // Pricefx request schemas mark large nested arrays as non-empty (`minLength: 1`), and
-    // populating full business-realistic graphs (e.g. a oas:Quote's line items) just to satisfy
+    // populating full business-realistic graphs (e.g. a Quote's line items) just to satisfy
     // runtime validation adds no value to these wire-format tests. Real usage should leave
     // validation at its default (true).
     Client newClient = check new ({username, password, partition, pricefxKey, validation: false}, serviceUrl);
@@ -61,6 +61,52 @@ function testLogin() returns error? {
     Client pricefxClient = getPricefxClient();
     oas:UserLoginResponse response = check pricefxClient->login();
     test:assertTrue(response?.response !is ());
+}
+
+@test:Config {
+    groups: ["mock_tests"]
+}
+function testTfaAndCsrfHeadersAreMerged() returns error? {
+    Client tfaCsrfClient = check new (
+        {username, password, partition, tfaCode: "123456", csrfToken: "csrf-abc", validation: false},
+        serviceUrl
+    );
+    oas:UserLoginResponse response = check tfaCsrfClient->login();
+    string node = response.response?.node ?: "";
+    test:assertTrue(node.includes("tfa=123456"), "expected the PriceFx-TFA header to be merged in, got: " + node);
+    test:assertTrue(node.includes("csrf=csrf-abc"), "expected the X-PriceFx-Csrf-Token header to be merged in, got: " + node);
+}
+
+@test:Config {
+    groups: ["mock_tests"]
+}
+function testOAuth2RefreshTokenAuth() returns error? {
+    Client oauth2Client = check new (
+        {oauth2ClientId: "test-client-id", oauth2ClientSecret: "test-client-secret", oauth2RefreshToken: "test-refresh-token", validation: false},
+        serviceUrl
+    );
+    oas:UserLoginResponse response = check oauth2Client->login();
+    string node = response.response?.node ?: "";
+    test:assertTrue(
+        node.includes("auth=Bearer mock-oauth2-access-token"),
+        "expected the OAuth2 access token (fetched via the mock /oauth/token endpoint) to be sent as the Authorization header, got: " + node
+    );
+}
+
+@test:Config {
+    groups: ["mock_tests"]
+}
+function testExternalJwtAuth() returns error? {
+    Client externalJwtClient = check new (
+        {externalJwtSystemName: "mysystem", externalJwt: "signed-jwt-value", validation: false},
+        serviceUrl
+    );
+    oas:UserLoginResponse response = check externalJwtClient->login();
+    string node = response.response?.node ?: "";
+    test:assertTrue(
+        node.includes("auth=BEARER mysystem;signed-jwt-value"),
+        "expected the external JWT to be sent as the Authorization header, got: " + node
+    );
 }
 
 @test:Config {

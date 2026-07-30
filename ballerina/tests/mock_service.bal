@@ -23,17 +23,39 @@ import ballerinax/pricefx.oas;
 listener http:Listener ep0 = new (9090);
 
 // Payload validation is disabled here because several Pricefx request schemas mark large nested
-// arrays as non-empty (`minLength: 1`); populating full business-realistic graphs (e.g. a oas:Quote's
+// arrays as non-empty (`minLength: 1`); populating full business-realistic graphs (e.g. a Quote's
 // line items) just to satisfy validation adds no value to these wire-format mock tests.
 @http:ServiceConfig {validation: false}
 service /pricefx/companypartition on ep0 {
+    # A mock OAuth 2.0 token endpoint. Ballerina's `http` module calls this itself (as part of its
+    # built-in OAuth2 refresh token grant handling) to obtain an access token before the first
+    # request that needs one, and again whenever it expires - this connector never calls it
+    # directly. The response uses the standard OAuth2 field names (`access_token`, `token_type`,
+    # `expires_in`), since that's what the `http` module's OAuth2 handling expects.
+    #
+    # + return - A standard OAuth2 token response
+    resource function post oauth/token() returns json {
+        return {
+            access_token: "mock-oauth2-access-token",
+            token_type: "Bearer",
+            expires_in: 3600,
+            refresh_token: "mock-oauth2-refresh-token"
+        };
+    }
+
     # User Login (V1)
     #
+    # + priceFxTfa - Echoed back in the response's `node` field, so tests can verify the wrapper
+    #                merges `tfaCode` into every request's headers
+    # + priceFxCsrfToken - Echoed back in the response's `node` field, so tests can verify the
+    #                      wrapper merges `csrfToken` into every request's headers
+    # + authorization - Echoed back in the response's `node` field, so tests can verify the
+    #                   wrapper formats and merges the external JWT `Authorization` header
     # + return - OK
-    resource function get login/extended() returns oas:UserLoginResponse {
+    resource function get login/extended(@http:Header {name: "PriceFx-TFA"} string? priceFxTfa = (), @http:Header {name: "X-PriceFx-Csrf-Token"} string? priceFxCsrfToken = (), @http:Header string? authorization = ()) returns oas:UserLoginResponse {
         return {
             response: {
-                node: "companynode",
+                node: string `companynode|tfa=${priceFxTfa ?: ""}|csrf=${priceFxCsrfToken ?: ""}|auth=${authorization ?: ""}`,
                 status: 200,
                 data: [
                     {typedId: "1.US", loginName: "jdoe", firstName: "Jane", lastName: "Doe", email: "jdoe@example.com", activated: true}
