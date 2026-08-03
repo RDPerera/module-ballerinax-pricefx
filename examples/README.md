@@ -23,12 +23,11 @@ The `ballerinax/pricefx` connector provides practical examples illustrating usag
    password = "<your-pricefx-password>"
    partition = "<your-partition>"
    serviceUrl = "https://<your-node>.pricefx.com/pricefx/<your-partition>"
-
-   # Optional. Uncomment if you have a Pricefx API key - the connector then authenticates via
-   # the faster `POST /token`. Without it, the connector falls back to HTTP Basic auth
-   # (`<partition>/<username>:<password>`), which needs no separate key but is slower per request.
-   # pricefxKey = "<your-pricefx-api-key>"
    ```
+
+   These examples all authenticate with HTTP Basic auth, to keep the focus on the operations they
+   demonstrate. The connector supports several other methods (API-key session tokens, OAuth 2.0, a
+   pre-obtained JWT, external JWT) — see the connector's README for those.
 
 ## Running an example
 

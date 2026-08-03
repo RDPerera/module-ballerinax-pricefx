@@ -65,25 +65,20 @@ import ballerinax/pricefx.oas;
     configurable string username = ?;
     configurable string password = ?;
     configurable string partition = ?;
-    configurable string? pricefxKey = ();
     configurable string serviceUrl = ?;
 
-    pricefx:ConnectionConfig config = {username, password, partition};
-    if pricefxKey is string {
-        config.pricefxKey = pricefxKey;
-    }
-    final pricefx:Client pricefxClient = check new (config, serviceUrl);
+    final pricefx:Client pricefxClient = check new ({username, password, partition}, serviceUrl);
     ```
 
-    Or, using OAuth 2.0 instead:
+    That authenticates every request with HTTP Basic auth. To use one of the other methods, set its
+    fields instead — see the setup guide above. For example, with a Pricefx API key the connector
+    exchanges your credentials for a session token and manages its renewal:
 
     ```ballerina
-    pricefx:ConnectionConfig config = {
-        oauth2ClientId,
-        oauth2ClientSecret,
-        oauth2RefreshToken
-    };
-    final pricefx:Client pricefxClient = check new (config, serviceUrl);
+    final pricefx:Client pricefxClient = check new (
+        {username, password, partition, pricefxKey},
+        serviceUrl
+    );
     ```
 
 ### Step 3: Invoke the connector operation

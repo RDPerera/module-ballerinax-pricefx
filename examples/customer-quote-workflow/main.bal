@@ -7,17 +7,10 @@ import ballerinax/pricefx.oas;
 configurable string username = ?;
 configurable string password = ?;
 configurable string partition = ?;
-configurable string? pricefxKey = ();
 configurable string serviceUrl = ?;
 
 public function main() returns error? {
-    // `pricefxKey` is optional: when set, the connector authenticates via the faster `POST /token`;
-    // otherwise it falls back to HTTP Basic auth (`<partition>/<username>:<password>`).
-    pricefx:ConnectionConfig config = {username, password, partition};
-    if pricefxKey is string {
-        config.pricefxKey = pricefxKey;
-    }
-    pricefx:Client pricefxClient = check new (config, serviceUrl);
+    pricefx:Client pricefxClient = check new ({username, password, partition}, serviceUrl);
 
     // Step 1: Add a new customer
     oas:AddCustomerRequest customerRequest = {
