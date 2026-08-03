@@ -309,7 +309,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function addContractLineItems(AddContractLineItemsRequest payload, map<string|string[]> headers = {}) returns contractModelResponse|error {
+    remote isolated function addContractLineItems(AddContractLineItemsRequest payload, map<string|string[]> headers = {}) returns ContractModelResponse|error {
         string resourcePath = string `/contractmanager.additems`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -326,7 +326,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Returns customer record details 
-    remote isolated function addCustomer(AddCustomerRequest payload, map<string|string[]> headers = {}) returns customerResponse|error {
+    remote isolated function addCustomer(AddCustomerRequest payload, map<string|string[]> headers = {}) returns CustomerResponse|error {
         string resourcePath = string `/add/C`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -450,7 +450,7 @@ public isolated client class Client {
     # + id - The ID of the Manual Price List where you want to add products to
     # + headers - Headers to be sent with the request 
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
-    remote isolated function addManualPriceListProducts(string id, AddProductsToManualPriceListRequest payload, map<string|string[]> headers = {}) returns generalResponse|error {
+    remote isolated function addManualPriceListProducts(string id, AddProductsToManualPriceListRequest payload, map<string|string[]> headers = {}) returns GenericDataResponse|error {
         string resourcePath = string `/manualpricelistmanager.add/${getEncodedUri(id)}/recalculate`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -539,7 +539,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Returns full record details 
-    remote isolated function addProduct(AddProductRequest payload, map<string|string[]> headers = {}) returns productResponse|error {
+    remote isolated function addProduct(AddProductRequest payload, map<string|string[]> headers = {}) returns ProductResponse|error {
         string resourcePath = string `/add/P`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -556,7 +556,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function addQuoteProducts(AddProductsToQuoteRequest payload, map<string|string[]> headers = {}) returns quoteResponse|error {
+    remote isolated function addQuoteProducts(AddProductsToQuoteRequest payload, map<string|string[]> headers = {}) returns QuoteResponse|error {
         string resourcePath = string `/quotemanager.addproducts`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -573,7 +573,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function addRebateAgreementItems(GetCustomerRequest payload, map<string|string[]> headers = {}) returns rebateagreementResponse|error {
+    remote isolated function addRebateAgreementItems(GetCustomerRequest payload, map<string|string[]> headers = {}) returns RebateAgreementResponse|error {
         string resourcePath = string `/rebateagreement.additems`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -641,7 +641,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function addUser(AddUserRequest payload, map<string|string[]> headers = {}) returns userResponse|error {
+    remote isolated function addUser(AddUserRequest payload, map<string|string[]> headers = {}) returns UserResponse|error {
         string resourcePath = string `/add/U`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -729,7 +729,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function assignCustomers(AssignCustomersRequest payload, map<string|string[]> headers = {}) returns assignmentResponse|error {
+    remote isolated function assignCustomers(AssignCustomersRequest payload, map<string|string[]> headers = {}) returns AssignmentResponse|error {
         string resourcePath = string `/customermanager.assign`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -851,7 +851,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Specify customer field names in the `header` object and fields values in the `data` object.<p> 
     # + return - Returns the number of inserted or updated objects 
-    remote isolated function bulkInsertCustomers(InsertBulkCustomersRequest payload, map<string|string[]> headers = {}) returns loaddataResponse|error {
+    remote isolated function bulkInsertCustomers(InsertBulkCustomersRequest payload, map<string|string[]> headers = {}) returns LoadDataResponse|error {
         string resourcePath = string `/loaddata/C`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -869,7 +869,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Specify product field names in the `header` object and fields values in the `data` object.<p> 
     # + return - Returns the number of inserted or updated objects 
-    remote isolated function bulkInsertProducts(InsertBulkProductsRequest payload, map<string|string[]> headers = {}) returns loaddataResponse|error {
+    remote isolated function bulkInsertProducts(InsertBulkProductsRequest payload, map<string|string[]> headers = {}) returns LoadDataResponse|error {
         string resourcePath = string `/loaddata/P`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -1042,7 +1042,7 @@ public isolated client class Client {
     # + id - The `id` is the `typedId` without the type suffix. For example, the `id` attribute of the item with `typedId` = **2147484837.PL**  is **2147484837**
     # + headers - Headers to be sent with the request 
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
-    remote isolated function cancelCfsCalculation(string id, map<string|string[]> headers = {}) returns generalResponse|error {
+    remote isolated function cancelCfsCalculation(string id, map<string|string[]> headers = {}) returns GenericDataResponse|error {
         string resourcePath = string `/cfsmanager.cancel/${getEncodedUri(id)}`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -1076,7 +1076,7 @@ public isolated client class Client {
     # + id - `id` if the job you want to cancel
     # + headers - Headers to be sent with the request 
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
-    remote isolated function cancelJob(string id, record {} payload, map<string|string[]> headers = {}) returns generalResponse|error {
+    remote isolated function cancelJob(string id, record {} payload, map<string|string[]> headers = {}) returns GenericDataResponse|error {
         string resourcePath = string `/admin.canceljst/${getEncodedUri(id)}`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -1199,7 +1199,7 @@ public isolated client class Client {
     # + identifier - Can be either the `uniqueName` or the `typedId`
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function convertQuoteToDeal(string identifier, map<string|string[]> headers = {}) returns quoteResponse|error {
+    remote isolated function convertQuoteToDeal(string identifier, map<string|string[]> headers = {}) returns QuoteResponse|error {
         string resourcePath = string `/quotemanager.convert/${getEncodedUri(identifier)}`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -1262,7 +1262,7 @@ public isolated client class Client {
     # + id - The ID of the Manual Price List you want to copy
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function copyManualPriceList(string id, map<string|string[]> headers = {}) returns manualpricelistResponse|error {
+    remote isolated function copyManualPriceList(string id, map<string|string[]> headers = {}) returns ManualPriceListResponse|error {
         string resourcePath = string `/manualpricelistmanager.copy/${getEncodedUri(id)}`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -1485,7 +1485,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Either `uniqueName` or `typedId` must be provided in the request 
     # + return - Example response 
-    remote isolated function createDataManagerEntity("DMF"|"DM"|"DMDS" typeCode, CreateDataManagerEntityRequest payload, map<string|string[]> headers = {}) returns dmobjectResponse|error {
+    remote isolated function createDataManagerEntity("DMF"|"DM"|"DMDS" typeCode, CreateDataManagerEntityRequest payload, map<string|string[]> headers = {}) returns DmObjectResponse|error {
         string resourcePath = string `/datamart.newfc/${getEncodedUri(typeCode)}`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -1504,7 +1504,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - The sample request creates a table with four columns: sku, customer, record and payload (TEXT).<br> 
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
-    remote isolated function createKvTable(string tableName, CreateKVTableRequest payload, map<string|string[]> headers = {}) returns generalResponse|error {
+    remote isolated function createKvTable(string tableName, CreateKVTableRequest payload, map<string|string[]> headers = {}) returns GenericDataResponse|error {
         string resourcePath = string `/kvservice.createtable/${getEncodedUri(tableName)}`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -1521,7 +1521,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function createManualPriceList(CreateManualPriceListRequest payload, map<string|string[]> headers = {}) returns manualpricelistResponse|error {
+    remote isolated function createManualPriceList(CreateManualPriceListRequest payload, map<string|string[]> headers = {}) returns ManualPriceListResponse|error {
         string resourcePath = string `/add/MPL`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -1539,7 +1539,7 @@ public isolated client class Client {
     # + typeCode - The object's type code. See [the list of Type Codes](https://pricefx.atlassian.net/wiki/spaces/KB/pages/99570616/Type+Codes)
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function createObject(string typeCode, createObjectRequest payload, map<string|string[]> headers = {}) returns error? {
+    remote isolated function createObject(string typeCode, CreateObjectRequest_1 payload, map<string|string[]> headers = {}) returns error? {
         string resourcePath = string `/add/${getEncodedUri(typeCode)}`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -1574,7 +1574,7 @@ public isolated client class Client {
     # + id - The ID of the Price List you want to create a revision for. The `id` is the `typedId` without the suffix. For example, the `id` attribute of the item with `typedId` = **2147484837.PL**  is **2147484837**
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function createPriceListRevision(string id, CreateRevisionRequest payload, map<string|string[]> headers = {}) returns pricelistitemResponse|error {
+    remote isolated function createPriceListRevision(string id, CreateRevisionRequest payload, map<string|string[]> headers = {}) returns PriceListItemResponse|error {
         string resourcePath = string `/pricelistmanager.add/${getEncodedUri(id)}`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -1592,7 +1592,7 @@ public isolated client class Client {
     # + identifier - Can be either the `uniqueName` or the `typedId`
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function createQuoteRevision(string identifier, map<string|string[]> headers = {}) returns quoteResponse|error {
+    remote isolated function createQuoteRevision(string identifier, map<string|string[]> headers = {}) returns QuoteResponse|error {
         string resourcePath = string `/quotemanager.createnewrevision/${getEncodedUri(identifier)}`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -1948,7 +1948,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
-    remote isolated function deleteCustomForm(DeleteCustomFormRequest payload, map<string|string[]> headers = {}) returns generalResponse|error {
+    remote isolated function deleteCustomForm(DeleteCustomFormRequest payload, map<string|string[]> headers = {}) returns GenericDataResponse|error {
         string resourcePath = string `/customform.delete`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -2087,7 +2087,7 @@ public isolated client class Client {
     # + binaryDataId - If the `typedId` is, for example, 1145.BD then the binaryDataId is **1145**
     # + headers - Headers to be sent with the request 
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
-    remote isolated function deleteFile(string typedId, string binaryDataId, record {} payload, map<string|string[]> headers = {}) returns generalResponse|error {
+    remote isolated function deleteFile(string typedId, string binaryDataId, record {} payload, map<string|string[]> headers = {}) returns GenericDataResponse|error {
         string resourcePath = string `/bdmanager.delete/${getEncodedUri(typedId)}/${getEncodedUri(binaryDataId)}`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -2104,7 +2104,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
-    remote isolated function deleteImportChanges(ImportmanagerDeletechangesBody payload, map<string|string[]> headers = {}) returns generalResponse|error {
+    remote isolated function deleteImportChanges(ImportmanagerDeletechangesBody payload, map<string|string[]> headers = {}) returns GenericDataResponse|error {
         string resourcePath = string `/importmanager.deletechanges`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -2243,7 +2243,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function deleteManualPriceList(DeleteManualPriceListRequest payload, map<string|string[]> headers = {}) returns manualpricelistResponse|error {
+    remote isolated function deleteManualPriceList(DeleteManualPriceListRequest payload, map<string|string[]> headers = {}) returns ManualPriceListResponse|error {
         string resourcePath = string `/manualpricelistmanager.delete`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -2261,7 +2261,7 @@ public isolated client class Client {
     # + id - The ID of the Manual Price List whose product you want to delete
     # + headers - Headers to be sent with the request 
     # + return - Returns full record details 
-    remote isolated function deleteManualPriceListProduct(string id, DeleteProductFromManualPriceListRequest payload, map<string|string[]> headers = {}) returns productResponse|error {
+    remote isolated function deleteManualPriceListProduct(string id, DeleteProductFromManualPriceListRequest payload, map<string|string[]> headers = {}) returns ProductResponse|error {
         string resourcePath = string `/manualpricelistmanager.delete/${getEncodedUri(id)}`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -2314,7 +2314,7 @@ public isolated client class Client {
     # + typeCode - Enter the type code of the entity you want to delete the object from. See [the list of Type Codes](https://pricefx.atlassian.net/wiki/spaces/KB/pages/99570616/Type+Codes) in the Pricefx Knowledge Base article
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function deleteObject("ACTT"|"AP"|"APIK"|"BD"|"BPT"|"BR"|"C"|"CA"|"CAM"|"CDESC"|"CF"|"CFS"|"CFT"|"CH"|"CLLI"|"CN"|"CS"|"CT"|"CTAM"|"CTLI"|"CTMU"|"CTMUI"|"CTT"|"CTTAM"|"CTTREE"|"CW"|"CX"|"CXAM"|"DA"|"DB"|"DCR"|"DCRAM"|"DCRI"|"DCRL"|"DCRMC"|"DCRT"|"DE"|"DI"|"DM"|"DMDC"|"DMDL"|"DMDS"|"DMF"|"DMM"|"DMR"|"DMT"|"DREG"|"DWT"|"ET"|"EVT"|"F"|"FE"|"FN"|"IDC"|"IE"|"ISH"|"JST"|"JLTV"|"JLTVM"|"LAT"|"LT"|"LTT"|"LTV"|"M"|"MLTV"|"MLTV2"|"MLTV3"|"MLTV4"|"MLTV5"|"MLTV6"|"MLTVM"|"MPL"|"MPLAM"|"MPLI"|"MPLIT"|"MPLT"|"MR"|"MRAM"|"MT"|"P"|"PAM"|"PAPIJ"|"PBOME"|"PCOMP"|"PCW"|"PDESC"|"PG"|"PGI"|"PGIM"|"PGT"|"PH"|"PL"|"PLI"|"PLIM"|"PLT"|"PR"|"PRAM"|"PREF"|"PT"|"PWH"|"PX"|"PXAM"|"PXREF"|"PYR"|"PYRAM"|"Q"|"QAM"|"QLI"|"QMU"|"QMUI"|"QT"|"QTT"|"QTTAM"|"R"|"RAT"|"RATM"|"RBA"|"RBAAM"|"RBALI"|"RBAT"|"RBT"|"RBTAM"|"RR"|"RRAM"|"RRS"|"RRSC"|"RT"|"SAT"|"SC"|"SCN"|"SCNAM"|"SCT"|"SIAM"|"SIM"|"SIMI"|"TFA"|"TODO"|"U"|"UG"|"US"|"W"|"WD"|"WF"|"WFE"|"XPGI"|"XPLI"|"XSIMI" typeCode, deleteObjectRequest payload, map<string|string[]> headers = {}) returns deleteObjectResponse|error {
+    remote isolated function deleteObject("ACTT"|"AP"|"APIK"|"BD"|"BPT"|"BR"|"C"|"CA"|"CAM"|"CDESC"|"CF"|"CFS"|"CFT"|"CH"|"CLLI"|"CN"|"CS"|"CT"|"CTAM"|"CTLI"|"CTMU"|"CTMUI"|"CTT"|"CTTAM"|"CTTREE"|"CW"|"CX"|"CXAM"|"DA"|"DB"|"DCR"|"DCRAM"|"DCRI"|"DCRL"|"DCRMC"|"DCRT"|"DE"|"DI"|"DM"|"DMDC"|"DMDL"|"DMDS"|"DMF"|"DMM"|"DMR"|"DMT"|"DREG"|"DWT"|"ET"|"EVT"|"F"|"FE"|"FN"|"IDC"|"IE"|"ISH"|"JST"|"JLTV"|"JLTVM"|"LAT"|"LT"|"LTT"|"LTV"|"M"|"MLTV"|"MLTV2"|"MLTV3"|"MLTV4"|"MLTV5"|"MLTV6"|"MLTVM"|"MPL"|"MPLAM"|"MPLI"|"MPLIT"|"MPLT"|"MR"|"MRAM"|"MT"|"P"|"PAM"|"PAPIJ"|"PBOME"|"PCOMP"|"PCW"|"PDESC"|"PG"|"PGI"|"PGIM"|"PGT"|"PH"|"PL"|"PLI"|"PLIM"|"PLT"|"PR"|"PRAM"|"PREF"|"PT"|"PWH"|"PX"|"PXAM"|"PXREF"|"PYR"|"PYRAM"|"Q"|"QAM"|"QLI"|"QMU"|"QMUI"|"QT"|"QTT"|"QTTAM"|"R"|"RAT"|"RATM"|"RBA"|"RBAAM"|"RBALI"|"RBAT"|"RBT"|"RBTAM"|"RR"|"RRAM"|"RRS"|"RRSC"|"RT"|"SAT"|"SC"|"SCN"|"SCNAM"|"SCT"|"SIAM"|"SIM"|"SIMI"|"TFA"|"TODO"|"U"|"UG"|"US"|"W"|"WD"|"WF"|"WFE"|"XPGI"|"XPLI"|"XSIMI" typeCode, DeleteObjectRequest_1 payload, map<string|string[]> headers = {}) returns DeleteObjectResponse_1|error {
         string resourcePath = string `/delete/${getEncodedUri(typeCode)}`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -2350,7 +2350,7 @@ public isolated client class Client {
     # + id - The ID of the Price Grid you want to delete the Price Grid Item from
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function deletePriceGridItem(string id, DeletePriceGridItemRequest payload, map<string|string[]> headers = {}) returns pricegriditemResponse|error {
+    remote isolated function deletePriceGridItem(string id, DeletePriceGridItemRequest payload, map<string|string[]> headers = {}) returns PriceGridItemResponse|error {
         string resourcePath = string `/pricegridmanager.delete/${getEncodedUri(id)}`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -2472,7 +2472,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function deleteRebateAgreement(DeleteRebateAgreementRequest payload, map<string|string[]> headers = {}) returns rebateagreementResponse|error {
+    remote isolated function deleteRebateAgreement(DeleteRebateAgreementRequest payload, map<string|string[]> headers = {}) returns RebateAgreementResponse|error {
         string resourcePath = string `/delete/RBA`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -2571,7 +2571,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function deleteUser(DeleteUserRequest payload, map<string|string[]> headers = {}) returns userResponse|error {
+    remote isolated function deleteUser(DeleteUserRequest payload, map<string|string[]> headers = {}) returns UserResponse|error {
         string resourcePath = string `/delete/U`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -2641,7 +2641,7 @@ public isolated client class Client {
     # + id - The ID of the Price Grid that contains the Price Grid Item you want to deny
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function denyLivePriceGridItem(string id, DenyLivePriceGridItemRequest payload, map<string|string[]> headers = {}) returns pricegriditemResponse|error {
+    remote isolated function denyLivePriceGridItem(string id, DenyLivePriceGridItemRequest payload, map<string|string[]> headers = {}) returns PriceGridItemResponse|error {
         string resourcePath = string `/pricegridmanager.reject/${getEncodedUri(id)}`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -2911,7 +2911,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload -
     # + return - Example response 
-    remote isolated function executeLogicInService(string uniqueName, record {record {} data?;} payload, map<string|string[]> headers = {}) returns logicResponse|error {
+    remote isolated function executeLogicInService(string uniqueName, record {record {} data?;} payload, map<string|string[]> headers = {}) returns LogicResponse|error {
         string resourcePath = string `/formulamanager.executeformulaservice/${getEncodedUri(uniqueName)}`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -3494,7 +3494,7 @@ public isolated client class Client {
     # + uniqueName - `uniqueName` of the Contract you want to retrieve details for. Alternatively, `typedId` can be also used
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function getContract(string uniqueName, map<string|string[]> headers = {}) returns contractModelResponse|error {
+    remote isolated function getContract(string uniqueName, map<string|string[]> headers = {}) returns ContractModelResponse|error {
         string resourcePath = string `/contractmanager.fetch/${getEncodedUri(uniqueName)}`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -3526,7 +3526,7 @@ public isolated client class Client {
     # + id - The ID of the Customer you want to retrieve details for. The `id` is the `typedId` without the **C** suffix. For example, the `id` parameter of the item with `typedId` = **2147492200.C**  is **2147492200**
     # + headers - Headers to be sent with the request 
     # + return - Returns customer record details 
-    remote isolated function getCustomer(string id, map<string|string[]> headers = {}) returns customerResponse|error {
+    remote isolated function getCustomer(string id, map<string|string[]> headers = {}) returns CustomerResponse|error {
         string resourcePath = string `/fetch/C/${getEncodedUri(id)}`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -3809,7 +3809,7 @@ public isolated client class Client {
     # + id - The ID of the object you want to retrieve details for
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function getObject(string typeCode, string id, map<string|string[]> headers = {}) returns getObjectResponse|error {
+    remote isolated function getObject(string typeCode, string id, map<string|string[]> headers = {}) returns GetObjectResponse_1|error {
         string resourcePath = string `/fetch/${getEncodedUri(typeCode)}/${getEncodedUri(id)}`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -3959,7 +3959,7 @@ public isolated client class Client {
     # + typedID - Enter the quote typed ID. You get the `typedId` in the response when fetching all quotes using the `/quotemanager.fetchlist` endpoint
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function getQuote(string typedID, map<string|string[]> headers = {}) returns quoteResponse|error {
+    remote isolated function getQuote(string typedID, map<string|string[]> headers = {}) returns QuoteResponse|error {
         string resourcePath = string `/quotemanager.fetch/${getEncodedUri(typedID)}`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -3975,7 +3975,7 @@ public isolated client class Client {
     # + uniqueName - The `uniqueName` of the Rebate Agreement you want to retrieve details for
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function getRebateAgreement(string uniqueName, map<string|string[]> headers = {}) returns rebateagreementResponse|error {
+    remote isolated function getRebateAgreement(string uniqueName, map<string|string[]> headers = {}) returns RebateAgreementResponse|error {
         string resourcePath = string `/rebateagreement.fetch/${getEncodedUri(uniqueName)}`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -4266,7 +4266,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Specify customer extension field names in the `header` object and field values in the `data` object.<p> 
     # + return - Returns the number of inserted or updated objects 
-    remote isolated function insertBulkCustomerExtensions(InsertBulkCustomerExtensionsRequest payload, map<string|string[]> headers = {}) returns loaddataResponse|error {
+    remote isolated function insertBulkCustomerExtensions(InsertBulkCustomerExtensionsRequest payload, map<string|string[]> headers = {}) returns LoadDataResponse|error {
         string resourcePath = string `/loaddata/CX`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -4285,7 +4285,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - The **`/loaddata/P`** endpoint (Insert Bulk Products) is used in our example.<p> 
     # + return - Returns the number of inserted or updated objects 
-    remote isolated function insertBulkData(TypeCodeEnum typeCode, InsertBulkDataRequest payload, map<string|string[]> headers = {}) returns loaddataResponse|error {
+    remote isolated function insertBulkData(TypeCodeEnum typeCode, InsertBulkDataRequest payload, map<string|string[]> headers = {}) returns LoadDataResponse|error {
         string resourcePath = string `/loaddata/${getEncodedUri(typeCode)}`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -4362,7 +4362,7 @@ public isolated client class Client {
     # + tableName - A name of the table you want upload data to
     # + headers - Headers to be sent with the request 
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
-    remote isolated function insertBulkKvData(string tableName, InsertBulkKVDataRequest payload, map<string|string[]> headers = {}) returns generalResponse|error {
+    remote isolated function insertBulkKvData(string tableName, InsertBulkKVDataRequest payload, map<string|string[]> headers = {}) returns GenericDataResponse|error {
         string resourcePath = string `/kvservice.loaddata/${getEncodedUri(tableName)}`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -4802,7 +4802,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function listContracts(ListContractsRequest payload, map<string|string[]> headers = {}) returns contractResponse|error {
+    remote isolated function listContracts(ListContractsRequest payload, map<string|string[]> headers = {}) returns ContractResponse|error {
         string resourcePath = string `/fetch/CT`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -4854,7 +4854,7 @@ public isolated client class Client {
     # + typedId - The `typedId` of the entity you want to retrieve assignments for
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function listCustomerAssignments(string typedId, ListCustomerAssignmentsRequest payload, map<string|string[]> headers = {}) returns assignmentResponse|error {
+    remote isolated function listCustomerAssignments(string typedId, ListCustomerAssignmentsRequest payload, map<string|string[]> headers = {}) returns AssignmentResponse|error {
         string resourcePath = string `/customermanager.fetchassignments/${getEncodedUri(typedId)}`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -4891,7 +4891,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Returns customer record details 
-    remote isolated function listCustomers(ListCustomersRequest payload, map<string|string[]> headers = {}) returns customerResponse|error {
+    remote isolated function listCustomers(ListCustomersRequest payload, map<string|string[]> headers = {}) returns CustomerResponse|error {
         string resourcePath = string `/customermanager.fetchformulafilteredcustomers`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -4939,7 +4939,7 @@ public isolated client class Client {
     # + typeCode - The type code of the **Field Collection**
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function listDataManagerEntities("DM"|"DMDS"|"DMF"|"DMT" typeCode, ListDataManagerEntitiesRequest payload, map<string|string[]> headers = {}) returns dmobjectResponse|error {
+    remote isolated function listDataManagerEntities("DM"|"DMDS"|"DMF"|"DMT" typeCode, ListDataManagerEntitiesRequest payload, map<string|string[]> headers = {}) returns DmObjectResponse|error {
         string resourcePath = string `/datamart.getfcs/${getEncodedUri(typeCode)}`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -5319,7 +5319,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function listManualPriceLists(ListManualPriceListsRequest payload, map<string|string[]> headers = {}) returns manualpricelistResponse|error {
+    remote isolated function listManualPriceLists(ListManualPriceListsRequest payload, map<string|string[]> headers = {}) returns ManualPriceListResponse|error {
         string resourcePath = string `/fetch/MPL`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -5372,7 +5372,7 @@ public isolated client class Client {
     # + typeCode - The object's type code. See [the list of Type Codes](https://pricefx.atlassian.net/wiki/spaces/KB/pages/99570616/Type+Codes)
     # + headers - Headers to be sent with the request 
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
-    remote isolated function listObjects(string typeCode, fetch_typeCode_body payload, map<string|string[]> headers = {}) returns generalResponse|error {
+    remote isolated function listObjects(string typeCode, ListObjectsRequest payload, map<string|string[]> headers = {}) returns GenericDataResponse|error {
         string resourcePath = string `/fetch/${getEncodedUri(typeCode)}`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -5422,7 +5422,7 @@ public isolated client class Client {
     # + id - The ID of the Price List you want to retrieve items for. The `id` is the `typedId` without the suffix. For example, the `id` attribute of the item with `typedId` = **2147484837.PL**  is **2147484837**
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function listPriceListItems(string id, ListPriceListItemsRequest payload, map<string|string[]> headers = {}) returns pricelistitemResponse|error {
+    remote isolated function listPriceListItems(string id, ListPriceListItemsRequest payload, map<string|string[]> headers = {}) returns PriceListItemResponse|error {
         string resourcePath = string `/pricelistmanager.fetch/${getEncodedUri(id)}`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -5508,7 +5508,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Returns full record details 
-    remote isolated function listProducts(ListProductsRequest payload, map<string|string[]> headers = {}) returns productResponse|error {
+    remote isolated function listProducts(ListProductsRequest payload, map<string|string[]> headers = {}) returns ProductResponse|error {
         string resourcePath = string `/productmanager.fetchformulafilteredproducts`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -5710,7 +5710,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
-    remote isolated function listTasks(map<string|string[]> headers = {}) returns generalResponse|error {
+    remote isolated function listTasks(map<string|string[]> headers = {}) returns GenericDataResponse|error {
         string resourcePath = string `/heartbeat.fetchtasks`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -5725,7 +5725,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function listTypeCodes(map<string|string[]> headers = {}) returns typecodesResponse|error? {
+    remote isolated function listTypeCodes(map<string|string[]> headers = {}) returns TypeCodesResponse|error? {
         string resourcePath = string `/fetch`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -5873,7 +5873,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
-    remote isolated function markAsRead(record {} payload, map<string|string[]> headers = {}) returns generalResponse|error {
+    remote isolated function markAsRead(record {} payload, map<string|string[]> headers = {}) returns GenericDataResponse|error {
         string resourcePath = string `/notification.setread`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -5891,7 +5891,7 @@ public isolated client class Client {
     # + identifier - Can be either the `uniqueName` or the `typedId`
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function markQuoteLost(string identifier, MarkOfferAsLostRequest payload, map<string|string[]> headers = {}) returns quoteResponse|error {
+    remote isolated function markQuoteLost(string identifier, MarkOfferAsLostRequest payload, map<string|string[]> headers = {}) returns QuoteResponse|error {
         string resourcePath = string `/quotemanager.changestatus/${getEncodedUri(identifier)}`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -6249,7 +6249,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function recalculateQuote(RecalculateQuoteRequest payload, map<string|string[]> headers = {}) returns quoteResponse|error {
+    remote isolated function recalculateQuote(RecalculateQuoteRequest payload, map<string|string[]> headers = {}) returns QuoteResponse|error {
         string resourcePath = string `/quotemanager.price`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -6408,7 +6408,7 @@ public isolated client class Client {
     # + typedId - `typedId` of the Compensation Record you want to revoke
     # + headers - Headers to be sent with the request 
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
-    remote isolated function revokeCompensationRecord(string typedId, map<string|string[]> headers = {}) returns generalResponse|error {
+    remote isolated function revokeCompensationRecord(string typedId, map<string|string[]> headers = {}) returns GenericDataResponse|error {
         string resourcePath = string `/compensationrecord.revoke/${getEncodedUri(typedId)}`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -6441,7 +6441,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function revokePriceList(string id, PricelistmanagerSubmitidBody payload, map<string|string[]> headers = {}) returns pricelistitemResponse|error {
+    remote isolated function revokePriceList(string id, PricelistmanagerSubmitidBody payload, map<string|string[]> headers = {}) returns PriceListItemResponse|error {
         string resourcePath = string `/pricelistmanager.revoke/${getEncodedUri(id)}`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -6733,7 +6733,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
-    remote isolated function sendEmail(SendEmailRequest payload, map<string|string[]> headers = {}) returns generalResponse|error {
+    remote isolated function sendEmail(SendEmailRequest payload, map<string|string[]> headers = {}) returns GenericDataResponse|error {
         string resourcePath = string `/clicmanager.sendemail`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -6750,7 +6750,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
-    remote isolated function sendValidationMessage(NotificationSendBody payload, map<string|string[]> headers = {}) returns generalResponse|error {
+    remote isolated function sendValidationMessage(NotificationSendBody payload, map<string|string[]> headers = {}) returns GenericDataResponse|error {
         string resourcePath = string `/notification.send`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -6911,7 +6911,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function submitContract(SubmitContractRequest payload, map<string|string[]> headers = {}) returns contractModelResponse|error {
+    remote isolated function submitContract(SubmitContractRequest payload, map<string|string[]> headers = {}) returns ContractModelResponse|error {
         string resourcePath = string `/contractmanager.submit`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -6983,7 +6983,7 @@ public isolated client class Client {
     # + id - The ID of the Price List you want to submit. The `id` is the `typedId` without the suffix. For example, the `id` attribute of the item with `typedId` = **2147484837.PL**  is **2147484837**
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function submitPriceList(string id, PricelistmanagerSubmitidBody payload, map<string|string[]> headers = {}) returns pricelistitemResponse|error {
+    remote isolated function submitPriceList(string id, PricelistmanagerSubmitidBody payload, map<string|string[]> headers = {}) returns PriceListItemResponse|error {
         string resourcePath = string `/pricelistmanager.submit/${getEncodedUri(id)}`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -7018,7 +7018,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function submitQuote(SubmitQuoteRequest payload, map<string|string[]> headers = {}) returns quoteResponse|error {
+    remote isolated function submitQuote(SubmitQuoteRequest payload, map<string|string[]> headers = {}) returns QuoteResponse|error {
         string resourcePath = string `/quotemanager.submit`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -7486,7 +7486,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload -
     # + return - Returns customer record details 
-    remote isolated function updateCustomer(UpdateCustomerRequest payload, map<string|string[]> headers = {}) returns customerResponse|error {
+    remote isolated function updateCustomer(UpdateCustomerRequest payload, map<string|string[]> headers = {}) returns CustomerResponse|error {
         string resourcePath = string `/update/C`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -7541,7 +7541,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Either `uniqueName` or `typedId` must be provided in the request 
     # + return - Example response 
-    remote isolated function updateDataManagerEntity("DMF"|"DM"|"DMDS" typeCode, UpdateDataManagerEntityRequest payload, map<string|string[]> headers = {}) returns dmobjectResponse|error {
+    remote isolated function updateDataManagerEntity("DMF"|"DM"|"DMDS" typeCode, UpdateDataManagerEntityRequest payload, map<string|string[]> headers = {}) returns DmObjectResponse|error {
         string resourcePath = string `/datamart.updatefc/${getEncodedUri(typeCode)}`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -7595,7 +7595,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - We have performed an update action on the `comments` field in our request sample >>> 
     # + return - Example response 
-    remote isolated function updateLivePriceGridItem(string id, UpdateLivePriceGridItemRequest payload, map<string|string[]> headers = {}) returns pricegriditemResponse|error {
+    remote isolated function updateLivePriceGridItem(string id, UpdateLivePriceGridItemRequest payload, map<string|string[]> headers = {}) returns PriceGridItemResponse|error {
         string resourcePath = string `/pricegridmanager.update/${getEncodedUri(id)}`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -7614,7 +7614,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - We have performed an update action on the `comments` field in our request sample >>> 
     # + return - Example response 
-    remote isolated function updateLivePriceGridItemNo(string id, UpdateLivePriceGridItemNoRecalcRequest payload, map<string|string[]> headers = {}) returns pricegriditemResponse|error {
+    remote isolated function updateLivePriceGridItemNo(string id, UpdateLivePriceGridItemNoRecalcRequest payload, map<string|string[]> headers = {}) returns PriceGridItemResponse|error {
         string resourcePath = string `/pricegridmanager.update/${getEncodedUri(id)}/norecalc`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -7649,7 +7649,7 @@ public isolated client class Client {
     # + id - The ID of the logic. The `id` is the `typedId` without the **F** suffix. For example, the `id` attribute of the item with `typedId` = **2147484837.F**  is **2147484837**
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function updateLogic(string id, record {record {decimal version?; string typedId?; string uniqueName?; string label?; string validAfter?; string status?; anydata simulationSet?; anydata userGroupEdit?; anydata userGroupViewDetails?; anydata formulaNature?; string lastUpdateByName?; record {decimal version?; string typedId?; string elementName?; string elementLabel?; anydata elementDescription?; string[] elementGroups?; anydata conditionElementName?; boolean hideWarnings?; boolean excludeFromExport?; boolean protectedExpression?; decimal elementTimeout?; decimal displayOptions?; string? formatType?; anydata elementSuffix?; boolean allowOverride?; boolean summarize?; boolean hideOnNull?; anydata userGroup?; anydata cssProperties?; anydata resultGroup?; string combinationType?; boolean storeInAttributeExtension?; anydata criticalAlert?; anydata redAlert?; anydata yellowAlert?; anydata labelTranslations?; string createDate?; decimal createdBy?; string lastUpdateDate?; decimal lastUpdateBy?; string formulaExpression?;}[] elements?; record {}[] inputDescriptors?; string formulaType?; anydata createdByName?; string createDate?; decimal createdBy?; string lastUpdateDate?; decimal lastUpdateBy?;} data?;} payload, map<string|string[]> headers = {}) returns logicResponse|error {
+    remote isolated function updateLogic(string id, record {record {decimal version?; string typedId?; string uniqueName?; string label?; string validAfter?; string status?; anydata simulationSet?; anydata userGroupEdit?; anydata userGroupViewDetails?; anydata formulaNature?; string lastUpdateByName?; record {decimal version?; string typedId?; string elementName?; string elementLabel?; anydata elementDescription?; string[] elementGroups?; anydata conditionElementName?; boolean hideWarnings?; boolean excludeFromExport?; boolean protectedExpression?; decimal elementTimeout?; decimal displayOptions?; string? formatType?; anydata elementSuffix?; boolean allowOverride?; boolean summarize?; boolean hideOnNull?; anydata userGroup?; anydata cssProperties?; anydata resultGroup?; string combinationType?; boolean storeInAttributeExtension?; anydata criticalAlert?; anydata redAlert?; anydata yellowAlert?; anydata labelTranslations?; string createDate?; decimal createdBy?; string lastUpdateDate?; decimal lastUpdateBy?; string formulaExpression?;}[] elements?; record {}[] inputDescriptors?; string formulaType?; anydata createdByName?; string createDate?; decimal createdBy?; string lastUpdateDate?; decimal lastUpdateBy?;} data?;} payload, map<string|string[]> headers = {}) returns LogicResponse|error {
         string resourcePath = string `/formulamanager.update/${getEncodedUri(id)}`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -7667,7 +7667,7 @@ public isolated client class Client {
     # + id - The ID of the logic. The `id` is the `typedId` without the **F** suffix. For example, the `id` attribute of the item with `typedId` = **2147484837.F**  is **2147484837**
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function updateLogicNo(string id, record {record {decimal version?; string typedId?; string uniqueName?; string label?; string validAfter?; string status?; anydata simulationSet?; anydata userGroupEdit?; anydata userGroupViewDetails?; anydata formulaNature?; string lastUpdateByName?; record {decimal version?; string typedId?; string elementName?; string elementLabel?; anydata elementDescription?; string[] elementGroups?; anydata conditionElementName?; boolean hideWarnings?; boolean excludeFromExport?; boolean protectedExpression?; decimal elementTimeout?; decimal displayOptions?; string? formatType?; anydata elementSuffix?; boolean allowOverride?; boolean summarize?; boolean hideOnNull?; anydata userGroup?; anydata cssProperties?; anydata resultGroup?; string combinationType?; boolean storeInAttributeExtension?; anydata criticalAlert?; anydata redAlert?; anydata yellowAlert?; anydata labelTranslations?; string createDate?; decimal createdBy?; string lastUpdateDate?; decimal lastUpdateBy?; string formulaExpression?;}[] elements?; record {}[] inputDescriptors?; string formulaType?; anydata createdByName?; string createDate?; decimal createdBy?; string lastUpdateDate?; decimal lastUpdateBy?;} data?;} payload, map<string|string[]> headers = {}) returns logicResponse|error {
+    remote isolated function updateLogicNo(string id, record {record {decimal version?; string typedId?; string uniqueName?; string label?; string validAfter?; string status?; anydata simulationSet?; anydata userGroupEdit?; anydata userGroupViewDetails?; anydata formulaNature?; string lastUpdateByName?; record {decimal version?; string typedId?; string elementName?; string elementLabel?; anydata elementDescription?; string[] elementGroups?; anydata conditionElementName?; boolean hideWarnings?; boolean excludeFromExport?; boolean protectedExpression?; decimal elementTimeout?; decimal displayOptions?; string? formatType?; anydata elementSuffix?; boolean allowOverride?; boolean summarize?; boolean hideOnNull?; anydata userGroup?; anydata cssProperties?; anydata resultGroup?; string combinationType?; boolean storeInAttributeExtension?; anydata criticalAlert?; anydata redAlert?; anydata yellowAlert?; anydata labelTranslations?; string createDate?; decimal createdBy?; string lastUpdateDate?; decimal lastUpdateBy?; string formulaExpression?;}[] elements?; record {}[] inputDescriptors?; string formulaType?; anydata createdByName?; string createDate?; decimal createdBy?; string lastUpdateDate?; decimal lastUpdateBy?;} data?;} payload, map<string|string[]> headers = {}) returns LogicResponse|error {
         string resourcePath = string `/formulamanager.update/${getEncodedUri(id)}/compileOnly`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -7685,7 +7685,7 @@ public isolated client class Client {
     # + id - The ID of the logic. The `id` is the `typedId` without the **F** suffix. For example, the `id` attribute of the item with `typedId` = **2147484837.F**  is **2147484837**
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function updateLogicPartial(string id, record {record {decimal version?; string typedId?; string uniqueName?; string label?; string validAfter?; string status?; anydata simulationSet?; anydata userGroupEdit?; anydata userGroupViewDetails?; anydata formulaNature?; string lastUpdateByName?; record {decimal version?; string typedId?; string elementName?; string elementLabel?; anydata elementDescription?; string[] elementGroups?; anydata conditionElementName?; boolean hideWarnings?; boolean excludeFromExport?; boolean protectedExpression?; decimal elementTimeout?; decimal displayOptions?; string? formatType?; anydata elementSuffix?; boolean allowOverride?; boolean summarize?; boolean hideOnNull?; anydata userGroup?; anydata cssProperties?; anydata resultGroup?; string combinationType?; boolean storeInAttributeExtension?; anydata criticalAlert?; anydata redAlert?; anydata yellowAlert?; anydata labelTranslations?; string createDate?; decimal createdBy?; string lastUpdateDate?; decimal lastUpdateBy?; string formulaExpression?;}[] elements?; record {}[] inputDescriptors?; string formulaType?; anydata createdByName?; string createDate?; decimal createdBy?; string lastUpdateDate?; decimal lastUpdateBy?;} data?;} payload, map<string|string[]> headers = {}) returns logicResponse|error {
+    remote isolated function updateLogicPartial(string id, record {record {decimal version?; string typedId?; string uniqueName?; string label?; string validAfter?; string status?; anydata simulationSet?; anydata userGroupEdit?; anydata userGroupViewDetails?; anydata formulaNature?; string lastUpdateByName?; record {decimal version?; string typedId?; string elementName?; string elementLabel?; anydata elementDescription?; string[] elementGroups?; anydata conditionElementName?; boolean hideWarnings?; boolean excludeFromExport?; boolean protectedExpression?; decimal elementTimeout?; decimal displayOptions?; string? formatType?; anydata elementSuffix?; boolean allowOverride?; boolean summarize?; boolean hideOnNull?; anydata userGroup?; anydata cssProperties?; anydata resultGroup?; string combinationType?; boolean storeInAttributeExtension?; anydata criticalAlert?; anydata redAlert?; anydata yellowAlert?; anydata labelTranslations?; string createDate?; decimal createdBy?; string lastUpdateDate?; decimal lastUpdateBy?; string formulaExpression?;}[] elements?; record {}[] inputDescriptors?; string formulaType?; anydata createdByName?; string createDate?; decimal createdBy?; string lastUpdateDate?; decimal lastUpdateBy?;} data?;} payload, map<string|string[]> headers = {}) returns LogicResponse|error {
         string resourcePath = string `/formulamanager.update/${getEncodedUri(id)}/incremental`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -7830,7 +7830,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Updates specified fields of the record. Only one record can be updated per request (unless batched).<p> 
     # + return - Returns full record details 
-    remote isolated function updateProduct(UpdateProductRequest payload, map<string|string[]> headers = {}) returns productResponse|error {
+    remote isolated function updateProduct(UpdateProductRequest payload, map<string|string[]> headers = {}) returns ProductResponse|error {
         string resourcePath = string `/update/P`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -7866,7 +7866,7 @@ public isolated client class Client {
     # + typedId - typedId of the object to update
     # + headers - Headers to be sent with the request 
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
-    remote isolated function updateReviewStatus(string typedId, record {} payload, map<string|string[]> headers = {}) returns generalResponse|error {
+    remote isolated function updateReviewStatus(string typedId, record {} payload, map<string|string[]> headers = {}) returns GenericDataResponse|error {
         string resourcePath = string `/review.update/${getEncodedUri(typedId)}`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -7918,7 +7918,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Specify the user by `typedId` and define the new value of the field you want to update in the `data` object 
     # + return - Example response 
-    remote isolated function updateUser(UpdateUserRequest payload, map<string|string[]> headers = {}) returns userResponse|error {
+    remote isolated function updateUser(UpdateUserRequest payload, map<string|string[]> headers = {}) returns UserResponse|error {
         string resourcePath = string `/update/U`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -8016,7 +8016,7 @@ public isolated client class Client {
     # + queries - Queries to be sent with the request 
     # + request -
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
-    remote isolated function uploadFileToPxCxSx("PX"|"CX"|"SX" typeCode, string target, string uploadSlotId, TargetuploadSlotIdBody payload, map<string|string[]> headers = {}, *UploadFileToPxCxSxQueries queries) returns generalResponse|error {
+    remote isolated function uploadFileToPxCxSx("PX"|"CX"|"SX" typeCode, string target, string uploadSlotId, TargetuploadSlotIdBody payload, map<string|string[]> headers = {}, *UploadFileToPxCxSxQueries queries) returns GenericDataResponse|error {
         string resourcePath = string `/importfile/${getEncodedUri(typeCode)}/${getEncodedUri(target)}/${getEncodedUri(uploadSlotId)}`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -8071,7 +8071,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function upsertContract(UpsertContractRequest payload, map<string|string[]> headers = {}) returns contractModelResponse|error {
+    remote isolated function upsertContract(UpsertContractRequest payload, map<string|string[]> headers = {}) returns ContractModelResponse|error {
         string resourcePath = string `/contractmanager.save`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -8089,7 +8089,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - If the customer does not exist yet, at least the `customerId` must be specified in the payload.<p> 
     # + return - Returns customer record details 
-    remote isolated function upsertCustomer(UpsertCustomerRequest payload, map<string|string[]> headers = {}) returns customerResponse|error {
+    remote isolated function upsertCustomer(UpsertCustomerRequest payload, map<string|string[]> headers = {}) returns CustomerResponse|error {
         string resourcePath = string `/integrate/C`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -8163,7 +8163,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload -
     # + return - Returns full record details 
-    remote isolated function upsertManualPriceListProduct(string id, UpsertProductManualPriceListRequest payload, map<string|string[]> headers = {}) returns productResponse|error {
+    remote isolated function upsertManualPriceListProduct(string id, UpsertProductManualPriceListRequest payload, map<string|string[]> headers = {}) returns ProductResponse|error {
         string resourcePath = string `/manualpricelistmanager.integrate/${getEncodedUri(id)}`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -8182,7 +8182,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - The **`/integrate/P`** endpoint (Upsert a Product) is used in our example.<p> 
     # + return - Returns full record details 
-    remote isolated function upsertObject("ACTT"|"AP"|"APIK"|"BD"|"BPT"|"BR"|"C"|"CA"|"CAM"|"CDESC"|"CF"|"CFS"|"CFT"|"CH"|"CLLI"|"CN"|"CS"|"CT"|"CTAM"|"CTLI"|"CTMU"|"CTMUI"|"CTT"|"CTTAM"|"CTTREE"|"CW"|"CX"|"CXAM"|"DA"|"DB"|"DCR"|"DCRAM"|"DCRI"|"DCRL"|"DCRMC"|"DCRT"|"DE"|"DI"|"DM"|"DMDC"|"DMDL"|"DMDS"|"DMF"|"DMM"|"DMR"|"DMT"|"DREG"|"DWT"|"ET"|"EVT"|"F"|"FE"|"FN"|"IDC"|"IE"|"ISH"|"JST"|"JLTV"|"JLTVM"|"LAT"|"LT"|"LTT"|"LTV"|"M"|"MLTV"|"MLTV2"|"MLTV3"|"MLTV4"|"MLTV5"|"MLTV6"|"MLTVM"|"MPL"|"MPLAM"|"MPLI"|"MPLIT"|"MPLT"|"MR"|"MRAM"|"MT"|"P"|"PAM"|"PAPIJ"|"PBOME"|"PCOMP"|"PCW"|"PDESC"|"PG"|"PGI"|"PGIM"|"PGT"|"PH"|"PL"|"PLI"|"PLIM"|"PLT"|"PR"|"PRAM"|"PREF"|"PT"|"PWH"|"PX"|"PXAM"|"PXREF"|"PYR"|"PYRAM"|"Q"|"QAM"|"QLI"|"QMU"|"QMUI"|"QT"|"QTT"|"QTTAM"|"R"|"RAT"|"RATM"|"RBA"|"RBAAM"|"RBALI"|"RBAT"|"RBT"|"RBTAM"|"RR"|"RRAM"|"RRS"|"RRSC"|"RT"|"SAT"|"SC"|"SCN"|"SCNAM"|"SCT"|"SIAM"|"SIM"|"SIMI"|"TFA"|"TODO"|"U"|"UG"|"US"|"W"|"WD"|"WF"|"WFE"|"XPGI"|"XPLI"|"XSIMI" typeCode, UpsertObjectRequest payload, map<string|string[]> headers = {}) returns productResponse|error {
+    remote isolated function upsertObject("ACTT"|"AP"|"APIK"|"BD"|"BPT"|"BR"|"C"|"CA"|"CAM"|"CDESC"|"CF"|"CFS"|"CFT"|"CH"|"CLLI"|"CN"|"CS"|"CT"|"CTAM"|"CTLI"|"CTMU"|"CTMUI"|"CTT"|"CTTAM"|"CTTREE"|"CW"|"CX"|"CXAM"|"DA"|"DB"|"DCR"|"DCRAM"|"DCRI"|"DCRL"|"DCRMC"|"DCRT"|"DE"|"DI"|"DM"|"DMDC"|"DMDL"|"DMDS"|"DMF"|"DMM"|"DMR"|"DMT"|"DREG"|"DWT"|"ET"|"EVT"|"F"|"FE"|"FN"|"IDC"|"IE"|"ISH"|"JST"|"JLTV"|"JLTVM"|"LAT"|"LT"|"LTT"|"LTV"|"M"|"MLTV"|"MLTV2"|"MLTV3"|"MLTV4"|"MLTV5"|"MLTV6"|"MLTVM"|"MPL"|"MPLAM"|"MPLI"|"MPLIT"|"MPLT"|"MR"|"MRAM"|"MT"|"P"|"PAM"|"PAPIJ"|"PBOME"|"PCOMP"|"PCW"|"PDESC"|"PG"|"PGI"|"PGIM"|"PGT"|"PH"|"PL"|"PLI"|"PLIM"|"PLT"|"PR"|"PRAM"|"PREF"|"PT"|"PWH"|"PX"|"PXAM"|"PXREF"|"PYR"|"PYRAM"|"Q"|"QAM"|"QLI"|"QMU"|"QMUI"|"QT"|"QTT"|"QTTAM"|"R"|"RAT"|"RATM"|"RBA"|"RBAAM"|"RBALI"|"RBAT"|"RBT"|"RBTAM"|"RR"|"RRAM"|"RRS"|"RRSC"|"RT"|"SAT"|"SC"|"SCN"|"SCNAM"|"SCT"|"SIAM"|"SIM"|"SIMI"|"TFA"|"TODO"|"U"|"UG"|"US"|"W"|"WD"|"WF"|"WFE"|"XPGI"|"XPLI"|"XSIMI" typeCode, UpsertObjectRequest payload, map<string|string[]> headers = {}) returns ProductResponse|error {
         string resourcePath = string `/integrate/${getEncodedUri(typeCode)}`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -8219,7 +8219,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Either `sku` or `typedId` must be specified in order to *update* an existing product 
     # + return - Returns full record details 
-    remote isolated function upsertProduct(UpsertProductRequest payload, map<string|string[]> headers = {}) returns productResponse|error {
+    remote isolated function upsertProduct(UpsertProductRequest payload, map<string|string[]> headers = {}) returns ProductResponse|error {
         string resourcePath = string `/integrate/P`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -8236,7 +8236,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Returns full record details 
-    remote isolated function upsertProductExtension(UpsertProductExtensionRequest payload, map<string|string[]> headers = {}) returns productResponse|error {
+    remote isolated function upsertProductExtension(UpsertProductExtensionRequest payload, map<string|string[]> headers = {}) returns ProductResponse|error {
         string resourcePath = string `/integrate/PX`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -8253,7 +8253,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function upsertQuote(UpsertQuoteRequest payload, map<string|string[]> headers = {}) returns quoteResponse|error {
+    remote isolated function upsertQuote(UpsertQuoteRequest payload, map<string|string[]> headers = {}) returns QuoteResponse|error {
         string resourcePath = string `/quotemanager.save`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
@@ -8270,7 +8270,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function upsertRebateAgreement(UpsertRebateAgreementRequest payload, map<string|string[]> headers = {}) returns rebateagreementResponse|error {
+    remote isolated function upsertRebateAgreement(UpsertRebateAgreementRequest payload, map<string|string[]> headers = {}) returns RebateAgreementResponse|error {
         string resourcePath = string `/rebateagreement.save`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {

@@ -22,12 +22,12 @@ import ballerinax/pricefx.oas;
 
 public type QuoteResponseOk record {|
     *http:Ok;
-    oas:quoteResponse body;
+    oas:QuoteResponse body;
 |};
 
 public type CustomerResponseOk record {|
     *http:Ok;
-    oas:customerResponse body;
+    oas:CustomerResponse body;
 |};
 
 public type AddCalculationGridResponseOk record {|
@@ -37,7 +37,7 @@ public type AddCalculationGridResponseOk record {|
 
 public type ProductResponseOk record {|
     *http:Ok;
-    oas:productResponse body;
+    oas:ProductResponse body;
 |};
 
 public type ListPriceListsResponseOk record {|
@@ -72,7 +72,7 @@ public type CreatePriceListResponseOk record {|
 
 public type ContractModelResponseOk record {|
     *http:Ok;
-    oas:contractModelResponse body;
+    oas:ContractModelResponse body;
 |};
 
 public type ListCalculationGridsResponseOk record {|
@@ -102,7 +102,7 @@ public type ListConditionRecordSetsEnvelopeOk record {|
 
 public type ManualpricelistResponseOk record {|
     *http:Ok;
-    oas:manualpricelistResponse body;
+    oas:ManualPriceListResponse body;
 |};
 
 public type AddSellerEnvelopeOk record {|

@@ -381,13 +381,13 @@ service /pricefx/companypartition on ep0 {
     # List Price Lists
     #
     # + return - OK
-    resource function post fetch/PL(@http:Payload oas:ListPriceListsRequest payload, @http:Header {name: "PriceFx-TFA"} string? priceFxTfa = (), @http:Header {name: "X-PriceFx-Csrf-Token"} string? priceFxCsrfToken = (), @http:Header string? authorization = (), @http:Header {name: "X-PriceFx-jwt"} string? xPriceFxJwt = ()) returns ListPriceListsResponseOk {
+    resource function post fetch/PL(@http:Payload oas:ListPriceListsRequest payload, @http:Header {name: "PriceFx-TFA"} string? priceFxTfa = (), @http:Header string? authorization = (), @http:Header {name: "X-PriceFx-jwt"} string? xPriceFxJwt = ()) returns ListPriceListsResponseOk {
         // `node` echoes back the credentials this request arrived with, so the auth tests can
         // assert on exactly what reached the wire while still exercising a real business operation.
         return {
             body: {
                 response: {
-                    node: string `companynode|tfa=${priceFxTfa ?: ""}|csrf=${priceFxCsrfToken ?: ""}|auth=${authorization ?: ""}|jwt=${xPriceFxJwt ?: ""}`,
+                    node: string `companynode|tfa=${priceFxTfa ?: ""}|auth=${authorization ?: ""}|jwt=${xPriceFxJwt ?: ""}`,
                     startRow: 0,
                     endRow: 1,
                     totalRows: 1,

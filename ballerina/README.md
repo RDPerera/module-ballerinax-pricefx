@@ -6,30 +6,43 @@ The `ballerinax/pricefx` connector offers APIs to connect and interact with the 
 
 ## Setup guide
 
-The connector supports several ways to authenticate with Pricefx, configured through `PricefxCredentials`/`ConnectionConfig`. Provide exactly one of the following credential combinations:
+Authentication is a single argument to the client, typed as `pricefx:PricefxCredentials` — a union
+of four records, one per method. You pick the record matching the credentials you hold, and the
+compiler holds you to it: an incomplete or mixed-up combination will not compile.
 
-- **Username + password + partition** — the connector authenticates once with HTTP Basic auth and then reuses the `X-PriceFx-jwt` session token Pricefx hands back, so the deliberate ~500 ms penalty Pricefx applies to Basic auth is paid once per client rather than on every request. If a deployment returns no session token, it falls back to Basic auth per request.
-- **OAuth 2.0** — provide `oauth2ClientId`, `oauth2RefreshToken`, and optionally `oauth2ClientSecret`. The refresh token must be obtained once beforehand through Pricefx's Authorization Code Grant flow (`GET /pricefx/{partition}/oauth/authorize`, then `POST /pricefx/{partition}/oauth/token`) — that initial exchange needs an interactive browser redirect and can't be automated by this connector. Once you have a refresh token, the connector fetches and refreshes access tokens automatically.
-- **A Pricefx JWT you already hold** — provide `jwt`. Sent as-is via `X-PriceFx-jwt`, with no token exchange, so creating the client makes no network call. This is the option for the non-expiring integration tokens minted by `generateJwtToken` — obtain one deliberately, keep it in configuration, and the connector uses it directly. Note the connector cannot refresh a token supplied this way (it has nothing to re-authenticate with), which is fine for a non-expiring token but not for a short-lived session one.
-- **External JWT** — provide `externalJwtSystemName` and `externalJwt`, if your organization has a trust relationship configured on the Pricefx side (`externalJWTConfiguration`) with an external system that signs JWTs on your behalf.
+- **`BasicCredentials`** — `username`, `password`, `partition`. The connector authenticates once
+  with HTTP Basic auth and then reuses the `X-PriceFx-jwt` session token Pricefx hands back, so the
+  deliberate ~500 ms penalty Pricefx applies to Basic auth is paid once per client rather than on
+  every request. If a deployment returns no session token, it falls back to Basic auth per request.
+- **`OAuth2Credentials`** — `clientId`, `refreshToken`, and optionally `clientSecret`. The refresh
+  token must be obtained once beforehand through Pricefx's Authorization Code Grant flow, which
+  needs an interactive browser redirect and so can't be automated by this connector. Once you have
+  one, access tokens are fetched and renewed automatically.
+- **`JwtCredentials`** — `jwt`. Sent as-is via `X-PriceFx-jwt`, with nothing exchanged, so creating
+  the client makes no network call. This is the option for the non-expiring integration tokens
+  minted by `generateJwtToken`. The connector cannot refresh a token supplied this way (it holds no
+  credentials to re-authenticate with), which is fine for a non-expiring token but not for a
+  short-lived session one.
+- **`ExternalJwtCredentials`** — `systemName`, `jwt`, if your organization has a trust relationship
+  configured on the Pricefx side (`externalJWTConfiguration`) with an external system that signs
+  JWTs on your behalf.
 
-Independently of the above, you can also set:
-
-- **`csrfToken`** — a CSRF token, if your partition has CSRF protection enabled
-
-If your Pricefx user has two-factor authentication enabled, pass the current code as a
-`PriceFx-TFA` header on the call that needs it — there is no config field for it, because a
-six-digit code expires in about thirty seconds and would be stale before a long-lived client made
-its first request:
+Anything Pricefx needs that is not authentication — a two-factor code (`PriceFx-TFA`), a CSRF token
+(`X-PriceFx-Csrf-Token`), or a header a specific endpoint expects — is passed per call, since every
+operation takes an optional headers argument:
 
 ```ballerina
-var result = check pricefxClient->listPriceLists({}, {"PriceFx-TFA": "123456"});
+oas:ListPriceListsResponse result = check pricefxClient->listPriceLists({}, {"PriceFx-TFA": "123456"});
 ```
 
-Interactive two-factor auth does not really fit unattended integrations; prefer a `jwt` or
-OAuth 2.0 for those.
+There is deliberately no configuration field for a two-factor code: it expires in about thirty
+seconds, so it cannot usefully live in configuration, and the connector has no way to regenerate
+one. Interactive two-factor auth does not really suit unattended integrations anyway — prefer
+`JwtCredentials` or OAuth 2.0 there.
 
-The connector automatically re-authenticates and retries once whenever a request comes back unauthenticated (JWTs and OAuth2 access tokens are short-lived), so a long-lived `pricefx:Client` instance keeps working without manual re-initialization.
+The connector automatically re-authenticates and retries once whenever a request comes back
+unauthenticated (session tokens and OAuth2 access tokens are short-lived), so a long-lived
+`pricefx:Client` instance keeps working without manual re-initialization.
 
 ## Quickstart
 

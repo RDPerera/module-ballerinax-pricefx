@@ -17,7 +17,7 @@ public function main() returns error? {
         data: {customerId: "CUST-2001", name: "Acme Corp"},
         operation: "add"
     };
-    oas:customerResponse customerResult = check pricefxClient->addCustomer(customerRequest);
+    oas:CustomerResponse customerResult = check pricefxClient->addCustomer(customerRequest);
     io:println("Added customer: ", customerResult);
 
     // Step 2: Create a quote for the new customer
@@ -52,7 +52,7 @@ public function main() returns error? {
         lastUpdateBy: 1
     };
     oas:UpsertQuoteRequest quoteRequest = {data: {quote: quote}};
-    oas:quoteResponse quoteResult = check pricefxClient->upsertQuote(quoteRequest);
+    oas:QuoteResponse quoteResult = check pricefxClient->upsertQuote(quoteRequest);
     io:println("Created quote: ", quoteResult);
 
     // Step 3: Submit the quote for approval
@@ -63,6 +63,6 @@ public function main() returns error? {
             quote: {typedId: "q-2026-001.QU", uniqueName: "q-2026-001", inputs: []}
         }
     };
-    oas:quoteResponse submitResult = check pricefxClient->submitQuote(submitRequest);
+    oas:QuoteResponse submitResult = check pricefxClient->submitQuote(submitRequest);
     io:println("Submitted quote: ", submitResult);
 }
