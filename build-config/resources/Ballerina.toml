@@ -1,0 +1,16 @@
+[package]
+distribution = "2201.12.0"
+org = "ballerinax"
+name = "pricefx"
+version = "@toml.version@"
+license = ["Apache-2.0"]
+authors = ["Ballerina"]
+keywords = ["Name/Pricefx", "Area/CRM & Sales", "Vendor/Pricefx", "Cost/Paid", "Type/Connector", "Pricefx", "Pricing", "CPQ"]
+repository = "https://github.com/ballerina-platform/module-ballerinax-pricefx"
+
+[build-options]
+observabilityIncluded = true
+
+[[package.modules]]
+name = "pricefx.oas"
+export = true
