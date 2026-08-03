@@ -23,10 +23,15 @@ public function main() returns error? {
     // it, without the trailing ".PL" suffix.
     oas:CreatePriceListResponseResponseData[] priceLists = createResult.response?.data ?: [];
     if priceLists.length() == 0 {
-        return error("Pricefx did not return a price list id");
+        return error("Pricefx returned no price list");
     }
-    string typedId = priceLists[0].typedId ?: "";
-    string id = typedId.substring(0, typedId.indexOf(".") ?: typedId.length());
+    // Insist on the expected `<id>.PL` shape rather than coalescing and hoping: an empty or
+    // unexpected typedId would otherwise produce an invalid id for the calls below.
+    string? typedId = priceLists[0].typedId;
+    if typedId is () || !typedId.endsWith(".PL") {
+        return error(string `expected a price list typedId ending in ".PL", got: ${typedId ?: "none"}`);
+    }
+    string id = typedId.substring(0, typedId.length() - ".PL".length());
 
     // Step 2: Calculate the price list
     oas:PricelistmanagerCalculateidBody calculateRequest = {data: {fullListRecalc: true}};

@@ -55,12 +55,25 @@ public function main() returns error? {
     oas:QuoteResponse quoteResult = check pricefxClient->upsertQuote(quoteRequest);
     io:println("Created quote: ", quoteResult);
 
-    // Step 3: Submit the quote for approval
-    // Note: `inputs` must contain at least one entry matching the quote's configured
-    // input schema in a real Pricefx instance — left empty here for illustration.
+    // Step 3: Submit the quote for approval, using the identifier Pricefx actually assigned.
+    // Note `q-2026-001` above is the quote's uniqueName, not its typedId - submitting that
+    // would target a different (or nonexistent) quote, so read the typedId off the response.
+    oas:QuoteResponse_response_data[] quotes = quoteResult.response?.data ?: [];
+    if quotes.length() == 0 {
+        return error("Pricefx returned no quote to submit");
+    }
+    oas:QuoteResponse_response_data createdQuote = quotes[0];
+    string? createdTypedId = createdQuote.typedId;
+    string? createdUniqueName = createdQuote.uniqueName;
+    if createdTypedId is () || createdUniqueName is () {
+        return error("Pricefx returned a quote without a typedId or uniqueName");
+    }
+
+    // `inputs` must contain at least one entry matching the quote's configured input schema in a
+    // real Pricefx instance - left empty here for illustration.
     oas:SubmitQuoteRequest submitRequest = {
         data: {
-            quote: {typedId: "q-2026-001.QU", uniqueName: "q-2026-001", inputs: []}
+            quote: {typedId: createdTypedId, uniqueName: createdUniqueName, inputs: []}
         }
     };
     oas:QuoteResponse submitResult = check pricefxClient->submitQuote(submitRequest);

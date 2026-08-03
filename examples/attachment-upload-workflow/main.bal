@@ -19,9 +19,14 @@ public function main() returns error? {
     // Step 2: Upload a file to the slot Pricefx just created, rather than a hard-coded slot id
     oas:InlineResponse200ResponseData[] slots = slotResult.response?.data ?: [];
     if slots.length() == 0 {
-        return error("Pricefx did not return an upload slot id");
+        return error("Pricefx returned no upload slot");
     }
-    string slotId = slots[0].id ?: "";
+    // Coalescing a missing id to "" would send an invalid slot to `uploadFile`, so fail here
+    // instead - a malformed response should not become a malformed request.
+    string? slotId = slots[0].id;
+    if slotId is () || slotId.trim() == "" {
+        return error("Pricefx returned an upload slot without an id");
+    }
     oas:TypedIdslotIdBody uploadRequest = {
         file: {fileContent: "Sample contract text".toBytes(), fileName: "contract.txt"}
     };
