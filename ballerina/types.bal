@@ -17,40 +17,14 @@
 import ballerina/http;
 import ballerinax/pricefx.oas;
 
-# Request body for Pricefx's `POST /token` session-token exchange.
-#
-# This is the connector's own session bootstrap, not a public operation - `POST /token` is
-# deliberately not exposed on the client, because callers must never manage the session the
-# connector owns. The type is declared here rather than reused from the generated `oas` module
-# for exactly that reason: no generated operation references it any more.
-type TokenExchangeRequest record {|
-    # The Pricefx username to authenticate as
-    string username;
-    # That user's password
-    string password;
-    # The partition being authenticated against
-    string partition;
-|};
-
-# Response from Pricefx's `POST /token`. Field names match the wire format, which is hyphenated.
-# Only `access-token` is required; the rest are accepted if present but unused, and the record is
-# open so additional fields a future Pricefx version might add do not break the exchange.
-type TokenExchangeResponse record {
-    # The session token, sent as `X-PriceFx-jwt` on subsequent requests
-    string access\-token;
-    # A token for renewing the session. Unused: the connector re-runs the whole exchange instead
-    string refresh\-token?;
-    # The token type Pricefx reports. Unused
-    string token\-type?;
-    # Seconds until the session token expires. Unused: expiry is detected from a 401 response
-    decimal expires\-in?;
-};
-
 # Pricefx account credentials and authentication options. Exactly one of the following
 # combinations must be provided:
 #
-# - `username` + `password` + `partition` (+ optional `pricefxKey`) - the connector authenticates
-#   via `POST /token` when `pricefxKey` is set, or via HTTP Basic auth otherwise
+# - `username` + `password` + `partition` - the connector authenticates once with HTTP Basic auth
+#   (`<partition>/<username>:<password>`) and reuses the `X-PriceFx-jwt` session token Pricefx
+#   returns for every later request, so the deliberate ~500ms Basic auth penalty is paid once per
+#   client rather than once per request. If no token comes back it falls back to Basic auth on
+#   every request
 # - `oauth2ClientId` + `oauth2RefreshToken` (+ optional `oauth2ClientSecret`) - OAuth 2.0, using a
 #   refresh token obtained beforehand through Pricefx's Authorization Code Grant flow (that initial
 #   exchange requires an interactive browser redirect and can't be automated by this connector -
@@ -75,22 +49,17 @@ public type PricefxCredentials record {|
     string password?;
     # Your Pricefx partition name
     string partition?;
-    # A Pricefx API key (contact Pricefx Support to obtain one). When set, authentication uses
-    # `POST /token`, which is faster and recommended for server-to-server integrations. When
-    # absent, authentication falls back to HTTP Basic auth (`<partition>/<username>:<password>`),
-    # which needs no separate API key but is slower per request
-    string pricefxKey?;
-    # A Pricefx-issued JWT you already hold, sent directly as the `X-PriceFx-jwt` header. Unlike
-    # `pricefxKey`, no `POST /token` exchange happens - the token is used as given, so client
-    # initialization performs no network call at all.
+    # A Pricefx-issued JWT you already hold, sent directly as the `X-PriceFx-jwt` header. Nothing
+    # is exchanged - the token is used as given, so client initialization performs no network call
+    # at all.
     #
     # Intended for the non-expiring integration tokens produced by `generateJwtToken` (or the
     # time-limited ones from `generateTimedJwtToken`), which you obtain once and keep in
     # configuration. Note that a token supplied this way cannot be refreshed by the connector: it
     # has nothing to re-authenticate with, so if the token is rejected the error surfaces to you
     # rather than being retried. That is fine for a non-expiring token, but if you paste in a
-    # short-lived session token it will eventually stop working - use `pricefxKey`, or
-    # username/password, if you want the connector to manage renewal.
+    # short-lived session token it will eventually stop working - use username/password instead,
+    # which lets the connector obtain and renew a session token for you.
     string jwt?;
     # OAuth 2.0 client identifier, as registered in Pricefx's `oauthConfiguration`
     string oauth2ClientId?;

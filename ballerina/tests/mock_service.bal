@@ -509,19 +509,18 @@ service /pricefx/companypartition on ep0 {
         };
     }
 
-    # The session-token bootstrap the connector performs internally during `Client.init()`.
-    # `POST /token` is not a public operation on the client, so nothing in the test suite calls
-    # this directly - the connector does, before any other request.
+    # The session bootstrap the connector performs internally during `Client.init()` when
+    # authenticating with username/password. Pricefx issues the session token as a cookie on the
+    # first Basic authenticated call; the connector reads it from `Set-Cookie` and uses it for every
+    # later request, so Basic auth's deliberate ~500ms penalty is paid once rather than per request.
+    # `login` is not a public operation on the client, so nothing in the test suite calls this
+    # directly - the connector does, before any other request.
     #
-    # + pricefxKey - The API key the connector sends to authenticate the exchange
-    # + payload - The credentials being exchanged
-    # + return - A session token
-    resource function post token(@http:Header {name: "Pricefx-Key"} string pricefxKey, @http:Payload TokenExchangeRequest payload) returns TokenExchangeResponse {
+    # + return - `200 OK` carrying the session token as an `X-PriceFx-jwt` cookie
+    resource function get login/extended() returns http:Ok {
         return {
-            access\-token: "mock-access-token-abc123",
-            refresh\-token: "mock-refresh-token-xyz789",
-            token\-type: "Bearer",
-            expires\-in: 1800
+            headers: {"Set-Cookie": "X-PriceFx-jwt=mock-session-jwt-abc123; Path=/; HttpOnly"},
+            body: {response: {node: "companynode", status: 200}}
         };
     }
 
@@ -562,6 +561,35 @@ service /pricefx/companypartition on ep0 {
                     data: [
                         {id: "slot-001"}
                     ]
+                }
+            }
+        };
+    }
+}
+
+// A Pricefx deployment that does *not* hand back a session cookie on Basic auth. The connector must
+// notice the token is absent and fall back to sending Basic credentials per request, rather than
+// failing initialization - the bootstrap is a performance optimization, not a requirement.
+@http:ServiceConfig {validation: false}
+service /pricefx/nocookie on ep0 {
+    # A login that authenticates but issues no `X-PriceFx-jwt` cookie.
+    #
+    # + return - `200 OK` with no session cookie
+    resource function get login/extended() returns http:Ok {
+        return {body: {response: {node: "companynode", status: 200}}};
+    }
+
+    # Echoes the `Authorization` header so the fallback test can confirm Basic auth is still used.
+    #
+    # + authorization - Echoed back, to show which credentials arrived
+    # + return - OK
+    resource function post fetch/PL(@http:Payload oas:ListPriceListsRequest payload, @http:Header string? authorization = ()) returns ListPriceListsResponseOk {
+        return {
+            body: {
+                response: {
+                    node: string `nocookie|auth=${authorization ?: ""}`,
+                    status: 200,
+                    data: [{typedId: "9001.PL", label: "Standard 2026 Price List"}]
                 }
             }
         };

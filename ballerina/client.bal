@@ -17,6 +17,9 @@
 import ballerina/http;
 import ballerinax/pricefx.oas;
 
+# The cookie Pricefx sets on a Basic authenticated response, carrying the session token.
+const string JWT_COOKIE_PREFIX = "X-PriceFx-jwt=";
+
 # The `ballerinax/pricefx` client. Wraps the generated `oas` client (kept as pristine,
 # regeneratable code in the `oas` submodule) and adds the customization Pricefx's API needs on
 # top: turning the credentials in `ConnectionConfig` into the right kind of auth (JWT, Basic,
@@ -8497,9 +8500,7 @@ isolated function buildStaticHeaders(readonly & ConnectionConfig config) returns
 #   tokens rather than session tokens
 # - `oauth2RefreshToken` set - OAuth 2.0. Configures `oas:Client` with an OAuth2 refresh token
 #   grant; Ballerina's `http` module fetches and refreshes access tokens automatically
-# - `pricefxKey` set - exchanges it for a JWT via `POST /token` and authenticates with
-#   `X-PriceFx-jwt`
-# - `externalJwt` set (and no `pricefxKey`/`oauth2RefreshToken`) - the real auth is the
+# - `externalJwt` set (and no `jwt`/`oauth2RefreshToken`) - the real auth is the
 #   `Authorization` header that `buildStaticHeaders` merges into every request.
 #   `oas:ConnectionConfig.auth` is a required field, so it still needs a value here - an empty
 #   `ApiKeysConfig` is used (never `http:CredentialsConfig`, even with placeholder credentials):
@@ -8507,8 +8508,14 @@ isolated function buildStaticHeaders(readonly & ConnectionConfig config) returns
 #   `setHeader` on every request, which would silently clobber the real external JWT, whereas
 #   `ApiKeysConfig` never touches `Authorization` at all (see `oas:Client.init()`, which only wires
 #   up `httpClientConfig.auth` for the `http:CredentialsConfig` case)
-# - otherwise - HTTP Basic auth, using `<partition>/<username>` as the Basic auth username, as
-#   Pricefx's API requires
+# - otherwise - username/password. Pricefx charges a deliberate ~500ms penalty on every Basic
+#   authenticated request ("the password verification is intentionally slow to mitigate
+#   brute-force password guess attacks"), and hands back an `X-PriceFx-jwt` session cookie on the
+#   first such call, recommending clients reuse it "and not user/pwd on every API call". So this
+#   makes exactly one Basic authenticated request (`bootstrapSessionJwt`) and then authenticates
+#   everything else with that session token - the penalty is paid once per client instead of once
+#   per request. If no token comes back, it falls back to Basic auth on every request, which is
+#   slower but always correct
 #
 # + config - The connection configuration supplied to the wrapper client
 # + serviceUrl - URL of the target service
@@ -8517,7 +8524,6 @@ isolated function createOasClient(readonly & ConnectionConfig config, string ser
     http:CredentialsConfig|oas:ApiKeysConfig|oas:OAuth2RefreshTokenGrantConfig auth;
     string? jwt = config.jwt;
     string? oauth2RefreshToken = config.oauth2RefreshToken;
-    string? pricefxKey = config.pricefxKey;
     string? externalJwt = config.externalJwt;
     if jwt is string {
         auth = {X\-PriceFx\-jwt: jwt};
@@ -8532,15 +8538,17 @@ isolated function createOasClient(readonly & ConnectionConfig config, string ser
             clientId: oauth2ClientId,
             clientSecret: config.oauth2ClientSecret ?: ""
         };
-    } else if pricefxKey is string {
-        [string, string, string] [username, password, partition] = check requireBasicCredentials(config);
-        TokenExchangeResponse tokenResp = check fetchAccessToken(serviceUrl, username, password, partition, pricefxKey);
-        auth = {X\-PriceFx\-jwt: tokenResp.access\-token};
     } else if externalJwt is string {
         auth = {X\-PriceFx\-jwt: ""};
     } else {
         [string, string, string] [username, password, partition] = check requireBasicCredentials(config);
-        auth = {username: string `${partition}/${username}`, password};
+        string basicUsername = string `${partition}/${username}`;
+        string? sessionJwt = bootstrapSessionJwt(serviceUrl, basicUsername, password);
+        if sessionJwt is string {
+            auth = {X\-PriceFx\-jwt: sessionJwt};
+        } else {
+            auth = {username: basicUsername, password};
+        }
     }
     oas:ConnectionConfig oasConfig = {
         auth,
@@ -8578,25 +8586,52 @@ isolated function requireBasicCredentials(readonly & ConnectionConfig config) re
     return error("username, password, and partition are required unless authenticating via oauth2RefreshToken or externalJwt");
 }
 
-# Exchanges Pricefx credentials and a `Pricefx-Key` API key for a short-lived JWT via
-# `POST /token`. This is the connector's own session bootstrap, so it is deliberately a raw HTTP
-# call against types the wrapper owns (`TokenExchangeRequest`/`TokenExchangeResponse`) rather
-# than a generated operation - `POST /token` is not exposed as a public operation at all, since
-# callers must never manage this session themselves (see docs/spec/sanitations.md item 575).
+# Makes a single HTTP Basic authenticated call to `GET /login/extended` and returns the
+# `X-PriceFx-jwt` session token Pricefx sets as a cookie on the response, so that every later
+# request can use the token instead of re-sending credentials.
+#
+# This exists because Pricefx deliberately makes Basic auth slow - "the basic authentication leads
+# to an extra 500 ms request execution time as the password verification is intentionally slow to
+# mitigate brute-force password guess attacks" - and its documentation recommends reusing the
+# issued JWT "and not user/pwd on every API call". Doing that here turns a per-request cost into a
+# per-client one.
+#
+# It is a raw HTTP call rather than a generated operation because `login` is not exposed on the
+# client at all (see docs/spec/sanitations.md item 575): callers must never manage this session
+# themselves. Cookie support is not enabled on the client; the `Set-Cookie` header is read directly.
+#
+# Never returns an error. Anything unexpected - a network failure, a Pricefx deployment that does
+# not serve this endpoint, a response without the cookie - yields `()` so the caller falls back to
+# per-request Basic auth, which is slower but always correct. Failing initialization here would
+# turn a performance optimization into an outage.
 #
 # + serviceUrl - URL of the target service
-# + username - The Pricefx username
+# + basicUsername - The Basic auth username, already prefixed with the partition
 # + password - The Pricefx password
-# + partition - The Pricefx partition name
-# + pricefxKey - The Pricefx API key
-# + return - The token response, or an error if authentication failed
-isolated function fetchAccessToken(string serviceUrl, string username, string password, string partition, string pricefxKey) returns TokenExchangeResponse|error {
-    http:Client tokenClient = check new (serviceUrl);
-    TokenExchangeRequest payload = {username, password, partition};
-    http:Request request = new;
-    request.setPayload(payload.toJson(), "application/json");
-    map<string|string[]> httpHeaders = {"Pricefx-Key": pricefxKey};
-    return tokenClient->post("/token", request, httpHeaders);
+# + return - The session token, or `()` if one could not be obtained
+isolated function bootstrapSessionJwt(string serviceUrl, string basicUsername, string password) returns string? {
+    http:Client|error loginClient = new (serviceUrl, {auth: {username: basicUsername, password}});
+    if loginClient is error {
+        return ();
+    }
+    http:Response|error response = loginClient->get("/login/extended");
+    if response is error {
+        return ();
+    }
+    string[]|error setCookies = response.getHeaders("Set-Cookie");
+    if setCookies is error {
+        return ();
+    }
+    foreach string setCookie in setCookies {
+        // e.g. `X-PriceFx-jwt=eyJ...; Path=/; HttpOnly` - take the value up to the first `;`
+        if setCookie.startsWith(JWT_COOKIE_PREFIX) {
+            string value = setCookie.substring(JWT_COOKIE_PREFIX.length());
+            int? semicolon = value.indexOf(";");
+            string token = semicolon is int ? value.substring(0, semicolon) : value;
+            return token.trim() == "" ? () : token.trim();
+        }
+    }
+    return ();
 }
 
 # Returns whether a client response/error represents an authentication failure (HTTP 401),

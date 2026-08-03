@@ -23,12 +23,11 @@ final string serviceUrl = isLiveServer ? os:getEnv("PRICEFX_SERVICE_URL") : "htt
 final string username = isLiveServer ? os:getEnv("PRICEFX_USERNAME") : "test-user";
 final string password = isLiveServer ? os:getEnv("PRICEFX_PASSWORD") : "test-password";
 final string partition = isLiveServer ? os:getEnv("PRICEFX_PARTITION") : "companypartition";
-final string pricefxKey = isLiveServer ? os:getEnv("PRICEFX_KEY") : "test-pricefx-key";
 
-// `Client.init()` now performs a live authentication call (POST /token), so it can't run as part
-// of a module-level variable initializer here - that phase completes before the mock listener in
-// mock_service.bal starts accepting connections. Constructing the client in `@test:BeforeSuite`
-// instead guarantees the mock listener is already up.
+// `Client.init()` performs a live authentication call (the Basic auth session bootstrap), so it
+// can't run as part of a module-level variable initializer here - that phase completes before the
+// mock listener in mock_service.bal starts accepting connections. Constructing the client in
+// `@test:BeforeSuite` instead guarantees the mock listener is already up.
 isolated Client? pricefxClientHolder = ();
 
 @test:BeforeSuite
@@ -38,7 +37,7 @@ function setUpPricefxClient() returns error? {
     // populating full business-realistic graphs (e.g. a Quote's line items) just to satisfy
     // runtime validation adds no value to these wire-format tests. Real usage should leave
     // validation at its default (true).
-    Client newClient = check new ({username, password, partition, pricefxKey, validation: false}, serviceUrl);
+    Client newClient = check new ({username, password, partition, validation: false}, serviceUrl);
     lock {
         pricefxClientHolder = newClient;
     }
@@ -64,6 +63,46 @@ function testReauthenticatesAndRetriesOnUnauthorized() returns error? {
     Client pricefxClient = getPricefxClient();
     oas:ListUsersResponse response = check pricefxClient->listUsers({});
     test:assertTrue(response?.response !is (), "expected the retried request to succeed after re-authentication");
+}
+
+@test:Config {
+    groups: ["mock_tests"]
+}
+function testBasicAuthBootstrapsASessionToken() returns error? {
+    // Authenticating with username/password should cost one Basic authenticated call, after which
+    // every request carries the session token Pricefx handed back as a cookie - not the
+    // credentials. Pricefx makes Basic auth deliberately slow, so re-sending it per request would
+    // add roughly half a second each time.
+    Client basicClient = check new ({username, password, partition, validation: false}, serviceUrl);
+    oas:ListPriceListsResponse response = check basicClient->listPriceLists({});
+    string node = response.response?.node ?: "";
+    test:assertTrue(
+        node.includes("jwt=mock-session-jwt-abc123"),
+        "expected the bootstrapped session token to be sent as X-PriceFx-jwt, got: " + node
+    );
+    test:assertFalse(
+        node.includes("auth=Basic"),
+        "expected no Basic credentials on requests after the bootstrap, got: " + node
+    );
+}
+
+@test:Config {
+    groups: ["mock_tests"]
+}
+function testFallsBackToBasicAuthWhenNoSessionCookieIsIssued() returns error? {
+    // Against a deployment that issues no session cookie, initialization must still succeed and
+    // simply keep using Basic auth per request. The bootstrap is an optimization; losing it should
+    // never turn into an outage.
+    Client fallbackClient = check new (
+        {username, password, partition: "nocookie", validation: false},
+        "http://localhost:9090/pricefx/nocookie"
+    );
+    oas:ListPriceListsResponse response = check fallbackClient->listPriceLists({});
+    string node = response.response?.node ?: "";
+    test:assertTrue(
+        node.includes("auth=Basic "),
+        "expected a fallback to per-request Basic auth when no session cookie is issued, got: " + node
+    );
 }
 
 @test:Config {

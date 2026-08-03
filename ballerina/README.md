@@ -8,7 +8,7 @@ The `ballerinax/pricefx` connector offers APIs to connect and interact with the 
 
 The connector supports several ways to authenticate with Pricefx, configured through `PricefxCredentials`/`ConnectionConfig`. Provide exactly one of the following credential combinations:
 
-- **Username + password + partition** (+ optional `pricefxKey`) — when `pricefxKey` is set the connector exchanges your credentials for a session token at `POST /token`; otherwise it authenticates every request with HTTP Basic auth.
+- **Username + password + partition** — the connector authenticates once with HTTP Basic auth and then reuses the `X-PriceFx-jwt` session token Pricefx hands back, so the deliberate ~500 ms penalty Pricefx applies to Basic auth is paid once per client rather than on every request. If a deployment returns no session token, it falls back to Basic auth per request.
 - **OAuth 2.0** — provide `oauth2ClientId`, `oauth2RefreshToken`, and optionally `oauth2ClientSecret`. The refresh token must be obtained once beforehand through Pricefx's Authorization Code Grant flow (`GET /pricefx/{partition}/oauth/authorize`, then `POST /pricefx/{partition}/oauth/token`) — that initial exchange needs an interactive browser redirect and can't be automated by this connector. Once you have a refresh token, the connector fetches and refreshes access tokens automatically.
 - **A Pricefx JWT you already hold** — provide `jwt`. Sent as-is via `X-PriceFx-jwt`, with no token exchange, so creating the client makes no network call. This is the option for the non-expiring integration tokens minted by `generateJwtToken` — obtain one deliberately, keep it in configuration, and the connector uses it directly. Note the connector cannot refresh a token supplied this way (it has nothing to re-authenticate with), which is fine for a non-expiring token but not for a short-lived session one.
 - **External JWT** — provide `externalJwtSystemName` and `externalJwt`, if your organization has a trust relationship configured on the Pricefx side (`externalJWTConfiguration`) with an external system that signs JWTs on your behalf.
@@ -26,8 +26,8 @@ its first request:
 var result = check pricefxClient->listPriceLists({}, {"PriceFx-TFA": "123456"});
 ```
 
-Interactive two-factor auth does not really fit unattended integrations; prefer `pricefxKey`, a
-`jwt`, or OAuth 2.0 for those.
+Interactive two-factor auth does not really fit unattended integrations; prefer a `jwt` or
+OAuth 2.0 for those.
 
 The connector automatically re-authenticates and retries once whenever a request comes back unauthenticated (JWTs and OAuth2 access tokens are short-lived), so a long-lived `pricefx:Client` instance keeps working without manual re-initialization.
 
@@ -53,10 +53,6 @@ import ballerinax/pricefx.oas;
     partition = "<your-partition>"
     serviceUrl = "https://<your-node>.pricefx.com/pricefx/<your-partition>"
 
-    # Optional. Uncomment if you have a Pricefx API key - the connector then authenticates via
-    # the faster `POST /token`. Without it, the connector falls back to HTTP Basic auth
-    # (`<partition>/<username>:<password>`), which needs no separate key but is slower per request.
-    # pricefxKey = "<your-pricefx-api-key>"
     ```
 
 2. Create a `pricefx:Client` instance:
@@ -70,15 +66,12 @@ import ballerinax/pricefx.oas;
     final pricefx:Client pricefxClient = check new ({username, password, partition}, serviceUrl);
     ```
 
-    That authenticates every request with HTTP Basic auth. To use one of the other methods, set its
-    fields instead — see the setup guide above. For example, with a Pricefx API key the connector
-    exchanges your credentials for a session token and manages its renewal:
+    Constructing the client makes one Basic authenticated call to obtain a session token; every
+    request after that uses the token. To use a different method, set its fields instead — see the
+    setup guide above. For example, with a non-expiring integration JWT:
 
     ```ballerina
-    final pricefx:Client pricefxClient = check new (
-        {username, password, partition, pricefxKey},
-        serviceUrl
-    );
+    final pricefx:Client pricefxClient = check new ({jwt}, serviceUrl);
     ```
 
 ### Step 3: Invoke the connector operation
