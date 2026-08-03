@@ -24,8 +24,46 @@ import ballerinax/pricefx.oas;
 # and transparently re-authenticating and retrying once whenever a request comes back
 # unauthenticated - a JWT or OAuth2 access token is short-lived - so a long-lived client instance
 # keeps working without manual re-initialization.
+# Holds the current `oas:Client`, guarding the swap that happens on re-authentication.
+#
+# This exists as a separate class purely to keep the `lock` statement out of `Client`. `Client`
+# carries 477 remote methods, which is large enough that the compiler splits it across several JVM
+# classes (`$Client$split$N`), and on Swan Lake Update 13.x a `lock` inside a split class generates
+# invalid bytecode - the JVM rejects it at run time with `VerifyError: Bad type on operand stack`.
+# Update 12 compiles the same code correctly, so this is a toolchain bug rather than invalid
+# Ballerina, but the connector has to work on current releases. Keeping the lock in this small
+# class - which is never split - avoids it entirely, and lets every field on `Client` be `final`.
+isolated class OasClientHolder {
+    private oas:Client current;
+
+    # Gets invoked to initialize the holder with the client to start from.
+    #
+    # + initial - The initially authenticated `oas:Client`
+    isolated function init(oas:Client initial) {
+        self.current = initial;
+    }
+
+    # Returns the client currently in use.
+    #
+    # + return - The current `oas:Client`
+    isolated function get() returns oas:Client {
+        lock {
+            return self.current;
+        }
+    }
+
+    # Replaces the client currently in use, after a successful re-authentication.
+    #
+    # + replacement - The freshly authenticated `oas:Client` to switch to
+    isolated function set(oas:Client replacement) {
+        lock {
+            self.current = replacement;
+        }
+    }
+}
+
 public isolated client class Client {
-    private oas:Client oasClient;
+    private final OasClientHolder holder;
     private final readonly & ConnectionConfig config;
     private final string serviceUrl;
 
@@ -38,7 +76,7 @@ public isolated client class Client {
     public isolated function init(ConnectionConfig config, string serviceUrl = "https://companynode.pricefx.com/pricefx/companypartition") returns error? {
         self.config = config.cloneReadOnly();
         self.serviceUrl = serviceUrl;
-        self.oasClient = check createOasClient(self.config, serviceUrl);
+        self.holder = new (check createOasClient(self.config, serviceUrl));
     }
 
     # Returns the current underlying `oas` client instance in a manner that is safe to call
@@ -46,9 +84,7 @@ public isolated client class Client {
     #
     # + return - The current `oas:Client` instance
     private isolated function getOasClient() returns oas:Client {
-        lock {
-            return self.oasClient;
-        }
+        return self.holder.get();
     }
 
     # Re-authenticates against Pricefx and replaces the underlying `oas` client instance with a
@@ -57,10 +93,7 @@ public isolated client class Client {
     #
     # + return - An error if re-authentication failed
     private isolated function reauthenticate() returns error? {
-        oas:Client newOasClient = check createOasClient(self.config, self.serviceUrl);
-        lock {
-            self.oasClient = newOasClient;
-        }
+        self.holder.set(check createOasClient(self.config, self.serviceUrl));
     }
 
     # Builds the extra headers (CSRF token and/or a pre-signed external JWT) that get
