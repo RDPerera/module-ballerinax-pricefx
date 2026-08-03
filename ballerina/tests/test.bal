@@ -37,7 +37,7 @@ function setUpPricefxClient() returns error? {
     // populating full business-realistic graphs (e.g. a Quote's line items) just to satisfy
     // runtime validation adds no value to these wire-format tests. Real usage should leave
     // validation at its default (true).
-    Client newClient = check new ({username, password, partition}, serviceUrl, {validation: false});
+    Client newClient = check new ({auth: {username, password, partition}, validation: false}, serviceUrl);
     lock {
         pricefxClientHolder = newClient;
     }
@@ -73,7 +73,7 @@ function testBasicAuthBootstrapsASessionToken() returns error? {
     // every request carries the session token Pricefx handed back as a cookie - not the
     // credentials. Pricefx makes Basic auth deliberately slow, so re-sending it per request would
     // add roughly half a second each time.
-    Client basicClient = check new ({username, password, partition}, serviceUrl, {validation: false});
+    Client basicClient = check new ({auth: {username, password, partition}, validation: false}, serviceUrl);
     oas:ListPriceListsResponse response = check basicClient->listPriceLists({});
     string node = response.response?.node ?: "";
     test:assertTrue(
@@ -94,9 +94,8 @@ function testFallsBackToBasicAuthWhenNoSessionCookieIsIssued() returns error? {
     // simply keep using Basic auth per request. The bootstrap is an optimization; losing it should
     // never turn into an outage.
     Client fallbackClient = check new (
-        {username, password, partition: "nocookie"},
-        "http://localhost:9090/pricefx/nocookie",
-        {validation: false}
+        {auth: {username, password, partition: "nocookie"}, validation: false},
+        "http://localhost:9090/pricefx/nocookie"
     );
     oas:ListPriceListsResponse response = check fallbackClient->listPriceLists({});
     string node = response.response?.node ?: "";
@@ -124,9 +123,8 @@ function testPerCallHeaderReachesTheServer() returns error? {
 }
 function testOAuth2RefreshTokenAuth() returns error? {
     Client oauth2Client = check new (
-        {clientId: "test-client-id", clientSecret: "test-client-secret", refreshToken: "test-refresh-token"},
-        serviceUrl,
-        {validation: false}
+        {auth: {clientId: "test-client-id", clientSecret: "test-client-secret", refreshToken: "test-refresh-token"}, validation: false},
+        serviceUrl
     );
     oas:ListPriceListsResponse response = check oauth2Client->listPriceLists({});
     string node = response.response?.node ?: "";
@@ -143,7 +141,7 @@ function testPreObtainedJwtAuth() returns error? {
     // A Pricefx-issued JWT the caller already holds (e.g. a non-expiring integration token from
     // `generateJwtToken`). It is sent as-is: no `POST /token` exchange happens, so constructing
     // this client makes no network call at all.
-    Client jwtClient = check new ({jwt: "preobtained-jwt-xyz"}, serviceUrl, {validation: false});
+    Client jwtClient = check new ({auth: {jwt: "preobtained-jwt-xyz"}, validation: false}, serviceUrl);
     oas:ListPriceListsResponse response = check jwtClient->listPriceLists({});
     string node = response.response?.node ?: "";
     test:assertTrue(
@@ -157,9 +155,8 @@ function testPreObtainedJwtAuth() returns error? {
 }
 function testExternalJwtAuth() returns error? {
     Client externalJwtClient = check new (
-        {systemName: "mysystem", jwt: "signed-jwt-value"},
-        serviceUrl,
-        {validation: false}
+        {auth: {systemName: "mysystem", jwt: "signed-jwt-value"}, validation: false},
+        serviceUrl
     );
     oas:ListPriceListsResponse response = check externalJwtClient->listPriceLists({});
     string node = response.response?.node ?: "";

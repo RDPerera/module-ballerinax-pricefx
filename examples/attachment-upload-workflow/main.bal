@@ -10,7 +10,7 @@ configurable string partition = ?;
 configurable string serviceUrl = ?;
 
 public function main() returns error? {
-    pricefx:Client pricefxClient = check new ({username, password, partition}, serviceUrl);
+    pricefx:Client pricefxClient = check new ({auth: {username, password, partition}}, serviceUrl);
 
     // Step 1: Create an upload slot for the customer record
     oas:CreateUploadSlotEnvelope slotResult = check pricefxClient->createUploadSlot(ownerTypedId = "CUST-2001.C");

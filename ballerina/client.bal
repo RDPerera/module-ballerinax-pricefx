@@ -66,21 +66,19 @@ isolated class OasClientHolder {
 # lets a long-lived client instance keep working without manual re-initialization.
 public isolated client class Client {
     private final OasClientHolder holder;
-    private final readonly & PricefxCredentials auth;
     private final readonly & ConnectionConfig config;
     private final string serviceUrl;
 
     # Gets invoked to initialize the `connector`.
     #
-    # + auth - The credentials to authenticate with. See `PricefxCredentials` for the options
+    # + config - The configurations to be used when initializing the `connector`. `config.auth`
+    #            selects the authentication method - see `PricefxCredentials`
     # + serviceUrl - URL of the target service
-    # + config - HTTP transport settings. The defaults are fine for most callers
     # + return - An error if connector initialization, or authentication, failed
-    public isolated function init(PricefxCredentials auth, string serviceUrl = "https://companynode.pricefx.com/pricefx/companypartition", ConnectionConfig config = {}) returns error? {
-        self.auth = auth.cloneReadOnly();
+    public isolated function init(ConnectionConfig config, string serviceUrl = "https://companynode.pricefx.com/pricefx/companypartition") returns error? {
         self.config = config.cloneReadOnly();
         self.serviceUrl = serviceUrl;
-        self.holder = new (check createOasClient(self.auth, self.config, serviceUrl));
+        self.holder = new (check createOasClient(self.config, serviceUrl));
     }
 
     # Returns the current underlying `oas` client instance in a manner that is safe to call
@@ -97,7 +95,7 @@ public isolated client class Client {
     #
     # + return - An error if re-authentication failed
     private isolated function reauthenticate() returns error? {
-        self.holder.set(check createOasClient(self.auth, self.config, self.serviceUrl));
+        self.holder.set(check createOasClient(self.config, self.serviceUrl));
     }
 
     # Submit a Calculation Grid Item
@@ -7987,12 +7985,12 @@ public isolated client class Client {
 #   instead of once per request. If no token comes back it falls back to Basic auth per request,
 #   which is slower but always correct
 #
-# + auth - The credentials supplied to the wrapper client
-# + config - HTTP transport settings supplied to the wrapper client
+# + config - The connection configuration supplied to the wrapper client
 # + serviceUrl - URL of the target service
 # + return - A freshly authenticated `oas:Client`, or an error if authentication failed
-isolated function createOasClient(readonly & PricefxCredentials auth, readonly & ConnectionConfig config, string serviceUrl) returns oas:Client|error {
+isolated function createOasClient(readonly & ConnectionConfig config, string serviceUrl) returns oas:Client|error {
     http:CredentialsConfig|http:BearerTokenConfig|oas:ApiKeysConfig|oas:OAuth2RefreshTokenGrantConfig oasAuth;
+    readonly & PricefxCredentials auth = config.auth;
     if auth is JwtCredentials {
         oasAuth = {X\-PriceFx\-jwt: auth.jwt};
     } else if auth is OAuth2Credentials {

@@ -84,10 +84,12 @@ public type ExternalJwtCredentials record {|
 public type PricefxCredentials BasicCredentials|JwtCredentials|OAuth2Credentials|ExternalJwtCredentials;
 
 # Provides a set of configurations for controlling the behaviours when communicating with a remote
-# HTTP endpoint. Transport settings only - credentials are passed separately, as
-# `PricefxCredentials`.
+# HTTP endpoint.
 @display {label: "Connection Config"}
 public type ConnectionConfig record {|
+    # How to authenticate. Pick the `PricefxCredentials` record matching the credentials you hold -
+    # the compiler will hold you to that choice
+    PricefxCredentials auth;
     # The HTTP version understood by the client
     http:HttpVersion httpVersion = http:HTTP_2_0;
     # Configurations related to HTTP/1.x protocol

@@ -21,7 +21,7 @@ type ProductResponseData record {
 };
 
 public function main() returns error? {
-    pricefx:Client pricefxClient = check new ({username, password, partition}, serviceUrl);
+    pricefx:Client pricefxClient = check new ({auth: {username, password, partition}}, serviceUrl);
 
     // Step 1: Add a new product
     oas:AddProductRequest addRequest = {

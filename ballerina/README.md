@@ -6,8 +6,8 @@ The `ballerinax/pricefx` connector offers APIs to connect and interact with the 
 
 ## Setup guide
 
-Authentication is a single argument to the client, typed as `pricefx:PricefxCredentials` — a union
-of four records, one per method. You pick the record matching the credentials you hold, and the
+Authentication goes in `ConnectionConfig.auth`, typed as `pricefx:PricefxCredentials` — a union of
+four records, one per method. You pick the record matching the credentials you hold, and the
 compiler holds you to it: an incomplete or mixed-up combination will not compile.
 
 - **`BasicCredentials`** — `username`, `password`, `partition`. The connector authenticates once
@@ -76,15 +76,15 @@ import ballerinax/pricefx.oas;
     configurable string partition = ?;
     configurable string serviceUrl = ?;
 
-    final pricefx:Client pricefxClient = check new ({username, password, partition}, serviceUrl);
+    final pricefx:Client pricefxClient = check new ({auth: {username, password, partition}}, serviceUrl);
     ```
 
     Constructing the client makes one Basic authenticated call to obtain a session token; every
-    request after that uses the token. To use a different method, set its fields instead — see the
-    setup guide above. For example, with a non-expiring integration JWT:
+    request after that uses the token. To use a different method, supply its record as `auth`
+    instead — see the setup guide above. For example, with a non-expiring integration JWT:
 
     ```ballerina
-    final pricefx:Client pricefxClient = check new ({jwt}, serviceUrl);
+    final pricefx:Client pricefxClient = check new ({auth: {jwt}}, serviceUrl);
     ```
 
 ### Step 3: Invoke the connector operation
