@@ -161,8 +161,8 @@ function testExternalJwtAuth() returns error? {
     oas:ListPriceListsResponse response = check externalJwtClient->listPriceLists({});
     string node = response.response?.node ?: "";
     test:assertTrue(
-        node.includes("auth=Bearer mysystem;signed-jwt-value"),
-        "expected the external JWT to be sent as the Authorization header, got: " + node
+        node.includes("auth=BEARER mysystem;signed-jwt-value"),
+        "expected the external JWT sent as Pricefx documents it - `BEARER <system>;<jwt>`, in capitals - got: " + node
     );
 }
 
