@@ -33,23 +33,6 @@ compiler holds you to it: an incomplete or mixed-up combination will not compile
   configured on the Pricefx side (`externalJWTConfiguration`) with an external system that signs
   JWTs on your behalf.
 
-Anything Pricefx needs that is not authentication — a two-factor code (`PriceFx-TFA`), a CSRF token
-(`X-PriceFx-Csrf-Token`), or a header a specific endpoint expects — is passed per call, since every
-operation takes an optional headers argument:
-
-```ballerina
-oas:ListPriceListsResponse result = check pricefxClient->listPriceLists({}, {"PriceFx-TFA": "123456"});
-```
-
-There is deliberately no configuration field for a two-factor code: it expires in about thirty
-seconds, so it cannot usefully live in configuration, and the connector has no way to regenerate
-one. Interactive two-factor auth does not really suit unattended integrations anyway — prefer
-`JwtCredentials` or OAuth 2.0 there.
-
-The connector automatically re-authenticates and retries once whenever a request comes back
-unauthenticated (session tokens and OAuth2 access tokens are short-lived), so a long-lived
-`pricefx:Client` instance keeps working without manual re-initialization.
-
 ## Quickstart
 
 To use the `pricefx` connector in your Ballerina application, update the `.bal` file as follows:
