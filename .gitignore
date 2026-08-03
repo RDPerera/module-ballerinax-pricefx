@@ -54,3 +54,10 @@ build
 
 # Ignore Docker env file
 docker.env
+
+# Ignore the Ballerina installer the CI "Set Up Ballerina" step downloads into the workspace.
+# The release plugin's checkCommitNeeded task aborts on any untracked file, so leaving this
+# unignored fails the publish job even though nothing is wrong with the build.
+ballerina-*-swan-lake-*.deb
+ballerina-*-swan-lake-*.pkg
+ballerina-*-swan-lake-*.msi
