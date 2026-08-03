@@ -4,6 +4,7 @@ org = "ballerinax"
 name = "pricefx"
 version = "@toml.version@"
 license = ["Apache-2.0"]
+icon = "icon.png"
 authors = ["Ballerina"]
 keywords = ["Name/Pricefx", "Area/CRM & Sales", "Vendor/Pricefx", "Cost/Paid", "Type/Connector", "Pricefx", "Pricing", "CPQ"]
 repository = "https://github.com/ballerina-platform/module-ballerinax-pricefx"
