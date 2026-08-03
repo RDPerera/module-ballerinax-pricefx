@@ -8119,6 +8119,10 @@ isolated function buildStaticHeaders(readonly & ConnectionConfig config) returns
 # Builds a freshly authenticated `oas:Client`, picking the auth method based on which
 # `PricefxCredentials` fields are set:
 #
+# - `jwt` set - a Pricefx-issued JWT supplied by the caller. Used as-is via `X-PriceFx-jwt`, with
+#   no exchange and therefore no network call during initialization. Cannot be refreshed (there is
+#   nothing to re-authenticate with), which is why it is documented for non-expiring integration
+#   tokens rather than session tokens
 # - `oauth2RefreshToken` set - OAuth 2.0. Configures `oas:Client` with an OAuth2 refresh token
 #   grant; Ballerina's `http` module fetches and refreshes access tokens automatically
 # - `pricefxKey` set - exchanges it for a JWT via `POST /token` and authenticates with
@@ -8139,10 +8143,13 @@ isolated function buildStaticHeaders(readonly & ConnectionConfig config) returns
 # + return - A freshly authenticated `oas:Client`, or an error if authentication failed
 isolated function createOasClient(readonly & ConnectionConfig config, string serviceUrl) returns oas:Client|error {
     http:CredentialsConfig|oas:ApiKeysConfig|oas:OAuth2RefreshTokenGrantConfig auth;
+    string? jwt = config.jwt;
     string? oauth2RefreshToken = config.oauth2RefreshToken;
     string? pricefxKey = config.pricefxKey;
     string? externalJwt = config.externalJwt;
-    if oauth2RefreshToken is string {
+    if jwt is string {
+        auth = {X\-PriceFx\-jwt: jwt};
+    } else if oauth2RefreshToken is string {
         string? oauth2ClientId = config.oauth2ClientId;
         if oauth2ClientId is () {
             return error("oauth2ClientId is required when oauth2RefreshToken is set");

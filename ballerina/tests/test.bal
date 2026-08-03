@@ -108,6 +108,22 @@ function testOAuth2RefreshTokenAuth() returns error? {
 @test:Config {
     groups: ["mock_tests"]
 }
+function testPreObtainedJwtAuth() returns error? {
+    // A Pricefx-issued JWT the caller already holds (e.g. a non-expiring integration token from
+    // `generateJwtToken`). It is sent as-is: no `POST /token` exchange happens, so constructing
+    // this client makes no network call at all.
+    Client jwtClient = check new ({jwt: "preobtained-jwt-xyz", validation: false}, serviceUrl);
+    oas:GetOneTimeTokenResponse response = check jwtClient->getOneTimeToken();
+    string node = response.response?.node ?: "";
+    test:assertTrue(
+        node.includes("jwt=preobtained-jwt-xyz"),
+        "expected the supplied JWT to be sent unchanged as X-PriceFx-jwt, got: " + node
+    );
+}
+
+@test:Config {
+    groups: ["mock_tests"]
+}
 function testExternalJwtAuth() returns error? {
     Client externalJwtClient = check new (
         {externalJwtSystemName: "mysystem", externalJwt: "signed-jwt-value", validation: false},

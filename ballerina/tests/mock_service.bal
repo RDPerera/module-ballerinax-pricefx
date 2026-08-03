@@ -77,11 +77,12 @@ service /pricefx/companypartition on ep0 {
     # + priceFxTfa - Echoed, so tests can verify `tfaCode` is merged into every request
     # + priceFxCsrfToken - Echoed, so tests can verify `csrfToken` is merged into every request
     # + authorization - Echoed, so tests can verify the OAuth2 / external-JWT header format
+    # + xPriceFxJwt - Echoed, so tests can verify which session token reached the wire
     # + return - OK
-    resource function post accountmanager\.getonetimetoken(@http:Header {name: "PriceFx-TFA"} string? priceFxTfa = (), @http:Header {name: "X-PriceFx-Csrf-Token"} string? priceFxCsrfToken = (), @http:Header string? authorization = ()) returns oas:GetOneTimeTokenResponse {
+    resource function post accountmanager\.getonetimetoken(@http:Header {name: "PriceFx-TFA"} string? priceFxTfa = (), @http:Header {name: "X-PriceFx-Csrf-Token"} string? priceFxCsrfToken = (), @http:Header string? authorization = (), @http:Header {name: "X-PriceFx-jwt"} string? xPriceFxJwt = ()) returns oas:GetOneTimeTokenResponse {
         return {
             response: {
-                node: string `companynode|tfa=${priceFxTfa ?: ""}|csrf=${priceFxCsrfToken ?: ""}|auth=${authorization ?: ""}`,
+                node: string `companynode|tfa=${priceFxTfa ?: ""}|csrf=${priceFxCsrfToken ?: ""}|auth=${authorization ?: ""}|jwt=${xPriceFxJwt ?: ""}`,
                 status: 200,
                 data: [{}]
             }

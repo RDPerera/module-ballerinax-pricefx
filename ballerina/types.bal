@@ -49,6 +49,9 @@ type TokenExchangeResponse record {
 #   exchange requires an interactive browser redirect and can't be automated by this connector -
 #   see Pricefx's OAuth 2.0 documentation). The connector automatically refreshes the access token
 #   as needed
+# - `jwt` - a Pricefx-issued JWT you already hold, sent as `X-PriceFx-jwt`. No exchange happens at
+#   all, so this is the cheapest option. Intended for the non-expiring integration tokens minted by
+#   `generateJwtToken`/`generateTimedJwtToken`
 # - `externalJwtSystemName` + `externalJwt` - a pre-signed JWT from a trusted external system,
 #   configured on the Pricefx side via `externalJWTConfiguration`
 #
@@ -65,6 +68,18 @@ public type PricefxCredentials record {|
     # absent, authentication falls back to HTTP Basic auth (`<partition>/<username>:<password>`),
     # which needs no separate API key but is slower per request
     string pricefxKey?;
+    # A Pricefx-issued JWT you already hold, sent directly as the `X-PriceFx-jwt` header. Unlike
+    # `pricefxKey`, no `POST /token` exchange happens - the token is used as given, so client
+    # initialization performs no network call at all.
+    #
+    # Intended for the non-expiring integration tokens produced by `generateJwtToken` (or the
+    # time-limited ones from `generateTimedJwtToken`), which you obtain once and keep in
+    # configuration. Note that a token supplied this way cannot be refreshed by the connector: it
+    # has nothing to re-authenticate with, so if the token is rejected the error surfaces to you
+    # rather than being retried. That is fine for a non-expiring token, but if you paste in a
+    # short-lived session token it will eventually stop working - use `pricefxKey`, or
+    # username/password, if you want the connector to manage renewal.
+    string jwt?;
     # OAuth 2.0 client identifier, as registered in Pricefx's `oauthConfiguration`
     string oauth2ClientId?;
     # OAuth 2.0 client secret, if one was configured for the client
