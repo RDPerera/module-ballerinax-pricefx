@@ -63,7 +63,7 @@ public isolated client class Client {
         }
     }
 
-    # Builds the extra headers (TFA code, CSRF token, and/or a pre-signed external JWT) that get
+    # Builds the extra headers (CSRF token and/or a pre-signed external JWT) that get
     # merged into every request, on top of whatever primary auth `createOasClient` configured.
     #
     # + return - A map of the configured extra headers (empty if none are set)
@@ -75,6 +75,7 @@ public isolated client class Client {
     #
     # + id - The `id` of the Calculation Grid you want to submit items for. You can retrieve the `id` of the CG, for example, by calling the `/fetch/CG` endpoint
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function acceptCalculationGridItem(string id, oas:SubmitCalculationGridItemRequest payload, map<string|string[]> headers = {}) returns oas:SubmitCalculationGridItemResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -91,6 +92,7 @@ public isolated client class Client {
     # Add an Action Type
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function addActionType(oas:AddActionTypeRequest payload, map<string|string[]> headers = {}) returns oas:AddActionTypeResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -108,6 +110,7 @@ public isolated client class Client {
     #
     # + currentStepId - The ID of the workflow step. It can be retrieved using the `/workflowsmanager.fetch/active` (**List Pending Approvals**) endpoint
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function addApproverStep(string currentStepId, oas:AddApproverStepRequest payload, map<string|string[]> headers = {}) returns oas:AddApproverStepResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -124,6 +127,7 @@ public isolated client class Client {
     # Add a Calculation
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function addCalculation(oas:AddCalculationRequest payload, map<string|string[]> headers = {}) returns oas:AddCalculationResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -140,6 +144,7 @@ public isolated client class Client {
     # Add a Calculation Grid
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function addCalculationGrid(oas:AddCalculationGridRequest payload, map<string|string[]> headers = {}) returns oas:AddCalculationGridResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -157,6 +162,7 @@ public isolated client class Client {
     #
     # + keyNumber - Use CGI1..CGI6 in the path, where numbers from 1 to 6 refer to Calculation Grid Item keys
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function addCalculationGridItem("1"|"2"|"3"|"4"|"5"|"6" keyNumber, oas:AddCalculationGridItemRequest payload, map<string|string[]> headers = {}) returns oas:AddCalculationGridItemResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -173,6 +179,7 @@ public isolated client class Client {
     # Add a Claim
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function addClaim(oas:AddClaimRequest payload, map<string|string[]> headers = {}) returns oas:AddClaimResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -189,6 +196,7 @@ public isolated client class Client {
     # Add a Claim Type
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function addClaimType(oas:AddClaimTypeRequest payload, map<string|string[]> headers = {}) returns oas:AddClaimTypeResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -205,6 +213,7 @@ public isolated client class Client {
     # Add a Comment
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function addComment(oas:CommentmanagerAddBody payload, map<string|string[]> headers = {}) returns oas:CommentOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -221,6 +230,7 @@ public isolated client class Client {
     # Add a Compensation Type
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function addCompensationType(oas:AddCompensationTypeRequest payload, map<string|string[]> headers = {}) returns oas:AddCompensationTypeEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -237,6 +247,7 @@ public isolated client class Client {
     # Add a Condition Record Item Attribute Meta
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function addConditionRecordItemMeta(oas:AddCRCIMBody payload, map<string|string[]> headers = {}) returns oas:ConditionRecordItemMetaOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -253,6 +264,7 @@ public isolated client class Client {
     # Add a Condition Record Set
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function addConditionRecordSet(oas:AddCRCSBody payload, map<string|string[]> headers = {}) returns oas:ConditionRecordSetOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -286,6 +298,7 @@ public isolated client class Client {
     # Add a Configuration Storage
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function addConfigurationStorage(oas:AddJCSBody payload, map<string|string[]> headers = {}) returns oas:ConfigurationStorageOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -302,6 +315,7 @@ public isolated client class Client {
     # Add Contract Line Items
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - Example response 
     remote isolated function addContractLineItems(oas:AddContractLineItemsRequest payload, map<string|string[]> headers = {}) returns oas:contractModelResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -318,6 +332,7 @@ public isolated client class Client {
     # Add a Customer
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - Returns customer record details 
     remote isolated function addCustomer(oas:AddCustomerRequest payload, map<string|string[]> headers = {}) returns oas:customerResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -334,6 +349,7 @@ public isolated client class Client {
     # Add a Data Change Request
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function addDataChangeRequest(oas:AddDCRRequest payload, map<string|string[]> headers = {}) returns oas:AddDCRResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -351,6 +367,7 @@ public isolated client class Client {
     #
     # + id - `id` of the Data Change Request you want to add the Data Change Request Item to
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function addDataChangeRequestItem(string id, oas:AddDCRIRequest payload, map<string|string[]> headers = {}) returns oas:AddDCRIResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -368,6 +385,7 @@ public isolated client class Client {
     #
     # + typedId - typed ID of the target CLIC document 
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function addLineItems(string typedId, oas:ClicmanagerAdditemstypedIdBody payload, map<string|string[]> headers = {}) returns record {}|error {
         oas:Client oasClient = self.getOasClient();
@@ -384,6 +402,7 @@ public isolated client class Client {
     # Add a Live Price Grid Type
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function addLivePriceGridType(oas:AddPGTTBody payload, map<string|string[]> headers = {}) returns oas:LivePriceGridTypeOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -418,6 +437,7 @@ public isolated client class Client {
     #
     # + tableId - Enter the ID of the table. The ID can be retrieved using the `/lookuptablemanager.fetch` method
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function addLookupTableValue(string tableId, oas:AddLookupTableValueRequest payload, map<string|string[]> headers = {}) returns oas:AddLookupTableValueResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -435,6 +455,7 @@ public isolated client class Client {
     #
     # + id - The ID of the Manual Price List where you want to add products to
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
     remote isolated function addManualPriceListProducts(string id, oas:AddProductsToManualPriceListRequest payload, map<string|string[]> headers = {}) returns oas:generalResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -452,6 +473,7 @@ public isolated client class Client {
     #
     # + id - The ID of the Manual Price List where you want to add products to
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function addManualPriceListProductsNoRecalc(string id, oas:AddProductsToManualPriceListNoRecalcRequest payload, map<string|string[]> headers = {}) returns oas:AddProductsToManualPriceListNoRecalcResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -486,6 +508,7 @@ public isolated client class Client {
     #
     # + id - The ID of the Live Price Grid where you want to add Price Grid Items to. `id`  is the `typedId` without **PG** suffix. For example, the `id` attribute of the item with `typedId` = **649.PG** is **649**. You can retrieve the `id` of the LPG, for example, by calling the `/fetch/PG` endpoint
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function addPriceGridItemsToPriceGrid(string id, oas:AddPriceGridItemsRequest payload, map<string|string[]> headers = {}) returns oas:AddPriceGridItemsToPriceGridResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -519,6 +542,7 @@ public isolated client class Client {
     # Add a Product
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - Returns full record details 
     remote isolated function addProduct(oas:AddProductRequest payload, map<string|string[]> headers = {}) returns oas:productResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -535,6 +559,7 @@ public isolated client class Client {
     # Add Products to a Quote
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - Example response 
     remote isolated function addQuoteProducts(oas:AddProductsToQuoteRequest payload, map<string|string[]> headers = {}) returns oas:quoteResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -551,6 +576,7 @@ public isolated client class Client {
     # Add Rebate Agreement Items
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - Example response 
     remote isolated function addRebateAgreementItems(oas:GetCustomerRequest payload, map<string|string[]> headers = {}) returns oas:rebateagreementResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -567,6 +593,7 @@ public isolated client class Client {
     # Add a Rebate Calculation
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function addRebateCalculation(oas:AddRRSCBody payload, map<string|string[]> headers = {}) returns oas:AddRebateCalculationResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -583,6 +610,7 @@ public isolated client class Client {
     # Add a Seller
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function addSeller(oas:AddSellerRequest payload, map<string|string[]> headers = {}) returns oas:AddSellerEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -599,6 +627,7 @@ public isolated client class Client {
     # Add a Seller Extension
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function addSellerExtension(oas:AddSellerExtensionRequest payload, map<string|string[]> headers = {}) returns oas:AddSellerExtensionResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -615,6 +644,7 @@ public isolated client class Client {
     # Add a User
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - Example response 
     remote isolated function addUser(oas:AddUserRequest payload, map<string|string[]> headers = {}) returns oas:userResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -632,6 +662,7 @@ public isolated client class Client {
     #
     # + currentStepId - The ID of the workflow step. It can be retrieved using the `/workflowsmanager.fetch/active` (**List Pending Approvals**) endpoint
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function addWatcherStep(string currentStepId, oas:AddWatcherStepRequest payload, map<string|string[]> headers = {}) returns oas:AddWatcherStepResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -649,6 +680,7 @@ public isolated client class Client {
     #
     # + currentStepId - The ID of the workflow step. It can be retrieved using the `/workflowsmanager.fetch/active` (**List Pending Approvals**) endpoint
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function approveDocument(string currentStepId, oas:ApproveDocumentRequest payload, map<string|string[]> headers = {}) returns oas:ApproveDocumentResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -665,6 +697,7 @@ public isolated client class Client {
     # Assign a Business Role
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function assignBusinessRole(oas:AssignBusinessRoleRequest payload, map<string|string[]> headers = {}) returns oas:AssignBusinessRoleResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -682,6 +715,7 @@ public isolated client class Client {
     #
     # + userId - The ID of the user you want to assign a role to. The `userId` is the `typedId` without the `U` suffix. For example, `userId` of the **2147490806.U** is **2147490806**
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function assignBusinessRoleToUser(string userId, oas:AssignBusinessRoleToUserRequest payload, map<string|string[]> headers = {}) returns oas:AssignBusinessRoleToUserResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -698,6 +732,7 @@ public isolated client class Client {
     # Assign Customers
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - Example response 
     remote isolated function assignCustomers(oas:AssignCustomersRequest payload, map<string|string[]> headers = {}) returns oas:assignmentResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -714,6 +749,7 @@ public isolated client class Client {
     # Assign a Group to a Business Role
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function assignGroupToBusinessRole(oas:AssignGroupToBusinessRoleRequest payload, map<string|string[]> headers = {}) returns oas:AssignGroupToBusinessRoleResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -730,6 +766,7 @@ public isolated client class Client {
     # Assign a Role to a Business Role
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function assignRoleToBusinessRole(oas:AssignRoleToBusinessRoleRequest payload, map<string|string[]> headers = {}) returns oas:AssignRoleToBusinessRoleResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -747,6 +784,7 @@ public isolated client class Client {
     #
     # + userId - The ID of the user you want to assign a role to. The `userId` is the `typedId` without the `U` suffix. For example, `userId` of the **2147490806.U** is **2147490806**
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function assignRoleToUser(string userId, oas:AssignRoleToUserRequest payload, map<string|string[]> headers = {}) returns oas:AssignRoleToUserResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -763,6 +801,7 @@ public isolated client class Client {
     # Assign a Role to Users
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function assignRoleToUsers(oas:AssignRoleToUsersRequest payload, map<string|string[]> headers = {}) returns oas:AssignRoleToUsersResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -779,6 +818,7 @@ public isolated client class Client {
     # Assign a User Group to Users
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function assignUserGroupToUsers(oas:AssignUserGroupToUsersRequest payload, map<string|string[]> headers = {}) returns oas:AssignUserGroupToUsersResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -796,6 +836,7 @@ public isolated client class Client {
     #
     # + userId - The ID of the user you want to add to the group. The `userId` is the `typedId` without the `U` suffix. For example, `userId` of the **2147490806.U** is **2147490806**
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function assignUserToUserGroup(string userId, oas:AssignUserToUserGroupRequest payload, map<string|string[]> headers = {}) returns oas:AssignUserToUserGroupResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -847,6 +888,7 @@ public isolated client class Client {
     #
     # + id - `id` of the Calculation Grid you want to calculate
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function calculateCalculationGrid(string id, oas:CalculateCalculationGridRequest payload, map<string|string[]> headers = {}) returns oas:CalculateCalculationGridResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -881,6 +923,7 @@ public isolated client class Client {
     #
     # + typedId - The `typedId` of the claim whose items you want to calculate
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function calculateClaim(string typedId, oas:CalculateClaimRequest payload, map<string|string[]> headers = {}) returns oas:CalculateClaimResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -933,6 +976,7 @@ public isolated client class Client {
     # Calculate a Price Grid
     #
     # + headers - Headers to be sent with the request 
+    # + id - The id to be sent with the request
     # + return - OK 
     remote isolated function calculatePriceGrid(string id, map<string|string[]> headers = {}) returns oas:CalculatePriceGridResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -950,6 +994,7 @@ public isolated client class Client {
     #
     # + id - The ID of the Price List you want to calculate. The `id` is the `typedId` without the suffix. For example, the `id` attribute of the item with `typedId` = **2147484837.PL**  is **2147484837**
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function calculatePriceList(string id, oas:PricelistmanagerCalculateidBody payload, map<string|string[]> headers = {}) returns oas:CalculatePricelistResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -967,6 +1012,7 @@ public isolated client class Client {
     #
     # + typedId - `typedId` of the Rebate Record Group you want to calculate
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function calculateRebateRecordGroup(string typedId, oas:RebaterecordgroupCalculatetypedIdBody payload, map<string|string[]> headers = {}) returns oas:CalculateRebateRecordGroupEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -1019,6 +1065,7 @@ public isolated client class Client {
     #
     # + typedId - The `typedId` of the claim whose item calculation you want to cancel
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function cancelClaimCalculation(string typedId, record {} payload, map<string|string[]> headers = {}) returns oas:CancelClaimCalculationResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -1036,6 +1083,7 @@ public isolated client class Client {
     #
     # + id - `id` if the job you want to cancel
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
     remote isolated function cancelJob(string id, record {} payload, map<string|string[]> headers = {}) returns oas:generalResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -1069,6 +1117,7 @@ public isolated client class Client {
     # Change a Current User Password
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function changeCurrentUserPassword(oas:ChangeCurrentUserPasswordRequest payload, map<string|string[]> headers = {}) returns oas:ChangeCurrentUserPasswordResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -1086,6 +1135,7 @@ public isolated client class Client {
     #
     # + typedId - The `typedId` of the Custom Form whose status you want to change
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function changeCustomFormStatus(string typedId, oas:ChangeCustomFormStatusRequest payload, map<string|string[]> headers = {}) returns oas:ChangeCustomFormStatusResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -1102,6 +1152,7 @@ public isolated client class Client {
     # Change Terms of Use
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - No Content 
     # 
     # # Deprecated
@@ -1122,6 +1173,7 @@ public isolated client class Client {
     #
     # + userId - Enter the ID of the user whose password you want to change. The `userId` is the `typedId` without the `U` suffix. For example, `userId` of the **2147490806.U** is **2147490806**
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function changeUserPassword(string userId, oas:ChangeUserPasswordRequest payload, map<string|string[]> headers = {}) returns oas:ChangeUserPasswordResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -1172,6 +1224,7 @@ public isolated client class Client {
     # Convert to Price List
     #
     # + headers - Headers to be sent with the request 
+    # + id - The id to be sent with the request
     # + return - OK 
     remote isolated function convertToPriceList(string id, map<string|string[]> headers = {}) returns oas:ConvertPriceListResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -1256,6 +1309,8 @@ public isolated client class Client {
     # Copy a Quote
     #
     # + headers - Headers to be sent with the request 
+    # + typedId - The typedId to be sent with the request
+    # + payload - Request payload
     # + return - OK 
     remote isolated function copyQuote(string typedId, record {} payload, map<string|string[]> headers = {}) returns oas:CopyQuoteEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -1323,6 +1378,8 @@ public isolated client class Client {
     # Count Mass Action Items
     #
     # + headers - Headers to be sent with the request 
+    # + id - The id to be sent with the request
+    # + payload - Request payload
     # + return - OK 
     remote isolated function countMassActionItems(string id, oas:CountMassActionItemsRequest payload, map<string|string[]> headers = {}) returns oas:CountMassActionItemsResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -1357,6 +1414,7 @@ public isolated client class Client {
     #
     # + typeCode - Enter the type code of the entity you want to create
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function createClic("Q"|"QTMP" typeCode, oas:ClicmanagerCreateTypeCodeBody payload, map<string|string[]> headers = {}) returns oas:ClicOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -1391,6 +1449,7 @@ public isolated client class Client {
     #
     # + typedId - `typedId` of the Custom Form you want to create a revision from
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function createCustomFormRevision(string typedId, record {} payload, map<string|string[]> headers = {}) returns oas:CustomFormRevisionEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -1407,6 +1466,7 @@ public isolated client class Client {
     # Create a Custom Form Type
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function createCustomFormType(oas:CreateCustomFormTypeRequest payload, map<string|string[]> headers = {}) returns oas:CreateCustomFormTypeResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -1424,6 +1484,7 @@ public isolated client class Client {
     #
     # + fcType - The type of FC (FieldCollection) you want to create
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function createDMFieldCollection("DMDS"|"DMT" fcType, oas:DatamartCreatefcfcTypeBody payload, map<string|string[]> headers = {}) returns error? {
         oas:Client oasClient = self.getOasClient();
@@ -1476,6 +1537,7 @@ public isolated client class Client {
     # Create a Manual Price List
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - Example response 
     remote isolated function createManualPriceList(oas:CreateManualPriceListRequest payload, map<string|string[]> headers = {}) returns oas:manualpricelistResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -1493,6 +1555,7 @@ public isolated client class Client {
     #
     # + typeCode - The object's type code. See [the list of Type Codes](https://pricefx.atlassian.net/wiki/spaces/KB/pages/99570616/Type+Codes)
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function createObject(string typeCode, oas:createObjectRequest payload, map<string|string[]> headers = {}) returns error? {
         oas:Client oasClient = self.getOasClient();
@@ -1509,6 +1572,7 @@ public isolated client class Client {
     # Create a Price List
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function createPriceList(oas:CreatePriceListRequest payload, map<string|string[]> headers = {}) returns oas:CreatePriceListResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -1526,6 +1590,7 @@ public isolated client class Client {
     #
     # + id - The ID of the Price List you want to create a revision for. The `id` is the `typedId` without the suffix. For example, the `id` attribute of the item with `typedId` = **2147484837.PL**  is **2147484837**
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - Example response 
     remote isolated function createPriceListRevision(string id, oas:CreateRevisionRequest payload, map<string|string[]> headers = {}) returns oas:pricelistitemResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -1576,6 +1641,7 @@ public isolated client class Client {
     # Create a Workflow Delegation
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function createWorkflowDelegation(oas:CreateWorkflowDelegationRequest payload, map<string|string[]> headers = {}) returns oas:CreateWorkflowDelegationResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -1592,6 +1658,7 @@ public isolated client class Client {
     # Deactivate a Workflow Delegation
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function deactivateWorkflowDelegation(oas:DeactivateWorkflowDelegationRequest payload, map<string|string[]> headers = {}) returns oas:DeactivateWorkflowDelegationResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -1608,6 +1675,7 @@ public isolated client class Client {
     # Delete an Action Item
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function deleteActionItem(oas:DeleteActionItemRequest payload, map<string|string[]> headers = {}) returns oas:DeleteActionItemResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -1641,6 +1709,7 @@ public isolated client class Client {
     # Delete a Business Role
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function deleteBusinessRole(oas:DeleteBusinessRoleRequest payload, map<string|string[]> headers = {}) returns oas:DeleteBusinessRoleResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -1657,6 +1726,7 @@ public isolated client class Client {
     # Delete a Calculated Field Set
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function deleteCalculatedFieldSet(oas:DeleteCalculatedFieldSetRequest payload, map<string|string[]> headers = {}) returns error? {
         oas:Client oasClient = self.getOasClient();
@@ -1673,6 +1743,7 @@ public isolated client class Client {
     # Delete a Calculation
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK - returns the deleted object's data 
     remote isolated function deleteCalculation(oas:DeleteCalculationRequest payload, map<string|string[]> headers = {}) returns oas:DeleteCalculationResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -1689,6 +1760,7 @@ public isolated client class Client {
     # Delete a Calculation Grid
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function deleteCalculationGrid(oas:DeleteCalculationGridRequest payload, map<string|string[]> headers = {}) returns oas:DeleteCalculationGridResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -1706,6 +1778,7 @@ public isolated client class Client {
     #
     # + keyNumber - Use CGI1..CGI6 in the path, where numbers from 1 to 6 refer to Calculation Grid Item keys
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function deleteCalculationGridItem("1"|"2"|"3"|"4"|"5"|"6" keyNumber, oas:DeleteCalculationGridItemRequest payload, map<string|string[]> headers = {}) returns oas:DeleteCalculationGridItemResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -1722,6 +1795,7 @@ public isolated client class Client {
     # Delete a Claim Type
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function deleteClaimType(oas:DeleteClaimTypeRequest payload, map<string|string[]> headers = {}) returns oas:DeleteClaimTypeResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -1791,6 +1865,7 @@ public isolated client class Client {
     # Delete a Compensation Plan
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK. Returns the deleted Compensation Plan object 
     remote isolated function deleteCompensationPlan(oas:DeleteCompensationPlanRequest payload, map<string|string[]> headers = {}) returns oas:DeleteCompensationPlanResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -1807,6 +1882,7 @@ public isolated client class Client {
     # Delete a Compensation Type
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK - returns the deleted object 
     remote isolated function deleteCompensationType(oas:DeleteCOHTBody payload, map<string|string[]> headers = {}) returns oas:DeleteCompensationTypeEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -1823,6 +1899,7 @@ public isolated client class Client {
     # Delete a Condition Record Item Attribute Meta
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function deleteConditionRecordItemMeta(oas:DeleteCRCIMBody payload, map<string|string[]> headers = {}) returns oas:ConditionRecordItemMetaOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -1839,6 +1916,7 @@ public isolated client class Client {
     # Delete a Condition Records Set
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function deleteConditionRecordSet(oas:DcrmanagerDeletemassopidBody payload, map<string|string[]> headers = {}) returns oas:ConditionRecordSetOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -1855,6 +1933,7 @@ public isolated client class Client {
     # Delete a Condition Type
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function deleteConditionType(oas:DeleteConditionTypeRequest payload, map<string|string[]> headers = {}) returns oas:DeleteConditionTypeEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -1871,6 +1950,7 @@ public isolated client class Client {
     # Delete a Configuration Storage
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function deleteConfigurationStorage(record {} payload, map<string|string[]> headers = {}) returns oas:ConfigurationStorageOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -1887,6 +1967,7 @@ public isolated client class Client {
     # Delete a Custom Form
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
     remote isolated function deleteCustomForm(oas:DeleteCustomFormRequest payload, map<string|string[]> headers = {}) returns oas:generalResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -1903,6 +1984,7 @@ public isolated client class Client {
     # Delete a Custom Form Type
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function deleteCustomFormType(oas:DeleteCFOTBody payload, map<string|string[]> headers = {}) returns oas:DeleteCustomFormTypeEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -1919,6 +2001,7 @@ public isolated client class Client {
     # Delete a Customer
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function deleteCustomer(oas:DeleteCustomerRequest payload, map<string|string[]> headers = {}) returns oas:DeleteCustomerResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -1935,6 +2018,7 @@ public isolated client class Client {
     # Delete a Customer Extension
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function deleteCustomerExtension(oas:DeleteCustomerExtensionRequest payload, map<string|string[]> headers = {}) returns oas:DeleteCustomerExtensionResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -1952,6 +2036,7 @@ public isolated client class Client {
     #
     # + id - `id` of the Data Change Request whose item you want to delete
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function deleteDataChangeRequestItem(string id, oas:DeleteDCRIRequest payload, map<string|string[]> headers = {}) returns oas:DeleteDCRIResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -1969,6 +2054,7 @@ public isolated client class Client {
     #
     # + id - `id` of the Data Change Request
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function deleteDataChangeRequestMassChange(string id, oas:DcrmanagerDeletemassopidBody payload, map<string|string[]> headers = {}) returns oas:DataChangeRequestMassChangeEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -1986,6 +2072,7 @@ public isolated client class Client {
     #
     # + typeCode - The type code of the **Field Collection** you want to delete
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function deleteDataManagerEntity("DM"|"DMF"|"DMDS" typeCode, oas:DeleteDataManagerEntityRequest payload, map<string|string[]> headers = {}) returns oas:DeleteDataManagerEntityResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -2020,6 +2107,7 @@ public isolated client class Client {
     # + typedId - `typedId` of the document whose attachment you want to delete
     # + binaryDataId - If the `typedId` is, for example, 1145.BD then the binaryDataId is **1145**
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
     remote isolated function deleteFile(string typedId, string binaryDataId, record {} payload, map<string|string[]> headers = {}) returns oas:generalResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -2036,6 +2124,7 @@ public isolated client class Client {
     # Delete Import Changes
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
     remote isolated function deleteImportChanges(oas:ImportmanagerDeletechangesBody payload, map<string|string[]> headers = {}) returns oas:generalResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -2052,6 +2141,7 @@ public isolated client class Client {
     # Delete Internationalization Messages
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK - the internationalization keys have been deleted successfully 
     remote isolated function deleteInternationalizationMessages(oas:I18nmanagerDeleteKeysBody payload, map<string|string[]> headers = {}) returns http:Response|error {
         oas:Client oasClient = self.getOasClient();
@@ -2068,6 +2158,8 @@ public isolated client class Client {
     # Delete a Key
     #
     # + headers - Headers to be sent with the request 
+    # + tableName - The tableName to be sent with the request
+    # + payload - Request payload
     # + return - OK. Returns `null` when successfully deleted 
     remote isolated function deleteKey(string tableName, oas:DeleteKVKeyRequest payload, map<string|string[]> headers = {}) returns error? {
         oas:Client oasClient = self.getOasClient();
@@ -2084,6 +2176,7 @@ public isolated client class Client {
     # Delete a Live Price Grid
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function deleteLivePriceGrid(oas:DeleteLivePriceGridRequest payload, map<string|string[]> headers = {}) returns oas:DeleteLivePriceGridResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -2169,6 +2262,7 @@ public isolated client class Client {
     # Delete a Manual Price List
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - Example response 
     remote isolated function deleteManualPriceList(oas:DeleteManualPriceListRequest payload, map<string|string[]> headers = {}) returns oas:manualpricelistResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -2186,6 +2280,7 @@ public isolated client class Client {
     #
     # + id - The ID of the Manual Price List whose product you want to delete
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - Returns full record details 
     remote isolated function deleteManualPriceListProduct(string id, oas:DeleteProductFromManualPriceListRequest payload, map<string|string[]> headers = {}) returns oas:productResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -2203,6 +2298,7 @@ public isolated client class Client {
     #
     # + id - The ID of the Manual Price List whose products you want to delete
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function deleteManualPriceListProducts(string id, oas:DeleteProductsFromManualPriceListRequest payload, map<string|string[]> headers = {}) returns oas:DeleteProductsFromManualPriceListResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -2219,6 +2315,7 @@ public isolated client class Client {
     # Delete a Notification
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function deleteNotification(oas:NotificationSetreadBody payload, map<string|string[]> headers = {}) returns oas:DeleteNotificationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -2236,6 +2333,7 @@ public isolated client class Client {
     #
     # + typeCode - Enter the type code of the entity you want to delete the object from. See [the list of Type Codes](https://pricefx.atlassian.net/wiki/spaces/KB/pages/99570616/Type+Codes) in the Pricefx Knowledge Base article
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function deleteObject("ACTT"|"AP"|"APIK"|"BD"|"BPT"|"BR"|"C"|"CA"|"CAM"|"CDESC"|"CF"|"CFS"|"CFT"|"CH"|"CLLI"|"CN"|"CS"|"CT"|"CTAM"|"CTLI"|"CTMU"|"CTMUI"|"CTT"|"CTTAM"|"CTTREE"|"CW"|"CX"|"CXAM"|"DA"|"DB"|"DCR"|"DCRAM"|"DCRI"|"DCRL"|"DCRMC"|"DCRT"|"DE"|"DI"|"DM"|"DMDC"|"DMDL"|"DMDS"|"DMF"|"DMM"|"DMR"|"DMT"|"DREG"|"DWT"|"ET"|"EVT"|"F"|"FE"|"FN"|"IDC"|"IE"|"ISH"|"JST"|"JLTV"|"JLTVM"|"LAT"|"LT"|"LTT"|"LTV"|"M"|"MLTV"|"MLTV2"|"MLTV3"|"MLTV4"|"MLTV5"|"MLTV6"|"MLTVM"|"MPL"|"MPLAM"|"MPLI"|"MPLIT"|"MPLT"|"MR"|"MRAM"|"MT"|"P"|"PAM"|"PAPIJ"|"PBOME"|"PCOMP"|"PCW"|"PDESC"|"PG"|"PGI"|"PGIM"|"PGT"|"PH"|"PL"|"PLI"|"PLIM"|"PLT"|"PR"|"PRAM"|"PREF"|"PT"|"PWH"|"PX"|"PXAM"|"PXREF"|"PYR"|"PYRAM"|"Q"|"QAM"|"QLI"|"QMU"|"QMUI"|"QT"|"QTT"|"QTTAM"|"R"|"RAT"|"RATM"|"RBA"|"RBAAM"|"RBALI"|"RBAT"|"RBT"|"RBTAM"|"RR"|"RRAM"|"RRS"|"RRSC"|"RT"|"SAT"|"SC"|"SCN"|"SCNAM"|"SCT"|"SIAM"|"SIM"|"SIMI"|"TFA"|"TODO"|"U"|"UG"|"US"|"W"|"WD"|"WF"|"WFE"|"XPGI"|"XPLI"|"XSIMI" typeCode, oas:deleteObjectRequest payload, map<string|string[]> headers = {}) returns oas:deleteObjectResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -2253,6 +2351,7 @@ public isolated client class Client {
     #
     # + typeCode - The object's type code. See [the list of Type Codes](https://pricefx.atlassian.net/wiki/spaces/KB/pages/99570616/Type+Codes)
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function deleteObjects(string typeCode, oas:DeleteObjectsForceFilterRequest payload, map<string|string[]> headers = {}) returns oas:DeleteObjectsResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -2270,6 +2369,7 @@ public isolated client class Client {
     #
     # + id - The ID of the Price Grid you want to delete the Price Grid Item from
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - Example response 
     remote isolated function deletePriceGridItem(string id, oas:DeletePriceGridItemRequest payload, map<string|string[]> headers = {}) returns oas:pricegriditemResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -2304,6 +2404,7 @@ public isolated client class Client {
     # Delete a Price List
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function deletePriceList(oas:DeletePriceListRequest payload, map<string|string[]> headers = {}) returns oas:DeletePriceListResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -2321,6 +2422,7 @@ public isolated client class Client {
     #
     # + id - Enter the ID of the Price List where you want to delete an item from
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK - Returns a number of deleted items 
     remote isolated function deletePriceListItems(string id, oas:DeletePriceListItemRequest payload, map<string|string[]> headers = {}) returns oas:DeletePriceListItemResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -2337,6 +2439,7 @@ public isolated client class Client {
     # Delete a Price List Type
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function deletePriceListType(oas:DeletePLTTBody payload, map<string|string[]> headers = {}) returns oas:PriceListTypeOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -2353,6 +2456,7 @@ public isolated client class Client {
     # Delete a Product
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function deleteProduct(oas:DeleteProductRequest payload, map<string|string[]> headers = {}) returns oas:DeleteProductResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -2369,6 +2473,7 @@ public isolated client class Client {
     # Delete a Product Extension
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function deleteProductExtension(oas:DeleteProductExtensionRequest payload, map<string|string[]> headers = {}) returns oas:DeleteProductExtensionResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -2385,6 +2490,7 @@ public isolated client class Client {
     # Delete a Rebate Agreement
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - Example response 
     remote isolated function deleteRebateAgreement(oas:DeleteRebateAgreementRequest payload, map<string|string[]> headers = {}) returns oas:rebateagreementResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -2401,6 +2507,7 @@ public isolated client class Client {
     # Delete a Rebate Calculation
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function deleteRebateCalculation(oas:DeleteRebateCalculationRequest payload, map<string|string[]> headers = {}) returns oas:DeleteRebateCalculationResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -2417,6 +2524,7 @@ public isolated client class Client {
     # Delete a Seller
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function deleteSeller(oas:DeleteSellerRequest payload, map<string|string[]> headers = {}) returns oas:DeleteSellerEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -2433,6 +2541,7 @@ public isolated client class Client {
     # Delete a Seller Extension
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function deleteSellerExtension(oas:DeleteSellerExtensionRequest payload, map<string|string[]> headers = {}) returns oas:DeleteSellerExtensionResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -2483,6 +2592,7 @@ public isolated client class Client {
     # Delete a User
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - Example response 
     remote isolated function deleteUser(oas:DeleteUserRequest payload, map<string|string[]> headers = {}) returns oas:userResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -2499,6 +2609,7 @@ public isolated client class Client {
     # Delete a User Group
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function deleteUserGroup(oas:DeleteUserGroupRequest payload, map<string|string[]> headers = {}) returns oas:DeleteUserGroupResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -2515,6 +2626,7 @@ public isolated client class Client {
     # Delete a Workflow Delegation
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function deleteWorkflowDelegation(oas:DeleteWorkflowDelegationRequest payload, map<string|string[]> headers = {}) returns oas:DeleteWorkflowDelegationResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -2532,6 +2644,7 @@ public isolated client class Client {
     #
     # + currentStepId - The ID of the workflow step. It can be retrieved using the `/workflowsmanager.fetch/active` (**List Pending Approvals**) endpoint
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function denyDocument(string currentStepId, oas:DenyDocumentRequest payload, map<string|string[]> headers = {}) returns oas:DenyDocumentResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -2549,6 +2662,7 @@ public isolated client class Client {
     #
     # + id - The ID of the Price Grid that contains the Price Grid Item you want to deny
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - Example response 
     remote isolated function denyLivePriceGridItem(string id, oas:DenyLivePriceGridItemRequest payload, map<string|string[]> headers = {}) returns oas:pricegriditemResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -2565,6 +2679,7 @@ public isolated client class Client {
     # Deploy a Configuration Storage
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function deployConfigurationStorage(oas:JcsmanagerDeployBody payload, map<string|string[]> headers = {}) returns oas:ConfigurationStorageOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -2639,6 +2754,18 @@ public isolated client class Client {
     # + id13 - IDs of the Price Grids you want to download
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
+    # + id1 - The id1 to be sent with the request
+    # + id2 - The id2 to be sent with the request
+    # + id3 - The id3 to be sent with the request
+    # + id4 - The id4 to be sent with the request
+    # + id5 - The id5 to be sent with the request
+    # + id6 - The id6 to be sent with the request
+    # + id7 - The id7 to be sent with the request
+    # + id8 - The id8 to be sent with the request
+    # + id9 - The id9 to be sent with the request
+    # + id10 - The id10 to be sent with the request
+    # + id11 - The id11 to be sent with the request
+    # + id12 - The id12 to be sent with the request
     # + return - OK 
     remote isolated function downloadLivePriceGridExcelFile(string id1, string id2, string id3, string id4, string id5, string id6, string id7, string id8, string id9, string id10, string id11, string id12, string id13, map<string|string[]> headers = {}, *oas:DownloadLivePriceGridExcelFileQueries queries) returns http:Response|error {
         oas:Client oasClient = self.getOasClient();
@@ -2656,6 +2783,7 @@ public isolated client class Client {
     #
     # + tableName - A name of the table you want drop. Only lower case letters, numbers and underscores are allowed. Do not use special characters
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - Table dropped 
     remote isolated function dropKvTable(string tableName, record {} payload, map<string|string[]> headers = {}) returns record {}|error {
         oas:Client oasClient = self.getOasClient();
@@ -2690,6 +2818,7 @@ public isolated client class Client {
     #
     # + typedId - `typedId` of the Custom Form you want to duplicate
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function duplicateCustomForm(string typedId, record {} payload, map<string|string[]> headers = {}) returns oas:CustomFormRevisionEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -2706,6 +2835,8 @@ public isolated client class Client {
     # Duplicate a Model
     #
     # + headers - Headers to be sent with the request 
+    # + typedId - The typedId to be sent with the request
+    # + payload - Request payload
     # + return - OK 
     remote isolated function duplicateModel(string typedId, oas:OptimizationModelduplicatetypedIdBody payload, map<string|string[]> headers = {}) returns oas:ModelDuplicationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -2725,7 +2856,7 @@ public isolated client class Client {
     # + binaryDataId - The `binaryDataId` of the attachment to replace
     # + slotId - The upload `slot_id` containing the new file
     # + headers - Headers to be sent with the request 
-    # + request - Optional direct file payload; if omitted, the file from the slot is used 
+    # + payload - Request payload
     # + return - Attachment replaced 
     remote isolated function editAttachment(string ownerTypedId, string binaryDataId, string slotId, oas:BinaryDataIdslotIdBody payload, map<string|string[]> headers = {}) returns oas:FileDownloadEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -2743,6 +2874,7 @@ public isolated client class Client {
     #
     # + typedId - typedId of the comment you want to edit
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function editComment(string typedId, oas:CommentmanagerEdittypedIdBody payload, map<string|string[]> headers = {}) returns oas:CommentOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -2780,6 +2912,7 @@ public isolated client class Client {
     # + elementName - Name of the library element containing the function
     # + functionName - Name of the function to execute
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function executeLibraryFunction(string formulaName, string elementName, string functionName, oas:ElementNamefunctionNameBody payload, map<string|string[]> headers = {}) returns http:Response|error {
         oas:Client oasClient = self.getOasClient();
@@ -2797,6 +2930,7 @@ public isolated client class Client {
     #
     # + typeCode - The `typeCode` of the Action Item you want to execute the calculation for
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function executeLogic(string typeCode, record {} payload, map<string|string[]> headers = {}) returns oas:ExecuteActionItemLogicResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -2887,6 +3021,7 @@ public isolated client class Client {
     # + stepName - The name of the step you want to execute the logic for
     # + formulaName - The name of the logic you want to execute
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function executeModelLogic(string typedId, string stepName, string formulaName, oas:ExecuteModelLogicRequest payload, map<string|string[]> headers = {}) returns oas:ExecuteModelLogicResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -2958,6 +3093,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
+    # + payload - Request payload
     # + return - OK - returns the ZIP file (binary data): `Content-Type: application/zip` 
     remote isolated function exportCsvFile(oas:ExportCSVFileRequest payload, map<string|string[]> headers = {}, *oas:ExportCsvFileQueries queries) returns error? {
         oas:Client oasClient = self.getOasClient();
@@ -2976,6 +3112,7 @@ public isolated client class Client {
     # + fcTypedIdOrSourceName - Restricts the export to a specific source, identified by either the 'typedId' or 'sourceName'. 
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function exportDatamart(string fcTypedIdOrSourceName, oas:ExportDatamartRequest payload, map<string|string[]> headers = {}, *oas:ExportDatamartQueries queries) returns oas:ExportDatamartResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -2993,6 +3130,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
+    # + payload - Request payload
     # + return - OK - returns the XLSX file (binary data): `Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet` 
     remote isolated function exportExcelFileXlsx(oas:ExportExcelFileRequest payload, map<string|string[]> headers = {}, *oas:ExportExcelFileXlsxQueries queries) returns error? {
         oas:Client oasClient = self.getOasClient();
@@ -3009,6 +3147,7 @@ public isolated client class Client {
     # Export Models
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK - A ZIP file containing the exported model JSON files 
     remote isolated function exportModels(oas:OptimizationModelexportBody payload, map<string|string[]> headers = {}) returns http:Response|error {
         oas:Client oasClient = self.getOasClient();
@@ -3079,6 +3218,7 @@ public isolated client class Client {
     # Fetch Activities
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function fetchActivities(oas:ActivitylogFetchBody payload, map<string|string[]> headers = {}) returns record {}|oas:FetchActivitiesEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -3100,6 +3240,7 @@ public isolated client class Client {
     # - **"*"** (asterisk) – Asterisk can be used when you are providing a **source$query** in `data` within the request body
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function fetchDataMartObject(string objectId, oas:GetDMObjectRequest payload, map<string|string[]> headers = {}, *oas:FetchDataMartObjectQueries queries) returns oas:GetDMObjectResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -3132,6 +3273,7 @@ public isolated client class Client {
     # Generate a JWT Token
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function generateJwtToken(oas:GenerateJWTTokenRequest payload, map<string|string[]> headers = {}) returns oas:GenerateJWTTokenResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -3148,6 +3290,7 @@ public isolated client class Client {
     # Generate Parameters
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function generateParameters(oas:GenerateParametersRequest payload, map<string|string[]> headers = {}) returns oas:GenerateParametersResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -3181,6 +3324,7 @@ public isolated client class Client {
     # Get Action Status
     #
     # + headers - Headers to be sent with the request 
+    # + actionUUID - The actionUUID to be sent with the request
     # + return - OK 
     remote isolated function getActionStatus(string actionUUID, map<string|string[]> headers = {}) returns oas:GetActionStatusResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -3215,6 +3359,7 @@ public isolated client class Client {
     #
     # + id - ID of the Calculation Grid you want to retrieve
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function getCalculationGrid(string id, record {} payload, map<string|string[]> headers = {}) returns oas:GetCalculationGridResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -3233,6 +3378,7 @@ public isolated client class Client {
     # + keyNumber - Use CGI1..CGI6 in the path, where numbers from 1 to 6 refer to Calculation Grid Item keys
     # + id - `id` of the Calculation Grid Item you want to fetch
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function getCalculationGridItem("1"|"2"|"3"|"4"|"5"|"6" keyNumber, string id, record {} payload, map<string|string[]> headers = {}) returns oas:GetCalculationGridItemResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -3267,6 +3413,7 @@ public isolated client class Client {
     #
     # + typedId - `typedId` of the Quote you want to retrieve the temporary data from
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function getClicDraftHeader(string typedId, record {} payload, map<string|string[]> headers = {}) returns oas:ClicDraftHeaderEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -3318,6 +3465,7 @@ public isolated client class Client {
     # Get a Condition Record Item
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function getConditionRecordItem(record {} payload, map<string|string[]> headers = {}) returns oas:ConditionRecordItemEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -3334,6 +3482,7 @@ public isolated client class Client {
     # Get a Condition Record Item Attribute Meta
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function getConditionRecordItemMeta(oas:FetchCRCIMBody payload, map<string|string[]> headers = {}) returns oas:ConditionRecordItemMetaEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -3350,6 +3499,7 @@ public isolated client class Client {
     # Get Condition Record Set Items With Set Id Validation
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function getConditionRecordSetItems(oas:ConditionrecordsetFetchCRCI3Body payload, map<string|string[]> headers = {}) returns oas:ConditionRecordSetItemsEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -3366,6 +3516,7 @@ public isolated client class Client {
     # Get a Configuration Storage
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function getConfigurationStorage(oas:FetchJCSBody payload, map<string|string[]> headers = {}) returns oas:GetConfigurationStorageEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -3434,6 +3585,7 @@ public isolated client class Client {
     #
     # + id - `id` of the Data Change Request you want to retrieve
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function getDataChangeRequest(string id, oas:GetDCRRequest payload, map<string|string[]> headers = {}) returns oas:GetDCRResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -3451,6 +3603,7 @@ public isolated client class Client {
     #
     # + id - `id` of the Data Change Request you want to retrieve changed items for
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function getDataChangeRequestChanges(string id, oas:GetDCRRequestChangeOnly payload, map<string|string[]> headers = {}) returns oas:GetDCRResponseChangeOnly|error {
         oas:Client oasClient = self.getOasClient();
@@ -3468,6 +3621,7 @@ public isolated client class Client {
     #
     # + id - `id` of the Data Change Request
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function getDataChangeRequestMassChanges(string id, oas:DcrmanagerFetchmassopidBody payload, map<string|string[]> headers = {}) returns oas:DataChangeRequestMassChangeEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -3542,6 +3696,7 @@ public isolated client class Client {
     # - **typedId** – Format: "*\<dbId\>.\<typeCode\>*" (e.g., 123456.DMDS)
     # - **"*"** (asterisk) – Asterisk can be used when you are providing a **source$query** in `data` within the request body
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function getDmObjectNo(string objectId, oas:GetDMObjectNoCountRequest payload, map<string|string[]> headers = {}) returns oas:GetDMObjectNoCountResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -3575,6 +3730,7 @@ public isolated client class Client {
     #
     # + tableName - A name of the table you want to retrieve the "payload" from
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK. The "payload" is returned 
     remote isolated function getKey(string tableName, oas:GetKVKeyRequest payload, map<string|string[]> headers = {}) returns error? {
         oas:Client oasClient = self.getOasClient();
@@ -3742,6 +3898,7 @@ public isolated client class Client {
     #
     # + id - `id` of the Parallel Calculation Item (PCI) you want to retrieve
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function getParallelCalculationItem(string id, record {} payload, map<string|string[]> headers = {}) returns oas:GetParallelCalculationItemResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -3775,6 +3932,7 @@ public isolated client class Client {
     # Get Product Attribute Meta
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function getProductAttributeMeta(record {} payload, map<string|string[]> headers = {}) returns oas:ProductAttributeMetaEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -3808,6 +3966,7 @@ public isolated client class Client {
     # Get Competition Data
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function getProductCompetition(oas:GetCompetitionDataRequest payload, map<string|string[]> headers = {}) returns oas:GetCompetitionDataResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -3825,6 +3984,7 @@ public isolated client class Client {
     #
     # + label - Enter the name of the product set you want to retrieve
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function getProductSetCompetition(string label, oas:GetProductSetRequest payload, map<string|string[]> headers = {}) returns oas:GetProductSetResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -3841,6 +4001,7 @@ public isolated client class Client {
     # Get Query API Metadata
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - Metadata returned 
     remote isolated function getQueryApiMetadata(oas:QueryapiExecuteBody payload, map<string|string[]> headers = {}) returns oas:QueryApiMetadataEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -3891,6 +4052,7 @@ public isolated client class Client {
     # Get a Rebate Record Group
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function getRebateRecordGroup(record {} payload, map<string|string[]> headers = {}) returns error? {
         oas:Client oasClient = self.getOasClient();
@@ -3926,6 +4088,7 @@ public isolated client class Client {
     #
     # + typedId - `typedId` of the Compensation document you want to retrieve the signature status for
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function getSignatureStatus(string typedId, record {} payload, map<string|string[]> headers = {}) returns oas:GetSignatureStatusResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -3977,6 +4140,8 @@ public isolated client class Client {
     # Get a Summary
     #
     # + headers - Headers to be sent with the request 
+    # + typedId - The typedId to be sent with the request
+    # + payload - Request payload
     # + return - OK 
     remote isolated function getSummary(string typedId, record {} payload, map<string|string[]> headers = {}) returns oas:GetClaimItemsSummaryResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -4029,6 +4194,7 @@ public isolated client class Client {
     # + typeCode - Specify whether you want to retrieve a report based on user roles (`R`), user groups (`UG`), or business roles (`BR`)
     # + id - Specify the `id`of the user role, user group, or business role for which you want to retrieve users. Call the `/fetch/R`, `/fetch/UG`, or `/fetch/BR` endpoint to retrieve a list with corresponding user roles, user groups, or business roles
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function getUserAuditReport("R"|"UG"|"BR" typeCode, string id, record {} payload, map<string|string[]> headers = {}) returns oas:UserAuditReportEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -4062,6 +4228,8 @@ public isolated client class Client {
     # Import Line Items (w/o Input Types)
     #
     # + headers - Headers to be sent with the request 
+    # + typedId - The typedId to be sent with the request
+    # + payload - Request payload
     # + return - OK - `ServerMessageExtended` property contains information about what was imported 
     remote isolated function importClicLineItems(string typedId, oas:ClicmanagerImportlineitemstypedIdBody payload, map<string|string[]> headers = {}) returns oas:ClicOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -4078,6 +4246,7 @@ public isolated client class Client {
     # Import a Data Load
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function importDataLoad(oas:ImportDataLoadRequest payload, map<string|string[]> headers = {}) returns error? {
         oas:Client oasClient = self.getOasClient();
@@ -4112,6 +4281,7 @@ public isolated client class Client {
     # Import Models
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function importModels(oas:OptimizationModelimportBody payload, map<string|string[]> headers = {}) returns oas:ModelDuplicationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -4148,6 +4318,7 @@ public isolated client class Client {
     # + slotId - The ID that is returned by the **/uploadmanager.newuploadslot** (Create an Upload Slot) endpoint
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
+    # + payload - Request payload
     # + return - Accepted 
     remote isolated function importSellerExtensionFile(string sXCategory, string slotId, oas:ImportSXFileRequest payload, map<string|string[]> headers = {}, *oas:ImportSellerExtensionFileQueries queries) returns error? {
         oas:Client oasClient = self.getOasClient();
@@ -4201,6 +4372,7 @@ public isolated client class Client {
     # + typeCode - Enter the type code of the entity you want to insert a data to. See [the list of Type Codes](https://pricefx.atlassian.net/wiki/spaces/KB/pages/99570616/Type+Codes) in the Pricefx Knowledge Base article
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function insertBulkDataFromFile("C"|"CDESC"|"CX"|"JLTV"|"LTV"|"MLTV"|"P"|"PBOME"|"PCOMP"|"PDESC"|"PR"|"PX"|"PXREF"|"SL"|"SX"|"TODO"|"UG" typeCode, oas:InsertBulkDataFromFileRequest payload, map<string|string[]> headers = {}, *oas:InsertBulkDataFromFileQueries queries) returns oas:InsertBulkDataFromFileResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -4219,6 +4391,7 @@ public isolated client class Client {
     # + typeCode - Enter the type code of the entity you want to insert a data to. See [the list of Type Codes](https://pricefx.atlassian.net/wiki/spaces/KB/pages/99570616/Type+Codes) in the Pricefx Knowledge Base article
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function insertBulkDataFromFileAsync("C"|"CDESC"|"CX"|"JLTV"|"LTV"|"MLTV"|"P"|"PBOME"|"PCOMP"|"PDESC"|"PR"|"PX"|"PXREF"|"SL"|"SX"|"TODO"|"UG" typeCode, oas:InsertBulkDataFromFileAsyncRequest payload, map<string|string[]> headers = {}, *oas:InsertBulkDataFromFileAsyncQueries queries) returns oas:InsertBulkDataFromFileAsyncResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -4254,6 +4427,7 @@ public isolated client class Client {
     #
     # + tableName - A name of the table you want upload data to
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
     remote isolated function insertBulkKvData(string tableName, oas:InsertBulkKVDataRequest payload, map<string|string[]> headers = {}) returns oas:generalResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -4304,6 +4478,7 @@ public isolated client class Client {
     # List Accrual Records
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function listAccrualRecords(oas:ListAccrualRecordsRequest payload, map<string|string[]> headers = {}) returns oas:ListAccrualRecordsResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -4320,6 +4495,7 @@ public isolated client class Client {
     # List Action Items
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function listActionItems(oas:FetchAIBody payload, map<string|string[]> headers = {}) returns oas:ListActionItemsResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -4424,6 +4600,7 @@ public isolated client class Client {
     #
     # + keyNumber - Use CGI1..CGI6 in the path, where numbers from 1 to 6 refer to Calculation Grid Item keys
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function listCalculationGridItems("1"|"2"|"3"|"4"|"5"|"6" keyNumber, oas:ListCalculationGridItemsRequest payload, map<string|string[]> headers = {}) returns oas:ListCalculationGridItemsResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -4440,6 +4617,7 @@ public isolated client class Client {
     # List Calculation Grids
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function listCalculationGrids(record {} payload, map<string|string[]> headers = {}) returns oas:ListCalculationGridsResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -4456,6 +4634,7 @@ public isolated client class Client {
     # List Calculations
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function listCalculations(oas:ListCalculationsRequest payload, map<string|string[]> headers = {}) returns oas:ListCalculationsResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -4524,6 +4703,7 @@ public isolated client class Client {
     # + typedId - The `typedId` of the Quote/Contract/Rebate Agreement/Compensation Plan you want to retrieve line items for
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function listClicObjects(string typedId, oas:GetCLICrequest payload, map<string|string[]> headers = {}, *oas:ListClicObjectsQueries queries) returns oas:GetCLICresponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -4542,6 +4722,7 @@ public isolated client class Client {
     # + typedId - typedId of the object you want to fetch comments for
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function listCommentThreads(string typedId, oas:CommentmanagerFetchthreadstypedIdBody payload, map<string|string[]> headers = {}, *oas:ListCommentThreadsQueries queries) returns oas:ListCommentThreadsEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -4558,6 +4739,7 @@ public isolated client class Client {
     # List Compensation Plans
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function listCompensationPlans(oas:ListCompensationPlansRequest payload, map<string|string[]> headers = {}) returns oas:ListCompensationPlansResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -4575,6 +4757,7 @@ public isolated client class Client {
     #
     # + compensationRecordSetId - ID of the CompensationRecordSet into which this Compensation Record belongs. By default it belongs to "Default" CompensationRecordSet, but you can change it when you create the Compensation Record. This can be useful if you create different "kinds" of Compensation Records which will be used to calculate different results at different times
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function listCompensationRecords(string compensationRecordSetId, oas:ListCompensationRecordsRequest payload, map<string|string[]> headers = {}) returns oas:ListCompensationRecordsResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -4591,6 +4774,7 @@ public isolated client class Client {
     # List Compensation Types
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function listCompensationTypes(oas:ListCompensationTypesRequest payload, map<string|string[]> headers = {}) returns oas:ListCompensationTypesEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -4607,6 +4791,7 @@ public isolated client class Client {
     # List Condition Record Sets
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function listConditionRecordSets(record {} payload, map<string|string[]> headers = {}) returns oas:ListConditionRecordSetsEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -4623,6 +4808,7 @@ public isolated client class Client {
     # List Condition Types
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function listConditionTypes(oas:ListConditionTypesRequest payload, map<string|string[]> headers = {}) returns oas:ListConditionTypesEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -4639,6 +4825,7 @@ public isolated client class Client {
     # List Contract Calculations
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function listContractCalculations(record {} payload, map<string|string[]> headers = {}) returns oas:ListContractCalculationsEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -4655,6 +4842,7 @@ public isolated client class Client {
     # List Contract Price Records
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function listContractPriceRecords(oas:FetchCPRBody payload, map<string|string[]> headers = {}) returns oas:ListContractPriceRecords|error {
         oas:Client oasClient = self.getOasClient();
@@ -4671,6 +4859,7 @@ public isolated client class Client {
     # List Contracts
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - Example response 
     remote isolated function listContracts(oas:ListContractsRequest payload, map<string|string[]> headers = {}) returns oas:contractResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -4687,6 +4876,7 @@ public isolated client class Client {
     # List Custom Form Types
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function listCustomFormTypes(oas:ListCustomFormTypesRequest payload, map<string|string[]> headers = {}) returns oas:ListCustomFormTypesResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -4703,6 +4893,7 @@ public isolated client class Client {
     # List Custom Forms
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function listCustomForms(oas:ListCustomFormsRequest payload, map<string|string[]> headers = {}) returns oas:ListCustomFormsEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -4720,6 +4911,7 @@ public isolated client class Client {
     #
     # + typedId - The `typedId` of the entity you want to retrieve assignments for
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - Example response 
     remote isolated function listCustomerAssignments(string typedId, oas:ListCustomerAssignmentsRequest payload, map<string|string[]> headers = {}) returns oas:assignmentResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -4738,6 +4930,7 @@ public isolated client class Client {
     # + customerMasterExtensionName - Enter the name of Customer Extension you want to retrieve objects from. You can find the name in **Administration** > **Configuration** > **Master Data** > **Customer Master Extension** or using the **/configurationmanager.get/customerextension** endpoint
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function listCustomerExtensionObjects(string customerMasterExtensionName, oas:ListCustomerExtensionObjectsRequest payload, map<string|string[]> headers = {}, *oas:ListCustomerExtensionObjectsQueries queries) returns oas:ListCustomerExtensionObjectsResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -4754,6 +4947,7 @@ public isolated client class Client {
     # List Customers
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - Returns customer record details 
     remote isolated function listCustomers(oas:ListCustomersRequest payload, map<string|string[]> headers = {}) returns oas:customerResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -4803,6 +4997,7 @@ public isolated client class Client {
     #
     # + typeCode - The type code of the **Field Collection**
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - Example response 
     remote isolated function listDataManagerEntities("DM"|"DMDS"|"DMF"|"DMT" typeCode, oas:ListDataManagerEntitiesRequest payload, map<string|string[]> headers = {}) returns oas:dmobjectResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -4835,6 +5030,7 @@ public isolated client class Client {
     # List Delegated Workflows
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function listDelegatedWorkflows(oas:ListDelegatedWorkflowsRequest payload, map<string|string[]> headers = {}) returns oas:ListDelegatedWorkflowsResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -4868,6 +5064,7 @@ public isolated client class Client {
     # List Email Tasks
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function listEmailTasks(oas:NotificationListBody payload, map<string|string[]> headers = {}) returns oas:ListEmailTasksEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -4902,6 +5099,7 @@ public isolated client class Client {
     # List Event Tasks
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function listEventTasks(oas:NotificationListBody payload, map<string|string[]> headers = {}) returns oas:ListEventTasksEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -4919,6 +5117,7 @@ public isolated client class Client {
     #
     # + typedId - `typedId` of the document you want to list attachments for
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function listFiles(string typedId, oas:BdmanagerListtypedIdBody payload, map<string|string[]> headers = {}) returns oas:ListFilesEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -4968,6 +5167,8 @@ public isolated client class Client {
     # List ImportManager Changes
     #
     # + headers - Headers to be sent with the request 
+    # + uniqueName - The uniqueName to be sent with the request
+    # + payload - Request payload
     # + return - OK 
     remote isolated function listImportManagerChanges(string uniqueName, record {} payload, map<string|string[]> headers = {}) returns oas:ListImportManagerChangesEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -4984,6 +5185,7 @@ public isolated client class Client {
     # List Internationalization Messages
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK - contains the messages for the locale 
     remote isolated function listInternationalizationMessages(oas:I18nmanagerFetchWithExtraDataBody payload, map<string|string[]> headers = {}) returns oas:ListInternationalizationMessagesEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -5000,6 +5202,8 @@ public isolated client class Client {
     # List Items
     #
     # + headers - Headers to be sent with the request 
+    # + typedId - The typedId to be sent with the request
+    # + payload - Request payload
     # + return - OK 
     remote isolated function listItems(string typedId, record {} payload, map<string|string[]> headers = {}) returns oas:ListClaimItemsResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -5066,6 +5270,7 @@ public isolated client class Client {
     #
     # + id - The `id` of the Live Price Grid you want to retrieve items for. You can retrieve the `id` of the LPG, for example, by calling the `/fetch/PG` endpoint
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function listLivePriceGridItems(string id, oas:ListLivePriceGridItemsRequest payload, map<string|string[]> headers = {}) returns oas:ListLivePriceGridItemsResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -5098,6 +5303,7 @@ public isolated client class Client {
     # List Live Price Grids
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function listLivePriceGrids(oas:ListLivePriceGridsRequest payload, map<string|string[]> headers = {}) returns oas:ListLivePriceGridsResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -5147,6 +5353,7 @@ public isolated client class Client {
     # List Logins
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function listLogins(oas:BdmanagerListtypedIdBody payload, map<string|string[]> headers = {}) returns oas:ListLoginsEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -5164,6 +5371,7 @@ public isolated client class Client {
     #
     # + id - The ID of the Manual Price List you want to retrieve products from
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function listManualPriceListProducts(string id, oas:ListProductsFromManualPriceListRequest payload, map<string|string[]> headers = {}) returns oas:ListProductsFromManualPriceListResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -5180,6 +5388,7 @@ public isolated client class Client {
     # List Manual Price Lists
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - Example response 
     remote isolated function listManualPriceLists(oas:ListManualPriceListsRequest payload, map<string|string[]> headers = {}) returns oas:manualpricelistResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -5215,6 +5424,7 @@ public isolated client class Client {
     # List Notifications
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function listNotifications(oas:NotificationListBody payload, map<string|string[]> headers = {}) returns oas:ListNotificationsEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -5232,6 +5442,7 @@ public isolated client class Client {
     #
     # + typeCode - The object's type code. See [the list of Type Codes](https://pricefx.atlassian.net/wiki/spaces/KB/pages/99570616/Type+Codes)
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
     remote isolated function listObjects(string typeCode, oas:fetch_typeCode_body payload, map<string|string[]> headers = {}) returns oas:generalResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -5248,6 +5459,7 @@ public isolated client class Client {
     # List Parallel Calculation Items
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function listParallelCalculationItems(oas:ListParallelCalculationItemsRequest payload, map<string|string[]> headers = {}) returns oas:ListParallelCalculationItemsResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -5281,6 +5493,7 @@ public isolated client class Client {
     #
     # + id - The ID of the Price List you want to retrieve items for. The `id` is the `typedId` without the suffix. For example, the `id` attribute of the item with `typedId` = **2147484837.PL**  is **2147484837**
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - Example response 
     remote isolated function listPriceListItems(string id, oas:ListPriceListItemsRequest payload, map<string|string[]> headers = {}) returns oas:pricelistitemResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -5313,6 +5526,7 @@ public isolated client class Client {
     # List Price Lists
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function listPriceLists(oas:ListPriceListsRequest payload, map<string|string[]> headers = {}) returns oas:ListPriceListsResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -5331,6 +5545,7 @@ public isolated client class Client {
     # + productMasterExtensionName - Enter the name of Product Extension you want to retrieve objects from. You can find the name in **Administration** > **Configuration** > **Master Data** > **Product Master Extension** or using the **/configurationmanager.get/productextension** endpoint
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
+    # + payload - Request payload
     # + return - A Product Extension response 
     remote isolated function listProductExtensionObjects(string productMasterExtensionName, oas:ListProductExtensionObjectsRequest payload, map<string|string[]> headers = {}, *oas:ListProductExtensionObjectsQueries queries) returns oas:ProductExtensionResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -5347,6 +5562,7 @@ public isolated client class Client {
     # List Product Sets
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function listProductSets(oas:ListProductSetsRequest payload, map<string|string[]> headers = {}) returns oas:ListProductSetsResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -5363,6 +5579,7 @@ public isolated client class Client {
     # List Products
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - Returns full record details 
     remote isolated function listProducts(oas:ListProductsRequest payload, map<string|string[]> headers = {}) returns oas:productResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -5379,6 +5596,7 @@ public isolated client class Client {
     # List Products
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function listQuoteProducts(oas:ListProductsRequest1 payload, map<string|string[]> headers = {}) returns error? {
         oas:Client oasClient = self.getOasClient();
@@ -5395,6 +5613,7 @@ public isolated client class Client {
     # List Quotes
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function listQuotes(oas:ListQuotesRequest payload, map<string|string[]> headers = {}) returns oas:ListQuotesResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -5411,6 +5630,7 @@ public isolated client class Client {
     # List Rebate Agreement Items
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function listRebateAgreementItems(oas:ListRebateAgreementItemsRequest payload, map<string|string[]> headers = {}) returns oas:ListRebateAgreementItemsResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -5427,6 +5647,7 @@ public isolated client class Client {
     # List Rebate Agreements
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function listRebateAgreements(oas:ListRebateAgreementsRequest payload, map<string|string[]> headers = {}) returns oas:ListRebateAgreementsResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -5443,6 +5664,7 @@ public isolated client class Client {
     # List Rebate Calculations
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function listRebateCalculations(oas:FetchRRSCBody payload, map<string|string[]> headers = {}) returns oas:ListRebateCalculationsResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -5459,6 +5681,7 @@ public isolated client class Client {
     # List Recommendations
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function listRecommendations(oas:ListRecommendationsRequest payload, map<string|string[]> headers = {}) returns oas:ListRecommendationsEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -5492,6 +5715,7 @@ public isolated client class Client {
     # List Rollups
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function listRollups(oas:ListRollupsRequest payload, map<string|string[]> headers = {}) returns oas:ListRollupsResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -5508,6 +5732,7 @@ public isolated client class Client {
     # List Security & Configuration Events
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function listSecurityConfigurationEvents(oas:NotificationListBody payload, map<string|string[]> headers = {}) returns oas:ListSecurityConfigEventsEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -5541,6 +5766,7 @@ public isolated client class Client {
     # List Sellers
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function listSellers(oas:ListSellersRequest payload, map<string|string[]> headers = {}) returns oas:ListSellersEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -5589,6 +5815,8 @@ public isolated client class Client {
     # List Unique CLIC Items
     #
     # + headers - Headers to be sent with the request 
+    # + typedId - The typedId to be sent with the request
+    # + payload - Request payload
     # + return - OK 
     remote isolated function listUniqueClicItems(string typedId, record {} payload, map<string|string[]> headers = {}) returns oas:ListUniqueCLICItemsResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -5673,6 +5901,7 @@ public isolated client class Client {
     # List Users
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function listUsers(oas:ListUsersRequest payload, map<string|string[]> headers = {}) returns oas:ListUsersResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -5689,6 +5918,7 @@ public isolated client class Client {
     # List Workflows
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function listWorkflows(oas:ListWorkflowsRequest payload, map<string|string[]> headers = {}) returns oas:ListWorkflowsResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -5706,6 +5936,7 @@ public isolated client class Client {
     #
     # + typedId - Specifies the typedId (format: `{id}.{type}`) of the FieldCollection to load data into. Type must be either `DMDS` or `DMT`
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK - data loaded successfully into the DMFieldCollection 
     remote isolated function loadDataIntoFieldCollection(string typedId, oas:DatamartLoadfctypedIdBody payload, map<string|string[]> headers = {}) returns http:Response|error {
         oas:Client oasClient = self.getOasClient();
@@ -5722,6 +5953,7 @@ public isolated client class Client {
     # Mark as Read
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
     remote isolated function markAsRead(record {} payload, map<string|string[]> headers = {}) returns oas:generalResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -5739,6 +5971,7 @@ public isolated client class Client {
     #
     # + identifier - Can be either the `uniqueName` or the `typedId`
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - Example response 
     remote isolated function markQuoteLost(string identifier, oas:MarkOfferAsLostRequest payload, map<string|string[]> headers = {}) returns oas:quoteResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -5755,6 +5988,8 @@ public isolated client class Client {
     # Mass Delete Imports
     #
     # + headers - Headers to be sent with the request 
+    # + typedId - The typedId to be sent with the request
+    # + payload - Request payload
     # + return - OK 
     remote isolated function massDeleteImports(string typedId, oas:ImportmanagerMassdeletetypedIdBody payload, map<string|string[]> headers = {}) returns oas:MassDeleteImportsEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -5791,6 +6026,7 @@ public isolated client class Client {
     #
     # + id - `id` of the Data Change Request
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function massEditDataChangeRequestItems(string id, oas:DcrmanagerAddmassopidBody payload, map<string|string[]> headers = {}) returns oas:DataChangeRequestMassChangeEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -5808,6 +6044,7 @@ public isolated client class Client {
     #
     # + typedId - The `typedId` of the object you want to perform the mass edit action for
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK - returns the number of edited records 
     remote isolated function massEditDataMartObject(string typedId, oas:MassEditRequest1 payload, map<string|string[]> headers = {}) returns oas:MassEditDatamartResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -5824,6 +6061,8 @@ public isolated client class Client {
     # Mass Edit Imports
     #
     # + headers - Headers to be sent with the request 
+    # + typedId - The typedId to be sent with the request
+    # + payload - Request payload
     # + return - OK 
     remote isolated function massEditImports(string typedId, oas:ImportmanagerMassedittypedIdBody payload, map<string|string[]> headers = {}) returns oas:MassEditImportsEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -5841,6 +6080,7 @@ public isolated client class Client {
     #
     # + tableId - The ID of the Lookup Table whose values you want to update
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK - The response contains the number of modifed objects 
     remote isolated function massEditLookupTable(string tableId, oas:MassEditRequest payload, map<string|string[]> headers = {}) returns oas:MassEditResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -5858,6 +6098,7 @@ public isolated client class Client {
     #
     # + id - The ID of the Manual Price List whose products you want to update
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function massEditManualPriceListItems(string id, oas:MassEditMPLRequest payload, map<string|string[]> headers = {}) returns oas:MassEditManualPriceListResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -5875,6 +6116,7 @@ public isolated client class Client {
     #
     # + id - The `id` of the Live Price Grid whose items you want to edit. You can retrieve the `id` of the LPG, for example, by calling the `/fetch/PG` endpoint
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK - The response contains `"data":null` as the mass edit task is a background process whose results are not yet available within the response time 
     remote isolated function massEditPriceGridItems(string id, oas:MassEditPriceGridItemsRequest payload, map<string|string[]> headers = {}) returns oas:MassEditPriceGridItemsResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -5891,6 +6133,8 @@ public isolated client class Client {
     # Mass Submit Rebate Record Groups
     #
     # + headers - Headers to be sent with the request 
+    # + typedId - The typedId to be sent with the request
+    # + payload - Request payload
     # + return - OK 
     remote isolated function massSubmitRebateRecordGroupItems(string typedId, oas:RebaterecordgroupMasssubmittypedIdBody payload, map<string|string[]> headers = {}) returns oas:MassSubmitRRGResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -5907,6 +6151,7 @@ public isolated client class Client {
     # Mass Submit Rebate Record Groups
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function massSubmitRebateRecordGroups(oas:RebaterecordgroupMasssubmittypedIdBody payload, map<string|string[]> headers = {}) returns oas:MassSubmitRebateRecordGroupsEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -5924,6 +6169,7 @@ public isolated client class Client {
     #
     # + typeCode - The object's type code. See [the list of Type Codes](https://pricefx.atlassian.net/wiki/spaces/KB/pages/99570616/Type+Codes)
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function massUpdate(string typeCode, oas:MassUpdateRequest payload, map<string|string[]> headers = {}) returns oas:MassUpdateResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -5941,6 +6187,7 @@ public isolated client class Client {
     #
     # + id - The ID of the Price Grid that contains items you want to apply workflow actions to
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function performMassAction(string id, oas:PerformMassActionRequest payload, map<string|string[]> headers = {}) returns oas:PerformMassActionResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -5973,6 +6220,7 @@ public isolated client class Client {
     # Preview a Custom Form Workflow
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function previewCustomFormWorkflow(record {} payload, map<string|string[]> headers = {}) returns oas:PreviewCustomFormWorkflowResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -5989,6 +6237,8 @@ public isolated client class Client {
     # Preview a Rebate Record Group Workflow
     #
     # + headers - Headers to be sent with the request 
+    # + typedId - The typedId to be sent with the request
+    # + payload - Request payload
     # + return - OK 
     remote isolated function previewRebateRecordGroupWorkflow(string typedId, oas:RebaterecordgroupPreviewtypedIdBody payload, map<string|string[]> headers = {}) returns oas:RebateRecordGroupWorkflowEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -6006,6 +6256,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
+    # + payload - Request payload
     # + return - Successful execution 
     remote isolated function queryApiExecute(oas:QueryapiExecuteBody payload, map<string|string[]> headers = {}, *oas:QueryApiExecuteQueries queries) returns oas:QueryApiExecuteEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -6023,6 +6274,7 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function queryDataManagerObject(oas:QueryDataManagerObjectRequest payload, map<string|string[]> headers = {}, *oas:QueryDataManagerObjectQueries queries) returns oas:QueryDataManagerObjectResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -6042,6 +6294,7 @@ public isolated client class Client {
     # + stepName - Enter the name of the step you want to calculate
     # + calcName - The name of the calculation you want to recalculate
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function recalculateCalculationOfStep(string typedId, "definition"|"configuration"|"results"|"projections"|"parallel" stepName, string calcName, record {} payload, map<string|string[]> headers = {}) returns oas:RecalculateCalculationOfStepResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -6061,6 +6314,7 @@ public isolated client class Client {
     # + stepName - Enter the name of the step you want to calculate
     # + calcName - The name of the calculation you want to recalculate
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function recalculateItemsOfParallelCalculation(string typedId, "definition"|"configuration"|"results"|"projections"|"parallel" stepName, string calcName, oas:CalcNameItemBody payload, map<string|string[]> headers = {}) returns oas:ParallelCalculationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -6077,6 +6331,7 @@ public isolated client class Client {
     # Recalculate a Quote
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - Example response 
     remote isolated function recalculateQuote(oas:RecalculateQuoteRequest payload, map<string|string[]> headers = {}) returns oas:quoteResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -6112,6 +6367,7 @@ public isolated client class Client {
     #
     # + id - The `id` of the Calculation Grid you want to deny items for. You can retrieve the `id` of the CG, for example, by calling the `/fetch/CG` endpoint
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function rejectCalculationGridItem(string id, oas:DenyCalculationGridItemRequest payload, map<string|string[]> headers = {}) returns oas:DenyCalculationGridItemResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -6129,6 +6385,7 @@ public isolated client class Client {
     #
     # + typedId - The `typedId` of the Claim whose items you want to reject
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function rejectItems(string typedId, oas:RejectClaimItemsRequest payload, map<string|string[]> headers = {}) returns oas:RejectClaimItemsResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -6146,6 +6403,7 @@ public isolated client class Client {
     #
     # + typedId - `typedId` of the object you want to remove all line items from
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function removeAllClicLineItems(string typedId, record {} payload, map<string|string[]> headers = {}) returns oas:ClicOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -6163,6 +6421,7 @@ public isolated client class Client {
     #
     # + typedId - The `typedId` of the Claim whose items you want to remove
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function removeItems(string typedId, record {} payload, map<string|string[]> headers = {}) returns oas:RemoveClaimItemsResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -6179,6 +6438,7 @@ public isolated client class Client {
     # Reply To a Comment
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function replyToComment(oas:CommentmanagerReplyBody payload, map<string|string[]> headers = {}) returns oas:CommentOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -6196,6 +6456,7 @@ public isolated client class Client {
     #
     # + typedId - The typedId of the comment thread
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function resolveComment(string typedId, record {} payload, map<string|string[]> headers = {}) returns oas:ResolveCommentEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -6247,6 +6508,7 @@ public isolated client class Client {
     #
     # + typedId - `typedId` of the model you want to revoke
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function revokeModel(string typedId, record {} payload, map<string|string[]> headers = {}) returns oas:RevokeModelResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -6263,6 +6525,8 @@ public isolated client class Client {
     # Revoke a Price List
     #
     # + headers - Headers to be sent with the request 
+    # + id - The id to be sent with the request
+    # + payload - Request payload
     # + return - Example response 
     remote isolated function revokePriceList(string id, oas:PricelistmanagerSubmitidBody payload, map<string|string[]> headers = {}) returns oas:pricelistitemResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -6313,6 +6577,7 @@ public isolated client class Client {
     # Run a Calculation
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function runCalculation(oas:RunCalculationRequest payload, map<string|string[]> headers = {}) returns oas:RunCalculationResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -6329,6 +6594,7 @@ public isolated client class Client {
     # Run a Data Load
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function runDataLoad(oas:RunDataLoadRequest payload, map<string|string[]> headers = {}) returns oas:RunDataLoadResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -6345,6 +6611,7 @@ public isolated client class Client {
     # Run a Rebate Calculation
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function runRebateCalculation(oas:RebaterecordCalculatesetBody payload, map<string|string[]> headers = {}) returns oas:RunRebateCalculationResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -6361,6 +6628,7 @@ public isolated client class Client {
     # Save Calculation
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function saveCalculation(oas:SaveCalculationRequest payload, map<string|string[]> headers = {}) returns oas:SaveCalculationResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -6378,6 +6646,7 @@ public isolated client class Client {
     #
     # + typedId - `typedId` of the Temporary Quote you want to save
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function saveClicDraft(string typedId, record {} payload, map<string|string[]> headers = {}) returns oas:ClicOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -6394,6 +6663,7 @@ public isolated client class Client {
     # Save a Compensation Record
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function saveCompensationRecord(oas:SaveCompensationRecordRequest payload, map<string|string[]> headers = {}) returns oas:SaveCompensationRecordResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -6410,6 +6680,7 @@ public isolated client class Client {
     # Save a Data Load
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function saveDataLoad(oas:DatamartUpdatedataloadBody payload, map<string|string[]> headers = {}) returns oas:DataLoadEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -6426,6 +6697,7 @@ public isolated client class Client {
     # Save Import Change
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function saveImportChange(record {} payload, map<string|string[]> headers = {}) returns oas:SaveImportChangeEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -6461,6 +6733,7 @@ public isolated client class Client {
     # Save a Rebate Calculation
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function saveRebateCalculation(oas:SaveRebateCalculationRequest payload, map<string|string[]> headers = {}) returns oas:SaveRebateCalculationResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -6495,6 +6768,7 @@ public isolated client class Client {
     # Search a Product
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function searchProducts(oas:SearchProductRequest payload, map<string|string[]> headers = {}) returns oas:SearchProductResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -6511,6 +6785,7 @@ public isolated client class Client {
     # Search a Product (URL)
     #
     # + headers - Headers to be sent with the request 
+    # + query - The query to be sent with the request
     # + return - OK 
     remote isolated function searchProductsByQuery(string query, map<string|string[]> headers = {}) returns oas:SearchProductURLResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -6528,6 +6803,7 @@ public isolated client class Client {
     #
     # + typedId - `typedId` of the Compensation whose data you want to send via the e-signature system
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function sendDocumentToSign(string typedId, oas:CreateSignatureRequest payload, map<string|string[]> headers = {}) returns oas:CreateSignatureResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -6544,6 +6820,7 @@ public isolated client class Client {
     # Send an Email
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
     remote isolated function sendEmail(oas:SendEmailRequest payload, map<string|string[]> headers = {}) returns oas:generalResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -6560,6 +6837,7 @@ public isolated client class Client {
     # Send a Validation Message
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
     remote isolated function sendValidationMessage(oas:NotificationSendBody payload, map<string|string[]> headers = {}) returns oas:generalResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -6577,6 +6855,7 @@ public isolated client class Client {
     #
     # + typedId - `typedId` of the Quote you want set as lost
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function setClicLostReason(string typedId, oas:MarkOfferLostWithReasonRequest payload, map<string|string[]> headers = {}) returns oas:SetClicLostReasonEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -6611,6 +6890,7 @@ public isolated client class Client {
     #
     # + typedId - typedId of the object to mark as reviewed
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - Review successfully marked as done 
     remote isolated function setReviewAsDone(string typedId, record {} payload, map<string|string[]> headers = {}) returns http:Response|error {
         oas:Client oasClient = self.getOasClient();
@@ -6628,6 +6908,7 @@ public isolated client class Client {
     #
     # + typedId - `typedId` of the Rebate Record Group you want to return the async threshold boolean for
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function shouldSubmitRrgAsynchronously(string typedId, record {} payload, map<string|string[]> headers = {}) returns oas:CheckFileExistsEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -6663,6 +6944,7 @@ public isolated client class Client {
     #
     # + typedId - typedId of the import
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function submitChanges(string typedId, oas:ImportmanagerSubmittypedIdBody payload, map<string|string[]> headers = {}) returns oas:ImportManagerUploadEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -6680,6 +6962,7 @@ public isolated client class Client {
     #
     # + typedId - `typedId` of the Claim you want to submit
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function submitClaim(string typedId, record {} payload, map<string|string[]> headers = {}) returns oas:SubmitClaimResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -6697,6 +6980,7 @@ public isolated client class Client {
     #
     # + typedId - The `typedId` of the Contract, Quote, or Rebate Agreement you want to submit
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function submitClic(string typedId, oas:SubmitQuoteContractRebateAgreementRequest payload, map<string|string[]> headers = {}) returns oas:SubmitQuoteContractRebateAgreementResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -6713,6 +6997,7 @@ public isolated client class Client {
     # Submit a Contract
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - Example response 
     remote isolated function submitContract(oas:SubmitContractRequest payload, map<string|string[]> headers = {}) returns oas:contractModelResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -6730,6 +7015,7 @@ public isolated client class Client {
     #
     # + id - `id` of the DCR to be submitted
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function submitDataChangeRequest(string id, record {} payload, map<string|string[]> headers = {}) returns oas:SubmitDCRResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -6747,6 +7033,7 @@ public isolated client class Client {
     #
     # + id - `id` of the DCR to be submitted
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function submitDataChangeRequestAsync(string id, record {} payload, map<string|string[]> headers = {}) returns oas:SubmitDCRAsyncResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -6764,6 +7051,7 @@ public isolated client class Client {
     #
     # + typedId - The `typedId` of the Model Object you want to submit
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK. Returns the Model Object 
     remote isolated function submitModel(string typedId, record {} payload, map<string|string[]> headers = {}) returns oas:SaveModelResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -6781,6 +7069,7 @@ public isolated client class Client {
     #
     # + id - The ID of the Price List you want to submit. The `id` is the `typedId` without the suffix. For example, the `id` attribute of the item with `typedId` = **2147484837.PL**  is **2147484837**
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - Example response 
     remote isolated function submitPriceList(string id, oas:PricelistmanagerSubmitidBody payload, map<string|string[]> headers = {}) returns oas:pricelistitemResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -6798,6 +7087,7 @@ public isolated client class Client {
     #
     # + id - The `id` of the Live Price Grid you want to submit items for. You can retrieve the `id` of the LPG, for example, by calling the `/fetch/PG` endpoint
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK - In case that more than one item is passed in the request, the body will not contain any data (`"data":null`). For a single item, the new PriceGridItem object is returned 
     remote isolated function submitProducts(string id, oas:SubmitProductsRequest payload, map<string|string[]> headers = {}) returns oas:SubmitProductsResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -6814,6 +7104,7 @@ public isolated client class Client {
     # Submit a Quote
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - Example response 
     remote isolated function submitQuote(oas:SubmitQuoteRequest payload, map<string|string[]> headers = {}) returns oas:quoteResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -6831,6 +7122,7 @@ public isolated client class Client {
     #
     # + typedId - `typedId` of the Rebate Record Group you want to submit
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function submitRebateRecordGroup(string typedId, record {} payload, map<string|string[]> headers = {}) returns oas:SubmitRebateRecordGroup|error {
         oas:Client oasClient = self.getOasClient();
@@ -6847,6 +7139,7 @@ public isolated client class Client {
     # Syntax Check
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function syntaxCheck(oas:SyntaxCheckRequest payload, map<string|string[]> headers = {}) returns error? {
         oas:Client oasClient = self.getOasClient();
@@ -6863,6 +7156,7 @@ public isolated client class Client {
     # Test a Logic
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function testLogic(oas:TestLogicRequest payload, map<string|string[]> headers = {}) returns oas:TestLogicEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -6896,6 +7190,7 @@ public isolated client class Client {
     # Undo Compensation Plan Revocation
     #
     # + headers - Headers to be sent with the request 
+    # + typedId - The typedId to be sent with the request
     # + return - OK 
     remote isolated function undoCompensationPlanRevocation(string typedId, map<string|string[]> headers = {}) returns error? {
         oas:Client oasClient = self.getOasClient();
@@ -6912,6 +7207,7 @@ public isolated client class Client {
     # Undo Compensation Record Revocation
     #
     # + headers - Headers to be sent with the request 
+    # + typedId - The typedId to be sent with the request
     # + return - OK 
     remote isolated function undoCompensationRecordRevocation(string typedId, map<string|string[]> headers = {}) returns error? {
         oas:Client oasClient = self.getOasClient();
@@ -6928,6 +7224,7 @@ public isolated client class Client {
     # Undo Rebate Agreement Revocation
     #
     # + headers - Headers to be sent with the request 
+    # + typedId - The typedId to be sent with the request
     # + return - OK 
     remote isolated function undoRebateAgreementRevocation(string typedId, map<string|string[]> headers = {}) returns error? {
         oas:Client oasClient = self.getOasClient();
@@ -6944,6 +7241,7 @@ public isolated client class Client {
     # Undo Rebate Record Group Revocation
     #
     # + headers - Headers to be sent with the request 
+    # + typedId - The typedId to be sent with the request
     # + return - OK 
     remote isolated function undoRebateRecordGroupRevocation(string typedId, map<string|string[]> headers = {}) returns error? {
         oas:Client oasClient = self.getOasClient();
@@ -6960,6 +7258,7 @@ public isolated client class Client {
     # Undo Rebate Record Revocation
     #
     # + headers - Headers to be sent with the request 
+    # + typedId - The typedId to be sent with the request
     # + return - OK 
     remote isolated function undoRebateRecordRevocation(string typedId, map<string|string[]> headers = {}) returns error? {
         oas:Client oasClient = self.getOasClient();
@@ -6976,6 +7275,7 @@ public isolated client class Client {
     # Undo Agreement & Promotion Revocation
     #
     # + headers - Headers to be sent with the request 
+    # + typedId - The typedId to be sent with the request
     # + return - OK 
     remote isolated function undoRevokeContract(string typedId, map<string|string[]> headers = {}) returns error? {
         oas:Client oasClient = self.getOasClient();
@@ -6992,6 +7292,7 @@ public isolated client class Client {
     # Undo Quote Revocation
     #
     # + headers - Headers to be sent with the request 
+    # + typedId - The typedId to be sent with the request
     # + return - OK 
     remote isolated function undoRevokeQuote(string typedId, map<string|string[]> headers = {}) returns error? {
         oas:Client oasClient = self.getOasClient();
@@ -7009,6 +7310,7 @@ public isolated client class Client {
     #
     # + typedId - The typedId of the comment thread
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function unresolveComment(string typedId, record {} payload, map<string|string[]> headers = {}) returns oas:ResolveCommentEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -7025,6 +7327,7 @@ public isolated client class Client {
     # Update an Action Item
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function updateActionItem(oas:UpdateActionItemRequest payload, map<string|string[]> headers = {}) returns oas:UpdateActionItemResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -7041,6 +7344,7 @@ public isolated client class Client {
     # Update an Action Type
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function updateActionType(oas:UpdateAITBody payload, map<string|string[]> headers = {}) returns oas:UpdateActionTypeResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -7057,6 +7361,7 @@ public isolated client class Client {
     # Update a Calculation Grid
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function updateCalculationGrid(oas:UpdateCalculationGridRequest payload, map<string|string[]> headers = {}) returns oas:UpdateCalculationGridResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -7074,6 +7379,7 @@ public isolated client class Client {
     #
     # + id - `id` of the Calculation Grid Item you want to update
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function updateCalculationGridItem(string id, oas:UpdateCalculationGridItemRequest payload, map<string|string[]> headers = {}) returns oas:UpdateCalculationGridItemResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -7107,6 +7413,7 @@ public isolated client class Client {
     # Update a Claim Type
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function updateClaimType(oas:UpdateClaimTypeRequest payload, map<string|string[]> headers = {}) returns oas:UpdateClaimTypeResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -7124,6 +7431,7 @@ public isolated client class Client {
     #
     # + typedId - `typedId` of the CLIC object (e.g., a Quote) you want to update line items for
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function updateClicLineItems(string typedId, oas:UpdateCLICLineItemsRequest payload, map<string|string[]> headers = {}) returns oas:UpdateClicLineItemsEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -7140,6 +7448,7 @@ public isolated client class Client {
     # Update a Compensation Record
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function updateCompensationRecord(oas:UpdateCompensationRecordRequest payload, map<string|string[]> headers = {}) returns oas:UpdateCompensationRecordResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -7156,6 +7465,7 @@ public isolated client class Client {
     # Update a Compensation Type
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function updateCompensationType(oas:UpdateCompensationTypeRequest payload, map<string|string[]> headers = {}) returns oas:UpdateCompensationTypeEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -7190,6 +7500,7 @@ public isolated client class Client {
     #
     # + id - `id` of the ConditionRecordSet object you want to update
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function updateConditionRecordSet(string id, oas:ConditionrecordsetUpdateidBody payload, map<string|string[]> headers = {}) returns oas:ConditionRecordSetOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -7206,6 +7517,7 @@ public isolated client class Client {
     # Update a Condition Type
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function updateConditionType(oas:UpdateConditionTypeRequest payload, map<string|string[]> headers = {}) returns oas:UpdateConditionTypeEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -7222,6 +7534,7 @@ public isolated client class Client {
     # Update a Configuration Storage
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function updateConfigurationStorage(oas:UpdateJCSBody payload, map<string|string[]> headers = {}) returns oas:ConfigurationStorageOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -7238,6 +7551,7 @@ public isolated client class Client {
     # Update a Custom Form
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - The Custom Form was updated successfully. The response includes the updated data 
     remote isolated function updateCustomForm(oas:UpdateCustomFormRequest payload, map<string|string[]> headers = {}) returns oas:UpdateCustomFormEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -7254,6 +7568,7 @@ public isolated client class Client {
     # Update a Custom Form Type
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function updateCustomFormType(oas:UpdateCustomFormTypeRequest payload, map<string|string[]> headers = {}) returns oas:UpdateCustomFormTypeResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -7288,6 +7603,7 @@ public isolated client class Client {
     #
     # + id - `id` of the Data Change Request whose item you want to update
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function updateDataChangeRequestItem(string id, oas:UpdateDCRIRequest payload, map<string|string[]> headers = {}) returns oas:UpdateDCRIResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -7305,6 +7621,7 @@ public isolated client class Client {
     #
     # + id - `id` of the Data Change Request
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function updateDataChangeRequestMassChanges(string id, oas:DcrmanagerUpdatemassopidBody payload, map<string|string[]> headers = {}) returns oas:DataChangeRequestMassChangeEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -7340,6 +7657,7 @@ public isolated client class Client {
     #
     # + typedId - `typedId` of the document whose attachment's metadata you want to update
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function updateFile(string typedId, oas:BdmanagerUpdatetypedIdBody payload, map<string|string[]> headers = {}) returns oas:UpdateFileEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -7356,6 +7674,7 @@ public isolated client class Client {
     # Update Job Status Tracker Entry
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - JST updated 
     remote isolated function updateJobStatusTrackerEntry(oas:OptimizationUpdatejstBody payload, map<string|string[]> headers = {}) returns oas:JobStatusTrackerUpdateEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -7408,6 +7727,7 @@ public isolated client class Client {
     # Update a Live Price Grid Type
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function updateLivePriceGridType(oas:UpdatePGTTBody payload, map<string|string[]> headers = {}) returns oas:LivePriceGridTypeOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -7425,6 +7745,7 @@ public isolated client class Client {
     #
     # + id - The ID of the logic. The `id` is the `typedId` without the **F** suffix. For example, the `id` attribute of the item with `typedId` = **2147484837.F**  is **2147484837**
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - Example response 
     remote isolated function updateLogic(string id, record {record {decimal version?; string typedId?; string uniqueName?; string label?; string validAfter?; string status?; anydata simulationSet?; anydata userGroupEdit?; anydata userGroupViewDetails?; anydata formulaNature?; string lastUpdateByName?; record {decimal version?; string typedId?; string elementName?; string elementLabel?; anydata elementDescription?; string[] elementGroups?; anydata conditionElementName?; boolean hideWarnings?; boolean excludeFromExport?; boolean protectedExpression?; decimal elementTimeout?; decimal displayOptions?; string? formatType?; anydata elementSuffix?; boolean allowOverride?; boolean summarize?; boolean hideOnNull?; anydata userGroup?; anydata cssProperties?; anydata resultGroup?; string combinationType?; boolean storeInAttributeExtension?; anydata criticalAlert?; anydata redAlert?; anydata yellowAlert?; anydata labelTranslations?; string createDate?; decimal createdBy?; string lastUpdateDate?; decimal lastUpdateBy?; string formulaExpression?;}[] elements?; record {}[] inputDescriptors?; string formulaType?; anydata createdByName?; string createDate?; decimal createdBy?; string lastUpdateDate?; decimal lastUpdateBy?;} data?;} payload, map<string|string[]> headers = {}) returns oas:logicResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -7442,6 +7763,7 @@ public isolated client class Client {
     #
     # + id - The ID of the logic. The `id` is the `typedId` without the **F** suffix. For example, the `id` attribute of the item with `typedId` = **2147484837.F**  is **2147484837**
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - Example response 
     remote isolated function updateLogicNo(string id, record {record {decimal version?; string typedId?; string uniqueName?; string label?; string validAfter?; string status?; anydata simulationSet?; anydata userGroupEdit?; anydata userGroupViewDetails?; anydata formulaNature?; string lastUpdateByName?; record {decimal version?; string typedId?; string elementName?; string elementLabel?; anydata elementDescription?; string[] elementGroups?; anydata conditionElementName?; boolean hideWarnings?; boolean excludeFromExport?; boolean protectedExpression?; decimal elementTimeout?; decimal displayOptions?; string? formatType?; anydata elementSuffix?; boolean allowOverride?; boolean summarize?; boolean hideOnNull?; anydata userGroup?; anydata cssProperties?; anydata resultGroup?; string combinationType?; boolean storeInAttributeExtension?; anydata criticalAlert?; anydata redAlert?; anydata yellowAlert?; anydata labelTranslations?; string createDate?; decimal createdBy?; string lastUpdateDate?; decimal lastUpdateBy?; string formulaExpression?;}[] elements?; record {}[] inputDescriptors?; string formulaType?; anydata createdByName?; string createDate?; decimal createdBy?; string lastUpdateDate?; decimal lastUpdateBy?;} data?;} payload, map<string|string[]> headers = {}) returns oas:logicResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -7459,6 +7781,7 @@ public isolated client class Client {
     #
     # + id - The ID of the logic. The `id` is the `typedId` without the **F** suffix. For example, the `id` attribute of the item with `typedId` = **2147484837.F**  is **2147484837**
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - Example response 
     remote isolated function updateLogicPartial(string id, record {record {decimal version?; string typedId?; string uniqueName?; string label?; string validAfter?; string status?; anydata simulationSet?; anydata userGroupEdit?; anydata userGroupViewDetails?; anydata formulaNature?; string lastUpdateByName?; record {decimal version?; string typedId?; string elementName?; string elementLabel?; anydata elementDescription?; string[] elementGroups?; anydata conditionElementName?; boolean hideWarnings?; boolean excludeFromExport?; boolean protectedExpression?; decimal elementTimeout?; decimal displayOptions?; string? formatType?; anydata elementSuffix?; boolean allowOverride?; boolean summarize?; boolean hideOnNull?; anydata userGroup?; anydata cssProperties?; anydata resultGroup?; string combinationType?; boolean storeInAttributeExtension?; anydata criticalAlert?; anydata redAlert?; anydata yellowAlert?; anydata labelTranslations?; string createDate?; decimal createdBy?; string lastUpdateDate?; decimal lastUpdateBy?; string formulaExpression?;}[] elements?; record {}[] inputDescriptors?; string formulaType?; anydata createdByName?; string createDate?; decimal createdBy?; string lastUpdateDate?; decimal lastUpdateBy?;} data?;} payload, map<string|string[]> headers = {}) returns oas:logicResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -7493,6 +7816,7 @@ public isolated client class Client {
     #
     # + tableId - Enter the ID of the table. The ID can be retrieved using the `/lookuptablemanager.fetch` method
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function updateLookupTableValue(string tableId, oas:UpdateLookupTableValueRequest payload, map<string|string[]> headers = {}) returns oas:UpdateLookupTableValueResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -7510,6 +7834,7 @@ public isolated client class Client {
     #
     # + id - The ID of the Manual Price List whose item you want to update
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function updateManualPriceListItem(string id, oas:UpdateManualPriceListRequest payload, map<string|string[]> headers = {}) returns oas:UpdateManualPriceListResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -7563,6 +7888,7 @@ public isolated client class Client {
     #
     # + id - The ID of the Price List whose Item you want to update. The `id` is the `typedId` without the suffix. For example, the `id` attribute of the item with `typedId` = **2147484837.PL**  is **2147484837**
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function updatePriceListDetail(string id, oas:UpdatePricelistDetailRequest payload, map<string|string[]> headers = {}) returns oas:UpdatePricelistDetailResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -7579,6 +7905,7 @@ public isolated client class Client {
     # Update a Price List Type
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function updatePriceListType(oas:UpdatePLTTBody payload, map<string|string[]> headers = {}) returns oas:PriceListTypeOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -7613,6 +7940,7 @@ public isolated client class Client {
     #
     # + typedId - The `typedId` of the Compensation Plan you want to update
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function updateQuoteContractRebateAgreement(string typedId, oas:ClicmanagerUpdatetypedIdBody payload, map<string|string[]> headers = {}) returns oas:UpdateClicEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -7630,6 +7958,7 @@ public isolated client class Client {
     #
     # + typedId - typedId of the object to update
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
     remote isolated function updateReviewStatus(string typedId, record {} payload, map<string|string[]> headers = {}) returns oas:generalResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -7646,6 +7975,7 @@ public isolated client class Client {
     # Update a Seller
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function updateSeller(oas:UpdateSellerRequest payload, map<string|string[]> headers = {}) returns oas:UpdateSellerEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -7662,6 +7992,7 @@ public isolated client class Client {
     # Update a Seller Extension
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function updateSellerExtension(oas:UpdateSXBody payload, map<string|string[]> headers = {}) returns oas:UpdateSellerExtensionEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -7695,6 +8026,7 @@ public isolated client class Client {
     # Update a Workflow Delegation
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function updateWorkflowDelegation(oas:UpdateWorkflowDelegationRequest payload, map<string|string[]> headers = {}) returns oas:UpdateWorkflowDelegationResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -7712,6 +8044,7 @@ public isolated client class Client {
     #
     # + datasourceUniqueName - The unique name of the Data Source where you want to upload the data to. You can also use `typedId` or the source name
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function uploadBulkDataToDataSource(string datasourceUniqueName, oas:UploadBulkDataToDataSourceRequest payload, map<string|string[]> headers = {}) returns oas:BulkDataUploadEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -7732,6 +8065,7 @@ public isolated client class Client {
     # + slotId - ID of the Upload Slot
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
+    # + payload - Request payload
     # + return - File uploaded successfully 
     remote isolated function uploadExcelToImportManager("P"|"PX" typeCode, string target, string slotId, oas:TypeCodetargetBody payload, map<string|string[]> headers = {}, *oas:UploadExcelToImportManagerQueries queries) returns oas:ImportManagerUploadEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -7750,6 +8084,7 @@ public isolated client class Client {
     # + typedId - `typedId` of the document you want to attach the file to
     # + slotId - The ID of the slot you want to use for the upload. retrieve the slot ID using the `/uploadmanager.newuploadslot` (Create an Upload Slot) endpoint
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function uploadFile(string typedId, string slotId, oas:TypedIdslotIdBody payload, map<string|string[]> headers = {}) returns oas:FileOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
@@ -7770,7 +8105,7 @@ public isolated client class Client {
     # + uploadSlotId - `id` of the upload slot. Use the **uploadslotmanager.newuploadslot** endpoint to retrieve the `id`
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
-    # + request -
+    # + payload - Request payload
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
     remote isolated function uploadFileToPxCxSx("PX"|"CX"|"SX" typeCode, string target, string uploadSlotId, oas:TargetuploadSlotIdBody payload, map<string|string[]> headers = {}, *oas:UploadFileToPxCxSxQueries queries) returns oas:generalResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -7789,7 +8124,7 @@ public isolated client class Client {
     # + slotId - Enter the ID of the slot you want to use for the upload
     # + sku - Enter the `sku` of the product you want to add the product image to
     # + headers - Headers to be sent with the request 
-    # + request -
+    # + payload - Request payload
     # + return - OK 
     remote isolated function uploadProductImage(string slotId, string sku, oas:TypedIdslotIdBody payload, map<string|string[]> headers = {}) returns error? {
         oas:Client oasClient = self.getOasClient();
@@ -7806,6 +8141,7 @@ public isolated client class Client {
     # Upsert a Compensation Plan
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function upsertCompensationPlan(oas:UpsertCompensationPlanRequest payload, map<string|string[]> headers = {}) returns oas:UpsertCompensationPlanResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -7822,6 +8158,7 @@ public isolated client class Client {
     # Upsert a Contract
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - Example response 
     remote isolated function upsertContract(oas:UpsertContractRequest payload, map<string|string[]> headers = {}) returns oas:contractModelResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -7891,6 +8228,7 @@ public isolated client class Client {
     #
     # + tableId - Enter the ID of the table. The ID can be retrieved using the `/lookuptablemanager.fetch` method
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function upsertLookupTableValue(string tableId, oas:UpsertLookupTableValueRequest payload, map<string|string[]> headers = {}) returns oas:UpsertLookupTableValueResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -7978,6 +8316,7 @@ public isolated client class Client {
     # Upsert a Product Extension
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - Returns full record details 
     remote isolated function upsertProductExtension(oas:UpsertProductExtensionRequest payload, map<string|string[]> headers = {}) returns oas:productResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -7994,6 +8333,7 @@ public isolated client class Client {
     # Upsert a Quote
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - Example response 
     remote isolated function upsertQuote(oas:UpsertQuoteRequest payload, map<string|string[]> headers = {}) returns oas:quoteResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -8010,6 +8350,7 @@ public isolated client class Client {
     # Upsert a Rebate Agreement
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - Example response 
     remote isolated function upsertRebateAgreement(oas:UpsertRebateAgreementRequest payload, map<string|string[]> headers = {}) returns oas:rebateagreementResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -8027,6 +8368,7 @@ public isolated client class Client {
     #
     # + typedId - The `typedId` of the Claim whose items you want to validate
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function validateItems(string typedId, oas:ValidateClaimItemsRequest payload, map<string|string[]> headers = {}) returns oas:ValidateClaimItemsResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -8043,6 +8385,7 @@ public isolated client class Client {
     # Validate a Workflow Delegation
     #
     # + headers - Headers to be sent with the request 
+    # + payload - Request payload
     # + return - OK 
     remote isolated function validateWorkflowDelegation(oas:ValidateWorkflowDelegationRequest payload, map<string|string[]> headers = {}) returns oas:ValidateWorkflowDelegationResponse|error {
         oas:Client oasClient = self.getOasClient();
@@ -8089,9 +8432,9 @@ isolated function mergeHeaders(map<string|string[]> base, map<string|string[]> o
     return merged;
 }
 
-# Builds the extra headers (TFA code, CSRF token, and/or a pre-signed external JWT) that apply on
-# top of whatever primary auth is configured. None of these can be expressed through an OpenAPI
-# security scheme `bal openapi` understands (TFA/CSRF aren't auth methods at all, and the external
+# Builds the extra headers (CSRF token and/or a pre-signed external JWT) that apply on
+# top of whatever primary auth is configured. Neither can be expressed through an OpenAPI
+# security scheme `bal openapi` understands (CSRF isn't an auth method at all, and the external
 # JWT's `BEARER <system>;<jwt>` value doesn't match any standard scheme shape), so they're merged
 # into every request's headers here instead (with a per-call `headers` argument, if the caller
 # passes one, taking precedence on key collisions).
@@ -8100,10 +8443,6 @@ isolated function mergeHeaders(map<string|string[]> base, map<string|string[]> o
 # + return - A map of the configured extra headers (empty if none are set)
 isolated function buildStaticHeaders(readonly & ConnectionConfig config) returns map<string|string[]> {
     map<string|string[]> headers = {};
-    string? tfaCode = config.tfaCode;
-    if tfaCode is string {
-        headers["PriceFx-TFA"] = tfaCode;
-    }
     string? csrfToken = config.csrfToken;
     if csrfToken is string {
         headers["X-PriceFx-Csrf-Token"] = csrfToken;

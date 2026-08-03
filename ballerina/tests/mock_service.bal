@@ -71,24 +71,6 @@ service /pricefx/companypartition on ep0 {
         };
     }
 
-    # Stands in for any authenticated operation. Echoes back the credentials it saw, so the
-    # auth tests can assert on exactly what reached the wire.
-    #
-    # + priceFxTfa - Echoed, so tests can verify `tfaCode` is merged into every request
-    # + priceFxCsrfToken - Echoed, so tests can verify `csrfToken` is merged into every request
-    # + authorization - Echoed, so tests can verify the OAuth2 / external-JWT header format
-    # + xPriceFxJwt - Echoed, so tests can verify which session token reached the wire
-    # + return - OK
-    resource function post accountmanager\.getonetimetoken(@http:Header {name: "PriceFx-TFA"} string? priceFxTfa = (), @http:Header {name: "X-PriceFx-Csrf-Token"} string? priceFxCsrfToken = (), @http:Header string? authorization = (), @http:Header {name: "X-PriceFx-jwt"} string? xPriceFxJwt = ()) returns oas:GetOneTimeTokenResponse {
-        return {
-            response: {
-                node: string `companynode|tfa=${priceFxTfa ?: ""}|csrf=${priceFxCsrfToken ?: ""}|auth=${authorization ?: ""}|jwt=${xPriceFxJwt ?: ""}`,
-                status: 200,
-                data: [{}]
-            }
-        };
-    }
-
     # Add a Customer
     #
     # + return - Returns customer record details
@@ -399,11 +381,13 @@ service /pricefx/companypartition on ep0 {
     # List Price Lists
     #
     # + return - OK
-    resource function post fetch/PL(@http:Payload oas:ListPriceListsRequest payload) returns ListPriceListsResponseOk {
+    resource function post fetch/PL(@http:Payload oas:ListPriceListsRequest payload, @http:Header {name: "PriceFx-TFA"} string? priceFxTfa = (), @http:Header {name: "X-PriceFx-Csrf-Token"} string? priceFxCsrfToken = (), @http:Header string? authorization = (), @http:Header {name: "X-PriceFx-jwt"} string? xPriceFxJwt = ()) returns ListPriceListsResponseOk {
+        // `node` echoes back the credentials this request arrived with, so the auth tests can
+        // assert on exactly what reached the wire while still exercising a real business operation.
         return {
             body: {
                 response: {
-                    node: "companynode",
+                    node: string `companynode|tfa=${priceFxTfa ?: ""}|csrf=${priceFxCsrfToken ?: ""}|auth=${authorization ?: ""}|jwt=${xPriceFxJwt ?: ""}`,
                     startRow: 0,
                     endRow: 1,
                     totalRows: 1,
@@ -525,20 +509,12 @@ service /pricefx/companypartition on ep0 {
         };
     }
 
-    # Get an Authentication Token (API V2 only)
-    #
-    # + Pricefx\-Key - The Pricefx API key. Contact Pricefx Support to get your Pricefx-Key
-    # + return - returns can be any of following types
-    # http:Ok (Login was successful. The response contains the access token, token type and the refresh token)
-    # http:BadRequest (The request was malformed.)
-    # http:Unauthorized (Unauthorized - the login credentials were incorrect.
-# )
-    # http:Forbidden (Forbidden - The request did not contain a valid Pricefx-Key, the provided credentials in `body` were incorrect, the user was banned or not found or device registration required.)
     # The session-token bootstrap the connector performs internally during `Client.init()`.
     # `POST /token` is not a public operation on the client, so nothing in the test suite calls
     # this directly - the connector does, before any other request.
     #
     # + pricefxKey - The API key the connector sends to authenticate the exchange
+    # + payload - The credentials being exchanged
     # + return - A session token
     resource function post token(@http:Header {name: "Pricefx-Key"} string pricefxKey, @http:Payload TokenExchangeRequest payload) returns TokenExchangeResponse {
         return {

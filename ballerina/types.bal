@@ -24,8 +24,11 @@ import ballerinax/pricefx.oas;
 # connector owns. The type is declared here rather than reused from the generated `oas` module
 # for exactly that reason: no generated operation references it any more.
 type TokenExchangeRequest record {|
+    # The Pricefx username to authenticate as
     string username;
+    # That user's password
     string password;
+    # The partition being authenticated against
     string partition;
 |};
 
@@ -33,9 +36,13 @@ type TokenExchangeRequest record {|
 # Only `access-token` is required; the rest are accepted if present but unused, and the record is
 # open so additional fields a future Pricefx version might add do not break the exchange.
 type TokenExchangeResponse record {
+    # The session token, sent as `X-PriceFx-jwt` on subsequent requests
     string access\-token;
+    # A token for renewing the session. Unused: the connector re-runs the whole exchange instead
     string refresh\-token?;
+    # The token type Pricefx reports. Unused
     string token\-type?;
+    # Seconds until the session token expires. Unused: expiry is detected from a 401 response
     decimal expires\-in?;
 };
 
@@ -55,7 +62,12 @@ type TokenExchangeResponse record {
 # - `externalJwtSystemName` + `externalJwt` - a pre-signed JWT from a trusted external system,
 #   configured on the Pricefx side via `externalJWTConfiguration`
 #
-# `tfaCode` and `csrfToken` are independent of the above and can be set alongside any of them.
+# `csrfToken` is independent of the above and can be set alongside any of them.
+#
+# There is deliberately no field for a two-factor code: a `PriceFx-TFA` value expires in about
+# thirty seconds, so it cannot usefully live in configuration, and the connector has no way to
+# regenerate one. Pass it as a per-call header on the request that needs it instead -
+# `pricefxClient->listPriceLists({}, {"PriceFx-TFA": "123456"})`.
 public type PricefxCredentials record {|
     # Your Pricefx username
     string username?;
@@ -87,9 +99,6 @@ public type PricefxCredentials record {|
     # A refresh token previously obtained through Pricefx's OAuth 2.0 Authorization Code Grant
     # flow. The connector uses it to fetch (and automatically refresh) access tokens
     string oauth2RefreshToken?;
-    # A cleartext two-factor authentication code, sent as the `PriceFx-TFA` header on every
-    # request. Only required when the calling user has TFA enabled and no session cookie exists
-    string tfaCode?;
     # A CSRF token, sent as the `X-PriceFx-Csrf-Token` header on every request. Only required when
     # the partition has CSRF protection enabled
     string csrfToken?;

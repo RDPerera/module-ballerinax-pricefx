@@ -55,15 +55,6 @@ isolated function getPricefxClient() returns Client {
 }
 
 @test:Config {
-    groups: ["live_tests", "mock_tests"]
-}
-function testAuthenticatedCall() returns error? {
-    Client pricefxClient = getPricefxClient();
-    oas:GetOneTimeTokenResponse response = check pricefxClient->getOneTimeToken();
-    test:assertTrue(response?.response !is ());
-}
-
-@test:Config {
     groups: ["mock_tests"]
 }
 function testReauthenticatesAndRetriesOnUnauthorized() returns error? {
@@ -78,15 +69,27 @@ function testReauthenticatesAndRetriesOnUnauthorized() returns error? {
 @test:Config {
     groups: ["mock_tests"]
 }
-function testTfaAndCsrfHeadersAreMerged() returns error? {
-    Client tfaCsrfClient = check new (
-        {username, password, partition, tfaCode: "123456", csrfToken: "csrf-abc", validation: false},
+function testCsrfTokenIsMerged() returns error? {
+    Client csrfClient = check new (
+        {username, password, partition, csrfToken: "csrf-abc", validation: false},
         serviceUrl
     );
-    oas:GetOneTimeTokenResponse response = check tfaCsrfClient->getOneTimeToken();
+    oas:ListPriceListsResponse response = check csrfClient->listPriceLists({});
     string node = response.response?.node ?: "";
-    test:assertTrue(node.includes("tfa=123456"), "expected the PriceFx-TFA header to be merged in, got: " + node);
     test:assertTrue(node.includes("csrf=csrf-abc"), "expected the X-PriceFx-Csrf-Token header to be merged in, got: " + node);
+}
+
+@test:Config {
+    groups: ["mock_tests"]
+}
+function testPerCallHeaderReachesTheServer() returns error? {
+    // There is no config field for a two-factor code (it expires in seconds), so it is passed
+    // per call. This also covers the general case: any header a caller supplies on a single
+    // operation is forwarded, and takes precedence over the connector's own merged headers.
+    Client pricefxClient = getPricefxClient();
+    oas:ListPriceListsResponse response = check pricefxClient->listPriceLists({}, {"PriceFx-TFA": "123456"});
+    string node = response.response?.node ?: "";
+    test:assertTrue(node.includes("tfa=123456"), "expected a per-call header to reach the server, got: " + node);
 }
 
 @test:Config {
@@ -97,7 +100,7 @@ function testOAuth2RefreshTokenAuth() returns error? {
         {oauth2ClientId: "test-client-id", oauth2ClientSecret: "test-client-secret", oauth2RefreshToken: "test-refresh-token", validation: false},
         serviceUrl
     );
-    oas:GetOneTimeTokenResponse response = check oauth2Client->getOneTimeToken();
+    oas:ListPriceListsResponse response = check oauth2Client->listPriceLists({});
     string node = response.response?.node ?: "";
     test:assertTrue(
         node.includes("auth=Bearer mock-oauth2-access-token"),
@@ -113,7 +116,7 @@ function testPreObtainedJwtAuth() returns error? {
     // `generateJwtToken`). It is sent as-is: no `POST /token` exchange happens, so constructing
     // this client makes no network call at all.
     Client jwtClient = check new ({jwt: "preobtained-jwt-xyz", validation: false}, serviceUrl);
-    oas:GetOneTimeTokenResponse response = check jwtClient->getOneTimeToken();
+    oas:ListPriceListsResponse response = check jwtClient->listPriceLists({});
     string node = response.response?.node ?: "";
     test:assertTrue(
         node.includes("jwt=preobtained-jwt-xyz"),
@@ -129,7 +132,7 @@ function testExternalJwtAuth() returns error? {
         {externalJwtSystemName: "mysystem", externalJwt: "signed-jwt-value", validation: false},
         serviceUrl
     );
-    oas:GetOneTimeTokenResponse response = check externalJwtClient->getOneTimeToken();
+    oas:ListPriceListsResponse response = check externalJwtClient->listPriceLists({});
     string node = response.response?.node ?: "";
     test:assertTrue(
         node.includes("auth=BEARER mysystem;signed-jwt-value"),
