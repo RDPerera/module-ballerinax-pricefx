@@ -1390,23 +1390,6 @@ public isolated client class Client {
         return self.clientEp->post(resourcePath, request, httpHeaders);
     }
 
-    # Get an Authentication Token (API V2 only)
-    #
-    # + headers - Headers to be sent with the request 
-    # + return - Login was successful. The response contains the access token, token type and the refresh token 
-    remote isolated function createAuthToken(CreateAuthTokenHeaders headers, GetAuthenticationTokenAPIv2Request payload) returns tokenResponse|error {
-        string resourcePath = string `/token`;
-        map<anydata> headerValues = {...headers};
-        if self.apiKeyConfig is ApiKeysConfig {
-            headerValues["X-PriceFx-jwt"] = self.apiKeyConfig?.X\-PriceFx\-jwt;
-        }
-        map<string|string[]> httpHeaders = http:getHeaderMap(headerValues);
-        http:Request request = new;
-        json jsonBody = payload.toJson();
-        request.setPayload(jsonBody, "application/json");
-        return self.clientEp->post(resourcePath, request, httpHeaders);
-    }
-
     # Create a Quote
     #
     # + typeCode - Enter the type code of the entity you want to create
@@ -1540,6 +1523,24 @@ public isolated client class Client {
     # + return - Example response 
     remote isolated function createManualPriceList(CreateManualPriceListRequest payload, map<string|string[]> headers = {}) returns manualpricelistResponse|error {
         string resourcePath = string `/add/MPL`;
+        map<anydata> headerValues = {...headers};
+        if self.apiKeyConfig is ApiKeysConfig {
+            headerValues["X-PriceFx-jwt"] = self.apiKeyConfig?.X\-PriceFx\-jwt;
+        }
+        map<string|string[]> httpHeaders = http:getHeaderMap(headerValues);
+        http:Request request = new;
+        json jsonBody = payload.toJson();
+        request.setPayload(jsonBody, "application/json");
+        return self.clientEp->post(resourcePath, request, httpHeaders);
+    }
+
+    # Create an Object
+    #
+    # + typeCode - The object's type code. See [the list of Type Codes](https://pricefx.atlassian.net/wiki/spaces/KB/pages/99570616/Type+Codes)
+    # + headers - Headers to be sent with the request 
+    # + return - OK 
+    remote isolated function createObject(string typeCode, createObjectRequest payload, map<string|string[]> headers = {}) returns error? {
+        string resourcePath = string `/add/${getEncodedUri(typeCode)}`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
             headerValues["X-PriceFx-jwt"] = self.apiKeyConfig?.X\-PriceFx\-jwt;
@@ -1686,20 +1687,6 @@ public isolated client class Client {
         json jsonBody = payload.toJson();
         request.setPayload(jsonBody, "application/json");
         return self.clientEp->post(resourcePath, request, httpHeaders);
-    }
-
-    # Delete an Authentication Token (API V2 only)
-    #
-    # + headers - Headers to be sent with the request 
-    # + return - Logout successful 
-    remote isolated function deleteAuthToken(DeleteAuthTokenHeaders headers = {}) returns http:Response|error {
-        string resourcePath = string `/token`;
-        map<anydata> headerValues = {...headers};
-        if self.apiKeyConfig is ApiKeysConfig {
-            headerValues["X-PriceFx-jwt"] = self.apiKeyConfig?.X\-PriceFx\-jwt;
-        }
-        map<string|string[]> httpHeaders = http:getHeaderMap(headerValues);
-        return self.clientEp->delete(resourcePath, headers = httpHeaders);
     }
 
     # Delete a Business Role
@@ -2311,6 +2298,24 @@ public isolated client class Client {
     # + return - OK 
     remote isolated function deleteNotification(NotificationSetreadBody payload, map<string|string[]> headers = {}) returns DeleteNotificationEnvelope|error {
         string resourcePath = string `/notification.delete`;
+        map<anydata> headerValues = {...headers};
+        if self.apiKeyConfig is ApiKeysConfig {
+            headerValues["X-PriceFx-jwt"] = self.apiKeyConfig?.X\-PriceFx\-jwt;
+        }
+        map<string|string[]> httpHeaders = http:getHeaderMap(headerValues);
+        http:Request request = new;
+        json jsonBody = payload.toJson();
+        request.setPayload(jsonBody, "application/json");
+        return self.clientEp->post(resourcePath, request, httpHeaders);
+    }
+
+    # Delete an Object
+    #
+    # + typeCode - Enter the type code of the entity you want to delete the object from. See [the list of Type Codes](https://pricefx.atlassian.net/wiki/spaces/KB/pages/99570616/Type+Codes) in the Pricefx Knowledge Base article
+    # + headers - Headers to be sent with the request 
+    # + return - OK 
+    remote isolated function deleteObject("ACTT"|"AP"|"APIK"|"BD"|"BPT"|"BR"|"C"|"CA"|"CAM"|"CDESC"|"CF"|"CFS"|"CFT"|"CH"|"CLLI"|"CN"|"CS"|"CT"|"CTAM"|"CTLI"|"CTMU"|"CTMUI"|"CTT"|"CTTAM"|"CTTREE"|"CW"|"CX"|"CXAM"|"DA"|"DB"|"DCR"|"DCRAM"|"DCRI"|"DCRL"|"DCRMC"|"DCRT"|"DE"|"DI"|"DM"|"DMDC"|"DMDL"|"DMDS"|"DMF"|"DMM"|"DMR"|"DMT"|"DREG"|"DWT"|"ET"|"EVT"|"F"|"FE"|"FN"|"IDC"|"IE"|"ISH"|"JST"|"JLTV"|"JLTVM"|"LAT"|"LT"|"LTT"|"LTV"|"M"|"MLTV"|"MLTV2"|"MLTV3"|"MLTV4"|"MLTV5"|"MLTV6"|"MLTVM"|"MPL"|"MPLAM"|"MPLI"|"MPLIT"|"MPLT"|"MR"|"MRAM"|"MT"|"P"|"PAM"|"PAPIJ"|"PBOME"|"PCOMP"|"PCW"|"PDESC"|"PG"|"PGI"|"PGIM"|"PGT"|"PH"|"PL"|"PLI"|"PLIM"|"PLT"|"PR"|"PRAM"|"PREF"|"PT"|"PWH"|"PX"|"PXAM"|"PXREF"|"PYR"|"PYRAM"|"Q"|"QAM"|"QLI"|"QMU"|"QMUI"|"QT"|"QTT"|"QTTAM"|"R"|"RAT"|"RATM"|"RBA"|"RBAAM"|"RBALI"|"RBAT"|"RBT"|"RBTAM"|"RR"|"RRAM"|"RRS"|"RRSC"|"RT"|"SAT"|"SC"|"SCN"|"SCNAM"|"SCT"|"SIAM"|"SIM"|"SIMI"|"TFA"|"TODO"|"U"|"UG"|"US"|"W"|"WD"|"WF"|"WFE"|"XPGI"|"XPLI"|"XSIMI" typeCode, deleteObjectRequest payload, map<string|string[]> headers = {}) returns deleteObjectResponse|error {
+        string resourcePath = string `/delete/${getEncodedUri(typeCode)}`;
         map<anydata> headerValues = {...headers};
         if self.apiKeyConfig is ApiKeysConfig {
             headerValues["X-PriceFx-jwt"] = self.apiKeyConfig?.X\-PriceFx\-jwt;
@@ -3796,6 +3801,23 @@ public isolated client class Client {
         }
         map<string|string[]> httpHeaders = http:getHeaderMap(headerValues);
         return self.clientEp->get(resourcePath, httpHeaders);
+    }
+
+    # Get an Object
+    #
+    # + typeCode - The object's type code. See [the list of Type Codes](https://pricefx.atlassian.net/wiki/spaces/KB/pages/99570616/Type+Codes)
+    # + id - The ID of the object you want to retrieve details for
+    # + headers - Headers to be sent with the request 
+    # + return - OK 
+    remote isolated function getObject(string typeCode, string id, map<string|string[]> headers = {}) returns getObjectResponse|error {
+        string resourcePath = string `/fetch/${getEncodedUri(typeCode)}/${getEncodedUri(id)}`;
+        map<anydata> headerValues = {...headers};
+        if self.apiKeyConfig is ApiKeysConfig {
+            headerValues["X-PriceFx-jwt"] = self.apiKeyConfig?.X\-PriceFx\-jwt;
+        }
+        map<string|string[]> httpHeaders = http:getHeaderMap(headerValues);
+        http:Request request = new;
+        return self.clientEp->post(resourcePath, request, httpHeaders);
     }
 
     # Get a One Time Token
@@ -5345,6 +5367,24 @@ public isolated client class Client {
         return self.clientEp->post(resourcePath, request, httpHeaders);
     }
 
+    # List Objects
+    #
+    # + typeCode - The object's type code. See [the list of Type Codes](https://pricefx.atlassian.net/wiki/spaces/KB/pages/99570616/Type+Codes)
+    # + headers - Headers to be sent with the request 
+    # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
+    remote isolated function listObjects(string typeCode, fetch_typeCode_body payload, map<string|string[]> headers = {}) returns generalResponse|error {
+        string resourcePath = string `/fetch/${getEncodedUri(typeCode)}`;
+        map<anydata> headerValues = {...headers};
+        if self.apiKeyConfig is ApiKeysConfig {
+            headerValues["X-PriceFx-jwt"] = self.apiKeyConfig?.X\-PriceFx\-jwt;
+        }
+        map<string|string[]> httpHeaders = http:getHeaderMap(headerValues);
+        http:Request request = new;
+        json jsonBody = payload.toJson();
+        request.setPayload(jsonBody, "application/json");
+        return self.clientEp->post(resourcePath, request, httpHeaders);
+    }
+
     # List Parallel Calculation Items
     #
     # + headers - Headers to be sent with the request 
@@ -5829,20 +5869,6 @@ public isolated client class Client {
         return self.clientEp->post(resourcePath, request, httpHeaders);
     }
 
-    # User Login (V1)
-    #
-    # + headers - Headers to be sent with the request 
-    # + return - OK 
-    remote isolated function login(map<string|string[]> headers = {}) returns UserLoginResponse|error {
-        string resourcePath = string `/login/extended`;
-        map<anydata> headerValues = {...headers};
-        if self.apiKeyConfig is ApiKeysConfig {
-            headerValues["X-PriceFx-jwt"] = self.apiKeyConfig?.X\-PriceFx\-jwt;
-        }
-        map<string|string[]> httpHeaders = http:getHeaderMap(headerValues);
-        return self.clientEp->get(resourcePath, httpHeaders);
-    }
-
     # Mark as Read
     #
     # + headers - Headers to be sent with the request 
@@ -6075,40 +6101,6 @@ public isolated client class Client {
         return self.clientEp->post(resourcePath, request, httpHeaders);
     }
 
-    # OAuth Authorization Request
-    #
-    # + headers - Headers to be sent with the request 
-    # + queries - Queries to be sent with the request 
-    # + return - Found 
-    remote isolated function oauthAuthorize(map<string|string[]> headers = {}, *OauthAuthorizeQueries queries) returns error? {
-        string resourcePath = string `/oauth/authorize`;
-        map<anydata> headerValues = {...headers};
-        if self.apiKeyConfig is ApiKeysConfig {
-            headerValues["X-PriceFx-jwt"] = self.apiKeyConfig?.X\-PriceFx\-jwt;
-        }
-        resourcePath = resourcePath + check getPathForQueryParam(queries);
-        map<string|string[]> httpHeaders = http:getHeaderMap(headerValues);
-        http:Request request = new;
-        return self.clientEp->post(resourcePath, request, httpHeaders);
-    }
-
-    # Access Token Request
-    #
-    # + headers - Headers to be sent with the request 
-    # + queries - Queries to be sent with the request 
-    # + return - OK 
-    remote isolated function oauthToken(map<string|string[]> headers = {}, *OauthTokenQueries queries) returns OAuthTokenResponse|error {
-        string resourcePath = string `/oauth/token`;
-        map<anydata> headerValues = {...headers};
-        if self.apiKeyConfig is ApiKeysConfig {
-            headerValues["X-PriceFx-jwt"] = self.apiKeyConfig?.X\-PriceFx\-jwt;
-        }
-        resourcePath = resourcePath + check getPathForQueryParam(queries);
-        map<string|string[]> httpHeaders = http:getHeaderMap(headerValues);
-        http:Request request = new;
-        return self.clientEp->post(resourcePath, request, httpHeaders);
-    }
-
     # Perform a Mass Action
     #
     # + id - The ID of the Price Grid that contains items you want to apply workflow actions to
@@ -6285,24 +6277,6 @@ public isolated client class Client {
         resourcePath = resourcePath + check getPathForQueryParam(queries);
         map<string|string[]> httpHeaders = http:getHeaderMap(headerValues);
         http:Request request = new;
-        return self.clientEp->post(resourcePath, request, httpHeaders);
-    }
-
-    # Refresh an Authentication Token (API V2 only)
-    #
-    # + headers - Headers to be sent with the request 
-    # + payload - Provide the referesh token 
-    # + return - Login was successful. The response contains the access token, token type and the refresh token 
-    remote isolated function refreshAuthToken(RefreshAuthTokenHeaders headers, TokenRefreshBody payload) returns tokenResponse|error {
-        string resourcePath = string `/token/refresh`;
-        map<anydata> headerValues = {...headers};
-        if self.apiKeyConfig is ApiKeysConfig {
-            headerValues["X-PriceFx-jwt"] = self.apiKeyConfig?.X\-PriceFx\-jwt;
-        }
-        map<string|string[]> httpHeaders = http:getHeaderMap(headerValues);
-        http:Request request = new;
-        json jsonBody = payload.toJson();
-        request.setPayload(jsonBody, "application/json");
         return self.clientEp->post(resourcePath, request, httpHeaders);
     }
 
@@ -6560,23 +6534,6 @@ public isolated client class Client {
         http:Request request = new;
         json jsonBody = payload.toJson();
         request.setPayload(jsonBody, "application/json");
-        return self.clientEp->post(resourcePath, request, httpHeaders);
-    }
-
-    # Authenticate with SAML
-    #
-    # + headers - Headers to be sent with the request 
-    # + queries - Queries to be sent with the request 
-    # + return - OK - Redirects to the target page if a valid session exists 
-    remote isolated function samlSignOn(map<string|string[]> headers = {}, *SamlSignOnQueries queries) returns error? {
-        string resourcePath = string `/saml/signon`;
-        map<anydata> headerValues = {...headers};
-        if self.apiKeyConfig is ApiKeysConfig {
-            headerValues["X-PriceFx-jwt"] = self.apiKeyConfig?.X\-PriceFx\-jwt;
-        }
-        resourcePath = resourcePath + check getPathForQueryParam(queries);
-        map<string|string[]> httpHeaders = http:getHeaderMap(headerValues);
-        http:Request request = new;
         return self.clientEp->post(resourcePath, request, httpHeaders);
     }
 

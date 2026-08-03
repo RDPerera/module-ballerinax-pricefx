@@ -3419,7 +3419,7 @@ generated/wrapper split as
 - `ballerina/modules/oas` must be listed in the root `Ballerina.toml`'s `export` array
   (`export = ["pricefx", "pricefx.oas"]`). The wrapper's public remote functions return and accept
   `oas:X` types directly (no request/response type conversion layer, unlike gmail's
-  `convertOASXToX()` functions — impractical to hand-write and maintain for 480 operations), so
+  `convertOASXToX()` functions — impractical to hand-write and maintain for 477 operations), so
   submodule types are part of the wrapper's public API surface and must be externally resolvable.
 - The root `ballerina/client.bal` is entirely hand-written and holds all customization:
   - `public isolated client class Client` has a **non-`final`** `oas:Client oasClient` field
@@ -3432,7 +3432,7 @@ generated/wrapper split as
     otherwise it authenticates every request via HTTP Basic auth, using
     `${partition}/${username}` as the Basic auth username (Pricefx requires the partition-prefixed
     form — a bare username is rejected).
-  - Every one of the 480 operations is a thin forwarding `remote` function: read the current
+  - Every one of the 477 operations is a thin forwarding `remote` function: read the current
     `oas:Client` via `getOasClient()`, call the operation, check `isAuthError(r)` (HTTP 401), and
     if so call `self.reauthenticate()` and retry once against the freshly-rebuilt client.
     `isAuthError` is a small helper at the bottom of `client.bal`.
@@ -3459,19 +3459,13 @@ generated/wrapper split as
   `check new ({username, password, partition}, serviceUrl)` — credentials are top-level fields,
   not a separate `auth` record — and never handle a JWT themselves.
 
-A known, deliberately-unfixed limitation: the generated client's `createAuthToken`,
-`refreshAuthToken`, and `deleteAuthToken` operations remain reachable through the wrapper (as
-`pricefxClient->createAuthToken(...)`, etc. — every generated operation is forwarded, including
-these), but calling them **directly** still hits a genuine `bal openapi` codegen bug: their header
-parameter types (`CreateAuthTokenHeaders`, etc.) carry a `pricefxKey` field annotated
-`@http:Header {name: "Pricefx-Key"}`, but the generated function body builds the outgoing headers
-via a plain `map<anydata> headerValues = {...headers};` spread, which uses the record's Ballerina
-field name (`pricefxKey`) as the header key, not the annotation's real wire name
-(`Pricefx-Key`) — so the request is always sent with the wrong header name and Pricefx rejects it
-with `400 no header value found for 'Pricefx-Key'`. This can no longer be hand-patched (generated
-code is off-limits), so it is left as-is; callers who need this exchange should rely on the
-wrapper's own automatic JWT bootstrap (set `pricefxKey` in `PricefxCredentials`) rather than
-calling `createAuthToken` directly. There is no test for `createAuthToken` for this reason.
+The three token-management operations (`createAuthToken`, `refreshAuthToken`, `deleteAuthToken`)
+used to be forwarded and carried a known-unfixable bug: their generated bodies build outgoing
+headers with a plain `{...headers}` spread, which uses the record's Ballerina field name
+(`pricefxKey`) as the header key instead of the annotation's real wire name (`Pricefx-Key`), so
+Pricefx rejected every call with `400 no header value found for 'Pricefx-Key'`. That is moot as of
+item 575 - those operations are no longer exposed at all, and the wrapper's own bootstrap never used
+them. The bug still exists in `bal openapi`; it simply no longer reaches this connector's API.
 
 If new operations are added to the spec, regenerate the submodule (safe, no reconciliation
 needed), then regenerate the wrapper's forwarding functions mechanically from the submodule's
@@ -3495,10 +3489,12 @@ doc comment, never directly above the `*Type;` line itself.
 - **Updated**: Removed the `--tags` filter entirely; the client now covers all remaining operations across the other 43 tags (Sales Compensations, Data Manager, Rebates, Optimization, Workflow, User Admin, Live Price Grids, Custom Forms, Comments, Notifications, etc.), plus the 139 core operationIds and 29 core schema renames from the prior pass, and the same treatment applied to the remaining 345 operationIds and 66 generic `InlineResponseNNN` schemas.
 - **Reason**: Full API coverage requested.
 
-568. Remove 4 generic catch-all operations that collide with specific Calculation Grid Item endpoints
-- **Original**: The spec defines both generic single-typeCode catch-all operations (`POST /add/{typeCode}` → `createObject`, `POST /delete/{typeCode}` → `deleteObject`, `POST /fetch/{typeCode}` → `listObjects`, `POST /fetch/{typeCode}/{id}` → `getObject`) and specific Calculation Grid Item endpoints with a single templated segment (`POST /add/CGI{keyNumber}`, `POST /delete/CGI{keyNumber}`, `POST /fetch/CGI{keyNumber}`, `POST /fetch/CGI{keyNumber}/{id}`). Both pairs template to the identical Ballerina resource path shape (a single path parameter segment), which `bal openapi`/Ballerina's resource-method dispatch cannot disambiguate — client generation failed with `redeclared symbol` errors.
-- **Updated**: Removed the 4 generic catch-all operations (`createObject`, `deleteObject`, `listObjects`, `getObject`) from the spec. All other type codes already have dedicated, specifically-named, more strongly-typed endpoints generated elsewhere in the client (e.g. `addProduct`, `addCustomer`, `addSeller`, etc.), so no unique functionality is lost except for arbitrary/future type codes that have no dedicated endpoint.
-- **Reason**: A genuine Ballerina resource-routing limitation — two distinct URL shapes that happen to template identically cannot coexist as separate resource methods on the same client class.
+568. Remove, then later restore, 4 generic catch-all operations
+- **Original**: The spec defines both generic single-typeCode catch-all operations (`POST /add/{typeCode}` -> `createObject`, `POST /delete/{typeCode}` -> `deleteObject`, `POST /fetch/{typeCode}` -> `listObjects`, `POST /fetch/{typeCode}/{id}` -> `getObject`) and specific Calculation Grid Item endpoints with a single templated segment (`POST /add/CGI{keyNumber}`, `POST /delete/CGI{keyNumber}`, `POST /fetch/CGI{keyNumber}`, `POST /fetch/CGI{keyNumber}/{id}`).
+- **Removed (while generating resource methods)**: Both pairs template to the identical Ballerina *resource path* shape (a single path-parameter segment), which resource-method dispatch cannot disambiguate - generation failed with `redeclared symbol`. The 4 generic operations were dropped, taking coverage from the spec's 484 operations down to 480.
+- **Restored (now that we generate remote methods)**: The collision was specific to resource methods. With `--client-methods remote` each operation becomes a distinctly named function (`createObject` vs `addCalculationGridItem`) and the URL is just a string built inside the function body, so two paths that template alike no longer conflict. All 4 were restored and the connector now covers all 484 operations. Verified by regenerating: 484 remote functions, no `redeclared symbol`, clean build and test run.
+- **Note when restoring**: deleting the operations had left 4 orphaned path entries in the spec carrying only `parameters` and no HTTP method. The restore put the `post` back into those existing entries and reused their already-sanitized path parameters, rather than re-adding the upstream ones.
+- **Note on typing**: these four are deliberately loose - `createObject`, `listObjects` and `getObject` take `typeCode` as a plain `string`, which is the point of a catch-all (it has to accept type codes that have no dedicated endpoint, including ones added after this spec was written). `deleteObject` is the exception: upstream constrains it to a 147-value enum, and that has been left as upstream defines it rather than widened. Prefer the dedicated, more strongly typed operations (`addProduct`, `addCustomer`, `addSeller`, ...) wherever one exists.
 
 569. Fix two malformed generated identifiers from special-character field names
 - **Original**: A field literally named `Margin %` in the JSON schema was generated as the Ballerina identifier `margin%` (an invalid identifier — `%` is not a valid character in an unescaped Ballerina identifier). Separately, a field literally named `""` (empty string) generated the annotation `@jsondata:Name {value: """"}`, which is not valid Ballerina string-literal syntax.
@@ -3540,6 +3536,14 @@ doc comment, never directly above the `*Type;` line itself.
   ```
   The committed submodule is 2201.12.0 output. Verified reproducible: regenerating with 2201.12.0 yields a byte-identical `client.bal` and `utils.bal`, and a `types.bal` differing only by the three documented fixes (entries 569 and 571). If a future maintainer bumps the pinned distribution, expect the fix list in 569/571 to change and re-verify it from scratch rather than reapplying it blindly.
 - **Also note**: `bal openapi -o <dir>` does **not** create the output directory; it fails with a bare `<dir>/client.bal (No such file or directory)`. `mkdir -p` the target first.
+
+575. Remove the auth operations the connector manages itself
+- **Problem**: the spec's Authentication tag exposes operations that either establish/tear down the very session `Client.init()` already owns, or are browser-redirect flows that cannot work from a server-side client. Forwarding them made the connector's API actively misleading: `pricefxClient->login()` looked like the way to authenticate when `init()` had already done it, and `deleteAuthToken` would have invalidated the connector's own session from underneath it.
+- **Removed (7)**: `login` (`GET /login/extended`), `createAuthToken` (`POST /token`), `refreshAuthToken` (`POST /token/refresh`), `deleteAuthToken` (`DELETE /token`), `samlSignOn` (`POST /saml/signon`), `oauthAuthorize` (`POST /oauth/authorize`), `oauthToken` (`POST /oauth/token`). Coverage went 484 -> 477.
+- **Kept (3)**: `generateJwtToken`, `generateTimedJwtToken`, `getOneTimeToken`. These mint tokens *for other systems* ("Used for integration purposes", "can be sent via a URL GET parameter") rather than for this client's session, so they are genuine business operations with no conflict.
+- **Why the OAuth pair went too**: `oauthAuthorize` is a redirect endpoint meant for a browser, and `oauthToken` is circular on a client - you would need an already-authenticated `pricefx:Client` to call the endpoint whose entire purpose is producing the credential that authenticates it. The one-time code-for-refresh-token exchange is done out of band (curl, or your IdP tooling); once you hold a refresh token, `oauth2RefreshToken` on `ConnectionConfig` takes over and Ballerina's `http` module refreshes access tokens by itself.
+- **Consequence for the wrapper**: removing `POST /token` from the spec also pruned the `GetAuthenticationTokenAPIv2Request` / `tokenResponse` schemas, which the wrapper's own bootstrap (`fetchAccessToken`) depended on - `bal openapi` only emits types reachable from an operation. Those two are now hand-declared as non-public `TokenExchangeRequest` / `TokenExchangeResponse` in `ballerina/types.bal`. That is the better arrangement anyway: the bootstrap is the wrapper's own concern, so it should not depend on a generated operation it deliberately does not expose. `TokenExchangeResponse` is an open record with only `access-token` required, so a future Pricefx field addition cannot break the exchange.
+- **Consequence for tests and examples**: `login()` had been convenient as a "prove auth works" call. It is replaced throughout by `getOneTimeToken()`, which is also header-only (so it reads identically), is a real authenticated operation, and is one of the kept three.
 
 ## OpenAPI cli command
 

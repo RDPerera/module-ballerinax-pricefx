@@ -17,7 +17,6 @@
 // specific language governing permissions and limitations
 // under the License.
 
-import ballerina/constraint;
 import ballerina/http;
 import ballerinax/pricefx.oas;
 
@@ -39,11 +38,6 @@ public type AddCalculationGridResponseOk record {|
 public type ProductResponseOk record {|
     *http:Ok;
     oas:productResponse body;
-|};
-
-public type GetAuthenticationTokenAPIv2401ResponseUnauthorized record {|
-    *http:Unauthorized;
-    GetAuthenticationTokenAPIv2401Response body;
 |};
 
 public type ListPriceListsResponseOk record {|
@@ -69,11 +63,6 @@ public type ConditionRecordSetOperationEnvelopeOk record {|
 public type GetPriceListResponseOk record {|
     *http:Ok;
     oas:GetPriceListResponse body;
-|};
-
-public type GetAuthenticationTokenAPIv2400ResponseBadRequest record {|
-    *http:BadRequest;
-    GetAuthenticationTokenAPIv2400Response body;
 |};
 
 public type CreatePriceListResponseOk record {|
@@ -106,11 +95,6 @@ public type CalculateCalculationGridResponseOk record {|
     oas:CalculateCalculationGridResponse body;
 |};
 
-public type GetAuthenticationTokenAPIv2400Response record {
-    @constraint:String {minLength: 1}
-    string 'error;
-};
-
 public type ListConditionRecordSetsEnvelopeOk record {|
     *http:Ok;
     oas:ListConditionRecordSetsEnvelope body;
@@ -121,19 +105,9 @@ public type ManualpricelistResponseOk record {|
     oas:manualpricelistResponse body;
 |};
 
-public type GetAuthenticationTokenAPIv2401Response record {
-    @constraint:String {minLength: 1}
-    string 'error;
-};
-
 public type AddSellerEnvelopeOk record {|
     *http:Ok;
     oas:AddSellerEnvelope body;
-|};
-
-public type TokenResponseOk record {|
-    *http:Ok;
-    oas:tokenResponse body;
 |};
 
 public type DeleteProductResponseOk record {|

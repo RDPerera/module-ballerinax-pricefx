@@ -1353,21 +1353,6 @@ public isolated client class Client {
         return r;
     }
 
-    # Get an Authentication Token (API V2 only)
-    #
-    # + headers - Headers to be sent with the request 
-    # + return - Login was successful. The response contains the access token, token type and the refresh token 
-    remote isolated function createAuthToken(oas:CreateAuthTokenHeaders headers, oas:GetAuthenticationTokenAPIv2Request payload) returns oas:tokenResponse|error {
-        oas:Client oasClient = self.getOasClient();
-        oas:tokenResponse|error r = oasClient->createAuthToken(headers, payload);
-        if isAuthError(r) {
-            check self.reauthenticate();
-            oasClient = self.getOasClient();
-            r = oasClient->createAuthToken(headers, payload);
-        }
-        return r;
-    }
-
     # Create a Quote
     #
     # + typeCode - Enter the type code of the entity you want to create
@@ -1504,6 +1489,23 @@ public isolated client class Client {
         return r;
     }
 
+    # Create an Object
+    #
+    # + typeCode - The object's type code. See [the list of Type Codes](https://pricefx.atlassian.net/wiki/spaces/KB/pages/99570616/Type+Codes)
+    # + headers - Headers to be sent with the request 
+    # + return - OK 
+    remote isolated function createObject(string typeCode, oas:createObjectRequest payload, map<string|string[]> headers = {}) returns error? {
+        oas:Client oasClient = self.getOasClient();
+        map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
+        error? r = oasClient->createObject(typeCode, payload, mergedHeaders);
+        if isAuthError(r) {
+            check self.reauthenticate();
+            oasClient = self.getOasClient();
+            r = oasClient->createObject(typeCode, payload, mergedHeaders);
+        }
+        return r;
+    }
+
     # Create a Price List
     #
     # + headers - Headers to be sent with the request 
@@ -1632,21 +1634,6 @@ public isolated client class Client {
             check self.reauthenticate();
             oasClient = self.getOasClient();
             r = oasClient->deleteActionItemType(payload, mergedHeaders);
-        }
-        return r;
-    }
-
-    # Delete an Authentication Token (API V2 only)
-    #
-    # + headers - Headers to be sent with the request 
-    # + return - Logout successful 
-    remote isolated function deleteAuthToken(oas:DeleteAuthTokenHeaders headers = {}) returns http:Response|error {
-        oas:Client oasClient = self.getOasClient();
-        http:Response|error r = oasClient->deleteAuthToken(headers);
-        if isAuthError(r) {
-            check self.reauthenticate();
-            oasClient = self.getOasClient();
-            r = oasClient->deleteAuthToken(headers);
         }
         return r;
     }
@@ -2241,6 +2228,23 @@ public isolated client class Client {
             check self.reauthenticate();
             oasClient = self.getOasClient();
             r = oasClient->deleteNotification(payload, mergedHeaders);
+        }
+        return r;
+    }
+
+    # Delete an Object
+    #
+    # + typeCode - Enter the type code of the entity you want to delete the object from. See [the list of Type Codes](https://pricefx.atlassian.net/wiki/spaces/KB/pages/99570616/Type+Codes) in the Pricefx Knowledge Base article
+    # + headers - Headers to be sent with the request 
+    # + return - OK 
+    remote isolated function deleteObject("ACTT"|"AP"|"APIK"|"BD"|"BPT"|"BR"|"C"|"CA"|"CAM"|"CDESC"|"CF"|"CFS"|"CFT"|"CH"|"CLLI"|"CN"|"CS"|"CT"|"CTAM"|"CTLI"|"CTMU"|"CTMUI"|"CTT"|"CTTAM"|"CTTREE"|"CW"|"CX"|"CXAM"|"DA"|"DB"|"DCR"|"DCRAM"|"DCRI"|"DCRL"|"DCRMC"|"DCRT"|"DE"|"DI"|"DM"|"DMDC"|"DMDL"|"DMDS"|"DMF"|"DMM"|"DMR"|"DMT"|"DREG"|"DWT"|"ET"|"EVT"|"F"|"FE"|"FN"|"IDC"|"IE"|"ISH"|"JST"|"JLTV"|"JLTVM"|"LAT"|"LT"|"LTT"|"LTV"|"M"|"MLTV"|"MLTV2"|"MLTV3"|"MLTV4"|"MLTV5"|"MLTV6"|"MLTVM"|"MPL"|"MPLAM"|"MPLI"|"MPLIT"|"MPLT"|"MR"|"MRAM"|"MT"|"P"|"PAM"|"PAPIJ"|"PBOME"|"PCOMP"|"PCW"|"PDESC"|"PG"|"PGI"|"PGIM"|"PGT"|"PH"|"PL"|"PLI"|"PLIM"|"PLT"|"PR"|"PRAM"|"PREF"|"PT"|"PWH"|"PX"|"PXAM"|"PXREF"|"PYR"|"PYRAM"|"Q"|"QAM"|"QLI"|"QMU"|"QMUI"|"QT"|"QTT"|"QTTAM"|"R"|"RAT"|"RATM"|"RBA"|"RBAAM"|"RBALI"|"RBAT"|"RBT"|"RBTAM"|"RR"|"RRAM"|"RRS"|"RRSC"|"RT"|"SAT"|"SC"|"SCN"|"SCNAM"|"SCT"|"SIAM"|"SIM"|"SIMI"|"TFA"|"TODO"|"U"|"UG"|"US"|"W"|"WD"|"WF"|"WFE"|"XPGI"|"XPLI"|"XSIMI" typeCode, oas:deleteObjectRequest payload, map<string|string[]> headers = {}) returns oas:deleteObjectResponse|error {
+        oas:Client oasClient = self.getOasClient();
+        map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
+        oas:deleteObjectResponse|error r = oasClient->deleteObject(typeCode, payload, mergedHeaders);
+        if isAuthError(r) {
+            check self.reauthenticate();
+            oasClient = self.getOasClient();
+            r = oasClient->deleteObject(typeCode, payload, mergedHeaders);
         }
         return r;
     }
@@ -3696,6 +3700,24 @@ public isolated client class Client {
             check self.reauthenticate();
             oasClient = self.getOasClient();
             r = oasClient->getNewUploadSlot(mergedHeaders);
+        }
+        return r;
+    }
+
+    # Get an Object
+    #
+    # + typeCode - The object's type code. See [the list of Type Codes](https://pricefx.atlassian.net/wiki/spaces/KB/pages/99570616/Type+Codes)
+    # + id - The ID of the object you want to retrieve details for
+    # + headers - Headers to be sent with the request 
+    # + return - OK 
+    remote isolated function getObject(string typeCode, string id, map<string|string[]> headers = {}) returns oas:getObjectResponse|error {
+        oas:Client oasClient = self.getOasClient();
+        map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
+        oas:getObjectResponse|error r = oasClient->getObject(typeCode, id, mergedHeaders);
+        if isAuthError(r) {
+            check self.reauthenticate();
+            oasClient = self.getOasClient();
+            r = oasClient->getObject(typeCode, id, mergedHeaders);
         }
         return r;
     }
@@ -5206,6 +5228,23 @@ public isolated client class Client {
         return r;
     }
 
+    # List Objects
+    #
+    # + typeCode - The object's type code. See [the list of Type Codes](https://pricefx.atlassian.net/wiki/spaces/KB/pages/99570616/Type+Codes)
+    # + headers - Headers to be sent with the request 
+    # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
+    remote isolated function listObjects(string typeCode, oas:fetch_typeCode_body payload, map<string|string[]> headers = {}) returns oas:generalResponse|error {
+        oas:Client oasClient = self.getOasClient();
+        map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
+        oas:generalResponse|error r = oasClient->listObjects(typeCode, payload, mergedHeaders);
+        if isAuthError(r) {
+            check self.reauthenticate();
+            oasClient = self.getOasClient();
+            r = oasClient->listObjects(typeCode, payload, mergedHeaders);
+        }
+        return r;
+    }
+
     # List Parallel Calculation Items
     #
     # + headers - Headers to be sent with the request 
@@ -5680,22 +5719,6 @@ public isolated client class Client {
         return r;
     }
 
-    # User Login (V1)
-    #
-    # + headers - Headers to be sent with the request 
-    # + return - OK 
-    remote isolated function login(map<string|string[]> headers = {}) returns oas:UserLoginResponse|error {
-        oas:Client oasClient = self.getOasClient();
-        map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:UserLoginResponse|error r = oasClient->login(mergedHeaders);
-        if isAuthError(r) {
-            check self.reauthenticate();
-            oasClient = self.getOasClient();
-            r = oasClient->login(mergedHeaders);
-        }
-        return r;
-    }
-
     # Mark as Read
     #
     # + headers - Headers to be sent with the request 
@@ -5914,40 +5937,6 @@ public isolated client class Client {
         return r;
     }
 
-    # OAuth Authorization Request
-    #
-    # + headers - Headers to be sent with the request 
-    # + queries - Queries to be sent with the request 
-    # + return - Found 
-    remote isolated function oauthAuthorize(map<string|string[]> headers = {}, *oas:OauthAuthorizeQueries queries) returns error? {
-        oas:Client oasClient = self.getOasClient();
-        map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        error? r = oasClient->oauthAuthorize(mergedHeaders, queries = queries);
-        if isAuthError(r) {
-            check self.reauthenticate();
-            oasClient = self.getOasClient();
-            r = oasClient->oauthAuthorize(mergedHeaders, queries = queries);
-        }
-        return r;
-    }
-
-    # Access Token Request
-    #
-    # + headers - Headers to be sent with the request 
-    # + queries - Queries to be sent with the request 
-    # + return - OK 
-    remote isolated function oauthToken(map<string|string[]> headers = {}, *oas:OauthTokenQueries queries) returns oas:OAuthTokenResponse|error {
-        oas:Client oasClient = self.getOasClient();
-        map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:OAuthTokenResponse|error r = oasClient->oauthToken(mergedHeaders, queries = queries);
-        if isAuthError(r) {
-            check self.reauthenticate();
-            oasClient = self.getOasClient();
-            r = oasClient->oauthToken(mergedHeaders, queries = queries);
-        }
-        return r;
-    }
-
     # Perform a Mass Action
     #
     # + id - The ID of the Price Grid that contains items you want to apply workflow actions to
@@ -6115,22 +6104,6 @@ public isolated client class Client {
             check self.reauthenticate();
             oasClient = self.getOasClient();
             r = oasClient->recalculateQuoteContractRebate(typedId, mergedHeaders, queries = queries);
-        }
-        return r;
-    }
-
-    # Refresh an Authentication Token (API V2 only)
-    #
-    # + headers - Headers to be sent with the request 
-    # + payload - Provide the referesh token 
-    # + return - Login was successful. The response contains the access token, token type and the refresh token 
-    remote isolated function refreshAuthToken(oas:RefreshAuthTokenHeaders headers, oas:TokenRefreshBody payload) returns oas:tokenResponse|error {
-        oas:Client oasClient = self.getOasClient();
-        oas:tokenResponse|error r = oasClient->refreshAuthToken(headers, payload);
-        if isAuthError(r) {
-            check self.reauthenticate();
-            oasClient = self.getOasClient();
-            r = oasClient->refreshAuthToken(headers, payload);
         }
         return r;
     }
@@ -6381,23 +6354,6 @@ public isolated client class Client {
             check self.reauthenticate();
             oasClient = self.getOasClient();
             r = oasClient->runRebateCalculation(payload, mergedHeaders);
-        }
-        return r;
-    }
-
-    # Authenticate with SAML
-    #
-    # + headers - Headers to be sent with the request 
-    # + queries - Queries to be sent with the request 
-    # + return - OK - Redirects to the target page if a valid session exists 
-    remote isolated function samlSignOn(map<string|string[]> headers = {}, *oas:SamlSignOnQueries queries) returns error? {
-        oas:Client oasClient = self.getOasClient();
-        map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        error? r = oasClient->samlSignOn(mergedHeaders, queries = queries);
-        if isAuthError(r) {
-            check self.reauthenticate();
-            oasClient = self.getOasClient();
-            r = oasClient->samlSignOn(mergedHeaders, queries = queries);
         }
         return r;
     }
@@ -8199,7 +8155,7 @@ isolated function createOasClient(readonly & ConnectionConfig config, string ser
         };
     } else if pricefxKey is string {
         [string, string, string] [username, password, partition] = check requireBasicCredentials(config);
-        oas:tokenResponse tokenResp = check fetchAccessToken(serviceUrl, username, password, partition, pricefxKey);
+        TokenExchangeResponse tokenResp = check fetchAccessToken(serviceUrl, username, password, partition, pricefxKey);
         auth = {X\-PriceFx\-jwt: tokenResp.access\-token};
     } else if externalJwt is string {
         auth = {X\-PriceFx\-jwt: ""};
@@ -8244,9 +8200,10 @@ isolated function requireBasicCredentials(readonly & ConnectionConfig config) re
 }
 
 # Exchanges Pricefx credentials and a `Pricefx-Key` API key for a short-lived JWT via
-# `POST /token`. Done as a raw HTTP call rather than through the generated `oas:Client`'s own
-# `createAuthToken` operation, because that generated operation maps the `Pricefx-Key` header
-# incorrectly (see `docs/spec/sanitations.md`) and, being generated code, cannot be hand-patched.
+# `POST /token`. This is the connector's own session bootstrap, so it is deliberately a raw HTTP
+# call against types the wrapper owns (`TokenExchangeRequest`/`TokenExchangeResponse`) rather
+# than a generated operation - `POST /token` is not exposed as a public operation at all, since
+# callers must never manage this session themselves (see docs/spec/sanitations.md item 575).
 #
 # + serviceUrl - URL of the target service
 # + username - The Pricefx username
@@ -8254,9 +8211,9 @@ isolated function requireBasicCredentials(readonly & ConnectionConfig config) re
 # + partition - The Pricefx partition name
 # + pricefxKey - The Pricefx API key
 # + return - The token response, or an error if authentication failed
-isolated function fetchAccessToken(string serviceUrl, string username, string password, string partition, string pricefxKey) returns oas:tokenResponse|error {
+isolated function fetchAccessToken(string serviceUrl, string username, string password, string partition, string pricefxKey) returns TokenExchangeResponse|error {
     http:Client tokenClient = check new (serviceUrl);
-    oas:GetAuthenticationTokenAPIv2Request payload = {username, password, partition};
+    TokenExchangeRequest payload = {username, password, partition};
     http:Request request = new;
     request.setPayload(payload.toJson(), "application/json");
     map<string|string[]> httpHeaders = {"Pricefx-Key": pricefxKey};

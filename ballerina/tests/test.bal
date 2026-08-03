@@ -57,9 +57,9 @@ isolated function getPricefxClient() returns Client {
 @test:Config {
     groups: ["live_tests", "mock_tests"]
 }
-function testLogin() returns error? {
+function testAuthenticatedCall() returns error? {
     Client pricefxClient = getPricefxClient();
-    oas:UserLoginResponse response = check pricefxClient->login();
+    oas:GetOneTimeTokenResponse response = check pricefxClient->getOneTimeToken();
     test:assertTrue(response?.response !is ());
 }
 
@@ -83,7 +83,7 @@ function testTfaAndCsrfHeadersAreMerged() returns error? {
         {username, password, partition, tfaCode: "123456", csrfToken: "csrf-abc", validation: false},
         serviceUrl
     );
-    oas:UserLoginResponse response = check tfaCsrfClient->login();
+    oas:GetOneTimeTokenResponse response = check tfaCsrfClient->getOneTimeToken();
     string node = response.response?.node ?: "";
     test:assertTrue(node.includes("tfa=123456"), "expected the PriceFx-TFA header to be merged in, got: " + node);
     test:assertTrue(node.includes("csrf=csrf-abc"), "expected the X-PriceFx-Csrf-Token header to be merged in, got: " + node);
@@ -97,7 +97,7 @@ function testOAuth2RefreshTokenAuth() returns error? {
         {oauth2ClientId: "test-client-id", oauth2ClientSecret: "test-client-secret", oauth2RefreshToken: "test-refresh-token", validation: false},
         serviceUrl
     );
-    oas:UserLoginResponse response = check oauth2Client->login();
+    oas:GetOneTimeTokenResponse response = check oauth2Client->getOneTimeToken();
     string node = response.response?.node ?: "";
     test:assertTrue(
         node.includes("auth=Bearer mock-oauth2-access-token"),
@@ -113,7 +113,7 @@ function testExternalJwtAuth() returns error? {
         {externalJwtSystemName: "mysystem", externalJwt: "signed-jwt-value", validation: false},
         serviceUrl
     );
-    oas:UserLoginResponse response = check externalJwtClient->login();
+    oas:GetOneTimeTokenResponse response = check externalJwtClient->getOneTimeToken();
     string node = response.response?.node ?: "";
     test:assertTrue(
         node.includes("auth=BEARER mysystem;signed-jwt-value"),

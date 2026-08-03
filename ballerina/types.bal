@@ -17,6 +17,28 @@
 import ballerina/http;
 import ballerinax/pricefx.oas;
 
+# Request body for Pricefx's `POST /token` session-token exchange.
+#
+# This is the connector's own session bootstrap, not a public operation - `POST /token` is
+# deliberately not exposed on the client, because callers must never manage the session the
+# connector owns. The type is declared here rather than reused from the generated `oas` module
+# for exactly that reason: no generated operation references it any more.
+type TokenExchangeRequest record {|
+    string username;
+    string password;
+    string partition;
+|};
+
+# Response from Pricefx's `POST /token`. Field names match the wire format, which is hyphenated.
+# Only `access-token` is required; the rest are accepted if present but unused, and the record is
+# open so additional fields a future Pricefx version might add do not break the exchange.
+type TokenExchangeResponse record {
+    string access\-token;
+    string refresh\-token?;
+    string token\-type?;
+    decimal expires\-in?;
+};
+
 # Pricefx account credentials and authentication options. Exactly one of the following
 # combinations must be provided:
 #

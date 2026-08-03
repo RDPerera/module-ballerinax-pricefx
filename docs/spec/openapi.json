@@ -2453,7 +2453,203 @@
             ]
           }
         }
-      ]
+      ],
+      "post": {
+        "summary": "Delete an Object",
+        "tags": [
+          "General"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "title": "deleteObjectResponse",
+                  "properties": {
+                    "response": {
+                      "type": "object",
+                      "properties": {
+                        "node": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "data": {
+                          "type": "array",
+                          "uniqueItems": true,
+                          "minItems": 1,
+                          "items": {
+                            "required": [
+                              "version",
+                              "typedId",
+                              "sku",
+                              "label",
+                              "unitOfMeasure",
+                              "userGroupEdit",
+                              "userGroupViewDetails",
+                              "currency",
+                              "formulaName",
+                              "image",
+                              "createDate",
+                              "createdBy",
+                              "lastUpdateDate",
+                              "lastUpdateBy",
+                              "attribute1",
+                              "attribute2"
+                            ],
+                            "properties": {
+                              "version": {
+                                "type": "number"
+                              },
+                              "typedId": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "sku": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "label": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "unitOfMeasure": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "userGroupEdit": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "userGroupViewDetails": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "currency": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "formulaName": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "image": {
+                                "type": "boolean"
+                              },
+                              "createDate": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "createdBy": {
+                                "type": "number"
+                              },
+                              "lastUpdateDate": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "lastUpdateBy": {
+                                "type": "number"
+                              },
+                              "attribute1": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "attribute2": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "attribute3": {},
+                              "attribute4": {},
+                              "attribute5": {},
+                              "attribute6": {},
+                              "attribute7": {},
+                              "attribute8": {},
+                              "attribute9": {},
+                              "attribute10": {},
+                              "attribute11": {},
+                              "attribute12": {},
+                              "attribute13": {},
+                              "attribute14": {},
+                              "attribute15": {},
+                              "attribute16": {},
+                              "attribute17": {},
+                              "attribute18": {},
+                              "attribute19": {},
+                              "attribute20": {},
+                              "attribute21": {},
+                              "attribute22": {},
+                              "attribute23": {},
+                              "attribute24": {},
+                              "attribute25": {},
+                              "attribute26": {},
+                              "attribute27": {},
+                              "attribute28": {},
+                              "attribute29": {},
+                              "attribute30": {}
+                            }
+                          }
+                        },
+                        "status": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "node",
+                        "data",
+                        "status"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "response"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "operationId": "deleteObject",
+        "description": "Deletes an object.<p> Only one object can be deleted per request (unless batched). Some object types may be blocked from being deleted by the update command as special processing is done by a dedicated manager command.<p> **Note**: Some object types are only soft-deleted, some are hard-deleted in the database. This behavior cannot be influenced by the client.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "title": "deleteObjectRequest",
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "type": "object",
+                    "properties": {
+                      "typedId": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "typedId"
+                    ]
+                  }
+                },
+                "required": [
+                  "data"
+                ]
+              },
+              "examples": {
+                "deleteObjectRequestExample": {
+                  "value": {
+                    "data": {
+                      "typedId": "2147501187.P"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     },
     "/delete/P": {
       "post": {
@@ -8058,7 +8254,6 @@
         }
       }
     },
-    "/datamart.getfcs/DM": {},
     "/fetch/RBA": {
       "post": {
         "tags": [
@@ -13603,7 +13798,61 @@
             "type": "string"
           }
         }
-      ]
+      ],
+      "post": {
+        "summary": "Create an Object",
+        "operationId": "createObject",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "tags": [
+          "General"
+        ],
+        "description": "Creates an object. Only one object can be added per request (unless batched).\n<!-- theme: info -->\n>**Information**: Some object types may be blocked from being added by the update command as special processing is done by a dedicated manager command.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "title": "createObjectRequest",
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "type": "object",
+                    "description": "The initial values of the object. The request needs to contain all fields that are part of the business key for that object and all non-nullable fields."
+                  },
+                  "operation": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Must be `add`, null, or omitted."
+                  }
+                },
+                "required": [
+                  "data",
+                  "operation"
+                ]
+              },
+              "examples": {
+                "createNewObjectRequestExample": {
+                  "value": {
+                    "data": {
+                      "sku": "product001",
+                      "label": "The Label 99",
+                      "currency": "USD",
+                      "formulaName": "PriceList",
+                      "attribute1": "123",
+                      "attribute2": "2"
+                    },
+                    "operation": "add"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     },
     "/fetch/{typeCode}/{id}": {
       "parameters": [
@@ -13629,7 +13878,49 @@
             "type": "string"
           }
         }
-      ]
+      ],
+      "post": {
+        "summary": "Get an Object",
+        "operationId": "getObject",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "title": "getObjectResponse",
+                  "properties": {
+                    "response": {
+                      "type": "object",
+                      "properties": {
+                        "node": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "data": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "status": {
+                          "type": "number"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "General"
+        ],
+        "description": "Retrieves details of the specified object.\n\n<!-- theme: warning -->\n>**Note**: Certain data elements (e.g. lookup table values of any table, including JSON lookup tables / pricing params) should NOT be retrieved with the general fetch commands (**/fetch/{TypeCode}**). Always use the \"**...manager.fetch**\" API endpoints where they are available. The same applies to update/delete/integrate commands.\n\n<!-- theme: info -->\n>**Information**: The following [entities](https://pricefx.atlassian.net/wiki/spaces/KB/pages/99570616/Type+Codes) can intentionally be fetched by any user without any particular [user role](https://pricefx.atlassian.net/wiki/spaces/HELP/pages/3279194862/User+Roles): CN, BR, CS, CLLIAM, CTAM, CTT, CTTAM, C, CAM, CXAM, DMDC, DMF, DMDL, DMDS, DM, DMM, DMR, DMT, DCRAM, FN, IE, JST, JLTVM, MPLIT, MPLAM, MLTVM, MRAM, MT, PYRAM, PGIM, PRAM, PLIM, P, PAM, PXAM, QAM, RBAAM, RRAM, RRS, RRSC, RBT, RBTAM, SC, SCN, SCNAM, SIM, SIAM, UG."
+      }
     },
     "/fetch/{typeCode}": {
       "parameters": [
@@ -13644,7 +13935,144 @@
             "type": "string"
           }
         }
-      ]
+      ],
+      "post": {
+        "summary": "List Objects",
+        "operationId": "listObjects",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/generalResponse"
+          }
+        },
+        "description": "Retrieves all objects (including details) of the specified type. A [filter](https://api.pricefx.com/rest-api/filtering-sorting-pagination/#advanced-filtering) can be applied.\n\n<!-- theme: info -->\n>**Information**: Certain data elements (e.g. lookup table values of any table, including JSON lookup tables / pricing params) should NOT be retrieved with the general fetch commands (**/fetch/{TypeCode}**). Always use the \"**...manager.fetch**\" API endpoints where they are available. The same applies to update/delete/integrate commands.\n\n<!-- theme: info -->\n>**Information**: The following [entities](https://pricefx.atlassian.net/wiki/spaces/KB/pages/99570616/Type+Codes) can intentionally be fetched by any user without any particular [user role](https://pricefx.atlassian.net/wiki/spaces/HELP/pages/3279194862/User+Roles): CN, BR, CS, CLLIAM, CTAM, CTT, CTTAM, C, CAM, CXAM, DMDC, DMF, DMDL, DMDS, DM, DMM, DMR, DMT, DCRAM, FN, IE, JST, JLTVM, MPLIT, MPLAM, MLTVM, MRAM, MT, PYRAM, PGIM, PRAM, PLIM, P, PAM, PXAM, QAM, RBAAM, RRAM, RRS, RRSC, RBT, RBTAM, SC, SCN, SCNAM, SIM, SIAM, UG.\n\nYou can choose fields to be returned in the response by employing the `resultFields` or `valueFields` filter:<br>\n**resultFields**: returns key-value pairs as objects. This is the more friendly response compared to *valueFields* but the server fetches all fields from the database in the backend which might result in a slower performance. See the [List Product](https://api.pricefx.com/openapi/reference/pricefx/operation/post-productmanager.fetchformulafilteredproducts/)'s **listProductsResponseExample_resultFields** response example.<p>\n**valueFields**: returns just an array of values. Use this option if a better performance is required. See the [List Product](https://api.pricefx.com/openapi/reference/pricefx/operation/post-productmanager.fetchformulafilteredproducts/)'s **listProductsResponseExample_valueFields** response example.",
+        "tags": [
+          "General"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "endRow": {
+                    "type": "integer",
+                    "description": "The number of the end row that defines the end of the result set's returned objects. Use this parameter if you want to implement paging for results."
+                  },
+                  "operationType": {
+                    "type": "string"
+                  },
+                  "startRow": {
+                    "type": "integer",
+                    "description": "The number of the first row that defines the start of the result set's returned objects. Use this parameter if you want to implement paging for results."
+                  },
+                  "textMatchStyle": {
+                    "type": "string",
+                    "enum": [
+                      "startsWith",
+                      "exact",
+                      "substring"
+                    ],
+                    "default": "exact"
+                  },
+                  "data": {
+                    "type": "object",
+                    "properties": {
+                      "_constructor": {
+                        "type": "string"
+                      },
+                      "operator": {
+                        "type": "string"
+                      },
+                      "criteria": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "fieldName": {
+                              "type": "string"
+                            },
+                            "operator": {
+                              "type": "string",
+                              "description": "Specify an operator of the filter criteria.",
+                              "enum": [
+                                "equals",
+                                "iEquals",
+                                "notEqual",
+                                "iNotEqual",
+                                "greaterThan",
+                                "greaterOrEqual",
+                                "lessOrEqual",
+                                "lessThan",
+                                "isNull",
+                                "notNull",
+                                "contains",
+                                "iContains",
+                                "containsPattern",
+                                "iContainsPattern",
+                                "notContains",
+                                "iNotContains",
+                                "startsWith",
+                                "iStartsWith",
+                                "notStartsWith",
+                                "iNotStartsWith",
+                                "endsWith",
+                                "iEndsWith",
+                                "notEndsWith",
+                                "iNotEndsWith",
+                                "iBetween",
+                                "iBetweenInclusive",
+                                "inSet",
+                                "notInSet"
+                              ]
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "examples": {
+                "listObjectsRequestExample": {
+                  "value": {
+                    "endRow": 300,
+                    "oldValues": null,
+                    "operationType": "fetch",
+                    "startRow": 0,
+                    "textMatchStyle": "exact",
+                    "data": {
+                      "_constructor": "AdvancedCriteria",
+                      "operator": "and",
+                      "criteria": [
+                        {
+                          "fieldName": "expiryDate",
+                          "operator": "lessThan",
+                          "value": "2023-05-25"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        }
+      }
     },
     "/fetch": {
       "post": {
@@ -17215,166 +17643,6 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/generalResponse"
-          }
-        }
-      }
-    },
-    "/token": {
-      "post": {
-        "tags": [
-          "Authentication"
-        ],
-        "summary": "Get an Authentication Token (API V2 only)",
-        "description": "Retrieves the access token, token type and the refresh token.",
-        "operationId": "createAuthToken",
-        "parameters": [
-          {
-            "name": "Pricefx-Key",
-            "in": "header",
-            "description": "The Pricefx API key. Contact Pricefx Support to get your Pricefx-Key",
-            "required": true,
-            "style": "simple",
-            "explode": false,
-            "schema": {
-              "type": "string"
-            },
-            "x-ballerina-name": "pricefxKey"
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/GetAuthenticationTokenAPIv2Request"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/tokenResponse"
-          },
-          "400": {
-            "description": "The request was malformed.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GetAuthenticationTokenAPIv2400Response"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized - the login credentials were incorrect.\n",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GetAuthenticationTokenAPIv2401Response"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden - The request did not contain a valid Pricefx-Key, the provided credentials in `body` were incorrect, the user was banned or not found or device registration required."
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Authentication"
-        ],
-        "summary": "Delete an Authentication Token (API V2 only)",
-        "description": "Invalidates an access token.",
-        "operationId": "deleteAuthToken",
-        "parameters": [
-          {
-            "name": "Pricefx-Key",
-            "in": "header",
-            "description": "The Pricefx API key. Contact Pricefx Support to get your Pricefx-Key",
-            "required": false,
-            "style": "simple",
-            "explode": false,
-            "schema": {
-              "type": "string"
-            },
-            "x-ballerina-name": "pricefxKey"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Logout successful"
-          },
-          "403": {
-            "description": "Forbidden - The request did not contain a valid Pricefx-Key, the provided credentials in `body` were incorrect, the user was banned or not found or device registration required.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DeleteAuthenticationTokenAPIv2403Response"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/token/refresh": {
-      "post": {
-        "tags": [
-          "Authentication"
-        ],
-        "summary": "Refresh an Authentication Token (API V2 only)",
-        "description": "Retrieves a new access token, token type, the refresh token, and expiration time.",
-        "operationId": "refreshAuthToken",
-        "parameters": [
-          {
-            "name": "Pricefx-Key",
-            "in": "header",
-            "description": "The Pricefx API key. Contact Pricefx Support to get your Pricefx-Key",
-            "required": true,
-            "style": "simple",
-            "explode": false,
-            "schema": {
-              "type": "string"
-            },
-            "x-ballerina-name": "pricefxKey"
-          }
-        ],
-        "requestBody": {
-          "description": "Provide the referesh token",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/TokenRefreshBody"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/tokenResponse"
-          },
-          "400": {
-            "description": "The request was malformed.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RefreshAuthenticationTokenAPIv2400Response"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized - the login credentials were incorrect.\n",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RefreshAuthenticationTokenAPIv2401Response"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden - The request did not contain a valid Pricefx-Key, the provided credentials in `body` were incorrect, the user was banned or not found or device registration required."
           }
         }
       }
@@ -28631,127 +28899,6 @@
         }
       }
     },
-    "/login/extended": {
-      "get": {
-        "tags": [
-          "Authentication"
-        ],
-        "summary": "User Login (V1)",
-        "description": "Authenticates a user. When the user is authenticated, the logged-in user's details (including all roles and permissions) are returned in the response body.\n\nCSRF check is not performed by this endpoint, because the user is authenticated using the basic HTTP auth.",
-        "operationId": "login",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserLoginResponse"
-                },
-                "examples": {
-                  "userLoginExampleResponse": {
-                    "value": {
-                      "response": {
-                        "node": "string",
-                        "data": [
-                          {
-                            "lastName": "string",
-                            "lastLogin": "2019-08-24T14:15:22Z",
-                            "typedId": "string",
-                            "firstLogin": true,
-                            "noSession": true,
-                            "businessRoles": [
-                              {
-                                "version": 0,
-                                "typedId": "string",
-                                "uniqueName": "string",
-                                "label": "string",
-                                "roles": [
-                                  {
-                                    "version": 0,
-                                    "typedId": "string",
-                                    "uniqueName": "string",
-                                    "module": "PRICESETTING",
-                                    "label": "string",
-                                    "createDate": "string",
-                                    "createdBy": 0,
-                                    "lastUpdateDate": "string",
-                                    "lastUpdateBy": 0
-                                  }
-                                ],
-                                "groups": [
-                                  {}
-                                ],
-                                "createDate": "string",
-                                "createdBy": 0,
-                                "lastUpdateDate": "string",
-                                "lastUpdateBy": 0
-                              }
-                            ],
-                            "customerFilterCriteria": "string",
-                            "defaultUserGroupViewDetails": "string",
-                            "loginName": "string",
-                            "allRoleNames": [
-                              "string"
-                            ],
-                            "receiveAdminEmail": true,
-                            "wizardDashboardName": "string",
-                            "email": "string",
-                            "createDate": "2019-08-24T14:15:22Z",
-                            "additionalInfo4": "string",
-                            "additionalInfo3": "string",
-                            "additionalInfo2": 0,
-                            "additionalInfo1": 0,
-                            "passwordExpiry": "string",
-                            "allGroups": [
-                              {}
-                            ],
-                            "groups": [
-                              {
-                                "version": 0,
-                                "typedId": "string",
-                                "uniqueName": "string",
-                                "label": "string",
-                                "additionalInfo1": 0,
-                                "additionalInfo2": 0,
-                                "additionalInfo3": "string",
-                                "additionalInfo4": "string",
-                                "createDate": "string",
-                                "createdBy": 0,
-                                "lastUpdateDate": "string",
-                                "lastUpdateBy": 0
-                              }
-                            ],
-                            "productFilterCriteria": "string",
-                            "version": 0,
-                            "ssoOnly": true,
-                            "firstName": "string",
-                            "defaultUserGroupEdit": "string",
-                            "emailLocale": "string",
-                            "workflowEmailingActivated": true,
-                            "createdBy": 0,
-                            "roleNames": [
-                              "string"
-                            ],
-                            "requireTFA": true,
-                            "activated": true,
-                            "lastUpdateBy": 0,
-                            "extendedData": {
-                              "property1": "string",
-                              "property2": "string"
-                            }
-                          }
-                        ],
-                        "status": 0
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/dcrmanager.add": {
       "post": {
         "tags": [
@@ -34207,38 +34354,6 @@
         }
       }
     },
-    "/saml/signon": {
-      "post": {
-        "tags": [
-          "Authentication"
-        ],
-        "summary": "Authenticate with SAML",
-        "description": "Redirects to the Identity Provider (IdP) for authentication.",
-        "operationId": "samlSignOn",
-        "parameters": [
-          {
-            "name": "keepSession",
-            "in": "query",
-            "description": "Set to `true` to reuse an existing session and avoid unnecessary roundtrips to the IdP. When set to true, if a valid session is detected, the endpoint will directly redirect to the target page as per RelayState without performing an IdP roundtrip. If no session or an expired session is found, the endpoint will perform the IdP roundtrip as usual",
-            "required": false,
-            "allowEmptyValue": true,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "boolean"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK - Redirects to the target page if a valid session exists"
-          },
-          "302": {
-            "description": "Found. Redirects to the IdP for authentication if no valid session is found."
-          }
-        }
-      }
-    },
     "/fetch/LAT": {
       "post": {
         "tags": [
@@ -38891,163 +39006,6 @@
                           "createDate": "2025-08-28T05:53:36"
                         }
                       ]
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/oauth/authorize": {
-      "post": {
-        "tags": [
-          "Authentication"
-        ],
-        "summary": "OAuth Authorization Request",
-        "description": "The authorization endpoint is used to interact with the resource owner and obtain an authorization grant. See https://datatracker.ietf.org/doc/html/rfc6749#section-3.1 for details. At the end of the flow it will send a code value back to/via the redirecttion URL specified in the client\u2019s config & initial request (as they need to be the same).\n",
-        "operationId": "oauthAuthorize",
-        "parameters": [
-          {
-            "name": "response_type",
-            "in": "query",
-            "description": "Value MUST be set to \"code\"",
-            "required": true,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "string"
-            },
-            "x-ballerina-name": "responseType"
-          },
-          {
-            "name": "client_id",
-            "in": "query",
-            "description": "The client identifier",
-            "required": true,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "string"
-            },
-            "x-ballerina-name": "clientId"
-          },
-          {
-            "name": "redirect_uri",
-            "in": "query",
-            "description": "The URL to redirect to after authorization has been granted",
-            "required": false,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "string"
-            },
-            "x-ballerina-name": "redirectUri"
-          },
-          {
-            "name": "scope",
-            "in": "query",
-            "description": "The scope of the access request",
-            "required": false,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "state",
-            "in": "query",
-            "description": "An opaque value used by the client to maintain state between the request and callback",
-            "required": false,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "302": {
-            "description": "Found"
-          }
-        }
-      }
-    },
-    "/oauth/token": {
-      "post": {
-        "tags": [
-          "Authentication"
-        ],
-        "summary": "Access Token Request",
-        "description": "Request to obtain the access token in the OAuth authorization process. See https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.3 for details.",
-        "operationId": "oauthToken",
-        "parameters": [
-          {
-            "name": "grant_type",
-            "in": "query",
-            "description": "Value MUST be set to \"authorization_code\"",
-            "required": true,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "string"
-            },
-            "x-ballerina-name": "grantType"
-          },
-          {
-            "name": "code",
-            "in": "query",
-            "description": "The authorization code received from the authorization server",
-            "required": true,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "redirect_uri",
-            "in": "query",
-            "description": "Required if the \"redirect_uri\" parameter was included in the authorization request and their values MUST be identical",
-            "required": false,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "string"
-            },
-            "x-ballerina-name": "redirectUri"
-          },
-          {
-            "name": "client_id",
-            "in": "query",
-            "description": "Required if the client is not authenticating with the authorization server",
-            "required": false,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "string"
-            },
-            "x-ballerina-name": "clientId"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/OAuthTokenResponse"
-                },
-                "examples": {
-                  "Example 1": {
-                    "value": {
-                      "access_token": "2YotnFZFEjr1zCsicMWpAA",
-                      "token_type": "bearer",
-                      "expires_in": 7200,
-                      "refresh_token": "tGzv3JOkF0XG5Qx2TlKWIA",
-                      "example_parameter": "example_value"
                     }
                   }
                 }

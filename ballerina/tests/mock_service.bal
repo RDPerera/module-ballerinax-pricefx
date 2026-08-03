@@ -71,23 +71,19 @@ service /pricefx/companypartition on ep0 {
         };
     }
 
-    # User Login (V1)
+    # Stands in for any authenticated operation. Echoes back the credentials it saw, so the
+    # auth tests can assert on exactly what reached the wire.
     #
-    # + priceFxTfa - Echoed back in the response's `node` field, so tests can verify the wrapper
-    #                merges `tfaCode` into every request's headers
-    # + priceFxCsrfToken - Echoed back in the response's `node` field, so tests can verify the
-    #                      wrapper merges `csrfToken` into every request's headers
-    # + authorization - Echoed back in the response's `node` field, so tests can verify the
-    #                   wrapper formats and merges the external JWT `Authorization` header
+    # + priceFxTfa - Echoed, so tests can verify `tfaCode` is merged into every request
+    # + priceFxCsrfToken - Echoed, so tests can verify `csrfToken` is merged into every request
+    # + authorization - Echoed, so tests can verify the OAuth2 / external-JWT header format
     # + return - OK
-    resource function get login/extended(@http:Header {name: "PriceFx-TFA"} string? priceFxTfa = (), @http:Header {name: "X-PriceFx-Csrf-Token"} string? priceFxCsrfToken = (), @http:Header string? authorization = ()) returns oas:UserLoginResponse {
+    resource function post accountmanager\.getonetimetoken(@http:Header {name: "PriceFx-TFA"} string? priceFxTfa = (), @http:Header {name: "X-PriceFx-Csrf-Token"} string? priceFxCsrfToken = (), @http:Header string? authorization = ()) returns oas:GetOneTimeTokenResponse {
         return {
             response: {
                 node: string `companynode|tfa=${priceFxTfa ?: ""}|csrf=${priceFxCsrfToken ?: ""}|auth=${authorization ?: ""}`,
                 status: 200,
-                data: [
-                    {typedId: "1.US", loginName: "jdoe", firstName: "Jane", lastName: "Doe", email: "jdoe@example.com", activated: true}
-                ]
+                data: [{}]
             }
         };
     }
@@ -537,16 +533,19 @@ service /pricefx/companypartition on ep0 {
     # http:Unauthorized (Unauthorized - the login credentials were incorrect.
 # )
     # http:Forbidden (Forbidden - The request did not contain a valid Pricefx-Key, the provided credentials in `body` were incorrect, the user was banned or not found or device registration required.)
-    resource function post token(@http:Header {name: "Pricefx-Key"} string pricefxKey, @http:Payload oas:GetAuthenticationTokenAPIv2Request payload) returns TokenResponseOk|GetAuthenticationTokenAPIv2400ResponseBadRequest|GetAuthenticationTokenAPIv2401ResponseUnauthorized|http:Forbidden {
-        TokenResponseOk okResponse = {
-            body: {
-                access\-token: "mock-access-token-abc123",
-                refresh\-token: "mock-refresh-token-xyz789",
-                token\-type: "Bearer",
-                expires\-in: 1800
-            }
+    # The session-token bootstrap the connector performs internally during `Client.init()`.
+    # `POST /token` is not a public operation on the client, so nothing in the test suite calls
+    # this directly - the connector does, before any other request.
+    #
+    # + pricefxKey - The API key the connector sends to authenticate the exchange
+    # + return - A session token
+    resource function post token(@http:Header {name: "Pricefx-Key"} string pricefxKey, @http:Payload TokenExchangeRequest payload) returns TokenExchangeResponse {
+        return {
+            access\-token: "mock-access-token-abc123",
+            refresh\-token: "mock-refresh-token-xyz789",
+            token\-type: "Bearer",
+            expires\-in: 1800
         };
-        return okResponse;
     }
 
     # Update a Customer

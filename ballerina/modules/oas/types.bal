@@ -133,12 +133,6 @@ public type ImportDataLoadRequest record {
     DatamartimportdataloadsData data;
 };
 
-# Represents the Headers record for the operation: refreshAuthToken
-public type RefreshAuthTokenHeaders record {
-    @http:Header {name: "Pricefx-Key"}
-    string pricefxKey;
-};
-
 # 
 public type DeleteRebateAgreementRequest record {
     DeleteTypeCodeData data;
@@ -2745,12 +2739,6 @@ public type DatamartqueryDataQueryOptions record {
     string[] distribution?;
 };
 
-# Represents the Headers record for the operation: createAuthToken
-public type CreateAuthTokenHeaders record {
-    @http:Header {name: "Pricefx-Key"}
-    string pricefxKey;
-};
-
 public type ParallelCalculationEnvelope record {
     InlineResponse2009Response response?;
 };
@@ -2905,6 +2893,14 @@ public type PricingFormulaCriticalAlert record {
     string comparisonElement?;
     string message?;
     string operator?;
+};
+
+public type deleteObjectResponse_response record {
+    @constraint:String {minLength: 1}
+    string node;
+    @constraint:Array {minLength: 1}
+    deleteObjectResponse_response_data[] data;
+    decimal status;
 };
 
 public type ListCalculationGridItemsResponseResponse record {
@@ -3514,12 +3510,6 @@ public type SubmitQuoteContractRebateAgreementResponseResponseValue record {
     string customerFieldValue?;
     @constraint:String {minLength: 1}
     string label?;
-};
-
-# Represents the Queries record for the operation: samlSignOn
-public type SamlSignOnQueries record {
-    # Set to `true` to reuse an existing session and avoid unnecessary roundtrips to the IdP. When set to true, if a valid session is detected, the endpoint will directly redirect to the target page as per RelayState without performing an IdP roundtrip. If no session or an expired session is found, the endpoint will perform the IdP roundtrip as usual
-    boolean keepSession?;
 };
 
 public type DeleteConditionTypeRequest record {
@@ -4405,14 +4395,6 @@ public type SubmitRebateRecordGroupResponse record {
     int status?;
 };
 
-# 
-public type tokenResponse record {
-    string access\-token;
-    string refresh\-token;
-    string token\-type;
-    decimal expires\-in;
-};
-
 public type CommentmanagerReplyBody record {
     CommentmanagerreplyData data?;
 };
@@ -4822,6 +4804,16 @@ public type Product record {
     int|string|decimal|string|string|string? attribute10?;
     int|string|decimal|string|string|string? attribute30?;
     int lastUpdateBy?;
+};
+
+public type fetch_typeCode_body record {
+    # The number of the end row that defines the end of the result set's returned objects. Use this parameter if you want to implement paging for results.
+    int endRow?;
+    string operationType?;
+    # The number of the first row that defines the start of the result set's returned objects. Use this parameter if you want to implement paging for results.
+    int startRow?;
+    "startsWith"|"exact"|"substring" textMatchStyle = "exact";
+    fetchtypeCode_data data?;
 };
 
 public type InlineResponse20045ResponseWorkflow record {
@@ -5761,34 +5753,8 @@ public type ConfigurationStorageOperationEnvelope record {
     InlineResponse20057Response response?;
 };
 
-# Represents the Queries record for the operation: oauthAuthorize
-public type OauthAuthorizeQueries record {
-    # The scope of the access request
-    string scope?;
-    @http:Query {name: "response_type"}
-    string responseType;
-    @http:Query {name: "redirect_uri"}
-    string redirectUri?;
-    # An opaque value used by the client to maintain state between the request and callback
-    string state?;
-    @http:Query {name: "client_id"}
-    string clientId;
-};
-
 public type InsertBulkDataFromFileResponse record {
     InsertBulkDataFromFileResponseResponse response?;
-};
-
-# Represents the Queries record for the operation: oauthToken
-public type OauthTokenQueries record {
-    # The authorization code received from the authorization server
-    string code;
-    @http:Query {name: "grant_type"}
-    string grantType;
-    @http:Query {name: "redirect_uri"}
-    string redirectUri?;
-    @http:Query {name: "client_id"}
-    string clientId?;
 };
 
 # 
@@ -6202,12 +6168,6 @@ public type ListProductSetsResponse record {
     ListProductSetsResponseResponse response?;
 };
 
-public type UserLoginResponseResponse record {
-    string node?;
-    User[] data?;
-    int status?;
-};
-
 public type InlineResponse20037ResponseItems record {
     int score?;
     InlineResponse20037ResponseItem item?;
@@ -6278,17 +6238,9 @@ public type ListCustomFormTypesRequest record {
     anydata oldValues?;
 };
 
-public type UserBusinessRoles record {
-    string typedId?;
-    string uniqueName?;
-    int createdBy?;
-    string lastUpdateDate?;
-    BusinessRoleRoles[] roles?;
-    record {}[] groups?;
-    string label?;
-    int version?;
-    string createDate?;
-    int lastUpdateBy?;
+# 
+public type deleteObjectRequest record {
+    deletetypeCode_data data;
 };
 
 public type ListCompensationTypesResponse record {
@@ -7302,6 +7254,13 @@ public type SyntaxCheckRequest record {
     FormulamanagercheckData data;
 };
 
+public type getObjectResponse_response record {
+    @constraint:String {minLength: 1}
+    string node?;
+    string[] data?;
+    decimal status?;
+};
+
 public type ProductmanagerimportproductcompetitionData record {
     # INSERT - always inserts new records, even duplicates.
     # UPDATE - data is always overridden
@@ -7828,12 +7787,6 @@ public type ListDataLoadsResponseResponseCalculationConfig record {
 # 
 public type UpsertCustomerExtensionRequest record {
     IntegrateCData data;
-};
-
-# Represents the Headers record for the operation: deleteAuthToken
-public type DeleteAuthTokenHeaders record {
-    @http:Header {name: "Pricefx-Key"}
-    string pricefxKey?;
 };
 
 public type UpsertObjectReturnOldDataResponseResponseOldData record {
@@ -9451,6 +9404,11 @@ public type CalculatePricelistResponseResponse record {
     int status?;
 };
 
+# 
+public type deleteObjectResponse record {
+    deleteObjectResponse_response response;
+};
+
 public type ConditionrecordsetUpdateidBody record {
     record {} data?;
     ConditionrecordsetupdateidOldValues oldValues?;
@@ -9924,17 +9882,6 @@ public type RebateRecordSetCalculationRebateRecordSet record {
     string createDate?;
     int lastUpdateBy?;
     "DRAFT"|"PENDING"|"SCHEDULED"|"PROCESSING"|"SCHEDULED_DIRTY"|"ERROR"|"READY"|"CANCELLED" status?;
-};
-
-# 
-public type GetAuthenticationTokenAPIv2Request record {
-    # A clear-text password
-    @constraint:String {minLength: 1}
-    string password;
-    @constraint:String {minLength: 1}
-    string partition;
-    @constraint:String {minLength: 1}
-    string username;
 };
 
 public type InlineResponse20051Response record {
@@ -11643,6 +11590,15 @@ public type AddCalculationGridItemResponse record {
     AddCalculationGridItemResponseResponse response?;
 };
 
+# 
+public type createObjectRequest record {
+    # The initial values of the object. The request needs to contain all fields that are part of the business key for that object and all non-nullable fields.
+    record {} data;
+    # Must be `add`, null, or omitted.
+    @constraint:String {minLength: 1}
+    string operation;
+};
+
 public type InlineResponse20083Response record {
     string[] data?;
     int status?;
@@ -11776,6 +11732,65 @@ public type GetProductSetResponseResponse record {
     decimal endRow?;
     decimal totalRows?;
     decimal status?;
+};
+
+public type deleteObjectResponse_response_data record {
+    decimal version;
+    @constraint:String {minLength: 1}
+    string typedId;
+    @constraint:String {minLength: 1}
+    string sku;
+    @constraint:String {minLength: 1}
+    string label;
+    @constraint:String {minLength: 1}
+    string unitOfMeasure;
+    @constraint:String {minLength: 1}
+    string userGroupEdit;
+    @constraint:String {minLength: 1}
+    string userGroupViewDetails;
+    @constraint:String {minLength: 1}
+    string currency;
+    @constraint:String {minLength: 1}
+    string formulaName;
+    boolean image;
+    @constraint:String {minLength: 1}
+    string createDate;
+    decimal createdBy;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate;
+    decimal lastUpdateBy;
+    @constraint:String {minLength: 1}
+    string attribute1;
+    @constraint:String {minLength: 1}
+    string attribute2;
+    anydata attribute3?;
+    anydata attribute4?;
+    anydata attribute5?;
+    anydata attribute6?;
+    anydata attribute7?;
+    anydata attribute8?;
+    anydata attribute9?;
+    anydata attribute10?;
+    anydata attribute11?;
+    anydata attribute12?;
+    anydata attribute13?;
+    anydata attribute14?;
+    anydata attribute15?;
+    anydata attribute16?;
+    anydata attribute17?;
+    anydata attribute18?;
+    anydata attribute19?;
+    anydata attribute20?;
+    anydata attribute21?;
+    anydata attribute22?;
+    anydata attribute23?;
+    anydata attribute24?;
+    anydata attribute25?;
+    anydata attribute26?;
+    anydata attribute27?;
+    anydata attribute28?;
+    anydata attribute29?;
+    anydata attribute30?;
 };
 
 public type PreviewCustomFormWorkflowResponseResponseWorkflowSteps record {
@@ -12332,6 +12347,11 @@ public type ListConditionRecordSetsEnvelope record {
 
 public type ListRecommendationsEnvelope record {
     InlineResponse20037Response response?;
+};
+
+# 
+public type getObjectResponse record {
+    getObjectResponse_response response?;
 };
 
 public type CompensationRecordSetCalculationCompensationRecordSet record {
@@ -14009,6 +14029,13 @@ public type OtherFiltersOtherFiltersOtherFiltersOtherFiltersAnyOf1234 string?;
 public type InlineResponse20085ResponseColumns record {
     string name?;
     string 'type?;
+};
+
+public type fetchtypeCode_data_criteria record {
+    string fieldName?;
+    # Specify an operator of the filter criteria.
+    "equals"|"iEquals"|"notEqual"|"iNotEqual"|"greaterThan"|"greaterOrEqual"|"lessOrEqual"|"lessThan"|"isNull"|"notNull"|"contains"|"iContains"|"containsPattern"|"iContainsPattern"|"notContains"|"iNotContains"|"startsWith"|"iStartsWith"|"notStartsWith"|"iNotStartsWith"|"endsWith"|"iEndsWith"|"notEndsWith"|"iNotEndsWith"|"iBetween"|"iBetweenInclusive"|"inSet"|"notInSet" operator?;
+    string value?;
 };
 
 # 
@@ -16751,19 +16778,6 @@ public type GetWorkflowDocumentResponseResponseData record {
 # The Seller Extension object. The type code is SX50 (contains 50 attribute fields)
 public type SX50 SX50Inner[];
 
-public type OAuthTokenResponse record {
-    @jsondata:Name {value: "access_token"}
-    string accessToken?;
-    @jsondata:Name {value: "refresh_token"}
-    string refreshToken?;
-    @jsondata:Name {value: "example_parameter"}
-    string exampleParameter?;
-    @jsondata:Name {value: "token_type"}
-    string tokenType?;
-    @jsondata:Name {value: "expires_in"}
-    int expiresIn?;
-};
-
 public type AddWatcherStepResponseResponse record {
     @constraint:String {minLength: 1}
     string node?;
@@ -18157,6 +18171,12 @@ public type ManualpricelistmanagerupdateidrecalculateData record {
     string currency?;
 };
 
+public type fetchtypeCode_data record {
+    string _constructor?;
+    string operator?;
+    fetchtypeCode_data_criteria[] criteria?;
+};
+
 public type UpdateConditionTypeEnvelope record {
     UpdateConditionTypeResponse response?;
 };
@@ -18367,6 +18387,11 @@ public type ListCompensationPlansResponseResponse record {
     int endRow?;
     int totalRows?;
     int status?;
+};
+
+public type deletetypeCode_data record {
+    @constraint:String {minLength: 1}
+    string typedId;
 };
 
 public type DeleteCompensationTypeEnvelope record {
@@ -19510,10 +19535,6 @@ public type InlineResponse20088ResponseData record {
     string mCPToolParametersUpdate?;
 };
 
-public type UserLoginResponse record {
-    UserLoginResponseResponse response?;
-};
-
 public type InlineResponse20029ResponseData Quote|Compensation|Contract|RebateAgreement;
 
 public type DataDataOneOf12 record {
@@ -19574,11 +19595,6 @@ public type KvservicefetchtableNameData record {
 
 public type UpdateActionTypeResponse record {
     AddActionTypeResponseResponse response?;
-};
-
-public type TokenRefreshBody record {
-    @jsondata:Name {value: "refresh-token"}
-    string refreshToken?;
 };
 
 public type UpsertCompensationPlanRequest record {
@@ -22399,54 +22415,6 @@ public type ContractmanageradditemsDataContractProductGroupProductFilterCriteria
     ContractmanageradditemsDataContractProductGroupProductFilterCriteriaCriteria[] criteria?;
     @constraint:String {minLength: 1}
     string operator?;
-};
-
-# The type code is U
-public type User record {
-    @constraint:String {maxLength: 255}
-    string lastName?;
-    string lastLogin?;
-    string typedId?;
-    boolean firstLogin?;
-    boolean noSession?;
-    UserBusinessRoles[] businessRoles?;
-    string customerFilterCriteria?;
-    @constraint:String {maxLength: 255}
-    string defaultUserGroupViewDetails?;
-    @constraint:String {maxLength: 255}
-    string loginName?;
-    string[] allRoleNames?;
-    boolean receiveAdminEmail?;
-    @constraint:String {maxLength: 255}
-    string wizardDashboardName?;
-    @constraint:String {maxLength: 255}
-    string email?;
-    string createDate?;
-    @constraint:String {maxLength: 255}
-    string additionalInfo4?;
-    @constraint:String {maxLength: 255}
-    string additionalInfo3?;
-    decimal additionalInfo2?;
-    decimal additionalInfo1?;
-    string passwordExpiry?;
-    record {}[] allGroups?;
-    BusinessRoleGroups[] groups?;
-    string productFilterCriteria?;
-    int version?;
-    boolean ssoOnly?;
-    @constraint:String {maxLength: 255}
-    string firstName?;
-    @constraint:String {maxLength: 255}
-    string defaultUserGroupEdit?;
-    @constraint:String {maxLength: 255}
-    string emailLocale?;
-    boolean workflowEmailingActivated?;
-    int createdBy?;
-    string[] roleNames?;
-    boolean requireTFA?;
-    boolean activated?;
-    int lastUpdateBy?;
-    record {|string...;|} extendedData?;
 };
 
 public type SetClicLostReasonEnvelope record {
