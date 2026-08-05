@@ -331,6 +331,6 @@ dependencies = [
 ]
 modules = [
 	{org = "ballerinax", packageName = "pricefx", moduleName = "pricefx"},
-	{org = "ballerinax", packageName = "pricefx", moduleName = "pricefx.oas"}
+	{org = "ballerinax", packageName = "pricefx", moduleName = "pricefx"}
 ]
 

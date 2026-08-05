@@ -112,10 +112,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function acceptCalculationGridItem(string id, oas:SubmitCalculationGridItemRequest payload, map<string|string[]> headers = {}) returns oas:SubmitCalculationGridItemResponse|error {
+    remote isolated function acceptCalculationGridItem(string id, SubmitCalculationGridItemRequest payload, map<string|string[]> headers = {}) returns SubmitCalculationGridItemResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:SubmitCalculationGridItemResponse|error r = oasClient->acceptCalculationGridItem(id, payload, mergedHeaders);
+        SubmitCalculationGridItemResponse|error r = oasClient->acceptCalculationGridItem(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -129,10 +129,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function addActionType(oas:AddActionTypeRequest payload, map<string|string[]> headers = {}) returns oas:AddActionTypeResponse|error {
+    remote isolated function addActionType(AddActionTypeRequest payload, map<string|string[]> headers = {}) returns AddActionTypeResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:AddActionTypeResponse|error r = oasClient->addActionType(payload, mergedHeaders);
+        AddActionTypeResponse|error r = oasClient->addActionType(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -147,10 +147,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function addApproverStep(string currentStepId, oas:AddApproverStepRequest payload, map<string|string[]> headers = {}) returns oas:AddApproverStepResponse|error {
+    remote isolated function addApproverStep(string currentStepId, AddApproverStepRequest payload, map<string|string[]> headers = {}) returns AddApproverStepResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:AddApproverStepResponse|error r = oasClient->addApproverStep(currentStepId, payload, mergedHeaders);
+        AddApproverStepResponse|error r = oasClient->addApproverStep(currentStepId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -164,10 +164,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function addCalculation(oas:AddCalculationRequest payload, map<string|string[]> headers = {}) returns oas:AddCalculationResponse|error {
+    remote isolated function addCalculation(AddCalculationRequest payload, map<string|string[]> headers = {}) returns AddCalculationResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:AddCalculationResponse|error r = oasClient->addCalculation(payload, mergedHeaders);
+        AddCalculationResponse|error r = oasClient->addCalculation(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -181,10 +181,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function addCalculationGrid(oas:AddCalculationGridRequest payload, map<string|string[]> headers = {}) returns oas:AddCalculationGridResponse|error {
+    remote isolated function addCalculationGrid(AddCalculationGridRequest payload, map<string|string[]> headers = {}) returns AddCalculationGridResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:AddCalculationGridResponse|error r = oasClient->addCalculationGrid(payload, mergedHeaders);
+        AddCalculationGridResponse|error r = oasClient->addCalculationGrid(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -199,10 +199,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function addCalculationGridItem("1"|"2"|"3"|"4"|"5"|"6" keyNumber, oas:AddCalculationGridItemRequest payload, map<string|string[]> headers = {}) returns oas:AddCalculationGridItemResponse|error {
+    remote isolated function addCalculationGridItem("1"|"2"|"3"|"4"|"5"|"6" keyNumber, AddCalculationGridItemRequest payload, map<string|string[]> headers = {}) returns AddCalculationGridItemResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:AddCalculationGridItemResponse|error r = oasClient->addCalculationGridItem(keyNumber, payload, mergedHeaders);
+        AddCalculationGridItemResponse|error r = oasClient->addCalculationGridItem(keyNumber, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -216,10 +216,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function addClaim(oas:AddClaimRequest payload, map<string|string[]> headers = {}) returns oas:AddClaimResponse|error {
+    remote isolated function addClaim(AddClaimRequest payload, map<string|string[]> headers = {}) returns AddClaimResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:AddClaimResponse|error r = oasClient->addClaim(payload, mergedHeaders);
+        AddClaimResponse|error r = oasClient->addClaim(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -233,10 +233,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function addClaimType(oas:AddClaimTypeRequest payload, map<string|string[]> headers = {}) returns oas:AddClaimTypeResponse|error {
+    remote isolated function addClaimType(AddClaimTypeRequest payload, map<string|string[]> headers = {}) returns AddClaimTypeResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:AddClaimTypeResponse|error r = oasClient->addClaimType(payload, mergedHeaders);
+        AddClaimTypeResponse|error r = oasClient->addClaimType(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -250,10 +250,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function addComment(oas:CommentmanagerAddBody payload, map<string|string[]> headers = {}) returns oas:CommentOperationEnvelope|error {
+    remote isolated function addComment(CommentmanagerAddBody payload, map<string|string[]> headers = {}) returns CommentOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:CommentOperationEnvelope|error r = oasClient->addComment(payload, mergedHeaders);
+        CommentOperationEnvelope|error r = oasClient->addComment(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -267,10 +267,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function addCompensationType(oas:AddCompensationTypeRequest payload, map<string|string[]> headers = {}) returns oas:AddCompensationTypeEnvelope|error {
+    remote isolated function addCompensationType(AddCompensationTypeRequest payload, map<string|string[]> headers = {}) returns AddCompensationTypeEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:AddCompensationTypeEnvelope|error r = oasClient->addCompensationType(payload, mergedHeaders);
+        AddCompensationTypeEnvelope|error r = oasClient->addCompensationType(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -284,10 +284,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function addConditionRecordItemMeta(oas:AddCRCIMBody payload, map<string|string[]> headers = {}) returns oas:ConditionRecordItemMetaOperationEnvelope|error {
+    remote isolated function addConditionRecordItemMeta(AddCRCIMBody payload, map<string|string[]> headers = {}) returns ConditionRecordItemMetaOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ConditionRecordItemMetaOperationEnvelope|error r = oasClient->addConditionRecordItemMeta(payload, mergedHeaders);
+        ConditionRecordItemMetaOperationEnvelope|error r = oasClient->addConditionRecordItemMeta(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -301,10 +301,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function addConditionRecordSet(oas:AddCRCSBody payload, map<string|string[]> headers = {}) returns oas:ConditionRecordSetOperationEnvelope|error {
+    remote isolated function addConditionRecordSet(AddCRCSBody payload, map<string|string[]> headers = {}) returns ConditionRecordSetOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ConditionRecordSetOperationEnvelope|error r = oasClient->addConditionRecordSet(payload, mergedHeaders);
+        ConditionRecordSetOperationEnvelope|error r = oasClient->addConditionRecordSet(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -318,10 +318,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload -
     # + return - OK 
-    remote isolated function addConditionType(oas:AddConditionTypeRequest payload, map<string|string[]> headers = {}) returns oas:AddConditionTypeEnvelope|error {
+    remote isolated function addConditionType(AddConditionTypeRequest payload, map<string|string[]> headers = {}) returns AddConditionTypeEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:AddConditionTypeEnvelope|error r = oasClient->addConditionType(payload, mergedHeaders);
+        AddConditionTypeEnvelope|error r = oasClient->addConditionType(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -335,10 +335,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function addConfigurationStorage(oas:AddJCSBody payload, map<string|string[]> headers = {}) returns oas:ConfigurationStorageOperationEnvelope|error {
+    remote isolated function addConfigurationStorage(AddJCSBody payload, map<string|string[]> headers = {}) returns ConfigurationStorageOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ConfigurationStorageOperationEnvelope|error r = oasClient->addConfigurationStorage(payload, mergedHeaders);
+        ConfigurationStorageOperationEnvelope|error r = oasClient->addConfigurationStorage(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -352,10 +352,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - Example response 
-    remote isolated function addContractLineItems(oas:AddContractLineItemsRequest payload, map<string|string[]> headers = {}) returns oas:ContractModelResponse|error {
+    remote isolated function addContractLineItems(AddContractLineItemsRequest payload, map<string|string[]> headers = {}) returns ContractModelResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ContractModelResponse|error r = oasClient->addContractLineItems(payload, mergedHeaders);
+        ContractModelResponse|error r = oasClient->addContractLineItems(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -369,10 +369,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - Returns customer record details 
-    remote isolated function addCustomer(oas:AddCustomerRequest payload, map<string|string[]> headers = {}) returns oas:CustomerResponse|error {
+    remote isolated function addCustomer(AddCustomerRequest payload, map<string|string[]> headers = {}) returns CustomerResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:CustomerResponse|error r = oasClient->addCustomer(payload, mergedHeaders);
+        CustomerResponse|error r = oasClient->addCustomer(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -386,10 +386,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function addDataChangeRequest(oas:AddDCRRequest payload, map<string|string[]> headers = {}) returns oas:AddDCRResponse|error {
+    remote isolated function addDataChangeRequest(AddDCRRequest payload, map<string|string[]> headers = {}) returns AddDCRResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:AddDCRResponse|error r = oasClient->addDataChangeRequest(payload, mergedHeaders);
+        AddDCRResponse|error r = oasClient->addDataChangeRequest(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -404,10 +404,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function addDataChangeRequestItem(string id, oas:AddDCRIRequest payload, map<string|string[]> headers = {}) returns oas:AddDCRIResponse|error {
+    remote isolated function addDataChangeRequestItem(string id, AddDCRIRequest payload, map<string|string[]> headers = {}) returns AddDCRIResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:AddDCRIResponse|error r = oasClient->addDataChangeRequestItem(id, payload, mergedHeaders);
+        AddDCRIResponse|error r = oasClient->addDataChangeRequestItem(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -422,7 +422,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function addLineItems(string typedId, oas:ClicmanagerAdditemstypedIdBody payload, map<string|string[]> headers = {}) returns record {}|error {
+    remote isolated function addLineItems(string typedId, ClicmanagerAdditemstypedIdBody payload, map<string|string[]> headers = {}) returns record {}|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
         record {}|error r = oasClient->addLineItems(typedId, payload, mergedHeaders);
@@ -439,10 +439,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function addLivePriceGridType(oas:AddPGTTBody payload, map<string|string[]> headers = {}) returns oas:LivePriceGridTypeOperationEnvelope|error {
+    remote isolated function addLivePriceGridType(AddPGTTBody payload, map<string|string[]> headers = {}) returns LivePriceGridTypeOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:LivePriceGridTypeOperationEnvelope|error r = oasClient->addLivePriceGridType(payload, mergedHeaders);
+        LivePriceGridTypeOperationEnvelope|error r = oasClient->addLivePriceGridType(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -456,10 +456,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - The request must contain all fields that are part of the business key for that object and all non-nullable fields 
     # + return - OK 
-    remote isolated function addLookupTable(oas:AddLookupTableRequest payload, map<string|string[]> headers = {}) returns oas:AddLookupTableResponse|error {
+    remote isolated function addLookupTable(AddLookupTableRequest payload, map<string|string[]> headers = {}) returns AddLookupTableResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:AddLookupTableResponse|error r = oasClient->addLookupTable(payload, mergedHeaders);
+        AddLookupTableResponse|error r = oasClient->addLookupTable(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -474,10 +474,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function addLookupTableValue(string tableId, oas:AddLookupTableValueRequest payload, map<string|string[]> headers = {}) returns oas:AddLookupTableValueResponse|error {
+    remote isolated function addLookupTableValue(string tableId, AddLookupTableValueRequest payload, map<string|string[]> headers = {}) returns AddLookupTableValueResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:AddLookupTableValueResponse|error r = oasClient->addLookupTableValue(tableId, payload, mergedHeaders);
+        AddLookupTableValueResponse|error r = oasClient->addLookupTableValue(tableId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -492,10 +492,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
-    remote isolated function addManualPriceListProducts(string id, oas:AddProductsToManualPriceListRequest payload, map<string|string[]> headers = {}) returns oas:GenericDataResponse|error {
+    remote isolated function addManualPriceListProducts(string id, AddProductsToManualPriceListRequest payload, map<string|string[]> headers = {}) returns GenericDataResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GenericDataResponse|error r = oasClient->addManualPriceListProducts(id, payload, mergedHeaders);
+        GenericDataResponse|error r = oasClient->addManualPriceListProducts(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -510,10 +510,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function addManualPriceListProductsNoRecalc(string id, oas:AddProductsToManualPriceListNoRecalcRequest payload, map<string|string[]> headers = {}) returns oas:AddProductsToManualPriceListNoRecalcResponse|error {
+    remote isolated function addManualPriceListProductsNoRecalc(string id, AddProductsToManualPriceListNoRecalcRequest payload, map<string|string[]> headers = {}) returns AddProductsToManualPriceListNoRecalcResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:AddProductsToManualPriceListNoRecalcResponse|error r = oasClient->addManualPriceListProductsNoRecalc(id, payload, mergedHeaders);
+        AddProductsToManualPriceListNoRecalcResponse|error r = oasClient->addManualPriceListProductsNoRecalc(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -527,10 +527,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload -
     # + return - Created - the new internationalization messages have been added 
-    remote isolated function addNewInternationalizationMessage(oas:I18nmanagerPutBody payload, map<string|string[]> headers = {}) returns oas:AddInternationalizationMessageEnvelope|error {
+    remote isolated function addNewInternationalizationMessage(I18nmanagerPutBody payload, map<string|string[]> headers = {}) returns AddInternationalizationMessageEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:AddInternationalizationMessageEnvelope|error r = oasClient->addNewInternationalizationMessage(payload, mergedHeaders);
+        AddInternationalizationMessageEnvelope|error r = oasClient->addNewInternationalizationMessage(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -545,10 +545,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function addPriceGridItemsToPriceGrid(string id, oas:AddPriceGridItemsRequest payload, map<string|string[]> headers = {}) returns oas:AddPriceGridItemsToPriceGridResponse|error {
+    remote isolated function addPriceGridItemsToPriceGrid(string id, AddPriceGridItemsRequest payload, map<string|string[]> headers = {}) returns AddPriceGridItemsToPriceGridResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:AddPriceGridItemsToPriceGridResponse|error r = oasClient->addPriceGridItemsToPriceGrid(id, payload, mergedHeaders);
+        AddPriceGridItemsToPriceGridResponse|error r = oasClient->addPriceGridItemsToPriceGrid(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -562,10 +562,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload -
     # + return - OK 
-    remote isolated function addPriceListType(oas:AddPLTTBody payload, map<string|string[]> headers = {}) returns oas:PriceListTypeOperationEnvelope|error {
+    remote isolated function addPriceListType(AddPLTTBody payload, map<string|string[]> headers = {}) returns PriceListTypeOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:PriceListTypeOperationEnvelope|error r = oasClient->addPriceListType(payload, mergedHeaders);
+        PriceListTypeOperationEnvelope|error r = oasClient->addPriceListType(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -579,10 +579,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - Returns full record details 
-    remote isolated function addProduct(oas:AddProductRequest payload, map<string|string[]> headers = {}) returns oas:ProductResponse|error {
+    remote isolated function addProduct(AddProductRequest payload, map<string|string[]> headers = {}) returns ProductResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ProductResponse|error r = oasClient->addProduct(payload, mergedHeaders);
+        ProductResponse|error r = oasClient->addProduct(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -596,10 +596,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - Example response 
-    remote isolated function addQuoteProducts(oas:AddProductsToQuoteRequest payload, map<string|string[]> headers = {}) returns oas:QuoteResponse|error {
+    remote isolated function addQuoteProducts(AddProductsToQuoteRequest payload, map<string|string[]> headers = {}) returns QuoteResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:QuoteResponse|error r = oasClient->addQuoteProducts(payload, mergedHeaders);
+        QuoteResponse|error r = oasClient->addQuoteProducts(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -613,10 +613,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - Example response 
-    remote isolated function addRebateAgreementItems(oas:GetCustomerRequest payload, map<string|string[]> headers = {}) returns oas:RebateAgreementResponse|error {
+    remote isolated function addRebateAgreementItems(GetCustomerRequest payload, map<string|string[]> headers = {}) returns RebateAgreementResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:RebateAgreementResponse|error r = oasClient->addRebateAgreementItems(payload, mergedHeaders);
+        RebateAgreementResponse|error r = oasClient->addRebateAgreementItems(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -630,10 +630,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function addRebateCalculation(oas:AddRRSCBody payload, map<string|string[]> headers = {}) returns oas:AddRebateCalculationResponse|error {
+    remote isolated function addRebateCalculation(AddRRSCBody payload, map<string|string[]> headers = {}) returns AddRebateCalculationResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:AddRebateCalculationResponse|error r = oasClient->addRebateCalculation(payload, mergedHeaders);
+        AddRebateCalculationResponse|error r = oasClient->addRebateCalculation(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -647,10 +647,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function addSeller(oas:AddSellerRequest payload, map<string|string[]> headers = {}) returns oas:AddSellerEnvelope|error {
+    remote isolated function addSeller(AddSellerRequest payload, map<string|string[]> headers = {}) returns AddSellerEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:AddSellerEnvelope|error r = oasClient->addSeller(payload, mergedHeaders);
+        AddSellerEnvelope|error r = oasClient->addSeller(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -664,10 +664,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function addSellerExtension(oas:AddSellerExtensionRequest payload, map<string|string[]> headers = {}) returns oas:AddSellerExtensionResponse|error {
+    remote isolated function addSellerExtension(AddSellerExtensionRequest payload, map<string|string[]> headers = {}) returns AddSellerExtensionResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:AddSellerExtensionResponse|error r = oasClient->addSellerExtension(payload, mergedHeaders);
+        AddSellerExtensionResponse|error r = oasClient->addSellerExtension(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -681,10 +681,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - Example response 
-    remote isolated function addUser(oas:AddUserRequest payload, map<string|string[]> headers = {}) returns oas:UserResponse|error {
+    remote isolated function addUser(AddUserRequest payload, map<string|string[]> headers = {}) returns UserResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:UserResponse|error r = oasClient->addUser(payload, mergedHeaders);
+        UserResponse|error r = oasClient->addUser(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -699,10 +699,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function addWatcherStep(string currentStepId, oas:AddWatcherStepRequest payload, map<string|string[]> headers = {}) returns oas:AddWatcherStepResponse|error {
+    remote isolated function addWatcherStep(string currentStepId, AddWatcherStepRequest payload, map<string|string[]> headers = {}) returns AddWatcherStepResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:AddWatcherStepResponse|error r = oasClient->addWatcherStep(currentStepId, payload, mergedHeaders);
+        AddWatcherStepResponse|error r = oasClient->addWatcherStep(currentStepId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -717,10 +717,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function approveDocument(string currentStepId, oas:ApproveDocumentRequest payload, map<string|string[]> headers = {}) returns oas:ApproveDocumentResponse|error {
+    remote isolated function approveDocument(string currentStepId, ApproveDocumentRequest payload, map<string|string[]> headers = {}) returns ApproveDocumentResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ApproveDocumentResponse|error r = oasClient->approveDocument(currentStepId, payload, mergedHeaders);
+        ApproveDocumentResponse|error r = oasClient->approveDocument(currentStepId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -734,10 +734,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function assignBusinessRole(oas:AssignBusinessRoleRequest payload, map<string|string[]> headers = {}) returns oas:AssignBusinessRoleResponse|error {
+    remote isolated function assignBusinessRole(AssignBusinessRoleRequest payload, map<string|string[]> headers = {}) returns AssignBusinessRoleResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:AssignBusinessRoleResponse|error r = oasClient->assignBusinessRole(payload, mergedHeaders);
+        AssignBusinessRoleResponse|error r = oasClient->assignBusinessRole(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -752,10 +752,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function assignBusinessRoleToUser(string userId, oas:AssignBusinessRoleToUserRequest payload, map<string|string[]> headers = {}) returns oas:AssignBusinessRoleToUserResponse|error {
+    remote isolated function assignBusinessRoleToUser(string userId, AssignBusinessRoleToUserRequest payload, map<string|string[]> headers = {}) returns AssignBusinessRoleToUserResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:AssignBusinessRoleToUserResponse|error r = oasClient->assignBusinessRoleToUser(userId, payload, mergedHeaders);
+        AssignBusinessRoleToUserResponse|error r = oasClient->assignBusinessRoleToUser(userId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -769,10 +769,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - Example response 
-    remote isolated function assignCustomers(oas:AssignCustomersRequest payload, map<string|string[]> headers = {}) returns oas:AssignmentResponse|error {
+    remote isolated function assignCustomers(AssignCustomersRequest payload, map<string|string[]> headers = {}) returns AssignmentResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:AssignmentResponse|error r = oasClient->assignCustomers(payload, mergedHeaders);
+        AssignmentResponse|error r = oasClient->assignCustomers(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -786,10 +786,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function assignGroupToBusinessRole(oas:AssignGroupToBusinessRoleRequest payload, map<string|string[]> headers = {}) returns oas:AssignGroupToBusinessRoleResponse|error {
+    remote isolated function assignGroupToBusinessRole(AssignGroupToBusinessRoleRequest payload, map<string|string[]> headers = {}) returns AssignGroupToBusinessRoleResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:AssignGroupToBusinessRoleResponse|error r = oasClient->assignGroupToBusinessRole(payload, mergedHeaders);
+        AssignGroupToBusinessRoleResponse|error r = oasClient->assignGroupToBusinessRole(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -803,10 +803,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function assignRoleToBusinessRole(oas:AssignRoleToBusinessRoleRequest payload, map<string|string[]> headers = {}) returns oas:AssignRoleToBusinessRoleResponse|error {
+    remote isolated function assignRoleToBusinessRole(AssignRoleToBusinessRoleRequest payload, map<string|string[]> headers = {}) returns AssignRoleToBusinessRoleResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:AssignRoleToBusinessRoleResponse|error r = oasClient->assignRoleToBusinessRole(payload, mergedHeaders);
+        AssignRoleToBusinessRoleResponse|error r = oasClient->assignRoleToBusinessRole(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -821,10 +821,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function assignRoleToUser(string userId, oas:AssignRoleToUserRequest payload, map<string|string[]> headers = {}) returns oas:AssignRoleToUserResponse|error {
+    remote isolated function assignRoleToUser(string userId, AssignRoleToUserRequest payload, map<string|string[]> headers = {}) returns AssignRoleToUserResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:AssignRoleToUserResponse|error r = oasClient->assignRoleToUser(userId, payload, mergedHeaders);
+        AssignRoleToUserResponse|error r = oasClient->assignRoleToUser(userId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -838,10 +838,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function assignRoleToUsers(oas:AssignRoleToUsersRequest payload, map<string|string[]> headers = {}) returns oas:AssignRoleToUsersResponse|error {
+    remote isolated function assignRoleToUsers(AssignRoleToUsersRequest payload, map<string|string[]> headers = {}) returns AssignRoleToUsersResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:AssignRoleToUsersResponse|error r = oasClient->assignRoleToUsers(payload, mergedHeaders);
+        AssignRoleToUsersResponse|error r = oasClient->assignRoleToUsers(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -855,10 +855,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function assignUserGroupToUsers(oas:AssignUserGroupToUsersRequest payload, map<string|string[]> headers = {}) returns oas:AssignUserGroupToUsersResponse|error {
+    remote isolated function assignUserGroupToUsers(AssignUserGroupToUsersRequest payload, map<string|string[]> headers = {}) returns AssignUserGroupToUsersResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:AssignUserGroupToUsersResponse|error r = oasClient->assignUserGroupToUsers(payload, mergedHeaders);
+        AssignUserGroupToUsersResponse|error r = oasClient->assignUserGroupToUsers(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -873,10 +873,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function assignUserToUserGroup(string userId, oas:AssignUserToUserGroupRequest payload, map<string|string[]> headers = {}) returns oas:AssignUserToUserGroupResponse|error {
+    remote isolated function assignUserToUserGroup(string userId, AssignUserToUserGroupRequest payload, map<string|string[]> headers = {}) returns AssignUserToUserGroupResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:AssignUserToUserGroupResponse|error r = oasClient->assignUserToUserGroup(userId, payload, mergedHeaders);
+        AssignUserToUserGroupResponse|error r = oasClient->assignUserToUserGroup(userId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -890,10 +890,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Specify customer field names in the `header` object and fields values in the `data` object.<p> 
     # + return - Returns the number of inserted or updated objects 
-    remote isolated function bulkInsertCustomers(oas:InsertBulkCustomersRequest payload, map<string|string[]> headers = {}) returns oas:LoadDataResponse|error {
+    remote isolated function bulkInsertCustomers(InsertBulkCustomersRequest payload, map<string|string[]> headers = {}) returns LoadDataResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:LoadDataResponse|error r = oasClient->bulkInsertCustomers(payload, mergedHeaders);
+        LoadDataResponse|error r = oasClient->bulkInsertCustomers(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -907,10 +907,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Specify product field names in the `header` object and fields values in the `data` object.<p> 
     # + return - Returns the number of inserted or updated objects 
-    remote isolated function bulkInsertProducts(oas:InsertBulkProductsRequest payload, map<string|string[]> headers = {}) returns oas:LoadDataResponse|error {
+    remote isolated function bulkInsertProducts(InsertBulkProductsRequest payload, map<string|string[]> headers = {}) returns LoadDataResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:LoadDataResponse|error r = oasClient->bulkInsertProducts(payload, mergedHeaders);
+        LoadDataResponse|error r = oasClient->bulkInsertProducts(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -925,10 +925,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function calculateCalculationGrid(string id, oas:CalculateCalculationGridRequest payload, map<string|string[]> headers = {}) returns oas:CalculateCalculationGridResponse|error {
+    remote isolated function calculateCalculationGrid(string id, CalculateCalculationGridRequest payload, map<string|string[]> headers = {}) returns CalculateCalculationGridResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:CalculateCalculationGridResponse|error r = oasClient->calculateCalculationGrid(id, payload, mergedHeaders);
+        CalculateCalculationGridResponse|error r = oasClient->calculateCalculationGrid(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -942,10 +942,10 @@ public isolated client class Client {
     # + id - The `id` is the `typedId` without the type suffix. For example, the `id` attribute of the item with `typedId` = **2147484837.PL**  is **2147484837**
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function calculateCfs(string id, map<string|string[]> headers = {}) returns oas:CalculateCFSResponse|error {
+    remote isolated function calculateCfs(string id, map<string|string[]> headers = {}) returns CalculateCFSResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:CalculateCFSResponse|error r = oasClient->calculateCfs(id, mergedHeaders);
+        CalculateCFSResponse|error r = oasClient->calculateCfs(id, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -960,10 +960,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function calculateClaim(string typedId, oas:CalculateClaimRequest payload, map<string|string[]> headers = {}) returns oas:CalculateClaimResponse|error {
+    remote isolated function calculateClaim(string typedId, CalculateClaimRequest payload, map<string|string[]> headers = {}) returns CalculateClaimResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:CalculateClaimResponse|error r = oasClient->calculateClaim(typedId, payload, mergedHeaders);
+        CalculateClaimResponse|error r = oasClient->calculateClaim(typedId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -977,10 +977,10 @@ public isolated client class Client {
     # + id - The ID of the Manual Price List you want to start the calculation for
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function calculateManualPriceList(string id, map<string|string[]> headers = {}) returns oas:CalculateManualPriceListResponse|error {
+    remote isolated function calculateManualPriceList(string id, map<string|string[]> headers = {}) returns CalculateManualPriceListResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:CalculateManualPriceListResponse|error r = oasClient->calculateManualPriceList(id, mergedHeaders);
+        CalculateManualPriceListResponse|error r = oasClient->calculateManualPriceList(id, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -996,10 +996,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - OK 
-    remote isolated function calculateModelObjectStep(string typedId, "definition"|"configuration"|"results"|"projections"|"parallel" stepName, map<string|string[]> headers = {}, *oas:CalculateModelObjectStepQueries queries) returns oas:ModelCalculationStepEnvelope|error {
+    remote isolated function calculateModelObjectStep(string typedId, "definition"|"configuration"|"results"|"projections"|"parallel" stepName, map<string|string[]> headers = {}, *CalculateModelObjectStepQueries queries) returns ModelCalculationStepEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ModelCalculationStepEnvelope|error r = oasClient->calculateModelObjectStep(typedId, stepName, mergedHeaders, queries = queries);
+        ModelCalculationStepEnvelope|error r = oasClient->calculateModelObjectStep(typedId, stepName, mergedHeaders, queries = queries);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1013,10 +1013,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + id - The id to be sent with the request
     # + return - OK 
-    remote isolated function calculatePriceGrid(string id, map<string|string[]> headers = {}) returns oas:CalculatePriceGridResponse|error {
+    remote isolated function calculatePriceGrid(string id, map<string|string[]> headers = {}) returns CalculatePriceGridResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:CalculatePriceGridResponse|error r = oasClient->calculatePriceGrid(id, mergedHeaders);
+        CalculatePriceGridResponse|error r = oasClient->calculatePriceGrid(id, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1031,10 +1031,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function calculatePriceList(string id, oas:PricelistmanagerCalculateidBody payload, map<string|string[]> headers = {}) returns oas:CalculatePricelistResponse|error {
+    remote isolated function calculatePriceList(string id, PricelistmanagerCalculateidBody payload, map<string|string[]> headers = {}) returns CalculatePricelistResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:CalculatePricelistResponse|error r = oasClient->calculatePriceList(id, payload, mergedHeaders);
+        CalculatePricelistResponse|error r = oasClient->calculatePriceList(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1049,10 +1049,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function calculateRebateRecordGroup(string typedId, oas:RebaterecordgroupCalculatetypedIdBody payload, map<string|string[]> headers = {}) returns oas:CalculateRebateRecordGroupEnvelope|error {
+    remote isolated function calculateRebateRecordGroup(string typedId, RebaterecordgroupCalculatetypedIdBody payload, map<string|string[]> headers = {}) returns CalculateRebateRecordGroupEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:CalculateRebateRecordGroupEnvelope|error r = oasClient->calculateRebateRecordGroup(typedId, payload, mergedHeaders);
+        CalculateRebateRecordGroupEnvelope|error r = oasClient->calculateRebateRecordGroup(typedId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1067,10 +1067,10 @@ public isolated client class Client {
     # + stepName - The name of the step you want to cancel
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function cancelCalculationStep(string typedId, string stepName, map<string|string[]> headers = {}) returns oas:JobStatusTrackerResponse|error {
+    remote isolated function cancelCalculationStep(string typedId, string stepName, map<string|string[]> headers = {}) returns JobStatusTrackerResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:JobStatusTrackerResponse|error r = oasClient->cancelCalculationStep(typedId, stepName, mergedHeaders);
+        JobStatusTrackerResponse|error r = oasClient->cancelCalculationStep(typedId, stepName, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1084,10 +1084,10 @@ public isolated client class Client {
     # + id - The `id` is the `typedId` without the type suffix. For example, the `id` attribute of the item with `typedId` = **2147484837.PL**  is **2147484837**
     # + headers - Headers to be sent with the request 
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
-    remote isolated function cancelCfsCalculation(string id, map<string|string[]> headers = {}) returns oas:GenericDataResponse|error {
+    remote isolated function cancelCfsCalculation(string id, map<string|string[]> headers = {}) returns GenericDataResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GenericDataResponse|error r = oasClient->cancelCfsCalculation(id, mergedHeaders);
+        GenericDataResponse|error r = oasClient->cancelCfsCalculation(id, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1102,10 +1102,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function cancelClaimCalculation(string typedId, record {} payload, map<string|string[]> headers = {}) returns oas:CancelClaimCalculationResponse|error {
+    remote isolated function cancelClaimCalculation(string typedId, record {} payload, map<string|string[]> headers = {}) returns CancelClaimCalculationResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:CancelClaimCalculationResponse|error r = oasClient->cancelClaimCalculation(typedId, payload, mergedHeaders);
+        CancelClaimCalculationResponse|error r = oasClient->cancelClaimCalculation(typedId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1120,10 +1120,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
-    remote isolated function cancelJob(string id, record {} payload, map<string|string[]> headers = {}) returns oas:GenericDataResponse|error {
+    remote isolated function cancelJob(string id, record {} payload, map<string|string[]> headers = {}) returns GenericDataResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GenericDataResponse|error r = oasClient->cancelJob(id, payload, mergedHeaders);
+        GenericDataResponse|error r = oasClient->cancelJob(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1137,10 +1137,10 @@ public isolated client class Client {
     # + id - The ID of the Live Price Grid whose running calculation should be cancelled
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function cancelPriceGridCalculation(string id, map<string|string[]> headers = {}) returns oas:CancelCalculationResponse|error {
+    remote isolated function cancelPriceGridCalculation(string id, map<string|string[]> headers = {}) returns CancelCalculationResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:CancelCalculationResponse|error r = oasClient->cancelPriceGridCalculation(id, mergedHeaders);
+        CancelCalculationResponse|error r = oasClient->cancelPriceGridCalculation(id, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1154,10 +1154,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function changeCurrentUserPassword(oas:ChangeCurrentUserPasswordRequest payload, map<string|string[]> headers = {}) returns oas:ChangeCurrentUserPasswordResponse|error {
+    remote isolated function changeCurrentUserPassword(ChangeCurrentUserPasswordRequest payload, map<string|string[]> headers = {}) returns ChangeCurrentUserPasswordResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ChangeCurrentUserPasswordResponse|error r = oasClient->changeCurrentUserPassword(payload, mergedHeaders);
+        ChangeCurrentUserPasswordResponse|error r = oasClient->changeCurrentUserPassword(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1172,10 +1172,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function changeCustomFormStatus(string typedId, oas:ChangeCustomFormStatusRequest payload, map<string|string[]> headers = {}) returns oas:ChangeCustomFormStatusResponse|error {
+    remote isolated function changeCustomFormStatus(string typedId, ChangeCustomFormStatusRequest payload, map<string|string[]> headers = {}) returns ChangeCustomFormStatusResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ChangeCustomFormStatusResponse|error r = oasClient->changeCustomFormStatus(typedId, payload, mergedHeaders);
+        ChangeCustomFormStatusResponse|error r = oasClient->changeCustomFormStatus(typedId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1192,7 +1192,7 @@ public isolated client class Client {
     # 
     # # Deprecated
     @deprecated
-    remote isolated function changeTermsOfUse(oas:AccountmanagerChangetermsofuseBody payload, map<string|string[]> headers = {}) returns http:Response|error {
+    remote isolated function changeTermsOfUse(AccountmanagerChangetermsofuseBody payload, map<string|string[]> headers = {}) returns http:Response|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
         http:Response|error r = oasClient->changeTermsOfUse(payload, mergedHeaders);
@@ -1210,10 +1210,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function changeUserPassword(string userId, oas:ChangeUserPasswordRequest payload, map<string|string[]> headers = {}) returns oas:ChangeUserPasswordResponse|error {
+    remote isolated function changeUserPassword(string userId, ChangeUserPasswordRequest payload, map<string|string[]> headers = {}) returns ChangeUserPasswordResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ChangeUserPasswordResponse|error r = oasClient->changeUserPassword(userId, payload, mergedHeaders);
+        ChangeUserPasswordResponse|error r = oasClient->changeUserPassword(userId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1227,10 +1227,10 @@ public isolated client class Client {
     # + binaryDataId - If the `typedId` is, for example, 1145.BD then the binaryDataId is **1145**
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function checkFileExists(string binaryDataId, map<string|string[]> headers = {}) returns oas:CheckFileExistsEnvelope|error {
+    remote isolated function checkFileExists(string binaryDataId, map<string|string[]> headers = {}) returns CheckFileExistsEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:CheckFileExistsEnvelope|error r = oasClient->checkFileExists(binaryDataId, mergedHeaders);
+        CheckFileExistsEnvelope|error r = oasClient->checkFileExists(binaryDataId, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1244,10 +1244,10 @@ public isolated client class Client {
     # + identifier - Can be either the `uniqueName` or the `typedId`
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function convertQuoteToDeal(string identifier, map<string|string[]> headers = {}) returns oas:QuoteResponse|error {
+    remote isolated function convertQuoteToDeal(string identifier, map<string|string[]> headers = {}) returns QuoteResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:QuoteResponse|error r = oasClient->convertQuoteToDeal(identifier, mergedHeaders);
+        QuoteResponse|error r = oasClient->convertQuoteToDeal(identifier, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1261,10 +1261,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + id - The id to be sent with the request
     # + return - OK 
-    remote isolated function convertToPriceList(string id, map<string|string[]> headers = {}) returns oas:ConvertPriceListResponse|error {
+    remote isolated function convertToPriceList(string id, map<string|string[]> headers = {}) returns ConvertPriceListResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ConvertPriceListResponse|error r = oasClient->convertToPriceList(id, mergedHeaders);
+        ConvertPriceListResponse|error r = oasClient->convertToPriceList(id, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1278,10 +1278,10 @@ public isolated client class Client {
     # + id - The ID of the logic. you want to copy. The `id` is the `typedId` without the **F** suffix. For example, the `id` attribute of the item with `typedId` = **2147484837.F**  is **2147484837**
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function copyLogic(string id, map<string|string[]> headers = {}) returns oas:CopyLogicResponse|error {
+    remote isolated function copyLogic(string id, map<string|string[]> headers = {}) returns CopyLogicResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:CopyLogicResponse|error r = oasClient->copyLogic(id, mergedHeaders);
+        CopyLogicResponse|error r = oasClient->copyLogic(id, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1295,10 +1295,10 @@ public isolated client class Client {
     # + tableId - Enter the ID of the table you want to copy
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function copyLookupTable(string tableId, map<string|string[]> headers = {}) returns oas:CopyLookupTableResponse|error {
+    remote isolated function copyLookupTable(string tableId, map<string|string[]> headers = {}) returns CopyLookupTableResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:CopyLookupTableResponse|error r = oasClient->copyLookupTable(tableId, mergedHeaders);
+        CopyLookupTableResponse|error r = oasClient->copyLookupTable(tableId, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1312,10 +1312,10 @@ public isolated client class Client {
     # + id - The ID of the Manual Price List you want to copy
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function copyManualPriceList(string id, map<string|string[]> headers = {}) returns oas:ManualPriceListResponse|error {
+    remote isolated function copyManualPriceList(string id, map<string|string[]> headers = {}) returns ManualPriceListResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ManualPriceListResponse|error r = oasClient->copyManualPriceList(id, mergedHeaders);
+        ManualPriceListResponse|error r = oasClient->copyManualPriceList(id, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1329,10 +1329,10 @@ public isolated client class Client {
     # + id - The `id` of the Live Price Grid you want to copy. You can retrieve the `id` of the LPG, for example, by calling the `/fetch/PG` endpoint
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function copyPriceGrid(string id, map<string|string[]> headers = {}) returns oas:CopyPriceGridResponse|error {
+    remote isolated function copyPriceGrid(string id, map<string|string[]> headers = {}) returns CopyPriceGridResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:CopyPriceGridResponse|error r = oasClient->copyPriceGrid(id, mergedHeaders);
+        CopyPriceGridResponse|error r = oasClient->copyPriceGrid(id, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1347,10 +1347,10 @@ public isolated client class Client {
     # + typedId - The typedId to be sent with the request
     # + payload - Request payload
     # + return - OK 
-    remote isolated function copyQuote(string typedId, record {} payload, map<string|string[]> headers = {}) returns oas:CopyQuoteEnvelope|error {
+    remote isolated function copyQuote(string typedId, record {} payload, map<string|string[]> headers = {}) returns CopyQuoteEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:CopyQuoteEnvelope|error r = oasClient->copyQuote(typedId, payload, mergedHeaders);
+        CopyQuoteEnvelope|error r = oasClient->copyQuote(typedId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1364,10 +1364,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload -
     # + return - OK 
-    remote isolated function copyRoles(oas:CopyRolesRequest payload, map<string|string[]> headers = {}) returns oas:CopyRolesResponse|error {
+    remote isolated function copyRoles(CopyRolesRequest payload, map<string|string[]> headers = {}) returns CopyRolesResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:CopyRolesResponse|error r = oasClient->copyRoles(payload, mergedHeaders);
+        CopyRolesResponse|error r = oasClient->copyRoles(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1381,10 +1381,10 @@ public isolated client class Client {
     # + userid - The ID of the user you want to copy. The `userId` is the `typedId` without the `U` suffix. For example, `userId` of the **2147490806.U** is **2147490806**
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function copyUser(string userid, map<string|string[]> headers = {}) returns oas:CopyUserResponse|error {
+    remote isolated function copyUser(string userid, map<string|string[]> headers = {}) returns CopyUserResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:CopyUserResponse|error r = oasClient->copyUser(userid, mergedHeaders);
+        CopyUserResponse|error r = oasClient->copyUser(userid, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1416,10 +1416,10 @@ public isolated client class Client {
     # + id - The id to be sent with the request
     # + payload - Request payload
     # + return - OK 
-    remote isolated function countMassActionItems(string id, oas:CountMassActionItemsRequest payload, map<string|string[]> headers = {}) returns oas:CountMassActionItemsResponse|error {
+    remote isolated function countMassActionItems(string id, CountMassActionItemsRequest payload, map<string|string[]> headers = {}) returns CountMassActionItemsResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:CountMassActionItemsResponse|error r = oasClient->countMassActionItems(id, payload, mergedHeaders);
+        CountMassActionItemsResponse|error r = oasClient->countMassActionItems(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1433,10 +1433,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload -
     # + return - OK 
-    remote isolated function createActionItem(oas:AddActionItemRequest payload, map<string|string[]> headers = {}) returns oas:AddActionItemResponse|error {
+    remote isolated function createActionItem(AddActionItemRequest payload, map<string|string[]> headers = {}) returns AddActionItemResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:AddActionItemResponse|error r = oasClient->createActionItem(payload, mergedHeaders);
+        AddActionItemResponse|error r = oasClient->createActionItem(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1451,10 +1451,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function createClic("Q"|"QTMP" typeCode, oas:ClicmanagerCreateTypeCodeBody payload, map<string|string[]> headers = {}) returns oas:ClicOperationEnvelope|error {
+    remote isolated function createClic("Q"|"QTMP" typeCode, ClicmanagerCreateTypeCodeBody payload, map<string|string[]> headers = {}) returns ClicOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ClicOperationEnvelope|error r = oasClient->createClic(typeCode, payload, mergedHeaders);
+        ClicOperationEnvelope|error r = oasClient->createClic(typeCode, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1468,10 +1468,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload -
     # + return - OK 
-    remote isolated function createCustomForm(oas:CreateCustomFormRequest payload, map<string|string[]> headers = {}) returns oas:CreateCustomFormEnvelope|error {
+    remote isolated function createCustomForm(CreateCustomFormRequest payload, map<string|string[]> headers = {}) returns CreateCustomFormEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:CreateCustomFormEnvelope|error r = oasClient->createCustomForm(payload, mergedHeaders);
+        CreateCustomFormEnvelope|error r = oasClient->createCustomForm(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1486,10 +1486,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function createCustomFormRevision(string typedId, record {} payload, map<string|string[]> headers = {}) returns oas:CustomFormRevisionEnvelope|error {
+    remote isolated function createCustomFormRevision(string typedId, record {} payload, map<string|string[]> headers = {}) returns CustomFormRevisionEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:CustomFormRevisionEnvelope|error r = oasClient->createCustomFormRevision(typedId, payload, mergedHeaders);
+        CustomFormRevisionEnvelope|error r = oasClient->createCustomFormRevision(typedId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1503,10 +1503,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function createCustomFormType(oas:CreateCustomFormTypeRequest payload, map<string|string[]> headers = {}) returns oas:CreateCustomFormTypeResponse|error {
+    remote isolated function createCustomFormType(CreateCustomFormTypeRequest payload, map<string|string[]> headers = {}) returns CreateCustomFormTypeResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:CreateCustomFormTypeResponse|error r = oasClient->createCustomFormType(payload, mergedHeaders);
+        CreateCustomFormTypeResponse|error r = oasClient->createCustomFormType(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1521,7 +1521,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function createDMFieldCollection("DMDS"|"DMT" fcType, oas:DatamartCreatefcfcTypeBody payload, map<string|string[]> headers = {}) returns error? {
+    remote isolated function createDMFieldCollection("DMDS"|"DMT" fcType, DatamartCreatefcfcTypeBody payload, map<string|string[]> headers = {}) returns error? {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
         error? r = oasClient->createDMFieldCollection(fcType, payload, mergedHeaders);
@@ -1539,10 +1539,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Either `uniqueName` or `typedId` must be provided in the request 
     # + return - Example response 
-    remote isolated function createDataManagerEntity("DMF"|"DM"|"DMDS" typeCode, oas:CreateDataManagerEntityRequest payload, map<string|string[]> headers = {}) returns oas:DmObjectResponse|error {
+    remote isolated function createDataManagerEntity("DMF"|"DM"|"DMDS" typeCode, CreateDataManagerEntityRequest payload, map<string|string[]> headers = {}) returns DmObjectResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DmObjectResponse|error r = oasClient->createDataManagerEntity(typeCode, payload, mergedHeaders);
+        DmObjectResponse|error r = oasClient->createDataManagerEntity(typeCode, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1557,10 +1557,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - The sample request creates a table with four columns: sku, customer, record and payload (TEXT).<br> 
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
-    remote isolated function createKvTable(string tableName, oas:CreateKVTableRequest payload, map<string|string[]> headers = {}) returns oas:GenericDataResponse|error {
+    remote isolated function createKvTable(string tableName, CreateKVTableRequest payload, map<string|string[]> headers = {}) returns GenericDataResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GenericDataResponse|error r = oasClient->createKvTable(tableName, payload, mergedHeaders);
+        GenericDataResponse|error r = oasClient->createKvTable(tableName, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1574,10 +1574,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - Example response 
-    remote isolated function createManualPriceList(oas:CreateManualPriceListRequest payload, map<string|string[]> headers = {}) returns oas:ManualPriceListResponse|error {
+    remote isolated function createManualPriceList(CreateManualPriceListRequest payload, map<string|string[]> headers = {}) returns ManualPriceListResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ManualPriceListResponse|error r = oasClient->createManualPriceList(payload, mergedHeaders);
+        ManualPriceListResponse|error r = oasClient->createManualPriceList(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1592,7 +1592,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function createObject(string typeCode, oas:CreateObjectRequest_1 payload, map<string|string[]> headers = {}) returns error? {
+    remote isolated function createObject(string typeCode, CreateObjectRequest_1 payload, map<string|string[]> headers = {}) returns error? {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
         error? r = oasClient->createObject(typeCode, payload, mergedHeaders);
@@ -1609,10 +1609,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function createPriceList(oas:CreatePriceListRequest payload, map<string|string[]> headers = {}) returns oas:CreatePriceListResponse|error {
+    remote isolated function createPriceList(CreatePriceListRequest payload, map<string|string[]> headers = {}) returns CreatePriceListResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:CreatePriceListResponse|error r = oasClient->createPriceList(payload, mergedHeaders);
+        CreatePriceListResponse|error r = oasClient->createPriceList(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1627,10 +1627,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - Example response 
-    remote isolated function createPriceListRevision(string id, oas:CreateRevisionRequest payload, map<string|string[]> headers = {}) returns oas:PriceListItemResponse|error {
+    remote isolated function createPriceListRevision(string id, CreateRevisionRequest payload, map<string|string[]> headers = {}) returns PriceListItemResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:PriceListItemResponse|error r = oasClient->createPriceListRevision(id, payload, mergedHeaders);
+        PriceListItemResponse|error r = oasClient->createPriceListRevision(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1644,10 +1644,10 @@ public isolated client class Client {
     # + identifier - Can be either the `uniqueName` or the `typedId`
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function createQuoteRevision(string identifier, map<string|string[]> headers = {}) returns oas:QuoteResponse|error {
+    remote isolated function createQuoteRevision(string identifier, map<string|string[]> headers = {}) returns QuoteResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:QuoteResponse|error r = oasClient->createQuoteRevision(identifier, mergedHeaders);
+        QuoteResponse|error r = oasClient->createQuoteRevision(identifier, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1661,10 +1661,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Slot created 
-    remote isolated function createUploadSlot(map<string|string[]> headers = {}, *oas:CreateUploadSlotQueries queries) returns oas:CreateUploadSlotEnvelope|error {
+    remote isolated function createUploadSlot(map<string|string[]> headers = {}, *CreateUploadSlotQueries queries) returns CreateUploadSlotEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:CreateUploadSlotEnvelope|error r = oasClient->createUploadSlot(mergedHeaders, queries = queries);
+        CreateUploadSlotEnvelope|error r = oasClient->createUploadSlot(mergedHeaders, queries = queries);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1678,10 +1678,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function createWorkflowDelegation(oas:CreateWorkflowDelegationRequest payload, map<string|string[]> headers = {}) returns oas:CreateWorkflowDelegationResponse|error {
+    remote isolated function createWorkflowDelegation(CreateWorkflowDelegationRequest payload, map<string|string[]> headers = {}) returns CreateWorkflowDelegationResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:CreateWorkflowDelegationResponse|error r = oasClient->createWorkflowDelegation(payload, mergedHeaders);
+        CreateWorkflowDelegationResponse|error r = oasClient->createWorkflowDelegation(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1695,10 +1695,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function deactivateWorkflowDelegation(oas:DeactivateWorkflowDelegationRequest payload, map<string|string[]> headers = {}) returns oas:DeactivateWorkflowDelegationResponse|error {
+    remote isolated function deactivateWorkflowDelegation(DeactivateWorkflowDelegationRequest payload, map<string|string[]> headers = {}) returns DeactivateWorkflowDelegationResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DeactivateWorkflowDelegationResponse|error r = oasClient->deactivateWorkflowDelegation(payload, mergedHeaders);
+        DeactivateWorkflowDelegationResponse|error r = oasClient->deactivateWorkflowDelegation(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1712,10 +1712,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function deleteActionItem(oas:DeleteActionItemRequest payload, map<string|string[]> headers = {}) returns oas:DeleteActionItemResponse|error {
+    remote isolated function deleteActionItem(DeleteActionItemRequest payload, map<string|string[]> headers = {}) returns DeleteActionItemResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DeleteActionItemResponse|error r = oasClient->deleteActionItem(payload, mergedHeaders);
+        DeleteActionItemResponse|error r = oasClient->deleteActionItem(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1729,10 +1729,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - The general delete request. Deletes the object specified by `typedId` in the request body 
     # + return - OK 
-    remote isolated function deleteActionItemType(record {record {string typedId;} data;} payload, map<string|string[]> headers = {}) returns oas:DeleteActionItemTypeResponse|error {
+    remote isolated function deleteActionItemType(record {record {string typedId;} data;} payload, map<string|string[]> headers = {}) returns DeleteActionItemTypeResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DeleteActionItemTypeResponse|error r = oasClient->deleteActionItemType(payload, mergedHeaders);
+        DeleteActionItemTypeResponse|error r = oasClient->deleteActionItemType(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1746,10 +1746,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function deleteBusinessRole(oas:DeleteBusinessRoleRequest payload, map<string|string[]> headers = {}) returns oas:DeleteBusinessRoleResponse|error {
+    remote isolated function deleteBusinessRole(DeleteBusinessRoleRequest payload, map<string|string[]> headers = {}) returns DeleteBusinessRoleResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DeleteBusinessRoleResponse|error r = oasClient->deleteBusinessRole(payload, mergedHeaders);
+        DeleteBusinessRoleResponse|error r = oasClient->deleteBusinessRole(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1763,7 +1763,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function deleteCalculatedFieldSet(oas:DeleteCalculatedFieldSetRequest payload, map<string|string[]> headers = {}) returns error? {
+    remote isolated function deleteCalculatedFieldSet(DeleteCalculatedFieldSetRequest payload, map<string|string[]> headers = {}) returns error? {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
         error? r = oasClient->deleteCalculatedFieldSet(payload, mergedHeaders);
@@ -1780,10 +1780,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK - returns the deleted object's data 
-    remote isolated function deleteCalculation(oas:DeleteCalculationRequest payload, map<string|string[]> headers = {}) returns oas:DeleteCalculationResponse|error {
+    remote isolated function deleteCalculation(DeleteCalculationRequest payload, map<string|string[]> headers = {}) returns DeleteCalculationResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DeleteCalculationResponse|error r = oasClient->deleteCalculation(payload, mergedHeaders);
+        DeleteCalculationResponse|error r = oasClient->deleteCalculation(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1797,10 +1797,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function deleteCalculationGrid(oas:DeleteCalculationGridRequest payload, map<string|string[]> headers = {}) returns oas:DeleteCalculationGridResponse|error {
+    remote isolated function deleteCalculationGrid(DeleteCalculationGridRequest payload, map<string|string[]> headers = {}) returns DeleteCalculationGridResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DeleteCalculationGridResponse|error r = oasClient->deleteCalculationGrid(payload, mergedHeaders);
+        DeleteCalculationGridResponse|error r = oasClient->deleteCalculationGrid(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1815,10 +1815,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function deleteCalculationGridItem("1"|"2"|"3"|"4"|"5"|"6" keyNumber, oas:DeleteCalculationGridItemRequest payload, map<string|string[]> headers = {}) returns oas:DeleteCalculationGridItemResponse|error {
+    remote isolated function deleteCalculationGridItem("1"|"2"|"3"|"4"|"5"|"6" keyNumber, DeleteCalculationGridItemRequest payload, map<string|string[]> headers = {}) returns DeleteCalculationGridItemResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DeleteCalculationGridItemResponse|error r = oasClient->deleteCalculationGridItem(keyNumber, payload, mergedHeaders);
+        DeleteCalculationGridItemResponse|error r = oasClient->deleteCalculationGridItem(keyNumber, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1832,10 +1832,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function deleteClaimType(oas:DeleteClaimTypeRequest payload, map<string|string[]> headers = {}) returns oas:DeleteClaimTypeResponse|error {
+    remote isolated function deleteClaimType(DeleteClaimTypeRequest payload, map<string|string[]> headers = {}) returns DeleteClaimTypeResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DeleteClaimTypeResponse|error r = oasClient->deleteClaimType(payload, mergedHeaders);
+        DeleteClaimTypeResponse|error r = oasClient->deleteClaimType(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1850,10 +1850,10 @@ public isolated client class Client {
     # + columnName - The name of the column/attribute you want to remove values from
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function deleteColumnValues(string typeCode, string columnName, map<string|string[]> headers = {}) returns oas:DeleteColumnValuesResponse|error {
+    remote isolated function deleteColumnValues(string typeCode, string columnName, map<string|string[]> headers = {}) returns DeleteColumnValuesResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DeleteColumnValuesResponse|error r = oasClient->deleteColumnValues(typeCode, columnName, mergedHeaders);
+        DeleteColumnValuesResponse|error r = oasClient->deleteColumnValues(typeCode, columnName, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1885,10 +1885,10 @@ public isolated client class Client {
     # + typedId - Comment or CommentThread typedId
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function deleteComment(string typedId, map<string|string[]> headers = {}) returns oas:DeleteCommentEnvelope|error {
+    remote isolated function deleteComment(string typedId, map<string|string[]> headers = {}) returns DeleteCommentEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DeleteCommentEnvelope|error r = oasClient->deleteComment(typedId, mergedHeaders);
+        DeleteCommentEnvelope|error r = oasClient->deleteComment(typedId, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1902,10 +1902,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK. Returns the deleted Compensation Plan object 
-    remote isolated function deleteCompensationPlan(oas:DeleteCompensationPlanRequest payload, map<string|string[]> headers = {}) returns oas:DeleteCompensationPlanResponse|error {
+    remote isolated function deleteCompensationPlan(DeleteCompensationPlanRequest payload, map<string|string[]> headers = {}) returns DeleteCompensationPlanResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DeleteCompensationPlanResponse|error r = oasClient->deleteCompensationPlan(payload, mergedHeaders);
+        DeleteCompensationPlanResponse|error r = oasClient->deleteCompensationPlan(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1919,10 +1919,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK - returns the deleted object 
-    remote isolated function deleteCompensationType(oas:DeleteCOHTBody payload, map<string|string[]> headers = {}) returns oas:DeleteCompensationTypeEnvelope|error {
+    remote isolated function deleteCompensationType(DeleteCOHTBody payload, map<string|string[]> headers = {}) returns DeleteCompensationTypeEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DeleteCompensationTypeEnvelope|error r = oasClient->deleteCompensationType(payload, mergedHeaders);
+        DeleteCompensationTypeEnvelope|error r = oasClient->deleteCompensationType(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1936,10 +1936,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function deleteConditionRecordItemMeta(oas:DeleteCRCIMBody payload, map<string|string[]> headers = {}) returns oas:ConditionRecordItemMetaOperationEnvelope|error {
+    remote isolated function deleteConditionRecordItemMeta(DeleteCRCIMBody payload, map<string|string[]> headers = {}) returns ConditionRecordItemMetaOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ConditionRecordItemMetaOperationEnvelope|error r = oasClient->deleteConditionRecordItemMeta(payload, mergedHeaders);
+        ConditionRecordItemMetaOperationEnvelope|error r = oasClient->deleteConditionRecordItemMeta(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1953,10 +1953,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function deleteConditionRecordSet(oas:DcrmanagerDeletemassopidBody payload, map<string|string[]> headers = {}) returns oas:ConditionRecordSetOperationEnvelope|error {
+    remote isolated function deleteConditionRecordSet(DcrmanagerDeletemassopidBody payload, map<string|string[]> headers = {}) returns ConditionRecordSetOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ConditionRecordSetOperationEnvelope|error r = oasClient->deleteConditionRecordSet(payload, mergedHeaders);
+        ConditionRecordSetOperationEnvelope|error r = oasClient->deleteConditionRecordSet(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1970,10 +1970,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function deleteConditionType(oas:DeleteConditionTypeRequest payload, map<string|string[]> headers = {}) returns oas:DeleteConditionTypeEnvelope|error {
+    remote isolated function deleteConditionType(DeleteConditionTypeRequest payload, map<string|string[]> headers = {}) returns DeleteConditionTypeEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DeleteConditionTypeEnvelope|error r = oasClient->deleteConditionType(payload, mergedHeaders);
+        DeleteConditionTypeEnvelope|error r = oasClient->deleteConditionType(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -1987,10 +1987,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function deleteConfigurationStorage(record {} payload, map<string|string[]> headers = {}) returns oas:ConfigurationStorageOperationEnvelope|error {
+    remote isolated function deleteConfigurationStorage(record {} payload, map<string|string[]> headers = {}) returns ConfigurationStorageOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ConfigurationStorageOperationEnvelope|error r = oasClient->deleteConfigurationStorage(payload, mergedHeaders);
+        ConfigurationStorageOperationEnvelope|error r = oasClient->deleteConfigurationStorage(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2004,10 +2004,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
-    remote isolated function deleteCustomForm(oas:DeleteCustomFormRequest payload, map<string|string[]> headers = {}) returns oas:GenericDataResponse|error {
+    remote isolated function deleteCustomForm(DeleteCustomFormRequest payload, map<string|string[]> headers = {}) returns GenericDataResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GenericDataResponse|error r = oasClient->deleteCustomForm(payload, mergedHeaders);
+        GenericDataResponse|error r = oasClient->deleteCustomForm(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2021,10 +2021,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function deleteCustomFormType(oas:DeleteCFOTBody payload, map<string|string[]> headers = {}) returns oas:DeleteCustomFormTypeEnvelope|error {
+    remote isolated function deleteCustomFormType(DeleteCFOTBody payload, map<string|string[]> headers = {}) returns DeleteCustomFormTypeEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DeleteCustomFormTypeEnvelope|error r = oasClient->deleteCustomFormType(payload, mergedHeaders);
+        DeleteCustomFormTypeEnvelope|error r = oasClient->deleteCustomFormType(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2038,10 +2038,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function deleteCustomer(oas:DeleteCustomerRequest payload, map<string|string[]> headers = {}) returns oas:DeleteCustomerResponse|error {
+    remote isolated function deleteCustomer(DeleteCustomerRequest payload, map<string|string[]> headers = {}) returns DeleteCustomerResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DeleteCustomerResponse|error r = oasClient->deleteCustomer(payload, mergedHeaders);
+        DeleteCustomerResponse|error r = oasClient->deleteCustomer(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2055,10 +2055,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function deleteCustomerExtension(oas:DeleteCustomerExtensionRequest payload, map<string|string[]> headers = {}) returns oas:DeleteCustomerExtensionResponse|error {
+    remote isolated function deleteCustomerExtension(DeleteCustomerExtensionRequest payload, map<string|string[]> headers = {}) returns DeleteCustomerExtensionResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DeleteCustomerExtensionResponse|error r = oasClient->deleteCustomerExtension(payload, mergedHeaders);
+        DeleteCustomerExtensionResponse|error r = oasClient->deleteCustomerExtension(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2073,10 +2073,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function deleteDataChangeRequestItem(string id, oas:DeleteDCRIRequest payload, map<string|string[]> headers = {}) returns oas:DeleteDCRIResponse|error {
+    remote isolated function deleteDataChangeRequestItem(string id, DeleteDCRIRequest payload, map<string|string[]> headers = {}) returns DeleteDCRIResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DeleteDCRIResponse|error r = oasClient->deleteDataChangeRequestItem(id, payload, mergedHeaders);
+        DeleteDCRIResponse|error r = oasClient->deleteDataChangeRequestItem(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2091,10 +2091,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function deleteDataChangeRequestMassChange(string id, oas:DcrmanagerDeletemassopidBody payload, map<string|string[]> headers = {}) returns oas:DataChangeRequestMassChangeEnvelope|error {
+    remote isolated function deleteDataChangeRequestMassChange(string id, DcrmanagerDeletemassopidBody payload, map<string|string[]> headers = {}) returns DataChangeRequestMassChangeEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DataChangeRequestMassChangeEnvelope|error r = oasClient->deleteDataChangeRequestMassChange(id, payload, mergedHeaders);
+        DataChangeRequestMassChangeEnvelope|error r = oasClient->deleteDataChangeRequestMassChange(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2109,10 +2109,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function deleteDataManagerEntity("DM"|"DMF"|"DMDS" typeCode, oas:DeleteDataManagerEntityRequest payload, map<string|string[]> headers = {}) returns oas:DeleteDataManagerEntityResponse|error {
+    remote isolated function deleteDataManagerEntity("DM"|"DMF"|"DMDS" typeCode, DeleteDataManagerEntityRequest payload, map<string|string[]> headers = {}) returns DeleteDataManagerEntityResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DeleteDataManagerEntityResponse|error r = oasClient->deleteDataManagerEntity(typeCode, payload, mergedHeaders);
+        DeleteDataManagerEntityResponse|error r = oasClient->deleteDataManagerEntity(typeCode, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2125,10 +2125,10 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function deleteDatamartOrphanObjects(map<string|string[]> headers = {}) returns oas:DatamartOrphanObjectsEnvelope|error {
+    remote isolated function deleteDatamartOrphanObjects(map<string|string[]> headers = {}) returns DatamartOrphanObjectsEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DatamartOrphanObjectsEnvelope|error r = oasClient->deleteDatamartOrphanObjects(mergedHeaders);
+        DatamartOrphanObjectsEnvelope|error r = oasClient->deleteDatamartOrphanObjects(mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2144,10 +2144,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
-    remote isolated function deleteFile(string typedId, string binaryDataId, record {} payload, map<string|string[]> headers = {}) returns oas:GenericDataResponse|error {
+    remote isolated function deleteFile(string typedId, string binaryDataId, record {} payload, map<string|string[]> headers = {}) returns GenericDataResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GenericDataResponse|error r = oasClient->deleteFile(typedId, binaryDataId, payload, mergedHeaders);
+        GenericDataResponse|error r = oasClient->deleteFile(typedId, binaryDataId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2161,10 +2161,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
-    remote isolated function deleteImportChanges(oas:ImportmanagerDeletechangesBody payload, map<string|string[]> headers = {}) returns oas:GenericDataResponse|error {
+    remote isolated function deleteImportChanges(ImportmanagerDeletechangesBody payload, map<string|string[]> headers = {}) returns GenericDataResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GenericDataResponse|error r = oasClient->deleteImportChanges(payload, mergedHeaders);
+        GenericDataResponse|error r = oasClient->deleteImportChanges(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2178,7 +2178,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK - the internationalization keys have been deleted successfully 
-    remote isolated function deleteInternationalizationMessages(oas:I18nmanagerDeleteKeysBody payload, map<string|string[]> headers = {}) returns http:Response|error {
+    remote isolated function deleteInternationalizationMessages(I18nmanagerDeleteKeysBody payload, map<string|string[]> headers = {}) returns http:Response|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
         http:Response|error r = oasClient->deleteInternationalizationMessages(payload, mergedHeaders);
@@ -2196,7 +2196,7 @@ public isolated client class Client {
     # + tableName - The tableName to be sent with the request
     # + payload - Request payload
     # + return - OK. Returns `null` when successfully deleted 
-    remote isolated function deleteKey(string tableName, oas:DeleteKVKeyRequest payload, map<string|string[]> headers = {}) returns error? {
+    remote isolated function deleteKey(string tableName, DeleteKVKeyRequest payload, map<string|string[]> headers = {}) returns error? {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
         error? r = oasClient->deleteKey(tableName, payload, mergedHeaders);
@@ -2213,10 +2213,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function deleteLivePriceGrid(oas:DeleteLivePriceGridRequest payload, map<string|string[]> headers = {}) returns oas:DeleteLivePriceGridResponse|error {
+    remote isolated function deleteLivePriceGrid(DeleteLivePriceGridRequest payload, map<string|string[]> headers = {}) returns DeleteLivePriceGridResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DeleteLivePriceGridResponse|error r = oasClient->deleteLivePriceGrid(payload, mergedHeaders);
+        DeleteLivePriceGridResponse|error r = oasClient->deleteLivePriceGrid(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2230,10 +2230,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload -
     # + return - OK 
-    remote isolated function deleteLivePriceGridType(oas:DeletePLTTBody payload, map<string|string[]> headers = {}) returns oas:LivePriceGridTypeOperationEnvelope|error {
+    remote isolated function deleteLivePriceGridType(DeletePLTTBody payload, map<string|string[]> headers = {}) returns LivePriceGridTypeOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:LivePriceGridTypeOperationEnvelope|error r = oasClient->deleteLivePriceGridType(payload, mergedHeaders);
+        LivePriceGridTypeOperationEnvelope|error r = oasClient->deleteLivePriceGridType(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2247,10 +2247,10 @@ public isolated client class Client {
     # + id - The ID of the logic you want to delete. `id`  is the `typedId` without **F** suffix. For example, the `id` attribute of the item with `typedId` = **2147484835.F** is **2147484835**
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function deleteLogic(string id, map<string|string[]> headers = {}) returns oas:DeleteLogicResponse|error {
+    remote isolated function deleteLogic(string id, map<string|string[]> headers = {}) returns DeleteLogicResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DeleteLogicResponse|error r = oasClient->deleteLogic(id, mergedHeaders);
+        DeleteLogicResponse|error r = oasClient->deleteLogic(id, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2264,10 +2264,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Specify the `typedId` of the Lookup Table (Company Parameters) you want to delete 
     # + return - OK 
-    remote isolated function deleteLookupTable(oas:DeleteLookupTableRequest payload, map<string|string[]> headers = {}) returns oas:DeleteLookupTableResponse|error {
+    remote isolated function deleteLookupTable(DeleteLookupTableRequest payload, map<string|string[]> headers = {}) returns DeleteLookupTableResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DeleteLookupTableResponse|error r = oasClient->deleteLookupTable(payload, mergedHeaders);
+        DeleteLookupTableResponse|error r = oasClient->deleteLookupTable(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2282,10 +2282,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload -
     # + return - OK 
-    remote isolated function deleteLookupTableValue(string tableId, oas:DeleteLookupTableValueRequest payload, map<string|string[]> headers = {}) returns oas:DeleteLookupTableValueResponse|error {
+    remote isolated function deleteLookupTableValue(string tableId, DeleteLookupTableValueRequest payload, map<string|string[]> headers = {}) returns DeleteLookupTableValueResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DeleteLookupTableValueResponse|error r = oasClient->deleteLookupTableValue(tableId, payload, mergedHeaders);
+        DeleteLookupTableValueResponse|error r = oasClient->deleteLookupTableValue(tableId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2299,10 +2299,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - Example response 
-    remote isolated function deleteManualPriceList(oas:DeleteManualPriceListRequest payload, map<string|string[]> headers = {}) returns oas:ManualPriceListResponse|error {
+    remote isolated function deleteManualPriceList(DeleteManualPriceListRequest payload, map<string|string[]> headers = {}) returns ManualPriceListResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ManualPriceListResponse|error r = oasClient->deleteManualPriceList(payload, mergedHeaders);
+        ManualPriceListResponse|error r = oasClient->deleteManualPriceList(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2317,10 +2317,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - Returns full record details 
-    remote isolated function deleteManualPriceListProduct(string id, oas:DeleteProductFromManualPriceListRequest payload, map<string|string[]> headers = {}) returns oas:ProductResponse|error {
+    remote isolated function deleteManualPriceListProduct(string id, DeleteProductFromManualPriceListRequest payload, map<string|string[]> headers = {}) returns ProductResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ProductResponse|error r = oasClient->deleteManualPriceListProduct(id, payload, mergedHeaders);
+        ProductResponse|error r = oasClient->deleteManualPriceListProduct(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2335,10 +2335,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function deleteManualPriceListProducts(string id, oas:DeleteProductsFromManualPriceListRequest payload, map<string|string[]> headers = {}) returns oas:DeleteProductsFromManualPriceListResponse|error {
+    remote isolated function deleteManualPriceListProducts(string id, DeleteProductsFromManualPriceListRequest payload, map<string|string[]> headers = {}) returns DeleteProductsFromManualPriceListResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DeleteProductsFromManualPriceListResponse|error r = oasClient->deleteManualPriceListProducts(id, payload, mergedHeaders);
+        DeleteProductsFromManualPriceListResponse|error r = oasClient->deleteManualPriceListProducts(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2352,10 +2352,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function deleteNotification(oas:NotificationSetreadBody payload, map<string|string[]> headers = {}) returns oas:DeleteNotificationEnvelope|error {
+    remote isolated function deleteNotification(NotificationSetreadBody payload, map<string|string[]> headers = {}) returns DeleteNotificationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DeleteNotificationEnvelope|error r = oasClient->deleteNotification(payload, mergedHeaders);
+        DeleteNotificationEnvelope|error r = oasClient->deleteNotification(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2370,10 +2370,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function deleteObject("ACTT"|"AP"|"APIK"|"BD"|"BPT"|"BR"|"C"|"CA"|"CAM"|"CDESC"|"CF"|"CFS"|"CFT"|"CH"|"CLLI"|"CN"|"CS"|"CT"|"CTAM"|"CTLI"|"CTMU"|"CTMUI"|"CTT"|"CTTAM"|"CTTREE"|"CW"|"CX"|"CXAM"|"DA"|"DB"|"DCR"|"DCRAM"|"DCRI"|"DCRL"|"DCRMC"|"DCRT"|"DE"|"DI"|"DM"|"DMDC"|"DMDL"|"DMDS"|"DMF"|"DMM"|"DMR"|"DMT"|"DREG"|"DWT"|"ET"|"EVT"|"F"|"FE"|"FN"|"IDC"|"IE"|"ISH"|"JST"|"JLTV"|"JLTVM"|"LAT"|"LT"|"LTT"|"LTV"|"M"|"MLTV"|"MLTV2"|"MLTV3"|"MLTV4"|"MLTV5"|"MLTV6"|"MLTVM"|"MPL"|"MPLAM"|"MPLI"|"MPLIT"|"MPLT"|"MR"|"MRAM"|"MT"|"P"|"PAM"|"PAPIJ"|"PBOME"|"PCOMP"|"PCW"|"PDESC"|"PG"|"PGI"|"PGIM"|"PGT"|"PH"|"PL"|"PLI"|"PLIM"|"PLT"|"PR"|"PRAM"|"PREF"|"PT"|"PWH"|"PX"|"PXAM"|"PXREF"|"PYR"|"PYRAM"|"Q"|"QAM"|"QLI"|"QMU"|"QMUI"|"QT"|"QTT"|"QTTAM"|"R"|"RAT"|"RATM"|"RBA"|"RBAAM"|"RBALI"|"RBAT"|"RBT"|"RBTAM"|"RR"|"RRAM"|"RRS"|"RRSC"|"RT"|"SAT"|"SC"|"SCN"|"SCNAM"|"SCT"|"SIAM"|"SIM"|"SIMI"|"TFA"|"TODO"|"U"|"UG"|"US"|"W"|"WD"|"WF"|"WFE"|"XPGI"|"XPLI"|"XSIMI" typeCode, oas:DeleteObjectRequest_1 payload, map<string|string[]> headers = {}) returns oas:DeleteObjectResponse_1|error {
+    remote isolated function deleteObject("ACTT"|"AP"|"APIK"|"BD"|"BPT"|"BR"|"C"|"CA"|"CAM"|"CDESC"|"CF"|"CFS"|"CFT"|"CH"|"CLLI"|"CN"|"CS"|"CT"|"CTAM"|"CTLI"|"CTMU"|"CTMUI"|"CTT"|"CTTAM"|"CTTREE"|"CW"|"CX"|"CXAM"|"DA"|"DB"|"DCR"|"DCRAM"|"DCRI"|"DCRL"|"DCRMC"|"DCRT"|"DE"|"DI"|"DM"|"DMDC"|"DMDL"|"DMDS"|"DMF"|"DMM"|"DMR"|"DMT"|"DREG"|"DWT"|"ET"|"EVT"|"F"|"FE"|"FN"|"IDC"|"IE"|"ISH"|"JST"|"JLTV"|"JLTVM"|"LAT"|"LT"|"LTT"|"LTV"|"M"|"MLTV"|"MLTV2"|"MLTV3"|"MLTV4"|"MLTV5"|"MLTV6"|"MLTVM"|"MPL"|"MPLAM"|"MPLI"|"MPLIT"|"MPLT"|"MR"|"MRAM"|"MT"|"P"|"PAM"|"PAPIJ"|"PBOME"|"PCOMP"|"PCW"|"PDESC"|"PG"|"PGI"|"PGIM"|"PGT"|"PH"|"PL"|"PLI"|"PLIM"|"PLT"|"PR"|"PRAM"|"PREF"|"PT"|"PWH"|"PX"|"PXAM"|"PXREF"|"PYR"|"PYRAM"|"Q"|"QAM"|"QLI"|"QMU"|"QMUI"|"QT"|"QTT"|"QTTAM"|"R"|"RAT"|"RATM"|"RBA"|"RBAAM"|"RBALI"|"RBAT"|"RBT"|"RBTAM"|"RR"|"RRAM"|"RRS"|"RRSC"|"RT"|"SAT"|"SC"|"SCN"|"SCNAM"|"SCT"|"SIAM"|"SIM"|"SIMI"|"TFA"|"TODO"|"U"|"UG"|"US"|"W"|"WD"|"WF"|"WFE"|"XPGI"|"XPLI"|"XSIMI" typeCode, DeleteObjectRequest_1 payload, map<string|string[]> headers = {}) returns DeleteObjectResponse_1|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DeleteObjectResponse_1|error r = oasClient->deleteObject(typeCode, payload, mergedHeaders);
+        DeleteObjectResponse_1|error r = oasClient->deleteObject(typeCode, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2388,10 +2388,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function deleteObjects(string typeCode, oas:DeleteObjectsForceFilterRequest payload, map<string|string[]> headers = {}) returns oas:DeleteObjectsResponse|error {
+    remote isolated function deleteObjects(string typeCode, DeleteObjectsForceFilterRequest payload, map<string|string[]> headers = {}) returns DeleteObjectsResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DeleteObjectsResponse|error r = oasClient->deleteObjects(typeCode, payload, mergedHeaders);
+        DeleteObjectsResponse|error r = oasClient->deleteObjects(typeCode, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2406,10 +2406,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - Example response 
-    remote isolated function deletePriceGridItem(string id, oas:DeletePriceGridItemRequest payload, map<string|string[]> headers = {}) returns oas:PriceGridItemResponse|error {
+    remote isolated function deletePriceGridItem(string id, DeletePriceGridItemRequest payload, map<string|string[]> headers = {}) returns PriceGridItemResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:PriceGridItemResponse|error r = oasClient->deletePriceGridItem(id, payload, mergedHeaders);
+        PriceGridItemResponse|error r = oasClient->deletePriceGridItem(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2424,7 +2424,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload -
     # + return - OK 
-    remote isolated function deletePriceGridItemFilter(string id, oas:DeletePriceGridItemFilterRequest payload, map<string|string[]> headers = {}) returns error? {
+    remote isolated function deletePriceGridItemFilter(string id, DeletePriceGridItemFilterRequest payload, map<string|string[]> headers = {}) returns error? {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
         error? r = oasClient->deletePriceGridItemFilter(id, payload, mergedHeaders);
@@ -2441,10 +2441,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function deletePriceList(oas:DeletePriceListRequest payload, map<string|string[]> headers = {}) returns oas:DeletePriceListResponse|error {
+    remote isolated function deletePriceList(DeletePriceListRequest payload, map<string|string[]> headers = {}) returns DeletePriceListResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DeletePriceListResponse|error r = oasClient->deletePriceList(payload, mergedHeaders);
+        DeletePriceListResponse|error r = oasClient->deletePriceList(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2459,10 +2459,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK - Returns a number of deleted items 
-    remote isolated function deletePriceListItems(string id, oas:DeletePriceListItemRequest payload, map<string|string[]> headers = {}) returns oas:DeletePriceListItemResponse|error {
+    remote isolated function deletePriceListItems(string id, DeletePriceListItemRequest payload, map<string|string[]> headers = {}) returns DeletePriceListItemResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DeletePriceListItemResponse|error r = oasClient->deletePriceListItems(id, payload, mergedHeaders);
+        DeletePriceListItemResponse|error r = oasClient->deletePriceListItems(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2476,10 +2476,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function deletePriceListType(oas:DeletePLTTBody payload, map<string|string[]> headers = {}) returns oas:PriceListTypeOperationEnvelope|error {
+    remote isolated function deletePriceListType(DeletePLTTBody payload, map<string|string[]> headers = {}) returns PriceListTypeOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:PriceListTypeOperationEnvelope|error r = oasClient->deletePriceListType(payload, mergedHeaders);
+        PriceListTypeOperationEnvelope|error r = oasClient->deletePriceListType(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2493,10 +2493,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function deleteProduct(oas:DeleteProductRequest payload, map<string|string[]> headers = {}) returns oas:DeleteProductResponse|error {
+    remote isolated function deleteProduct(DeleteProductRequest payload, map<string|string[]> headers = {}) returns DeleteProductResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DeleteProductResponse|error r = oasClient->deleteProduct(payload, mergedHeaders);
+        DeleteProductResponse|error r = oasClient->deleteProduct(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2510,10 +2510,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function deleteProductExtension(oas:DeleteProductExtensionRequest payload, map<string|string[]> headers = {}) returns oas:DeleteProductExtensionResponse|error {
+    remote isolated function deleteProductExtension(DeleteProductExtensionRequest payload, map<string|string[]> headers = {}) returns DeleteProductExtensionResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DeleteProductExtensionResponse|error r = oasClient->deleteProductExtension(payload, mergedHeaders);
+        DeleteProductExtensionResponse|error r = oasClient->deleteProductExtension(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2527,10 +2527,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - Example response 
-    remote isolated function deleteRebateAgreement(oas:DeleteRebateAgreementRequest payload, map<string|string[]> headers = {}) returns oas:RebateAgreementResponse|error {
+    remote isolated function deleteRebateAgreement(DeleteRebateAgreementRequest payload, map<string|string[]> headers = {}) returns RebateAgreementResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:RebateAgreementResponse|error r = oasClient->deleteRebateAgreement(payload, mergedHeaders);
+        RebateAgreementResponse|error r = oasClient->deleteRebateAgreement(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2544,10 +2544,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function deleteRebateCalculation(oas:DeleteRebateCalculationRequest payload, map<string|string[]> headers = {}) returns oas:DeleteRebateCalculationResponse|error {
+    remote isolated function deleteRebateCalculation(DeleteRebateCalculationRequest payload, map<string|string[]> headers = {}) returns DeleteRebateCalculationResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DeleteRebateCalculationResponse|error r = oasClient->deleteRebateCalculation(payload, mergedHeaders);
+        DeleteRebateCalculationResponse|error r = oasClient->deleteRebateCalculation(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2561,10 +2561,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function deleteSeller(oas:DeleteSellerRequest payload, map<string|string[]> headers = {}) returns oas:DeleteSellerEnvelope|error {
+    remote isolated function deleteSeller(DeleteSellerRequest payload, map<string|string[]> headers = {}) returns DeleteSellerEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DeleteSellerEnvelope|error r = oasClient->deleteSeller(payload, mergedHeaders);
+        DeleteSellerEnvelope|error r = oasClient->deleteSeller(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2578,10 +2578,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function deleteSellerExtension(oas:DeleteSellerExtensionRequest payload, map<string|string[]> headers = {}) returns oas:DeleteSellerExtensionResponse|error {
+    remote isolated function deleteSellerExtension(DeleteSellerExtensionRequest payload, map<string|string[]> headers = {}) returns DeleteSellerExtensionResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DeleteSellerExtensionResponse|error r = oasClient->deleteSellerExtension(payload, mergedHeaders);
+        DeleteSellerExtensionResponse|error r = oasClient->deleteSellerExtension(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2595,10 +2595,10 @@ public isolated client class Client {
     # + slotId - Enter the ID of the slot you want to delete
     # + headers - Headers to be sent with the request 
     # + return - Slot deleted 
-    remote isolated function deleteUploadSlot(string slotId, map<string|string[]> headers = {}) returns oas:UploadSlotOperationEnvelope|error {
+    remote isolated function deleteUploadSlot(string slotId, map<string|string[]> headers = {}) returns UploadSlotOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:UploadSlotOperationEnvelope|error r = oasClient->deleteUploadSlot(slotId, mergedHeaders);
+        UploadSlotOperationEnvelope|error r = oasClient->deleteUploadSlot(slotId, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2612,10 +2612,10 @@ public isolated client class Client {
     # + slotId - Enter the ID of the slot you want to delete
     # + headers - Headers to be sent with the request 
     # + return - Slot deleted 
-    remote isolated function deleteUploadSlotViaGet(string slotId, map<string|string[]> headers = {}) returns oas:DeleteUploadSlotResponse|error {
+    remote isolated function deleteUploadSlotViaGet(string slotId, map<string|string[]> headers = {}) returns DeleteUploadSlotResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DeleteUploadSlotResponse|error r = oasClient->deleteUploadSlotViaGet(slotId, mergedHeaders);
+        DeleteUploadSlotResponse|error r = oasClient->deleteUploadSlotViaGet(slotId, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2629,10 +2629,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - Example response 
-    remote isolated function deleteUser(oas:DeleteUserRequest payload, map<string|string[]> headers = {}) returns oas:UserResponse|error {
+    remote isolated function deleteUser(DeleteUserRequest payload, map<string|string[]> headers = {}) returns UserResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:UserResponse|error r = oasClient->deleteUser(payload, mergedHeaders);
+        UserResponse|error r = oasClient->deleteUser(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2646,10 +2646,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function deleteUserGroup(oas:DeleteUserGroupRequest payload, map<string|string[]> headers = {}) returns oas:DeleteUserGroupResponse|error {
+    remote isolated function deleteUserGroup(DeleteUserGroupRequest payload, map<string|string[]> headers = {}) returns DeleteUserGroupResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DeleteUserGroupResponse|error r = oasClient->deleteUserGroup(payload, mergedHeaders);
+        DeleteUserGroupResponse|error r = oasClient->deleteUserGroup(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2663,10 +2663,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function deleteWorkflowDelegation(oas:DeleteWorkflowDelegationRequest payload, map<string|string[]> headers = {}) returns oas:DeleteWorkflowDelegationResponse|error {
+    remote isolated function deleteWorkflowDelegation(DeleteWorkflowDelegationRequest payload, map<string|string[]> headers = {}) returns DeleteWorkflowDelegationResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DeleteWorkflowDelegationResponse|error r = oasClient->deleteWorkflowDelegation(payload, mergedHeaders);
+        DeleteWorkflowDelegationResponse|error r = oasClient->deleteWorkflowDelegation(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2681,10 +2681,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function denyDocument(string currentStepId, oas:DenyDocumentRequest payload, map<string|string[]> headers = {}) returns oas:DenyDocumentResponse|error {
+    remote isolated function denyDocument(string currentStepId, DenyDocumentRequest payload, map<string|string[]> headers = {}) returns DenyDocumentResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DenyDocumentResponse|error r = oasClient->denyDocument(currentStepId, payload, mergedHeaders);
+        DenyDocumentResponse|error r = oasClient->denyDocument(currentStepId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2699,10 +2699,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - Example response 
-    remote isolated function denyLivePriceGridItem(string id, oas:DenyLivePriceGridItemRequest payload, map<string|string[]> headers = {}) returns oas:PriceGridItemResponse|error {
+    remote isolated function denyLivePriceGridItem(string id, DenyLivePriceGridItemRequest payload, map<string|string[]> headers = {}) returns PriceGridItemResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:PriceGridItemResponse|error r = oasClient->denyLivePriceGridItem(id, payload, mergedHeaders);
+        PriceGridItemResponse|error r = oasClient->denyLivePriceGridItem(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2716,10 +2716,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function deployConfigurationStorage(oas:JcsmanagerDeployBody payload, map<string|string[]> headers = {}) returns oas:ConfigurationStorageOperationEnvelope|error {
+    remote isolated function deployConfigurationStorage(JcsmanagerDeployBody payload, map<string|string[]> headers = {}) returns ConfigurationStorageOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ConfigurationStorageOperationEnvelope|error r = oasClient->deployConfigurationStorage(payload, mergedHeaders);
+        ConfigurationStorageOperationEnvelope|error r = oasClient->deployConfigurationStorage(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2734,7 +2734,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - OK - binary data 
-    remote isolated function downloadAttachmentData(string binaryDataId, map<string|string[]> headers = {}, *oas:DownloadAttachmentDataQueries queries) returns byte[]|error {
+    remote isolated function downloadAttachmentData(string binaryDataId, map<string|string[]> headers = {}, *DownloadAttachmentDataQueries queries) returns byte[]|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
         byte[]|error r = oasClient->downloadAttachmentData(binaryDataId, mergedHeaders, queries = queries);
@@ -2753,10 +2753,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - File metadata or content 
-    remote isolated function downloadFile(string typedId, string binaryDataId, map<string|string[]> headers = {}, *oas:DownloadFileQueries queries) returns oas:FileDownloadEnvelope|error {
+    remote isolated function downloadFile(string typedId, string binaryDataId, map<string|string[]> headers = {}, *DownloadFileQueries queries) returns FileDownloadEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:FileDownloadEnvelope|error r = oasClient->downloadFile(typedId, binaryDataId, mergedHeaders, queries = queries);
+        FileDownloadEnvelope|error r = oasClient->downloadFile(typedId, binaryDataId, mergedHeaders, queries = queries);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2772,7 +2772,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - OK 
-    remote isolated function downloadFileViaPost(string typedId, string binaryDataId, map<string|string[]> headers = {}, *oas:DownloadFileViaPostQueries queries) returns http:Response|error {
+    remote isolated function downloadFileViaPost(string typedId, string binaryDataId, map<string|string[]> headers = {}, *DownloadFileViaPostQueries queries) returns http:Response|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
         http:Response|error r = oasClient->downloadFileViaPost(typedId, binaryDataId, mergedHeaders, queries = queries);
@@ -2802,7 +2802,7 @@ public isolated client class Client {
     # + id11 - The id11 to be sent with the request
     # + id12 - The id12 to be sent with the request
     # + return - OK 
-    remote isolated function downloadLivePriceGridExcelFile(string id1, string id2, string id3, string id4, string id5, string id6, string id7, string id8, string id9, string id10, string id11, string id12, string id13, map<string|string[]> headers = {}, *oas:DownloadLivePriceGridExcelFileQueries queries) returns http:Response|error {
+    remote isolated function downloadLivePriceGridExcelFile(string id1, string id2, string id3, string id4, string id5, string id6, string id7, string id8, string id9, string id10, string id11, string id12, string id13, map<string|string[]> headers = {}, *DownloadLivePriceGridExcelFileQueries queries) returns http:Response|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
         http:Response|error r = oasClient->downloadLivePriceGridExcelFile(id1, id2, id3, id4, id5, id6, id7, id8, id9, id10, id11, id12, id13, mergedHeaders, queries = queries);
@@ -2837,10 +2837,10 @@ public isolated client class Client {
     # + typedId - The `typedId` of the Compensation Plan you want to duplicate
     # + headers - Headers to be sent with the request 
     # + return - OK. Returns the duplicated object 
-    remote isolated function duplicateCompensationPlan(string typedId, map<string|string[]> headers = {}) returns oas:DuplicateCompensationPlanEnvelope|error {
+    remote isolated function duplicateCompensationPlan(string typedId, map<string|string[]> headers = {}) returns DuplicateCompensationPlanEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DuplicateCompensationPlanEnvelope|error r = oasClient->duplicateCompensationPlan(typedId, mergedHeaders);
+        DuplicateCompensationPlanEnvelope|error r = oasClient->duplicateCompensationPlan(typedId, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2855,10 +2855,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function duplicateCustomForm(string typedId, record {} payload, map<string|string[]> headers = {}) returns oas:CustomFormRevisionEnvelope|error {
+    remote isolated function duplicateCustomForm(string typedId, record {} payload, map<string|string[]> headers = {}) returns CustomFormRevisionEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:CustomFormRevisionEnvelope|error r = oasClient->duplicateCustomForm(typedId, payload, mergedHeaders);
+        CustomFormRevisionEnvelope|error r = oasClient->duplicateCustomForm(typedId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2873,10 +2873,10 @@ public isolated client class Client {
     # + typedId - The typedId to be sent with the request
     # + payload - Request payload
     # + return - OK 
-    remote isolated function duplicateModel(string typedId, oas:OptimizationModelduplicatetypedIdBody payload, map<string|string[]> headers = {}) returns oas:ModelDuplicationEnvelope|error {
+    remote isolated function duplicateModel(string typedId, OptimizationModelduplicatetypedIdBody payload, map<string|string[]> headers = {}) returns ModelDuplicationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ModelDuplicationEnvelope|error r = oasClient->duplicateModel(typedId, payload, mergedHeaders);
+        ModelDuplicationEnvelope|error r = oasClient->duplicateModel(typedId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2893,10 +2893,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - Attachment replaced 
-    remote isolated function editAttachment(string ownerTypedId, string binaryDataId, string slotId, oas:BinaryDataIdslotIdBody payload, map<string|string[]> headers = {}) returns oas:FileDownloadEnvelope|error {
+    remote isolated function editAttachment(string ownerTypedId, string binaryDataId, string slotId, BinaryDataIdslotIdBody payload, map<string|string[]> headers = {}) returns FileDownloadEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:FileDownloadEnvelope|error r = oasClient->editAttachment(ownerTypedId, binaryDataId, slotId, payload, mergedHeaders);
+        FileDownloadEnvelope|error r = oasClient->editAttachment(ownerTypedId, binaryDataId, slotId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2911,10 +2911,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function editComment(string typedId, oas:CommentmanagerEdittypedIdBody payload, map<string|string[]> headers = {}) returns oas:CommentOperationEnvelope|error {
+    remote isolated function editComment(string typedId, CommentmanagerEdittypedIdBody payload, map<string|string[]> headers = {}) returns CommentOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:CommentOperationEnvelope|error r = oasClient->editComment(typedId, payload, mergedHeaders);
+        CommentOperationEnvelope|error r = oasClient->editComment(typedId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2929,10 +2929,10 @@ public isolated client class Client {
     # + logicName - The name of the logic you want to execute
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function executeDataLoadLogic(string typedId, string logicName, map<string|string[]> headers = {}) returns oas:ExecuteDataLoadLogicResponse|error {
+    remote isolated function executeDataLoadLogic(string typedId, string logicName, map<string|string[]> headers = {}) returns ExecuteDataLoadLogicResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ExecuteDataLoadLogicResponse|error r = oasClient->executeDataLoadLogic(typedId, logicName, mergedHeaders);
+        ExecuteDataLoadLogicResponse|error r = oasClient->executeDataLoadLogic(typedId, logicName, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2949,7 +2949,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function executeLibraryFunction(string formulaName, string elementName, string functionName, oas:ElementNamefunctionNameBody payload, map<string|string[]> headers = {}) returns http:Response|error {
+    remote isolated function executeLibraryFunction(string formulaName, string elementName, string functionName, ElementNamefunctionNameBody payload, map<string|string[]> headers = {}) returns http:Response|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
         http:Response|error r = oasClient->executeLibraryFunction(formulaName, elementName, functionName, payload, mergedHeaders);
@@ -2967,10 +2967,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function executeLogic(string typeCode, record {} payload, map<string|string[]> headers = {}) returns oas:ExecuteActionItemLogicResponse|error {
+    remote isolated function executeLogic(string typeCode, record {} payload, map<string|string[]> headers = {}) returns ExecuteActionItemLogicResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ExecuteActionItemLogicResponse|error r = oasClient->executeLogic(typeCode, payload, mergedHeaders);
+        ExecuteActionItemLogicResponse|error r = oasClient->executeLogic(typeCode, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -2985,10 +2985,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload -
     # + return - Example response 
-    remote isolated function executeLogicInService(string uniqueName, record {record {} data?;} payload, map<string|string[]> headers = {}) returns oas:LogicResponse|error {
+    remote isolated function executeLogicInService(string uniqueName, record {record {} data?;} payload, map<string|string[]> headers = {}) returns LogicResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:LogicResponse|error r = oasClient->executeLogicInService(uniqueName, payload, mergedHeaders);
+        LogicResponse|error r = oasClient->executeLogicInService(uniqueName, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3002,10 +3002,10 @@ public isolated client class Client {
     # + uniqueName - The name (`uniqueName`) of the logic you want to execute
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function executeLogicInServiceReadOnly(string uniqueName, map<string|string[]> headers = {}) returns oas:ExecuteLogicReadOnlyResponse|error {
+    remote isolated function executeLogicInServiceReadOnly(string uniqueName, map<string|string[]> headers = {}) returns ExecuteLogicReadOnlyResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ExecuteLogicReadOnlyResponse|error r = oasClient->executeLogicInServiceReadOnly(uniqueName, mergedHeaders);
+        ExecuteLogicReadOnlyResponse|error r = oasClient->executeLogicInServiceReadOnly(uniqueName, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3019,10 +3019,10 @@ public isolated client class Client {
     # + uniqueName - The name (`uniqueName`) of the logic you want to execute
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function executeLogicRead(string uniqueName, map<string|string[]> headers = {}) returns oas:ExecuteLogicReadOnlyResponse|error {
+    remote isolated function executeLogicRead(string uniqueName, map<string|string[]> headers = {}) returns ExecuteLogicReadOnlyResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ExecuteLogicReadOnlyResponse|error r = oasClient->executeLogicRead(uniqueName, mergedHeaders);
+        ExecuteLogicReadOnlyResponse|error r = oasClient->executeLogicRead(uniqueName, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3038,10 +3038,10 @@ public isolated client class Client {
     # + queries - Queries to be sent with the request 
     # + payload -
     # + return - OK 
-    remote isolated function executeLogicWithout(string uniqueName, record {record {} data?;} payload, map<string|string[]> headers = {}, *oas:ExecuteLogicWithoutQueries queries) returns oas:ExecuteLogicWithoutProductContextResponse|error {
+    remote isolated function executeLogicWithout(string uniqueName, record {record {} data?;} payload, map<string|string[]> headers = {}, *ExecuteLogicWithoutQueries queries) returns ExecuteLogicWithoutProductContextResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ExecuteLogicWithoutProductContextResponse|error r = oasClient->executeLogicWithout(uniqueName, payload, mergedHeaders, queries = queries);
+        ExecuteLogicWithoutProductContextResponse|error r = oasClient->executeLogicWithout(uniqueName, payload, mergedHeaders, queries = queries);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3058,10 +3058,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function executeModelLogic(string typedId, string stepName, string formulaName, oas:ExecuteModelLogicRequest payload, map<string|string[]> headers = {}) returns oas:ExecuteModelLogicResponse|error {
+    remote isolated function executeModelLogic(string typedId, string stepName, string formulaName, ExecuteModelLogicRequest payload, map<string|string[]> headers = {}) returns ExecuteModelLogicResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ExecuteModelLogicResponse|error r = oasClient->executeModelLogic(typedId, stepName, formulaName, payload, mergedHeaders);
+        ExecuteModelLogicResponse|error r = oasClient->executeModelLogic(typedId, stepName, formulaName, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3077,10 +3077,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload -
     # + return - OK 
-    remote isolated function executeNamedProductLogic(string sku, string uniqueName, record {record {} data?;} payload, map<string|string[]> headers = {}) returns oas:ExecuteLogicResponse|error {
+    remote isolated function executeNamedProductLogic(string sku, string uniqueName, record {record {} data?;} payload, map<string|string[]> headers = {}) returns ExecuteLogicResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ExecuteLogicResponse|error r = oasClient->executeNamedProductLogic(sku, uniqueName, payload, mergedHeaders);
+        ExecuteLogicResponse|error r = oasClient->executeNamedProductLogic(sku, uniqueName, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3095,10 +3095,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload -
     # + return - OK 
-    remote isolated function executeProductLogic(string sku, record {record {} data?;} payload, map<string|string[]> headers = {}) returns oas:ExecuteAssignedLogicResponse|error {
+    remote isolated function executeProductLogic(string sku, record {record {} data?;} payload, map<string|string[]> headers = {}) returns ExecuteAssignedLogicResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ExecuteAssignedLogicResponse|error r = oasClient->executeProductLogic(sku, payload, mergedHeaders);
+        ExecuteAssignedLogicResponse|error r = oasClient->executeProductLogic(sku, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3130,7 +3130,7 @@ public isolated client class Client {
     # + queries - Queries to be sent with the request 
     # + payload - Request payload
     # + return - OK - returns the ZIP file (binary data): `Content-Type: application/zip` 
-    remote isolated function exportCsvFile(oas:ExportCSVFileRequest payload, map<string|string[]> headers = {}, *oas:ExportCsvFileQueries queries) returns error? {
+    remote isolated function exportCsvFile(ExportCSVFileRequest payload, map<string|string[]> headers = {}, *ExportCsvFileQueries queries) returns error? {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
         error? r = oasClient->exportCsvFile(payload, mergedHeaders, queries = queries);
@@ -3149,10 +3149,10 @@ public isolated client class Client {
     # + queries - Queries to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function exportDatamart(string fcTypedIdOrSourceName, oas:ExportDatamartRequest payload, map<string|string[]> headers = {}, *oas:ExportDatamartQueries queries) returns oas:ExportDatamartResponse|error {
+    remote isolated function exportDatamart(string fcTypedIdOrSourceName, ExportDatamartRequest payload, map<string|string[]> headers = {}, *ExportDatamartQueries queries) returns ExportDatamartResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ExportDatamartResponse|error r = oasClient->exportDatamart(fcTypedIdOrSourceName, payload, mergedHeaders, queries = queries);
+        ExportDatamartResponse|error r = oasClient->exportDatamart(fcTypedIdOrSourceName, payload, mergedHeaders, queries = queries);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3167,7 +3167,7 @@ public isolated client class Client {
     # + queries - Queries to be sent with the request 
     # + payload - Request payload
     # + return - OK - returns the XLSX file (binary data): `Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet` 
-    remote isolated function exportExcelFileXlsx(oas:ExportExcelFileRequest payload, map<string|string[]> headers = {}, *oas:ExportExcelFileXlsxQueries queries) returns error? {
+    remote isolated function exportExcelFileXlsx(ExportExcelFileRequest payload, map<string|string[]> headers = {}, *ExportExcelFileXlsxQueries queries) returns error? {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
         error? r = oasClient->exportExcelFileXlsx(payload, mergedHeaders, queries = queries);
@@ -3184,7 +3184,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK - A ZIP file containing the exported model JSON files 
-    remote isolated function exportModels(oas:OptimizationModelexportBody payload, map<string|string[]> headers = {}) returns http:Response|error {
+    remote isolated function exportModels(OptimizationModelexportBody payload, map<string|string[]> headers = {}) returns http:Response|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
         http:Response|error r = oasClient->exportModels(payload, mergedHeaders);
@@ -3202,7 +3202,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - OK 
-    remote isolated function exportQuoteDocx(string uniqueName, map<string|string[]> headers = {}, *oas:ExportQuoteDocxQueries queries) returns error? {
+    remote isolated function exportQuoteDocx(string uniqueName, map<string|string[]> headers = {}, *ExportQuoteDocxQueries queries) returns error? {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
         error? r = oasClient->exportQuoteDocx(uniqueName, mergedHeaders, queries = queries);
@@ -3220,7 +3220,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - OK - returns a file data 
-    remote isolated function exportQuoteExcel(string uniqueName, map<string|string[]> headers = {}, *oas:ExportQuoteExcelQueries queries) returns error? {
+    remote isolated function exportQuoteExcel(string uniqueName, map<string|string[]> headers = {}, *ExportQuoteExcelQueries queries) returns error? {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
         error? r = oasClient->exportQuoteExcel(uniqueName, mergedHeaders, queries = queries);
@@ -3238,7 +3238,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - OK - returns the file data 
-    remote isolated function exportQuotePdf(string uniqueName, map<string|string[]> headers = {}, *oas:ExportQuotePdfQueries queries) returns record {}|error {
+    remote isolated function exportQuotePdf(string uniqueName, map<string|string[]> headers = {}, *ExportQuotePdfQueries queries) returns record {}|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
         record {}|error r = oasClient->exportQuotePdf(uniqueName, mergedHeaders, queries = queries);
@@ -3255,10 +3255,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function fetchActivities(oas:ActivitylogFetchBody payload, map<string|string[]> headers = {}) returns record {}|oas:FetchActivitiesEnvelope|error {
+    remote isolated function fetchActivities(ActivitylogFetchBody payload, map<string|string[]> headers = {}) returns record {}|FetchActivitiesEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        record {}|oas:FetchActivitiesEnvelope|error r = oasClient->fetchActivities(payload, mergedHeaders);
+        record {}|FetchActivitiesEnvelope|error r = oasClient->fetchActivities(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3277,10 +3277,10 @@ public isolated client class Client {
     # + queries - Queries to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function fetchDataMartObject(string objectId, oas:GetDMObjectRequest payload, map<string|string[]> headers = {}, *oas:FetchDataMartObjectQueries queries) returns oas:GetDMObjectResponse|error {
+    remote isolated function fetchDataMartObject(string objectId, GetDMObjectRequest payload, map<string|string[]> headers = {}, *FetchDataMartObjectQueries queries) returns GetDMObjectResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GetDMObjectResponse|error r = oasClient->fetchDataMartObject(objectId, payload, mergedHeaders, queries = queries);
+        GetDMObjectResponse|error r = oasClient->fetchDataMartObject(objectId, payload, mergedHeaders, queries = queries);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3293,10 +3293,10 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function fetchPendingReviews(map<string|string[]> headers = {}) returns oas:FetchPendingReviewsEnvelope|error {
+    remote isolated function fetchPendingReviews(map<string|string[]> headers = {}) returns FetchPendingReviewsEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:FetchPendingReviewsEnvelope|error r = oasClient->fetchPendingReviews(mergedHeaders);
+        FetchPendingReviewsEnvelope|error r = oasClient->fetchPendingReviews(mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3310,10 +3310,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function generateJwtToken(oas:GenerateJWTTokenRequest payload, map<string|string[]> headers = {}) returns oas:GenerateJWTTokenResponse|error {
+    remote isolated function generateJwtToken(GenerateJWTTokenRequest payload, map<string|string[]> headers = {}) returns GenerateJWTTokenResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GenerateJWTTokenResponse|error r = oasClient->generateJwtToken(payload, mergedHeaders);
+        GenerateJWTTokenResponse|error r = oasClient->generateJwtToken(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3327,10 +3327,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function generateParameters(oas:GenerateParametersRequest payload, map<string|string[]> headers = {}) returns oas:GenerateParametersResponse|error {
+    remote isolated function generateParameters(GenerateParametersRequest payload, map<string|string[]> headers = {}) returns GenerateParametersResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GenerateParametersResponse|error r = oasClient->generateParameters(payload, mergedHeaders);
+        GenerateParametersResponse|error r = oasClient->generateParameters(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3344,10 +3344,10 @@ public isolated client class Client {
     # + minutes - The number of minutes in which the token expires
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function generateTimedJwtToken(string minutes, map<string|string[]> headers = {}) returns oas:GenerateJWTTokenTimeLimitedResponse|error {
+    remote isolated function generateTimedJwtToken(string minutes, map<string|string[]> headers = {}) returns GenerateJWTTokenTimeLimitedResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GenerateJWTTokenTimeLimitedResponse|error r = oasClient->generateTimedJwtToken(minutes, mergedHeaders);
+        GenerateJWTTokenTimeLimitedResponse|error r = oasClient->generateTimedJwtToken(minutes, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3361,10 +3361,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + actionUUID - The actionUUID to be sent with the request
     # + return - OK 
-    remote isolated function getActionStatus(string actionUUID, map<string|string[]> headers = {}) returns oas:GetActionStatusResponse|error {
+    remote isolated function getActionStatus(string actionUUID, map<string|string[]> headers = {}) returns GetActionStatusResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GetActionStatusResponse|error r = oasClient->getActionStatus(actionUUID, mergedHeaders);
+        GetActionStatusResponse|error r = oasClient->getActionStatus(actionUUID, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3378,10 +3378,10 @@ public isolated client class Client {
     # + propertyname - Name of the configuration property to retrieve
     # + headers - Headers to be sent with the request 
     # + return - Property found 
-    remote isolated function getAdvancedConfigurationProperty(string propertyname, map<string|string[]> headers = {}) returns oas:AdvancedConfigPropertyEnvelope|error {
+    remote isolated function getAdvancedConfigurationProperty(string propertyname, map<string|string[]> headers = {}) returns AdvancedConfigPropertyEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:AdvancedConfigPropertyEnvelope|error r = oasClient->getAdvancedConfigurationProperty(propertyname, mergedHeaders);
+        AdvancedConfigPropertyEnvelope|error r = oasClient->getAdvancedConfigurationProperty(propertyname, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3396,10 +3396,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function getCalculationGrid(string id, record {} payload, map<string|string[]> headers = {}) returns oas:GetCalculationGridResponse|error {
+    remote isolated function getCalculationGrid(string id, record {} payload, map<string|string[]> headers = {}) returns GetCalculationGridResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GetCalculationGridResponse|error r = oasClient->getCalculationGrid(id, payload, mergedHeaders);
+        GetCalculationGridResponse|error r = oasClient->getCalculationGrid(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3415,10 +3415,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function getCalculationGridItem("1"|"2"|"3"|"4"|"5"|"6" keyNumber, string id, record {} payload, map<string|string[]> headers = {}) returns oas:GetCalculationGridItemResponse|error {
+    remote isolated function getCalculationGridItem("1"|"2"|"3"|"4"|"5"|"6" keyNumber, string id, record {} payload, map<string|string[]> headers = {}) returns GetCalculationGridItemResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GetCalculationGridItemResponse|error r = oasClient->getCalculationGridItem(keyNumber, id, payload, mergedHeaders);
+        GetCalculationGridItemResponse|error r = oasClient->getCalculationGridItem(keyNumber, id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3432,10 +3432,10 @@ public isolated client class Client {
     # + typedId - The `typedId` of the Model Object you want to retrieve the calculation status for
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function getCalculationStatus(string typedId, map<string|string[]> headers = {}) returns oas:JobStatusTrackerResponse|error {
+    remote isolated function getCalculationStatus(string typedId, map<string|string[]> headers = {}) returns JobStatusTrackerResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:JobStatusTrackerResponse|error r = oasClient->getCalculationStatus(typedId, mergedHeaders);
+        JobStatusTrackerResponse|error r = oasClient->getCalculationStatus(typedId, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3450,10 +3450,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function getClicDraftHeader(string typedId, record {} payload, map<string|string[]> headers = {}) returns oas:ClicDraftHeaderEnvelope|error {
+    remote isolated function getClicDraftHeader(string typedId, record {} payload, map<string|string[]> headers = {}) returns ClicDraftHeaderEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ClicDraftHeaderEnvelope|error r = oasClient->getClicDraftHeader(typedId, payload, mergedHeaders);
+        ClicDraftHeaderEnvelope|error r = oasClient->getClicDraftHeader(typedId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3468,10 +3468,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - OK 
-    remote isolated function getClicFolderStats(string typedId, map<string|string[]> headers = {}, *oas:GetClicFolderStatsQueries queries) returns oas:ClicFolderStatsEnvelope|error {
+    remote isolated function getClicFolderStats(string typedId, map<string|string[]> headers = {}, *GetClicFolderStatsQueries queries) returns ClicFolderStatsEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ClicFolderStatsEnvelope|error r = oasClient->getClicFolderStats(typedId, mergedHeaders, queries = queries);
+        ClicFolderStatsEnvelope|error r = oasClient->getClicFolderStats(typedId, mergedHeaders, queries = queries);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3485,10 +3485,10 @@ public isolated client class Client {
     # + typedId - The `typedId` of the Contract, Quote, or Rebate Agreement you want to return details for
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function getClicHeader(string typedId, map<string|string[]> headers = {}) returns oas:GetQuoteContractRebateAgreementResponse|error {
+    remote isolated function getClicHeader(string typedId, map<string|string[]> headers = {}) returns GetQuoteContractRebateAgreementResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GetQuoteContractRebateAgreementResponse|error r = oasClient->getClicHeader(typedId, mergedHeaders);
+        GetQuoteContractRebateAgreementResponse|error r = oasClient->getClicHeader(typedId, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3502,10 +3502,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function getConditionRecordItem(record {} payload, map<string|string[]> headers = {}) returns oas:ConditionRecordItemEnvelope|error {
+    remote isolated function getConditionRecordItem(record {} payload, map<string|string[]> headers = {}) returns ConditionRecordItemEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ConditionRecordItemEnvelope|error r = oasClient->getConditionRecordItem(payload, mergedHeaders);
+        ConditionRecordItemEnvelope|error r = oasClient->getConditionRecordItem(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3519,10 +3519,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function getConditionRecordItemMeta(oas:FetchCRCIMBody payload, map<string|string[]> headers = {}) returns oas:ConditionRecordItemMetaEnvelope|error {
+    remote isolated function getConditionRecordItemMeta(FetchCRCIMBody payload, map<string|string[]> headers = {}) returns ConditionRecordItemMetaEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ConditionRecordItemMetaEnvelope|error r = oasClient->getConditionRecordItemMeta(payload, mergedHeaders);
+        ConditionRecordItemMetaEnvelope|error r = oasClient->getConditionRecordItemMeta(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3536,10 +3536,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function getConditionRecordSetItems(oas:ConditionrecordsetFetchCRCI3Body payload, map<string|string[]> headers = {}) returns oas:ConditionRecordSetItemsEnvelope|error {
+    remote isolated function getConditionRecordSetItems(ConditionrecordsetFetchCRCI3Body payload, map<string|string[]> headers = {}) returns ConditionRecordSetItemsEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ConditionRecordSetItemsEnvelope|error r = oasClient->getConditionRecordSetItems(payload, mergedHeaders);
+        ConditionRecordSetItemsEnvelope|error r = oasClient->getConditionRecordSetItems(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3553,10 +3553,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function getConfigurationStorage(oas:FetchJCSBody payload, map<string|string[]> headers = {}) returns oas:GetConfigurationStorageEnvelope|error {
+    remote isolated function getConfigurationStorage(FetchJCSBody payload, map<string|string[]> headers = {}) returns GetConfigurationStorageEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GetConfigurationStorageEnvelope|error r = oasClient->getConfigurationStorage(payload, mergedHeaders);
+        GetConfigurationStorageEnvelope|error r = oasClient->getConfigurationStorage(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3570,10 +3570,10 @@ public isolated client class Client {
     # + uniqueName - `uniqueName` of the Contract you want to retrieve details for. Alternatively, `typedId` can be also used
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function getContract(string uniqueName, map<string|string[]> headers = {}) returns oas:ContractModelResponse|error {
+    remote isolated function getContract(string uniqueName, map<string|string[]> headers = {}) returns ContractModelResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ContractModelResponse|error r = oasClient->getContract(uniqueName, mergedHeaders);
+        ContractModelResponse|error r = oasClient->getContract(uniqueName, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3587,10 +3587,10 @@ public isolated client class Client {
     # + typedId - The `typedId` of the Custom Form you want to retrieve details for
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function getCustomForm(string typedId, map<string|string[]> headers = {}) returns oas:GetCustomFormResponse|error {
+    remote isolated function getCustomForm(string typedId, map<string|string[]> headers = {}) returns GetCustomFormResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GetCustomFormResponse|error r = oasClient->getCustomForm(typedId, mergedHeaders);
+        GetCustomFormResponse|error r = oasClient->getCustomForm(typedId, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3604,10 +3604,10 @@ public isolated client class Client {
     # + id - The ID of the Customer you want to retrieve details for. The `id` is the `typedId` without the **C** suffix. For example, the `id` parameter of the item with `typedId` = **2147492200.C**  is **2147492200**
     # + headers - Headers to be sent with the request 
     # + return - Returns customer record details 
-    remote isolated function getCustomer(string id, map<string|string[]> headers = {}) returns oas:CustomerResponse|error {
+    remote isolated function getCustomer(string id, map<string|string[]> headers = {}) returns CustomerResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:CustomerResponse|error r = oasClient->getCustomer(id, mergedHeaders);
+        CustomerResponse|error r = oasClient->getCustomer(id, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3622,10 +3622,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function getDataChangeRequest(string id, oas:GetDCRRequest payload, map<string|string[]> headers = {}) returns oas:GetDCRResponse|error {
+    remote isolated function getDataChangeRequest(string id, GetDCRRequest payload, map<string|string[]> headers = {}) returns GetDCRResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GetDCRResponse|error r = oasClient->getDataChangeRequest(id, payload, mergedHeaders);
+        GetDCRResponse|error r = oasClient->getDataChangeRequest(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3640,10 +3640,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function getDataChangeRequestChanges(string id, oas:GetDCRRequestChangeOnly payload, map<string|string[]> headers = {}) returns oas:GetDCRResponseChangeOnly|error {
+    remote isolated function getDataChangeRequestChanges(string id, GetDCRRequestChangeOnly payload, map<string|string[]> headers = {}) returns GetDCRResponseChangeOnly|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GetDCRResponseChangeOnly|error r = oasClient->getDataChangeRequestChanges(id, payload, mergedHeaders);
+        GetDCRResponseChangeOnly|error r = oasClient->getDataChangeRequestChanges(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3658,10 +3658,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function getDataChangeRequestMassChanges(string id, oas:DcrmanagerFetchmassopidBody payload, map<string|string[]> headers = {}) returns oas:DataChangeRequestMassChangeEnvelope|error {
+    remote isolated function getDataChangeRequestMassChanges(string id, DcrmanagerFetchmassopidBody payload, map<string|string[]> headers = {}) returns DataChangeRequestMassChangeEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DataChangeRequestMassChangeEnvelope|error r = oasClient->getDataChangeRequestMassChanges(id, payload, mergedHeaders);
+        DataChangeRequestMassChangeEnvelope|error r = oasClient->getDataChangeRequestMassChanges(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3679,10 +3679,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Exported data 
-    remote isolated function getDataMartObject(string objectId, map<string|string[]> headers = {}, *oas:GetDataMartObjectQueries queries) returns oas:DataMartObjectEnvelope|error {
+    remote isolated function getDataMartObject(string objectId, map<string|string[]> headers = {}, *GetDataMartObjectQueries queries) returns DataMartObjectEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DataMartObjectEnvelope|error r = oasClient->getDataMartObject(objectId, mergedHeaders, queries = queries);
+        DataMartObjectEnvelope|error r = oasClient->getDataMartObject(objectId, mergedHeaders, queries = queries);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3695,10 +3695,10 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function getDefaultPricingLogicName(map<string|string[]> headers = {}) returns oas:GetDefaultPricingLogicNameResponse|error {
+    remote isolated function getDefaultPricingLogicName(map<string|string[]> headers = {}) returns GetDefaultPricingLogicNameResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GetDefaultPricingLogicNameResponse|error r = oasClient->getDefaultPricingLogicName(mergedHeaders);
+        GetDefaultPricingLogicNameResponse|error r = oasClient->getDefaultPricingLogicName(mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3733,10 +3733,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function getDmObjectNo(string objectId, oas:GetDMObjectNoCountRequest payload, map<string|string[]> headers = {}) returns oas:GetDMObjectNoCountResponse|error {
+    remote isolated function getDmObjectNo(string objectId, GetDMObjectNoCountRequest payload, map<string|string[]> headers = {}) returns GetDMObjectNoCountResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GetDMObjectNoCountResponse|error r = oasClient->getDmObjectNo(objectId, payload, mergedHeaders);
+        GetDMObjectNoCountResponse|error r = oasClient->getDmObjectNo(objectId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3749,10 +3749,10 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function getExternalApplicationProperties(map<string|string[]> headers = {}) returns oas:GetexternalapppropertiesResponse|error {
+    remote isolated function getExternalApplicationProperties(map<string|string[]> headers = {}) returns GetexternalapppropertiesResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GetexternalapppropertiesResponse|error r = oasClient->getExternalApplicationProperties(mergedHeaders);
+        GetexternalapppropertiesResponse|error r = oasClient->getExternalApplicationProperties(mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3767,7 +3767,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK. The "payload" is returned 
-    remote isolated function getKey(string tableName, oas:GetKVKeyRequest payload, map<string|string[]> headers = {}) returns error? {
+    remote isolated function getKey(string tableName, GetKVKeyRequest payload, map<string|string[]> headers = {}) returns error? {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
         error? r = oasClient->getKey(tableName, payload, mergedHeaders);
@@ -3784,10 +3784,10 @@ public isolated client class Client {
     # + id - The `id` of the Live Price Grid you want to retrieve details for. You can retrieve the `id` of the LPG, for example, by calling the `/fetch/PG` endpoint
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function getLivePriceGrid(string id, map<string|string[]> headers = {}) returns oas:GetLivePriceGridResponse|error {
+    remote isolated function getLivePriceGrid(string id, map<string|string[]> headers = {}) returns GetLivePriceGridResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GetLivePriceGridResponse|error r = oasClient->getLivePriceGrid(id, mergedHeaders);
+        GetLivePriceGridResponse|error r = oasClient->getLivePriceGrid(id, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3801,10 +3801,10 @@ public isolated client class Client {
     # + id - The ID of the logic you want to retrieve details for
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function getLogic(string id, map<string|string[]> headers = {}) returns oas:GetLogicResponse|error {
+    remote isolated function getLogic(string id, map<string|string[]> headers = {}) returns GetLogicResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GetLogicResponse|error r = oasClient->getLogic(id, mergedHeaders);
+        GetLogicResponse|error r = oasClient->getLogic(id, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3818,10 +3818,10 @@ public isolated client class Client {
     # + tableId - Enter the ID of the table you want to retrieve logic references for
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function getLogicReferences(string tableId, map<string|string[]> headers = {}) returns oas:GetLogicReferencesResponse|error {
+    remote isolated function getLogicReferences(string tableId, map<string|string[]> headers = {}) returns GetLogicReferencesResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GetLogicReferencesResponse|error r = oasClient->getLogicReferences(tableId, mergedHeaders);
+        GetLogicReferencesResponse|error r = oasClient->getLogicReferences(tableId, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3835,10 +3835,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - OK 
-    remote isolated function getLokiLog(map<string|string[]> headers = {}, *oas:GetLokiLogQueries queries) returns oas:LokiLogEnvelope|error {
+    remote isolated function getLokiLog(map<string|string[]> headers = {}, *GetLokiLogQueries queries) returns LokiLogEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:LokiLogEnvelope|error r = oasClient->getLokiLog(mergedHeaders, queries = queries);
+        LokiLogEnvelope|error r = oasClient->getLokiLog(mergedHeaders, queries = queries);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3851,10 +3851,10 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Roles received 
-    remote isolated function getMcpRoles(map<string|string[]> headers = {}) returns oas:McpRolesEnvelope|error {
+    remote isolated function getMcpRoles(map<string|string[]> headers = {}) returns McpRolesEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:McpRolesEnvelope|error r = oasClient->getMcpRoles(mergedHeaders);
+        McpRolesEnvelope|error r = oasClient->getMcpRoles(mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3867,10 +3867,10 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Roles received 
-    remote isolated function getMcpTools(map<string|string[]> headers = {}) returns oas:McpToolsEnvelope|error {
+    remote isolated function getMcpTools(map<string|string[]> headers = {}) returns McpToolsEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:McpToolsEnvelope|error r = oasClient->getMcpTools(mergedHeaders);
+        McpToolsEnvelope|error r = oasClient->getMcpTools(mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3883,10 +3883,10 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Slot created 
-    remote isolated function getNewUploadSlot(map<string|string[]> headers = {}) returns oas:CreateUploadSlotResponse|error {
+    remote isolated function getNewUploadSlot(map<string|string[]> headers = {}) returns CreateUploadSlotResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:CreateUploadSlotResponse|error r = oasClient->getNewUploadSlot(mergedHeaders);
+        CreateUploadSlotResponse|error r = oasClient->getNewUploadSlot(mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3901,10 +3901,10 @@ public isolated client class Client {
     # + id - The ID of the object you want to retrieve details for
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function getObject(string typeCode, string id, map<string|string[]> headers = {}) returns oas:GetObjectResponse_1|error {
+    remote isolated function getObject(string typeCode, string id, map<string|string[]> headers = {}) returns GetObjectResponse_1|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GetObjectResponse_1|error r = oasClient->getObject(typeCode, id, mergedHeaders);
+        GetObjectResponse_1|error r = oasClient->getObject(typeCode, id, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3917,10 +3917,10 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function getOneTimeToken(map<string|string[]> headers = {}) returns oas:GetOneTimeTokenResponse|error {
+    remote isolated function getOneTimeToken(map<string|string[]> headers = {}) returns GetOneTimeTokenResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GetOneTimeTokenResponse|error r = oasClient->getOneTimeToken(mergedHeaders);
+        GetOneTimeTokenResponse|error r = oasClient->getOneTimeToken(mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3935,10 +3935,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function getParallelCalculationItem(string id, record {} payload, map<string|string[]> headers = {}) returns oas:GetParallelCalculationItemResponse|error {
+    remote isolated function getParallelCalculationItem(string id, record {} payload, map<string|string[]> headers = {}) returns GetParallelCalculationItemResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GetParallelCalculationItemResponse|error r = oasClient->getParallelCalculationItem(id, payload, mergedHeaders);
+        GetParallelCalculationItemResponse|error r = oasClient->getParallelCalculationItem(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3952,10 +3952,10 @@ public isolated client class Client {
     # + id - The ID of the Price List you want to retrieve details for. The `id` is the `typedId` without the suffix. For example, the `id` attribute of the item with `typedId` = **2147484837.PL**  is **2147484837**
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function getPriceList(string id, map<string|string[]> headers = {}) returns oas:GetPriceListResponse|error {
+    remote isolated function getPriceList(string id, map<string|string[]> headers = {}) returns GetPriceListResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GetPriceListResponse|error r = oasClient->getPriceList(id, mergedHeaders);
+        GetPriceListResponse|error r = oasClient->getPriceList(id, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3969,10 +3969,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function getProductAttributeMeta(record {} payload, map<string|string[]> headers = {}) returns oas:ProductAttributeMetaEnvelope|error {
+    remote isolated function getProductAttributeMeta(record {} payload, map<string|string[]> headers = {}) returns ProductAttributeMetaEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ProductAttributeMetaEnvelope|error r = oasClient->getProductAttributeMeta(payload, mergedHeaders);
+        ProductAttributeMetaEnvelope|error r = oasClient->getProductAttributeMeta(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -3986,10 +3986,10 @@ public isolated client class Client {
     # + sku - The `sku` of the product you want to retrieve the Bill of Materials for
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function getProductBomTree(string sku, map<string|string[]> headers = {}) returns oas:ListBoMForProductResponse|error {
+    remote isolated function getProductBomTree(string sku, map<string|string[]> headers = {}) returns ListBoMForProductResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListBoMForProductResponse|error r = oasClient->getProductBomTree(sku, mergedHeaders);
+        ListBoMForProductResponse|error r = oasClient->getProductBomTree(sku, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4003,10 +4003,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function getProductCompetition(oas:GetCompetitionDataRequest payload, map<string|string[]> headers = {}) returns oas:GetCompetitionDataResponse|error {
+    remote isolated function getProductCompetition(GetCompetitionDataRequest payload, map<string|string[]> headers = {}) returns GetCompetitionDataResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GetCompetitionDataResponse|error r = oasClient->getProductCompetition(payload, mergedHeaders);
+        GetCompetitionDataResponse|error r = oasClient->getProductCompetition(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4021,10 +4021,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function getProductSetCompetition(string label, oas:GetProductSetRequest payload, map<string|string[]> headers = {}) returns oas:GetProductSetResponse|error {
+    remote isolated function getProductSetCompetition(string label, GetProductSetRequest payload, map<string|string[]> headers = {}) returns GetProductSetResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GetProductSetResponse|error r = oasClient->getProductSetCompetition(label, payload, mergedHeaders);
+        GetProductSetResponse|error r = oasClient->getProductSetCompetition(label, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4038,10 +4038,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - Metadata returned 
-    remote isolated function getQueryApiMetadata(oas:QueryapiExecuteBody payload, map<string|string[]> headers = {}) returns oas:QueryApiMetadataEnvelope|error {
+    remote isolated function getQueryApiMetadata(QueryapiExecuteBody payload, map<string|string[]> headers = {}) returns QueryApiMetadataEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:QueryApiMetadataEnvelope|error r = oasClient->getQueryApiMetadata(payload, mergedHeaders);
+        QueryApiMetadataEnvelope|error r = oasClient->getQueryApiMetadata(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4055,10 +4055,10 @@ public isolated client class Client {
     # + typedID - Enter the quote typed ID. You get the `typedId` in the response when fetching all quotes using the `/quotemanager.fetchlist` endpoint
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function getQuote(string typedID, map<string|string[]> headers = {}) returns oas:QuoteResponse|error {
+    remote isolated function getQuote(string typedID, map<string|string[]> headers = {}) returns QuoteResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:QuoteResponse|error r = oasClient->getQuote(typedID, mergedHeaders);
+        QuoteResponse|error r = oasClient->getQuote(typedID, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4072,10 +4072,10 @@ public isolated client class Client {
     # + uniqueName - The `uniqueName` of the Rebate Agreement you want to retrieve details for
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function getRebateAgreement(string uniqueName, map<string|string[]> headers = {}) returns oas:RebateAgreementResponse|error {
+    remote isolated function getRebateAgreement(string uniqueName, map<string|string[]> headers = {}) returns RebateAgreementResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:RebateAgreementResponse|error r = oasClient->getRebateAgreement(uniqueName, mergedHeaders);
+        RebateAgreementResponse|error r = oasClient->getRebateAgreement(uniqueName, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4107,10 +4107,10 @@ public isolated client class Client {
     # + sXCategory - The Seller Extension category (the `Name` from the *Seller Master Extension* table)
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function getSellerExtension(string sellerId, string sXCategory, map<string|string[]> headers = {}) returns oas:SellerExtensionEnvelope|error {
+    remote isolated function getSellerExtension(string sellerId, string sXCategory, map<string|string[]> headers = {}) returns SellerExtensionEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:SellerExtensionEnvelope|error r = oasClient->getSellerExtension(sellerId, sXCategory, mergedHeaders);
+        SellerExtensionEnvelope|error r = oasClient->getSellerExtension(sellerId, sXCategory, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4125,10 +4125,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function getSignatureStatus(string typedId, record {} payload, map<string|string[]> headers = {}) returns oas:GetSignatureStatusResponse|error {
+    remote isolated function getSignatureStatus(string typedId, record {} payload, map<string|string[]> headers = {}) returns GetSignatureStatusResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GetSignatureStatusResponse|error r = oasClient->getSignatureStatus(typedId, payload, mergedHeaders);
+        GetSignatureStatusResponse|error r = oasClient->getSignatureStatus(typedId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4160,10 +4160,10 @@ public isolated client class Client {
     # + stepName - The name of the step you want to calculate
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function getStepCalculationStatus(string typedId, string stepName, map<string|string[]> headers = {}) returns oas:JobStatusTrackerResponse|error {
+    remote isolated function getStepCalculationStatus(string typedId, string stepName, map<string|string[]> headers = {}) returns JobStatusTrackerResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:JobStatusTrackerResponse|error r = oasClient->getStepCalculationStatus(typedId, stepName, mergedHeaders);
+        JobStatusTrackerResponse|error r = oasClient->getStepCalculationStatus(typedId, stepName, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4178,10 +4178,10 @@ public isolated client class Client {
     # + typedId - The typedId to be sent with the request
     # + payload - Request payload
     # + return - OK 
-    remote isolated function getSummary(string typedId, record {} payload, map<string|string[]> headers = {}) returns oas:GetClaimItemsSummaryResponse|error {
+    remote isolated function getSummary(string typedId, record {} payload, map<string|string[]> headers = {}) returns GetClaimItemsSummaryResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GetClaimItemsSummaryResponse|error r = oasClient->getSummary(typedId, payload, mergedHeaders);
+        GetClaimItemsSummaryResponse|error r = oasClient->getSummary(typedId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4195,10 +4195,10 @@ public isolated client class Client {
     # + tableName - A name of the table you want to retrieve information about
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function getTableInfo(string tableName, map<string|string[]> headers = {}) returns oas:GetKVTableInfoResponse|error {
+    remote isolated function getTableInfo(string tableName, map<string|string[]> headers = {}) returns GetKVTableInfoResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GetKVTableInfoResponse|error r = oasClient->getTableInfo(tableName, mergedHeaders);
+        GetKVTableInfoResponse|error r = oasClient->getTableInfo(tableName, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4212,10 +4212,10 @@ public isolated client class Client {
     # + uploadslot - Upload Slot Id
     # + headers - Headers to be sent with the request 
     # + return - The request response contains the current status of the upload slot, including progress information 
-    remote isolated function getUploadProgress(string uploadslot, map<string|string[]> headers = {}) returns oas:UploadSlotOperationEnvelope|error {
+    remote isolated function getUploadProgress(string uploadslot, map<string|string[]> headers = {}) returns UploadSlotOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:UploadSlotOperationEnvelope|error r = oasClient->getUploadProgress(uploadslot, mergedHeaders);
+        UploadSlotOperationEnvelope|error r = oasClient->getUploadProgress(uploadslot, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4231,10 +4231,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function getUserAuditReport("R"|"UG"|"BR" typeCode, string id, record {} payload, map<string|string[]> headers = {}) returns oas:UserAuditReportEnvelope|error {
+    remote isolated function getUserAuditReport("R"|"UG"|"BR" typeCode, string id, record {} payload, map<string|string[]> headers = {}) returns UserAuditReportEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:UserAuditReportEnvelope|error r = oasClient->getUserAuditReport(typeCode, id, payload, mergedHeaders);
+        UserAuditReportEnvelope|error r = oasClient->getUserAuditReport(typeCode, id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4248,10 +4248,10 @@ public isolated client class Client {
     # + typedId - The `typedId` of the approvable object you want to retrieve workflow details for
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function getWorkflowDocument(string typedId, map<string|string[]> headers = {}) returns oas:GetWorkflowDocumentResponse|error {
+    remote isolated function getWorkflowDocument(string typedId, map<string|string[]> headers = {}) returns GetWorkflowDocumentResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GetWorkflowDocumentResponse|error r = oasClient->getWorkflowDocument(typedId, mergedHeaders);
+        GetWorkflowDocumentResponse|error r = oasClient->getWorkflowDocument(typedId, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4266,10 +4266,10 @@ public isolated client class Client {
     # + typedId - The typedId to be sent with the request
     # + payload - Request payload
     # + return - OK - `ServerMessageExtended` property contains information about what was imported 
-    remote isolated function importClicLineItems(string typedId, oas:ClicmanagerImportlineitemstypedIdBody payload, map<string|string[]> headers = {}) returns oas:ClicOperationEnvelope|error {
+    remote isolated function importClicLineItems(string typedId, ClicmanagerImportlineitemstypedIdBody payload, map<string|string[]> headers = {}) returns ClicOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ClicOperationEnvelope|error r = oasClient->importClicLineItems(typedId, payload, mergedHeaders);
+        ClicOperationEnvelope|error r = oasClient->importClicLineItems(typedId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4283,7 +4283,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function importDataLoad(oas:ImportDataLoadRequest payload, map<string|string[]> headers = {}) returns error? {
+    remote isolated function importDataLoad(ImportDataLoadRequest payload, map<string|string[]> headers = {}) returns error? {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
         error? r = oasClient->importDataLoad(payload, mergedHeaders);
@@ -4318,10 +4318,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function importModels(oas:OptimizationModelimportBody payload, map<string|string[]> headers = {}) returns oas:ModelDuplicationEnvelope|error {
+    remote isolated function importModels(OptimizationModelimportBody payload, map<string|string[]> headers = {}) returns ModelDuplicationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ModelDuplicationEnvelope|error r = oasClient->importModels(payload, mergedHeaders);
+        ModelDuplicationEnvelope|error r = oasClient->importModels(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4335,10 +4335,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - The competition product details 
     # + return - OK 
-    remote isolated function importProductCompetition(oas:ImportCompetitionDataRequest payload, map<string|string[]> headers = {}) returns oas:ImportCompetitionDataResponse|error {
+    remote isolated function importProductCompetition(ImportCompetitionDataRequest payload, map<string|string[]> headers = {}) returns ImportCompetitionDataResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ImportCompetitionDataResponse|error r = oasClient->importProductCompetition(payload, mergedHeaders);
+        ImportCompetitionDataResponse|error r = oasClient->importProductCompetition(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4355,7 +4355,7 @@ public isolated client class Client {
     # + queries - Queries to be sent with the request 
     # + payload - Request payload
     # + return - Accepted 
-    remote isolated function importSellerExtensionFile(string sXCategory, string slotId, oas:ImportSXFileRequest payload, map<string|string[]> headers = {}, *oas:ImportSellerExtensionFileQueries queries) returns error? {
+    remote isolated function importSellerExtensionFile(string sXCategory, string slotId, ImportSXFileRequest payload, map<string|string[]> headers = {}, *ImportSellerExtensionFileQueries queries) returns error? {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
         error? r = oasClient->importSellerExtensionFile(sXCategory, slotId, payload, mergedHeaders, queries = queries);
@@ -4372,10 +4372,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Specify customer extension field names in the `header` object and field values in the `data` object.<p> 
     # + return - Returns the number of inserted or updated objects 
-    remote isolated function insertBulkCustomerExtensions(oas:InsertBulkCustomerExtensionsRequest payload, map<string|string[]> headers = {}) returns oas:LoadDataResponse|error {
+    remote isolated function insertBulkCustomerExtensions(InsertBulkCustomerExtensionsRequest payload, map<string|string[]> headers = {}) returns LoadDataResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:LoadDataResponse|error r = oasClient->insertBulkCustomerExtensions(payload, mergedHeaders);
+        LoadDataResponse|error r = oasClient->insertBulkCustomerExtensions(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4390,10 +4390,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - The **`/loaddata/P`** endpoint (Insert Bulk Products) is used in our example.<p> 
     # + return - Returns the number of inserted or updated objects 
-    remote isolated function insertBulkData(oas:TypeCodeEnum typeCode, oas:InsertBulkDataRequest payload, map<string|string[]> headers = {}) returns oas:LoadDataResponse|error {
+    remote isolated function insertBulkData(TypeCodeEnum typeCode, InsertBulkDataRequest payload, map<string|string[]> headers = {}) returns LoadDataResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:LoadDataResponse|error r = oasClient->insertBulkData(typeCode, payload, mergedHeaders);
+        LoadDataResponse|error r = oasClient->insertBulkData(typeCode, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4409,10 +4409,10 @@ public isolated client class Client {
     # + queries - Queries to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function insertBulkDataFromFile("C"|"CDESC"|"CX"|"JLTV"|"LTV"|"MLTV"|"P"|"PBOME"|"PCOMP"|"PDESC"|"PR"|"PX"|"PXREF"|"SL"|"SX"|"TODO"|"UG" typeCode, oas:InsertBulkDataFromFileRequest payload, map<string|string[]> headers = {}, *oas:InsertBulkDataFromFileQueries queries) returns oas:InsertBulkDataFromFileResponse|error {
+    remote isolated function insertBulkDataFromFile("C"|"CDESC"|"CX"|"JLTV"|"LTV"|"MLTV"|"P"|"PBOME"|"PCOMP"|"PDESC"|"PR"|"PX"|"PXREF"|"SL"|"SX"|"TODO"|"UG" typeCode, InsertBulkDataFromFileRequest payload, map<string|string[]> headers = {}, *InsertBulkDataFromFileQueries queries) returns InsertBulkDataFromFileResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:InsertBulkDataFromFileResponse|error r = oasClient->insertBulkDataFromFile(typeCode, payload, mergedHeaders, queries = queries);
+        InsertBulkDataFromFileResponse|error r = oasClient->insertBulkDataFromFile(typeCode, payload, mergedHeaders, queries = queries);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4428,10 +4428,10 @@ public isolated client class Client {
     # + queries - Queries to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function insertBulkDataFromFileAsync("C"|"CDESC"|"CX"|"JLTV"|"LTV"|"MLTV"|"P"|"PBOME"|"PCOMP"|"PDESC"|"PR"|"PX"|"PXREF"|"SL"|"SX"|"TODO"|"UG" typeCode, oas:InsertBulkDataFromFileAsyncRequest payload, map<string|string[]> headers = {}, *oas:InsertBulkDataFromFileAsyncQueries queries) returns oas:InsertBulkDataFromFileAsyncResponse|error {
+    remote isolated function insertBulkDataFromFileAsync("C"|"CDESC"|"CX"|"JLTV"|"LTV"|"MLTV"|"P"|"PBOME"|"PCOMP"|"PDESC"|"PR"|"PX"|"PXREF"|"SL"|"SX"|"TODO"|"UG" typeCode, InsertBulkDataFromFileAsyncRequest payload, map<string|string[]> headers = {}, *InsertBulkDataFromFileAsyncQueries queries) returns InsertBulkDataFromFileAsyncResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:InsertBulkDataFromFileAsyncResponse|error r = oasClient->insertBulkDataFromFileAsync(typeCode, payload, mergedHeaders, queries = queries);
+        InsertBulkDataFromFileAsyncResponse|error r = oasClient->insertBulkDataFromFileAsync(typeCode, payload, mergedHeaders, queries = queries);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4446,10 +4446,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - We used `/lookuptablemanager.loaddata/MLTV` in the request example to insert bulk data to Matrix Lookup Table. Notice that the `lookupTable` is used in the `header` section and then ID of the Lookup Table in the `data` section 
     # + return - OK 
-    remote isolated function insertBulkDataToLookupTable("JLTV"|"JLTVM"|"LT"|"LTT"|"LTV"|"MLTV"|"MLTV2"|"MLTV3"|"MLTV4"|"MLTV5"|"MLTV6"|"MLTVM" typeCode, oas:InsertBulkDataToLookupTableRequest payload, map<string|string[]> headers = {}) returns oas:InsertBulkDataLookupTableResponse|error {
+    remote isolated function insertBulkDataToLookupTable("JLTV"|"JLTVM"|"LT"|"LTT"|"LTV"|"MLTV"|"MLTV2"|"MLTV3"|"MLTV4"|"MLTV5"|"MLTV6"|"MLTVM" typeCode, InsertBulkDataToLookupTableRequest payload, map<string|string[]> headers = {}) returns InsertBulkDataLookupTableResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:InsertBulkDataLookupTableResponse|error r = oasClient->insertBulkDataToLookupTable(typeCode, payload, mergedHeaders);
+        InsertBulkDataLookupTableResponse|error r = oasClient->insertBulkDataToLookupTable(typeCode, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4464,10 +4464,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
-    remote isolated function insertBulkKvData(string tableName, oas:InsertBulkKVDataRequest payload, map<string|string[]> headers = {}) returns oas:GenericDataResponse|error {
+    remote isolated function insertBulkKvData(string tableName, InsertBulkKVDataRequest payload, map<string|string[]> headers = {}) returns GenericDataResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GenericDataResponse|error r = oasClient->insertBulkKvData(tableName, payload, mergedHeaders);
+        GenericDataResponse|error r = oasClient->insertBulkKvData(tableName, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4481,7 +4481,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Specify product extension field names in the `header` object and field values in the `data` object 
     # + return - OK 
-    remote isolated function insertBulkProductExtensions(oas:InsertBulkProductExtensionsRequest payload, map<string|string[]> headers = {}) returns error? {
+    remote isolated function insertBulkProductExtensions(InsertBulkProductExtensionsRequest payload, map<string|string[]> headers = {}) returns error? {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
         error? r = oasClient->insertBulkProductExtensions(payload, mergedHeaders);
@@ -4498,7 +4498,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Specify seller extension field names in the `header` object and field values in the `data` object 
     # + return - OK 
-    remote isolated function insertBulkSellerExtensions(oas:InsertBulkProductExtensionsRequest1 payload, map<string|string[]> headers = {}) returns error? {
+    remote isolated function insertBulkSellerExtensions(InsertBulkProductExtensionsRequest1 payload, map<string|string[]> headers = {}) returns error? {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
         error? r = oasClient->insertBulkSellerExtensions(payload, mergedHeaders);
@@ -4515,10 +4515,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function listAccrualRecords(oas:ListAccrualRecordsRequest payload, map<string|string[]> headers = {}) returns oas:ListAccrualRecordsResponse|error {
+    remote isolated function listAccrualRecords(ListAccrualRecordsRequest payload, map<string|string[]> headers = {}) returns ListAccrualRecordsResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListAccrualRecordsResponse|error r = oasClient->listAccrualRecords(payload, mergedHeaders);
+        ListAccrualRecordsResponse|error r = oasClient->listAccrualRecords(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4532,10 +4532,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function listActionItems(oas:FetchAIBody payload, map<string|string[]> headers = {}) returns oas:ListActionItemsResponse|error {
+    remote isolated function listActionItems(FetchAIBody payload, map<string|string[]> headers = {}) returns ListActionItemsResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListActionItemsResponse|error r = oasClient->listActionItems(payload, mergedHeaders);
+        ListActionItemsResponse|error r = oasClient->listActionItems(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4549,10 +4549,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - A general fetch request. A filter can be applied 
     # + return - OK 
-    remote isolated function listActionTypes(record {int endRow?; record {}? oldValues?; string operationType?; int startRow?; string textMatchStyle?; record {string _constructor?; string operator?; record {string fieldName?; string operator?; string value?;}[] criteria?;} data?;} payload, map<string|string[]> headers = {}) returns oas:ListActionTypesResponse|error {
+    remote isolated function listActionTypes(record {int endRow?; record {}? oldValues?; string operationType?; int startRow?; string textMatchStyle?; record {string _constructor?; string operator?; record {string fieldName?; string operator?; string value?;}[] criteria?;} data?;} payload, map<string|string[]> headers = {}) returns ListActionTypesResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListActionTypesResponse|error r = oasClient->listActionTypes(payload, mergedHeaders);
+        ListActionTypesResponse|error r = oasClient->listActionTypes(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4568,10 +4568,10 @@ public isolated client class Client {
     # + queries - Queries to be sent with the request 
     # + payload - You can specify the start and end row to limit the number of retrieved records 
     # + return - OK 
-    remote isolated function listAllLookupTableValues(string tableId, oas:ListAllLookupTableValuesRequest payload, map<string|string[]> headers = {}, *oas:ListAllLookupTableValuesQueries queries) returns oas:ListAllLookupTableValuesResponse|error {
+    remote isolated function listAllLookupTableValues(string tableId, ListAllLookupTableValuesRequest payload, map<string|string[]> headers = {}, *ListAllLookupTableValuesQueries queries) returns ListAllLookupTableValuesResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListAllLookupTableValuesResponse|error r = oasClient->listAllLookupTableValues(tableId, payload, mergedHeaders, queries = queries);
+        ListAllLookupTableValuesResponse|error r = oasClient->listAllLookupTableValues(tableId, payload, mergedHeaders, queries = queries);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4585,10 +4585,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - You can specify the start and end row to limit the number of retrieved Lookup Tables / Company Parameters 
     # + return - Returns the Company Parameter table / Lookup table fields. The `name` property is the same as `uniqueName` if the `owner` is `null`. If the `owner` field is non-null, then the `name` will be the name of the table (DMT or LT) in the context of the owner 
-    remote isolated function listAllLookupTables(oas:ListAllLookupTablesRequest payload, map<string|string[]> headers = {}) returns oas:ListAllLookupTablesResponse|error {
+    remote isolated function listAllLookupTables(ListAllLookupTablesRequest payload, map<string|string[]> headers = {}) returns ListAllLookupTablesResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListAllLookupTablesResponse|error r = oasClient->listAllLookupTables(payload, mergedHeaders);
+        ListAllLookupTablesResponse|error r = oasClient->listAllLookupTables(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4603,10 +4603,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - OK 
-    remote isolated function listAttributeFieldsMetadata("ACTT"|"AI"|"AP"|"APIK"|"BD"|"BPT"|"BR"|"C"|"CA"|"CAM"|"CDESC"|"CF"|"CFS"|"CFT"|"CH"|"CL"|"CLLI"|"CLLIAM"|"CLR"|"CLT"|"CN"|"CO"|"COAM"|"COCT"|"COCTAM"|"COHT"|"COHTAM"|"COLI"|"COR"|"CORAM"|"COROLI"|"CORS"|"CORSC"|"COT"|"CS"|"CT"|"CTAM"|"CTLI"|"CTMU"|"CTMUI"|"CTT"|"CTTAM"|"CTTREE"|"CW"|"CX10"|"CX20"|"CX3"|"CX30"|"CX50"|"CX6"|"CX8"|"CXAM"|"DA"|"DB"|"DCR"|"DCRAM"|"DCRI"|"DCRL"|"DCRMC"|"DCRT"|"DE"|"DI"|"DM"|"DMDC"|"DMDL"|"DMDS"|"DMF"|"DMM"|"DMR"|"DMT"|"DP"|"DPR"|"DPT"|"DREF"|"DREG"|"EDL"|"ET"|"EVT"|"F"|"FE"|"FN"|"HEVT"|"HRT"|"HRTAM"|"IDC"|"IE"|"ISH"|"JLTV"|"JLTV2"|"JLTVM"|"JST"|"LAT"|"LT"|"LTT"|"LTV"|"M"|"MC"|"MLTV"|"MLTV2"|"MLTV3"|"MLTV4"|"MLTV5"|"MLTV6"|"MLTVM"|"MN"|"MO"|"MPL"|"MPLAM"|"MPLI"|"MPLIT"|"MPLT"|"MR"|"MRAM"|"MT"|"NT"|"P"|"PAM"|"PBOME"|"PCOMP"|"PCOMPCO"|"PCW"|"PDESC"|"PG"|"PGI"|"PGIM"|"PGT"|"PH"|"PL"|"PLI"|"PLIM"|"PLPGTT"|"PLT"|"PR"|"PRAM"|"PREF"|"PT"|"PWH"|"PX10"|"PX20"|"PX3"|"PX30"|"PX50"|"PX6"|"PX8"|"PXAM"|"PXREF"|"PYR"|"PYRAM"|"Q"|"QAM"|"QLI"|"QMU"|"QMUI"|"QT"|"QTT"|"QTTAM"|"R"|"RAT"|"RATM"|"RBA"|"RBAAM"|"RBALI"|"RBAROLI"|"RBAT"|"RBT"|"RBTAM"|"RR"|"RRAM"|"RRS"|"RRSC"|"RT"|"SAT"|"SC"|"SCN"|"SCNAM"|"SCT"|"SIAM"|"SIM"|"SIMI"|"SL"|"SLAM"|"SX10"|"SX20"|"SX3"|"SX30"|"SX50"|"SX6"|"SX8"|"SXAM"|"TFA"|"TODO"|"U"|"UG"|"US"|"W"|"WD"|"WF"|"WFE"|"XPGI"|"XPLI"|"XSIMI" typeCode, map<string|string[]> headers = {}, *oas:ListAttributeFieldsMetadataQueries queries) returns oas:ListAttributeFieldsMetadata|error {
+    remote isolated function listAttributeFieldsMetadata("ACTT"|"AI"|"AP"|"APIK"|"BD"|"BPT"|"BR"|"C"|"CA"|"CAM"|"CDESC"|"CF"|"CFS"|"CFT"|"CH"|"CL"|"CLLI"|"CLLIAM"|"CLR"|"CLT"|"CN"|"CO"|"COAM"|"COCT"|"COCTAM"|"COHT"|"COHTAM"|"COLI"|"COR"|"CORAM"|"COROLI"|"CORS"|"CORSC"|"COT"|"CS"|"CT"|"CTAM"|"CTLI"|"CTMU"|"CTMUI"|"CTT"|"CTTAM"|"CTTREE"|"CW"|"CX10"|"CX20"|"CX3"|"CX30"|"CX50"|"CX6"|"CX8"|"CXAM"|"DA"|"DB"|"DCR"|"DCRAM"|"DCRI"|"DCRL"|"DCRMC"|"DCRT"|"DE"|"DI"|"DM"|"DMDC"|"DMDL"|"DMDS"|"DMF"|"DMM"|"DMR"|"DMT"|"DP"|"DPR"|"DPT"|"DREF"|"DREG"|"EDL"|"ET"|"EVT"|"F"|"FE"|"FN"|"HEVT"|"HRT"|"HRTAM"|"IDC"|"IE"|"ISH"|"JLTV"|"JLTV2"|"JLTVM"|"JST"|"LAT"|"LT"|"LTT"|"LTV"|"M"|"MC"|"MLTV"|"MLTV2"|"MLTV3"|"MLTV4"|"MLTV5"|"MLTV6"|"MLTVM"|"MN"|"MO"|"MPL"|"MPLAM"|"MPLI"|"MPLIT"|"MPLT"|"MR"|"MRAM"|"MT"|"NT"|"P"|"PAM"|"PBOME"|"PCOMP"|"PCOMPCO"|"PCW"|"PDESC"|"PG"|"PGI"|"PGIM"|"PGT"|"PH"|"PL"|"PLI"|"PLIM"|"PLPGTT"|"PLT"|"PR"|"PRAM"|"PREF"|"PT"|"PWH"|"PX10"|"PX20"|"PX3"|"PX30"|"PX50"|"PX6"|"PX8"|"PXAM"|"PXREF"|"PYR"|"PYRAM"|"Q"|"QAM"|"QLI"|"QMU"|"QMUI"|"QT"|"QTT"|"QTTAM"|"R"|"RAT"|"RATM"|"RBA"|"RBAAM"|"RBALI"|"RBAROLI"|"RBAT"|"RBT"|"RBTAM"|"RR"|"RRAM"|"RRS"|"RRSC"|"RT"|"SAT"|"SC"|"SCN"|"SCNAM"|"SCT"|"SIAM"|"SIM"|"SIMI"|"SL"|"SLAM"|"SX10"|"SX20"|"SX3"|"SX30"|"SX50"|"SX6"|"SX8"|"SXAM"|"TFA"|"TODO"|"U"|"UG"|"US"|"W"|"WD"|"WF"|"WFE"|"XPGI"|"XPLI"|"XSIMI" typeCode, map<string|string[]> headers = {}, *ListAttributeFieldsMetadataQueries queries) returns ListAttributeFieldsMetadata|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListAttributeFieldsMetadata|error r = oasClient->listAttributeFieldsMetadata(typeCode, mergedHeaders, queries = queries);
+        ListAttributeFieldsMetadata|error r = oasClient->listAttributeFieldsMetadata(typeCode, mergedHeaders, queries = queries);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4619,10 +4619,10 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function listCalculatedFieldSets(map<string|string[]> headers = {}) returns oas:ListCalculatedFieldSetsResponse|error {
+    remote isolated function listCalculatedFieldSets(map<string|string[]> headers = {}) returns ListCalculatedFieldSetsResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListCalculatedFieldSetsResponse|error r = oasClient->listCalculatedFieldSets(mergedHeaders);
+        ListCalculatedFieldSetsResponse|error r = oasClient->listCalculatedFieldSets(mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4637,10 +4637,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function listCalculationGridItems("1"|"2"|"3"|"4"|"5"|"6" keyNumber, oas:ListCalculationGridItemsRequest payload, map<string|string[]> headers = {}) returns oas:ListCalculationGridItemsResponse|error {
+    remote isolated function listCalculationGridItems("1"|"2"|"3"|"4"|"5"|"6" keyNumber, ListCalculationGridItemsRequest payload, map<string|string[]> headers = {}) returns ListCalculationGridItemsResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListCalculationGridItemsResponse|error r = oasClient->listCalculationGridItems(keyNumber, payload, mergedHeaders);
+        ListCalculationGridItemsResponse|error r = oasClient->listCalculationGridItems(keyNumber, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4654,10 +4654,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function listCalculationGrids(record {} payload, map<string|string[]> headers = {}) returns oas:ListCalculationGridsResponse|error {
+    remote isolated function listCalculationGrids(record {} payload, map<string|string[]> headers = {}) returns ListCalculationGridsResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListCalculationGridsResponse|error r = oasClient->listCalculationGrids(payload, mergedHeaders);
+        ListCalculationGridsResponse|error r = oasClient->listCalculationGrids(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4671,10 +4671,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function listCalculations(oas:ListCalculationsRequest payload, map<string|string[]> headers = {}) returns oas:ListCalculationsResponse|error {
+    remote isolated function listCalculations(ListCalculationsRequest payload, map<string|string[]> headers = {}) returns ListCalculationsResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListCalculationsResponse|error r = oasClient->listCalculations(payload, mergedHeaders);
+        ListCalculationsResponse|error r = oasClient->listCalculations(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4687,10 +4687,10 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function listCharts(map<string|string[]> headers = {}) returns oas:ListChartsResponse|error {
+    remote isolated function listCharts(map<string|string[]> headers = {}) returns ListChartsResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListChartsResponse|error r = oasClient->listCharts(mergedHeaders);
+        ListChartsResponse|error r = oasClient->listCharts(mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4704,10 +4704,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - The example of the request body contains the filter. The call returns Claim Types whose `name` equals to "claimType" 
     # + return - OK 
-    remote isolated function listClaimTypes(oas:ListClaimTypesRequest payload, map<string|string[]> headers = {}) returns oas:ListClaimTypesResponse|error {
+    remote isolated function listClaimTypes(ListClaimTypesRequest payload, map<string|string[]> headers = {}) returns ListClaimTypesResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListClaimTypesResponse|error r = oasClient->listClaimTypes(payload, mergedHeaders);
+        ListClaimTypesResponse|error r = oasClient->listClaimTypes(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4721,10 +4721,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload -
     # + return - OK 
-    remote isolated function listClaims(oas:ListClaimsRequest payload, map<string|string[]> headers = {}) returns oas:ListClaimsResponse|error {
+    remote isolated function listClaims(ListClaimsRequest payload, map<string|string[]> headers = {}) returns ListClaimsResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListClaimsResponse|error r = oasClient->listClaims(payload, mergedHeaders);
+        ListClaimsResponse|error r = oasClient->listClaims(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4740,10 +4740,10 @@ public isolated client class Client {
     # + queries - Queries to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function listClicObjects(string typedId, oas:GetCLICrequest payload, map<string|string[]> headers = {}, *oas:ListClicObjectsQueries queries) returns oas:GetCLICresponse|error {
+    remote isolated function listClicObjects(string typedId, GetCLICrequest payload, map<string|string[]> headers = {}, *ListClicObjectsQueries queries) returns GetCLICresponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GetCLICresponse|error r = oasClient->listClicObjects(typedId, payload, mergedHeaders, queries = queries);
+        GetCLICresponse|error r = oasClient->listClicObjects(typedId, payload, mergedHeaders, queries = queries);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4759,10 +4759,10 @@ public isolated client class Client {
     # + queries - Queries to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function listCommentThreads(string typedId, oas:CommentmanagerFetchthreadstypedIdBody payload, map<string|string[]> headers = {}, *oas:ListCommentThreadsQueries queries) returns oas:ListCommentThreadsEnvelope|error {
+    remote isolated function listCommentThreads(string typedId, CommentmanagerFetchthreadstypedIdBody payload, map<string|string[]> headers = {}, *ListCommentThreadsQueries queries) returns ListCommentThreadsEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListCommentThreadsEnvelope|error r = oasClient->listCommentThreads(typedId, payload, mergedHeaders, queries = queries);
+        ListCommentThreadsEnvelope|error r = oasClient->listCommentThreads(typedId, payload, mergedHeaders, queries = queries);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4776,10 +4776,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function listCompensationPlans(oas:ListCompensationPlansRequest payload, map<string|string[]> headers = {}) returns oas:ListCompensationPlansResponse|error {
+    remote isolated function listCompensationPlans(ListCompensationPlansRequest payload, map<string|string[]> headers = {}) returns ListCompensationPlansResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListCompensationPlansResponse|error r = oasClient->listCompensationPlans(payload, mergedHeaders);
+        ListCompensationPlansResponse|error r = oasClient->listCompensationPlans(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4794,10 +4794,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function listCompensationRecords(string compensationRecordSetId, oas:ListCompensationRecordsRequest payload, map<string|string[]> headers = {}) returns oas:ListCompensationRecordsResponse|error {
+    remote isolated function listCompensationRecords(string compensationRecordSetId, ListCompensationRecordsRequest payload, map<string|string[]> headers = {}) returns ListCompensationRecordsResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListCompensationRecordsResponse|error r = oasClient->listCompensationRecords(compensationRecordSetId, payload, mergedHeaders);
+        ListCompensationRecordsResponse|error r = oasClient->listCompensationRecords(compensationRecordSetId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4811,10 +4811,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function listCompensationTypes(oas:ListCompensationTypesRequest payload, map<string|string[]> headers = {}) returns oas:ListCompensationTypesEnvelope|error {
+    remote isolated function listCompensationTypes(ListCompensationTypesRequest payload, map<string|string[]> headers = {}) returns ListCompensationTypesEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListCompensationTypesEnvelope|error r = oasClient->listCompensationTypes(payload, mergedHeaders);
+        ListCompensationTypesEnvelope|error r = oasClient->listCompensationTypes(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4828,10 +4828,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function listConditionRecordSets(record {} payload, map<string|string[]> headers = {}) returns oas:ListConditionRecordSetsEnvelope|error {
+    remote isolated function listConditionRecordSets(record {} payload, map<string|string[]> headers = {}) returns ListConditionRecordSetsEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListConditionRecordSetsEnvelope|error r = oasClient->listConditionRecordSets(payload, mergedHeaders);
+        ListConditionRecordSetsEnvelope|error r = oasClient->listConditionRecordSets(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4845,10 +4845,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function listConditionTypes(oas:ListConditionTypesRequest payload, map<string|string[]> headers = {}) returns oas:ListConditionTypesEnvelope|error {
+    remote isolated function listConditionTypes(ListConditionTypesRequest payload, map<string|string[]> headers = {}) returns ListConditionTypesEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListConditionTypesEnvelope|error r = oasClient->listConditionTypes(payload, mergedHeaders);
+        ListConditionTypesEnvelope|error r = oasClient->listConditionTypes(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4862,10 +4862,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function listContractCalculations(record {} payload, map<string|string[]> headers = {}) returns oas:ListContractCalculationsEnvelope|error {
+    remote isolated function listContractCalculations(record {} payload, map<string|string[]> headers = {}) returns ListContractCalculationsEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListContractCalculationsEnvelope|error r = oasClient->listContractCalculations(payload, mergedHeaders);
+        ListContractCalculationsEnvelope|error r = oasClient->listContractCalculations(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4879,10 +4879,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function listContractPriceRecords(oas:FetchCPRBody payload, map<string|string[]> headers = {}) returns oas:ListContractPriceRecords|error {
+    remote isolated function listContractPriceRecords(FetchCPRBody payload, map<string|string[]> headers = {}) returns ListContractPriceRecords|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListContractPriceRecords|error r = oasClient->listContractPriceRecords(payload, mergedHeaders);
+        ListContractPriceRecords|error r = oasClient->listContractPriceRecords(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4896,10 +4896,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - Example response 
-    remote isolated function listContracts(oas:ListContractsRequest payload, map<string|string[]> headers = {}) returns oas:ContractResponse|error {
+    remote isolated function listContracts(ListContractsRequest payload, map<string|string[]> headers = {}) returns ContractResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ContractResponse|error r = oasClient->listContracts(payload, mergedHeaders);
+        ContractResponse|error r = oasClient->listContracts(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4913,10 +4913,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function listCustomFormTypes(oas:ListCustomFormTypesRequest payload, map<string|string[]> headers = {}) returns oas:ListCustomFormTypesResponse|error {
+    remote isolated function listCustomFormTypes(ListCustomFormTypesRequest payload, map<string|string[]> headers = {}) returns ListCustomFormTypesResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListCustomFormTypesResponse|error r = oasClient->listCustomFormTypes(payload, mergedHeaders);
+        ListCustomFormTypesResponse|error r = oasClient->listCustomFormTypes(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4930,10 +4930,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function listCustomForms(oas:ListCustomFormsRequest payload, map<string|string[]> headers = {}) returns oas:ListCustomFormsEnvelope|error {
+    remote isolated function listCustomForms(ListCustomFormsRequest payload, map<string|string[]> headers = {}) returns ListCustomFormsEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListCustomFormsEnvelope|error r = oasClient->listCustomForms(payload, mergedHeaders);
+        ListCustomFormsEnvelope|error r = oasClient->listCustomForms(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4948,10 +4948,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - Example response 
-    remote isolated function listCustomerAssignments(string typedId, oas:ListCustomerAssignmentsRequest payload, map<string|string[]> headers = {}) returns oas:AssignmentResponse|error {
+    remote isolated function listCustomerAssignments(string typedId, ListCustomerAssignmentsRequest payload, map<string|string[]> headers = {}) returns AssignmentResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:AssignmentResponse|error r = oasClient->listCustomerAssignments(typedId, payload, mergedHeaders);
+        AssignmentResponse|error r = oasClient->listCustomerAssignments(typedId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4967,10 +4967,10 @@ public isolated client class Client {
     # + queries - Queries to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function listCustomerExtensionObjects(string customerMasterExtensionName, oas:ListCustomerExtensionObjectsRequest payload, map<string|string[]> headers = {}, *oas:ListCustomerExtensionObjectsQueries queries) returns oas:ListCustomerExtensionObjectsResponse|error {
+    remote isolated function listCustomerExtensionObjects(string customerMasterExtensionName, ListCustomerExtensionObjectsRequest payload, map<string|string[]> headers = {}, *ListCustomerExtensionObjectsQueries queries) returns ListCustomerExtensionObjectsResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListCustomerExtensionObjectsResponse|error r = oasClient->listCustomerExtensionObjects(customerMasterExtensionName, payload, mergedHeaders, queries = queries);
+        ListCustomerExtensionObjectsResponse|error r = oasClient->listCustomerExtensionObjects(customerMasterExtensionName, payload, mergedHeaders, queries = queries);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -4984,10 +4984,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - Returns customer record details 
-    remote isolated function listCustomers(oas:ListCustomersRequest payload, map<string|string[]> headers = {}) returns oas:CustomerResponse|error {
+    remote isolated function listCustomers(ListCustomersRequest payload, map<string|string[]> headers = {}) returns CustomerResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:CustomerResponse|error r = oasClient->listCustomers(payload, mergedHeaders);
+        CustomerResponse|error r = oasClient->listCustomers(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5000,10 +5000,10 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function listDataLoads(map<string|string[]> headers = {}) returns oas:ListDataLoadsResponse|error {
+    remote isolated function listDataLoads(map<string|string[]> headers = {}) returns ListDataLoadsResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListDataLoadsResponse|error r = oasClient->listDataLoads(mergedHeaders);
+        ListDataLoadsResponse|error r = oasClient->listDataLoads(mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5016,10 +5016,10 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function listDataLoadsWith(map<string|string[]> headers = {}) returns oas:ListDataLoadsWithValidationResponse|error {
+    remote isolated function listDataLoadsWith(map<string|string[]> headers = {}) returns ListDataLoadsWithValidationResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListDataLoadsWithValidationResponse|error r = oasClient->listDataLoadsWith(mergedHeaders);
+        ListDataLoadsWithValidationResponse|error r = oasClient->listDataLoadsWith(mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5034,10 +5034,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - Example response 
-    remote isolated function listDataManagerEntities("DM"|"DMDS"|"DMF"|"DMT" typeCode, oas:ListDataManagerEntitiesRequest payload, map<string|string[]> headers = {}) returns oas:DmObjectResponse|error {
+    remote isolated function listDataManagerEntities("DM"|"DMDS"|"DMF"|"DMT" typeCode, ListDataManagerEntitiesRequest payload, map<string|string[]> headers = {}) returns DmObjectResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DmObjectResponse|error r = oasClient->listDataManagerEntities(typeCode, payload, mergedHeaders);
+        DmObjectResponse|error r = oasClient->listDataManagerEntities(typeCode, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5050,10 +5050,10 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function listDatamartOrphanObjects(map<string|string[]> headers = {}) returns oas:DatamartOrphanObjectsEnvelope|error {
+    remote isolated function listDatamartOrphanObjects(map<string|string[]> headers = {}) returns DatamartOrphanObjectsEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DatamartOrphanObjectsEnvelope|error r = oasClient->listDatamartOrphanObjects(mergedHeaders);
+        DatamartOrphanObjectsEnvelope|error r = oasClient->listDatamartOrphanObjects(mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5067,10 +5067,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function listDelegatedWorkflows(oas:ListDelegatedWorkflowsRequest payload, map<string|string[]> headers = {}) returns oas:ListDelegatedWorkflowsResponse|error {
+    remote isolated function listDelegatedWorkflows(ListDelegatedWorkflowsRequest payload, map<string|string[]> headers = {}) returns ListDelegatedWorkflowsResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListDelegatedWorkflowsResponse|error r = oasClient->listDelegatedWorkflows(payload, mergedHeaders);
+        ListDelegatedWorkflowsResponse|error r = oasClient->listDelegatedWorkflows(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5084,10 +5084,10 @@ public isolated client class Client {
     # + uniqueName - The name (`uniqueName`) of the logic you want to list elements for
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function listElements(string uniqueName, map<string|string[]> headers = {}) returns oas:ListElementsResponse|error {
+    remote isolated function listElements(string uniqueName, map<string|string[]> headers = {}) returns ListElementsResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListElementsResponse|error r = oasClient->listElements(uniqueName, mergedHeaders);
+        ListElementsResponse|error r = oasClient->listElements(uniqueName, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5101,10 +5101,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function listEmailTasks(oas:NotificationListBody payload, map<string|string[]> headers = {}) returns oas:ListEmailTasksEnvelope|error {
+    remote isolated function listEmailTasks(NotificationListBody payload, map<string|string[]> headers = {}) returns ListEmailTasksEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListEmailTasksEnvelope|error r = oasClient->listEmailTasks(payload, mergedHeaders);
+        ListEmailTasksEnvelope|error r = oasClient->listEmailTasks(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5119,10 +5119,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - OK 
-    remote isolated function listEntityFields("ACTT"|"AI"|"AP"|"APIK"|"BD"|"BPT"|"BR"|"C"|"CA"|"CAM"|"CDESC"|"CF"|"CFS"|"CFT"|"CH"|"CL"|"CLLI"|"CLLIAM"|"CLR"|"CLT"|"CN"|"CO"|"COAM"|"COCT"|"COCTAM"|"COHT"|"COHTAM"|"COLI"|"COR"|"CORAM"|"COROLI"|"CORS"|"CORSC"|"COT"|"CS"|"CT"|"CTAM"|"CTLI"|"CTMU"|"CTMUI"|"CTT"|"CTTAM"|"CTTREE"|"CW"|"CX10"|"CX20"|"CX3"|"CX30"|"CX50"|"CX6"|"CX8"|"CXAM"|"DA"|"DB"|"DCR"|"DCRAM"|"DCRI"|"DCRL"|"DCRMC"|"DCRT"|"DE"|"DI"|"DM"|"DMDC"|"DMDL"|"DMDS"|"DMF"|"DMM"|"DMR"|"DMT"|"DP"|"DPR"|"DPT"|"DREF"|"DREG"|"EDL"|"ET"|"EVT"|"F"|"FE"|"FN"|"HEVT"|"HRT"|"HRTAM"|"IDC"|"IE"|"ISH"|"JLTV"|"JLTV2"|"JLTVM"|"JST"|"LAT"|"LT"|"LTT"|"LTV"|"M"|"MC"|"MLTV"|"MLTV2"|"MLTV3"|"MLTV4"|"MLTV5"|"MLTV6"|"MLTVM"|"MN"|"MO"|"MPL"|"MPLAM"|"MPLI"|"MPLIT"|"MPLT"|"MR"|"MRAM"|"MT"|"NT"|"P"|"PAM"|"PBOME"|"PCOMP"|"PCOMPCO"|"PCW"|"PDESC"|"PG"|"PGI"|"PGIM"|"PGT"|"PH"|"PL"|"PLI"|"PLIM"|"PLPGTT"|"PLT"|"PR"|"PRAM"|"PREF"|"PT"|"PWH"|"PX10"|"PX20"|"PX3"|"PX30"|"PX50"|"PX6"|"PX8"|"PXAM"|"PXREF"|"PYR"|"PYRAM"|"Q"|"QAM"|"QLI"|"QMU"|"QMUI"|"QT"|"QTT"|"QTTAM"|"R"|"RAT"|"RATM"|"RBA"|"RBAAM"|"RBALI"|"RBAROLI"|"RBAT"|"RBT"|"RBTAM"|"RR"|"RRAM"|"RRS"|"RRSC"|"RT"|"SAT"|"SC"|"SCN"|"SCNAM"|"SCT"|"SIAM"|"SIM"|"SIMI"|"SL"|"SLAM"|"SX10"|"SX20"|"SX3"|"SX30"|"SX50"|"SX6"|"SX8"|"SXAM"|"TFA"|"TODO"|"U"|"UG"|"US"|"W"|"WD"|"WF"|"WFE"|"XPGI"|"XPLI"|"XSIMI" typeCode, map<string|string[]> headers = {}, *oas:ListEntityFieldsQueries queries) returns oas:ListEntityFieldsResponse|error {
+    remote isolated function listEntityFields("ACTT"|"AI"|"AP"|"APIK"|"BD"|"BPT"|"BR"|"C"|"CA"|"CAM"|"CDESC"|"CF"|"CFS"|"CFT"|"CH"|"CL"|"CLLI"|"CLLIAM"|"CLR"|"CLT"|"CN"|"CO"|"COAM"|"COCT"|"COCTAM"|"COHT"|"COHTAM"|"COLI"|"COR"|"CORAM"|"COROLI"|"CORS"|"CORSC"|"COT"|"CS"|"CT"|"CTAM"|"CTLI"|"CTMU"|"CTMUI"|"CTT"|"CTTAM"|"CTTREE"|"CW"|"CX10"|"CX20"|"CX3"|"CX30"|"CX50"|"CX6"|"CX8"|"CXAM"|"DA"|"DB"|"DCR"|"DCRAM"|"DCRI"|"DCRL"|"DCRMC"|"DCRT"|"DE"|"DI"|"DM"|"DMDC"|"DMDL"|"DMDS"|"DMF"|"DMM"|"DMR"|"DMT"|"DP"|"DPR"|"DPT"|"DREF"|"DREG"|"EDL"|"ET"|"EVT"|"F"|"FE"|"FN"|"HEVT"|"HRT"|"HRTAM"|"IDC"|"IE"|"ISH"|"JLTV"|"JLTV2"|"JLTVM"|"JST"|"LAT"|"LT"|"LTT"|"LTV"|"M"|"MC"|"MLTV"|"MLTV2"|"MLTV3"|"MLTV4"|"MLTV5"|"MLTV6"|"MLTVM"|"MN"|"MO"|"MPL"|"MPLAM"|"MPLI"|"MPLIT"|"MPLT"|"MR"|"MRAM"|"MT"|"NT"|"P"|"PAM"|"PBOME"|"PCOMP"|"PCOMPCO"|"PCW"|"PDESC"|"PG"|"PGI"|"PGIM"|"PGT"|"PH"|"PL"|"PLI"|"PLIM"|"PLPGTT"|"PLT"|"PR"|"PRAM"|"PREF"|"PT"|"PWH"|"PX10"|"PX20"|"PX3"|"PX30"|"PX50"|"PX6"|"PX8"|"PXAM"|"PXREF"|"PYR"|"PYRAM"|"Q"|"QAM"|"QLI"|"QMU"|"QMUI"|"QT"|"QTT"|"QTTAM"|"R"|"RAT"|"RATM"|"RBA"|"RBAAM"|"RBALI"|"RBAROLI"|"RBAT"|"RBT"|"RBTAM"|"RR"|"RRAM"|"RRS"|"RRSC"|"RT"|"SAT"|"SC"|"SCN"|"SCNAM"|"SCT"|"SIAM"|"SIM"|"SIMI"|"SL"|"SLAM"|"SX10"|"SX20"|"SX3"|"SX30"|"SX50"|"SX6"|"SX8"|"SXAM"|"TFA"|"TODO"|"U"|"UG"|"US"|"W"|"WD"|"WF"|"WFE"|"XPGI"|"XPLI"|"XSIMI" typeCode, map<string|string[]> headers = {}, *ListEntityFieldsQueries queries) returns ListEntityFieldsResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListEntityFieldsResponse|error r = oasClient->listEntityFields(typeCode, mergedHeaders, queries = queries);
+        ListEntityFieldsResponse|error r = oasClient->listEntityFields(typeCode, mergedHeaders, queries = queries);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5136,10 +5136,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function listEventTasks(oas:NotificationListBody payload, map<string|string[]> headers = {}) returns oas:ListEventTasksEnvelope|error {
+    remote isolated function listEventTasks(NotificationListBody payload, map<string|string[]> headers = {}) returns ListEventTasksEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListEventTasksEnvelope|error r = oasClient->listEventTasks(payload, mergedHeaders);
+        ListEventTasksEnvelope|error r = oasClient->listEventTasks(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5154,10 +5154,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function listFiles(string typedId, oas:BdmanagerListtypedIdBody payload, map<string|string[]> headers = {}) returns oas:ListFilesEnvelope|error {
+    remote isolated function listFiles(string typedId, BdmanagerListtypedIdBody payload, map<string|string[]> headers = {}) returns ListFilesEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListFilesEnvelope|error r = oasClient->listFiles(typedId, payload, mergedHeaders);
+        ListFilesEnvelope|error r = oasClient->listFiles(typedId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5170,10 +5170,10 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function listFunctions(map<string|string[]> headers = {}) returns oas:ListFunctionsResponse|error {
+    remote isolated function listFunctions(map<string|string[]> headers = {}) returns ListFunctionsResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListFunctionsResponse|error r = oasClient->listFunctions(mergedHeaders);
+        ListFunctionsResponse|error r = oasClient->listFunctions(mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5187,10 +5187,10 @@ public isolated client class Client {
     # + businessroleId - The ID of the business role you want to retrieve user roles for. The `businessroleId` is the `typedId` without the `BR` suffix. For example, `businessroleId` of the **53.BR** is **53**
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function listGroupsOfBusinessRole(string businessroleId, map<string|string[]> headers = {}) returns oas:ListGroupsOfBusinessRoleResponse|error {
+    remote isolated function listGroupsOfBusinessRole(string businessroleId, map<string|string[]> headers = {}) returns ListGroupsOfBusinessRoleResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListGroupsOfBusinessRoleResponse|error r = oasClient->listGroupsOfBusinessRole(businessroleId, mergedHeaders);
+        ListGroupsOfBusinessRoleResponse|error r = oasClient->listGroupsOfBusinessRole(businessroleId, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5205,10 +5205,10 @@ public isolated client class Client {
     # + uniqueName - The uniqueName to be sent with the request
     # + payload - Request payload
     # + return - OK 
-    remote isolated function listImportManagerChanges(string uniqueName, record {} payload, map<string|string[]> headers = {}) returns oas:ListImportManagerChangesEnvelope|error {
+    remote isolated function listImportManagerChanges(string uniqueName, record {} payload, map<string|string[]> headers = {}) returns ListImportManagerChangesEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListImportManagerChangesEnvelope|error r = oasClient->listImportManagerChanges(uniqueName, payload, mergedHeaders);
+        ListImportManagerChangesEnvelope|error r = oasClient->listImportManagerChanges(uniqueName, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5222,10 +5222,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK - contains the messages for the locale 
-    remote isolated function listInternationalizationMessages(oas:I18nmanagerFetchWithExtraDataBody payload, map<string|string[]> headers = {}) returns oas:ListInternationalizationMessagesEnvelope|error {
+    remote isolated function listInternationalizationMessages(I18nmanagerFetchWithExtraDataBody payload, map<string|string[]> headers = {}) returns ListInternationalizationMessagesEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListInternationalizationMessagesEnvelope|error r = oasClient->listInternationalizationMessages(payload, mergedHeaders);
+        ListInternationalizationMessagesEnvelope|error r = oasClient->listInternationalizationMessages(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5240,10 +5240,10 @@ public isolated client class Client {
     # + typedId - The typedId to be sent with the request
     # + payload - Request payload
     # + return - OK 
-    remote isolated function listItems(string typedId, record {} payload, map<string|string[]> headers = {}) returns oas:ListClaimItemsResponse|error {
+    remote isolated function listItems(string typedId, record {} payload, map<string|string[]> headers = {}) returns ListClaimItemsResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListClaimItemsResponse|error r = oasClient->listItems(typedId, payload, mergedHeaders);
+        ListClaimItemsResponse|error r = oasClient->listItems(typedId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5257,10 +5257,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - A general fetch request. A filter can be applied 
     # + return - OK 
-    remote isolated function listJobs(record {int endRow?; record {}? oldValues?; string operationType?; int startRow?; string textMatchStyle?; record {string _constructor?; string operator?; record {string fieldName?; string operator?; string value?;}[] criteria?;} data?;} payload, map<string|string[]> headers = {}) returns oas:ListJSTResponse|error {
+    remote isolated function listJobs(record {int endRow?; record {}? oldValues?; string operationType?; int startRow?; string textMatchStyle?; record {string _constructor?; string operator?; record {string fieldName?; string operator?; string value?;}[] criteria?;} data?;} payload, map<string|string[]> headers = {}) returns ListJSTResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListJSTResponse|error r = oasClient->listJobs(payload, mergedHeaders);
+        ListJSTResponse|error r = oasClient->listJobs(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5273,10 +5273,10 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function listKvTables(map<string|string[]> headers = {}) returns oas:ListKVTablesResponse|error {
+    remote isolated function listKvTables(map<string|string[]> headers = {}) returns ListKVTablesResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListKVTablesResponse|error r = oasClient->listKvTables(mergedHeaders);
+        ListKVTablesResponse|error r = oasClient->listKvTables(mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5289,10 +5289,10 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function listLibraries(map<string|string[]> headers = {}) returns oas:ListLibrariesResponse|error {
+    remote isolated function listLibraries(map<string|string[]> headers = {}) returns ListLibrariesResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListLibrariesResponse|error r = oasClient->listLibraries(mergedHeaders);
+        ListLibrariesResponse|error r = oasClient->listLibraries(mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5307,10 +5307,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function listLivePriceGridItems(string id, oas:ListLivePriceGridItemsRequest payload, map<string|string[]> headers = {}) returns oas:ListLivePriceGridItemsResponse|error {
+    remote isolated function listLivePriceGridItems(string id, ListLivePriceGridItemsRequest payload, map<string|string[]> headers = {}) returns ListLivePriceGridItemsResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListLivePriceGridItemsResponse|error r = oasClient->listLivePriceGridItems(id, payload, mergedHeaders);
+        ListLivePriceGridItemsResponse|error r = oasClient->listLivePriceGridItems(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5323,10 +5323,10 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function listLivePriceGridTypes(map<string|string[]> headers = {}) returns oas:ListLivePriceGridTypesEnvelope|error {
+    remote isolated function listLivePriceGridTypes(map<string|string[]> headers = {}) returns ListLivePriceGridTypesEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListLivePriceGridTypesEnvelope|error r = oasClient->listLivePriceGridTypes(mergedHeaders);
+        ListLivePriceGridTypesEnvelope|error r = oasClient->listLivePriceGridTypes(mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5340,10 +5340,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function listLivePriceGrids(oas:ListLivePriceGridsRequest payload, map<string|string[]> headers = {}) returns oas:ListLivePriceGridsResponse|error {
+    remote isolated function listLivePriceGrids(ListLivePriceGridsRequest payload, map<string|string[]> headers = {}) returns ListLivePriceGridsResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListLivePriceGridsResponse|error r = oasClient->listLivePriceGrids(payload, mergedHeaders);
+        ListLivePriceGridsResponse|error r = oasClient->listLivePriceGrids(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5357,10 +5357,10 @@ public isolated client class Client {
     # + uniqueName - The name (`uniqueName`) of the logic you want to list parameters for. If omitted, the logic as specified in the product’s master is used, otherwise the passed logic is used
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function listLogicParametersInput(string uniqueName, map<string|string[]> headers = {}) returns oas:ListLogicInputFieldsResponse|error {
+    remote isolated function listLogicParametersInput(string uniqueName, map<string|string[]> headers = {}) returns ListLogicInputFieldsResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListLogicInputFieldsResponse|error r = oasClient->listLogicParametersInput(uniqueName, mergedHeaders);
+        ListLogicInputFieldsResponse|error r = oasClient->listLogicParametersInput(uniqueName, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5373,10 +5373,10 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function listLogics(map<string|string[]> headers = {}) returns oas:ListLogicsResponse|error {
+    remote isolated function listLogics(map<string|string[]> headers = {}) returns ListLogicsResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListLogicsResponse|error r = oasClient->listLogics(mergedHeaders);
+        ListLogicsResponse|error r = oasClient->listLogics(mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5390,10 +5390,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function listLogins(oas:BdmanagerListtypedIdBody payload, map<string|string[]> headers = {}) returns oas:ListLoginsEnvelope|error {
+    remote isolated function listLogins(BdmanagerListtypedIdBody payload, map<string|string[]> headers = {}) returns ListLoginsEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListLoginsEnvelope|error r = oasClient->listLogins(payload, mergedHeaders);
+        ListLoginsEnvelope|error r = oasClient->listLogins(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5408,10 +5408,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function listManualPriceListProducts(string id, oas:ListProductsFromManualPriceListRequest payload, map<string|string[]> headers = {}) returns oas:ListProductsFromManualPriceListResponse|error {
+    remote isolated function listManualPriceListProducts(string id, ListProductsFromManualPriceListRequest payload, map<string|string[]> headers = {}) returns ListProductsFromManualPriceListResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListProductsFromManualPriceListResponse|error r = oasClient->listManualPriceListProducts(id, payload, mergedHeaders);
+        ListProductsFromManualPriceListResponse|error r = oasClient->listManualPriceListProducts(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5425,10 +5425,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - Example response 
-    remote isolated function listManualPriceLists(oas:ListManualPriceListsRequest payload, map<string|string[]> headers = {}) returns oas:ManualPriceListResponse|error {
+    remote isolated function listManualPriceLists(ListManualPriceListsRequest payload, map<string|string[]> headers = {}) returns ManualPriceListResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ManualPriceListResponse|error r = oasClient->listManualPriceLists(payload, mergedHeaders);
+        ManualPriceListResponse|error r = oasClient->listManualPriceLists(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5444,10 +5444,10 @@ public isolated client class Client {
     # + formulaName - The name of the logic you want to get parameters for
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function listModelLogicParameters(string typedId, string stepName, string formulaName, map<string|string[]> headers = {}) returns oas:ListModelLogicParametersResponse|error {
+    remote isolated function listModelLogicParameters(string typedId, string stepName, string formulaName, map<string|string[]> headers = {}) returns ListModelLogicParametersResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListModelLogicParametersResponse|error r = oasClient->listModelLogicParameters(typedId, stepName, formulaName, mergedHeaders);
+        ListModelLogicParametersResponse|error r = oasClient->listModelLogicParameters(typedId, stepName, formulaName, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5461,10 +5461,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function listNotifications(oas:NotificationListBody payload, map<string|string[]> headers = {}) returns oas:ListNotificationsEnvelope|error {
+    remote isolated function listNotifications(NotificationListBody payload, map<string|string[]> headers = {}) returns ListNotificationsEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListNotificationsEnvelope|error r = oasClient->listNotifications(payload, mergedHeaders);
+        ListNotificationsEnvelope|error r = oasClient->listNotifications(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5479,10 +5479,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
-    remote isolated function listObjects(string typeCode, oas:ListObjectsRequest payload, map<string|string[]> headers = {}) returns oas:GenericDataResponse|error {
+    remote isolated function listObjects(string typeCode, ListObjectsRequest payload, map<string|string[]> headers = {}) returns GenericDataResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GenericDataResponse|error r = oasClient->listObjects(typeCode, payload, mergedHeaders);
+        GenericDataResponse|error r = oasClient->listObjects(typeCode, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5496,10 +5496,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function listParallelCalculationItems(oas:ListParallelCalculationItemsRequest payload, map<string|string[]> headers = {}) returns oas:ListParallelCalculationItemsResponse|error {
+    remote isolated function listParallelCalculationItems(ListParallelCalculationItemsRequest payload, map<string|string[]> headers = {}) returns ListParallelCalculationItemsResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListParallelCalculationItemsResponse|error r = oasClient->listParallelCalculationItems(payload, mergedHeaders);
+        ListParallelCalculationItemsResponse|error r = oasClient->listParallelCalculationItems(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5512,10 +5512,10 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function listPendingApprovals(map<string|string[]> headers = {}) returns oas:ListPendingApprovalsResponse|error {
+    remote isolated function listPendingApprovals(map<string|string[]> headers = {}) returns ListPendingApprovalsResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListPendingApprovalsResponse|error r = oasClient->listPendingApprovals(mergedHeaders);
+        ListPendingApprovalsResponse|error r = oasClient->listPendingApprovals(mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5530,10 +5530,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - Example response 
-    remote isolated function listPriceListItems(string id, oas:ListPriceListItemsRequest payload, map<string|string[]> headers = {}) returns oas:PriceListItemResponse|error {
+    remote isolated function listPriceListItems(string id, ListPriceListItemsRequest payload, map<string|string[]> headers = {}) returns PriceListItemResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:PriceListItemResponse|error r = oasClient->listPriceListItems(id, payload, mergedHeaders);
+        PriceListItemResponse|error r = oasClient->listPriceListItems(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5546,10 +5546,10 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function listPriceListTypes(map<string|string[]> headers = {}) returns oas:ListPriceListTypesEnvelope|error {
+    remote isolated function listPriceListTypes(map<string|string[]> headers = {}) returns ListPriceListTypesEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListPriceListTypesEnvelope|error r = oasClient->listPriceListTypes(mergedHeaders);
+        ListPriceListTypesEnvelope|error r = oasClient->listPriceListTypes(mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5563,10 +5563,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function listPriceLists(oas:ListPriceListsRequest payload, map<string|string[]> headers = {}) returns oas:ListPriceListsResponse|error {
+    remote isolated function listPriceLists(ListPriceListsRequest payload, map<string|string[]> headers = {}) returns ListPriceListsResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListPriceListsResponse|error r = oasClient->listPriceLists(payload, mergedHeaders);
+        ListPriceListsResponse|error r = oasClient->listPriceLists(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5582,10 +5582,10 @@ public isolated client class Client {
     # + queries - Queries to be sent with the request 
     # + payload - Request payload
     # + return - A Product Extension response 
-    remote isolated function listProductExtensionObjects(string productMasterExtensionName, oas:ListProductExtensionObjectsRequest payload, map<string|string[]> headers = {}, *oas:ListProductExtensionObjectsQueries queries) returns oas:ProductExtensionResponse|error {
+    remote isolated function listProductExtensionObjects(string productMasterExtensionName, ListProductExtensionObjectsRequest payload, map<string|string[]> headers = {}, *ListProductExtensionObjectsQueries queries) returns ProductExtensionResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ProductExtensionResponse|error r = oasClient->listProductExtensionObjects(productMasterExtensionName, payload, mergedHeaders, queries = queries);
+        ProductExtensionResponse|error r = oasClient->listProductExtensionObjects(productMasterExtensionName, payload, mergedHeaders, queries = queries);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5599,10 +5599,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function listProductSets(oas:ListProductSetsRequest payload, map<string|string[]> headers = {}) returns oas:ListProductSetsResponse|error {
+    remote isolated function listProductSets(ListProductSetsRequest payload, map<string|string[]> headers = {}) returns ListProductSetsResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListProductSetsResponse|error r = oasClient->listProductSets(payload, mergedHeaders);
+        ListProductSetsResponse|error r = oasClient->listProductSets(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5616,10 +5616,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - Returns full record details 
-    remote isolated function listProducts(oas:ListProductsRequest payload, map<string|string[]> headers = {}) returns oas:ProductResponse|error {
+    remote isolated function listProducts(ListProductsRequest payload, map<string|string[]> headers = {}) returns ProductResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ProductResponse|error r = oasClient->listProducts(payload, mergedHeaders);
+        ProductResponse|error r = oasClient->listProducts(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5633,7 +5633,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function listQuoteProducts(oas:ListProductsRequest1 payload, map<string|string[]> headers = {}) returns error? {
+    remote isolated function listQuoteProducts(ListProductsRequest1 payload, map<string|string[]> headers = {}) returns error? {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
         error? r = oasClient->listQuoteProducts(payload, mergedHeaders);
@@ -5650,10 +5650,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function listQuotes(oas:ListQuotesRequest payload, map<string|string[]> headers = {}) returns oas:ListQuotesResponse|error {
+    remote isolated function listQuotes(ListQuotesRequest payload, map<string|string[]> headers = {}) returns ListQuotesResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListQuotesResponse|error r = oasClient->listQuotes(payload, mergedHeaders);
+        ListQuotesResponse|error r = oasClient->listQuotes(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5667,10 +5667,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function listRebateAgreementItems(oas:ListRebateAgreementItemsRequest payload, map<string|string[]> headers = {}) returns oas:ListRebateAgreementItemsResponse|error {
+    remote isolated function listRebateAgreementItems(ListRebateAgreementItemsRequest payload, map<string|string[]> headers = {}) returns ListRebateAgreementItemsResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListRebateAgreementItemsResponse|error r = oasClient->listRebateAgreementItems(payload, mergedHeaders);
+        ListRebateAgreementItemsResponse|error r = oasClient->listRebateAgreementItems(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5684,10 +5684,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function listRebateAgreements(oas:ListRebateAgreementsRequest payload, map<string|string[]> headers = {}) returns oas:ListRebateAgreementsResponse|error {
+    remote isolated function listRebateAgreements(ListRebateAgreementsRequest payload, map<string|string[]> headers = {}) returns ListRebateAgreementsResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListRebateAgreementsResponse|error r = oasClient->listRebateAgreements(payload, mergedHeaders);
+        ListRebateAgreementsResponse|error r = oasClient->listRebateAgreements(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5701,10 +5701,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function listRebateCalculations(oas:FetchRRSCBody payload, map<string|string[]> headers = {}) returns oas:ListRebateCalculationsResponse|error {
+    remote isolated function listRebateCalculations(FetchRRSCBody payload, map<string|string[]> headers = {}) returns ListRebateCalculationsResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListRebateCalculationsResponse|error r = oasClient->listRebateCalculations(payload, mergedHeaders);
+        ListRebateCalculationsResponse|error r = oasClient->listRebateCalculations(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5718,10 +5718,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function listRecommendations(oas:ListRecommendationsRequest payload, map<string|string[]> headers = {}) returns oas:ListRecommendationsEnvelope|error {
+    remote isolated function listRecommendations(ListRecommendationsRequest payload, map<string|string[]> headers = {}) returns ListRecommendationsEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListRecommendationsEnvelope|error r = oasClient->listRecommendations(payload, mergedHeaders);
+        ListRecommendationsEnvelope|error r = oasClient->listRecommendations(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5735,10 +5735,10 @@ public isolated client class Client {
     # + businessroleId - The ID of the business role you want to retrieve user roles for. The `businessroleId` is the `typedId` without the `BR` suffix. For example, `businessroleId` of the **53.BR** is **53**
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function listRolesOfBusinessRole(string businessroleId, map<string|string[]> headers = {}) returns oas:ListRolesOfBusinessRoleResponse|error {
+    remote isolated function listRolesOfBusinessRole(string businessroleId, map<string|string[]> headers = {}) returns ListRolesOfBusinessRoleResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListRolesOfBusinessRoleResponse|error r = oasClient->listRolesOfBusinessRole(businessroleId, mergedHeaders);
+        ListRolesOfBusinessRoleResponse|error r = oasClient->listRolesOfBusinessRole(businessroleId, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5752,10 +5752,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function listRollups(oas:ListRollupsRequest payload, map<string|string[]> headers = {}) returns oas:ListRollupsResponse|error {
+    remote isolated function listRollups(ListRollupsRequest payload, map<string|string[]> headers = {}) returns ListRollupsResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListRollupsResponse|error r = oasClient->listRollups(payload, mergedHeaders);
+        ListRollupsResponse|error r = oasClient->listRollups(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5769,10 +5769,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function listSecurityConfigurationEvents(oas:NotificationListBody payload, map<string|string[]> headers = {}) returns oas:ListSecurityConfigEventsEnvelope|error {
+    remote isolated function listSecurityConfigurationEvents(NotificationListBody payload, map<string|string[]> headers = {}) returns ListSecurityConfigEventsEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListSecurityConfigEventsEnvelope|error r = oasClient->listSecurityConfigurationEvents(payload, mergedHeaders);
+        ListSecurityConfigEventsEnvelope|error r = oasClient->listSecurityConfigurationEvents(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5786,10 +5786,10 @@ public isolated client class Client {
     # + sXCategory - The Seller Extension category (the `Name` from the *Seller Master Extension* table)
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function listSellerExtensions(string sXCategory, map<string|string[]> headers = {}) returns oas:SellerExtensionEnvelope|error {
+    remote isolated function listSellerExtensions(string sXCategory, map<string|string[]> headers = {}) returns SellerExtensionEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:SellerExtensionEnvelope|error r = oasClient->listSellerExtensions(sXCategory, mergedHeaders);
+        SellerExtensionEnvelope|error r = oasClient->listSellerExtensions(sXCategory, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5803,10 +5803,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function listSellers(oas:ListSellersRequest payload, map<string|string[]> headers = {}) returns oas:ListSellersEnvelope|error {
+    remote isolated function listSellers(ListSellersRequest payload, map<string|string[]> headers = {}) returns ListSellersEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListSellersEnvelope|error r = oasClient->listSellers(payload, mergedHeaders);
+        ListSellersEnvelope|error r = oasClient->listSellers(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5819,10 +5819,10 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
-    remote isolated function listTasks(map<string|string[]> headers = {}) returns oas:GenericDataResponse|error {
+    remote isolated function listTasks(map<string|string[]> headers = {}) returns GenericDataResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GenericDataResponse|error r = oasClient->listTasks(mergedHeaders);
+        GenericDataResponse|error r = oasClient->listTasks(mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5835,10 +5835,10 @@ public isolated client class Client {
     #
     # + headers - Headers to be sent with the request 
     # + return - Example response 
-    remote isolated function listTypeCodes(map<string|string[]> headers = {}) returns oas:TypeCodesResponse|error? {
+    remote isolated function listTypeCodes(map<string|string[]> headers = {}) returns TypeCodesResponse|error? {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:TypeCodesResponse|error? r = oasClient->listTypeCodes(mergedHeaders);
+        TypeCodesResponse|error? r = oasClient->listTypeCodes(mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5853,10 +5853,10 @@ public isolated client class Client {
     # + typedId - The typedId to be sent with the request
     # + payload - Request payload
     # + return - OK 
-    remote isolated function listUniqueClicItems(string typedId, record {} payload, map<string|string[]> headers = {}) returns oas:ListUniqueCLICItemsResponse|error {
+    remote isolated function listUniqueClicItems(string typedId, record {} payload, map<string|string[]> headers = {}) returns ListUniqueCLICItemsResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListUniqueCLICItemsResponse|error r = oasClient->listUniqueClicItems(typedId, payload, mergedHeaders);
+        ListUniqueCLICItemsResponse|error r = oasClient->listUniqueClicItems(typedId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5870,10 +5870,10 @@ public isolated client class Client {
     # + userId - The ID of the user you want to retrieve business roles for. The `userId` is the `typedId` without the `U` suffix. For example, `userId` of the **2147490806.U** is **2147490806**
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function listUserSBusinessRoles(string userId, map<string|string[]> headers = {}) returns oas:ListUserBusinessRolesResponse|error {
+    remote isolated function listUserSBusinessRoles(string userId, map<string|string[]> headers = {}) returns ListUserBusinessRolesResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListUserBusinessRolesResponse|error r = oasClient->listUserSBusinessRoles(userId, mergedHeaders);
+        ListUserBusinessRolesResponse|error r = oasClient->listUserSBusinessRoles(userId, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5887,10 +5887,10 @@ public isolated client class Client {
     # + loginName - The login name of the user you want to retrieve Pending Workflows for
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function listUserSPendingApprovals(string loginName, map<string|string[]> headers = {}) returns oas:ListUserPendingApprovalsResponse|error {
+    remote isolated function listUserSPendingApprovals(string loginName, map<string|string[]> headers = {}) returns ListUserPendingApprovalsResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListUserPendingApprovalsResponse|error r = oasClient->listUserSPendingApprovals(loginName, mergedHeaders);
+        ListUserPendingApprovalsResponse|error r = oasClient->listUserSPendingApprovals(loginName, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5904,10 +5904,10 @@ public isolated client class Client {
     # + userId - The ID of the user you want to retrieve roles for. The `userId` is the `typedId` without the `U` suffix. For example, `userId` of the **2147490806.U** is **2147490806**
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function listUserSRoles(string userId, map<string|string[]> headers = {}) returns oas:ListUserRolesResponse|error {
+    remote isolated function listUserSRoles(string userId, map<string|string[]> headers = {}) returns ListUserRolesResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListUserRolesResponse|error r = oasClient->listUserSRoles(userId, mergedHeaders);
+        ListUserRolesResponse|error r = oasClient->listUserSRoles(userId, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5921,10 +5921,10 @@ public isolated client class Client {
     # + userId - The ID of the user you want to retrieve groups for. The `userId` is the `typedId` without the `U` suffix. For example, `userId` of the **2147490806.U** is **2147490806**
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function listUserSUserGroups(string userId, map<string|string[]> headers = {}) returns oas:ListUsersUserGroupsResponse|error {
+    remote isolated function listUserSUserGroups(string userId, map<string|string[]> headers = {}) returns ListUsersUserGroupsResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListUsersUserGroupsResponse|error r = oasClient->listUserSUserGroups(userId, mergedHeaders);
+        ListUsersUserGroupsResponse|error r = oasClient->listUserSUserGroups(userId, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5938,10 +5938,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function listUsers(oas:ListUsersRequest payload, map<string|string[]> headers = {}) returns oas:ListUsersResponse|error {
+    remote isolated function listUsers(ListUsersRequest payload, map<string|string[]> headers = {}) returns ListUsersResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListUsersResponse|error r = oasClient->listUsers(payload, mergedHeaders);
+        ListUsersResponse|error r = oasClient->listUsers(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5955,10 +5955,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function listWorkflows(oas:ListWorkflowsRequest payload, map<string|string[]> headers = {}) returns oas:ListWorkflowsResponse|error {
+    remote isolated function listWorkflows(ListWorkflowsRequest payload, map<string|string[]> headers = {}) returns ListWorkflowsResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ListWorkflowsResponse|error r = oasClient->listWorkflows(payload, mergedHeaders);
+        ListWorkflowsResponse|error r = oasClient->listWorkflows(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -5973,7 +5973,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK - data loaded successfully into the DMFieldCollection 
-    remote isolated function loadDataIntoFieldCollection(string typedId, oas:DatamartLoadfctypedIdBody payload, map<string|string[]> headers = {}) returns http:Response|error {
+    remote isolated function loadDataIntoFieldCollection(string typedId, DatamartLoadfctypedIdBody payload, map<string|string[]> headers = {}) returns http:Response|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
         http:Response|error r = oasClient->loadDataIntoFieldCollection(typedId, payload, mergedHeaders);
@@ -5990,10 +5990,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
-    remote isolated function markAsRead(record {} payload, map<string|string[]> headers = {}) returns oas:GenericDataResponse|error {
+    remote isolated function markAsRead(record {} payload, map<string|string[]> headers = {}) returns GenericDataResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GenericDataResponse|error r = oasClient->markAsRead(payload, mergedHeaders);
+        GenericDataResponse|error r = oasClient->markAsRead(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6008,10 +6008,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - Example response 
-    remote isolated function markQuoteLost(string identifier, oas:MarkOfferAsLostRequest payload, map<string|string[]> headers = {}) returns oas:QuoteResponse|error {
+    remote isolated function markQuoteLost(string identifier, MarkOfferAsLostRequest payload, map<string|string[]> headers = {}) returns QuoteResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:QuoteResponse|error r = oasClient->markQuoteLost(identifier, payload, mergedHeaders);
+        QuoteResponse|error r = oasClient->markQuoteLost(identifier, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6026,10 +6026,10 @@ public isolated client class Client {
     # + typedId - The typedId to be sent with the request
     # + payload - Request payload
     # + return - OK 
-    remote isolated function massDeleteImports(string typedId, oas:ImportmanagerMassdeletetypedIdBody payload, map<string|string[]> headers = {}) returns oas:MassDeleteImportsEnvelope|error {
+    remote isolated function massDeleteImports(string typedId, ImportmanagerMassdeletetypedIdBody payload, map<string|string[]> headers = {}) returns MassDeleteImportsEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:MassDeleteImportsEnvelope|error r = oasClient->massDeleteImports(typedId, payload, mergedHeaders);
+        MassDeleteImportsEnvelope|error r = oasClient->massDeleteImports(typedId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6045,10 +6045,10 @@ public isolated client class Client {
     # + queries - Queries to be sent with the request 
     # + payload -
     # + return - OK 
-    remote isolated function massDeleteLookupTableValues(string tableId, oas:TableIdBatchBody payload, map<string|string[]> headers = {}, *oas:MassDeleteLookupTableValuesQueries queries) returns oas:DeleteLookupTableValueResponse1|error {
+    remote isolated function massDeleteLookupTableValues(string tableId, TableIdBatchBody payload, map<string|string[]> headers = {}, *MassDeleteLookupTableValuesQueries queries) returns DeleteLookupTableValueResponse1|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DeleteLookupTableValueResponse1|error r = oasClient->massDeleteLookupTableValues(tableId, payload, mergedHeaders, queries = queries);
+        DeleteLookupTableValueResponse1|error r = oasClient->massDeleteLookupTableValues(tableId, payload, mergedHeaders, queries = queries);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6063,10 +6063,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function massEditDataChangeRequestItems(string id, oas:DcrmanagerAddmassopidBody payload, map<string|string[]> headers = {}) returns oas:DataChangeRequestMassChangeEnvelope|error {
+    remote isolated function massEditDataChangeRequestItems(string id, DcrmanagerAddmassopidBody payload, map<string|string[]> headers = {}) returns DataChangeRequestMassChangeEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DataChangeRequestMassChangeEnvelope|error r = oasClient->massEditDataChangeRequestItems(id, payload, mergedHeaders);
+        DataChangeRequestMassChangeEnvelope|error r = oasClient->massEditDataChangeRequestItems(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6081,10 +6081,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK - returns the number of edited records 
-    remote isolated function massEditDataMartObject(string typedId, oas:MassEditRequest1 payload, map<string|string[]> headers = {}) returns oas:MassEditDatamartResponse|error {
+    remote isolated function massEditDataMartObject(string typedId, MassEditRequest1 payload, map<string|string[]> headers = {}) returns MassEditDatamartResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:MassEditDatamartResponse|error r = oasClient->massEditDataMartObject(typedId, payload, mergedHeaders);
+        MassEditDatamartResponse|error r = oasClient->massEditDataMartObject(typedId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6099,10 +6099,10 @@ public isolated client class Client {
     # + typedId - The typedId to be sent with the request
     # + payload - Request payload
     # + return - OK 
-    remote isolated function massEditImports(string typedId, oas:ImportmanagerMassedittypedIdBody payload, map<string|string[]> headers = {}) returns oas:MassEditImportsEnvelope|error {
+    remote isolated function massEditImports(string typedId, ImportmanagerMassedittypedIdBody payload, map<string|string[]> headers = {}) returns MassEditImportsEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:MassEditImportsEnvelope|error r = oasClient->massEditImports(typedId, payload, mergedHeaders);
+        MassEditImportsEnvelope|error r = oasClient->massEditImports(typedId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6117,10 +6117,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK - The response contains the number of modifed objects 
-    remote isolated function massEditLookupTable(string tableId, oas:MassEditRequest payload, map<string|string[]> headers = {}) returns oas:MassEditResponse|error {
+    remote isolated function massEditLookupTable(string tableId, MassEditRequest payload, map<string|string[]> headers = {}) returns MassEditResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:MassEditResponse|error r = oasClient->massEditLookupTable(tableId, payload, mergedHeaders);
+        MassEditResponse|error r = oasClient->massEditLookupTable(tableId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6135,10 +6135,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function massEditManualPriceListItems(string id, oas:MassEditMPLRequest payload, map<string|string[]> headers = {}) returns oas:MassEditManualPriceListResponse|error {
+    remote isolated function massEditManualPriceListItems(string id, MassEditMPLRequest payload, map<string|string[]> headers = {}) returns MassEditManualPriceListResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:MassEditManualPriceListResponse|error r = oasClient->massEditManualPriceListItems(id, payload, mergedHeaders);
+        MassEditManualPriceListResponse|error r = oasClient->massEditManualPriceListItems(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6153,10 +6153,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK - The response contains `"data":null` as the mass edit task is a background process whose results are not yet available within the response time 
-    remote isolated function massEditPriceGridItems(string id, oas:MassEditPriceGridItemsRequest payload, map<string|string[]> headers = {}) returns oas:MassEditPriceGridItemsResponse|error {
+    remote isolated function massEditPriceGridItems(string id, MassEditPriceGridItemsRequest payload, map<string|string[]> headers = {}) returns MassEditPriceGridItemsResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:MassEditPriceGridItemsResponse|error r = oasClient->massEditPriceGridItems(id, payload, mergedHeaders);
+        MassEditPriceGridItemsResponse|error r = oasClient->massEditPriceGridItems(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6171,10 +6171,10 @@ public isolated client class Client {
     # + typedId - The typedId to be sent with the request
     # + payload - Request payload
     # + return - OK 
-    remote isolated function massSubmitRebateRecordGroupItems(string typedId, oas:RebaterecordgroupMasssubmittypedIdBody payload, map<string|string[]> headers = {}) returns oas:MassSubmitRRGResponse|error {
+    remote isolated function massSubmitRebateRecordGroupItems(string typedId, RebaterecordgroupMasssubmittypedIdBody payload, map<string|string[]> headers = {}) returns MassSubmitRRGResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:MassSubmitRRGResponse|error r = oasClient->massSubmitRebateRecordGroupItems(typedId, payload, mergedHeaders);
+        MassSubmitRRGResponse|error r = oasClient->massSubmitRebateRecordGroupItems(typedId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6188,10 +6188,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function massSubmitRebateRecordGroups(oas:RebaterecordgroupMasssubmittypedIdBody payload, map<string|string[]> headers = {}) returns oas:MassSubmitRebateRecordGroupsEnvelope|error {
+    remote isolated function massSubmitRebateRecordGroups(RebaterecordgroupMasssubmittypedIdBody payload, map<string|string[]> headers = {}) returns MassSubmitRebateRecordGroupsEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:MassSubmitRebateRecordGroupsEnvelope|error r = oasClient->massSubmitRebateRecordGroups(payload, mergedHeaders);
+        MassSubmitRebateRecordGroupsEnvelope|error r = oasClient->massSubmitRebateRecordGroups(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6206,10 +6206,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function massUpdate(string typeCode, oas:MassUpdateRequest payload, map<string|string[]> headers = {}) returns oas:MassUpdateResponse|error {
+    remote isolated function massUpdate(string typeCode, MassUpdateRequest payload, map<string|string[]> headers = {}) returns MassUpdateResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:MassUpdateResponse|error r = oasClient->massUpdate(typeCode, payload, mergedHeaders);
+        MassUpdateResponse|error r = oasClient->massUpdate(typeCode, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6224,10 +6224,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function performMassAction(string id, oas:PerformMassActionRequest payload, map<string|string[]> headers = {}) returns oas:PerformMassActionResponse|error {
+    remote isolated function performMassAction(string id, PerformMassActionRequest payload, map<string|string[]> headers = {}) returns PerformMassActionResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:PerformMassActionResponse|error r = oasClient->performMassAction(id, payload, mergedHeaders);
+        PerformMassActionResponse|error r = oasClient->performMassAction(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6257,10 +6257,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function previewCustomFormWorkflow(record {} payload, map<string|string[]> headers = {}) returns oas:PreviewCustomFormWorkflowResponse|error {
+    remote isolated function previewCustomFormWorkflow(record {} payload, map<string|string[]> headers = {}) returns PreviewCustomFormWorkflowResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:PreviewCustomFormWorkflowResponse|error r = oasClient->previewCustomFormWorkflow(payload, mergedHeaders);
+        PreviewCustomFormWorkflowResponse|error r = oasClient->previewCustomFormWorkflow(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6275,10 +6275,10 @@ public isolated client class Client {
     # + typedId - The typedId to be sent with the request
     # + payload - Request payload
     # + return - OK 
-    remote isolated function previewRebateRecordGroupWorkflow(string typedId, oas:RebaterecordgroupPreviewtypedIdBody payload, map<string|string[]> headers = {}) returns oas:RebateRecordGroupWorkflowEnvelope|error {
+    remote isolated function previewRebateRecordGroupWorkflow(string typedId, RebaterecordgroupPreviewtypedIdBody payload, map<string|string[]> headers = {}) returns RebateRecordGroupWorkflowEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:RebateRecordGroupWorkflowEnvelope|error r = oasClient->previewRebateRecordGroupWorkflow(typedId, payload, mergedHeaders);
+        RebateRecordGroupWorkflowEnvelope|error r = oasClient->previewRebateRecordGroupWorkflow(typedId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6293,10 +6293,10 @@ public isolated client class Client {
     # + queries - Queries to be sent with the request 
     # + payload - Request payload
     # + return - Successful execution 
-    remote isolated function queryApiExecute(oas:QueryapiExecuteBody payload, map<string|string[]> headers = {}, *oas:QueryApiExecuteQueries queries) returns oas:QueryApiExecuteEnvelope|error {
+    remote isolated function queryApiExecute(QueryapiExecuteBody payload, map<string|string[]> headers = {}, *QueryApiExecuteQueries queries) returns QueryApiExecuteEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:QueryApiExecuteEnvelope|error r = oasClient->queryApiExecute(payload, mergedHeaders, queries = queries);
+        QueryApiExecuteEnvelope|error r = oasClient->queryApiExecute(payload, mergedHeaders, queries = queries);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6311,10 +6311,10 @@ public isolated client class Client {
     # + queries - Queries to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function queryDataManagerObject(oas:QueryDataManagerObjectRequest payload, map<string|string[]> headers = {}, *oas:QueryDataManagerObjectQueries queries) returns oas:QueryDataManagerObjectResponse|error {
+    remote isolated function queryDataManagerObject(QueryDataManagerObjectRequest payload, map<string|string[]> headers = {}, *QueryDataManagerObjectQueries queries) returns QueryDataManagerObjectResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:QueryDataManagerObjectResponse|error r = oasClient->queryDataManagerObject(payload, mergedHeaders, queries = queries);
+        QueryDataManagerObjectResponse|error r = oasClient->queryDataManagerObject(payload, mergedHeaders, queries = queries);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6331,10 +6331,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function recalculateCalculationOfStep(string typedId, "definition"|"configuration"|"results"|"projections"|"parallel" stepName, string calcName, record {} payload, map<string|string[]> headers = {}) returns oas:RecalculateCalculationOfStepResponse|error {
+    remote isolated function recalculateCalculationOfStep(string typedId, "definition"|"configuration"|"results"|"projections"|"parallel" stepName, string calcName, record {} payload, map<string|string[]> headers = {}) returns RecalculateCalculationOfStepResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:RecalculateCalculationOfStepResponse|error r = oasClient->recalculateCalculationOfStep(typedId, stepName, calcName, payload, mergedHeaders);
+        RecalculateCalculationOfStepResponse|error r = oasClient->recalculateCalculationOfStep(typedId, stepName, calcName, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6351,10 +6351,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function recalculateItemsOfParallelCalculation(string typedId, "definition"|"configuration"|"results"|"projections"|"parallel" stepName, string calcName, oas:CalcNameItemBody payload, map<string|string[]> headers = {}) returns oas:ParallelCalculationEnvelope|error {
+    remote isolated function recalculateItemsOfParallelCalculation(string typedId, "definition"|"configuration"|"results"|"projections"|"parallel" stepName, string calcName, CalcNameItemBody payload, map<string|string[]> headers = {}) returns ParallelCalculationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ParallelCalculationEnvelope|error r = oasClient->recalculateItemsOfParallelCalculation(typedId, stepName, calcName, payload, mergedHeaders);
+        ParallelCalculationEnvelope|error r = oasClient->recalculateItemsOfParallelCalculation(typedId, stepName, calcName, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6368,10 +6368,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - Example response 
-    remote isolated function recalculateQuote(oas:RecalculateQuoteRequest payload, map<string|string[]> headers = {}) returns oas:QuoteResponse|error {
+    remote isolated function recalculateQuote(RecalculateQuoteRequest payload, map<string|string[]> headers = {}) returns QuoteResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:QuoteResponse|error r = oasClient->recalculateQuote(payload, mergedHeaders);
+        QuoteResponse|error r = oasClient->recalculateQuote(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6386,10 +6386,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - OK 
-    remote isolated function recalculateQuoteContractRebate(string typedId, map<string|string[]> headers = {}, *oas:RecalculateQuoteContractRebateQueries queries) returns oas:RecalculateClicEnvelope|error {
+    remote isolated function recalculateQuoteContractRebate(string typedId, map<string|string[]> headers = {}, *RecalculateQuoteContractRebateQueries queries) returns RecalculateClicEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:RecalculateClicEnvelope|error r = oasClient->recalculateQuoteContractRebate(typedId, mergedHeaders, queries = queries);
+        RecalculateClicEnvelope|error r = oasClient->recalculateQuoteContractRebate(typedId, mergedHeaders, queries = queries);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6404,10 +6404,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function rejectCalculationGridItem(string id, oas:DenyCalculationGridItemRequest payload, map<string|string[]> headers = {}) returns oas:DenyCalculationGridItemResponse|error {
+    remote isolated function rejectCalculationGridItem(string id, DenyCalculationGridItemRequest payload, map<string|string[]> headers = {}) returns DenyCalculationGridItemResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DenyCalculationGridItemResponse|error r = oasClient->rejectCalculationGridItem(id, payload, mergedHeaders);
+        DenyCalculationGridItemResponse|error r = oasClient->rejectCalculationGridItem(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6422,10 +6422,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function rejectItems(string typedId, oas:RejectClaimItemsRequest payload, map<string|string[]> headers = {}) returns oas:RejectClaimItemsResponse|error {
+    remote isolated function rejectItems(string typedId, RejectClaimItemsRequest payload, map<string|string[]> headers = {}) returns RejectClaimItemsResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:RejectClaimItemsResponse|error r = oasClient->rejectItems(typedId, payload, mergedHeaders);
+        RejectClaimItemsResponse|error r = oasClient->rejectItems(typedId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6440,10 +6440,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function removeAllClicLineItems(string typedId, record {} payload, map<string|string[]> headers = {}) returns oas:ClicOperationEnvelope|error {
+    remote isolated function removeAllClicLineItems(string typedId, record {} payload, map<string|string[]> headers = {}) returns ClicOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ClicOperationEnvelope|error r = oasClient->removeAllClicLineItems(typedId, payload, mergedHeaders);
+        ClicOperationEnvelope|error r = oasClient->removeAllClicLineItems(typedId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6458,10 +6458,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function removeItems(string typedId, record {} payload, map<string|string[]> headers = {}) returns oas:RemoveClaimItemsResponse|error {
+    remote isolated function removeItems(string typedId, record {} payload, map<string|string[]> headers = {}) returns RemoveClaimItemsResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:RemoveClaimItemsResponse|error r = oasClient->removeItems(typedId, payload, mergedHeaders);
+        RemoveClaimItemsResponse|error r = oasClient->removeItems(typedId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6475,10 +6475,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function replyToComment(oas:CommentmanagerReplyBody payload, map<string|string[]> headers = {}) returns oas:CommentOperationEnvelope|error {
+    remote isolated function replyToComment(CommentmanagerReplyBody payload, map<string|string[]> headers = {}) returns CommentOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:CommentOperationEnvelope|error r = oasClient->replyToComment(payload, mergedHeaders);
+        CommentOperationEnvelope|error r = oasClient->replyToComment(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6493,10 +6493,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function resolveComment(string typedId, record {} payload, map<string|string[]> headers = {}) returns oas:ResolveCommentEnvelope|error {
+    remote isolated function resolveComment(string typedId, record {} payload, map<string|string[]> headers = {}) returns ResolveCommentEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ResolveCommentEnvelope|error r = oasClient->resolveComment(typedId, payload, mergedHeaders);
+        ResolveCommentEnvelope|error r = oasClient->resolveComment(typedId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6510,10 +6510,10 @@ public isolated client class Client {
     # + dataSourceName - The name of the Data Source you want to create. 
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function restoreDefaultDataSources("Product"|"Customer"|"uom"|"ccy"|"cal" dataSourceName, map<string|string[]> headers = {}) returns oas:RestoreDefaultDataSourcesResponse|error {
+    remote isolated function restoreDefaultDataSources("Product"|"Customer"|"uom"|"ccy"|"cal" dataSourceName, map<string|string[]> headers = {}) returns RestoreDefaultDataSourcesResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:RestoreDefaultDataSourcesResponse|error r = oasClient->restoreDefaultDataSources(dataSourceName, mergedHeaders);
+        RestoreDefaultDataSourcesResponse|error r = oasClient->restoreDefaultDataSources(dataSourceName, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6527,10 +6527,10 @@ public isolated client class Client {
     # + typedId - `typedId` of the Compensation Record you want to revoke
     # + headers - Headers to be sent with the request 
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
-    remote isolated function revokeCompensationRecord(string typedId, map<string|string[]> headers = {}) returns oas:GenericDataResponse|error {
+    remote isolated function revokeCompensationRecord(string typedId, map<string|string[]> headers = {}) returns GenericDataResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GenericDataResponse|error r = oasClient->revokeCompensationRecord(typedId, mergedHeaders);
+        GenericDataResponse|error r = oasClient->revokeCompensationRecord(typedId, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6545,10 +6545,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function revokeModel(string typedId, record {} payload, map<string|string[]> headers = {}) returns oas:RevokeModelResponse|error {
+    remote isolated function revokeModel(string typedId, record {} payload, map<string|string[]> headers = {}) returns RevokeModelResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:RevokeModelResponse|error r = oasClient->revokeModel(typedId, payload, mergedHeaders);
+        RevokeModelResponse|error r = oasClient->revokeModel(typedId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6563,10 +6563,10 @@ public isolated client class Client {
     # + id - The id to be sent with the request
     # + payload - Request payload
     # + return - Example response 
-    remote isolated function revokePriceList(string id, oas:PricelistmanagerSubmitidBody payload, map<string|string[]> headers = {}) returns oas:PriceListItemResponse|error {
+    remote isolated function revokePriceList(string id, PricelistmanagerSubmitidBody payload, map<string|string[]> headers = {}) returns PriceListItemResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:PriceListItemResponse|error r = oasClient->revokePriceList(id, payload, mergedHeaders);
+        PriceListItemResponse|error r = oasClient->revokePriceList(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6580,10 +6580,10 @@ public isolated client class Client {
     # + identifier - Can be either the `uniqueName` or the `typedId`
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function revokeQuote(string identifier, map<string|string[]> headers = {}) returns oas:RevokeDealResponse|error {
+    remote isolated function revokeQuote(string identifier, map<string|string[]> headers = {}) returns RevokeDealResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:RevokeDealResponse|error r = oasClient->revokeQuote(identifier, mergedHeaders);
+        RevokeDealResponse|error r = oasClient->revokeQuote(identifier, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6597,10 +6597,10 @@ public isolated client class Client {
     # + typedId - `typedId` of the Rebate Record Group you want to revoke
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function revokeRebateRecordGroup(string typedId, map<string|string[]> headers = {}) returns oas:RevokeRebateRecordGroupEnvelope|error {
+    remote isolated function revokeRebateRecordGroup(string typedId, map<string|string[]> headers = {}) returns RevokeRebateRecordGroupEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:RevokeRebateRecordGroupEnvelope|error r = oasClient->revokeRebateRecordGroup(typedId, mergedHeaders);
+        RevokeRebateRecordGroupEnvelope|error r = oasClient->revokeRebateRecordGroup(typedId, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6614,10 +6614,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function runCalculation(oas:RunCalculationRequest payload, map<string|string[]> headers = {}) returns oas:RunCalculationResponse|error {
+    remote isolated function runCalculation(RunCalculationRequest payload, map<string|string[]> headers = {}) returns RunCalculationResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:RunCalculationResponse|error r = oasClient->runCalculation(payload, mergedHeaders);
+        RunCalculationResponse|error r = oasClient->runCalculation(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6631,10 +6631,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function runDataLoad(oas:RunDataLoadRequest payload, map<string|string[]> headers = {}) returns oas:RunDataLoadResponse|error {
+    remote isolated function runDataLoad(RunDataLoadRequest payload, map<string|string[]> headers = {}) returns RunDataLoadResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:RunDataLoadResponse|error r = oasClient->runDataLoad(payload, mergedHeaders);
+        RunDataLoadResponse|error r = oasClient->runDataLoad(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6648,10 +6648,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function runRebateCalculation(oas:RebaterecordCalculatesetBody payload, map<string|string[]> headers = {}) returns oas:RunRebateCalculationResponse|error {
+    remote isolated function runRebateCalculation(RebaterecordCalculatesetBody payload, map<string|string[]> headers = {}) returns RunRebateCalculationResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:RunRebateCalculationResponse|error r = oasClient->runRebateCalculation(payload, mergedHeaders);
+        RunRebateCalculationResponse|error r = oasClient->runRebateCalculation(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6665,10 +6665,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function saveCalculation(oas:SaveCalculationRequest payload, map<string|string[]> headers = {}) returns oas:SaveCalculationResponse|error {
+    remote isolated function saveCalculation(SaveCalculationRequest payload, map<string|string[]> headers = {}) returns SaveCalculationResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:SaveCalculationResponse|error r = oasClient->saveCalculation(payload, mergedHeaders);
+        SaveCalculationResponse|error r = oasClient->saveCalculation(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6683,10 +6683,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function saveClicDraft(string typedId, record {} payload, map<string|string[]> headers = {}) returns oas:ClicOperationEnvelope|error {
+    remote isolated function saveClicDraft(string typedId, record {} payload, map<string|string[]> headers = {}) returns ClicOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ClicOperationEnvelope|error r = oasClient->saveClicDraft(typedId, payload, mergedHeaders);
+        ClicOperationEnvelope|error r = oasClient->saveClicDraft(typedId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6700,10 +6700,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function saveCompensationRecord(oas:SaveCompensationRecordRequest payload, map<string|string[]> headers = {}) returns oas:SaveCompensationRecordResponse|error {
+    remote isolated function saveCompensationRecord(SaveCompensationRecordRequest payload, map<string|string[]> headers = {}) returns SaveCompensationRecordResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:SaveCompensationRecordResponse|error r = oasClient->saveCompensationRecord(payload, mergedHeaders);
+        SaveCompensationRecordResponse|error r = oasClient->saveCompensationRecord(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6717,10 +6717,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function saveDataLoad(oas:DatamartUpdatedataloadBody payload, map<string|string[]> headers = {}) returns oas:DataLoadEnvelope|error {
+    remote isolated function saveDataLoad(DatamartUpdatedataloadBody payload, map<string|string[]> headers = {}) returns DataLoadEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DataLoadEnvelope|error r = oasClient->saveDataLoad(payload, mergedHeaders);
+        DataLoadEnvelope|error r = oasClient->saveDataLoad(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6734,10 +6734,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function saveImportChange(record {} payload, map<string|string[]> headers = {}) returns oas:SaveImportChangeEnvelope|error {
+    remote isolated function saveImportChange(record {} payload, map<string|string[]> headers = {}) returns SaveImportChangeEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:SaveImportChangeEnvelope|error r = oasClient->saveImportChange(payload, mergedHeaders);
+        SaveImportChangeEnvelope|error r = oasClient->saveImportChange(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6753,10 +6753,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - The `data` property can only contain the `state` field, all the rest fields will be ignored (and cannot be updated even with update/MO endpoint) 
     # + return - OK. Returns the updated Model Object 
-    remote isolated function saveModel(string typedId, "definition"|"configuration"|"results"|"projections" stepName, oas:SaveModelRequest payload, map<string|string[]> headers = {}) returns oas:SaveModelResponse|error {
+    remote isolated function saveModel(string typedId, "definition"|"configuration"|"results"|"projections" stepName, SaveModelRequest payload, map<string|string[]> headers = {}) returns SaveModelResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:SaveModelResponse|error r = oasClient->saveModel(typedId, stepName, payload, mergedHeaders);
+        SaveModelResponse|error r = oasClient->saveModel(typedId, stepName, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6770,10 +6770,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function saveRebateCalculation(oas:SaveRebateCalculationRequest payload, map<string|string[]> headers = {}) returns oas:SaveRebateCalculationResponse|error {
+    remote isolated function saveRebateCalculation(SaveRebateCalculationRequest payload, map<string|string[]> headers = {}) returns SaveRebateCalculationResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:SaveRebateCalculationResponse|error r = oasClient->saveRebateCalculation(payload, mergedHeaders);
+        SaveRebateCalculationResponse|error r = oasClient->saveRebateCalculation(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6788,10 +6788,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload -
     # + return - OK 
-    remote isolated function searchKvTable(string tableName, oas:SearchKVTableRequest payload, map<string|string[]> headers = {}) returns oas:SearchKvTableEnvelope[]|error {
+    remote isolated function searchKvTable(string tableName, SearchKVTableRequest payload, map<string|string[]> headers = {}) returns SearchKvTableEnvelope[]|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:SearchKvTableEnvelope[]|error r = oasClient->searchKvTable(tableName, payload, mergedHeaders);
+        SearchKvTableEnvelope[]|error r = oasClient->searchKvTable(tableName, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6805,10 +6805,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function searchProducts(oas:SearchProductRequest payload, map<string|string[]> headers = {}) returns oas:SearchProductResponse|error {
+    remote isolated function searchProducts(SearchProductRequest payload, map<string|string[]> headers = {}) returns SearchProductResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:SearchProductResponse|error r = oasClient->searchProducts(payload, mergedHeaders);
+        SearchProductResponse|error r = oasClient->searchProducts(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6822,10 +6822,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + query - The query to be sent with the request
     # + return - OK 
-    remote isolated function searchProductsByQuery(string query, map<string|string[]> headers = {}) returns oas:SearchProductURLResponse|error {
+    remote isolated function searchProductsByQuery(string query, map<string|string[]> headers = {}) returns SearchProductURLResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:SearchProductURLResponse|error r = oasClient->searchProductsByQuery(query, mergedHeaders);
+        SearchProductURLResponse|error r = oasClient->searchProductsByQuery(query, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6840,10 +6840,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function sendDocumentToSign(string typedId, oas:CreateSignatureRequest payload, map<string|string[]> headers = {}) returns oas:CreateSignatureResponse|error {
+    remote isolated function sendDocumentToSign(string typedId, CreateSignatureRequest payload, map<string|string[]> headers = {}) returns CreateSignatureResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:CreateSignatureResponse|error r = oasClient->sendDocumentToSign(typedId, payload, mergedHeaders);
+        CreateSignatureResponse|error r = oasClient->sendDocumentToSign(typedId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6857,10 +6857,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
-    remote isolated function sendEmail(oas:SendEmailRequest payload, map<string|string[]> headers = {}) returns oas:GenericDataResponse|error {
+    remote isolated function sendEmail(SendEmailRequest payload, map<string|string[]> headers = {}) returns GenericDataResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GenericDataResponse|error r = oasClient->sendEmail(payload, mergedHeaders);
+        GenericDataResponse|error r = oasClient->sendEmail(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6874,10 +6874,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
-    remote isolated function sendValidationMessage(oas:NotificationSendBody payload, map<string|string[]> headers = {}) returns oas:GenericDataResponse|error {
+    remote isolated function sendValidationMessage(NotificationSendBody payload, map<string|string[]> headers = {}) returns GenericDataResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GenericDataResponse|error r = oasClient->sendValidationMessage(payload, mergedHeaders);
+        GenericDataResponse|error r = oasClient->sendValidationMessage(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6892,10 +6892,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function setClicLostReason(string typedId, oas:MarkOfferLostWithReasonRequest payload, map<string|string[]> headers = {}) returns oas:SetClicLostReasonEnvelope|error {
+    remote isolated function setClicLostReason(string typedId, MarkOfferLostWithReasonRequest payload, map<string|string[]> headers = {}) returns SetClicLostReasonEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:SetClicLostReasonEnvelope|error r = oasClient->setClicLostReason(typedId, payload, mergedHeaders);
+        SetClicLostReasonEnvelope|error r = oasClient->setClicLostReason(typedId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6909,10 +6909,10 @@ public isolated client class Client {
     # + uniqueName - The name (`uniqueName`) of the logic that will be set as default. Leave blank to clear the default pricing logic
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function setDefaultPricingLogic(string uniqueName, map<string|string[]> headers = {}) returns oas:SetDefaultPricingLogicResponse|error {
+    remote isolated function setDefaultPricingLogic(string uniqueName, map<string|string[]> headers = {}) returns SetDefaultPricingLogicResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:SetDefaultPricingLogicResponse|error r = oasClient->setDefaultPricingLogic(uniqueName, mergedHeaders);
+        SetDefaultPricingLogicResponse|error r = oasClient->setDefaultPricingLogic(uniqueName, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6945,10 +6945,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function shouldSubmitRrgAsynchronously(string typedId, record {} payload, map<string|string[]> headers = {}) returns oas:CheckFileExistsEnvelope|error {
+    remote isolated function shouldSubmitRrgAsynchronously(string typedId, record {} payload, map<string|string[]> headers = {}) returns CheckFileExistsEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:CheckFileExistsEnvelope|error r = oasClient->shouldSubmitRrgAsynchronously(typedId, payload, mergedHeaders);
+        CheckFileExistsEnvelope|error r = oasClient->shouldSubmitRrgAsynchronously(typedId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6963,10 +6963,10 @@ public isolated client class Client {
     # + queries - Queries to be sent with the request 
     # + payload - `sources` that SQL can use are query definitions. The sources become CTEs (Common Table Expression) in the final SQL. These are then used as a reference in the main query instead of referring to the actual tables directly. The request example compares the volume by month 2019 to 2020 
     # + return - OK 
-    remote isolated function sqlQueryDataManagerObject(oas:DatamartSqlqueryBody payload, map<string|string[]> headers = {}, *oas:SqlQueryDataManagerObjectQueries queries) returns oas:QueryDataManagerObjectResponse|error {
+    remote isolated function sqlQueryDataManagerObject(DatamartSqlqueryBody payload, map<string|string[]> headers = {}, *SqlQueryDataManagerObjectQueries queries) returns QueryDataManagerObjectResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:QueryDataManagerObjectResponse|error r = oasClient->sqlQueryDataManagerObject(payload, mergedHeaders, queries = queries);
+        QueryDataManagerObjectResponse|error r = oasClient->sqlQueryDataManagerObject(payload, mergedHeaders, queries = queries);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6981,10 +6981,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function submitChanges(string typedId, oas:ImportmanagerSubmittypedIdBody payload, map<string|string[]> headers = {}) returns oas:ImportManagerUploadEnvelope|error {
+    remote isolated function submitChanges(string typedId, ImportmanagerSubmittypedIdBody payload, map<string|string[]> headers = {}) returns ImportManagerUploadEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ImportManagerUploadEnvelope|error r = oasClient->submitChanges(typedId, payload, mergedHeaders);
+        ImportManagerUploadEnvelope|error r = oasClient->submitChanges(typedId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -6999,10 +6999,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function submitClaim(string typedId, record {} payload, map<string|string[]> headers = {}) returns oas:SubmitClaimResponse|error {
+    remote isolated function submitClaim(string typedId, record {} payload, map<string|string[]> headers = {}) returns SubmitClaimResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:SubmitClaimResponse|error r = oasClient->submitClaim(typedId, payload, mergedHeaders);
+        SubmitClaimResponse|error r = oasClient->submitClaim(typedId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7017,10 +7017,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function submitClic(string typedId, oas:SubmitQuoteContractRebateAgreementRequest payload, map<string|string[]> headers = {}) returns oas:SubmitQuoteContractRebateAgreementResponse|error {
+    remote isolated function submitClic(string typedId, SubmitQuoteContractRebateAgreementRequest payload, map<string|string[]> headers = {}) returns SubmitQuoteContractRebateAgreementResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:SubmitQuoteContractRebateAgreementResponse|error r = oasClient->submitClic(typedId, payload, mergedHeaders);
+        SubmitQuoteContractRebateAgreementResponse|error r = oasClient->submitClic(typedId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7034,10 +7034,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - Example response 
-    remote isolated function submitContract(oas:SubmitContractRequest payload, map<string|string[]> headers = {}) returns oas:ContractModelResponse|error {
+    remote isolated function submitContract(SubmitContractRequest payload, map<string|string[]> headers = {}) returns ContractModelResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ContractModelResponse|error r = oasClient->submitContract(payload, mergedHeaders);
+        ContractModelResponse|error r = oasClient->submitContract(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7052,10 +7052,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function submitDataChangeRequest(string id, record {} payload, map<string|string[]> headers = {}) returns oas:SubmitDCRResponse|error {
+    remote isolated function submitDataChangeRequest(string id, record {} payload, map<string|string[]> headers = {}) returns SubmitDCRResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:SubmitDCRResponse|error r = oasClient->submitDataChangeRequest(id, payload, mergedHeaders);
+        SubmitDCRResponse|error r = oasClient->submitDataChangeRequest(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7070,10 +7070,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function submitDataChangeRequestAsync(string id, record {} payload, map<string|string[]> headers = {}) returns oas:SubmitDCRAsyncResponse|error {
+    remote isolated function submitDataChangeRequestAsync(string id, record {} payload, map<string|string[]> headers = {}) returns SubmitDCRAsyncResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:SubmitDCRAsyncResponse|error r = oasClient->submitDataChangeRequestAsync(id, payload, mergedHeaders);
+        SubmitDCRAsyncResponse|error r = oasClient->submitDataChangeRequestAsync(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7088,10 +7088,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK. Returns the Model Object 
-    remote isolated function submitModel(string typedId, record {} payload, map<string|string[]> headers = {}) returns oas:SaveModelResponse|error {
+    remote isolated function submitModel(string typedId, record {} payload, map<string|string[]> headers = {}) returns SaveModelResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:SaveModelResponse|error r = oasClient->submitModel(typedId, payload, mergedHeaders);
+        SaveModelResponse|error r = oasClient->submitModel(typedId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7106,10 +7106,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - Example response 
-    remote isolated function submitPriceList(string id, oas:PricelistmanagerSubmitidBody payload, map<string|string[]> headers = {}) returns oas:PriceListItemResponse|error {
+    remote isolated function submitPriceList(string id, PricelistmanagerSubmitidBody payload, map<string|string[]> headers = {}) returns PriceListItemResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:PriceListItemResponse|error r = oasClient->submitPriceList(id, payload, mergedHeaders);
+        PriceListItemResponse|error r = oasClient->submitPriceList(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7124,10 +7124,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK - In case that more than one item is passed in the request, the body will not contain any data (`"data":null`). For a single item, the new PriceGridItem object is returned 
-    remote isolated function submitProducts(string id, oas:SubmitProductsRequest payload, map<string|string[]> headers = {}) returns oas:SubmitProductsResponse|error {
+    remote isolated function submitProducts(string id, SubmitProductsRequest payload, map<string|string[]> headers = {}) returns SubmitProductsResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:SubmitProductsResponse|error r = oasClient->submitProducts(id, payload, mergedHeaders);
+        SubmitProductsResponse|error r = oasClient->submitProducts(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7141,10 +7141,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - Example response 
-    remote isolated function submitQuote(oas:SubmitQuoteRequest payload, map<string|string[]> headers = {}) returns oas:QuoteResponse|error {
+    remote isolated function submitQuote(SubmitQuoteRequest payload, map<string|string[]> headers = {}) returns QuoteResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:QuoteResponse|error r = oasClient->submitQuote(payload, mergedHeaders);
+        QuoteResponse|error r = oasClient->submitQuote(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7159,10 +7159,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function submitRebateRecordGroup(string typedId, record {} payload, map<string|string[]> headers = {}) returns oas:SubmitRebateRecordGroup|error {
+    remote isolated function submitRebateRecordGroup(string typedId, record {} payload, map<string|string[]> headers = {}) returns SubmitRebateRecordGroup|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:SubmitRebateRecordGroup|error r = oasClient->submitRebateRecordGroup(typedId, payload, mergedHeaders);
+        SubmitRebateRecordGroup|error r = oasClient->submitRebateRecordGroup(typedId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7176,7 +7176,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function syntaxCheck(oas:SyntaxCheckRequest payload, map<string|string[]> headers = {}) returns error? {
+    remote isolated function syntaxCheck(SyntaxCheckRequest payload, map<string|string[]> headers = {}) returns error? {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
         error? r = oasClient->syntaxCheck(payload, mergedHeaders);
@@ -7193,10 +7193,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function testLogic(oas:TestLogicRequest payload, map<string|string[]> headers = {}) returns oas:TestLogicEnvelope|error {
+    remote isolated function testLogic(TestLogicRequest payload, map<string|string[]> headers = {}) returns TestLogicEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:TestLogicEnvelope|error r = oasClient->testLogic(payload, mergedHeaders);
+        TestLogicEnvelope|error r = oasClient->testLogic(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7210,10 +7210,10 @@ public isolated client class Client {
     # + tableName - The table you want to remove the keys from
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function truncateTable(string tableName, map<string|string[]> headers = {}) returns oas:TruncateKVTableResponse|error {
+    remote isolated function truncateTable(string tableName, map<string|string[]> headers = {}) returns TruncateKVTableResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:TruncateKVTableResponse|error r = oasClient->truncateTable(tableName, mergedHeaders);
+        TruncateKVTableResponse|error r = oasClient->truncateTable(tableName, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7347,10 +7347,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function unresolveComment(string typedId, record {} payload, map<string|string[]> headers = {}) returns oas:ResolveCommentEnvelope|error {
+    remote isolated function unresolveComment(string typedId, record {} payload, map<string|string[]> headers = {}) returns ResolveCommentEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ResolveCommentEnvelope|error r = oasClient->unresolveComment(typedId, payload, mergedHeaders);
+        ResolveCommentEnvelope|error r = oasClient->unresolveComment(typedId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7364,10 +7364,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function updateActionItem(oas:UpdateActionItemRequest payload, map<string|string[]> headers = {}) returns oas:UpdateActionItemResponse|error {
+    remote isolated function updateActionItem(UpdateActionItemRequest payload, map<string|string[]> headers = {}) returns UpdateActionItemResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:UpdateActionItemResponse|error r = oasClient->updateActionItem(payload, mergedHeaders);
+        UpdateActionItemResponse|error r = oasClient->updateActionItem(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7381,10 +7381,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function updateActionType(oas:UpdateAITBody payload, map<string|string[]> headers = {}) returns oas:UpdateActionTypeResponse|error {
+    remote isolated function updateActionType(UpdateAITBody payload, map<string|string[]> headers = {}) returns UpdateActionTypeResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:UpdateActionTypeResponse|error r = oasClient->updateActionType(payload, mergedHeaders);
+        UpdateActionTypeResponse|error r = oasClient->updateActionType(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7398,10 +7398,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function updateCalculationGrid(oas:UpdateCalculationGridRequest payload, map<string|string[]> headers = {}) returns oas:UpdateCalculationGridResponse|error {
+    remote isolated function updateCalculationGrid(UpdateCalculationGridRequest payload, map<string|string[]> headers = {}) returns UpdateCalculationGridResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:UpdateCalculationGridResponse|error r = oasClient->updateCalculationGrid(payload, mergedHeaders);
+        UpdateCalculationGridResponse|error r = oasClient->updateCalculationGrid(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7416,10 +7416,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function updateCalculationGridItem(string id, oas:UpdateCalculationGridItemRequest payload, map<string|string[]> headers = {}) returns oas:UpdateCalculationGridItemResponse|error {
+    remote isolated function updateCalculationGridItem(string id, UpdateCalculationGridItemRequest payload, map<string|string[]> headers = {}) returns UpdateCalculationGridItemResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:UpdateCalculationGridItemResponse|error r = oasClient->updateCalculationGridItem(id, payload, mergedHeaders);
+        UpdateCalculationGridItemResponse|error r = oasClient->updateCalculationGridItem(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7433,10 +7433,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload -
     # + return - OK 
-    remote isolated function updateClaim(oas:UpdateClaimRequest payload, map<string|string[]> headers = {}) returns oas:UpdateClaimResponse|error {
+    remote isolated function updateClaim(UpdateClaimRequest payload, map<string|string[]> headers = {}) returns UpdateClaimResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:UpdateClaimResponse|error r = oasClient->updateClaim(payload, mergedHeaders);
+        UpdateClaimResponse|error r = oasClient->updateClaim(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7450,10 +7450,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function updateClaimType(oas:UpdateClaimTypeRequest payload, map<string|string[]> headers = {}) returns oas:UpdateClaimTypeResponse|error {
+    remote isolated function updateClaimType(UpdateClaimTypeRequest payload, map<string|string[]> headers = {}) returns UpdateClaimTypeResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:UpdateClaimTypeResponse|error r = oasClient->updateClaimType(payload, mergedHeaders);
+        UpdateClaimTypeResponse|error r = oasClient->updateClaimType(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7468,10 +7468,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function updateClicLineItems(string typedId, oas:UpdateCLICLineItemsRequest payload, map<string|string[]> headers = {}) returns oas:UpdateClicLineItemsEnvelope|error {
+    remote isolated function updateClicLineItems(string typedId, UpdateCLICLineItemsRequest payload, map<string|string[]> headers = {}) returns UpdateClicLineItemsEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:UpdateClicLineItemsEnvelope|error r = oasClient->updateClicLineItems(typedId, payload, mergedHeaders);
+        UpdateClicLineItemsEnvelope|error r = oasClient->updateClicLineItems(typedId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7485,10 +7485,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function updateCompensationRecord(oas:UpdateCompensationRecordRequest payload, map<string|string[]> headers = {}) returns oas:UpdateCompensationRecordResponse|error {
+    remote isolated function updateCompensationRecord(UpdateCompensationRecordRequest payload, map<string|string[]> headers = {}) returns UpdateCompensationRecordResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:UpdateCompensationRecordResponse|error r = oasClient->updateCompensationRecord(payload, mergedHeaders);
+        UpdateCompensationRecordResponse|error r = oasClient->updateCompensationRecord(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7502,10 +7502,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function updateCompensationType(oas:UpdateCompensationTypeRequest payload, map<string|string[]> headers = {}) returns oas:UpdateCompensationTypeEnvelope|error {
+    remote isolated function updateCompensationType(UpdateCompensationTypeRequest payload, map<string|string[]> headers = {}) returns UpdateCompensationTypeEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:UpdateCompensationTypeEnvelope|error r = oasClient->updateCompensationType(payload, mergedHeaders);
+        UpdateCompensationTypeEnvelope|error r = oasClient->updateCompensationType(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7519,10 +7519,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload -
     # + return - OK 
-    remote isolated function updateConditionRecordItemMeta(oas:UpdateCRCIMBody payload, map<string|string[]> headers = {}) returns oas:UpdateConditionRecordItemMetaEnvelope|error {
+    remote isolated function updateConditionRecordItemMeta(UpdateCRCIMBody payload, map<string|string[]> headers = {}) returns UpdateConditionRecordItemMetaEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:UpdateConditionRecordItemMetaEnvelope|error r = oasClient->updateConditionRecordItemMeta(payload, mergedHeaders);
+        UpdateConditionRecordItemMetaEnvelope|error r = oasClient->updateConditionRecordItemMeta(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7537,10 +7537,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function updateConditionRecordSet(string id, oas:ConditionrecordsetUpdateidBody payload, map<string|string[]> headers = {}) returns oas:ConditionRecordSetOperationEnvelope|error {
+    remote isolated function updateConditionRecordSet(string id, ConditionrecordsetUpdateidBody payload, map<string|string[]> headers = {}) returns ConditionRecordSetOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ConditionRecordSetOperationEnvelope|error r = oasClient->updateConditionRecordSet(id, payload, mergedHeaders);
+        ConditionRecordSetOperationEnvelope|error r = oasClient->updateConditionRecordSet(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7554,10 +7554,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function updateConditionType(oas:UpdateConditionTypeRequest payload, map<string|string[]> headers = {}) returns oas:UpdateConditionTypeEnvelope|error {
+    remote isolated function updateConditionType(UpdateConditionTypeRequest payload, map<string|string[]> headers = {}) returns UpdateConditionTypeEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:UpdateConditionTypeEnvelope|error r = oasClient->updateConditionType(payload, mergedHeaders);
+        UpdateConditionTypeEnvelope|error r = oasClient->updateConditionType(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7571,10 +7571,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function updateConfigurationStorage(oas:UpdateJCSBody payload, map<string|string[]> headers = {}) returns oas:ConfigurationStorageOperationEnvelope|error {
+    remote isolated function updateConfigurationStorage(UpdateJCSBody payload, map<string|string[]> headers = {}) returns ConfigurationStorageOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ConfigurationStorageOperationEnvelope|error r = oasClient->updateConfigurationStorage(payload, mergedHeaders);
+        ConfigurationStorageOperationEnvelope|error r = oasClient->updateConfigurationStorage(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7588,10 +7588,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - The Custom Form was updated successfully. The response includes the updated data 
-    remote isolated function updateCustomForm(oas:UpdateCustomFormRequest payload, map<string|string[]> headers = {}) returns oas:UpdateCustomFormEnvelope|error {
+    remote isolated function updateCustomForm(UpdateCustomFormRequest payload, map<string|string[]> headers = {}) returns UpdateCustomFormEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:UpdateCustomFormEnvelope|error r = oasClient->updateCustomForm(payload, mergedHeaders);
+        UpdateCustomFormEnvelope|error r = oasClient->updateCustomForm(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7605,10 +7605,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function updateCustomFormType(oas:UpdateCustomFormTypeRequest payload, map<string|string[]> headers = {}) returns oas:UpdateCustomFormTypeResponse|error {
+    remote isolated function updateCustomFormType(UpdateCustomFormTypeRequest payload, map<string|string[]> headers = {}) returns UpdateCustomFormTypeResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:UpdateCustomFormTypeResponse|error r = oasClient->updateCustomFormType(payload, mergedHeaders);
+        UpdateCustomFormTypeResponse|error r = oasClient->updateCustomFormType(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7622,10 +7622,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload -
     # + return - Returns customer record details 
-    remote isolated function updateCustomer(oas:UpdateCustomerRequest payload, map<string|string[]> headers = {}) returns oas:CustomerResponse|error {
+    remote isolated function updateCustomer(UpdateCustomerRequest payload, map<string|string[]> headers = {}) returns CustomerResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:CustomerResponse|error r = oasClient->updateCustomer(payload, mergedHeaders);
+        CustomerResponse|error r = oasClient->updateCustomer(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7640,10 +7640,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function updateDataChangeRequestItem(string id, oas:UpdateDCRIRequest payload, map<string|string[]> headers = {}) returns oas:UpdateDCRIResponse|error {
+    remote isolated function updateDataChangeRequestItem(string id, UpdateDCRIRequest payload, map<string|string[]> headers = {}) returns UpdateDCRIResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:UpdateDCRIResponse|error r = oasClient->updateDataChangeRequestItem(id, payload, mergedHeaders);
+        UpdateDCRIResponse|error r = oasClient->updateDataChangeRequestItem(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7658,10 +7658,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function updateDataChangeRequestMassChanges(string id, oas:DcrmanagerUpdatemassopidBody payload, map<string|string[]> headers = {}) returns oas:DataChangeRequestMassChangeEnvelope|error {
+    remote isolated function updateDataChangeRequestMassChanges(string id, DcrmanagerUpdatemassopidBody payload, map<string|string[]> headers = {}) returns DataChangeRequestMassChangeEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DataChangeRequestMassChangeEnvelope|error r = oasClient->updateDataChangeRequestMassChanges(id, payload, mergedHeaders);
+        DataChangeRequestMassChangeEnvelope|error r = oasClient->updateDataChangeRequestMassChanges(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7676,10 +7676,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Either `uniqueName` or `typedId` must be provided in the request 
     # + return - Example response 
-    remote isolated function updateDataManagerEntity("DMF"|"DM"|"DMDS" typeCode, oas:UpdateDataManagerEntityRequest payload, map<string|string[]> headers = {}) returns oas:DmObjectResponse|error {
+    remote isolated function updateDataManagerEntity("DMF"|"DM"|"DMDS" typeCode, UpdateDataManagerEntityRequest payload, map<string|string[]> headers = {}) returns DmObjectResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:DmObjectResponse|error r = oasClient->updateDataManagerEntity(typeCode, payload, mergedHeaders);
+        DmObjectResponse|error r = oasClient->updateDataManagerEntity(typeCode, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7694,10 +7694,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function updateFile(string typedId, oas:BdmanagerUpdatetypedIdBody payload, map<string|string[]> headers = {}) returns oas:UpdateFileEnvelope|error {
+    remote isolated function updateFile(string typedId, BdmanagerUpdatetypedIdBody payload, map<string|string[]> headers = {}) returns UpdateFileEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:UpdateFileEnvelope|error r = oasClient->updateFile(typedId, payload, mergedHeaders);
+        UpdateFileEnvelope|error r = oasClient->updateFile(typedId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7711,10 +7711,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - JST updated 
-    remote isolated function updateJobStatusTrackerEntry(oas:OptimizationUpdatejstBody payload, map<string|string[]> headers = {}) returns oas:JobStatusTrackerUpdateEnvelope|error {
+    remote isolated function updateJobStatusTrackerEntry(OptimizationUpdatejstBody payload, map<string|string[]> headers = {}) returns JobStatusTrackerUpdateEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:JobStatusTrackerUpdateEnvelope|error r = oasClient->updateJobStatusTrackerEntry(payload, mergedHeaders);
+        JobStatusTrackerUpdateEnvelope|error r = oasClient->updateJobStatusTrackerEntry(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7729,10 +7729,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - We have performed an update action on the `comments` field in our request sample >>> 
     # + return - Example response 
-    remote isolated function updateLivePriceGridItem(string id, oas:UpdateLivePriceGridItemRequest payload, map<string|string[]> headers = {}) returns oas:PriceGridItemResponse|error {
+    remote isolated function updateLivePriceGridItem(string id, UpdateLivePriceGridItemRequest payload, map<string|string[]> headers = {}) returns PriceGridItemResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:PriceGridItemResponse|error r = oasClient->updateLivePriceGridItem(id, payload, mergedHeaders);
+        PriceGridItemResponse|error r = oasClient->updateLivePriceGridItem(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7747,10 +7747,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - We have performed an update action on the `comments` field in our request sample >>> 
     # + return - Example response 
-    remote isolated function updateLivePriceGridItemNo(string id, oas:UpdateLivePriceGridItemNoRecalcRequest payload, map<string|string[]> headers = {}) returns oas:PriceGridItemResponse|error {
+    remote isolated function updateLivePriceGridItemNo(string id, UpdateLivePriceGridItemNoRecalcRequest payload, map<string|string[]> headers = {}) returns PriceGridItemResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:PriceGridItemResponse|error r = oasClient->updateLivePriceGridItemNo(id, payload, mergedHeaders);
+        PriceGridItemResponse|error r = oasClient->updateLivePriceGridItemNo(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7764,10 +7764,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function updateLivePriceGridType(oas:UpdatePGTTBody payload, map<string|string[]> headers = {}) returns oas:LivePriceGridTypeOperationEnvelope|error {
+    remote isolated function updateLivePriceGridType(UpdatePGTTBody payload, map<string|string[]> headers = {}) returns LivePriceGridTypeOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:LivePriceGridTypeOperationEnvelope|error r = oasClient->updateLivePriceGridType(payload, mergedHeaders);
+        LivePriceGridTypeOperationEnvelope|error r = oasClient->updateLivePriceGridType(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7782,10 +7782,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - Example response 
-    remote isolated function updateLogic(string id, record {record {decimal version?; string typedId?; string uniqueName?; string label?; string validAfter?; string status?; anydata simulationSet?; anydata userGroupEdit?; anydata userGroupViewDetails?; anydata formulaNature?; string lastUpdateByName?; record {decimal version?; string typedId?; string elementName?; string elementLabel?; anydata elementDescription?; string[] elementGroups?; anydata conditionElementName?; boolean hideWarnings?; boolean excludeFromExport?; boolean protectedExpression?; decimal elementTimeout?; decimal displayOptions?; string? formatType?; anydata elementSuffix?; boolean allowOverride?; boolean summarize?; boolean hideOnNull?; anydata userGroup?; anydata cssProperties?; anydata resultGroup?; string combinationType?; boolean storeInAttributeExtension?; anydata criticalAlert?; anydata redAlert?; anydata yellowAlert?; anydata labelTranslations?; string createDate?; decimal createdBy?; string lastUpdateDate?; decimal lastUpdateBy?; string formulaExpression?;}[] elements?; record {}[] inputDescriptors?; string formulaType?; anydata createdByName?; string createDate?; decimal createdBy?; string lastUpdateDate?; decimal lastUpdateBy?;} data?;} payload, map<string|string[]> headers = {}) returns oas:LogicResponse|error {
+    remote isolated function updateLogic(string id, record {record {decimal version?; string typedId?; string uniqueName?; string label?; string validAfter?; string status?; anydata simulationSet?; anydata userGroupEdit?; anydata userGroupViewDetails?; anydata formulaNature?; string lastUpdateByName?; record {decimal version?; string typedId?; string elementName?; string elementLabel?; anydata elementDescription?; string[] elementGroups?; anydata conditionElementName?; boolean hideWarnings?; boolean excludeFromExport?; boolean protectedExpression?; decimal elementTimeout?; decimal displayOptions?; string? formatType?; anydata elementSuffix?; boolean allowOverride?; boolean summarize?; boolean hideOnNull?; anydata userGroup?; anydata cssProperties?; anydata resultGroup?; string combinationType?; boolean storeInAttributeExtension?; anydata criticalAlert?; anydata redAlert?; anydata yellowAlert?; anydata labelTranslations?; string createDate?; decimal createdBy?; string lastUpdateDate?; decimal lastUpdateBy?; string formulaExpression?;}[] elements?; record {}[] inputDescriptors?; string formulaType?; anydata createdByName?; string createDate?; decimal createdBy?; string lastUpdateDate?; decimal lastUpdateBy?;} data?;} payload, map<string|string[]> headers = {}) returns LogicResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:LogicResponse|error r = oasClient->updateLogic(id, payload, mergedHeaders);
+        LogicResponse|error r = oasClient->updateLogic(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7800,10 +7800,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - Example response 
-    remote isolated function updateLogicNo(string id, record {record {decimal version?; string typedId?; string uniqueName?; string label?; string validAfter?; string status?; anydata simulationSet?; anydata userGroupEdit?; anydata userGroupViewDetails?; anydata formulaNature?; string lastUpdateByName?; record {decimal version?; string typedId?; string elementName?; string elementLabel?; anydata elementDescription?; string[] elementGroups?; anydata conditionElementName?; boolean hideWarnings?; boolean excludeFromExport?; boolean protectedExpression?; decimal elementTimeout?; decimal displayOptions?; string? formatType?; anydata elementSuffix?; boolean allowOverride?; boolean summarize?; boolean hideOnNull?; anydata userGroup?; anydata cssProperties?; anydata resultGroup?; string combinationType?; boolean storeInAttributeExtension?; anydata criticalAlert?; anydata redAlert?; anydata yellowAlert?; anydata labelTranslations?; string createDate?; decimal createdBy?; string lastUpdateDate?; decimal lastUpdateBy?; string formulaExpression?;}[] elements?; record {}[] inputDescriptors?; string formulaType?; anydata createdByName?; string createDate?; decimal createdBy?; string lastUpdateDate?; decimal lastUpdateBy?;} data?;} payload, map<string|string[]> headers = {}) returns oas:LogicResponse|error {
+    remote isolated function updateLogicNo(string id, record {record {decimal version?; string typedId?; string uniqueName?; string label?; string validAfter?; string status?; anydata simulationSet?; anydata userGroupEdit?; anydata userGroupViewDetails?; anydata formulaNature?; string lastUpdateByName?; record {decimal version?; string typedId?; string elementName?; string elementLabel?; anydata elementDescription?; string[] elementGroups?; anydata conditionElementName?; boolean hideWarnings?; boolean excludeFromExport?; boolean protectedExpression?; decimal elementTimeout?; decimal displayOptions?; string? formatType?; anydata elementSuffix?; boolean allowOverride?; boolean summarize?; boolean hideOnNull?; anydata userGroup?; anydata cssProperties?; anydata resultGroup?; string combinationType?; boolean storeInAttributeExtension?; anydata criticalAlert?; anydata redAlert?; anydata yellowAlert?; anydata labelTranslations?; string createDate?; decimal createdBy?; string lastUpdateDate?; decimal lastUpdateBy?; string formulaExpression?;}[] elements?; record {}[] inputDescriptors?; string formulaType?; anydata createdByName?; string createDate?; decimal createdBy?; string lastUpdateDate?; decimal lastUpdateBy?;} data?;} payload, map<string|string[]> headers = {}) returns LogicResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:LogicResponse|error r = oasClient->updateLogicNo(id, payload, mergedHeaders);
+        LogicResponse|error r = oasClient->updateLogicNo(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7818,10 +7818,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - Example response 
-    remote isolated function updateLogicPartial(string id, record {record {decimal version?; string typedId?; string uniqueName?; string label?; string validAfter?; string status?; anydata simulationSet?; anydata userGroupEdit?; anydata userGroupViewDetails?; anydata formulaNature?; string lastUpdateByName?; record {decimal version?; string typedId?; string elementName?; string elementLabel?; anydata elementDescription?; string[] elementGroups?; anydata conditionElementName?; boolean hideWarnings?; boolean excludeFromExport?; boolean protectedExpression?; decimal elementTimeout?; decimal displayOptions?; string? formatType?; anydata elementSuffix?; boolean allowOverride?; boolean summarize?; boolean hideOnNull?; anydata userGroup?; anydata cssProperties?; anydata resultGroup?; string combinationType?; boolean storeInAttributeExtension?; anydata criticalAlert?; anydata redAlert?; anydata yellowAlert?; anydata labelTranslations?; string createDate?; decimal createdBy?; string lastUpdateDate?; decimal lastUpdateBy?; string formulaExpression?;}[] elements?; record {}[] inputDescriptors?; string formulaType?; anydata createdByName?; string createDate?; decimal createdBy?; string lastUpdateDate?; decimal lastUpdateBy?;} data?;} payload, map<string|string[]> headers = {}) returns oas:LogicResponse|error {
+    remote isolated function updateLogicPartial(string id, record {record {decimal version?; string typedId?; string uniqueName?; string label?; string validAfter?; string status?; anydata simulationSet?; anydata userGroupEdit?; anydata userGroupViewDetails?; anydata formulaNature?; string lastUpdateByName?; record {decimal version?; string typedId?; string elementName?; string elementLabel?; anydata elementDescription?; string[] elementGroups?; anydata conditionElementName?; boolean hideWarnings?; boolean excludeFromExport?; boolean protectedExpression?; decimal elementTimeout?; decimal displayOptions?; string? formatType?; anydata elementSuffix?; boolean allowOverride?; boolean summarize?; boolean hideOnNull?; anydata userGroup?; anydata cssProperties?; anydata resultGroup?; string combinationType?; boolean storeInAttributeExtension?; anydata criticalAlert?; anydata redAlert?; anydata yellowAlert?; anydata labelTranslations?; string createDate?; decimal createdBy?; string lastUpdateDate?; decimal lastUpdateBy?; string formulaExpression?;}[] elements?; record {}[] inputDescriptors?; string formulaType?; anydata createdByName?; string createDate?; decimal createdBy?; string lastUpdateDate?; decimal lastUpdateBy?;} data?;} payload, map<string|string[]> headers = {}) returns LogicResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:LogicResponse|error r = oasClient->updateLogicPartial(id, payload, mergedHeaders);
+        LogicResponse|error r = oasClient->updateLogicPartial(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7835,10 +7835,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload -
     # + return - OK 
-    remote isolated function updateLookupTable(oas:UpdateLookupTableRequest payload, map<string|string[]> headers = {}) returns oas:UpdateLookupTableResponse|error {
+    remote isolated function updateLookupTable(UpdateLookupTableRequest payload, map<string|string[]> headers = {}) returns UpdateLookupTableResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:UpdateLookupTableResponse|error r = oasClient->updateLookupTable(payload, mergedHeaders);
+        UpdateLookupTableResponse|error r = oasClient->updateLookupTable(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7853,10 +7853,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function updateLookupTableValue(string tableId, oas:UpdateLookupTableValueRequest payload, map<string|string[]> headers = {}) returns oas:UpdateLookupTableValueResponse|error {
+    remote isolated function updateLookupTableValue(string tableId, UpdateLookupTableValueRequest payload, map<string|string[]> headers = {}) returns UpdateLookupTableValueResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:UpdateLookupTableValueResponse|error r = oasClient->updateLookupTableValue(tableId, payload, mergedHeaders);
+        UpdateLookupTableValueResponse|error r = oasClient->updateLookupTableValue(tableId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7871,10 +7871,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function updateManualPriceListItem(string id, oas:UpdateManualPriceListRequest payload, map<string|string[]> headers = {}) returns oas:UpdateManualPriceListResponse|error {
+    remote isolated function updateManualPriceListItem(string id, UpdateManualPriceListRequest payload, map<string|string[]> headers = {}) returns UpdateManualPriceListResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:UpdateManualPriceListResponse|error r = oasClient->updateManualPriceListItem(id, payload, mergedHeaders);
+        UpdateManualPriceListResponse|error r = oasClient->updateManualPriceListItem(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7889,7 +7889,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - <!-- theme: warning --> 
     # + return - OK - contains the updated object 
-    remote isolated function updateObject(string typeCode, oas:UpdateObjectRequest payload, map<string|string[]> headers = {}) returns error? {
+    remote isolated function updateObject(string typeCode, UpdateObjectRequest payload, map<string|string[]> headers = {}) returns error? {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
         error? r = oasClient->updateObject(typeCode, payload, mergedHeaders);
@@ -7907,7 +7907,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - <!-- theme: warning --> 
     # + return - OK - contains the updated object and details of the previous version 
-    remote isolated function updateObjectReturningOldData(string typeCode, oas:UpdateObjectReturnOldDataRequest payload, map<string|string[]> headers = {}) returns error? {
+    remote isolated function updateObjectReturningOldData(string typeCode, UpdateObjectReturnOldDataRequest payload, map<string|string[]> headers = {}) returns error? {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
         error? r = oasClient->updateObjectReturningOldData(typeCode, payload, mergedHeaders);
@@ -7925,10 +7925,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function updatePriceListDetail(string id, oas:UpdatePricelistDetailRequest payload, map<string|string[]> headers = {}) returns oas:UpdatePricelistDetailResponse|error {
+    remote isolated function updatePriceListDetail(string id, UpdatePricelistDetailRequest payload, map<string|string[]> headers = {}) returns UpdatePricelistDetailResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:UpdatePricelistDetailResponse|error r = oasClient->updatePriceListDetail(id, payload, mergedHeaders);
+        UpdatePricelistDetailResponse|error r = oasClient->updatePriceListDetail(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7942,10 +7942,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function updatePriceListType(oas:UpdatePLTTBody payload, map<string|string[]> headers = {}) returns oas:PriceListTypeOperationEnvelope|error {
+    remote isolated function updatePriceListType(UpdatePLTTBody payload, map<string|string[]> headers = {}) returns PriceListTypeOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:PriceListTypeOperationEnvelope|error r = oasClient->updatePriceListType(payload, mergedHeaders);
+        PriceListTypeOperationEnvelope|error r = oasClient->updatePriceListType(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7959,10 +7959,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Updates specified fields of the record. Only one record can be updated per request (unless batched).<p> 
     # + return - Returns full record details 
-    remote isolated function updateProduct(oas:UpdateProductRequest payload, map<string|string[]> headers = {}) returns oas:ProductResponse|error {
+    remote isolated function updateProduct(UpdateProductRequest payload, map<string|string[]> headers = {}) returns ProductResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ProductResponse|error r = oasClient->updateProduct(payload, mergedHeaders);
+        ProductResponse|error r = oasClient->updateProduct(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7977,10 +7977,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function updateQuoteContractRebateAgreement(string typedId, oas:ClicmanagerUpdatetypedIdBody payload, map<string|string[]> headers = {}) returns oas:UpdateClicEnvelope|error {
+    remote isolated function updateQuoteContractRebateAgreement(string typedId, ClicmanagerUpdatetypedIdBody payload, map<string|string[]> headers = {}) returns UpdateClicEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:UpdateClicEnvelope|error r = oasClient->updateQuoteContractRebateAgreement(typedId, payload, mergedHeaders);
+        UpdateClicEnvelope|error r = oasClient->updateQuoteContractRebateAgreement(typedId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -7995,10 +7995,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
-    remote isolated function updateReviewStatus(string typedId, record {} payload, map<string|string[]> headers = {}) returns oas:GenericDataResponse|error {
+    remote isolated function updateReviewStatus(string typedId, record {} payload, map<string|string[]> headers = {}) returns GenericDataResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GenericDataResponse|error r = oasClient->updateReviewStatus(typedId, payload, mergedHeaders);
+        GenericDataResponse|error r = oasClient->updateReviewStatus(typedId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -8012,10 +8012,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function updateSeller(oas:UpdateSellerRequest payload, map<string|string[]> headers = {}) returns oas:UpdateSellerEnvelope|error {
+    remote isolated function updateSeller(UpdateSellerRequest payload, map<string|string[]> headers = {}) returns UpdateSellerEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:UpdateSellerEnvelope|error r = oasClient->updateSeller(payload, mergedHeaders);
+        UpdateSellerEnvelope|error r = oasClient->updateSeller(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -8029,10 +8029,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function updateSellerExtension(oas:UpdateSXBody payload, map<string|string[]> headers = {}) returns oas:UpdateSellerExtensionEnvelope|error {
+    remote isolated function updateSellerExtension(UpdateSXBody payload, map<string|string[]> headers = {}) returns UpdateSellerExtensionEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:UpdateSellerExtensionEnvelope|error r = oasClient->updateSellerExtension(payload, mergedHeaders);
+        UpdateSellerExtensionEnvelope|error r = oasClient->updateSellerExtension(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -8046,10 +8046,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Specify the user by `typedId` and define the new value of the field you want to update in the `data` object 
     # + return - Example response 
-    remote isolated function updateUser(oas:UpdateUserRequest payload, map<string|string[]> headers = {}) returns oas:UserResponse|error {
+    remote isolated function updateUser(UpdateUserRequest payload, map<string|string[]> headers = {}) returns UserResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:UserResponse|error r = oasClient->updateUser(payload, mergedHeaders);
+        UserResponse|error r = oasClient->updateUser(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -8063,10 +8063,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function updateWorkflowDelegation(oas:UpdateWorkflowDelegationRequest payload, map<string|string[]> headers = {}) returns oas:UpdateWorkflowDelegationResponse|error {
+    remote isolated function updateWorkflowDelegation(UpdateWorkflowDelegationRequest payload, map<string|string[]> headers = {}) returns UpdateWorkflowDelegationResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:UpdateWorkflowDelegationResponse|error r = oasClient->updateWorkflowDelegation(payload, mergedHeaders);
+        UpdateWorkflowDelegationResponse|error r = oasClient->updateWorkflowDelegation(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -8081,10 +8081,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function uploadBulkDataToDataSource(string datasourceUniqueName, oas:UploadBulkDataToDataSourceRequest payload, map<string|string[]> headers = {}) returns oas:BulkDataUploadEnvelope|error {
+    remote isolated function uploadBulkDataToDataSource(string datasourceUniqueName, UploadBulkDataToDataSourceRequest payload, map<string|string[]> headers = {}) returns BulkDataUploadEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:BulkDataUploadEnvelope|error r = oasClient->uploadBulkDataToDataSource(datasourceUniqueName, payload, mergedHeaders);
+        BulkDataUploadEnvelope|error r = oasClient->uploadBulkDataToDataSource(datasourceUniqueName, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -8102,10 +8102,10 @@ public isolated client class Client {
     # + queries - Queries to be sent with the request 
     # + payload - Request payload
     # + return - File uploaded successfully 
-    remote isolated function uploadExcelToImportManager("P"|"PX" typeCode, string target, string slotId, oas:TypeCodetargetBody payload, map<string|string[]> headers = {}, *oas:UploadExcelToImportManagerQueries queries) returns oas:ImportManagerUploadEnvelope|error {
+    remote isolated function uploadExcelToImportManager("P"|"PX" typeCode, string target, string slotId, TypeCodetargetBody payload, map<string|string[]> headers = {}, *UploadExcelToImportManagerQueries queries) returns ImportManagerUploadEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ImportManagerUploadEnvelope|error r = oasClient->uploadExcelToImportManager(typeCode, target, slotId, payload, mergedHeaders, queries = queries);
+        ImportManagerUploadEnvelope|error r = oasClient->uploadExcelToImportManager(typeCode, target, slotId, payload, mergedHeaders, queries = queries);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -8121,10 +8121,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function uploadFile(string typedId, string slotId, oas:TypedIdslotIdBody payload, map<string|string[]> headers = {}) returns oas:FileOperationEnvelope|error {
+    remote isolated function uploadFile(string typedId, string slotId, TypedIdslotIdBody payload, map<string|string[]> headers = {}) returns FileOperationEnvelope|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:FileOperationEnvelope|error r = oasClient->uploadFile(typedId, slotId, payload, mergedHeaders);
+        FileOperationEnvelope|error r = oasClient->uploadFile(typedId, slotId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -8142,10 +8142,10 @@ public isolated client class Client {
     # + queries - Queries to be sent with the request 
     # + payload - Request payload
     # + return - A general response that contains `data` property with a content depending on returned objects (e.g., Product master table fields when calling the `/fetch/P` endpoint). Can be `null` 
-    remote isolated function uploadFileToPxCxSx("PX"|"CX"|"SX" typeCode, string target, string uploadSlotId, oas:TargetuploadSlotIdBody payload, map<string|string[]> headers = {}, *oas:UploadFileToPxCxSxQueries queries) returns oas:GenericDataResponse|error {
+    remote isolated function uploadFileToPxCxSx("PX"|"CX"|"SX" typeCode, string target, string uploadSlotId, TargetuploadSlotIdBody payload, map<string|string[]> headers = {}, *UploadFileToPxCxSxQueries queries) returns GenericDataResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:GenericDataResponse|error r = oasClient->uploadFileToPxCxSx(typeCode, target, uploadSlotId, payload, mergedHeaders, queries = queries);
+        GenericDataResponse|error r = oasClient->uploadFileToPxCxSx(typeCode, target, uploadSlotId, payload, mergedHeaders, queries = queries);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -8161,7 +8161,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function uploadProductImage(string slotId, string sku, oas:TypedIdslotIdBody payload, map<string|string[]> headers = {}) returns error? {
+    remote isolated function uploadProductImage(string slotId, string sku, TypedIdslotIdBody payload, map<string|string[]> headers = {}) returns error? {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
         error? r = oasClient->uploadProductImage(slotId, sku, payload, mergedHeaders);
@@ -8178,10 +8178,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function upsertCompensationPlan(oas:UpsertCompensationPlanRequest payload, map<string|string[]> headers = {}) returns oas:UpsertCompensationPlanResponse|error {
+    remote isolated function upsertCompensationPlan(UpsertCompensationPlanRequest payload, map<string|string[]> headers = {}) returns UpsertCompensationPlanResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:UpsertCompensationPlanResponse|error r = oasClient->upsertCompensationPlan(payload, mergedHeaders);
+        UpsertCompensationPlanResponse|error r = oasClient->upsertCompensationPlan(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -8195,10 +8195,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - Example response 
-    remote isolated function upsertContract(oas:UpsertContractRequest payload, map<string|string[]> headers = {}) returns oas:ContractModelResponse|error {
+    remote isolated function upsertContract(UpsertContractRequest payload, map<string|string[]> headers = {}) returns ContractModelResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ContractModelResponse|error r = oasClient->upsertContract(payload, mergedHeaders);
+        ContractModelResponse|error r = oasClient->upsertContract(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -8212,10 +8212,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - If the customer does not exist yet, at least the `customerId` must be specified in the payload.<p> 
     # + return - Returns customer record details 
-    remote isolated function upsertCustomer(oas:UpsertCustomerRequest payload, map<string|string[]> headers = {}) returns oas:CustomerResponse|error {
+    remote isolated function upsertCustomer(UpsertCustomerRequest payload, map<string|string[]> headers = {}) returns CustomerResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:CustomerResponse|error r = oasClient->upsertCustomer(payload, mergedHeaders);
+        CustomerResponse|error r = oasClient->upsertCustomer(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -8229,10 +8229,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - **Please note**: The data sent in your request might be different from our sample request schema. Custom fields (`attribute1`..`attribute30`) can be retrieved using the **`/fetch/CXAM`** operation 
     # + return - OK 
-    remote isolated function upsertCustomerExtension(oas:UpsertCustomerExtensionRequest payload, map<string|string[]> headers = {}) returns oas:UpsertCustomerExtensionResponse|error {
+    remote isolated function upsertCustomerExtension(UpsertCustomerExtensionRequest payload, map<string|string[]> headers = {}) returns UpsertCustomerExtensionResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:UpsertCustomerExtensionResponse|error r = oasClient->upsertCustomerExtension(payload, mergedHeaders);
+        UpsertCustomerExtensionResponse|error r = oasClient->upsertCustomerExtension(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -8247,10 +8247,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload -
     # + return - OK. Returns `"data" : null` when successfully inserted/updated 
-    remote isolated function upsertKey(string tableName, oas:UpsertKVKeyRequest payload, map<string|string[]> headers = {}) returns oas:UpsertKVKeyResponse|error {
+    remote isolated function upsertKey(string tableName, UpsertKVKeyRequest payload, map<string|string[]> headers = {}) returns UpsertKVKeyResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:UpsertKVKeyResponse|error r = oasClient->upsertKey(tableName, payload, mergedHeaders);
+        UpsertKVKeyResponse|error r = oasClient->upsertKey(tableName, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -8265,10 +8265,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function upsertLookupTableValue(string tableId, oas:UpsertLookupTableValueRequest payload, map<string|string[]> headers = {}) returns oas:UpsertLookupTableValueResponse|error {
+    remote isolated function upsertLookupTableValue(string tableId, UpsertLookupTableValueRequest payload, map<string|string[]> headers = {}) returns UpsertLookupTableValueResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:UpsertLookupTableValueResponse|error r = oasClient->upsertLookupTableValue(tableId, payload, mergedHeaders);
+        UpsertLookupTableValueResponse|error r = oasClient->upsertLookupTableValue(tableId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -8283,10 +8283,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload -
     # + return - Returns full record details 
-    remote isolated function upsertManualPriceListProduct(string id, oas:UpsertProductManualPriceListRequest payload, map<string|string[]> headers = {}) returns oas:ProductResponse|error {
+    remote isolated function upsertManualPriceListProduct(string id, UpsertProductManualPriceListRequest payload, map<string|string[]> headers = {}) returns ProductResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ProductResponse|error r = oasClient->upsertManualPriceListProduct(id, payload, mergedHeaders);
+        ProductResponse|error r = oasClient->upsertManualPriceListProduct(id, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -8301,10 +8301,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - The **`/integrate/P`** endpoint (Upsert a Product) is used in our example.<p> 
     # + return - Returns full record details 
-    remote isolated function upsertObject("ACTT"|"AP"|"APIK"|"BD"|"BPT"|"BR"|"C"|"CA"|"CAM"|"CDESC"|"CF"|"CFS"|"CFT"|"CH"|"CLLI"|"CN"|"CS"|"CT"|"CTAM"|"CTLI"|"CTMU"|"CTMUI"|"CTT"|"CTTAM"|"CTTREE"|"CW"|"CX"|"CXAM"|"DA"|"DB"|"DCR"|"DCRAM"|"DCRI"|"DCRL"|"DCRMC"|"DCRT"|"DE"|"DI"|"DM"|"DMDC"|"DMDL"|"DMDS"|"DMF"|"DMM"|"DMR"|"DMT"|"DREG"|"DWT"|"ET"|"EVT"|"F"|"FE"|"FN"|"IDC"|"IE"|"ISH"|"JST"|"JLTV"|"JLTVM"|"LAT"|"LT"|"LTT"|"LTV"|"M"|"MLTV"|"MLTV2"|"MLTV3"|"MLTV4"|"MLTV5"|"MLTV6"|"MLTVM"|"MPL"|"MPLAM"|"MPLI"|"MPLIT"|"MPLT"|"MR"|"MRAM"|"MT"|"P"|"PAM"|"PAPIJ"|"PBOME"|"PCOMP"|"PCW"|"PDESC"|"PG"|"PGI"|"PGIM"|"PGT"|"PH"|"PL"|"PLI"|"PLIM"|"PLT"|"PR"|"PRAM"|"PREF"|"PT"|"PWH"|"PX"|"PXAM"|"PXREF"|"PYR"|"PYRAM"|"Q"|"QAM"|"QLI"|"QMU"|"QMUI"|"QT"|"QTT"|"QTTAM"|"R"|"RAT"|"RATM"|"RBA"|"RBAAM"|"RBALI"|"RBAT"|"RBT"|"RBTAM"|"RR"|"RRAM"|"RRS"|"RRSC"|"RT"|"SAT"|"SC"|"SCN"|"SCNAM"|"SCT"|"SIAM"|"SIM"|"SIMI"|"TFA"|"TODO"|"U"|"UG"|"US"|"W"|"WD"|"WF"|"WFE"|"XPGI"|"XPLI"|"XSIMI" typeCode, oas:UpsertObjectRequest payload, map<string|string[]> headers = {}) returns oas:ProductResponse|error {
+    remote isolated function upsertObject("ACTT"|"AP"|"APIK"|"BD"|"BPT"|"BR"|"C"|"CA"|"CAM"|"CDESC"|"CF"|"CFS"|"CFT"|"CH"|"CLLI"|"CN"|"CS"|"CT"|"CTAM"|"CTLI"|"CTMU"|"CTMUI"|"CTT"|"CTTAM"|"CTTREE"|"CW"|"CX"|"CXAM"|"DA"|"DB"|"DCR"|"DCRAM"|"DCRI"|"DCRL"|"DCRMC"|"DCRT"|"DE"|"DI"|"DM"|"DMDC"|"DMDL"|"DMDS"|"DMF"|"DMM"|"DMR"|"DMT"|"DREG"|"DWT"|"ET"|"EVT"|"F"|"FE"|"FN"|"IDC"|"IE"|"ISH"|"JST"|"JLTV"|"JLTVM"|"LAT"|"LT"|"LTT"|"LTV"|"M"|"MLTV"|"MLTV2"|"MLTV3"|"MLTV4"|"MLTV5"|"MLTV6"|"MLTVM"|"MPL"|"MPLAM"|"MPLI"|"MPLIT"|"MPLT"|"MR"|"MRAM"|"MT"|"P"|"PAM"|"PAPIJ"|"PBOME"|"PCOMP"|"PCW"|"PDESC"|"PG"|"PGI"|"PGIM"|"PGT"|"PH"|"PL"|"PLI"|"PLIM"|"PLT"|"PR"|"PRAM"|"PREF"|"PT"|"PWH"|"PX"|"PXAM"|"PXREF"|"PYR"|"PYRAM"|"Q"|"QAM"|"QLI"|"QMU"|"QMUI"|"QT"|"QTT"|"QTTAM"|"R"|"RAT"|"RATM"|"RBA"|"RBAAM"|"RBALI"|"RBAT"|"RBT"|"RBTAM"|"RR"|"RRAM"|"RRS"|"RRSC"|"RT"|"SAT"|"SC"|"SCN"|"SCNAM"|"SCT"|"SIAM"|"SIM"|"SIMI"|"TFA"|"TODO"|"U"|"UG"|"US"|"W"|"WD"|"WF"|"WFE"|"XPGI"|"XPLI"|"XSIMI" typeCode, UpsertObjectRequest payload, map<string|string[]> headers = {}) returns ProductResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ProductResponse|error r = oasClient->upsertObject(typeCode, payload, mergedHeaders);
+        ProductResponse|error r = oasClient->upsertObject(typeCode, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -8319,10 +8319,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - The **`/integrate/P/returnolddata`** endpoint (upserts a product) is used in our example.<p> 
     # + return - OK 
-    remote isolated function upsertObjectReturningOldData(oas:TypeCodeEnum typeCode, oas:UpsertObjectReturnOldDataRequest payload, map<string|string[]> headers = {}) returns oas:UpsertObjectReturnOldDataResponse|error {
+    remote isolated function upsertObjectReturningOldData(TypeCodeEnum typeCode, UpsertObjectReturnOldDataRequest payload, map<string|string[]> headers = {}) returns UpsertObjectReturnOldDataResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:UpsertObjectReturnOldDataResponse|error r = oasClient->upsertObjectReturningOldData(typeCode, payload, mergedHeaders);
+        UpsertObjectReturnOldDataResponse|error r = oasClient->upsertObjectReturningOldData(typeCode, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -8336,10 +8336,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Either `sku` or `typedId` must be specified in order to *update* an existing product 
     # + return - Returns full record details 
-    remote isolated function upsertProduct(oas:UpsertProductRequest payload, map<string|string[]> headers = {}) returns oas:ProductResponse|error {
+    remote isolated function upsertProduct(UpsertProductRequest payload, map<string|string[]> headers = {}) returns ProductResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ProductResponse|error r = oasClient->upsertProduct(payload, mergedHeaders);
+        ProductResponse|error r = oasClient->upsertProduct(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -8353,10 +8353,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - Returns full record details 
-    remote isolated function upsertProductExtension(oas:UpsertProductExtensionRequest payload, map<string|string[]> headers = {}) returns oas:ProductResponse|error {
+    remote isolated function upsertProductExtension(UpsertProductExtensionRequest payload, map<string|string[]> headers = {}) returns ProductResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ProductResponse|error r = oasClient->upsertProductExtension(payload, mergedHeaders);
+        ProductResponse|error r = oasClient->upsertProductExtension(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -8370,10 +8370,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - Example response 
-    remote isolated function upsertQuote(oas:UpsertQuoteRequest payload, map<string|string[]> headers = {}) returns oas:QuoteResponse|error {
+    remote isolated function upsertQuote(UpsertQuoteRequest payload, map<string|string[]> headers = {}) returns QuoteResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:QuoteResponse|error r = oasClient->upsertQuote(payload, mergedHeaders);
+        QuoteResponse|error r = oasClient->upsertQuote(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -8387,10 +8387,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - Example response 
-    remote isolated function upsertRebateAgreement(oas:UpsertRebateAgreementRequest payload, map<string|string[]> headers = {}) returns oas:RebateAgreementResponse|error {
+    remote isolated function upsertRebateAgreement(UpsertRebateAgreementRequest payload, map<string|string[]> headers = {}) returns RebateAgreementResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:RebateAgreementResponse|error r = oasClient->upsertRebateAgreement(payload, mergedHeaders);
+        RebateAgreementResponse|error r = oasClient->upsertRebateAgreement(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -8405,10 +8405,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function validateItems(string typedId, oas:ValidateClaimItemsRequest payload, map<string|string[]> headers = {}) returns oas:ValidateClaimItemsResponse|error {
+    remote isolated function validateItems(string typedId, ValidateClaimItemsRequest payload, map<string|string[]> headers = {}) returns ValidateClaimItemsResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ValidateClaimItemsResponse|error r = oasClient->validateItems(typedId, payload, mergedHeaders);
+        ValidateClaimItemsResponse|error r = oasClient->validateItems(typedId, payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -8422,10 +8422,10 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - Request payload
     # + return - OK 
-    remote isolated function validateWorkflowDelegation(oas:ValidateWorkflowDelegationRequest payload, map<string|string[]> headers = {}) returns oas:ValidateWorkflowDelegationResponse|error {
+    remote isolated function validateWorkflowDelegation(ValidateWorkflowDelegationRequest payload, map<string|string[]> headers = {}) returns ValidateWorkflowDelegationResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:ValidateWorkflowDelegationResponse|error r = oasClient->validateWorkflowDelegation(payload, mergedHeaders);
+        ValidateWorkflowDelegationResponse|error r = oasClient->validateWorkflowDelegation(payload, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -8439,10 +8439,10 @@ public isolated client class Client {
     # + currentStepId - The ID of the workflow step. It can be retrieved using the `/workflowsmanager.fetch/active` (**List Pending Approvals**) endpoint
     # + headers - Headers to be sent with the request 
     # + return - OK 
-    remote isolated function withdrawDocument(string currentStepId, map<string|string[]> headers = {}) returns oas:WithdrawDocumentResponse|error {
+    remote isolated function withdrawDocument(string currentStepId, map<string|string[]> headers = {}) returns WithdrawDocumentResponse|error {
         oas:Client oasClient = self.getOasClient();
         map<string|string[]> mergedHeaders = mergeHeaders(self.staticHeaders(), headers);
-        oas:WithdrawDocumentResponse|error r = oasClient->withdrawDocument(currentStepId, mergedHeaders);
+        WithdrawDocumentResponse|error r = oasClient->withdrawDocument(currentStepId, mergedHeaders);
         if isAuthError(r) {
             check self.reauthenticate();
             oasClient = self.getOasClient();
@@ -8474,7 +8474,7 @@ public isolated client class Client {
 # + serviceUrl - URL of the target service
 # + return - A freshly authenticated `oas:Client`, or an error if authentication failed
 isolated function createOasClient(readonly & ConnectionConfig config, string serviceUrl) returns oas:Client|error {
-    http:CredentialsConfig|http:BearerTokenConfig|oas:ApiKeysConfig|oas:OAuth2RefreshTokenGrantConfig oasAuth;
+    http:CredentialsConfig|http:BearerTokenConfig|ApiKeysConfig|OAuth2RefreshTokenGrantConfig oasAuth;
     readonly & PricefxCredentials auth = config.auth;
     if auth is JwtCredentials {
         oasAuth = {X\-PriceFx\-jwt: auth.jwt};

@@ -15,7 +15,6 @@
 // under the License.
 
 import ballerina/os;
-import ballerinax/pricefx.oas;
 import ballerina/test;
 
 final boolean isLiveServer = os:getEnv("IS_LIVE_SERVER") == "true";
@@ -61,7 +60,7 @@ function testReauthenticatesAndRetriesOnUnauthorized() returns error? {
     // expired token) and succeeds afterwards. The wrapper should re-authenticate and replay the
     // request transparently, so the caller sees a successful response rather than the 401.
     Client pricefxClient = getPricefxClient();
-    oas:ListUsersResponse response = check pricefxClient->listUsers({});
+    ListUsersResponse response = check pricefxClient->listUsers({});
     test:assertTrue(response?.response !is (), "expected the retried request to succeed after re-authentication");
 }
 
@@ -74,7 +73,7 @@ function testBasicAuthBootstrapsASessionToken() returns error? {
     // credentials. Pricefx makes Basic auth deliberately slow, so re-sending it per request would
     // add roughly half a second each time.
     Client basicClient = check new ({auth: {username, password, partition}, validation: false}, serviceUrl);
-    oas:ListPriceListsResponse response = check basicClient->listPriceLists({});
+    ListPriceListsResponse response = check basicClient->listPriceLists({});
     string node = response.response?.node ?: "";
     test:assertTrue(
         node.includes("jwt=mock-session-jwt-abc123"),
@@ -97,7 +96,7 @@ function testFallsBackToBasicAuthWhenNoSessionCookieIsIssued() returns error? {
         {auth: {username, password, partition: "nocookie"}, validation: false},
         "http://localhost:9090/pricefx/nocookie"
     );
-    oas:ListPriceListsResponse response = check fallbackClient->listPriceLists({});
+    ListPriceListsResponse response = check fallbackClient->listPriceLists({});
     string node = response.response?.node ?: "";
     test:assertTrue(
         node.includes("auth=Basic "),
@@ -113,7 +112,7 @@ function testPerCallHeaderReachesTheServer() returns error? {
     // per call. This also covers the general case: any header a caller supplies on a single
     // operation is forwarded, and takes precedence over the connector's own merged headers.
     Client pricefxClient = getPricefxClient();
-    oas:ListPriceListsResponse response = check pricefxClient->listPriceLists({}, {"PriceFx-TFA": "123456"});
+    ListPriceListsResponse response = check pricefxClient->listPriceLists({}, {"PriceFx-TFA": "123456"});
     string node = response.response?.node ?: "";
     test:assertTrue(node.includes("tfa=123456"), "expected a per-call header to reach the server, got: " + node);
 }
@@ -126,7 +125,7 @@ function testOAuth2RefreshTokenAuth() returns error? {
         {auth: {clientId: "test-client-id", clientSecret: "test-client-secret", refreshToken: "test-refresh-token"}, validation: false},
         serviceUrl
     );
-    oas:ListPriceListsResponse response = check oauth2Client->listPriceLists({});
+    ListPriceListsResponse response = check oauth2Client->listPriceLists({});
     string node = response.response?.node ?: "";
     test:assertTrue(
         node.includes("auth=Bearer mock-oauth2-access-token"),
@@ -142,7 +141,7 @@ function testPreObtainedJwtAuth() returns error? {
     // `generateJwtToken`). It is sent as-is: no `POST /token` exchange happens, so constructing
     // this client makes no network call at all.
     Client jwtClient = check new ({auth: {jwt: "preobtained-jwt-xyz"}, validation: false}, serviceUrl);
-    oas:ListPriceListsResponse response = check jwtClient->listPriceLists({});
+    ListPriceListsResponse response = check jwtClient->listPriceLists({});
     string node = response.response?.node ?: "";
     test:assertTrue(
         node.includes("jwt=preobtained-jwt-xyz"),
@@ -158,7 +157,7 @@ function testExternalJwtAuth() returns error? {
         {auth: {systemName: "mysystem", jwt: "signed-jwt-value"}, validation: false},
         serviceUrl
     );
-    oas:ListPriceListsResponse response = check externalJwtClient->listPriceLists({});
+    ListPriceListsResponse response = check externalJwtClient->listPriceLists({});
     string node = response.response?.node ?: "";
     test:assertTrue(
         node.includes("auth=BEARER mysystem;signed-jwt-value"),
@@ -171,11 +170,11 @@ function testExternalJwtAuth() returns error? {
 }
 function testAddCustomer() returns error? {
     Client pricefxClient = getPricefxClient();
-    oas:AddCustomerRequest payload = {
+    AddCustomerRequest payload = {
         data: {customerId: "CUST-2001", name: "Test Customer"},
         operation: "add"
     };
-    oas:CustomerResponse response = check pricefxClient->addCustomer(payload);
+    CustomerResponse response = check pricefxClient->addCustomer(payload);
     test:assertTrue(response?.response !is ());
 }
 
@@ -184,11 +183,11 @@ function testAddCustomer() returns error? {
 }
 function testAddConditionRecordSet() returns error? {
     Client pricefxClient = getPricefxClient();
-    oas:AddCRCSBody payload = {
+    AddCRCSBody payload = {
         data: {uniqueName: "test-crcs", keySize: 12, label: "Test Condition Record Set"},
         operation: "add"
     };
-    oas:ConditionRecordSetOperationEnvelope response = check pricefxClient->addConditionRecordSet(payload);
+    ConditionRecordSetOperationEnvelope response = check pricefxClient->addConditionRecordSet(payload);
     test:assertTrue(response?.response !is ());
 }
 
@@ -197,12 +196,12 @@ function testAddConditionRecordSet() returns error? {
 }
 function testCreateManualPriceList() returns error? {
     Client pricefxClient = getPricefxClient();
-    oas:CreateManualPriceListRequest payload = {
+    CreateManualPriceListRequest payload = {
         textMatchStyle: "exact",
         data: {uniqueName: "q1-2026-promo", label: "Q1 2026 Promo Price List", validAfter: "2026-01-01", status: "ACTIVE"},
         operationType: "add"
     };
-    oas:ManualPriceListResponse response = check pricefxClient->createManualPriceList(payload);
+    ManualPriceListResponse response = check pricefxClient->createManualPriceList(payload);
     test:assertTrue(response?.response !is ());
 }
 
@@ -211,11 +210,11 @@ function testCreateManualPriceList() returns error? {
 }
 function testAddProduct() returns error? {
     Client pricefxClient = getPricefxClient();
-    oas:AddProductRequest payload = {
+    AddProductRequest payload = {
         data: {sku: "SKU-9001", label: "Test Product"},
         operation: "add"
     };
-    oas:ProductResponse response = check pricefxClient->addProduct(payload);
+    ProductResponse response = check pricefxClient->addProduct(payload);
     test:assertTrue(response?.response !is ());
 }
 
@@ -224,11 +223,11 @@ function testAddProduct() returns error? {
 }
 function testAddSeller() returns error? {
     Client pricefxClient = getPricefxClient();
-    oas:AddSellerRequest payload = {
+    AddSellerRequest payload = {
         data: {sellerId: "SL-9001", name: "Test Seller"},
         operation: "add"
     };
-    oas:AddSellerEnvelope response = check pricefxClient->addSeller(payload);
+    AddSellerEnvelope response = check pricefxClient->addSeller(payload);
     test:assertTrue(response?.response !is ());
 }
 
@@ -237,8 +236,8 @@ function testAddSeller() returns error? {
 }
 function testListFiles() returns error? {
     Client pricefxClient = getPricefxClient();
-    oas:BdmanagerListtypedIdBody payload = {};
-    oas:ListFilesEnvelope response = check pricefxClient->listFiles("1001.C", payload);
+    BdmanagerListtypedIdBody payload = {};
+    ListFilesEnvelope response = check pricefxClient->listFiles("1001.C", payload);
     test:assertTrue(response?.response !is ());
 }
 
@@ -247,10 +246,10 @@ function testListFiles() returns error? {
 }
 function testAddCalculationGrid() returns error? {
     Client pricefxClient = getPricefxClient();
-    oas:AddCalculationGridRequest payload = {
+    AddCalculationGridRequest payload = {
         data: {configuration: "Standard Discount Grid", label: "Standard Discount Grid", keyGenerationType: "MANUAL"}
     };
-    oas:AddCalculationGridResponse response = check pricefxClient->addCalculationGrid(payload);
+    AddCalculationGridResponse response = check pricefxClient->addCalculationGrid(payload);
     test:assertTrue(response?.response !is ());
 }
 
@@ -259,8 +258,8 @@ function testAddCalculationGrid() returns error? {
 }
 function testCalculateCalculationGrid() returns error? {
     Client pricefxClient = getPricefxClient();
-    oas:CalculateCalculationGridRequest payload = {};
-    oas:CalculateCalculationGridResponse response = check pricefxClient->calculateCalculationGrid("6001", payload);
+    CalculateCalculationGridRequest payload = {};
+    CalculateCalculationGridResponse response = check pricefxClient->calculateCalculationGrid("6001", payload);
     test:assertTrue(response?.response !is ());
 }
 
@@ -269,7 +268,7 @@ function testCalculateCalculationGrid() returns error? {
 }
 function testGetContract() returns error? {
     Client pricefxClient = getPricefxClient();
-    oas:ContractModelResponse response = check pricefxClient->getContract("acme-master-agreement");
+    ContractModelResponse response = check pricefxClient->getContract("acme-master-agreement");
     test:assertTrue(response?.response !is ());
 }
 
@@ -278,7 +277,7 @@ function testGetContract() returns error? {
 }
 function testUpsertContract() returns error? {
     Client pricefxClient = getPricefxClient();
-    oas:ContractmanagersaveDataContract contract = {
+    ContractmanagersaveDataContract contract = {
         outputs: [],
         headerText: "Globex Partner Agreement",
         endDate: "2026-12-31",
@@ -305,8 +304,8 @@ function testUpsertContract() returns error? {
         calculationStatus: 0,
         lastUpdateBy: 1
     };
-    oas:UpsertContractRequest payload = {data: {contract: contract}};
-    oas:ContractModelResponse response = check pricefxClient->upsertContract(payload);
+    UpsertContractRequest payload = {data: {contract: contract}};
+    ContractModelResponse response = check pricefxClient->upsertContract(payload);
     test:assertTrue(response?.response !is ());
 }
 
@@ -315,8 +314,8 @@ function testUpsertContract() returns error? {
 }
 function testListCustomers() returns error? {
     Client pricefxClient = getPricefxClient();
-    oas:ListCustomersRequest payload = {};
-    oas:CustomerResponse response = check pricefxClient->listCustomers(payload);
+    ListCustomersRequest payload = {};
+    CustomerResponse response = check pricefxClient->listCustomers(payload);
     test:assertTrue(response?.response !is ());
 }
 
@@ -325,8 +324,8 @@ function testListCustomers() returns error? {
 }
 function testDeleteCustomer() returns error? {
     Client pricefxClient = getPricefxClient();
-    oas:DeleteCustomerRequest payload = {data: {typedId: "1001.C"}};
-    oas:DeleteCustomerResponse response = check pricefxClient->deleteCustomer(payload);
+    DeleteCustomerRequest payload = {data: {typedId: "1001.C"}};
+    DeleteCustomerResponse response = check pricefxClient->deleteCustomer(payload);
     test:assertTrue(response.response.data.length() > 0);
 }
 
@@ -335,8 +334,8 @@ function testDeleteCustomer() returns error? {
 }
 function testDeleteConditionRecordSet() returns error? {
     Client pricefxClient = getPricefxClient();
-    oas:DcrmanagerDeletemassopidBody payload = {data: {typedId: "500.CRCS"}};
-    oas:ConditionRecordSetOperationEnvelope response = check pricefxClient->deleteConditionRecordSet(payload);
+    DcrmanagerDeletemassopidBody payload = {data: {typedId: "500.CRCS"}};
+    ConditionRecordSetOperationEnvelope response = check pricefxClient->deleteConditionRecordSet(payload);
     test:assertTrue(response?.response !is ());
 }
 
@@ -345,8 +344,8 @@ function testDeleteConditionRecordSet() returns error? {
 }
 function testDeleteProduct() returns error? {
     Client pricefxClient = getPricefxClient();
-    oas:DeleteProductRequest payload = {data: {typedId: "3001.P"}};
-    oas:DeleteProductResponse response = check pricefxClient->deleteProduct(payload);
+    DeleteProductRequest payload = {data: {typedId: "3001.P"}};
+    DeleteProductResponse response = check pricefxClient->deleteProduct(payload);
     test:assertTrue(response.response.data.length() > 0);
 }
 
@@ -356,7 +355,7 @@ function testDeleteProduct() returns error? {
 function testListCalculationGrids() returns error? {
     Client pricefxClient = getPricefxClient();
     record {} payload = {};
-    oas:ListCalculationGridsResponse response = check pricefxClient->listCalculationGrids(payload);
+    ListCalculationGridsResponse response = check pricefxClient->listCalculationGrids(payload);
     test:assertTrue(response?.response !is ());
 }
 
@@ -366,7 +365,7 @@ function testListCalculationGrids() returns error? {
 function testListConditionRecordSets() returns error? {
     Client pricefxClient = getPricefxClient();
     record {} payload = {};
-    oas:ListConditionRecordSetsEnvelope response = check pricefxClient->listConditionRecordSets(payload);
+    ListConditionRecordSetsEnvelope response = check pricefxClient->listConditionRecordSets(payload);
     test:assertTrue(response?.response !is ());
 }
 
@@ -375,8 +374,8 @@ function testListConditionRecordSets() returns error? {
 }
 function testListManualPriceLists() returns error? {
     Client pricefxClient = getPricefxClient();
-    oas:ListManualPriceListsRequest payload = {};
-    oas:ManualPriceListResponse response = check pricefxClient->listManualPriceLists(payload);
+    ListManualPriceListsRequest payload = {};
+    ManualPriceListResponse response = check pricefxClient->listManualPriceLists(payload);
     test:assertTrue(response?.response !is ());
 }
 
@@ -385,8 +384,8 @@ function testListManualPriceLists() returns error? {
 }
 function testListPriceLists() returns error? {
     Client pricefxClient = getPricefxClient();
-    oas:ListPriceListsRequest payload = {};
-    oas:ListPriceListsResponse response = check pricefxClient->listPriceLists(payload);
+    ListPriceListsRequest payload = {};
+    ListPriceListsResponse response = check pricefxClient->listPriceLists(payload);
     test:assertTrue(response?.response !is ());
 }
 
@@ -395,7 +394,7 @@ function testListPriceLists() returns error? {
 }
 function testGetPriceList() returns error? {
     Client pricefxClient = getPricefxClient();
-    oas:GetPriceListResponse response = check pricefxClient->getPriceList("9001");
+    GetPriceListResponse response = check pricefxClient->getPriceList("9001");
     test:assertTrue(response?.response !is ());
 }
 
@@ -404,10 +403,10 @@ function testGetPriceList() returns error? {
 }
 function testCreatePriceList() returns error? {
     Client pricefxClient = getPricefxClient();
-    oas:CreatePriceListRequest payload = {
+    CreatePriceListRequest payload = {
         data: {targetDate: "2026-01-15", errorMode: "STOP", priceListName: "Standard 2026 Price List"}
     };
-    oas:CreatePriceListResponse response = check pricefxClient->createPriceList(payload);
+    CreatePriceListResponse response = check pricefxClient->createPriceList(payload);
     test:assertTrue(response?.response !is ());
 }
 
@@ -416,8 +415,8 @@ function testCreatePriceList() returns error? {
 }
 function testListProducts() returns error? {
     Client pricefxClient = getPricefxClient();
-    oas:ListProductsRequest payload = {};
-    oas:ProductResponse response = check pricefxClient->listProducts(payload);
+    ListProductsRequest payload = {};
+    ProductResponse response = check pricefxClient->listProducts(payload);
     test:assertTrue(response?.response !is ());
 }
 
@@ -426,7 +425,7 @@ function testListProducts() returns error? {
 }
 function testGetQuote() returns error? {
     Client pricefxClient = getPricefxClient();
-    oas:QuoteResponse response = check pricefxClient->getQuote("10001.QU");
+    QuoteResponse response = check pricefxClient->getQuote("10001.QU");
     test:assertTrue(response?.response !is ());
 }
 
@@ -435,8 +434,8 @@ function testGetQuote() returns error? {
 }
 function testListQuotes() returns error? {
     Client pricefxClient = getPricefxClient();
-    oas:ListQuotesRequest payload = {};
-    oas:ListQuotesResponse response = check pricefxClient->listQuotes(payload);
+    ListQuotesRequest payload = {};
+    ListQuotesResponse response = check pricefxClient->listQuotes(payload);
     test:assertTrue(response?.response !is ());
 }
 
@@ -445,7 +444,7 @@ function testListQuotes() returns error? {
 }
 function testUpsertQuote() returns error? {
     Client pricefxClient = getPricefxClient();
-    oas:QuotemanagersaveDataQuote quote = {
+    QuotemanagersaveDataQuote quote = {
         outputs: [],
         createdByName: "Jane Doe",
         typedId: "10002.QU",
@@ -475,8 +474,8 @@ function testUpsertQuote() returns error? {
         calculationStatus: 0,
         lastUpdateBy: 1
     };
-    oas:UpsertQuoteRequest payload = {data: {quote: quote}};
-    oas:QuoteResponse response = check pricefxClient->upsertQuote(payload);
+    UpsertQuoteRequest payload = {data: {quote: quote}};
+    QuoteResponse response = check pricefxClient->upsertQuote(payload);
     test:assertTrue(response?.response !is ());
 }
 
@@ -485,8 +484,8 @@ function testUpsertQuote() returns error? {
 }
 function testListSellers() returns error? {
     Client pricefxClient = getPricefxClient();
-    oas:ListSellersRequest payload = {};
-    oas:ListSellersEnvelope response = check pricefxClient->listSellers(payload);
+    ListSellersRequest payload = {};
+    ListSellersEnvelope response = check pricefxClient->listSellers(payload);
     test:assertTrue(response?.response !is ());
 }
 
@@ -495,7 +494,7 @@ function testListSellers() returns error? {
 }
 function testUpdateCustomer() returns error? {
     Client pricefxClient = getPricefxClient();
-    oas:UpdateCustomerRequest payload = {
+    UpdateCustomerRequest payload = {
         data: {typedId: "1001.C", attribute1: "N/A", attribute2: "N/A"},
         textMatchStyle: "exact",
         operationType: "update",
@@ -514,7 +513,7 @@ function testUpdateCustomer() returns error? {
             lastUpdateBy: 1
         }
     };
-    oas:CustomerResponse response = check pricefxClient->updateCustomer(payload);
+    CustomerResponse response = check pricefxClient->updateCustomer(payload);
     test:assertTrue(response?.response !is ());
 }
 
@@ -523,11 +522,11 @@ function testUpdateCustomer() returns error? {
 }
 function testUpdateProduct() returns error? {
     Client pricefxClient = getPricefxClient();
-    oas:UpdateProductRequest payload = {
+    UpdateProductRequest payload = {
         data: {typedId: "3001.P", label: "Wireless Mouse Pro"},
         oldValues: {typedId: "3001.P", version: 1}
     };
-    oas:ProductResponse response = check pricefxClient->updateProduct(payload);
+    ProductResponse response = check pricefxClient->updateProduct(payload);
     test:assertTrue(response?.response !is ());
 }
 
@@ -536,6 +535,6 @@ function testUpdateProduct() returns error? {
 }
 function testCreateUploadSlot() returns error? {
     Client pricefxClient = getPricefxClient();
-    oas:CreateUploadSlotEnvelope response = check pricefxClient->createUploadSlot();
+    CreateUploadSlotEnvelope response = check pricefxClient->createUploadSlot();
     test:assertTrue(response?.response !is ());
 }

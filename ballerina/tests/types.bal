@@ -18,104 +18,103 @@
 // under the License.
 
 import ballerina/http;
-import ballerinax/pricefx.oas;
 
 public type QuoteResponseOk record {|
     *http:Ok;
-    oas:QuoteResponse body;
+    QuoteResponse body;
 |};
 
 public type CustomerResponseOk record {|
     *http:Ok;
-    oas:CustomerResponse body;
+    CustomerResponse body;
 |};
 
 public type AddCalculationGridResponseOk record {|
     *http:Ok;
-    oas:AddCalculationGridResponse body;
+    AddCalculationGridResponse body;
 |};
 
 public type ProductResponseOk record {|
     *http:Ok;
-    oas:ProductResponse body;
+    ProductResponse body;
 |};
 
 public type ListPriceListsResponseOk record {|
     *http:Ok;
-    oas:ListPriceListsResponse body;
+    ListPriceListsResponse body;
 |};
 
 public type ListFilesEnvelopeOk record {|
     *http:Ok;
-    oas:ListFilesEnvelope body;
+    ListFilesEnvelope body;
 |};
 
 public type CreateUploadSlotEnvelopeOk record {|
     *http:Ok;
-    oas:CreateUploadSlotEnvelope body;
+    CreateUploadSlotEnvelope body;
 |};
 
 public type ConditionRecordSetOperationEnvelopeOk record {|
     *http:Ok;
-    oas:ConditionRecordSetOperationEnvelope body;
+    ConditionRecordSetOperationEnvelope body;
 |};
 
 public type GetPriceListResponseOk record {|
     *http:Ok;
-    oas:GetPriceListResponse body;
+    GetPriceListResponse body;
 |};
 
 public type CreatePriceListResponseOk record {|
     *http:Ok;
-    oas:CreatePriceListResponse body;
+    CreatePriceListResponse body;
 |};
 
 public type ContractModelResponseOk record {|
     *http:Ok;
-    oas:ContractModelResponse body;
+    ContractModelResponse body;
 |};
 
 public type ListCalculationGridsResponseOk record {|
     *http:Ok;
-    oas:ListCalculationGridsResponse body;
+    ListCalculationGridsResponse body;
 |};
 
 public type ListSellersEnvelopeOk record {|
     *http:Ok;
-    oas:ListSellersEnvelope body;
+    ListSellersEnvelope body;
 |};
 
 public type DeleteCustomerResponseOk record {|
     *http:Ok;
-    oas:DeleteCustomerResponse body;
+    DeleteCustomerResponse body;
 |};
 
 public type CalculateCalculationGridResponseOk record {|
     *http:Ok;
-    oas:CalculateCalculationGridResponse body;
+    CalculateCalculationGridResponse body;
 |};
 
 public type ListConditionRecordSetsEnvelopeOk record {|
     *http:Ok;
-    oas:ListConditionRecordSetsEnvelope body;
+    ListConditionRecordSetsEnvelope body;
 |};
 
 public type ManualpricelistResponseOk record {|
     *http:Ok;
-    oas:ManualPriceListResponse body;
+    ManualPriceListResponse body;
 |};
 
 public type AddSellerEnvelopeOk record {|
     *http:Ok;
-    oas:AddSellerEnvelope body;
+    AddSellerEnvelope body;
 |};
 
 public type DeleteProductResponseOk record {|
     *http:Ok;
-    oas:DeleteProductResponse body;
+    DeleteProductResponse body;
 |};
 
 public type ListQuotesResponseOk record {|
     *http:Ok;
-    oas:ListQuotesResponse body;
+    ListQuotesResponse body;
 |};

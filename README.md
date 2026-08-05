@@ -42,7 +42,6 @@ To use the `pricefx` connector in your Ballerina application, update the `.bal` 
 ```ballerina
 import ballerina/io;
 import ballerinax/pricefx;
-import ballerinax/pricefx.oas;
 ```
 
 ### Step 2: Instantiate a new connector
@@ -84,8 +83,8 @@ Now, utilize the available connector operations.
 
 ```ballerina
 public function main() returns error? {
-    oas:ListPriceListsRequest payload = {};
-    oas:ListPriceListsResponse response = check pricefxClient->listPriceLists(payload);
+    pricefx:ListPriceListsRequest payload = {};
+    pricefx:ListPriceListsResponse response = check pricefxClient->listPriceLists(payload);
     io:println(response);
 }
 ```
