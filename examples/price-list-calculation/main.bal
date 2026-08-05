@@ -2,7 +2,6 @@
 
 import ballerina/io;
 import ballerinax/pricefx;
-import ballerinax/pricefx.oas;
 
 configurable string username = ?;
 configurable string password = ?;
@@ -13,15 +12,15 @@ public function main() returns error? {
     pricefx:Client pricefxClient = check new ({auth: {username, password, partition}}, serviceUrl);
 
     // Step 1: Create a new price list
-    oas:CreatePriceListRequest createRequest = {
+    pricefx:CreatePriceListRequest createRequest = {
         data: {targetDate: "2026-01-15", errorMode: "STOP", priceListName: "Standard 2026 Price List"}
     };
-    oas:CreatePriceListResponse createResult = check pricefxClient->createPriceList(createRequest);
+    pricefx:CreatePriceListResponse createResult = check pricefxClient->createPriceList(createRequest);
     io:println("Created price list: ", createResult);
 
     // The calculate/get endpoints take the price list's plain `id` - the `typedId` Pricefx assigned
     // it, without the trailing ".PL" suffix.
-    oas:CreatePriceListResponseResponseData[] priceLists = createResult.response?.data ?: [];
+    pricefx:CreatePriceListResponseResponseData[] priceLists = createResult.response?.data ?: [];
     if priceLists.length() == 0 {
         return error("Pricefx returned no price list");
     }
@@ -34,11 +33,11 @@ public function main() returns error? {
     string id = typedId.substring(0, typedId.length() - ".PL".length());
 
     // Step 2: Calculate the price list
-    oas:PricelistmanagerCalculateidBody calculateRequest = {data: {fullListRecalc: true}};
-    oas:CalculatePricelistResponse calculateResult = check pricefxClient->calculatePriceList(id, calculateRequest);
+    pricefx:PricelistmanagerCalculateidBody calculateRequest = {data: {fullListRecalc: true}};
+    pricefx:CalculatePricelistResponse calculateResult = check pricefxClient->calculatePriceList(id, calculateRequest);
     io:println("Calculation triggered: ", calculateResult);
 
     // Step 3: Fetch the calculated price list
-    oas:GetPriceListResponse getResult = check pricefxClient->getPriceList(id);
+    pricefx:GetPriceListResponse getResult = check pricefxClient->getPriceList(id);
     io:println("Price list details: ", getResult);
 }

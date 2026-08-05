@@ -2,7 +2,6 @@
 
 import ballerina/io;
 import ballerinax/pricefx;
-import ballerinax/pricefx.oas;
 
 configurable string username = ?;
 configurable string password = ?;
@@ -13,15 +12,15 @@ public function main() returns error? {
     pricefx:Client pricefxClient = check new ({auth: {username, password, partition}}, serviceUrl);
 
     // Step 1: Add a new customer
-    oas:AddCustomerRequest customerRequest = {
+    pricefx:AddCustomerRequest customerRequest = {
         data: {customerId: "CUST-2001", name: "Acme Corp"},
         operation: "add"
     };
-    oas:CustomerResponse customerResult = check pricefxClient->addCustomer(customerRequest);
+    pricefx:CustomerResponse customerResult = check pricefxClient->addCustomer(customerRequest);
     io:println("Added customer: ", customerResult);
 
     // Step 2: Create a quote for the new customer
-    oas:QuotemanagersaveDataQuote quote = {
+    pricefx:QuotemanagersaveDataQuote quote = {
         outputs: [],
         createdByName: "Jane Doe",
         typedId: "10001.QU",
@@ -51,18 +50,18 @@ public function main() returns error? {
         calculationStatus: 0,
         lastUpdateBy: 1
     };
-    oas:UpsertQuoteRequest quoteRequest = {data: {quote: quote}};
-    oas:QuoteResponse quoteResult = check pricefxClient->upsertQuote(quoteRequest);
+    pricefx:UpsertQuoteRequest quoteRequest = {data: {quote: quote}};
+    pricefx:QuoteResponse quoteResult = check pricefxClient->upsertQuote(quoteRequest);
     io:println("Created quote: ", quoteResult);
 
     // Step 3: Submit the quote for approval, using the identifier Pricefx actually assigned.
     // Note `q-2026-001` above is the quote's uniqueName, not its typedId - submitting that
     // would target a different (or nonexistent) quote, so read the typedId off the response.
-    oas:QuoteResponse_response_data[] quotes = quoteResult.response?.data ?: [];
+    pricefx:QuoteResponse_response_data[] quotes = quoteResult.response?.data ?: [];
     if quotes.length() == 0 {
         return error("Pricefx returned no quote to submit");
     }
-    oas:QuoteResponse_response_data createdQuote = quotes[0];
+    pricefx:QuoteResponse_response_data createdQuote = quotes[0];
     string? createdTypedId = createdQuote.typedId;
     string? createdUniqueName = createdQuote.uniqueName;
     if createdTypedId is () || createdUniqueName is () {
@@ -71,11 +70,11 @@ public function main() returns error? {
 
     // `inputs` must contain at least one entry matching the quote's configured input schema in a
     // real Pricefx instance - left empty here for illustration.
-    oas:SubmitQuoteRequest submitRequest = {
+    pricefx:SubmitQuoteRequest submitRequest = {
         data: {
             quote: {typedId: createdTypedId, uniqueName: createdUniqueName, inputs: []}
         }
     };
-    oas:QuoteResponse submitResult = check pricefxClient->submitQuote(submitRequest);
+    pricefx:QuoteResponse submitResult = check pricefxClient->submitQuote(submitRequest);
     io:println("Submitted quote: ", submitResult);
 }
