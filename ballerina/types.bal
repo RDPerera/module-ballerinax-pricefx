@@ -14,8 +14,9 @@
 // specific language governing permissions and limitations
 // under the License.
 
+import ballerina/constraint;
+import ballerina/data.jsondata;
 import ballerina/http;
-import ballerinax/pricefx.oas;
 
 # Your regular Pricefx login, which the connector turns into a reusable session token.
 #
@@ -93,7 +94,7 @@ public type ConnectionConfig record {|
     # The HTTP version understood by the client
     http:HttpVersion httpVersion = http:HTTP_2_0;
     # Configurations related to HTTP/1.x protocol
-    oas:ClientHttp1Settings http1Settings?;
+    ClientHttp1Settings http1Settings?;
     # Configurations related to HTTP/2 protocol
     http:ClientHttp2Settings http2Settings?;
     # The maximum time to wait (in seconds) for a response before closing the connection
@@ -122,3 +123,22683 @@ public type ConnectionConfig record {|
     # and absent fields are handled as `nilable` types. Enabled by default.
     boolean laxDataBinding = true;
 |};
+
+// ---------------------------------------------------------------------------
+// Generated API types
+//
+// AUTO-GENERATED SECTION. DO NOT MODIFY.
+// Everything below mirrors `modules/oas/types.bal` so that every API type is
+// available from the package root and callers do not need to import the `oas`
+// submodule. The generated `ConnectionConfig` is omitted, since this module
+// declares its own richer one above. Regenerate this section by copying that
+// file whenever the `oas` submodule is regenerated.
+// ---------------------------------------------------------------------------
+
+public type CustomermanagerfetchassignmentstypedIdData record {
+    @jsondata:Name {value: "_constructor"}
+    string constructor;
+    @constraint:Array {minLength: 1}
+    CustomermanagerfetchassignmentstypedIdDataCriteria[] criteria?;
+    @constraint:String {minLength: 1}
+    string operator?;
+};
+
+public type ListRolesOfBusinessRoleResponseResponseData record {
+    @constraint:String {minLength: 1}
+    string typedId?;
+    @constraint:String {minLength: 1}
+    string uniqueName?;
+    anydata createdBy?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    @constraint:String {minLength: 1}
+    string module?;
+    @constraint:String {minLength: 1}
+    string label?;
+    decimal version?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    anydata lastUpdateBy?;
+};
+
+public type CopyPriceGridResponseResponseData record {
+    decimal version;
+    @constraint:String {minLength: 1}
+    string typedId;
+    anydata targetDate?;
+    @constraint:String {minLength: 1}
+    string label;
+    anydata locale?;
+    anydata calculationMessages?;
+    decimal numberOfItems;
+    boolean keepManualOverrides;
+    boolean writeOnlyChangedItems;
+    @constraint:String {minLength: 1}
+    string configuration;
+    anydata nodeId?;
+    anydata approvalState?;
+    anydata description?;
+    anydata relativeTargetDateDays?;
+    anydata userGroupEdit?;
+    anydata userGroupViewDetails?;
+    decimal numberOfApprovedItems;
+    decimal numberOfOpenItems;
+    decimal numberOfDeniedItems;
+    decimal numberOfSubmittedItems;
+    decimal numberOfAutoApprovedItems;
+    anydata integrationStatus?;
+    @constraint:String {minLength: 1}
+    string priceGridType;
+    anydata headerTypeUniqueName?;
+    @constraint:String {minLength: 1}
+    string createdByName;
+    @constraint:String {minLength: 1}
+    string lastUpdateByName;
+    decimal updatedBy;
+    @constraint:String {minLength: 1}
+    string updateDate;
+    @constraint:String {minLength: 1}
+    string createDate;
+    decimal createdBy;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate;
+    decimal lastUpdateBy;
+    @constraint:String {minLength: 1}
+    string status;
+    anydata calculationStartDate?;
+    anydata calculationDate?;
+    anydata partialCalculationDate?;
+    decimal id;
+};
+
+public type QuotemanagersaveDataQuoteLineItems record {
+    @constraint:Array {minLength: 1}
+    QuotemanagersaveDataQuoteOutputs[] outputs?;
+    boolean dirty;
+    @constraint:String {minLength: 1}
+    string typedId;
+    @constraint:String {minLength: 1}
+    string treeLabel;
+    record {}[] inputs?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate;
+    @constraint:String {minLength: 1}
+    string lineId;
+    @constraint:String {minLength: 1}
+    string label;
+    decimal clicId;
+    anydata priceRecordId?;
+    decimal version;
+    anydata parentId?;
+    boolean folder;
+    decimal createdBy;
+    decimal calculationStatus;
+    decimal editabilityStatus;
+    @constraint:String {minLength: 1}
+    string sku;
+    @constraint:String {minLength: 1}
+    string createDate;
+    decimal lastUpdateBy;
+};
+
+# 
+public type ImportDataLoadRequest record {
+    DatamartimportdataloadsData data;
+};
+
+# 
+public type DeleteRebateAgreementRequest record {
+    DeleteTypeCodeData data;
+};
+
+public type GetLogicReferencesResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node;
+    @constraint:String {minLength: 1}
+    string csrfToken;
+    record {}[] data?;
+    decimal status;
+};
+
+public type LoaddataCXData record {
+    # Specify the field values in the same order as specified in the header object
+    anydata[] data;
+    LoaddataCXDataOptions options?;
+    # efine field names (table columns) of the record
+    anydata[] header;
+};
+
+public type UpdateAITOldValues record {
+    string typedId?;
+    string uniqueName?;
+    UpdateAITOldValuesConfiguration configuration?;
+    int createdBy?;
+    string lastUpdateDate?;
+    @jsondata:Name {value: "_level"}
+    int level?;
+    string label?;
+    @jsondata:Name {value: "_key"}
+    string key?;
+    int version?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+public type UpdateCompensationTypeEnvelope record {
+    UpdateCompensationTypeResponse response?;
+};
+
+# 
+public type DeleteProductsFromManualPriceListRequest record {
+    ManualpricelistmanagerdeleteidbatchData data;
+};
+
+public type CommentmanagerEdittypedIdBody record {
+    CommentmanageredittypedIdData data?;
+};
+
+# 
+public type QuoteResponse record {
+    QuoteResponse_response response?;
+};
+
+# 
+public type InsertBulkDataToLookupTableRequest record {
+    LookuptablemanagerloaddataTypeCodeData data;
+};
+
+public type ListLivePriceGridsResponseResponseData record {
+    @constraint:String {minLength: 1}
+    string lastUpdateByName?;
+    @constraint:String {minLength: 1}
+    string createdByName?;
+    @constraint:String {minLength: 1}
+    string updateDate?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    @constraint:String {minLength: 1}
+    string configuration?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    decimal numberOfSubmittedItems?;
+    decimal numberOfAutoApprovedItems?;
+    decimal numberOfDeniedItems?;
+    @constraint:String {minLength: 1}
+    string calculationDate?;
+    boolean writeOnlyChangedItems?;
+    decimal id?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    @constraint:String {minLength: 1}
+    string calculationMessages?;
+    decimal updatedBy?;
+    decimal numberOfApprovedItems?;
+    @constraint:String {minLength: 1}
+    string label?;
+    decimal version?;
+    @constraint:String {minLength: 1}
+    string partialCalculationDate?;
+    decimal numberOfOpenItems?;
+    decimal createdBy?;
+    decimal numberOfItems?;
+    @constraint:String {minLength: 1}
+    string priceGridType?;
+    boolean keepManualOverrides?;
+    @constraint:String {minLength: 1}
+    string calculationStartDate?;
+    decimal lastUpdateBy?;
+    @constraint:String {minLength: 1}
+    string status?;
+};
+
+public type WorkflowsmanageraddapprovercurrentStepIdData record {
+    @constraint:String {minLength: 1}
+    string addStepCurrentStepId;
+    WorkflowsmanageraddapprovercurrentStepIdDataAddStepStepInstance addStepStepInstance;
+};
+
+public type AddWatcherStepResponseResponseWorkflowSubSteps record {
+    @constraint:String {minLength: 1}
+    string approver;
+    anydata lastExecutedBy?;
+    @constraint:String {minLength: 1}
+    string reason;
+    @constraint:String {minLength: 1}
+    string approverTypedId;
+    anydata comments?;
+    anydata executionStatus?;
+    @constraint:String {minLength: 1}
+    string approverLoginName;
+    decimal minApprovalsNeeded;
+    anydata comment?;
+    string lastExecutedByName;
+    anydata lastExecutionDate?;
+    decimal approvedCount;
+};
+
+public type PricegridmanagerdeleteidbatchDataFilterCriteria record {
+    @constraint:Array {minLength: 1}
+    PricegridmanagerdeleteidbatchDataFilterCriteriaCriteria[] criteria;
+    @constraint:String {minLength: 1}
+    string operator;
+};
+
+public type AddUData record {
+    @constraint:String {minLength: 1}
+    string lastName?;
+    boolean noSession?;
+    boolean ssoOnly?;
+    @constraint:String {minLength: 1}
+    string firstName?;
+    @constraint:String {minLength: 1}
+    string defaultUserGroupEdit?;
+    @constraint:String {minLength: 1}
+    string defaultUserGroupViewDetails?;
+    @constraint:String {minLength: 1}
+    string emailLocale?;
+    @constraint:String {minLength: 1}
+    string workflowEmailingActivated?;
+    @constraint:String {minLength: 1}
+    string loginName;
+    boolean receiveAdminEmail?;
+    @constraint:String {minLength: 1}
+    string email;
+    boolean requireTFA?;
+    @constraint:String {minLength: 1}
+    string activated?;
+};
+
+public type InlineResponse2009Response record {
+    string node?;
+    InlineResponse2009ResponseData[] data?;
+    int status?;
+};
+
+public type InsertBulkKVDataRequest record {
+    KvserviceloaddatatableNameData data?;
+};
+
+public type GetActionStatusResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    decimal startRow?;
+    @constraint:Array {minLength: 1}
+    GetActionStatusResponseResponseData[] data?;
+    decimal endRow?;
+    decimal totalRows?;
+    decimal status?;
+};
+
+public type FetchAIData record {
+    string fieldName?;
+    @jsondata:Name {value: "_constructor"}
+    string constructor?;
+    string value?;
+    string operator?;
+};
+
+public type ClicmanagersendemailDataRecipients record {
+    string name?;
+    string email;
+};
+
+public type GenerateJWTTokenResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:String {minLength: 1}
+    string csrfToken?;
+    record {}[] data?;
+    decimal status?;
+};
+
+public type PricegridmanagerupdateidData record {
+    # `typedId` of the item you want to update
+    @constraint:String {minLength: 1}
+    string typedId?;
+    @constraint:String {minLength: 1}
+    string comments?;
+};
+
+public type ImportmanagerMassdeletetypedIdBody record {
+    ImportmanagermassdeletetypedIdData data?;
+};
+
+public type InlineResponse2004ResponseData record {
+    @jsondata:Name {value: "Life_Expectancy"}
+    decimal lifeExpectancy?;
+    @jsondata:Name {value: "ID_Country_Year"}
+    string iDCountryYear?;
+    @jsondata:Name {value: "Percent"}
+    decimal percent?;
+    string lastUpdateDate?;
+    string warnings?;
+    boolean completeResultsAvailable?;
+    string? formulaDetailedResults?;
+    string formulaResult?;
+    string alerts?;
+    @jsondata:Name {value: "Year"}
+    string year?;
+    @jsondata:Name {value: "Fertility"}
+    decimal fertility?;
+    @jsondata:Name {value: "Test"}
+    int test?;
+    @jsondata:Name {value: "Country"}
+    string country?;
+    @jsondata:Name {value: "Population"}
+    int population?;
+    @jsondata:Name {value: "Region"}
+    string region?;
+};
+
+# Contains some (limited) information about the state of the front-end application. See [View State](https://pricefx.atlassian.net/wiki/spaces/KB/pages/3887824922)
+public type CompensationViewState record {
+    string[]? openFolders?;
+    string? gridViewState?;
+    string[]? selectedNodes?;
+};
+
+public type InlineResponse2002ResponseData record {
+    string? owner?;
+    int totalBytesRead?;
+    string typedId?;
+    string? data?;
+    int createdBy?;
+    string lastUpdateDate?;
+    int percentage?;
+    int contentLength?;
+    int version?;
+    string status?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+# The type code is NTF
+public type Notification record {
+    string typedId?;
+    string lastUpdateDate?;
+    string dueDate?;
+    boolean isRead?;
+    @constraint:String {maxLength: 255}
+    string 'source?;
+    @constraint:String {maxLength: 255}
+    string title?;
+    @constraint:String {maxLength: 4096}
+    string message?;
+    int version?;
+    string? actionLabel?;
+    "UNKNOWN"|"LINK"|"DOWNLOAD"|"INFO_MESSAGE"|"MESSAGE_LINK"|"CTX_LINK" actionType?;
+    int createdBy?;
+    "VALIDATION"|"CALCULATION"|"DATA_DOWNLOAD"|"MESSAGE"|"GROOVY"|"SYSTEM_NOTIFICATION" topic?;
+    string? action?;
+    int recipientID?;
+    @constraint:String {maxLength: 255}
+    string validUntil?;
+    "UNKNOWN"|"INFO"|"WARNING"|"ERROR"|"SUCCESS" status?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+# Represents the Queries record for the operation: calculateModelObjectStep
+public type CalculateModelObjectStepQueries record {
+    # Specify the step name to set the last step of the calculation (all steps before are executed, until `toStep` is reached)
+    string toStep?;
+};
+
+public type ClicmanagerAdditemstypedIdBody record {
+    ClicmanageradditemstypedIdData data?;
+};
+
+public type InlineResponse2008ResponseStateDefinitionScopeScope record {
+    @jsondata:Name {value: "ProductMinMarginPercent"}
+    int? productMinMarginPercent?;
+    @jsondata:Name {value: "CustomerGroups"}
+    record {}[] customerGroups?;
+    @jsondata:Name {value: "CustomerMinMarginPercent"}
+    int? customerMinMarginPercent?;
+    @jsondata:Name {value: "ProductGroups"}
+    record {}[] productGroups?;
+    @jsondata:Name {value: "CustomerMinRevenue"}
+    int? customerMinRevenue?;
+    @jsondata:Name {value: "ProductMinRevenue"}
+    int? productMinRevenue?;
+};
+
+public type DeleteCalculationGridItemResponse record {
+    AddCalculationGridItemResponseResponse response?;
+};
+
+public type AddSLData record {
+    # A unique ID of the seller
+    string sellerId;
+    # A full name of the seller, which is usually printed on documents
+    string name;
+    string reportsTo?;
+    string? userGroupEdit?;
+    string? userGroupViewDetails?;
+};
+
+public type InlineResponse2008ResponseData record {
+    string lastUpdateByName?;
+    string createdByName?;
+    string typedId?;
+    string workflowStatus?;
+    string lastUpdateDate?;
+    int? approvedBy?;
+    string? submitDate?;
+    string? deniedByName?;
+    int totalJobsCount?;
+    string? submittedByName?;
+    string? approvedByName?;
+    InlineResponse2008ResponseState state?;
+    string createDate?;
+    int? submittedBy?;
+    int? deniedBy?;
+    InlineResponse2008ResponseJobs[] jobs?;
+    string label?;
+    int version?;
+    string currentStep?;
+    string uniqueName?;
+    int createdBy?;
+    string step?;
+    boolean shotgunEnabled?;
+    string modelClassUN?;
+    string status?;
+    int lastUpdateBy?;
+};
+
+# 
+public type RecalculateQuoteRequest record {
+    QuotemanagerpriceData data;
+};
+
+# 
+public type UpdateLookupTableValueRequest record {
+    LookuptablemanagerupdatetableIdData data;
+    @constraint:String {minLength: 1}
+    string textMatchStyle;
+    @constraint:String {minLength: 1}
+    string operationType;
+    LookuptablemanagerupdatetableIdOldValues oldValues;
+};
+
+public type UpdateCalculationGridRequest record {
+    UpdateCGData data?;
+    string textMatchStyle?;
+    string operationType?;
+    CalculationGrid oldValues?;
+};
+
+public type PricegridmanagermasseditidDataMassEditRecords record {
+    # The field you want to edit
+    @constraint:String {minLength: 1}
+    string fieldName?;
+    anydata precision?;
+    "+"|"-"|"*"|"=" massEditOperator?;
+    # The new value of the field. If omitted, the field is set to null
+    int fieldValue?;
+};
+
+public type RebaterecordgroupMasssubmittypedIdBody record {
+    RebaterecordgroupmasssubmittypedIdData data?;
+};
+
+# 
+public type ListRebateAgreementItemsResponse record {
+    ListRebateAgreementItemsResponseResponse response?;
+};
+
+public type ListJSTResponse record {
+    ListJSTResponseResponse response?;
+};
+
+public type ListPriceListsResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    decimal startRow?;
+    @constraint:Array {minLength: 1}
+    ListPriceListsResponseResponseData[] data?;
+    decimal endRow?;
+    decimal totalRows?;
+    decimal status?;
+};
+
+# 
+public type CreateDataManagerEntityRequest record {
+    DatamartnewfcTypeCodeData data;
+};
+
+public type UpdateCustomFormEnvelope record {
+    UpdateCustomFormResponse response?;
+};
+
+public type ClicmanagerfetchtypedIdData record {
+    @jsondata:Name {value: "_constructor"}
+    string constructor?;
+    ClicmanagerfetchtypedIdDataCriteria[] criteria?;
+    string operator?;
+};
+
+public type InlineResponse20064Data record {
+    InlineResponse20064DataResult[] result?;
+    InlineResponse20064DataStats stats?;
+    string resultType?;
+};
+
+public type DatamartsqlqueryDataSourcesS0 record {
+    DatamartsqlqueryDataSourcesS0Query query?;
+};
+
+# 
+public type LoadDataResponse record {
+    LoadDataResponse_response response?;
+};
+
+public type DMDataLoadSchedules record {
+    "MINUTE"|"HOUR"|"DAY" period?;
+    string typedId?;
+    string calculableTypedId?;
+    string lastUpdateDate?;
+    string lastRunDate?;
+    int version?;
+    int createdBy?;
+    string name?;
+    string calculableLabel?;
+    int interval?;
+    string startDate?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+public type PreviewCustomFormWorkflowResponse record {
+    PreviewCustomFormWorkflowResponseResponse response?;
+};
+
+public type GetLogicResponseResponseElements record {
+    anydata cssProperties?;
+    anydata labelTranslations?;
+    @constraint:String {minLength: 1}
+    string typedId;
+    @constraint:String {minLength: 1}
+    string formulaExpression;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate;
+    boolean protectedExpression;
+    boolean hideWarnings;
+    decimal elementTimeout;
+    anydata resultGroup?;
+    anydata redAlert?;
+    @constraint:String {minLength: 1}
+    string elementName;
+    anydata yellowAlert?;
+    anydata elementSuffix?;
+    @constraint:String {minLength: 1}
+    string elementLabel;
+    @constraint:String {minLength: 1}
+    string combinationType;
+    anydata formatType?;
+    boolean hideOnNull;
+    anydata userGroup?;
+    boolean allowOverride;
+    boolean storeInAttributeExtension?;
+    @constraint:String {minLength: 1}
+    string createDate;
+    anydata conditionElementName?;
+    record {}[] elementGroups?;
+    decimal version;
+    anydata criticalAlert?;
+    boolean excludeFromExport;
+    decimal displayOptions;
+    decimal createdBy;
+    boolean summarize;
+    anydata elementDescription?;
+    decimal lastUpdateBy;
+};
+
+public type CompensationsaveData record {
+    Compensation compensation?;
+};
+
+public type QuoteTmpViewState record {
+    anydata[]? openFolders?;
+    string? gridViewState?;
+    anydata[]? selectedNodes?;
+};
+
+# Enter new field values. Multiple values can be updated. In our example the unitOfMeasure and label properties were updated
+public type UpdatePData record {
+    @constraint:String {minLength: 1}
+    string typedId;
+    @constraint:String {maxLength: 255, minLength: 1}
+    string unitOfMeasure?;
+    @constraint:String {maxLength: 255, minLength: 1}
+    string label?;
+};
+
+# 
+public type DeleteProductsFromManualPriceListResponse record {
+    DeleteProductsFromManualPriceListResponseResponse response?;
+};
+
+# The error record from the request
+public type ImportCompetitionDataResponseResponseDataRecord record {
+    string additionalInfo4?;
+    string country?;
+    decimal priceUnit?;
+    string additionalInfo3?;
+    decimal additionalInfo2?;
+    string comments?;
+    decimal additionalInfo1?;
+    string unitOfMeasure?;
+    string priceType?;
+    string competitionType?;
+    string label?;
+    string 'source?;
+    string infoDate?;
+    decimal price?;
+    string competitor?;
+    string currency?;
+    string sku?;
+    string competitorSku?;
+};
+
+public type ListEntityFieldsResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:Array {minLength: 1}
+    ListEntityFieldsResponseResponseData[] data?;
+    decimal status?;
+};
+
+public type OtherFiltersOtherFiltersAnyOf12 string?;
+
+public type GetDefaultPricingLogicNameResponseResponseData record {
+    @constraint:String {minLength: 1}
+    string uniqueName?;
+    anydata label?;
+};
+
+public type AddDCRRequest record {
+    DcrmanageraddData data?;
+    string operationType?;
+};
+
+public type UpdateLookupTableValueResponseResponseData record {
+    decimal version;
+    @constraint:String {minLength: 1}
+    string typedId;
+    @constraint:String {minLength: 1}
+    string lastUpdateByName;
+    @constraint:String {minLength: 1}
+    string createdByName;
+    decimal tableId;
+    @constraint:String {minLength: 1}
+    string 'type;
+    @constraint:String {minLength: 1}
+    string valueType;
+    @constraint:String {minLength: 1}
+    string lookupTableTypedId;
+    @constraint:String {minLength: 1}
+    string createDate;
+    decimal createdBy;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate;
+    decimal lastUpdateBy;
+    @constraint:String {minLength: 1}
+    string attribute1;
+    anydata attribute2?;
+    anydata attribute3?;
+    anydata attribute4?;
+    anydata attribute5?;
+    anydata attribute6?;
+    anydata attribute7?;
+    anydata attribute8?;
+    anydata attribute9?;
+    anydata attribute10?;
+    anydata attribute11?;
+    anydata attribute12?;
+    anydata attribute13?;
+    anydata attribute14?;
+    anydata attribute15?;
+    anydata attribute16?;
+    anydata attribute17?;
+    anydata attribute18?;
+    anydata attribute19?;
+    anydata attribute20?;
+    anydata attribute21?;
+    anydata attribute22?;
+    anydata attribute23?;
+    anydata attribute24?;
+    anydata attribute25?;
+    anydata attribute26?;
+    anydata attribute27?;
+    anydata attribute28?;
+    anydata attribute29?;
+    anydata attribute30?;
+    @constraint:String {minLength: 1}
+    string name;
+};
+
+public type RevokeDealResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:String {minLength: 1}
+    string csrfToken?;
+    anydata data?;
+    decimal status?;
+};
+
+# 
+public type ListLibrariesResponse record {
+    ListLibrariesResponseResponse response?;
+};
+
+public type DatamartsqlqueryDataSourcesS0QueryProjectionsQuantity record {
+    string expression?;
+    boolean advancedProjection?;
+    DatamartsqlqueryDataSourcesS0QueryProjectionsQuantityParameters parameters?;
+};
+
+public type InlineResponse2006Response record {
+    string node?;
+    DMDataLoad[] data?;
+    int status?;
+};
+
+public type GetCompetitionDataResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    decimal startRow?;
+    @constraint:Array {minLength: 1}
+    GetCompetitionDataResponseResponseData[] data?;
+    # The number of the end row that defines the end of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal endRow?;
+    decimal totalRows?;
+    decimal status?;
+};
+
+public type UpdateCFOTOldValuesConfiguration record {
+    UpdateCFOTOldValuesConfigurationDefault default?;
+};
+
+# The Type code is CFOT
+public type CustomFormType record {
+    string typedId?;
+    Configuration configuration?;
+    string lastUpdateDate?;
+    # A name of application module, in which the user interface will show the menu item, which opens a page with a list of custom forms of this type. This is meaningful only when embedded is `false`
+    "PRICESETTING"|"QUOTING"|"ANALYTICS"|"ADMIN"|"WORKFLOW"|"REBATES"|"AGREEMENTSPROMOTIONS"|"OPTIMIZATION"|"CHANNELMANAGEMENT"|"MASTERDATA"|"CONFIGURATION"|"DASHBOARDS"|"PROCESSES"|"SALESCOMPENSATION"|"CUSTOM_FORM"? module?;
+    # The name of the type, as displayed to the end users
+    @constraint:String {maxLength: 255}
+    string label?;
+    int version?;
+    # A unique name of the type
+    @constraint:String {maxLength: 255}
+    string uniqueName?;
+    # List of entities, which are allowed to embed this custom form type (Quote, standalone Custom Form). This is meaningful only when embedded is `true`
+    string[]? supportedParentTypeCodes?;
+    int createdBy?;
+    # A name of the logic which implements the functionality of the Custom Form
+    @constraint:String {maxLength: 255}
+    string headerFormulaName?;
+    string? userGroupEdit?;
+    string? userGroupViewDetails?;
+    # If this custom form type can be embedded - i.e. used inside of another document, like quote
+    boolean embedded?;
+    # A name of the workflow logic, which will be used to build approval workflow for this Custom Form
+    string? workflowFormulaName?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+public type UpdateCustomFormRequest record {
+    CustomformupdateData data?;
+    string textMatchStyle?;
+    string operationType;
+};
+
+public type MassDeleteImportsEnvelope record {
+    InlineResponse20082Response response?;
+};
+
+public type DeleteLookupTableResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node;
+    @constraint:Array {minLength: 1}
+    DeleteLookupTableResponseResponseData[] data;
+    decimal status;
+};
+
+public type ProductmanagerquicksearchData record {
+    # Enter the term you want to search
+    @constraint:String {minLength: 1}
+    string q;
+};
+
+public type RebateAgreementLineItems record {
+    record {}[] outputs?;
+    string typedId?;
+    string calculationBaseJson?;
+    string endDate?;
+    record {}[] inputs?;
+    string lastUpdateDate?;
+    string payoutDate?;
+    string createDate?;
+    boolean dirty?;
+    RebateAgreementCalculationBase calculationBase?;
+    string treeLabel?;
+    CompensationCustomerGroup customerGroup?;
+    string lineId?;
+    string simulationType?;
+    string label?;
+    int clicId?;
+    string rebateTypeLabel?;
+    int version?;
+    string parentId?;
+    string rebateType?;
+    boolean folder?;
+    CompensationProductGroup productGroup?;
+    int createdBy?;
+    int calculationStatus?;
+    int editabilityStatus?;
+    boolean containsProductImage?;
+    string startDate?;
+    int lastUpdateBy?;
+};
+
+public type ClaimmanagercalculatetypedIdData record {
+    # A list of column names
+    string[] columnNames?;
+    # Key-value pairs, where the key is the column name and value is the actual item data
+    record {}[] data?;
+};
+
+public type GetexternalapppropertiesResponseResponse record {
+    string node?;
+    record {}[] data?;
+    int status?;
+};
+
+public type InlineResponse20041Response record {
+    string node?;
+    DataChangeRequestMassChange[] data?;
+    int status?;
+};
+
+public type DenyDocumentResponseResponseWorkflow record {
+    @constraint:String {minLength: 1}
+    string workflowStatus?;
+    @constraint:String {minLength: 1}
+    string isSelectStepOnDeny?;
+    @constraint:String {minLength: 1}
+    string 'type?;
+    @constraint:Array {minLength: 1}
+    DenyDocumentResponseResponseWorkflowSteps[] steps?;
+    @constraint:String {minLength: 1}
+    string approvableTypedId?;
+    anydata currentStepId?;
+    anydata submitReason?;
+    @constraint:String {minLength: 1}
+    string submitterUserName?;
+    record {}[] denialReasons?;
+    @constraint:String {minLength: 1}
+    string submitterTypedId?;
+    @constraint:String {minLength: 1}
+    string isDenialReasonOptional?;
+    @constraint:String {minLength: 1}
+    string id?;
+    @constraint:String {minLength: 1}
+    string isAddStepRestrictedToWFAdmin?;
+};
+
+public type SX10Inner record {
+    string typedId?;
+    string lastUpdateDate?;
+    int version?;
+    string? attribute9?;
+    string? attribute8?;
+    @constraint:String {maxLength: 255}
+    string sellerId?;
+    string? attribute5?;
+    int createdBy?;
+    string? attribute4?;
+    string? attribute7?;
+    string? attribute6?;
+    @constraint:String {maxLength: 255}
+    string name?;
+    string? attribute1?;
+    string? attribute3?;
+    string? attribute2?;
+    string? attribute10?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+# The icon is provided by DynamicIcon component, so the icon has to be defined there
+public type Icon "angle-double-left"|"angle-down"|"angle-down-b"|"angle-right"|"arrow-down"|"arrow-right"|"arrow-up"|"bars"|"bell"|"blue"|"brackets-curly"|"calculator"|"calculator-alt"|"calendar-alt"|"chart-line"|"check"|"check-circle"|"circle"|"clipboard-notes"|"cog"|"comment-alt-message"|"comparison"|"compress-arrows"|"constructor"|"copy"|"corner-up-left"|"corner-up-right"|"critical"|"crosshair"|"dashboard"|"database"|"ellipsis-h"|"equal-circle"|"exclamation-octagon"|"exclamation-octagon-solid"|"exclamation-triangle"|"exclamation-triangle-solid"|"external-link-alt"|"eye"|"file"|"file-check-alt"|"file-copy-alt"|"file-edit-alt"|"file-info-alt"|"file-plus-alt"|"filter"|"folder"|"folder-medical"|"folder-open"|"fullscreen-exit"|"green"|"import"|"info-circle"|"key"|"layer-group"|"layer-group-slash"|"link-broken"|"link-h"|"message"|"minus"|"minus-circle"|"minus-square"|"multiply"|"pause"|"pen"|"play"|"plus"|"plus-circle"|"plus-square"|"process"|"puzzle-piece"|"question"|"question-circle"|"red"|"redo"|"retweet"|"search"|"search-minus"|"sliders-v-alt"|"sync"|"times"|"times-circle"|"trash-alt"|"upload"|"user"|"wrench"|"yellow";
+
+# 
+public type CreatePriceListResponse record {
+    CreatePriceListResponseResponse response?;
+};
+
+public type MassSubmitRRGResponse record {
+    CalculatePricelistResponseResponse response?;
+};
+
+public type QuotemanageraddproductsDataQuoteViewState record {
+    anydata openFolders?;
+    anydata gridViewState?;
+    anydata selectedNodes?;
+};
+
+public type RunDataLoadResponseResponseData record {
+    anydata adhocDataLoadDefinition?;
+    @constraint:String {minLength: 1}
+    string targetName?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    anydata allowBatching?;
+    anydata locale?;
+    @constraint:String {minLength: 1}
+    string 'type?;
+    anydata calculationDate?;
+    decimal jstId;
+    anydata sourceSortBy?;
+    boolean withTargetSnapshot?;
+    anydata actionUUID?;
+    boolean valid?;
+    anydata loadCompleteTime?;
+    anydata incLoadDate?;
+    anydata loadMode?;
+    anydata schedules?;
+    boolean continuous?;
+    anydata sortBy?;
+    anydata dtoSourceFilter?;
+    anydata calculationContext?;
+    anydata testRow?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    anydata resultTableUniqueName?;
+    anydata pre80CalculationConfig?;
+    anydata targetDate?;
+    anydata validationLogic?;
+    boolean isPlasma?;
+    boolean distributed?;
+    @constraint:String {minLength: 1}
+    string label;
+    boolean incremental?;
+    decimal version?;
+    decimal requestTime?;
+    anydata dtoFilter?;
+    boolean isDefault?;
+    decimal createdBy?;
+    decimal numberOfItems;
+    anydata calcItemsLookupTableId?;
+    @constraint:String {minLength: 1}
+    string sourceName?;
+    anydata progressInfo?;
+    anydata testResult?;
+    anydata calculationStartDate?;
+    RunDataLoadResponseResponseCalculationConfig calculationConfig?;
+    decimal lastUpdateTime?;
+    decimal lastUpdateBy?;
+    @constraint:String {minLength: 1}
+    string status?;
+};
+
+public type RecommendationsrecommendData record {
+    # `typedId` of the Quote you want to get the recommendations for
+    string typedId?;
+    int maxResults?;
+    string[] customers?;
+    # Specify any products (SKUs) you want to explicitly exclude from recommendations
+    string[] excludeProducts?;
+    # Specify SKUs that have been already added to the Quote to exclude them from recommendations. Use the **/clicmanager.fetchitemuniquetypes/{typedId}** endpoint to retrieve these SKUs
+    string[] products?;
+};
+
+public type DeleteCompensationPlanResponse record {
+    UpsertCompensationPlanResponseResponse response?;
+};
+
+public type ListNotificationsEnvelope record {
+    InlineResponse20039Response response?;
+};
+
+public type DatamartmassedittypedIdDataMassEditRecords record {
+    # The name of the column whose values you want to change
+    @constraint:String {minLength: 1}
+    string fieldName;
+    anydata precision?;
+    @constraint:String {minLength: 1}
+    string massEditOperator;
+    # New column values
+    @constraint:String {minLength: 1}
+    string fieldValue;
+};
+
+public type ListFunctionsResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:String {minLength: 1}
+    string csrfToken?;
+    @constraint:Array {minLength: 1}
+    record {}[] data?;
+    decimal status?;
+};
+
+public type SearchKvTableEnvelope record {
+    string payload?;
+    int 'record?;
+    string sku?;
+    string customer?;
+};
+
+public type MassEditDatamartResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    string[] data?;
+    decimal status?;
+};
+
+# OAuth2 Refresh Token Grant Configs
+public type OAuth2RefreshTokenGrantConfig record {|
+    *http:OAuth2RefreshTokenGrantConfig;
+    # Refresh URL
+    string refreshUrl = "https://companynode.pricefx.com/pricefx/companypartition/oauth/token";
+|};
+
+public type DenyDocumentResponseResponseWorkflowSteps record {
+    @constraint:String {minLength: 1}
+    string reason;
+    record {}[] reasons?;
+    @constraint:String {minLength: 1}
+    string isUserApprover;
+    anydata userGroupNames?;
+    @constraint:String {minLength: 1}
+    string 'type;
+    record {}[] minApprovalsForGroups?;
+    anydata isPostStepLogicFailed?;
+    anydata postStepLogicName?;
+    @constraint:String {minLength: 1}
+    string id;
+    record {}[] executedByNames?;
+    record {}[] userLoginNames?;
+    anydata userGroupTypedId?;
+    record {}[] approvalRequiredEmailAttachments?;
+    @constraint:Array {minLength: 1}
+    DenyDocumentResponseResponseWorkflowSubSteps[] subSteps?;
+    @constraint:String {minLength: 1}
+    string executionStatus;
+    record {}[] userTypedIds?;
+    @constraint:String {minLength: 1}
+    string lastAccess;
+    decimal minApprovalsNeeded;
+    @constraint:String {minLength: 1}
+    string userName;
+    record {}[] delegatedToTypedIds?;
+    anydata userGroupTypedIds?;
+    @constraint:String {minLength: 1}
+    string userTypedId;
+    @constraint:String {minLength: 1}
+    string uniqueName;
+    record {}[] denialReasons?;
+    anydata userGroupName?;
+    @constraint:String {minLength: 1}
+    string isDenialReasonOptional;
+    record {}[] userNames?;
+    @constraint:String {minLength: 1}
+    string comment;
+    record {}[] mandatoryComments?;
+};
+
+public type ListCustomFormsEnvelope record {
+    ListCustomFormsResponse response?;
+};
+
+public type I18nmanagerputData record {
+    I18nmanagerputDataMessages messages?;
+    # Set to `true` to add messages Partition-wide, or  `false` to add Private messages
+    boolean partitionWideOverride?;
+};
+
+public type ListDataLoadsWithValidationResponseResponseCalculationConfig record {
+    @constraint:String {minLength: 1}
+    string formulaName?;
+    @constraint:String {minLength: 1}
+    string targetDate?;
+    record {}[] inputParams?;
+    record {}[] mappingParams?;
+    record {}[] feederInputParams?;
+    record {}[] outputElements?;
+};
+
+public type UpdateCData record {
+    @constraint:String {minLength: 1}
+    string typedId;
+    @constraint:String {minLength: 1}
+    string attribute1;
+    @constraint:String {minLength: 1}
+    string attribute2;
+};
+
+public type dataElementsItemsObject record {
+    decimal version?;
+    string typedId?;
+    string elementName?;
+    string elementLabel?;
+    anydata elementDescription?;
+    string[] elementGroups?;
+    anydata conditionElementName?;
+    boolean hideWarnings?;
+    boolean excludeFromExport?;
+    boolean protectedExpression?;
+    decimal elementTimeout?;
+    decimal displayOptions?;
+    string? formatType?;
+    anydata elementSuffix?;
+    boolean allowOverride?;
+    boolean summarize?;
+    boolean hideOnNull?;
+    anydata userGroup?;
+    anydata cssProperties?;
+    anydata resultGroup?;
+    string combinationType?;
+    boolean storeInAttributeExtension?;
+    anydata criticalAlert?;
+    anydata redAlert?;
+    anydata yellowAlert?;
+    anydata labelTranslations?;
+    string createDate?;
+    decimal createdBy?;
+    string lastUpdateDate?;
+    decimal lastUpdateBy?;
+    string formulaExpression?;
+};
+
+# 
+public type UpsertCustomerExtensionResponse record {
+    UpsertCustomerExtensionResponseResponse response;
+};
+
+public type InlineResponse2003Response record {
+    string node?;
+    InlineResponse2003ResponseData[] data?;
+    int status?;
+};
+
+# 
+public type RebateAgreementResponse record {
+    RebateAgreementResponse_response response?;
+};
+
+public type ListLogicsResponseResponseData record {
+    @constraint:String {minLength: 1}
+    string uniqueName?;
+    @constraint:String {minLength: 1}
+    string label?;
+};
+
+public type DeletePriceListResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:Array {minLength: 1}
+    DeletePriceListResponseResponseData[] data?;
+    decimal status?;
+};
+
+public type InlineResponse20045ResponseWorkflowSteps record {
+    string reason?;
+    string[] reasons?;
+    string isUserApprover?;
+    anydata[]? userGroupNames?;
+    string 'type?;
+    string? minApprovalsForGroups?;
+    string? isPostStepLogicFailed?;
+    string? postStepLogicName?;
+    string id?;
+    record {}[] executedByNames?;
+    string[] userLoginNames?;
+    string? userGroupTypedId?;
+    record {}[] approvalRequiredEmailAttachments?;
+    InlineResponse20045ResponseWorkflowSubSteps[] subSteps?;
+    string executionStatus?;
+    string[] userTypedIds?;
+    string lastAccess?;
+    int minApprovalsNeeded?;
+    string userName?;
+    record {}[] delegatedToTypedIds?;
+    string? userGroupTypedIds?;
+    string userTypedId?;
+    string uniqueName?;
+    record {}[] denialReasons?;
+    string? userGroupName?;
+    string isDenialReasonOptional?;
+    string[] userNames?;
+    string? comment?;
+    string? mandatoryComments?;
+};
+
+public type UpdateCFOTOldValues record {
+    string typedId?;
+    string uniqueName?;
+    UpdateCFOTOldValuesConfiguration configuration?;
+    int createdBy?;
+    string lastUpdateDate?;
+    string module?;
+    string headerFormulaName?;
+    string label?;
+    int version?;
+    boolean embedded?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+public type TypeCodesResponse_response_data record {
+    boolean massEditable?;
+    boolean bulkLoadable?;
+    @constraint:String {minLength: 1}
+    string name?;
+    @constraint:String {minLength: 1}
+    string className?;
+    @constraint:String {minLength: 1}
+    string codeString?;
+};
+
+public type DeleteCustomerExtensionResponseResponseData record {
+    decimal version;
+    @constraint:String {minLength: 1}
+    string typedId;
+    @constraint:String {minLength: 1}
+    string name;
+    @constraint:String {minLength: 1}
+    string customerId;
+    @constraint:String {minLength: 1}
+    string createDate;
+    decimal createdBy;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate;
+    decimal lastUpdateBy;
+    anydata attribute1?;
+    anydata attribute2?;
+    anydata attribute3?;
+};
+
+public type AddLookupTableResponseResponseData record {
+    decimal version;
+    @constraint:String {minLength: 1}
+    string typedId;
+    @constraint:String {minLength: 1}
+    string uniqueName;
+    @constraint:String {minLength: 1}
+    string label;
+    @constraint:String {minLength: 1}
+    string validAfter;
+    @constraint:String {minLength: 1}
+    string status;
+    anydata simulationSet?;
+    @constraint:String {minLength: 1}
+    string 'type;
+    @constraint:String {minLength: 1}
+    string valueType;
+    anydata nodeId?;
+    @constraint:String {minLength: 1}
+    string userGroupEdit;
+    anydata userGroupViewDetails?;
+    boolean hideWarnings;
+    anydata formatType?;
+    @constraint:String {minLength: 1}
+    string lastUpdateByName;
+    @constraint:String {minLength: 1}
+    string createdByName;
+    decimal numberOfKeyFields;
+    @constraint:String {minLength: 1}
+    string createDate;
+    decimal createdBy;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate;
+    decimal lastUpdateBy;
+    decimal id;
+    boolean isPlasma;
+};
+
+# 
+public type MassEditResponse record {
+    MassEditResponseResponse response?;
+};
+
+public type AddPLTTBody record {
+    AddPLTTResponse response?;
+};
+
+public type DataLoadEnvelope record {
+    InlineResponse2006Response response?;
+};
+
+public type FetchRRSCBody record {
+    int startRow?;
+    string textMatchStyle?;
+    LookuptablemanagerdeletetableIdbatchDataFilterCriteria data?;
+    int endRow?;
+    string operationType?;
+    record {}? oldValues?;
+};
+
+public type ListRollupsResponseResponseData record {
+    @constraint:String {minLength: 1}
+    string createdByName?;
+    ListRollupsResponseResponseQueryDto queryDto?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    @constraint:String {minLength: 1}
+    string visibility?;
+    @constraint:String {minLength: 1}
+    string ownerAndLabel?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    boolean isPlasma?;
+    @constraint:String {minLength: 1}
+    string label?;
+    decimal version?;
+    decimal createdBy?;
+    boolean draft?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal lastUpdateBy?;
+};
+
+public type KvserviceputkeytableNameDataKeys record {
+    string sku?;
+    string customer?;
+};
+
+public type CustomformaddData record {
+    # The `typedId` of the Custom Form Type
+    @constraint:String {minLength: 1}
+    string typedId;
+    string? userGroupEdit?;
+    @constraint:String {minLength: 1}
+    string label;
+};
+
+public type UpdateManualPriceListRequest record {
+    ManualpricelistmanagerupdateidrecalculateData data;
+    string textMatchStyle?;
+    string operationType?;
+    ManualPricelistItem oldValues?;
+};
+
+# The type code is CGI2
+public type CalculationGridItem2Key record {
+    string typedId?;
+    @constraint:String {maxLength: 70}
+    string attribute83?;
+    @constraint:String {maxLength: 70}
+    string attribute82?;
+    @constraint:String {maxLength: 70}
+    string attribute81?;
+    @constraint:String {maxLength: 70}
+    string attribute80?;
+    @constraint:String {maxLength: 70}
+    string attribute89?;
+    @constraint:String {maxLength: 70}
+    string attribute88?;
+    @constraint:String {maxLength: 70}
+    string attribute87?;
+    @constraint:String {maxLength: 70}
+    string attribute86?;
+    CalculationGridItem1KeyCalculationResults[] calculationResults?;
+    @constraint:String {maxLength: 70}
+    string attribute85?;
+    @constraint:String {maxLength: 70}
+    string attribute84?;
+    int manualEditUser?;
+    @constraint:String {maxLength: 1300}
+    string allowedOverrides?;
+    int version?;
+    string alerts?;
+    @constraint:String {maxLength: 70}
+    string attribute9?;
+    @constraint:String {maxLength: 70}
+    string attribute94?;
+    decimal significantValueChangePct?;
+    @constraint:String {maxLength: 70}
+    string attribute8?;
+    @constraint:String {maxLength: 70}
+    string attribute93?;
+    @constraint:String {maxLength: 70}
+    string attribute92?;
+    @constraint:String {maxLength: 70}
+    string attribute91?;
+    @constraint:String {maxLength: 70}
+    string attribute5?;
+    @constraint:String {maxLength: 70}
+    string attribute90?;
+    @constraint:String {maxLength: 70}
+    string attribute4?;
+    @constraint:String {maxLength: 70}
+    string attribute7?;
+    @constraint:String {maxLength: 70}
+    string attribute6?;
+    @constraint:String {maxLength: 70}
+    string attribute1?;
+    @constraint:String {maxLength: 70}
+    string attribute14?;
+    @constraint:String {maxLength: 70}
+    string attribute13?;
+    @constraint:String {maxLength: 70}
+    string attribute3?;
+    @constraint:String {maxLength: 70}
+    string attribute12?;
+    @constraint:String {maxLength: 70}
+    string attribute2?;
+    @constraint:String {maxLength: 70}
+    string attribute11?;
+    @constraint:String {maxLength: 70}
+    string attribute99?;
+    @constraint:String {maxLength: 70}
+    string attribute10?;
+    @constraint:String {maxLength: 70}
+    string attribute98?;
+    @constraint:String {maxLength: 70}
+    string attribute97?;
+    @constraint:String {maxLength: 70}
+    string attribute96?;
+    @constraint:String {maxLength: 70}
+    string attribute95?;
+    decimal resultSignificantValue?;
+    string itemExtensions?;
+    @constraint:String {maxLength: 70}
+    string attribute19?;
+    @constraint:String {maxLength: 70}
+    string attribute18?;
+    @constraint:String {maxLength: 70}
+    string attribute17?;
+    @constraint:String {maxLength: 70}
+    string attribute16?;
+    @constraint:String {maxLength: 70}
+    string attribute15?;
+    string manualOverrides?;
+    @constraint:String {maxLength: 70}
+    string attribute25?;
+    @constraint:String {maxLength: 70}
+    string attribute24?;
+    @constraint:String {maxLength: 70}
+    string attribute23?;
+    @constraint:String {maxLength: 70}
+    string attribute22?;
+    @constraint:String {maxLength: 70}
+    string attribute21?;
+    @constraint:String {maxLength: 70}
+    string attribute20?;
+    string createDate?;
+    @constraint:String {maxLength: 70}
+    string attribute29?;
+    @constraint:String {maxLength: 70}
+    string attribute28?;
+    int calculationGridId?;
+    @constraint:String {maxLength: 70}
+    string attribute27?;
+    @constraint:String {maxLength: 70}
+    string attribute26?;
+    @constraint:String {maxLength: 1}
+    string completeResultsAvailable?;
+    @constraint:String {maxLength: 70}
+    string attribute36?;
+    @constraint:String {maxLength: 70}
+    string attribute35?;
+    @constraint:String {maxLength: 70}
+    string attribute34?;
+    @constraint:String {maxLength: 70}
+    string attribute33?;
+    @constraint:String {maxLength: 70}
+    string attribute32?;
+    @constraint:String {maxLength: 70}
+    string attribute31?;
+    @constraint:String {maxLength: 70}
+    string attribute30?;
+    @constraint:String {maxLength: 255}
+    string key1?;
+    @constraint:String {maxLength: 255}
+    string key2?;
+    @constraint:String {maxLength: 70}
+    string attribute39?;
+    @constraint:String {maxLength: 70}
+    string attribute38?;
+    string lastUpdateDate?;
+    @constraint:String {maxLength: 70}
+    string attribute37?;
+    @constraint:String {maxLength: 70}
+    string attribute47?;
+    @constraint:String {maxLength: 70}
+    string attribute46?;
+    @constraint:String {maxLength: 70}
+    string attribute45?;
+    @constraint:String {maxLength: 70}
+    string attribute44?;
+    @constraint:String {maxLength: 70}
+    string attribute43?;
+    @constraint:String {maxLength: 70}
+    string attribute42?;
+    @constraint:String {maxLength: 70}
+    string attribute41?;
+    @constraint:String {maxLength: 70}
+    string attribute40?;
+    @constraint:String {maxLength: 70}
+    string attribute49?;
+    @constraint:String {maxLength: 70}
+    string attribute48?;
+    @constraint:String {maxLength: 70}
+    string attribute50?;
+    @constraint:String {maxLength: 70}
+    string attribute100?;
+    @constraint:String {maxLength: 70}
+    string attribute58?;
+    int manualEditVersion?;
+    string name?;
+    @constraint:String {maxLength: 70}
+    string attribute57?;
+    @constraint:String {maxLength: 70}
+    string attribute56?;
+    @constraint:String {maxLength: 70}
+    string attribute55?;
+    @constraint:String {maxLength: 70}
+    string attribute54?;
+    @constraint:String {maxLength: 70}
+    string attribute53?;
+    record {|record {}...;|}[] allCalculationResults?;
+    @constraint:String {maxLength: 70}
+    string attribute52?;
+    @constraint:String {maxLength: 70}
+    string attribute51?;
+    @constraint:String {maxLength: 70}
+    string attribute59?;
+    decimal calculatedResultSignificantValue?;
+    @constraint:String {maxLength: 70}
+    string attribute61?;
+    @constraint:String {maxLength: 70}
+    string attribute60?;
+    decimal previousSignificantValue?;
+    decimal manualResultSignificantValue?;
+    @constraint:String {maxLength: 70}
+    string attribute69?;
+    @constraint:String {maxLength: 70}
+    string attribute68?;
+    @constraint:String {maxLength: 70}
+    string attribute67?;
+    @constraint:String {maxLength: 70}
+    string attribute66?;
+    @constraint:String {maxLength: 70}
+    string attribute65?;
+    @constraint:String {maxLength: 70}
+    string attribute64?;
+    @constraint:String {maxLength: 70}
+    string attribute63?;
+    @constraint:String {maxLength: 70}
+    string attribute62?;
+    @constraint:String {maxLength: 15}
+    string workStatus?;
+    @constraint:String {maxLength: 255}
+    string comments?;
+    decimal significantValueChange?;
+    string warnings?;
+    @constraint:String {maxLength: 255}
+    string label?;
+    @constraint:String {maxLength: 70}
+    string attribute72?;
+    @constraint:String {maxLength: 70}
+    string attribute71?;
+    @constraint:String {maxLength: 70}
+    string attribute70?;
+    int createdBy?;
+    @constraint:String {maxLength: 70}
+    string attribute79?;
+    int tableId?;
+    @constraint:String {maxLength: 70}
+    string attribute78?;
+    @constraint:String {maxLength: 70}
+    string attribute77?;
+    @constraint:String {maxLength: 70}
+    string attribute76?;
+    @constraint:String {maxLength: 70}
+    string attribute75?;
+    @constraint:String {maxLength: 70}
+    string attribute74?;
+    @constraint:String {maxLength: 70}
+    string attribute73?;
+    int lastUpdateBy?;
+};
+
+public type InlineResponse20066Response record {
+    string node?;
+    int startRow?;
+    ConditionRecordItem3Key[] data?;
+    int endRow?;
+    int totalRows?;
+    int status?;
+};
+
+public type InlineResponse20031ResponseDurationsHeader record {
+    int duration?;
+    string name?;
+};
+
+public type AddRRSCData record {
+    int rebateRecordSetId?;
+    string label?;
+};
+
+public type CompensationSignature record {
+    string note?;
+    string voidedReason?;
+    record {}[] history?;
+    string 'error?;
+    string customerUserOrEmail?;
+    string customerName?;
+    int|string|decimal|string|string|string? statusChangedDateTime?;
+    string senderName?;
+    int sender?;
+    string templateName?;
+    string envelopeId?;
+    int|string|decimal|string|string|string? sentDateTime?;
+    "sent"|"delivered"|"signed"|"completed"|"declined"|"voided"|"processing"|"error"|"cancelling" status?;
+};
+
+public type ListCustomFormsResponse record {
+    string node?;
+    CustomForm data?;
+    int status?;
+};
+
+public type PricelistmanagerfetchidDataCriteria record {
+    @constraint:String {minLength: 1}
+    string fieldName;
+    @constraint:String {minLength: 1}
+    string value;
+    @constraint:String {minLength: 1}
+    string operator;
+};
+
+public type SaveCompensationRecordResponseResponse record {
+    string node?;
+    CompensationRecord[] data?;
+    int status?;
+};
+
+# 
+public type JobStatusTrackerResponse record {
+    JobStatusTrackerResponse_response response?;
+};
+
+public type UpdateCOldValues record {
+    @constraint:String {minLength: 1}
+    string typedId;
+    anydata attribute19?;
+    anydata attribute18?;
+    anydata attribute17?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate;
+    anydata attribute16?;
+    anydata attribute15?;
+    @constraint:String {minLength: 1}
+    string customerId;
+    anydata attribute25?;
+    anydata attribute24?;
+    anydata userGroupViewDetails?;
+    anydata attribute23?;
+    anydata attribute22?;
+    anydata attribute21?;
+    anydata attribute20?;
+    @constraint:String {minLength: 1}
+    string createDate;
+    boolean isParent;
+    anydata attribute29?;
+    anydata attribute28?;
+    anydata attribute27?;
+    anydata attribute26?;
+    decimal version;
+    anydata parentId?;
+    anydata attribute9?;
+    anydata attribute8?;
+    anydata attribute5?;
+    decimal createdBy;
+    anydata attribute4?;
+    anydata attribute7?;
+    anydata attribute6?;
+    @constraint:String {minLength: 1}
+    string name;
+    @constraint:String {minLength: 1}
+    string attribute1;
+    anydata attribute14?;
+    anydata attribute13?;
+    anydata userGroupEdit?;
+    anydata attribute3?;
+    anydata attribute12?;
+    @constraint:String {minLength: 1}
+    string attribute2;
+    anydata attribute11?;
+    anydata attribute10?;
+    decimal nodeId;
+    anydata attribute30?;
+    decimal lastUpdateBy;
+};
+
+public type ImportmanagerMassedittypedIdBody record {
+    ImportmanagermassedittypedIdData data?;
+};
+
+# 
+public type GenericDataResponse record {
+    GenericDataResponse_response response?;
+};
+
+public type CopyUserResponseResponseData record {
+    anydata lastName?;
+    anydata lastLogin?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    boolean firstLogin?;
+    boolean noSession?;
+    @constraint:Array {minLength: 1}
+    CopyUserResponseResponseBusinessRoles[] businessRoles?;
+    anydata customerFilterCriteria?;
+    anydata defaultUserGroupViewDetails?;
+    @constraint:String {minLength: 1}
+    string loginName?;
+    record {}[] allRoleNames?;
+    boolean receiveAdminEmail?;
+    anydata wizardDashboardName?;
+    anydata email?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    anydata additionalInfo4?;
+    anydata additionalInfo3?;
+    anydata additionalInfo2?;
+    anydata additionalInfo1?;
+    anydata passwordExpiry?;
+    @constraint:Array {minLength: 1}
+    ListUsersUserGroupsResponseResponseData[] allGroups?;
+    @constraint:Array {minLength: 1}
+    ListUsersUserGroupsResponseResponseData[] groups?;
+    anydata productFilterCriteria?;
+    decimal version?;
+    boolean ssoOnly?;
+    anydata firstName?;
+    anydata defaultUserGroupEdit?;
+    anydata emailLocale?;
+    boolean workflowEmailingActivated?;
+    decimal createdBy?;
+    record {}[] roleNames?;
+    boolean requireTFA?;
+    boolean activated?;
+    decimal lastUpdateBy?;
+    anydata extendedData?;
+};
+
+public type ClicmanagerCreateTypeCodeBody record {
+    ClicmanagercreateTypeCodeData data?;
+};
+
+public type UpdateCustomFormTypeResponse record {
+    UpdateCustomFormTypeResponseResponse response?;
+};
+
+# The type code is BD
+public type BinaryData record {
+    string? lastUpdateByName?;
+    @constraint:String {maxLength: 255}
+    string createdByName?;
+    @constraint:String {maxLength: 255}
+    string fileName?;
+    string typedId?;
+    string? lastUpdateDate?;
+    int length?;
+    int latestUploadStatusId?;
+    int version?;
+    string? sender?;
+    int createdBy?;
+    string? recipients?;
+    boolean sentViaEmail?;
+    string? userGroupEdit?;
+    string? userGroupViewDetails?;
+    @constraint:String {maxLength: 255}
+    string contentType?;
+    string? embeddedOwner?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+public type InlineResponse20072Response record {
+    string node?;
+    ImportManager[] data?;
+    int status?;
+};
+
+# Represents the Queries record for the operation: importSellerExtensionFile
+public type ImportSellerExtensionFileQueries record {
+    # Set to *false* to add records from the file as new lines to the existing data. Set to *true* to delete all previous records in the SX table. 
+    string truncate?;
+};
+
+# 
+public type ListProductsFromManualPriceListRequest record {
+    decimal startRow?;
+    @constraint:String {minLength: 1}
+    string textMatchStyle?;
+    FetchPLData data?;
+    decimal endRow?;
+    @constraint:String {minLength: 1}
+    string operationType?;
+    anydata oldValues?;
+};
+
+public type AddPGTTDataContextualActions record {
+    string key2?;
+};
+
+public type UpdateAITOldValuesConfiguration record {
+    string name?;
+    UpdateCFOTOldValuesConfigurationDefaultTabsDetails[] tabs?;
+};
+
+public type QuoteViewState record {
+    string[] openFolders?;
+    string gridViewState?;
+    string[] selectedNodes?;
+};
+
+public type DeactivateWorkflowDelegationResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:Array {minLength: 1}
+    UpdateWorkflowDelegationResponseResponseData[] data?;
+    decimal status?;
+};
+
+public type UpdateCOCTData record {
+    string uniqueName?;
+    string typedId?;
+    string userGroupEdit?;
+    string userGroupViewDetails?;
+    string label?;
+};
+
+public type ProductExtensionResponse_response record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:Array {minLength: 1}
+    (PX3|PX6|PX8|PX10|PX20|PX30|PX50)[] data?;
+    decimal endRow?;
+    decimal totalRows?;
+    decimal status?;
+};
+
+public type ListObjectsRequest record {
+    # The number of the end row that defines the end of the result set's returned objects. Use this parameter if you want to implement paging for results.
+    int endRow?;
+    string operationType?;
+    # The number of the first row that defines the start of the result set's returned objects. Use this parameter if you want to implement paging for results.
+    int startRow?;
+    "startsWith"|"exact"|"substring" textMatchStyle = "exact";
+    fetchtypeCode_data data?;
+};
+
+public type RemoveClaimItemsResponse record {
+    TruncateKVTableResponseResponse response?;
+};
+
+public type KvserviceloaddatatableNameData record {
+    anydata[][] data?;
+    string[] header?;
+};
+
+public type InlineResponse20064DataStatsQuerier record {
+    InlineResponse20064DataStatsQuerierStore store?;
+};
+
+public type AddCalculationGridResponseResponse record {
+    string node?;
+    CalculationGrid[] data?;
+    int status?;
+};
+
+public type DatamartdeletefcTypeCodeData record {
+    @constraint:String {minLength: 1}
+    string uniqueName;
+};
+
+public type I18nmanagerFetchWithExtraDataBody record {
+    I18nmanagerfetchWithExtraDataData data?;
+};
+
+public type UpdateSellerRequest record {
+    UpdateSLData data?;
+    string textMatchStyle?;
+    string operationType;
+    UpdateSLOldValues oldValues?;
+};
+
+public type WorkflowsmanagerfetchDataCriteria record {
+    # Specify the name of the field you want to filter the returned workflows by
+    "uniqueName"|"label"|"code"|"workflowStatus"|"delegation"|"notificationSent"|"createDate" fieldName?;
+    # Specify the workflow status or the type code
+    "CL"|"CT"|"DCR"|"DP"|"MR"|"PL"|"PGI"|"XPGI"|"Q"|"RBA"|"RR"|"DRAFT"|"SUBMITTED"|"DENIED"|"APPROVED"|"NO_APPROVAL_REQUIRED"|"WITHDRAWN"|"INVALIDATED" value?;
+    # Specify an operator of the filter criteria
+    "equals"|"iEquals"|"notEqual"|"iNotEqual"|"isNull"|"notNull"|"contains"|"iContains"|"containsPattern"|"iContainsPattern"|"notContains"|"iNotContains"|"startsWith"|"iStartsWith"|"notStartsWith"|"iNotStartsWith"|"endsWith"|"iEndsWith"|"notEndsWith"|"iNotEndsWith"|"iBetween"|"iBetweenInclusive"|"inSet"|"notInSet" operator?;
+};
+
+public type SellerInner record {
+    string typedId?;
+    string? attribute19?;
+    string? attribute18?;
+    string? attribute17?;
+    string lastUpdateDate?;
+    string? attribute16?;
+    string? attribute15?;
+    # A unique ID of the seller
+    @constraint:String {maxLength: 255}
+    string sellerId?;
+    string? attribute25?;
+    string? attribute24?;
+    string? userGroupViewDetails?;
+    string? attribute23?;
+    string? attribute22?;
+    string? attribute21?;
+    string? attribute20?;
+    string createDate?;
+    string? attribute29?;
+    string? attribute28?;
+    string? attribute27?;
+    string? attribute26?;
+    string? reportsTo?;
+    int version?;
+    string? attribute9?;
+    string? attribute8?;
+    string? attribute5?;
+    int createdBy?;
+    string? attribute4?;
+    string? attribute7?;
+    string? attribute6?;
+    # A full name of the seller, which is usually printed on documents
+    @constraint:String {maxLength: 255}
+    string name?;
+    string? attribute1?;
+    string? attribute14?;
+    string? attribute13?;
+    string? userGroupEdit?;
+    string? attribute3?;
+    string? attribute12?;
+    string? attribute2?;
+    string? attribute11?;
+    string? attribute10?;
+    string? attribute30?;
+    int lastUpdateBy?;
+};
+
+public type InsertBulkDataFromFileAsyncResponse record {
+    InsertBulkDataFromFileAsyncResponseResponse response?;
+};
+
+# The type code is JST
+public type JobStatusTracker record {
+    string? processingStart?;
+    @constraint:String {maxLength: 255}
+    string targetObject?;
+    string typedId?;
+    string lastUpdateDate?;
+    "PRICELIST"|"PRICELIST_DIRTY"|"SIMULATION"|"SIMULATION_DIRTY"|"PRICEGRID"|"PRICEGRID_DIRTY"|"CFS"|"REBATERECORD"|"PRICEAPI_OBSOLETE"|"MASSUPDATE"|"IFP_OBSOLETE"|"DATAEXPORT"|"DATAIMPORT"|"OBJREF"|"PADATALOAD"|"CALCULATIONFLOW"|"PRICELIST_MERGE"|"DATAARCHIVE"|"RAT_CALC"|"MOVE_OX"|"DELETE_DATA"|"DB_MIGRATION"|"SERVER_MIGRATION"|"DATACLEANUP"|"QUOTES_MASS_UPDATE"|"CONTRACTS_MASS_UPDATE"|"CLAIM"|"CLAIM_SUBMIT"|"SIGNATURE"|"PRODUCT_IMAGES_DELETE"|"JOB_TRIGGER_CALCULATION"|"QUOTE"|"CLIC_MASS_EDIT"|"MASS_ACTION"|"CONTRACT"|"REBATE_AGREEMENT"|"RRG_SUBMIT"|"MODEL_CALCULATION"|"MODEL_PARALLEL_CALCULATION"|"MODEL_CALCULATION_SEQUENCE"|"COMPENSATION"|"COMPENSATION_AGREEMENT"|"COMPENSATION_RECORD"|"CALCULATIONGRID"|"CONDITION_RECORD"|"DCR_SUBMIT" trackerType?;
+    int? threadId?;
+    JobStatusTrackerJobSettings jobSettings?;
+    string? calculationContext?;
+    string? threadUUID?;
+    int id?;
+    # Returned only when a JST is fetched using **fetch/JST/{id}** and **fetch/JST** endpoints.
+    # Use the **admin.fetchjst** endpoint to fetch the JSTs without possibly large `calculationsResults`, `parameters` and `messages` fields
+    string? calculationResults?;
+    string? processingNode?;
+    string createDate?;
+    @constraint:String {maxLength: 255}
+    string jobName?;
+    @constraint:String {maxLength: 255}
+    string concurrencyKey?;
+    int priority?;
+    int version?;
+    int createdBy?;
+    string? processingEnd?;
+    string? progress?;
+    # Returned only when a JST is fetched using **fetch/JST/{id}** and **fetch/JST** endpoints.
+    # Use the **admin.fetchjst** endpoint to fetch the JSTs without possibly large `calculationsResults`, `parameters` and `messages` fields
+    string? messages?;
+    int runNumber?;
+    boolean cancelRequested?;
+    # Returned only when a JST is fetched using **fetch/JST/{id}** and **fetch/JST** endpoints.
+    # Use the **admin.fetchjst** endpoint to fetch the JSTs without possibly large `calculationsResults`, `parameters` and `messages` fields
+    string? parameters?;
+    "WAITING_FOR_DISPATCH"|"QUEUED_FOR_EXECUTION"|"PROCESSING"|"FAILED"|"FINISHED"|"CANCELLED"|"INTERRUPTED" status?;
+    int lastUpdateBy?;
+};
+
+public type OptimizationmodelcalcexectypedIdstepNamecalcNameitemDataCriteria1 record {
+    @jsondata:Name {value: "_constructor"}
+    string constructor;
+    OptimizationmodelcalcexectypedIdstepNamecalcNameitemDataCriteria[] criteria;
+    string operator;
+};
+
+public type DatamartexportdataxlsxData record {
+    string[] fieldCollections;
+    boolean sanitize;
+};
+
+public type ListClaimItemsResponseResponse record {
+    string node?;
+    int startRow?;
+    ClaimLineItem[] data?;
+    int endRow?;
+    int totalRows?;
+    int status?;
+};
+
+public type CommentmanagerreplyData record {
+    string commentThreadTypedId?;
+    string body?;
+};
+
+# 
+public type AddProductsToManualPriceListNoRecalcRequest record {
+    ManualpricelistmanageraddidrecalculateData data;
+};
+
+# 
+public type ChangeCurrentUserPasswordResponse record {
+    AddPriceGridItemsToPriceGridResponseResponse response?;
+};
+
+public type DataMartObjectEnvelope record {
+    InlineResponse2004Response response?;
+};
+
+public type RecalculateCalculationOfStepResponseResponseState record {
+    @jsondata:Name {value: "two_tabs"}
+    RecalculateCalculationOfStepResponseResponseStateTwoTabs twoTabs?;
+};
+
+public type RebateagreementfetchitemsDataRebateAgreement record {
+    record {}[] outputs?;
+    record {}[] lineItems?;
+    anydata headerText?;
+    @constraint:String {minLength: 1}
+    string endDate?;
+    @constraint:Array {minLength: 1}
+    RebateagreementfetchitemsDataRebateAgreementInputs[] inputs?;
+    anydata userGroupEdit?;
+    anydata userGroupViewDetails?;
+    @constraint:String {minLength: 1}
+    string label?;
+    decimal nodeId?;
+    @constraint:String {minLength: 1}
+    string startDate?;
+};
+
+public type InlineResponse2013ResponseData record {
+    string typedId?;
+    string managerUN?;
+    string lastUpdateDate?;
+    string? originalValue?;
+    KvservicefetchtableNameData targetPrimaryKeys?;
+    string typeOfChange?;
+    int version?;
+    string createdBy?;
+    string? validationErrors?;
+    InlineResponse2013ResponseValue value?;
+    string columnName?;
+    string createDate?;
+    string lastUpdateBy?;
+};
+
+public type AddCalculationResponse record {
+    AddCalculationResponseResponse response?;
+};
+
+public type DeleteCompensationPlanRequest record {
+    DeleteCOData data;
+};
+
+public type ContractmanagersaveDataContractCalculationBase record {
+    record {}[] excludedCustomerGroups?;
+    @constraint:String {minLength: 1}
+    string dateDimFieldName?;
+    record {}[] includedSellerReferences?;
+    record {}[] includedCustomerGroups?;
+    record {}[] excludedTimePeriods?;
+    record {}[] excludedproductGroups?;
+    record {}[] otherFilters?;
+    @constraint:Array {minLength: 1}
+    ContractmanagersaveDataContractCalculationBaseIncludedProductGroups[] includedProductGroups?;
+    record {}[] excludedSellerReferences?;
+    @constraint:Array {minLength: 1}
+    ContractmanagersaveDataContractCalculationBaseIncludedTimePeriods[] includedTimePeriods?;
+};
+
+public type AccountmanagerassigngroupuserIdData record {
+    # `TypedId` of the User Group you want to assign or revoke. Either `typedId` or `uniqeName` is required
+    @constraint:String {minLength: 1}
+    string typedId;
+    # `uniqeName` of the User Group you want to assign or revoke. Either `typedId` or `uniqeName` is required
+    @constraint:String {maxLength: 255, minLength: 1}
+    string uniqueName;
+    # Set to `true` to add the user to the User Group. Set `false` to remove the user from the group
+    boolean assign;
+};
+
+# Represents the Queries record for the operation: exportQuotePdf
+public type ExportQuotePdfQueries record {
+    # Specifies the format of the output file
+    "json"|"xls"|"csv"|"pdf" output?;
+    # Specifies the template to be used when exporting a file
+    string templateName?;
+    # Specifies localization of data
+    string dataLocale?;
+};
+
+public type AssignmentResponse_response_customerGroup record {
+    @constraint:String {minLength: 1}
+    string label?;
+    anydata customerFieldName?;
+    anydata customerFieldLabel?;
+    anydata customerFieldValue?;
+    AssignmentResponse_response_customerGroup_customerFilterCriteria customerFilterCriteria?;
+};
+
+public type GetParallelCalculationItemResponse record {
+    GetParallelCalculationItemResponseResponse response?;
+};
+
+public type RejectClaimItemsResponse record {
+    ValidateClaimItemsResponseResponse response?;
+};
+
+public type InlineResponse20060Response record {
+    string node?;
+    int startRow?;
+    EventTask[] data?;
+    int endRow?;
+    int totalRows?;
+    int status?;
+};
+
+public type QuoteResponse_response_inputs record {
+    @constraint:String {minLength: 1}
+    string name;
+    @constraint:String {minLength: 1}
+    string label;
+    anydata lookupTableId?;
+    @constraint:String {minLength: 1}
+    string url;
+    @constraint:String {minLength: 1}
+    string 'type;
+    @constraint:String {minLength: 1}
+    string value;
+    @constraint:String {minLength: 1}
+    string valueHint;
+    anydata readOnly?;
+    anydata filter?;
+    anydata parameterGroup?;
+    anydata required?;
+    anydata labelTranslations?;
+    anydata addUnknownValues?;
+    anydata typedId?;
+    anydata alwaysEditable?;
+    record {}[] inputs?;
+    record {} parameterConfig?;
+    record {} formattingOptions?;
+    anydata valueOptions?;
+};
+
+public type DatamartsqlqueryDataSources record {
+    DatamartsqlqueryDataSourcesS0 s0?;
+    DatamartsqlqueryDataSourcesS0 s1?;
+};
+
+# 
+public type CopyLogicResponse record {
+    CopyLogicResponseResponse response?;
+};
+
+# Represents the Queries record for the operation: listProductExtensionObjects
+public type ListProductExtensionObjectsQueries record {
+    # Specifies the format of the output file
+    "json"|"xls"|"csv"|"pdf" output?;
+    # Set to **false** to retrieve the table with labels (as used in the database) instead of names in the table header
+    "true"|"false" useColumnNames = "true";
+};
+
+public type UserResponse_response_data record {
+    decimal version?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    @constraint:String {minLength: 1}
+    string loginName?;
+    @constraint:String {minLength: 1}
+    string firstName?;
+    @constraint:String {minLength: 1}
+    string lastName?;
+    @constraint:String {minLength: 1}
+    string email?;
+    anydata groups?;
+    anydata businessRoles?;
+    boolean activated?;
+    boolean workflowEmailingActivated?;
+    boolean noSession?;
+    boolean requireTFA?;
+    boolean receiveAdminEmail?;
+    boolean ssoOnly?;
+    anydata wizardDashboardName?;
+    boolean firstLogin?;
+    anydata additionalInfo1?;
+    anydata additionalInfo2?;
+    anydata additionalInfo3?;
+    anydata additionalInfo4?;
+    @constraint:String {minLength: 1}
+    string emailLocale?;
+    @constraint:String {minLength: 1}
+    string defaultUserGroupEdit?;
+    @constraint:String {minLength: 1}
+    string defaultUserGroupViewDetails?;
+    anydata productFilterCriteria?;
+    anydata customerFilterCriteria?;
+    record {}[] roleNames?;
+    record {}[] allRoleNames?;
+    record {}[] allGroups?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal createdBy?;
+    anydata lastLogin?;
+    decimal lastUpdateBy?;
+    anydata extendedData?;
+    anydata passwordExpiry?;
+};
+
+public type CommentmanagerFetchthreadstypedIdBody record {
+    int startRow?;
+    string textMatchStyle?;
+    CommentmanagerfetchthreadstypedIdData data?;
+    int endRow?;
+    string operationType?;
+    string[] sortBy?;
+    record {}? oldValues?;
+};
+
+# 
+public type PerformMassActionResponse record {
+    AddPriceGridItemsToPriceGridResponseResponse response?;
+};
+
+public type ListUsersUserGroupsResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:String {minLength: 1}
+    string csrfToken?;
+    @constraint:Array {minLength: 1}
+    ListUsersUserGroupsResponseResponseData[] data?;
+    decimal totalRows?;
+    decimal status?;
+};
+
+public type GetCLICresponseResponseInputs record {
+    string typedId?;
+    GetCLICresponseResponseParameterConfig parameterConfig?;
+    record {}[] inputs?;
+    string name?;
+    string label?;
+    string 'type?;
+    record {string '100?; string '150?; string '0\.4?; string '1\.6?; string '2\.71?;} value?;
+    string valueHint?;
+    boolean required?;
+    record {} formattingOptions?;
+    string[] valueOptions?;
+};
+
+# The CompensationRecordSetCalculation object. The type code is CORSC
+public type CompensationRecordSetCalculation record {
+    string? calculationType?;
+    string typedId?;
+    string lastUpdateDate?;
+    string? locale?;
+    CompensationRecordSetCalculationCompensationRecordSet? compensationRecordSet?;
+    string|string? calculationDate?;
+    @constraint:String {maxLength: 255}
+    string compensationRecordSetLabel?;
+    int compensationRecordSetId?;
+    boolean valid?;
+    string? sortBy?;
+    record {}? adhocCalculation?;
+    string createDate?;
+    string? calculationMessages?;
+    string? targetDate?;
+    boolean shouldSubmit?;
+    @constraint:String {maxLength: 255}
+    string label?;
+    boolean incremental?;
+    int version?;
+    record {}? dtoFilter?;
+    boolean isDefault?;
+    string|string? incCalculationDate?;
+    int createdBy?;
+    string|string? calculationStartDate?;
+    CompensationRecordSetCalculationCalculationConfig? calculationConfig?;
+    int lastUpdateBy?;
+    "DRAFT"|"PENDING"|"SCHEDULED"|"PROCESSING"|"SCHEDULED_DIRTY"|"ERROR"|"READY"|"CANCELLED" status?;
+};
+
+# 
+public type DeactivateWorkflowDelegationRequest record {
+    DeleteTypeCodeData data;
+};
+
+public type InlineResponse20078Response record {
+    string node?;
+    CommentThread data?;
+    int status?;
+};
+
+# 
+public type ListPriceListItemsRequest record {
+    # The number of the first row that defines the start of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal startRow?;
+    @constraint:String {minLength: 1}
+    string textMatchStyle?;
+    PricelistmanagerfetchidData data?;
+    # The number of the end row that defines the end of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal endRow = 300;
+    @constraint:String {minLength: 1}
+    string operationType?;
+    anydata oldValues?;
+};
+
+# 
+public type UpsertLookupTableValueRequest record {
+    LookuptablemanagerintegratetableIdData data;
+};
+
+# 
+public type ListBoMForProductResponse record {
+    ListBoMForProductResponseResponse response?;
+};
+
+public type AccountmanagerassigngroupBRbusinessroleIdData record {
+    # `TypedId` of the group you want to assign or revoke. Either `typedId` or `uniqeName` is required
+    @constraint:String {minLength: 1}
+    string typedId;
+    # Set to `true` to assign the group to the business role. Set `false` to remove the group from the business role
+    boolean assign;
+};
+
+public type LoaddataPData record {
+    # Specify the field values in the same order as specified in the header object
+    anydata[][] data;
+    LoaddataPDataOptions options?;
+    # Specify header field names (table columns) of the record in the target table
+    string[] header;
+};
+
+public type PricegridmanagerrejectidData record {
+    # Specify `typedId`s of items you want to deny
+    string[] ids;
+};
+
+public type ContractModelResponse_response_calculationBase_includedProductGroups record {
+    @constraint:String {minLength: 1}
+    string label;
+    anydata productFieldName?;
+    anydata productFieldLabel?;
+    anydata productFieldValue?;
+    ContractModelResponse_response_productGroup_productFilterCriteria productFilterCriteria?;
+};
+
+public type AddCompensationTypeRequest record {
+    AddCOHTData data?;
+    string operation;
+};
+
+public type QuotemanagerpriceData record {
+    QuotemanagerpriceDataQuote quote;
+};
+
+# 
+public type ListQuotesResponse record {
+    ListQuotesResponseResponse response?;
+};
+
+public type ListKVTablesResponse record {
+    ListKVTablesResponseResponse response?;
+};
+
+public type CreateUploadSlotEnvelope record {
+    InlineResponse200Response response?;
+};
+
+# 
+public type ListManualPriceListsRequest record {
+    decimal startRow?;
+    @constraint:String {minLength: 1}
+    string textMatchStyle?;
+    FetchPLData data?;
+    decimal endRow?;
+    @constraint:String {minLength: 1}
+    string operationType?;
+    anydata oldValues?;
+};
+
+public type GetCLICrequest record {
+    int startRow?;
+    string textMatchStyle?;
+    ClicmanagerfetchtypedIdData data?;
+    int endRow?;
+    string operationType?;
+    record {}? oldValues?;
+};
+
+public type I18nmanagerPutBody record {
+    I18nmanagerputData data?;
+};
+
+# 
+public type GetLivePriceGridResponse record {
+    GetLivePriceGridResponseResponse response;
+};
+
+# 
+public type SearchProductURLResponse record {
+    SearchProductResponseResponse response?;
+};
+
+public type GetCLICresponseResponseParameterConfig record {
+    string sortType?;
+    string validationType?;
+    string dataType?;
+};
+
+public type ListAccrualRecordsResponseResponse record {
+    string node?;
+    int startRow?;
+    CompensationAccrualRecord[] data?;
+    int endRow?;
+    int totalRows?;
+    int status?;
+};
+
+public type ChangeCustomFormStatusResponseResponse record {
+    string node?;
+    CustomForm data?;
+    int status?;
+};
+
+public type DatamartOrphanObjectsEnvelope record {
+    InlineResponse20080Response response?;
+};
+
+public type ListClaimTypesResponseResponseConfigurationColumnsSku record {
+    string fieldFormatType?;
+    boolean canEdit?;
+    string name?;
+};
+
+public type ModelDuplicationEnvelope record {
+    SaveModelResponseResponse response?;
+};
+
+public type CalculationgridmanageraddgridData record {
+    # User-defined Calculation Grid parameters
+    string configuration;
+    # A target date used for the logic execution. If not specified, the system will use today's date
+    string targetDate?;
+    # The name of the Calculation Grid you want to create
+    string label;
+    "DATA_DRIVEN"|"LOGIC_DRIVEN"|"MANUAL" keyGenerationType;
+};
+
+public type TargetuploadSlotIdBody record {
+    # Provide the file (`CSV`, or `XLSX` format) you want to upload
+    record {byte[] fileContent; string fileName;} file?;
+};
+
+public type UpsertKVKeyResponse record {
+    UpsertKVKeyResponseResponse response?;
+};
+
+# The type code is PLTT
+public type PriceListType record {
+    string lastUpdateByName?;
+    PriceListTypeTypeConfiguration typeConfiguration?;
+    string createdByName?;
+    string dimensionType?;
+    string typedId?;
+    string targetDate?;
+    string lastUpdateDate?;
+    record {} contextualActions?;
+    string label?;
+    int version?;
+    string uniqueName?;
+    record {} buttonsConfiguration?;
+    int createdBy?;
+    string headerFormulaName?;
+    int id?;
+    string calculationFormulaName?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+public type ContractLineItems record {
+    record {}[] outputs?;
+    string typedId?;
+    string calculationBaseJson?;
+    string endDate?;
+    record {}[] inputs?;
+    string lastUpdateDate?;
+    string createDate?;
+    boolean dirty?;
+    CompensationLineItemCalculationBase calculationBase?;
+    string treeLabel?;
+    CustomerAssignmentCustomerGroup customerGroup?;
+    string lineId?;
+    string label?;
+    int clicId?;
+    int priceRecordId?;
+    int version?;
+    string parentId?;
+    boolean folder?;
+    string contractTermType?;
+    ContractProductGroup productGroup?;
+    int createdBy?;
+    int calculationStatus?;
+    int editabilityStatus?;
+    boolean containsProductImage?;
+    string startDate?;
+    int lastUpdateBy?;
+};
+
+# 
+public type ListDataLoadsWithValidationResponse record {
+    ListDataLoadsWithValidationResponseResponse response?;
+};
+
+public type FetchCRCIMBody record {
+    FetchCRCIMData data?;
+};
+
+# 
+public type GenerateJWTTokenResponse record {
+    GenerateJWTTokenResponseResponse response?;
+};
+
+public type DcrmanageraddmassopidDataMassEditRecords record {
+    string fieldName?;
+    decimal? precision?;
+    string massEditOperator?;
+    string fieldValue?;
+};
+
+public type ListContractPriceRecords record {
+    ListContractPriceRecordsResponse response?;
+};
+
+public type PricegridmanagermassactionidDataCriteria record {
+    # Specify columns (fields) you want to apply the workflow action to
+    @constraint:String {minLength: 1}
+    string fieldName;
+    # Specify the value of the field
+    decimal value;
+    # Specify an operator of the filter criteria
+    "equals"|"iEquals"|"notEqual"|"iNotEqual"|"isNull"|"notNull"|"contains"|"iContains"|"containsPattern"|"iContainsPattern"|"notContains"|"iNotContains"|"startsWith"|"iStartsWith"|"notStartsWith"|"iNotStartsWith"|"endsWith"|"iEndsWith"|"notEndsWith"|"iNotEndsWith"|"iBetween"|"iBetweenInclusive"|"inSet"|"notInSet" operator;
+};
+
+public type RebaterecordgroupcalculatetypedIdData record {
+    RebateRecordGroup rebateRecordGroup?;
+};
+
+public type ChangeCustomFormStatusResponse record {
+    ChangeCustomFormStatusResponseResponse response?;
+};
+
+public type UpsertObjectReturnOldDataResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node;
+    UpsertObjectReturnOldDataResponseResponseOldData oldData;
+    @constraint:String {minLength: 1}
+    string csrfToken;
+    @constraint:Array {minLength: 1}
+    UpsertObjectReturnOldDataResponseResponseData[] data;
+    decimal status;
+};
+
+# 
+public type AssignmentResponse record {
+    AssignmentResponse_response response?;
+};
+
+public type OptimizationModelimportBody record {
+    # ZIP file containing one or more JSON model files
+    record {byte[] fileContent; string fileName;} file?;
+};
+
+public type CustomFormParameterConfig record {
+    record {}? property2?;
+    record {}? property1?;
+};
+
+public type UpdateSellerEnvelope record {
+    UpdateSellerResponse response?;
+};
+
+# 
+public type CalculateCFSResponse record {
+    CalculateCFSResponseResponse response?;
+};
+
+# 
+public type UpdateActionItemRequest record {
+    UpdateAIData data;
+    @constraint:String {minLength: 1}
+    string textMatchStyle?;
+    @constraint:String {minLength: 1}
+    string operationType?;
+    UpdateAIOldValues oldValues;
+};
+
+public type UpdateCompensationRecordRequest record {
+    CompensationRecord data?;
+};
+
+public type UpdatePLTTBody record {
+    string textMatchStyle?;
+    UpdatePLTTData data?;
+    string operationType?;
+    ConditionrecordsetupdateidOldValues oldValues?;
+};
+
+public type ListAttributeFieldsMetadataResponseData record {
+    @constraint:Array {minLength: 1}
+    ListAttributeFieldsMetadataResponseAttributeMetas[] attributeMetas?;
+    ListAttributeFieldsMetadataResponseJsonSchema jsonSchema?;
+    record {}[] attributeMetaSignificantFields?;
+    @constraint:String {minLength: 1}
+    string attributeMetaTypeCode?;
+};
+
+public type CopyUserResponseResponseBusinessRoles record {
+    @constraint:String {minLength: 1}
+    string typedId?;
+    @constraint:String {minLength: 1}
+    string uniqueName?;
+    decimal createdBy?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    @constraint:Array {minLength: 1}
+    ListRolesOfBusinessRoleResponseResponseData[] roles?;
+    record {}[] groups?;
+    @constraint:String {minLength: 1}
+    string label?;
+    decimal version?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal lastUpdateBy?;
+};
+
+# 
+public type ApproveDocumentRequest record {
+    WorkflowsmanagerapprovecurrentStepIdData data;
+};
+
+# Filter Group for hiding or disabling steps or tabs
+public type Group record {|
+    @jsondata:Name {value: "_constructor"}
+    "AdvancedCriteria" constructor?;
+    Filter[] criteria;
+    "and"|"or"|"not" operator;
+|};
+
+# 
+public type DeleteProductRequest record {
+    DeletePData data;
+};
+
+public type ListUsersResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    decimal startRow?;
+    @constraint:Array {minLength: 1}
+    ListUsersResponseResponseData[] data?;
+    decimal endRow?;
+    decimal totalRows?;
+    decimal status?;
+};
+
+public type SaveCompensationRecordResponse record {
+    SaveCompensationRecordResponseResponse response?;
+};
+
+# 
+public type CopyRolesRequest record {
+    AccountmanagercopyrolesData data;
+};
+
+public type SaveModelRequest record {
+    ModelObject data?;
+    OptimizationmodelsavetypedIdstepNameOldValues oldValues;
+};
+
+public type InlineResponse20082Response record {
+    InlineResponse20082ResponseData[] data?;
+    int status?;
+};
+
+public type InlineResponse20035Response record {
+    string node?;
+    boolean[] data?;
+    int status?;
+};
+
+public type ContractmanagersaveDataContractCalculationBaseIncludedTimePeriods record {
+    @constraint:String {minLength: 1}
+    string timeUnit?;
+    @constraint:String {minLength: 1}
+    string startDate?;
+    @constraint:String {minLength: 1}
+    string endDate?;
+    boolean single?;
+};
+
+public type GetParallelCalculationItemResponseResponse record {
+    string node?;
+    ParallelCalculationItem[] data?;
+    int status?;
+};
+
+public type ApproveDocumentResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:String {minLength: 1}
+    string csrfToken?;
+    @constraint:Array {minLength: 1}
+    ApproveDocumentResponseResponseData[] data?;
+    decimal status?;
+};
+
+public type PricelistmanagerfetchidData record {
+    @jsondata:Name {value: "_constructor"}
+    string constructor?;
+    @constraint:Array {minLength: 1}
+    PricelistmanagerfetchidDataCriteria[] criteria?;
+    @constraint:String {minLength: 1}
+    string operator?;
+};
+
+public type ContractModelResponse_response_lineItems record {
+    anydata version?;
+    anydata typedId?;
+    anydata clicId?;
+    @constraint:Array {minLength: 1}
+    ContractModelResponse_response_inputs_1[] inputs?;
+    @constraint:Array {minLength: 1}
+    ContractModelResponse_response_outputs[] outputs?;
+    boolean dirty?;
+    @constraint:String {minLength: 1}
+    string lineId?;
+    anydata parentId?;
+    decimal calculationStatus?;
+    decimal editabilityStatus?;
+    @constraint:String {minLength: 1}
+    string label?;
+    anydata startDate?;
+    anydata endDate?;
+    anydata priceRecordId?;
+    anydata customerGroup?;
+    ContractModelResponse_response_productGroup productGroup?;
+    @constraint:String {minLength: 1}
+    string calculationBaseJson?;
+    ContractModelResponse_response_calculationBase calculationBase?;
+    boolean folder?;
+    @constraint:String {minLength: 1}
+    string treeLabel?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal createdBy?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    decimal lastUpdateBy?;
+    @constraint:String {minLength: 1}
+    string contractTermType?;
+};
+
+public type GetKVTableInfoResponseResponseData record {
+    @jsondata:Name {value: "primary_keys"}
+    string[] primaryKeys?;
+    record {}[] indexes?;
+    string[] columns?;
+};
+
+public type DatamartqueryDataQueryOptions record {
+    string[] normalization?;
+    string[] regression?;
+    @constraint:String {minLength: 1}
+    string currency?;
+    string[] distribution?;
+};
+
+public type ParallelCalculationEnvelope record {
+    InlineResponse2009Response response?;
+};
+
+public type UpdateCompensationRecordResponse record {
+    SaveCompensationRecordResponseResponse response?;
+};
+
+# 
+public type AssignUserToUserGroupRequest record {
+    AccountmanagerassigngroupuserIdData data;
+};
+
+# The Seller Extension object. The type code is SX3 (contains 3 attribute fields)
+public type SX3 SX3Inner[];
+
+# The type code is QTMP
+public type QuoteTmp record {
+    ActionItemOutputs[]? outputs?;
+    @constraint:String {maxLength: 255}
+    string createdByName?;
+    string typedId?;
+    string? headerText?;
+    "DRAFT"|"SUBMITTED"|"DENIED"|"APPROVED"|"NO_APPROVAL_REQUIRED"|"WITHDRAWN"|"INVALIDATED" workflowStatus?;
+    QuoteTmpInputs[]? inputs?;
+    string lastUpdateDate?;
+    ContractServerMessagesExtended[]? serverMessagesExtended?;
+    string? externalRef?;
+    string? deniedByName?;
+    QuoteLineItems[] lineItems?;
+    string? userGroupViewDetails?;
+    string? approvedByName?;
+    int? creationWorkflowCurrentStep?;
+    string rootUniqueName?;
+    string? originUniqueName?;
+    string? targetDate?;
+    string? customerGroup?;
+    record {}? ioMeta?;
+    boolean? originDeleted?;
+    int version?;
+    string? customerName?;
+    @constraint:String {maxLength: 255}
+    string uniqueName?;
+    string[]? serverMessages?;
+    "DRAFT"|"INPROGRESS"|"FINISHED" creationWorkflowStatus?;
+    string? userGroupEdit?;
+    boolean hasWorkflowHistory?;
+    int nodeId?;
+    "DRAFT"|"PENDING"|"SCHEDULED"|"PROCESSING"|"SCHEDULED_DIRTY"|"ERROR"|"READY"|"CANCELLED" status?;
+    @constraint:String {maxLength: 255}
+    string lastUpdateByName?;
+    int? originClicId?;
+    record {|record {}...;|}? renderInfo?;
+    string? lostReason?;
+    QuoteSignature? signature?;
+    int? creationWorkflowStepCount?;
+    string? quoteType?;
+    "DRAFT"|"OFFER"|"DEAL"|"REVOKED"|"SUPERSEDED"|"INVALIDATED"|"LOST"|"PARTIALDEAL" quoteStatus?;
+    string? lostReasonComment?;
+    string? expiryDate?;
+    string? creationWorkflowStepLabel?;
+    string? customerId?;
+    string? submittedByName?;
+    string createDate?;
+    boolean dirty?;
+    string? additionalInfo4?;
+    string? additionalInfo3?;
+    boolean refreshInputs?;
+    decimal? additionalInfo2?;
+    decimal? additionalInfo1?;
+    int numberOfAttachments?;
+    string? originLabel?;
+    @constraint:String {maxLength: 255}
+    string label?;
+    string[] nextRevUNs?;
+    int createdBy?;
+    string? approvalRequiredEmailAttachmentsJson?;
+    QuoteTmpViewState? viewState?;
+    string? prevRev?;
+    int calculationStatus?;
+    string? supersededBy?;
+    int lastUpdateBy?;
+};
+
+# The Seller Extension object. The type code is SX6 (contains 6 attribute fields)
+public type SX6 SX6Inner[];
+
+public type GetCustomFormResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:Array {minLength: 1}
+    GetCustomFormResponseResponseData[] data?;
+    decimal status?;
+};
+
+# The Seller Extension object. The type code is SX58 (contains 8 attribute fields)
+public type SX8 SX8Inner[];
+
+public type InlineResponse20085Response record {
+    InlineResponse20085ResponseData[] data?;
+    int status?;
+};
+
+public type UpdateWorkflowDelegationResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:String {minLength: 1}
+    string csrfToken?;
+    @constraint:Array {minLength: 1}
+    UpdateWorkflowDelegationResponseResponseData[] data?;
+    decimal status?;
+};
+
+public type DcrmanagerupdateidData record {
+    # `typedId` of the item you want to update
+    string typedId;
+    string currency?;
+};
+
+public type UpdatePGTTBody record {
+    string textMatchStyle?;
+    UpdatePGTTData data?;
+    string operationType?;
+    UpdatePGTTOldValues oldValues?;
+};
+
+public type ExecuteActionItemLogicResponseResponseData record {
+    string? alertMessage?;
+    string? cssProperties?;
+    string? labelTranslations?;
+    string? alertType?;
+    string? overrideValueOptions?;
+    string? warnings?;
+    boolean overrideAllowEmpty?;
+    string? resultGroup?;
+    boolean overridden?;
+    string? suffix?;
+    boolean excludeFromExport?;
+    string resultName?;
+    int displayOptions?;
+    record {}? result?;
+    boolean overridable?;
+    string? resultDescription?;
+    string? formatType?;
+    string resultType?;
+    string? userGroup?;
+    string resultLabel?;
+};
+
+public type PricingFormulaCriticalAlert record {
+    decimal threshold?;
+    string comparisonElement?;
+    string message?;
+    string operator?;
+};
+
+public type ListCalculationGridItemsResponseResponse record {
+    string node?;
+    int startRow?;
+    ListCalculationGridItemsResponseResponseData[] data?;
+    int endRow?;
+    int totalRows?;
+    int status?;
+};
+
+# The type code is CGI6
+public type CalculationGridItem6Key record {
+    string typedId?;
+    string? attribute83?;
+    string? attribute82?;
+    string? attribute81?;
+    string? attribute80?;
+    string? attribute89?;
+    string? attribute88?;
+    string? attribute87?;
+    string? attribute86?;
+    CalculationGridItem1KeyCalculationResults[] calculationResults?;
+    string? attribute85?;
+    string? attribute84?;
+    int? manualEditUser?;
+    string? allowedOverrides?;
+    int version?;
+    string? alerts?;
+    string? attribute9?;
+    string? attribute94?;
+    decimal? significantValueChangePct?;
+    string? attribute8?;
+    string? attribute93?;
+    string? attribute92?;
+    string? attribute91?;
+    string? attribute5?;
+    string? attribute90?;
+    string? attribute4?;
+    string? attribute7?;
+    string? attribute6?;
+    string? attribute1?;
+    string? attribute14?;
+    string? attribute13?;
+    string? attribute3?;
+    string? attribute12?;
+    string? attribute2?;
+    string? attribute11?;
+    string? attribute99?;
+    string? attribute10?;
+    string? attribute98?;
+    string? attribute97?;
+    string? attribute96?;
+    string? attribute95?;
+    decimal? resultSignificantValue?;
+    record {}? itemExtensions?;
+    string? attribute19?;
+    string? attribute18?;
+    string? attribute17?;
+    string? attribute16?;
+    string? attribute15?;
+    string? manualOverrides?;
+    string? attribute25?;
+    string? attribute24?;
+    string? attribute23?;
+    string? attribute22?;
+    string? attribute21?;
+    string? attribute20?;
+    string createDate?;
+    string? attribute29?;
+    string? attribute28?;
+    int calculationGridId?;
+    string? attribute27?;
+    string? attribute26?;
+    boolean completeResultsAvailable?;
+    string? attribute36?;
+    string? attribute35?;
+    string? attribute34?;
+    string? attribute33?;
+    string? attribute32?;
+    string? attribute31?;
+    string? attribute30?;
+    string key1?;
+    string key2?;
+    string key5?;
+    string? attribute39?;
+    string key6?;
+    string? attribute38?;
+    string key3?;
+    string lastUpdateDate?;
+    string? attribute37?;
+    string key4?;
+    string? attribute47?;
+    string? attribute46?;
+    string? attribute45?;
+    string? attribute44?;
+    string? attribute43?;
+    string? attribute42?;
+    string? attribute41?;
+    string? attribute40?;
+    string? attribute49?;
+    string? attribute48?;
+    string? attribute50?;
+    string? attribute100?;
+    string? attribute58?;
+    int manualEditVersion?;
+    string name?;
+    string? attribute57?;
+    string? attribute56?;
+    string? attribute55?;
+    string? attribute54?;
+    string? attribute53?;
+    record {|record {}...;|}[] allCalculationResults?;
+    string? attribute52?;
+    string? attribute51?;
+    string? attribute59?;
+    decimal? calculatedResultSignificantValue?;
+    string? attribute61?;
+    string? attribute60?;
+    decimal? previousSignificantValue?;
+    decimal? manualResultSignificantValue?;
+    string? attribute69?;
+    string? attribute68?;
+    string? attribute67?;
+    string? attribute66?;
+    string? attribute65?;
+    string? attribute64?;
+    string? attribute63?;
+    string? attribute62?;
+    string? workStatus?;
+    string? comments?;
+    decimal? significantValueChange?;
+    string? warnings?;
+    string? label?;
+    string? attribute72?;
+    string? attribute71?;
+    string? attribute70?;
+    int createdBy?;
+    string? attribute79?;
+    int? tableId?;
+    string? attribute78?;
+    string? attribute77?;
+    string? attribute76?;
+    string? attribute75?;
+    string? attribute74?;
+    string? attribute73?;
+    int lastUpdateBy?;
+};
+
+public type DeleteCustomerExtensionResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node;
+    @constraint:Array {minLength: 1}
+    DeleteCustomerExtensionResponseResponseData[] data;
+    decimal status;
+};
+
+public type DeleteObjectResponse_1_response record {
+    @constraint:String {minLength: 1}
+    string node;
+    @constraint:Array {minLength: 1}
+    DeleteObjectResponse_1_response_data[] data;
+    decimal status;
+};
+
+# 
+public type DeleteLookupTableRequest record {
+    DeleteTypeCodeData data;
+};
+
+public type ContractModelResponse_response_calculationBase record {
+    record {}[] includedCustomerGroups;
+    @constraint:Array {minLength: 1}
+    ContractModelResponse_response_calculationBase_includedProductGroups[] includedProductGroups;
+    record {}[] includedSellerReferences;
+    record {}[] excludedCustomerGroups;
+    record {}[] excludedproductGroups;
+    record {}[] excludedSellerReferences;
+    @constraint:Array {minLength: 1}
+    ContractModelResponse_response_calculationBase_includedTimePeriods[] includedTimePeriods;
+    record {}[] excludedTimePeriods;
+    record {}[] otherFilters;
+    @constraint:String {minLength: 1}
+    string dateDimFieldName;
+};
+
+public type InlineResponse2008ResponseStateConfigurationObjectives record {
+    @jsondata:Name {value: "Objectives"}
+    InlineResponse2008ResponseStateConfigurationObjectivesObjectives objectives?;
+};
+
+# 
+public type DeleteUserRequest record {
+    DeleteTypeCodeData data;
+};
+
+public type ListCustomFormTypesResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    decimal startRow?;
+    @constraint:Array {minLength: 1}
+    ListCustomFormTypesResponseResponseData[] data?;
+    decimal endRow?;
+    decimal totalRows?;
+    decimal status?;
+};
+
+public type ListRollupsResponseResponseQueryDtoProjections record {
+    @jsondata:Name {value: "Product ID"}
+    ListRollupsResponseResponseQueryDtoProjectionsRegion productID?;
+    @jsondata:Name {value: "Costs"}
+    ListRollupsResponseResponseQueryDtoProjectionsCosts costs?;
+    @jsondata:Name {value: "List Price"}
+    ListRollupsResponseResponseQueryDtoProjectionsCosts listPrice?;
+    @jsondata:Name {value: "Region"}
+    ListRollupsResponseResponseQueryDtoProjectionsRegion region?;
+    @jsondata:Name {value: "Country"}
+    ListRollupsResponseResponseQueryDtoProjectionsRegion country?;
+    @jsondata:Name {value: "Margin %"}
+    ListRollupsResponseResponseQueryDtoProjectionsCosts marginPercent?;
+};
+
+public type ListRebateAgreementItemsResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    decimal startRow?;
+    @constraint:Array {minLength: 1}
+    ListRebateAgreementItemsResponseResponseData[] data?;
+    decimal endRow?;
+    decimal totalRows?;
+    decimal status?;
+};
+
+public type GetObjectResponse_1_response record {
+    @constraint:String {minLength: 1}
+    string node?;
+    string[] data?;
+    decimal status?;
+};
+
+public type DatamartloaddatadatasourceUniqueNameData record {
+    # The data as a list of lists, with the inner lists representing rows, its field values appearing in the same order as specified in the `header` list
+    anydata[][] data;
+    DatamartloaddatadatasourceUniqueNameDataOptions options?;
+    # Specify header field names (table columns) of the record in the target Data Source
+    string[] header;
+};
+
+public type AddCLData record {
+    string claimType;
+    string label;
+};
+
+public type SearchProductResponseResponseData record {
+    decimal listId?;
+    @constraint:String {minLength: 1}
+    string listLabel?;
+    @constraint:String {minLength: 1}
+    string itemTypedId?;
+    @constraint:String {minLength: 1}
+    string label?;
+    @constraint:String {minLength: 1}
+    string sku?;
+    @constraint:String {minLength: 1}
+    string targetObjectTypeCode?;
+};
+
+public type UpdateAIOldValues record {
+    @constraint:String {minLength: 1}
+    string summary?;
+    @constraint:String {minLength: 1}
+    string lastUpdateByName?;
+    @constraint:String {minLength: 1}
+    string createdByName?;
+    @constraint:String {minLength: 1}
+    string typedId;
+    @constraint:String {minLength: 1}
+    string assignedToName?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    @constraint:String {minLength: 1}
+    string dueDate?;
+    @constraint:String {minLength: 1}
+    string description?;
+    decimal version;
+    decimal assignedTo?;
+    decimal createdBy?;
+    @constraint:String {minLength: 1}
+    string parentTypedId?;
+    @constraint:String {minLength: 1}
+    string status?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal lastUpdateBy?;
+};
+
+public type ListCustomFormsRequest record {
+    int startRow?;
+    string textMatchStyle?;
+    CustomformsearchData data?;
+    int endRow?;
+    string operationType?;
+    anydata oldValues?;
+};
+
+public type UpdateClaimResponse record {
+    AddClaimResponseResponse response?;
+};
+
+public type ListRebateAgreementsResponseResponseData record {
+    decimal version?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    @constraint:String {minLength: 1}
+    string uniqueName?;
+    @constraint:String {minLength: 1}
+    string label?;
+    @constraint:String {minLength: 1}
+    string targetDate?;
+    @constraint:String {minLength: 1}
+    string workflowStatus?;
+    @constraint:String {minLength: 1}
+    string lastUpdateByName?;
+    @constraint:String {minLength: 1}
+    string createdByName?;
+    @constraint:String {minLength: 1}
+    string submittedByName?;
+    decimal calculationStatus?;
+    boolean dirty?;
+    boolean refreshInputs?;
+    decimal numberOfAttachments?;
+    @constraint:String {minLength: 1}
+    string startDate?;
+    @constraint:String {minLength: 1}
+    string endDate?;
+    @constraint:String {minLength: 1}
+    string payoutDate?;
+    @constraint:String {minLength: 1}
+    string status?;
+    @constraint:String {minLength: 1}
+    string rebateAgreementStatus?;
+    @constraint:String {minLength: 1}
+    string approvedByName?;
+    boolean hasWorkflowHistory?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal createdBy?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    decimal lastUpdateBy?;
+    @constraint:String {minLength: 1}
+    string rootUniqueName?;
+};
+
+# 
+public type MassEditRequest1 record {
+    DatamartmassedittypedIdData data;
+};
+
+public type AddCompensationTypeEnvelope record {
+    AddCompensationTypeResponse response?;
+};
+
+public type RebateagreementsaveDataRebateAgreementValue record {
+    @constraint:String {minLength: 1}
+    string customerFieldName?;
+    @constraint:String {minLength: 1}
+    string customerHint?;
+    @constraint:String {minLength: 1}
+    string customerFieldLabel?;
+    @constraint:String {minLength: 1}
+    string customerFieldValue?;
+};
+
+# The type code is PGTT
+public type LivePriceGridType record {
+    string lastUpdateByName?;
+    LivePriceGridTypeTypeConfiguration typeConfiguration?;
+    string createdByName?;
+    string dimensionType?;
+    string typedId?;
+    string targetDate?;
+    string lastUpdateDate?;
+    record {} contextualActions?;
+    string label?;
+    int version?;
+    string uniqueName?;
+    record {} buttonsConfiguration?;
+    int createdBy?;
+    int id?;
+    string calculationFormulaName?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+# 
+public type ValidateWorkflowDelegationRequest record {
+    WorkflowdelegationmanageraddData data;
+};
+
+public type TableIdBatchBody record {
+    LookuptablemanagerdeletetableIdbatchData data?;
+};
+
+public type ListParallelCalculationItemsResponse record {
+    ListParallelCalculationItemsResponseResponse response?;
+};
+
+public type InlineResponse2008ResponseStateDefinitionSourceSource record {
+    @jsondata:Name {value: "SegmentationModel"}
+    string segmentationModel?;
+};
+
+public type JobStatusTrackerResponse_response_jobs record {
+    decimal version?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    anydata processingNode?;
+    anydata threadId?;
+    anydata threadUUID?;
+    @constraint:String {minLength: 1}
+    string status?;
+    @constraint:String {minLength: 1}
+    string trackerType?;
+    @constraint:String {minLength: 1}
+    string targetObject?;
+    @constraint:String {minLength: 1}
+    string jobName?;
+    @constraint:String {minLength: 1}
+    string concurrencyKey?;
+    @constraint:String {minLength: 1}
+    string calculationContext?;
+    anydata progress?;
+    boolean cancelRequested?;
+    decimal runNumber?;
+    decimal priority?;
+    anydata messages?;
+    JobStatusTrackerResponse_response_jobSettings jobSettings?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal createdBy?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    decimal lastUpdateBy?;
+    anydata calculationResults?;
+    anydata processingStart?;
+    anydata processingEnd?;
+    decimal id?;
+};
+
+public type FetchJCSBody record {
+    string textMatchStyle?;
+    FetchJCSData data?;
+    string operationType?;
+    string[] sortBy?;
+    record {}? oldValues?;
+};
+
+public type AddPGTTDataTypeConfigurationCalculationLogicInputs record {
+    string lookupTableId?;
+    record {} parameterConfig?;
+    record {}[] inputs?;
+    string name?;
+    string label?;
+    string 'type?;
+    anydata value?;
+    string url?;
+    string valueHint?;
+    record {} formattingOptions?;
+};
+
+public type LookuptablemanagermassedittableIdDataFilterCriteria record {
+    @jsondata:Name {value: "_constructor"}
+    string constructor;
+    @constraint:Array {minLength: 1}
+    LookuptablemanagermassedittableIdDataFilterCriteriaCriteria[] criteria;
+    @constraint:String {minLength: 1}
+    string operator;
+};
+
+# The type code is CPR
+public type ContractPriceRecord record {
+    @constraint:String {maxLength: 255}
+    string sourceId?;
+    string typedId?;
+    string lastUpdateDate?;
+    @constraint:String {maxLength: 255}
+    string externalRef?;
+    @constraint:String {maxLength: 255}
+    string sourceIdNoRev?;
+    @constraint:String {maxLength: 255}
+    string userGroupViewDetails?;
+    @constraint:String {maxLength: 255}
+    string sku?;
+    CompensationCustomerGroup customerGroup?;
+    int priority?;
+    int version?;
+    @constraint:String {maxLength: 255}
+    string attribute9?;
+    @constraint:String {maxLength: 255}
+    string attribute8?;
+    @constraint:String {maxLength: 255}
+    string uniqueName?;
+    @constraint:String {maxLength: 255}
+    string attribute5?;
+    @constraint:String {maxLength: 255}
+    string attribute4?;
+    @constraint:String {maxLength: 255}
+    string attribute7?;
+    @constraint:String {maxLength: 255}
+    string attribute6?;
+    @constraint:String {maxLength: 255}
+    string name?;
+    @constraint:String {maxLength: 255}
+    string attribute1?;
+    @constraint:String {maxLength: 255}
+    string attribute14?;
+    @constraint:String {maxLength: 255}
+    string attribute13?;
+    @constraint:String {maxLength: 255}
+    string userGroupEdit?;
+    @constraint:String {maxLength: 255}
+    string attribute3?;
+    @constraint:String {maxLength: 255}
+    string attribute12?;
+    @constraint:String {maxLength: 255}
+    string attribute2?;
+    @constraint:String {maxLength: 255}
+    string attribute11?;
+    @constraint:String {maxLength: 255}
+    string attribute10?;
+    "ACTIVE"|"REVOKED"|"INVALIDATED" status?;
+    @constraint:String {maxLength: 255}
+    string attribute19?;
+    @constraint:String {maxLength: 255}
+    string attribute18?;
+    @constraint:String {maxLength: 255}
+    string attribute17?;
+    @constraint:String {maxLength: 255}
+    string attribute16?;
+    @constraint:String {maxLength: 255}
+    string attribute15?;
+    string expiryDate?;
+    @constraint:String {maxLength: 255}
+    string customerId?;
+    @constraint:String {maxLength: 255}
+    string attribute25?;
+    @constraint:String {maxLength: 255}
+    string attribute24?;
+    @constraint:String {maxLength: 255}
+    string attribute23?;
+    @constraint:String {maxLength: 255}
+    string attribute22?;
+    @constraint:String {maxLength: 255}
+    string attribute21?;
+    @constraint:String {maxLength: 255}
+    string attribute20?;
+    string validAfter?;
+    string createDate?;
+    @constraint:String {maxLength: 255}
+    string attribute29?;
+    @constraint:String {maxLength: 255}
+    string attribute28?;
+    @constraint:String {maxLength: 255}
+    string attribute27?;
+    @constraint:String {maxLength: 255}
+    string attribute26?;
+    @constraint:String {maxLength: 255}
+    string lineId?;
+    @constraint:String {maxLength: 255}
+    string label?;
+    CompensationProductGroup productGroup?;
+    int createdBy?;
+    @constraint:String {maxLength: 255}
+    string attribute30?;
+    int lastUpdateBy?;
+};
+
+public type DatamartqueryDataQueryProjectionsBandBy record {
+    @constraint:String {minLength: 1}
+    string expression;
+    string 'function;
+    @constraint:String {minLength: 1}
+    string name;
+    @constraint:String {minLength: 1}
+    string alias;
+    @constraint:String {minLength: 1}
+    string label;
+    record {} parameters;
+};
+
+public type DeleteTypeCodebatchforcefilterData record {
+    DeleteTypeCodebatchforcefilterDataFilterCriteria filterCriteria;
+};
+
+public type InlineResponse20085ResponseData record {
+    InlineResponse20085ResponseColumns[] columns?;
+};
+
+public type InlineResponse20050Response record {
+    string node?;
+    InlineResponse20050ResponseData[] data?;
+    int status?;
+};
+
+public type ContractModelResponse_response_inputs_1 record {
+    @constraint:String {minLength: 1}
+    string name?;
+    @constraint:String {minLength: 1}
+    string label?;
+    anydata lookupTableId?;
+    anydata url?;
+    @constraint:String {minLength: 1}
+    string 'type?;
+    anydata value?;
+    anydata valueHint?;
+    anydata readOnly?;
+    anydata filter?;
+    anydata parameterGroup?;
+    anydata required?;
+    anydata labelTranslations?;
+    anydata addUnknownValues?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    anydata alwaysEditable?;
+    record {}[] inputs?;
+    ContractModelResponse_response_parameterConfig parameterConfig?;
+    record {} formattingOptions?;
+    anydata valueOptions?;
+};
+
+public type InlineResponse20087ResponseData record {
+    @jsondata:Name {value: "MCP_role_datamart_details_fetcher"}
+    string mCPRoleDatamartDetailsFetcher?;
+    @jsondata:Name {value: "MCP_role_object_fetcher"}
+    string mCPRoleObjectFetcher?;
+};
+
+public type AddCRCSData record {
+    # A unique identifier
+    string uniqueName;
+    # The number of key fields (key1..key12). Cannot be changed once the Condition Record Set is created
+    int keySize;
+    string label?;
+};
+
+# The type code is DCRMC
+public type DataChangeRequestMassChange record {
+    string typedId?;
+    string? comments?;
+    int createdBy?;
+    DataChangeRequestMassChangeMassChange? massChange?;
+    string lastUpdateDate?;
+    int version?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+public type SubmitQuoteContractRebateAgreementResponseResponseValue record {
+    @constraint:String {minLength: 1}
+    string customerFieldName?;
+    string customerFieldLabel?;
+    @constraint:String {minLength: 1}
+    string customerFieldValue?;
+    @constraint:String {minLength: 1}
+    string label?;
+};
+
+public type DeleteConditionTypeRequest record {
+    DeleteCOCTData data;
+};
+
+public type CustomermanagerassignDataCustomerGroup record {
+    # The label of the customer assignment
+    @constraint:String {minLength: 1}
+    string label;
+    CustomermanagerassignDataCustomerGroupCustomerFilterCriteria customerFilterCriteria?;
+};
+
+public type ImportmanagermassedittypedIdDataFilterCriteriaCriteria record {
+    string fieldName?;
+    @jsondata:Name {value: "_constructor"}
+    string constructor?;
+    int[] value?;
+    string operator?;
+};
+
+# 
+public type CreateCustomFormRequest record {
+    CustomformaddData data;
+    @constraint:String {minLength: 1}
+    string operation?;
+};
+
+public type WithdrawDocumentResponseResponseData record {
+    WithdrawDocumentResponseResponseWorkflow workflow?;
+    @constraint:String {minLength: 1}
+    string resultType?;
+};
+
+public type DeleteLookupTableValueResponse1 record {
+    DeleteLookupTableValueResponse1Response response;
+};
+
+public type FetchActivitiesEnvelope record {
+    InlineResponse2012Data[] data?;
+};
+
+public type UpdateSLOldValues record {
+    # The number of version you want to update
+    int version;
+};
+
+# The type code is ET
+public type EmailTask record {
+    string typedId?;
+    @constraint:String {maxLength: 2048}
+    string subject?;
+    string lastUpdateDate?;
+    @constraint:String {maxLength: 255}
+    string errorMessage?;
+    @constraint:String {maxLength: 255}
+    string sourceObject?;
+    string body?;
+    int version?;
+    boolean sent?;
+    int retriesLeft?;
+    boolean attachment?;
+    int createdBy?;
+    EmailTaskSender sender?;
+    EmailTaskReplyTo replyTo?;
+    string recipient?;
+    boolean plainText?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+public type ProductmanagerimportproductcompetitionDataProducts record {
+    @constraint:String {minLength: 1}
+    string additionalInfo4?;
+    @constraint:String {minLength: 1}
+    string country?;
+    decimal priceUnit?;
+    decimal additionalInfo2?;
+    decimal additionalInfo1?;
+    @constraint:String {minLength: 1}
+    string unitOfMeasure?;
+    @constraint:String {minLength: 1}
+    string competitionType?;
+    @constraint:String {minLength: 1}
+    string label?;
+    @constraint:String {minLength: 1}
+    string infoDate?;
+    decimal price?;
+    @constraint:String {minLength: 1}
+    string competitor?;
+    @constraint:String {minLength: 1}
+    string currency?;
+    @constraint:String {minLength: 1}
+    string sku;
+    @constraint:String {minLength: 1}
+    string competitorSku?;
+};
+
+public type ListInternationalizationMessagesEnvelope record {
+    InlineResponse20050Response response?;
+};
+
+public type UpsertLookupTableValueResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node;
+    @constraint:Array {minLength: 1}
+    UpsertLookupTableValueResponseResponseData[] data;
+    decimal status;
+};
+
+public type RebateAgreementResponse_response_inputs record {
+    @constraint:String {minLength: 1}
+    string name?;
+    @constraint:String {minLength: 1}
+    string label?;
+    anydata lookupTableId?;
+    anydata url?;
+    @constraint:String {minLength: 1}
+    string 'type?;
+    RebateAgreementResponse_response_value value?;
+    @constraint:String {minLength: 1}
+    string valueHint?;
+    anydata readOnly?;
+    anydata filter?;
+    anydata parameterGroup?;
+    anydata required?;
+    anydata labelTranslations?;
+    anydata addUnknownValues?;
+    anydata typedId?;
+    anydata alwaysEditable?;
+    record {}[] inputs?;
+    record {} parameterConfig?;
+    record {} formattingOptions?;
+    anydata valueOptions?;
+};
+
+public type SubmitCalculationGridItemResponse record {
+    AddCalculationGridResponseResponse response?;
+};
+
+# 
+public type AddProductsToManualPriceListNoRecalcResponse record {
+    AddPriceGridItemsToPriceGridResponseResponse response?;
+};
+
+# Represents the Queries record for the operation: createUploadSlot
+public type CreateUploadSlotQueries record {
+    # Optionally, the request URL can include the `ownerTypedId` parameter if the uploaded file should be attached to a specific owner entity, such as a Quote (Typed ID)
+    string ownerTypedId?;
+};
+
+public type AccountmanagerassignroleuserIdData record {
+    # `TypedId` of the role you want to assign or revoke. Either `typedId` or `uniqeName` is required
+    @constraint:String {minLength: 1}
+    string typedId;
+    # `uniqueName` of the role you want to assign or revoke. Either `typedId` or `uniqeName` is required
+    @constraint:String {minLength: 1}
+    string uniqueName;
+    # Set to `true` to assign the user to the role. Set `false` to remove the role from the user
+    boolean assign;
+};
+
+public type UpdateCalculationGridItemResponse record {
+    AddCalculationGridItemResponseResponse response?;
+};
+
+public type UpdateSellerExtensionEnvelope record {
+    UpdateSellerExtensionResponse response?;
+};
+
+public type UpsertLookupTableValueResponseResponseData record {
+    decimal version;
+    @constraint:String {minLength: 1}
+    string typedId;
+    @constraint:String {minLength: 1}
+    string name;
+    @constraint:String {minLength: 1}
+    string value;
+    anydata lowerBound?;
+    anydata upperBound?;
+    @constraint:String {minLength: 1}
+    string lastUpdateByName;
+    @constraint:String {minLength: 1}
+    string createdByName;
+    decimal tableId;
+    @constraint:String {minLength: 1}
+    string 'type;
+    @constraint:String {minLength: 1}
+    string valueType;
+    @constraint:String {minLength: 1}
+    string rawValue;
+    @constraint:String {minLength: 1}
+    string createDate;
+    decimal createdBy;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate;
+    decimal lastUpdateBy;
+};
+
+public type InsertBulkDataFromFileAsyncRequest record {
+    # Provide a file in the CSV format. The file must also contain the `name` column with the name(s) of the table (PX, CX, SX) you are inserting the records to
+    record {byte[] fileContent; string fileName;} fileName;
+    # Specify fields that make up a Business key
+    string joinFields?;
+};
+
+# 
+public type InsertBulkDataRequest record {
+    LoaddataTypeCodeData data;
+};
+
+public type TruncateKVTableResponse record {
+    TruncateKVTableResponseResponse response?;
+};
+
+public type AddSellerResponse record {
+    string node?;
+    Seller data?;
+    int status?;
+};
+
+public type UpdateClaimTypeResponseResponseData record {
+    string formulaName?;
+    string typedId?;
+    string sheetName?;
+    UpdateCLTDataConfiguration configuration?;
+    string allocationFormulaName?;
+    string lastUpdateDate?;
+    string validationStateElementName?;
+    string label?;
+    int version?;
+    string uniqueName?;
+    int createdBy?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+public type CompensationRecordSetCalculationCalculationConfig record {
+    string? formulaName?;
+    string? feederFormulaName?;
+    string? simulationSet?;
+    string? targetDate?;
+    record {}[] inputParams?;
+    string? skuField?;
+    record {}[] mappingParams?;
+    string? targetDateField?;
+    CompensationLineItemInputs[] feederInputParams?;
+    string[]? targetFields?;
+    CompensationRecordSetCalculationCalculationConfigOutputElements[] outputElements?;
+};
+
+public type ContractmanageradditemsDataContractProductGroup record {
+    anydata productFieldName?;
+    anydata productFieldLabel?;
+    anydata productFieldValue?;
+    @constraint:String {minLength: 1}
+    string label?;
+    ContractmanageradditemsDataContractProductGroupProductFilterCriteria productFilterCriteria?;
+};
+
+public type InlineResponse20057Response record {
+    string node?;
+    JsonConfigurationStorage[] data?;
+    int status?;
+};
+
+public type UploadSlotOperationEnvelope record {
+    InlineResponse2002Response response?;
+};
+
+public type CompensationRecordAgreementTerms record {|
+    string|int? Target?;
+    string|int? Compensation?;
+    string Payment\ Period?;
+    record {}...;
+|};
+
+public type ClicmanagerdeleteRebateCalculationData record {
+    string typedId?;
+};
+
+# 
+public type ListRebateAgreementItemsRequest record {
+    decimal startRow?;
+    @constraint:String {minLength: 1}
+    string textMatchStyle?;
+    RebateagreementfetchitemsData data?;
+    decimal endRow?;
+    @constraint:String {minLength: 1}
+    string operationType?;
+    record {}[] sortBy?;
+    anydata oldValues?;
+    boolean distinctResults?;
+};
+
+public type ListCalculationsResponseResponse record {
+    string node?;
+    int startRow?;
+    CompensationRecordSetCalculation[] data?;
+    int endRow?;
+    int totalRows?;
+    int status?;
+};
+
+# Options applicable for splicing process of the Condition Records
+public type LoaddataTypeCodeDataOptionsConditionRecordsSplicing record {
+    # A list of fields for set (sets the attribute to a specified value)
+    record {} setFields?;
+    # A list of fields for reset (sets the attribute value to `NULL`)
+    string[] resetFields?;
+    # When enabled (set to `true` / `ON`) , the Superseding function moves the Condition Records from `CRCI` to `CRCIH` (the Historical Tables for Conditional Record Items). By default, this feature is turned off (`false`) and can be activated only by turning it on
+    boolean supersedeRecords = false;
+};
+
+public type AddCFOTData record {
+    # A name of the Custom Form Type
+    @constraint:String {minLength: 1}
+    string uniqueName;
+    # List of entities, which are allowed to embed this custom form type (Quote, standalone Custom Form). This is meaningful only when embedded is `true`
+    string supportedParentTypeCodes?;
+    AddCFOTDataConfiguration configuration?;
+    # Applies to standalone Custom Forms. Select a module in whose main menu you want to have this Custom Form available
+    @constraint:String {minLength: 1}
+    string module?;
+    # A Custom Form header logic that defines the inputs, calculation results or a custom header. For embedded Custom Forms, it also defines communication with the parent object
+    @constraint:String {minLength: 1}
+    string headerFormulaName;
+    # A label of the Custom Form Type
+    @constraint:String {minLength: 1}
+    string label?;
+    # Sets whether the Custom Form will be standalone or embedded in a module
+    boolean embedded;
+    string workflowFormulaName?;
+};
+
+# 
+public type ListGroupsOfBusinessRoleResponse record {
+    ListRolesOfBusinessRoleResponseResponse response?;
+};
+
+public type DatamartsqlqueryDataSourcesS0QueryProjectionsQuantityParameters record {
+    string 'field?;
+};
+
+public type UpdateClaimTypeRequest record {
+    UpdateCLTData data?;
+    string textMatchStyle?;
+    string operationType;
+    UpdateCLTOldValues oldValues;
+};
+
+public type SaveRebateCalculationRequest record {
+    RebateRecordSetCalculation data?;
+    string textMatchStyle?;
+    string operationType?;
+    record {}? oldValues?;
+};
+
+# 
+public type AssignRoleToUserResponse record {
+    AddPriceGridItemsToPriceGridResponseResponse response?;
+};
+
+# Specify options of the bulk data insertion
+public type DatamartloaddatadatasourceUniqueNameDataOptions record {
+    boolean detectJoinFields?;
+};
+
+public type ClicmanagerImportlineitemstypedIdBody record {
+    ClicmanagerimportlineitemstypedIdData data?;
+};
+
+public type DeleteObjectResponse_1_response_data record {
+    decimal version;
+    @constraint:String {minLength: 1}
+    string typedId;
+    @constraint:String {minLength: 1}
+    string sku;
+    @constraint:String {minLength: 1}
+    string label;
+    @constraint:String {minLength: 1}
+    string unitOfMeasure;
+    @constraint:String {minLength: 1}
+    string userGroupEdit;
+    @constraint:String {minLength: 1}
+    string userGroupViewDetails;
+    @constraint:String {minLength: 1}
+    string currency;
+    @constraint:String {minLength: 1}
+    string formulaName;
+    boolean image;
+    @constraint:String {minLength: 1}
+    string createDate;
+    decimal createdBy;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate;
+    decimal lastUpdateBy;
+    @constraint:String {minLength: 1}
+    string attribute1;
+    @constraint:String {minLength: 1}
+    string attribute2;
+    anydata attribute3?;
+    anydata attribute4?;
+    anydata attribute5?;
+    anydata attribute6?;
+    anydata attribute7?;
+    anydata attribute8?;
+    anydata attribute9?;
+    anydata attribute10?;
+    anydata attribute11?;
+    anydata attribute12?;
+    anydata attribute13?;
+    anydata attribute14?;
+    anydata attribute15?;
+    anydata attribute16?;
+    anydata attribute17?;
+    anydata attribute18?;
+    anydata attribute19?;
+    anydata attribute20?;
+    anydata attribute21?;
+    anydata attribute22?;
+    anydata attribute23?;
+    anydata attribute24?;
+    anydata attribute25?;
+    anydata attribute26?;
+    anydata attribute27?;
+    anydata attribute28?;
+    anydata attribute29?;
+    anydata attribute30?;
+};
+
+public type DataChangeRequestMassChangeEnvelope record {
+    InlineResponse20041Response response?;
+};
+
+public type AccountmanagerChangetermsofuseBody record {
+    AccountmanagerchangetermsofuseData[] data?;
+};
+
+public type ExecuteDataLoadLogicResponseResponseContextParameters record {
+    anydata labelTranslations?;
+    anydata addUnknownValues?;
+    anydata typedId?;
+    ContractmanagersaveDataContractParameterConfig parameterConfig?;
+    record {}[] inputs?;
+    anydata readOnly?;
+    @constraint:String {minLength: 1}
+    string label?;
+    @constraint:String {minLength: 1}
+    string 'type?;
+    anydata parameterGroup?;
+    anydata url?;
+    anydata valueHint?;
+    anydata required?;
+    anydata alwaysEditable?;
+    record {} formattingOptions?;
+    anydata valueOptions?;
+    anydata filter?;
+    anydata lookupTableId?;
+    @constraint:String {minLength: 1}
+    string name?;
+    anydata value?;
+};
+
+public type ListRecommendationsRequest record {
+    RecommendationsrecommendData data;
+};
+
+public type GetCustomFormResponseResponseCustomFormTypeObjectConfiguration record {
+    GetCustomFormResponseResponseCustomFormTypeObjectConfigurationDefault default?;
+};
+
+# 
+public type AddLookupTableRequest record {
+    LookuptablemanageraddData data;
+    @constraint:String {minLength: 1}
+    string operation?;
+};
+
+public type CopyLookupTableResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node;
+    @constraint:String {minLength: 1}
+    string csrfToken;
+    @constraint:Array {minLength: 1}
+    CopyLookupTableResponseResponseData[] data;
+    decimal status;
+};
+
+public type FormulamanagerexecutelibraryfunctionformulaNameelementNamefunctionNameData record {
+    # An array of input arguments, that will be passed in order to the function call. Note, do not provide the parameter names, only the ordered literal values you want passed in
+    anydata[] functionArgs?;
+    # Specifies whether the logic may internally perform modifications. Defaults to **false**
+    boolean allowObjectMods?;
+};
+
+# 
+public type DeletePriceListItemResponse record {
+    DeletePriceListItemResponseResponse response?;
+};
+
+public type AddCRCIMBody record {
+    AddCRCIMData data?;
+};
+
+public type ContractmanagersaveDataContractViewState record {
+    record {}[] openFolders?;
+    @constraint:String {minLength: 1}
+    string gridViewState?;
+    record {}[] selectedNodes?;
+};
+
+public type UpdateDCRIResponse record {
+    AddDCRIResponseResponse response?;
+};
+
+public type ExecuteAssignedLogicResponseResponseData record {
+    anydata alertMessage?;
+    anydata cssProperties?;
+    anydata labelTranslations?;
+    anydata alertType?;
+    anydata overrideValueOptions?;
+    @constraint:Array {minLength: 1}
+    record {}[] warnings?;
+    boolean overrideAllowEmpty?;
+    anydata resultGroup?;
+    boolean overridden?;
+    anydata suffix?;
+    boolean excludeFromExport?;
+    @constraint:String {minLength: 1}
+    string resultName;
+    decimal displayOptions?;
+    @constraint:String {minLength: 1}
+    string result?;
+    boolean overridable?;
+    anydata resultDescription?;
+    @constraint:String {minLength: 1}
+    string formatType?;
+    @constraint:String {minLength: 1}
+    string resultType?;
+    anydata userGroup?;
+    @constraint:String {minLength: 1}
+    string resultLabel?;
+};
+
+# 
+public type ListAllLookupTablesRequest record {
+    # The number of the first row that defines the start of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal startRow?;
+    @constraint:String {minLength: 1}
+    string textMatchStyle?;
+    LookuptablemanagerfetchData data?;
+    # The number of the end row that defines the end of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal endRow = 300;
+    @constraint:String {minLength: 1}
+    string operationType?;
+    anydata[] sortBy?;
+    anydata oldValues?;
+};
+
+public type FetchPendingReviewsEnvelope record {
+    InlineResponse2011Response response?;
+};
+
+public type InlineResponse2011ResponseData record {
+    string subStepLabel?;
+    string documentLabel?;
+    string userGroupName?;
+    string liGroupName?;
+    string documentUniqueName?;
+    string stepLabel?;
+    string documentTypedId?;
+};
+
+public type InlineResponse20064DataStatsQuerierStoreChunk record {
+    int headChunkBytes?;
+    int decompressedBytes?;
+    int decompressedLines?;
+    int headChunkLines?;
+    int postFilterLines?;
+    int totalDuplicates?;
+    int compressedBytes?;
+    int decompressedStructuredMetadataBytes?;
+    int headChunkStructuredMetadataBytes?;
+};
+
+public type InlineResponse20076ResponseData record {
+    string deletedItem?;
+};
+
+# 
+public type GetOneTimeTokenResponse record {
+    GenerateJWTTokenResponseResponse response?;
+};
+
+public type InlineResponse20034ResponseData record {
+    string? lastUpdateByName?;
+    string createdByName?;
+    string fileName?;
+    string typedId?;
+    string lastUpdateDate?;
+    int length?;
+    int latestUploadStatusId?;
+    int version?;
+    string? sender?;
+    int createdBy?;
+    string? recipients?;
+    boolean sentViaEmail?;
+    string? userGroupEdit?;
+    string? userGroupViewDetails?;
+    string contentType?;
+    string? embeddedOwner?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+public type ListQuotesResponseResponseData record {
+    @constraint:String {minLength: 1}
+    string lastUpdateByName?;
+    @constraint:String {minLength: 1}
+    string createdByName?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    @constraint:String {minLength: 1}
+    string workflowStatus?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    @constraint:String {minLength: 1}
+    string quoteType?;
+    @constraint:String {minLength: 1}
+    string quoteStatus?;
+    @constraint:String {minLength: 1}
+    string expiryDate?;
+    @constraint:String {minLength: 1}
+    string submittedByName?;
+    @constraint:String {minLength: 1}
+    string approvedByName?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    boolean dirty?;
+    boolean refreshInputs?;
+    @constraint:String {minLength: 1}
+    string rootUniqueName?;
+    decimal numberOfAttachments?;
+    @constraint:String {minLength: 1}
+    string targetDate?;
+    @constraint:String {minLength: 1}
+    string label?;
+    decimal version?;
+    @constraint:String {minLength: 1}
+    string uniqueName?;
+    decimal createdBy?;
+    @constraint:String {minLength: 1}
+    string prevRev?;
+    decimal calculationStatus?;
+    boolean hasWorkflowHistory?;
+    decimal lastUpdateBy?;
+    @constraint:String {minLength: 1}
+    string status?;
+};
+
+public type GetProductSetResponseResponseData record {
+    record {}[] options?;
+    @constraint:Array {minLength: 1}
+    GetProductSetResponseResponseProducts[] products?;
+};
+
+public type UpdateCompensationTypeResponse record {
+    string node?;
+    CompensationHeaderType[] data?;
+    int status?;
+};
+
+# The list of Pricefx type codes
+public type TypeCodeEnum "ACTT"|"AP"|"APIK"|"BD"|"BPT"|"BR"|"C"|"CA"|"CAM"|"CDESC"|"CF"|"CFS"|"CFT"|"CH"|"CLLI"|"CN"|"CRCI"|"CRCP"|"CS"|"CT"|"CTAM"|"CTLI"|"CTMU"|"CTMUI"|"CTT"|"CTTAM"|"CTTREE"|"CW"|"CX"|"CXAM"|"DA"|"DB"|"DCR"|"DCRAM"|"DCRI"|"DCRL"|"DCRMC"|"DCRT"|"DE"|"DI"|"DM"|"DMDC"|"DMDL"|"DMDS"|"DMF"|"DMM"|"DMR"|"DMT"|"DREG"|"DWT"|"ET"|"EVT"|"F"|"FE"|"FN"|"IDC"|"IE"|"ISH"|"JST"|"LAT"|"LTT"|"M"|"MPL"|"MPLAM"|"MPLI"|"MPLIT"|"MPLT"|"MR"|"MRAM"|"MT"|"P"|"PAM"|"PAPIJ"|"PBOME"|"PCOMP"|"PCW"|"PDESC"|"PG"|"PGI"|"PGIM"|"PGT"|"PH"|"PL"|"PLI"|"PLIM"|"PLT"|"PR"|"PRAM"|"PREF"|"PT"|"PWH"|"PX"|"PXAM"|"PXREF"|"PYR"|"PYRAM"|"Q"|"QAM"|"QLI"|"QMU"|"QMUI"|"QT"|"QTT"|"QTTAM"|"R"|"RAT"|"RATM"|"RBA"|"RBAAM"|"RBALI"|"RBAT"|"RBT"|"RBTAM"|"RR"|"RRAM"|"RRS"|"RRSC"|"RT"|"SAT"|"SC"|"SCN"|"SCNAM"|"SCT"|"SIAM"|"SIM"|"SIMI"|"TFA"|"TODO"|"U"|"UG"|"US"|"W"|"WD"|"WF"|"WFE"|"XPGI"|"XPLI"|"XSIMI";
+
+public type ContractmanageradditemsDataContract record {
+    record {}[] outputs?;
+    @constraint:String {minLength: 1}
+    string createdByName?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    string headerText?;
+    @constraint:String {minLength: 1}
+    string endDate?;
+    @constraint:String {minLength: 1}
+    string workflowStatus?;
+    @constraint:Array {minLength: 1}
+    ContractmanageradditemsDataContractInputs[] inputs?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    anydata serverMessagesExtended?;
+    anydata externalRef?;
+    anydata deniedByName?;
+    record {}[] lineItems?;
+    anydata userGroupViewDetails?;
+    anydata approvedByName?;
+    anydata creationWorkflowCurrentStep?;
+    @constraint:String {minLength: 1}
+    string rootUniqueName?;
+    @constraint:String {minLength: 1}
+    string targetDate?;
+    anydata customerGroup?;
+    decimal version?;
+    @constraint:String {minLength: 1}
+    string uniqueName?;
+    anydata serverMessages?;
+    anydata creationWorkflowStatus?;
+    anydata userGroupEdit?;
+    boolean hasWorkflowHistory?;
+    anydata nodeId?;
+    @constraint:String {minLength: 1}
+    string startDate?;
+    anydata status?;
+    @constraint:String {minLength: 1}
+    string lastUpdateByName?;
+    anydata renderInfo?;
+    anydata signature?;
+    anydata creationWorkflowStepCount?;
+    anydata creationWorkflowStepLabel?;
+    anydata submittedByName?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    boolean dirty?;
+    anydata additionalInfo4?;
+    anydata additionalInfo3?;
+    boolean refreshInputs?;
+    anydata additionalInfo2?;
+    anydata additionalInfo1?;
+    @constraint:String {minLength: 1}
+    string contractStatus?;
+    decimal numberOfAttachments?;
+    @constraint:String {minLength: 1}
+    string label?;
+    ContractmanageradditemsDataContractProductGroup productGroup?;
+    decimal createdBy?;
+    anydata approvalRequiredEmailAttachmentsJson?;
+    anydata viewState?;
+    anydata prevRev?;
+    decimal calculationStatus?;
+    anydata supersededBy?;
+    decimal lastUpdateBy?;
+};
+
+public type OptimizationModelexportBody record {
+    OptimizationmodelexportData data?;
+};
+
+public type LoaddataSXData record {
+    # The data fields. Appearing in same order as specified in header list
+    anydata[] data;
+    LoaddataSXDataOptions options?;
+    # The header fields
+    anydata[] header;
+};
+
+public type UpdateWorkflowDelegationResponseResponseData record {
+    decimal version?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    @constraint:String {minLength: 1}
+    string uniqueName?;
+    anydata label?;
+    decimal sourceUserId?;
+    @constraint:String {minLength: 1}
+    string sourceUser?;
+    decimal targetUserId?;
+    @constraint:String {minLength: 1}
+    string targetUser?;
+    @constraint:String {minLength: 1}
+    string status?;
+    @constraint:String {minLength: 1}
+    string note?;
+    boolean createdByAdmin?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal createdBy?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    decimal lastUpdateBy?;
+    @constraint:String {minLength: 1}
+    string startDate?;
+    @constraint:String {minLength: 1}
+    string endDate?;
+};
+
+public type WithdrawDocumentResponseResponseWorkflowSteps record {
+    @constraint:String {minLength: 1}
+    string reason;
+    record {}[] reasons?;
+    @constraint:String {minLength: 1}
+    string isUserApprover;
+    anydata userGroupNames?;
+    @constraint:String {minLength: 1}
+    string 'type;
+    record {}[] minApprovalsForGroups?;
+    anydata isPostStepLogicFailed?;
+    anydata postStepLogicName?;
+    @constraint:String {minLength: 1}
+    string id;
+    record {}[] executedByNames?;
+    record {}[] userLoginNames?;
+    anydata userGroupTypedId?;
+    record {}[] approvalRequiredEmailAttachments?;
+    @constraint:Array {minLength: 1}
+    WithdrawDocumentResponseResponseWorkflowSubSteps[] subSteps?;
+    @constraint:String {minLength: 1}
+    string executionStatus;
+    record {}[] userTypedIds?;
+    @constraint:String {minLength: 1}
+    string lastAccess;
+    decimal minApprovalsNeeded;
+    @constraint:String {minLength: 1}
+    string userName;
+    record {}[] delegatedToTypedIds?;
+    anydata userGroupTypedIds?;
+    @constraint:String {minLength: 1}
+    string userTypedId;
+    @constraint:String {minLength: 1}
+    string uniqueName;
+    record {}[] denialReasons?;
+    anydata userGroupName?;
+    @constraint:String {minLength: 1}
+    string isDenialReasonOptional;
+    record {}[] userNames?;
+    string comment;
+    record {}[] mandatoryComments?;
+};
+
+# 
+public type DeleteCalculatedFieldSetRequest record {
+    DeleteTypeCodeData data;
+};
+
+public type DenyCalculationGridItemResponse record {
+    AddCalculationGridResponseResponse response?;
+};
+
+public type DcrmanageraddmassopidDataFilterCriteria record {
+    @jsondata:Name {value: "_constructor"}
+    string constructor?;
+    DcrmanageraddmassopidDataFilterCriteriaCriteria[] criteria?;
+    string operator?;
+};
+
+public type LookuptablemanagerupdatetableIdData record {
+    @constraint:String {minLength: 1}
+    string typedId;
+    @constraint:String {minLength: 1}
+    string attribute1;
+};
+
+# 
+public type UpsertProductExtensionRequest record {
+    IntegratePXData data;
+};
+
+public type SubmitRebateRecordGroupResponse record {
+    string node?;
+    RebateRecordGroup[] data?;
+    int status?;
+};
+
+public type CommentmanagerReplyBody record {
+    CommentmanagerreplyData data?;
+};
+
+public type DatamartsqlqueryDataSourcesS0QueryOptions record {
+    string currency?;
+};
+
+public type ListAllLookupTablesResponseResponseData record {
+    @constraint:String {minLength: 1}
+    string lastUpdateByName?;
+    @constraint:String {minLength: 1}
+    string createdByName?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    decimal numberOfKeyFields?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    boolean isPlasma?;
+    boolean hideWarnings?;
+    @constraint:String {minLength: 1}
+    string label?;
+    @constraint:String {minLength: 1}
+    string 'type?;
+    decimal version?;
+    anydata simulationSet?;
+    @constraint:String {minLength: 1}
+    string uniqueName?;
+    decimal createdBy?;
+    @constraint:String {minLength: 1}
+    string valueType?;
+    string name?;
+    anydata userGroupEdit?;
+    anydata userGroupViewDetails?;
+    decimal id?;
+    anydata formatType?;
+    anydata nodeId?;
+    @constraint:String {minLength: 1}
+    string validAfter?;
+    @constraint:String {minLength: 1}
+    string status?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal lastUpdateBy?;
+};
+
+public type DcrmanagerUpdatemassopidBody record {
+    DcrmanagerupdatemassopidData data?;
+    string textMatchStyle?;
+    string operationType?;
+    DataChangeRequestMassChange oldValues?;
+};
+
+public type AddCLTData record {
+    string formulaName;
+    string uniqueName;
+    string sheetName?;
+    string allocationFormulaName?;
+    string validationStateElementName?;
+    string label;
+};
+
+public type DeleteObjectsResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    # The number of deleted records
+    string[] data?;
+    decimal status?;
+};
+
+# 
+public type CalculateManualPriceListResponse record {
+    MassEditDatamartResponseResponse response?;
+};
+
+public type ProductmanagerfetchformulafilteredproductsDataCriteria record {
+    @constraint:String {minLength: 1}
+    string fieldName?;
+    @constraint:String {minLength: 1}
+    string value?;
+    # Specify an operator of the filter criteria
+    "equals"|"iEquals"|"notEqual"|"iNotEqual"|"isNull"|"notNull"|"contains"|"iContains"|"containsPattern"|"iContainsPattern"|"notContains"|"iNotContains"|"startsWith"|"iStartsWith"|"notStartsWith"|"iNotStartsWith"|"endsWith"|"iEndsWith"|"notEndsWith"|"iNotEndsWith"|"iBetween"|"iBetweenInclusive"|"inSet"|"notInSet" operator?;
+};
+
+# 
+public type CreateCustomFormEnvelope record {
+    CreateCustomFormResponse response?;
+};
+
+# 
+public type UploadBulkDataToDataSourceRequest record {
+    DatamartloaddatadatasourceUniqueNameData data;
+};
+
+public type InlineResponse20063Response record {
+    string node?;
+    int startRow?;
+    InlineResponse20063ResponseData[] data?;
+    int endRow?;
+    int totalRows?;
+    int status?;
+};
+
+public type SubmitProductsResponseResponseItemExtensions record {
+    SubmitProductsResponseResponseItemExtensionsCellStyles cellStyles;
+};
+
+# 
+public type ListAllLookupTableValuesRequest record {
+    # The number of the first row that defines the start of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal startRow?;
+    @constraint:String {minLength: 1}
+    string textMatchStyle?;
+    # The number of the end row that defines the end of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal endRow = 300;
+    @constraint:String {minLength: 1}
+    string operationType?;
+    record {}[] sortBy?;
+    anydata oldValues?;
+};
+
+public type ListEventTasksEnvelope record {
+    InlineResponse20060Response response?;
+};
+
+public type ListImportManagerChangesEnvelope record {
+    InlineResponse20073Response response?;
+};
+
+public type AddCFOTDataConfigurationDefaultTabsDetails record {
+    @constraint:String {minLength: 1}
+    string translationKey;
+    @constraint:String {minLength: 1}
+    string name;
+    @constraint:String {minLength: 1}
+    string icon;
+    @constraint:String {minLength: 1}
+    string 'type;
+};
+
+# Proxy server configurations to be used with the HTTP client endpoint.
+public type ProxyConfig record {|
+    # Host name of the proxy server
+    string host = "";
+    # Proxy server port
+    int port = 0;
+    # Proxy server username
+    string userName = "";
+    # Proxy server password
+    @display {label: "", kind: "password"}
+    string password = "";
+|};
+
+public type ExecuteModelLogicResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    record {}[] data?;
+    decimal status?;
+};
+
+# 
+public type ListQuotesRequest record {
+    # The number of the first row that defines the start of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal startRow?;
+    @constraint:String {minLength: 1}
+    string textMatchStyle?;
+    LookuptablemanagerfetchData data?;
+    # The number of the end row that defines the end of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal endRow = 300;
+    @constraint:String {minLength: 1}
+    string operationType?;
+    anydata oldValues?;
+};
+
+public type OptimizationupdatejstData record {
+    OptimizationupdatejstDataLogEvents[] logEvents?;
+    string[] calculationMessages?;
+    int progress?;
+    int jstId?;
+    record {}[] calculationResults?;
+    string status?;
+};
+
+public type DatamartsqlqueryDataWith record {
+    string w0?;
+};
+
+# 
+public type ExportCSVFileRequest record {
+    DatamartexportdataxlsxData data;
+};
+
+public type ClaimmanagervalidateitemstypedIdData record {
+    string[] items?;
+};
+
+public type InlineResponse20087Response record {
+    InlineResponse20087ResponseData[] data?;
+    int status?;
+};
+
+# 
+public type UpdateCustomerRequest record {
+    UpdateCData data;
+    @constraint:String {minLength: 1}
+    string textMatchStyle;
+    @constraint:String {minLength: 1}
+    string operationType;
+    UpdateCOldValues oldValues;
+};
+
+# `typedId of the object to which you want to add a comment
+public type CommentmanageraddData record {
+    string parentObjectIdentifier?;
+    # set of lineIds
+    string[] relatedObjectIdentifier?;
+    # The text content of the comment
+    string body?;
+};
+
+# 
+public type DeleteObjectsForceFilterRequest record {
+    DeleteTypeCodebatchforcefilterData data;
+};
+
+public type RebateAgreementResponse_response_data record {
+    decimal version?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    @constraint:String {minLength: 1}
+    string uniqueName?;
+    @constraint:String {minLength: 1}
+    string label?;
+    @constraint:String {minLength: 1}
+    string targetDate?;
+    @constraint:String {minLength: 1}
+    string workflowStatus?;
+    string headerText?;
+    @constraint:Array {minLength: 1}
+    RebateAgreementResponse_response_inputs[] inputs?;
+    RebateAgreementResponse_response_viewState viewState?;
+    record {}[] outputs?;
+    @constraint:String {minLength: 1}
+    string lastUpdateByName?;
+    @constraint:String {minLength: 1}
+    string createdByName?;
+    anydata submittedByName?;
+    decimal calculationStatus?;
+    boolean dirty?;
+    boolean refreshInputs?;
+    anydata nodeId?;
+    anydata userGroupEdit?;
+    anydata userGroupViewDetails?;
+    string[] serverMessages?;
+    anydata additionalInfo1?;
+    anydata additionalInfo2?;
+    anydata additionalInfo3?;
+    anydata additionalInfo4?;
+    decimal numberOfAttachments?;
+    anydata creationWorkflowStatus?;
+    anydata creationWorkflowCurrentStep?;
+    anydata creationWorkflowStepCount?;
+    anydata creationWorkflowStepLabel?;
+    anydata signature?;
+    record {}[] lineItems?;
+    anydata seller?;
+    RebateAgreementResponse_response_customerGroup customerGroup?;
+    @constraint:String {minLength: 1}
+    string startDate?;
+    @constraint:String {minLength: 1}
+    string endDate?;
+    @constraint:String {minLength: 1}
+    string payoutDate?;
+    anydata rebateRecordSetId?;
+    anydata rebateRecordSetLabel?;
+    anydata simulationSet?;
+    anydata simulationType?;
+    @constraint:String {minLength: 1}
+    string status?;
+    @constraint:String {minLength: 1}
+    string rebateAgreementStatus?;
+    anydata approvedByName?;
+    anydata deniedByName?;
+    anydata renderInfo?;
+    @constraint:Array {minLength: 1}
+    RebateAgreementResponse_response_serverMessagesExtended[] serverMessagesExtended?;
+    anydata approvalRequiredEmailAttachmentsJson?;
+    boolean hasWorkflowHistory?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal createdBy?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    decimal lastUpdateBy?;
+    anydata supersededBy?;
+    anydata prevRev?;
+    @constraint:String {minLength: 1}
+    string rootUniqueName?;
+    anydata headerRebateType?;
+    anydata sellerName?;
+};
+
+public type SubmitDCRResponse record {
+    AddDCRResponseResponse response?;
+};
+
+public type AddCompensationTypeResponse record {
+    string node?;
+    CompensationHeaderType[] data?;
+    int status?;
+};
+
+public type NotificationsendData record {
+    NotificationsendDataNotification notification?;
+};
+
+# The Customer object. The Type code is C.<p>
+# **MassEditable**: yes<br>
+# **bulkLoadable**: yes
+public type Customer record {
+    string typedId?;
+    @constraint:String {maxLength: 255}
+    string attribute19?;
+    @constraint:String {maxLength: 255}
+    string attribute18?;
+    @constraint:String {maxLength: 255}
+    string attribute17?;
+    string lastUpdateDate?;
+    @constraint:String {maxLength: 255}
+    string attribute16?;
+    @constraint:String {maxLength: 255}
+    string attribute15?;
+    @constraint:String {maxLength: 255}
+    string customerId?;
+    @constraint:String {maxLength: 255}
+    string attribute25?;
+    @constraint:String {maxLength: 255}
+    string attribute24?;
+    @constraint:String {maxLength: 255}
+    string userGroupViewDetails?;
+    @constraint:String {maxLength: 255}
+    string attribute23?;
+    @constraint:String {maxLength: 255}
+    string attribute22?;
+    @constraint:String {maxLength: 255}
+    string attribute21?;
+    @constraint:String {maxLength: 255}
+    string attribute20?;
+    string createDate?;
+    boolean? isParent?;
+    @constraint:String {maxLength: 255}
+    string attribute29?;
+    @constraint:String {maxLength: 255}
+    string attribute28?;
+    @constraint:String {maxLength: 255}
+    string attribute27?;
+    @constraint:String {maxLength: 255}
+    string attribute26?;
+    int version?;
+    int parentId?;
+    @constraint:String {maxLength: 255}
+    string attribute9?;
+    @constraint:String {maxLength: 255}
+    string attribute8?;
+    @constraint:String {maxLength: 255}
+    string attribute5?;
+    int createdBy?;
+    @constraint:String {maxLength: 255}
+    string attribute4?;
+    @constraint:String {maxLength: 255}
+    string attribute7?;
+    @constraint:String {maxLength: 255}
+    string attribute6?;
+    @constraint:String {maxLength: 255}
+    string name?;
+    @constraint:String {maxLength: 255}
+    string attribute1?;
+    @constraint:String {maxLength: 255}
+    string attribute14?;
+    @constraint:String {maxLength: 255}
+    string attribute13?;
+    @constraint:String {maxLength: 255}
+    string userGroupEdit?;
+    @constraint:String {maxLength: 255}
+    string attribute3?;
+    @constraint:String {maxLength: 255}
+    string attribute12?;
+    @constraint:String {maxLength: 255}
+    string attribute2?;
+    @constraint:String {maxLength: 255}
+    string attribute11?;
+    @constraint:String {maxLength: 255}
+    string attribute10?;
+    int nodeId?;
+    @constraint:String {maxLength: 255}
+    string attribute30?;
+    int lastUpdateBy?;
+};
+
+public type InlineResponse2008ResponseStateConfigurationBoundariesBoundaries record {
+    @jsondata:Name {value: "SpecificAdjustmentMinPercent"}
+    int specificAdjustmentMinPercent?;
+    @jsondata:Name {value: "InvoicePriceMaxIncreasePercent"}
+    int invoicePriceMaxIncreasePercent?;
+    @jsondata:Name {value: "OffInvoiceDiscountMinPercent"}
+    int offInvoiceDiscountMinPercent?;
+    @jsondata:Name {value: "InvoicePriceMaxDecreasePercent"}
+    int invoicePriceMaxDecreasePercent?;
+    @jsondata:Name {value: "OnInvoiceDiscountMinPercent"}
+    int onInvoiceDiscountMinPercent?;
+    @jsondata:Name {value: "SpecificAdjustmentMaxPercent"}
+    int specificAdjustmentMaxPercent?;
+    @jsondata:Name {value: "OffInvoiceDiscountMaxPercent"}
+    int offInvoiceDiscountMaxPercent?;
+    @jsondata:Name {value: "OnInvoiceDiscountMaxPercent"}
+    int onInvoiceDiscountMaxPercent?;
+};
+
+# 
+public type PriceListItemResponse record {
+    PriceListItemResponse_response response?;
+};
+
+# The Product object. The Type code is P.<p>
+# **MassEditable**: yes<br>
+# **bulkLoadable**: yes
+public type Product record {
+    string? formulaName?;
+    string typedId?;
+    int|string|decimal|string|string|string? attribute19?;
+    int|string|decimal|string|string|string? attribute18?;
+    int|string|decimal|string|string|string? attribute17?;
+    string lastUpdateDate?;
+    int|string|decimal|string|string|string? attribute16?;
+    int|string|decimal|string|string|string? attribute15?;
+    int|string|decimal|string|string|string? attribute25?;
+    int|string|decimal|string|string|string? attribute24?;
+    string? currency?;
+    string? userGroupViewDetails?;
+    int|string|decimal|string|string|string? attribute23?;
+    int|string|decimal|string|string|string? attribute22?;
+    @constraint:String {maxLength: 255}
+    string sku?;
+    int|string|decimal|string|string|string? attribute21?;
+    int|string|decimal|string|string|string? attribute20?;
+    string createDate?;
+    boolean? image?;
+    string? unitOfMeasure?;
+    int|string|decimal|string|string|string? attribute29?;
+    int|string|decimal|string|string|string? attribute28?;
+    int|string|decimal|string|string|string? attribute27?;
+    int|string|decimal|string|string|string? attribute26?;
+    @constraint:String {maxLength: 255}
+    string label?;
+    int version?;
+    int|string|decimal|string|string|string? attribute9?;
+    int|string|decimal|string|string|string? attribute8?;
+    int|string|decimal|string|string|string? attribute5?;
+    int createdBy?;
+    int|string|decimal|string|string|string? attribute4?;
+    int|string|decimal|string|string|string? attribute7?;
+    int|string|decimal|string|string|string? attribute6?;
+    int|string|decimal|string|string|string? attribute1?;
+    int|string|decimal|string|string|string? attribute14?;
+    int|string|decimal|string|string|string? attribute13?;
+    string? userGroupEdit?;
+    int|string|decimal|string|string|string? attribute3?;
+    int|string|decimal|string|string|string? attribute12?;
+    int|string|decimal|string|string|string? attribute2?;
+    int|string|decimal|string|string|string? attribute11?;
+    int|string|decimal|string|string|string? attribute10?;
+    int|string|decimal|string|string|string? attribute30?;
+    int lastUpdateBy?;
+};
+
+public type InlineResponse20045ResponseWorkflow record {
+    string workflowStatus?;
+    string isSelectStepOnDeny?;
+    string 'type?;
+    InlineResponse20045ResponseWorkflowSteps[] steps?;
+    string approvableTypedId?;
+    string currentStepId?;
+    string? submitReason?;
+    string? submitterUserName?;
+    record {}[] denialReasons?;
+    string? submitterTypedId?;
+    string isDenialReasonOptional?;
+    string id?;
+    string isAddStepRestrictedToWFAdmin?;
+};
+
+# Represents the Queries record for the operation: downloadFile
+public type DownloadFileQueries record {
+    # Use `file` to download the binary content
+    string output?;
+};
+
+# 
+public type UpdateProductRequest record {
+    # Set to `true` when this operation should NOT trigger an update event (where applicable)
+    string noEvent?;
+    UpdatePData data;
+    @constraint:String {minLength: 1}
+    string textMatchStyle?;
+    # Must be 'update' or null or omitted
+    @constraint:String {minLength: 1}
+    string operationType?;
+    UpdatePOldValues oldValues;
+};
+
+public type CompensationRecordCalculationResults record {
+    string? alertMessage?;
+    string? cssProperties?;
+    string? labelTranslations?;
+    "CRITICAL"|"RED"|"YELLOW"? alertType?;
+    anydata[]? overrideValueOptions?;
+    string[]? warnings?;
+    boolean overrideAllowEmpty?;
+    string? resultGroup?;
+    boolean overridden?;
+    string? suffix?;
+    boolean excludeFromExport?;
+    string resultName?;
+    int displayOptions?;
+    record {}|string|int|decimal? result?;
+    boolean overridable?;
+    string? resultDescription?;
+    "NUMERIC"|"NUMERIC_LONG"|"MONEY"|"PERCENT"|"TEXT"|"MONEY_EUR"|"MONEY_USD"|"MONEY_GBP"|"MONEY_JPY"|"MONEY_CHF"|"MONEY_PLN"|"DATETIME"|"DATE"|"INTEGER"|"LINK"|"COMPLEX"|"SPARKLINE" formatType?;
+    string resultType?;
+    string? userGroup?;
+    string resultLabel?;
+};
+
+public type QuotemanageraddproductsData record {
+    anydata parent?;
+    QuotemanageraddproductsDataQuote quote;
+    string[] skus;
+};
+
+public type LogicResponse_response_formula record {
+    decimal version?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    @constraint:String {minLength: 1}
+    string uniqueName?;
+    @constraint:String {minLength: 1}
+    string label?;
+    @constraint:String {minLength: 1}
+    string validAfter?;
+    @constraint:String {minLength: 1}
+    string status?;
+    anydata simulationSet?;
+    anydata userGroupEdit?;
+    anydata userGroupViewDetails?;
+    anydata formulaNature?;
+    @constraint:String {minLength: 1}
+    string lastUpdateByName?;
+    @constraint:String {minLength: 1}
+    string formulaType?;
+    anydata createdByName?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal createdBy?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    decimal lastUpdateBy?;
+};
+
+public type GetCalculationGridItemResponseResponse record {
+    string node?;
+    GetCalculationGridItemResponseResponseData[] data?;
+    int status?;
+};
+
+public type LoaddataCXDataOptions record {
+    # A list of fields (that also need to appear in the header and data) that make up the business key
+    string[] joinFields?;
+    boolean detectJoinFields?;
+};
+
+public type DatamartupdatefcTypeCodeDataFields record {
+    @constraint:String {minLength: 1}
+    string owningFC?;
+    record {} labelTranslations?;
+    boolean hidden?;
+    anydata defaultValue?;
+    boolean partitioningKey?;
+    @constraint:String {minLength: 1}
+    string dbTable?;
+    boolean numeric?;
+    boolean deployed?;
+    boolean aggregation?;
+    @constraint:String {minLength: 1}
+    string 'source?;
+    @constraint:String {minLength: 1}
+    string 'type?;
+    @constraint:String {minLength: 1}
+    string dbColumn?;
+    anydata sourceField?;
+    anydata functionalType?;
+    boolean auxiliary?;
+    anydata 'function?;
+    decimal rank?;
+    boolean dimension?;
+    boolean calculated?;
+    boolean 'key?;
+    anydata measureType?;
+    @constraint:String {minLength: 1}
+    string expression?;
+    decimal visibility?;
+    anydata format?;
+    @constraint:String {minLength: 1}
+    string label?;
+    anydata formulaElement?;
+    boolean queryable?;
+    boolean system?;
+    boolean deleted?;
+    @constraint:String {minLength: 1}
+    string name?;
+    anydata messages?;
+    boolean persisted?;
+    boolean time?;
+};
+
+public type CalculateCalculationGridResponse record {
+    CalculatePricelistResponseResponse response?;
+};
+
+public type InsertBulkDataFromFileAsyncResponseResponseData record {
+    int uploadStatusId?;
+    int jstId?;
+};
+
+# Represents the Queries record for the operation: listClicObjects
+public type ListClicObjectsQueries record {
+    # Set to `true` to exclude large results (e.g., charts, matrix table, etc.) from response. Use the **/clicmanager.fetchoutput/{typedId}/{resultName}** (e.g.,  /clicmanager.fetchoutput/2147490386.Q/FlexChart) to download the result separately
+    boolean noComplexResults?;
+    # The parameter is allowed only if Creation workflow is in Review step.<br> -  if set to `true` - the line items assigned to a line item group in the Review step of the Creation workflow are returned.<br> - if set to `false` - the line items from other line item groups are returned
+    boolean getMyItemsForReview?;
+};
+
+public type CopyPriceGridResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node;
+    @constraint:String {minLength: 1}
+    string csrfToken;
+    @constraint:Array {minLength: 1}
+    CopyPriceGridResponseResponseData[] data;
+    decimal status;
+};
+
+public type ClicOperationEnvelope record {
+    InlineResponse20048Response response?;
+};
+
+public type LivePriceGridTypeTypeConfiguration record {
+    anydata[] hiddenElementNames?;
+    string[] userCanToggleVisibility?;
+    string[] elementNames?;
+    anydata[] approvalMappings?;
+    boolean allowFieldTypeChange?;
+    anydata[] approvalTriggerFields?;
+    anydata[] overridableFields?;
+    string dynamicItemMode?;
+    LivePriceGridTypeTypeConfigurationCalculationLogicInputs[] calculationLogicInputs?;
+    string[] calcLogicInputsOverridableFields?;
+    string resultElementName?;
+    boolean shotgunModeEnabled?;
+};
+
+public type InlineResponse2009ResponseState record {
+    @jsondata:Name {value: "two_tabs"}
+    InlineResponse2009ResponseStateTwoTabs twoTabs?;
+};
+
+# 
+public type GenerateParametersRequest record {
+    FormulamanagertestparamsData data;
+};
+
+public type ContractModelResponse_response_productGroup_productFilterCriteria_criteria record {
+    @constraint:String {minLength: 1}
+    string fieldName;
+    @constraint:String {minLength: 1}
+    string operator;
+    @constraint:String {minLength: 1}
+    string value;
+};
+
+public type UpdatePLTTData record {
+    string lastUpdateByName?;
+    UpdatePLTTDataTypeConfiguration typeConfiguration?;
+    string createdByName?;
+    string dimensionType?;
+    string typedId?;
+    string targetDate?;
+    string lastUpdateDate?;
+    record {} contextualActions?;
+    string label?;
+    int version?;
+    string uniqueName?;
+    record {} buttonsConfiguration?;
+    int createdBy?;
+    string matrixFormulaName?;
+    string headerFormulaName?;
+    string matrixFormulaElementName?;
+    string customActionLogics?;
+    string userGroupEdit?;
+    string userGroupViewDetails?;
+    int id?;
+    string calculationFormulaName?;
+    string userGroupCanUseType?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+# The type code is COCTAM
+public type CompensationCondTypeAttributeMeta record {
+    @constraint:String {maxLength: 255}
+    string cssProperties?;
+    string labelTranslations?;
+    string typedId?;
+    @constraint:String {maxLength: 255}
+    string fieldName?;
+    string lastUpdateDate?;
+    string? fieldValueOptions?;
+    @constraint:String {maxLength: 1000}
+    string description?;
+    boolean readOnly?;
+    @constraint:String {maxLength: 255}
+    string label?;
+    int version?;
+    boolean requiredField?;
+    int createdBy?;
+    string? entityRefTypeCode?;
+    "NUMERIC"|"NUMERIC_LONG"|"MONEY"|"PERCENT"|"TEXT"|"MONEY_EUR"|"MONEY_USD"|"MONEY_GBP"|"MONEY_JPY"|"MONEY_CHF"|"MONEY_PLN"|"DATETIME"|"DATE"|"INTEGER"|"LINK"|"COMPLEX"|"SPARKLINE" formatType?;
+    int fieldType?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+# Represents the Queries record for the operation: massDeleteLookupTableValues
+public type MassDeleteLookupTableValuesQueries record {
+    # Specifies localization of data
+    string dataLocale?;
+};
+
+public type ContractModelResponse_response_productGroup record {
+    @constraint:String {minLength: 1}
+    string label;
+    anydata productFieldName?;
+    anydata productFieldLabel?;
+    anydata productFieldValue?;
+    ContractModelResponse_response_productGroup_productFilterCriteria productFilterCriteria;
+};
+
+public type GetCustomFormResponseResponseParameterConfig record {
+    @constraint:String {minLength: 1}
+    string formatType?;
+    @constraint:String {minLength: 1}
+    string resultName?;
+    @constraint:String {minLength: 1}
+    string resultLabel?;
+};
+
+public type ImportmanagersubmittypedIdDataImportOptions record {
+    boolean includeNewRows?;
+    boolean includeDeletedRows?;
+    boolean includeUpdatedRows?;
+};
+
+public type GetQuoteContractRebateAgreementResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:Array {minLength: 1}
+    Compensation[] data?;
+    decimal status?;
+};
+
+public type QuotemanagersaveDataQuote record {
+    record {}[] outputs;
+    @constraint:String {minLength: 1}
+    string createdByName;
+    @constraint:String {minLength: 1}
+    string typedId;
+    @constraint:String {minLength: 1}
+    string headerText;
+    @constraint:String {minLength: 1}
+    string workflowStatus;
+    @constraint:Array {minLength: 1}
+    QuotemanagersaveDataQuoteInputs[] inputs;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate;
+    anydata serverMessagesExtended?;
+    anydata externalRef?;
+    anydata deniedByName?;
+    @constraint:Array {minLength: 1}
+    QuotemanagersaveDataQuoteLineItems[] lineItems;
+    anydata userGroupViewDetails?;
+    anydata approvedByName?;
+    anydata creationWorkflowCurrentStep?;
+    @constraint:String {minLength: 1}
+    string rootUniqueName;
+    @constraint:String {minLength: 1}
+    string targetDate;
+    anydata customerGroup?;
+    decimal version;
+    anydata customerName?;
+    @constraint:String {minLength: 1}
+    string uniqueName;
+    anydata serverMessages?;
+    anydata creationWorkflowStatus?;
+    anydata userGroupEdit?;
+    boolean hasWorkflowHistory;
+    anydata nodeId?;
+    @constraint:String {minLength: 1}
+    string status;
+    @constraint:String {minLength: 1}
+    string lastUpdateByName;
+    anydata renderInfo?;
+    anydata signature?;
+    anydata creationWorkflowStepCount?;
+    anydata quoteType?;
+    @constraint:String {minLength: 1}
+    string quoteStatus;
+    @constraint:String {minLength: 1}
+    string expiryDate;
+    anydata creationWorkflowStepLabel?;
+    @constraint:String {minLength: 1}
+    string customerId;
+    @constraint:String {minLength: 1}
+    string submittedByName;
+    @constraint:String {minLength: 1}
+    string createDate;
+    boolean dirty;
+    anydata additionalInfo4?;
+    anydata additionalInfo3?;
+    boolean refreshInputs;
+    anydata additionalInfo2?;
+    anydata additionalInfo1?;
+    decimal numberOfAttachments;
+    @constraint:String {minLength: 1}
+    string label?;
+    decimal createdBy;
+    anydata approvalRequiredEmailAttachmentsJson?;
+    QuotemanagersaveDataQuoteViewState viewState;
+    @constraint:String {minLength: 1}
+    string prevRev;
+    decimal calculationStatus;
+    anydata supersededBy?;
+    decimal lastUpdateBy;
+};
+
+# 
+public type UpsertContractRequest record {
+    ContractmanagersaveData data;
+};
+
+public type QuotemanagerpriceDataQuote record {
+    record {}[] outputs;
+    @constraint:String {minLength: 1}
+    string createdByName;
+    @constraint:String {minLength: 1}
+    string typedId;
+    @constraint:String {minLength: 1}
+    string headerText;
+    @constraint:String {minLength: 1}
+    string workflowStatus;
+    @constraint:Array {minLength: 1}
+    QuotemanagersaveDataQuoteInputs[] inputs;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate;
+    anydata serverMessagesExtended?;
+    anydata externalRef?;
+    anydata deniedByName?;
+    @constraint:Array {minLength: 1}
+    QuotemanagersaveDataQuoteLineItems[] lineItems;
+    anydata userGroupViewDetails?;
+    anydata approvedByName?;
+    anydata creationWorkflowCurrentStep?;
+    @constraint:String {minLength: 1}
+    string rootUniqueName;
+    @constraint:String {minLength: 1}
+    string targetDate;
+    anydata customerGroup?;
+    decimal version;
+    @constraint:String {minLength: 1}
+    string customerName;
+    @constraint:String {minLength: 1}
+    string uniqueName;
+    anydata serverMessages?;
+    anydata creationWorkflowStatus?;
+    anydata userGroupEdit?;
+    boolean hasWorkflowHistory;
+    anydata nodeId?;
+    @constraint:String {minLength: 1}
+    string status;
+    @constraint:String {minLength: 1}
+    string lastUpdateByName;
+    anydata renderInfo?;
+    anydata signature?;
+    anydata creationWorkflowStepCount?;
+    anydata quoteType?;
+    @constraint:String {minLength: 1}
+    string quoteStatus;
+    @constraint:String {minLength: 1}
+    string expiryDate;
+    anydata creationWorkflowStepLabel?;
+    @constraint:String {minLength: 1}
+    string customerId;
+    @constraint:String {minLength: 1}
+    string submittedByName;
+    @constraint:String {minLength: 1}
+    string createDate;
+    boolean dirty;
+    anydata additionalInfo4?;
+    anydata additionalInfo3?;
+    boolean refreshInputs;
+    anydata additionalInfo2?;
+    anydata additionalInfo1?;
+    decimal numberOfAttachments;
+    @constraint:String {minLength: 1}
+    string label;
+    decimal createdBy;
+    anydata approvalRequiredEmailAttachmentsJson?;
+    QuotemanagerpriceDataQuoteViewState viewState;
+    @constraint:String {minLength: 1}
+    string prevRev;
+    decimal calculationStatus;
+    anydata supersededBy?;
+    decimal lastUpdateBy;
+};
+
+public type CalculateCFSResponseResponseData record {
+    anydata processingStart?;
+    @constraint:String {minLength: 1}
+    string targetObject?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    @constraint:String {minLength: 1}
+    string trackerType?;
+    anydata threadId?;
+    CalculateCFSResponseResponseJobSettings jobSettings?;
+    anydata calculationContext?;
+    anydata threadUUID?;
+    decimal id?;
+    anydata calculationResults?;
+    anydata processingNode?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    @constraint:String {minLength: 1}
+    string jobName?;
+    @constraint:String {minLength: 1}
+    string concurrencyKey?;
+    decimal priority?;
+    decimal version?;
+    decimal createdBy?;
+    anydata processingEnd?;
+    anydata progress?;
+    anydata messages?;
+    decimal runNumber?;
+    boolean cancelRequested?;
+    @constraint:String {minLength: 1}
+    string status?;
+    decimal lastUpdateBy?;
+};
+
+public type InlineResponse2008ResponseState record {
+    InlineResponse2008ResponseStateConfiguration configuration?;
+    InlineResponse2008ResponseStateDefinition definition?;
+};
+
+public type LoaddataSXDataOptions record {
+    # A list of fields (that also need to appear in `header` and `data`) that make up the business key
+    string[] joinFields?;
+    boolean detectJoinFields = true;
+};
+
+public type QueryDataManagerObjectResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    decimal startRow?;
+    @constraint:Array {minLength: 1}
+    QueryDataManagerObjectResponseResponseData[] data?;
+    decimal endRow?;
+    decimal totalRows?;
+    decimal status?;
+};
+
+# 
+public type GetDMObjectResponse record {
+    GetDMObjectResponseResponse response?;
+};
+
+public type GetSellerExtensionResponse record {
+    string node?;
+    SX3|SX6|SX8|SX10|SX20|SX30|SX50 data?;
+    int endRow?;
+    int status?;
+};
+
+public type SX30Inner record {
+    string typedId?;
+    string? attribute19?;
+    string? attribute18?;
+    string? attribute17?;
+    string lastUpdateDate?;
+    string? attribute16?;
+    string? attribute15?;
+    @constraint:String {maxLength: 255}
+    string sellerId?;
+    string? attribute25?;
+    string? attribute24?;
+    string? attribute23?;
+    string? attribute22?;
+    string? attribute21?;
+    string? attribute20?;
+    string createDate?;
+    string? attribute29?;
+    string? attribute28?;
+    string? attribute27?;
+    string? attribute26?;
+    int version?;
+    string? attribute9?;
+    string? attribute8?;
+    string? attribute5?;
+    int createdBy?;
+    string? attribute4?;
+    string? attribute7?;
+    string? attribute6?;
+    @constraint:String {maxLength: 255}
+    string name?;
+    string? attribute1?;
+    string? attribute14?;
+    string? attribute13?;
+    string? attribute3?;
+    string? attribute12?;
+    string? attribute2?;
+    string? attribute11?;
+    string? attribute10?;
+    string? attribute30?;
+    int lastUpdateBy?;
+};
+
+public type LoaddataPXDataOptions record {
+    # A list of fields (that also need to appear in `header` and `data) that make up the business key
+    string[] joinFields?;
+    boolean detectJoinFields = true;
+};
+
+public type CompensationRecordCalculationBase record {
+    record {}[] excludedCustomerGroups?;
+    string dateDimFieldName?;
+    record {}[] includedSellerReferences?;
+    record {}[] includedCustomerGroups?;
+    record {}[] excludedTimePeriods?;
+    record {}[] excludedproductGroups?;
+    string[] otherFilters?;
+    record {}[] includedProductGroups?;
+    record {}[] excludedSellerReferences?;
+    CompensationLineItemCalculationBaseIncludedTimePeriods[] includedTimePeriods?;
+};
+
+public type QuotemanagersubmitDataQuote record {
+    record {}[] outputs?;
+    @constraint:String {minLength: 1}
+    string createdByName?;
+    @constraint:String {minLength: 1}
+    string typedId;
+    @constraint:String {minLength: 1}
+    string headerText?;
+    @constraint:String {minLength: 1}
+    string workflowStatus?;
+    @constraint:Array {minLength: 1}
+    QuotemanagersubmitDataQuoteInputs[] inputs;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    anydata serverMessagesExtended?;
+    anydata externalRef?;
+    anydata deniedByName?;
+    @constraint:Array {minLength: 1}
+    QuotemanagersubmitDataQuoteLineItems[] lineItems?;
+    anydata userGroupViewDetails?;
+    anydata approvedByName?;
+    anydata creationWorkflowCurrentStep?;
+    @constraint:String {minLength: 1}
+    string rootUniqueName?;
+    @constraint:String {minLength: 1}
+    string targetDate?;
+    anydata customerGroup?;
+    decimal version?;
+    @constraint:String {minLength: 1}
+    string customerName?;
+    @constraint:String {minLength: 1}
+    string uniqueName;
+    anydata serverMessages?;
+    anydata creationWorkflowStatus?;
+    anydata userGroupEdit?;
+    boolean hasWorkflowHistory?;
+    anydata nodeId?;
+    @constraint:String {minLength: 1}
+    string status?;
+    @constraint:String {minLength: 1}
+    string lastUpdateByName?;
+    anydata renderInfo?;
+    anydata signature?;
+    anydata creationWorkflowStepCount?;
+    anydata quoteType?;
+    @constraint:String {minLength: 1}
+    string quoteStatus?;
+    @constraint:String {minLength: 1}
+    string expiryDate?;
+    anydata creationWorkflowStepLabel?;
+    @constraint:String {minLength: 1}
+    string customerId?;
+    @constraint:String {minLength: 1}
+    string submittedByName?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    boolean dirty?;
+    anydata additionalInfo4?;
+    anydata additionalInfo3?;
+    boolean refreshInputs?;
+    anydata additionalInfo2?;
+    anydata additionalInfo1?;
+    decimal numberOfAttachments?;
+    @constraint:String {minLength: 1}
+    string label?;
+    decimal createdBy?;
+    anydata approvalRequiredEmailAttachmentsJson?;
+    QuotemanagersubmitDataQuoteViewState viewState?;
+    @constraint:String {minLength: 1}
+    string prevRev?;
+    decimal calculationStatus?;
+    anydata supersededBy?;
+    decimal lastUpdateBy?;
+};
+
+public type CompensationRecordCalculationBaseAsAdvancedFilterCriteria record {|
+    string? _constructor?;
+    record {}?...;
+|};
+
+# 
+public type AssignGroupToBusinessRoleResponse record {
+    AddPriceGridItemsToPriceGridResponseResponse response?;
+};
+
+public type InlineResponse20073Response record {
+    string node?;
+    int startRow?;
+    ImportChange[] data?;
+    int endRow?;
+    int totalRows?;
+    int status?;
+};
+
+public type AddPriceGridItemsToPriceGridResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    anydata data?;
+    decimal status?;
+};
+
+public type RebateAgreementResponse_response record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:Array {minLength: 1}
+    RebateAgreementResponse_response_data[] data?;
+    decimal status;
+};
+
+public type ClicmanageradditemstypedIdDataContractTermTypes record {
+    boolean dirty?;
+    record {}[] outputs?;
+    boolean folder?;
+    string contractTermType?;
+    ClicmanageradditemstypedIdDataInputs[] inputs?;
+    string label?;
+};
+
+# The type code is CRCI12.<p>
+# 
+# **MassEditable**: no<br>
+# **bulkLoadable**: no
+public type ConditionRecordItem12Key record {
+    @constraint:String {maxLength: 63}
+    string key1?;
+    @constraint:String {maxLength: 63}
+    string key2?;
+    string typedId?;
+    @constraint:String {maxLength: 63}
+    string key5?;
+    @constraint:String {maxLength: 63}
+    string key6?;
+    string lastUpdateDate?;
+    @constraint:String {maxLength: 63}
+    string key3?;
+    @constraint:String {maxLength: 63}
+    string key4?;
+    @constraint:String {maxLength: 63}
+    string key9?;
+    @constraint:String {maxLength: 63}
+    string key7?;
+    string validFrom?;
+    @constraint:String {maxLength: 63}
+    string key8?;
+    decimal? priceUnit?;
+    string? unitOfMeasure?;
+    int conditionRecordSetId?;
+    @constraint:String {maxLength: 63}
+    string key11?;
+    int version?;
+    @constraint:String {maxLength: 63}
+    string key10?;
+    anydata attribute9?;
+    anydata attribute8?;
+    anydata attribute5?;
+    anydata attribute4?;
+    anydata attribute7?;
+    anydata attribute6?;
+    anydata attribute1?;
+    anydata attribute14?;
+    decimal? conditionValue?;
+    anydata attribute13?;
+    int integrationStatus?;
+    anydata attribute3?;
+    anydata attribute12?;
+    anydata attribute2?;
+    anydata attribute11?;
+    anydata attribute10?;
+    anydata attribute19?;
+    anydata attribute18?;
+    anydata attribute17?;
+    anydata attribute16?;
+    anydata attribute15?;
+    @constraint:String {maxLength: 63}
+    string key12?;
+    string? createdByObj?;
+    anydata attribute25?;
+    anydata attribute24?;
+    string? currency?;
+    anydata attribute23?;
+    anydata attribute22?;
+    anydata attribute21?;
+    anydata attribute20?;
+    string validTo?;
+    string createDate?;
+    anydata attribute29?;
+    anydata attribute28?;
+    anydata attribute27?;
+    anydata attribute26?;
+    string? lastUpdatedByObj?;
+    int createdBy?;
+    int? tableId?;
+    anydata attribute30?;
+    int lastUpdateBy?;
+};
+
+public type RecalculateClicEnvelope record {
+    InlineResponse20031Response response?;
+};
+
+public type UpdatePGTTData record {
+    string lastUpdateByName?;
+    UpdatePGTTDataTypeConfiguration typeConfiguration?;
+    string createdByName?;
+    string dimensionType?;
+    string typedId?;
+    string targetDate?;
+    string lastUpdateDate?;
+    record {} contextualActions?;
+    string label?;
+    string uniqueName?;
+    record {} buttonsConfiguration?;
+    int createdBy?;
+    string matrixFormulaName?;
+    string headerFormulaName?;
+    string matrixFormulaElementName?;
+    string customActionLogics?;
+    string userGroupEdit?;
+    string userGroupViewDetails?;
+    int id?;
+    string calculationFormulaName?;
+    string userGroupCanUseType?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+public type CalculateClaimRequest record {
+    ClaimmanagercalculatetypedIdData data?;
+};
+
+public type ClicmanagerimportlineitemstypedIdData record {
+    string parent?;
+    ClicmanagerimportlineitemstypedIdDataSkus[] skus?;
+};
+
+public type InlineResponse20068Response record {
+    string node?;
+    int startRow?;
+    LivePriceGridType[] data?;
+    int endRow?;
+    int status?;
+};
+
+# 
+public type DenyDocumentResponse record {
+    DenyDocumentResponseResponse response?;
+};
+
+# The type code is IMC
+public type ImportChange record {
+    string typedId?;
+    @constraint:String {maxLength: 255}
+    string managerUN?;
+    string lastUpdateDate?;
+    string? originalValue?;
+    record {} targetPrimaryKeys?;
+    "CREATE"|"UPDATE"|"DELETE" typeOfChange?;
+    int version?;
+    string? databaseValue?;
+    int createdBy?;
+    anydata[]? validationErrors?;
+    record {|record {}...;|}? value?;
+    string? columnName?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+public type AddPGTTDataTypeConfigurationHeaderInputs record {
+    record {}[] inputs?;
+    string name?;
+    string label?;
+    string 'type?;
+    int value?;
+};
+
+public type InlineResponse20031ResponseData record {
+    record {}[] outputs?;
+    string lastUpdateByName?;
+    string createdByName?;
+    string typedId?;
+    string workflowStatus?;
+    InlineResponse20031ResponseInputs[] inputs?;
+    string lastUpdateDate?;
+    ContractServerMessagesExtended[] serverMessagesExtended?;
+    string quoteType?;
+    string quoteStatus?;
+    string expiryDate?;
+    # Returns `true` when a folder is added, renamed,  deleted, or moved
+    boolean folderChanged?;
+    InlineResponse20031ResponseDurations durations?;
+    # Returns `lineId` when an input is added, or updated by a header logic
+    string[] inputChanged?;
+    string createDate?;
+    boolean dirty?;
+    boolean refreshInputs?;
+    string rootUniqueName?;
+    int numberOfAttachments?;
+    string targetDate?;
+    InlineResponse20031ResponseIoMeta ioMeta?;
+    # Returns `lineId` when an output is added, or updated by a header logic
+    string[] outputChanged?;
+    boolean originDeleted?;
+    string label?;
+    int version?;
+    string uniqueName?;
+    string[] serverMessages?;
+    int createdBy?;
+    record {} viewState?;
+    int calculationStatus?;
+    boolean hasWorkflowHistory?;
+    int nodeId?;
+    int lastUpdateBy?;
+    string status?;
+};
+
+public type ListLibrariesResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:Array {minLength: 1}
+    anydata[] data?;
+    int status?;
+};
+
+public type ContractModelResponse_response_outputs record {
+    @constraint:String {minLength: 1}
+    string resultName?;
+    @constraint:String {minLength: 1}
+    string resultLabel?;
+    @constraint:String {minLength: 1}
+    string result?;
+    boolean excludeFromExport?;
+    record {}[] warnings?;
+    anydata alertMessage?;
+    anydata alertType?;
+    decimal displayOptions?;
+    anydata formatType?;
+    anydata suffix?;
+    @constraint:String {minLength: 1}
+    string resultType?;
+    anydata cssProperties?;
+    anydata userGroup?;
+    anydata resultGroup?;
+    anydata overrideValueOptions?;
+    boolean overrideAllowEmpty?;
+    anydata labelTranslations?;
+    boolean overridable?;
+    boolean overridden?;
+    anydata resultDescription?;
+};
+
+public type GetDMObjectNoCountResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:String {minLength: 1}
+    string csrfToken?;
+    decimal startRow?;
+    @constraint:Array {minLength: 1}
+    record {}[] data?;
+    decimal endRow?;
+    decimal totalRows?;
+    decimal status?;
+};
+
+public type CopyUserResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:String {minLength: 1}
+    string csrfToken?;
+    @constraint:Array {minLength: 1}
+    CopyUserResponseResponseData[] data?;
+    decimal status?;
+};
+
+# The type code is JCS. Stores configuration for **Strategy Designer** and **Formula Designer**
+public type JsonConfigurationStorage record {
+    string lastUpdateByName?;
+    string createdByName?;
+    string updateDate?;
+    string typedId?;
+    string lastUpdateDate?;
+    "DRAFT"|"ACTIVE"|"SUPERSEDED" storageStatus?;
+    string? label?;
+    int version?;
+    # A valid json of any size
+    string jsonStorage?;
+    int createdBy?;
+    @constraint:String {maxLength: 255}
+    string name?;
+    "STRATEGY"|"STRATEGY_LOOKUP"|"FORMULA"|"FORMULA_LOOKUP" storageType?;
+    int id?;
+    int? supersededBy?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+public type BdmanagerUpdatetypedIdBody record {
+    BdmanagerupdatetypedIdData data?;
+};
+
+# 
+public type ContractModelResponse record {
+    ContractModelResponse_response response?;
+};
+
+public type DeleteSellerExtensionRequest record {
+    DeleteSXData data?;
+};
+
+public type ContractModelResponse_response_productGroup_productFilterCriteria_criteria_1 record {
+    @constraint:String {minLength: 1}
+    string _constructor;
+    @constraint:String {minLength: 1}
+    string operator;
+    @constraint:Array {minLength: 1}
+    ContractModelResponse_response_productGroup_productFilterCriteria_criteria[] criteria?;
+};
+
+public type ConfigurationStorageOperationEnvelope record {
+    InlineResponse20057Response response?;
+};
+
+public type InsertBulkDataFromFileResponse record {
+    InsertBulkDataFromFileResponseResponse response?;
+};
+
+# 
+public type CountMassActionItemsRequest record {
+    PricegridmanagermassactioncountidData data;
+};
+
+public type GetActionStatusResponseResponseResult record {
+    @jsondata:Name {value: "DM.TransactionsDM"}
+    string dMTransactionsDM?;
+};
+
+public type ListCustomerExtensionObjectsResponse record {
+    ListCustomerExtensionObjectsResponseResponse response?;
+};
+
+public type FormulamanagercheckData record {
+    # An array of strings with valid element names (which could be referenced in the expression)
+    string[] knownElements;
+    # The expression string of the fragment
+    @constraint:String {minLength: 1}
+    string formulaExpression;
+};
+
+public type InlineResponse2008ResponseStateConfigurationAdvancedAdvanced record {
+    @jsondata:Name {value: "Profiling"}
+    boolean profiling?;
+    @jsondata:Name {value: "MaxSteps"}
+    int maxSteps?;
+    @jsondata:Name {value: "AutoStop"}
+    boolean autoStop?;
+    @jsondata:Name {value: "MaxDurationMinutes"}
+    int maxDurationMinutes?;
+};
+
+# 
+public type TestLogicRequest record {
+    FormulamanagertestexecData data;
+};
+
+public type PricegridmanagerfetchidDataCriteria record {
+    @constraint:String {minLength: 1}
+    string fieldName?;
+    string value?;
+    # Specify an operator of the filter criteria
+    "equals"|"iEquals"|"notEqual"|"iNotEqual"|"isNull"|"notNull"|"contains"|"iContains"|"containsPattern"|"iContainsPattern"|"notContains"|"iNotContains"|"startsWith"|"iStartsWith"|"notStartsWith"|"iNotStartsWith"|"endsWith"|"iEndsWith"|"notEndsWith"|"iNotEndsWith"|"iBetween"|"iBetweenInclusive"|"inSet"|"notInSet" operator?;
+};
+
+public type DatamartgetfcsTypeCodeData record {
+    @jsondata:Name {value: "_constructor"}
+    string constructor?;
+    @constraint:Array {minLength: 1}
+    DatamartgetfcsTypeCodeDataCriteria[] criteria?;
+    @constraint:String {minLength: 1}
+    string operator?;
+};
+
+public type CompensationCalculationBaseIncludedTimePeriods record {
+    boolean single?;
+    string endDate?;
+    anydata startDate?;
+    "DAY"|"WEEK"|"MONTH"|"QUARTER"|"YEAR" timeUnit?;
+};
+
+public type UpdateSLData record {
+    string sellerId?;
+    string typedId;
+    string name?;
+    string reportsTo?;
+    string userGroupEdit?;
+    string userGroupViewDetails?;
+};
+
+public type ImportmanagerSubmittypedIdBody record {
+    ImportmanagersubmittypedIdData data?;
+};
+
+# 
+public type CopyRolesResponse record {
+    AddPriceGridItemsToPriceGridResponseResponse response?;
+};
+
+# 
+public type AssignUserGroupToUsersRequest record {
+    AccountmanagerassigngroupData data;
+};
+
+public type GetDCRResponseResponse record {
+    string node?;
+    int startRow?;
+    DataChangeRequestItem[] data?;
+    int endRow?;
+    int totalRows?;
+    int status?;
+};
+
+public type ListDelegatedWorkflowsResponseResponseData record {
+    @constraint:String {minLength: 1}
+    string note?;
+    boolean createdByAdmin?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    @constraint:String {minLength: 1}
+    string endDate?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    @constraint:String {minLength: 1}
+    string sourceUser?;
+    decimal targetUserId?;
+    decimal version?;
+    @constraint:String {minLength: 1}
+    string uniqueName?;
+    decimal createdBy?;
+    decimal sourceUserId?;
+    @constraint:String {minLength: 1}
+    string targetUser?;
+    @constraint:String {minLength: 1}
+    string startDate?;
+    @constraint:String {minLength: 1}
+    string status?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal lastUpdateBy?;
+};
+
+public type RebaterecordgrouppreviewtypedIdDataRebateRecordGroup record {
+    string sourceId?;
+    record {} itemExtensions?;
+    string typedId?;
+    string endDate?;
+    string lastUpdateDate?;
+    string agreementStatus?;
+    string payoutDate?;
+    string sourceIdNoRev?;
+    string calculatedWithErrorsMsg?;
+    boolean locked?;
+    record {}[] calculationResults?;
+    string createDate?;
+    string ongoingCalculationMsg?;
+    string label?;
+    boolean completeResultsAvailable?;
+    string calculatedMsg?;
+    int version?;
+    string rebateType?;
+    string uniqueName?;
+    int createdBy?;
+    string submittedMsg?;
+    string name?;
+    int calculationStatus?;
+    boolean hasWorkflowHistory?;
+    string headerRebateType?;
+    string startDate?;
+    string status?;
+    int lastUpdateBy?;
+};
+
+public type NotificationSetreadBody record {
+    NotificationsetreadData data?;
+};
+
+public type DMDataLoadProgressInfo record {
+    boolean running?;
+    boolean success?;
+    boolean pending?;
+    string name?;
+    string progress?;
+    boolean failed?;
+    int errors?;
+    "WAITING_FOR_DISPATCH"|"QUEUED_FOR_EXECUTION"|"PROCESSING"|"FAILED"|"FINISHED"|"CANCELLED"|"INTERRUPTED" status?;
+};
+
+public type InlineResponse20045ResponseData record {
+    record {}? layout?;
+    boolean resizingEnabled?;
+    InlineResponse20045ResponseWorkflow workflow?;
+    boolean dragDropEnabled?;
+    string resultType?;
+};
+
+# A configuration (as JSON string) of the detail page. You can configure e.g., the additional tabs on Compensation Plan detail page, which will show information in form of a dashboard. See  [Detail Page Layout and Dynamic Tabs](https://pricefx.atlassian.net/wiki/spaces/KB/pages/3980492805) for more details
+public type CompensationHeaderTypeConfiguration record {
+    record {} additionalProperties?;
+};
+
+public type DeleteLivePriceGridResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node;
+    @constraint:Array {minLength: 1}
+    DeleteLivePriceGridResponseResponseData[] data;
+    decimal status;
+};
+
+public type AccountmanagerchangepassworduserIdData record {
+    @constraint:String {minLength: 1}
+    string newPassword;
+};
+
+public type ImportManagerUploadEnvelope record {
+    InlineResponse20072Response response?;
+};
+
+public type ListUniqueCLICItemsResponseResponse record {
+    string node?;
+    string[][] data?;
+    int status?;
+};
+
+public type ListCalculatedFieldSetsResponseResponseData record {
+    @constraint:String {minLength: 1}
+    string typedId?;
+    @constraint:String {minLength: 1}
+    string calculationMessages?;
+    @constraint:String {minLength: 1}
+    string configuration?;
+    @constraint:String {minLength: 1}
+    string targetDate?;
+    anydata relativeTargetDateDays?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    @constraint:String {minLength: 1}
+    string label?;
+    anydata locale?;
+    @constraint:String {minLength: 1}
+    string calculationDate?;
+    decimal version?;
+    boolean writeOnlyChangedItems?;
+    decimal createdBy?;
+    decimal numberOfItems?;
+    decimal numberOfFailedItems?;
+    anydata userGroupEdit?;
+    anydata userGroupViewDetails?;
+    boolean keepManualOverrides?;
+    @constraint:String {minLength: 1}
+    string calculationStartDate?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal lastUpdateBy?;
+    @constraint:String {minLength: 1}
+    string status?;
+};
+
+# 
+public type UpsertObjectRequest record {
+    IntegrateTypeCodeData data;
+};
+
+public type InlineResponse2009ResponseJobs record {
+    anydata processingStart?;
+    string targetObject?;
+    string typedId?;
+    string lastUpdateDate?;
+    string trackerType?;
+    anydata threadId?;
+    InlineResponse2009ResponseJobSettings jobSettings?;
+    string calculationContext?;
+    anydata threadUUID?;
+    int id?;
+    anydata calculationResults?;
+    anydata processingNode?;
+    string createDate?;
+    string jobName?;
+    string concurrencyKey?;
+    int priority?;
+    int version?;
+    int createdBy?;
+    anydata processingEnd?;
+    anydata progress?;
+    anydata messages?;
+    int runNumber?;
+    boolean cancelRequested?;
+    anydata parameters?;
+    string status?;
+    int lastUpdateBy?;
+};
+
+public type UpdateCOCTOldValues record {
+    string? formulaName?;
+    string typedId?;
+    int|string|decimal|string|string|string? attribute19?;
+    int|string|decimal|string|string|string? attribute18?;
+    int|string|decimal|string|string|string? attribute17?;
+    string lastUpdateDate?;
+    int|string|decimal|string|string|string? attribute16?;
+    int|string|decimal|string|string|string? attribute15?;
+    int|string|decimal|string|string|string? attribute25?;
+    int|string|decimal|string|string|string? attribute24?;
+    string? userGroupViewDetails?;
+    int|string|decimal|string|string|string? attribute23?;
+    int|string|decimal|string|string|string? attribute22?;
+    int|string|decimal|string|string|string? attribute21?;
+    int|string|decimal|string|string|string? attribute20?;
+    string createDate?;
+    string? waterfallElement?;
+    int|string|decimal|string|string|string? attribute29?;
+    int|string|decimal|string|string|string? attribute28?;
+    int|string|decimal|string|string|string? attribute27?;
+    int|string|decimal|string|string|string? attribute26?;
+    string label?;
+    int version;
+    int|string|decimal|string|string|string? attribute9?;
+    int|string|decimal|string|string|string? attribute8?;
+    string uniqueName?;
+    int|string|decimal|string|string|string? attribute5?;
+    int createdBy?;
+    int|string|decimal|string|string|string? attribute4?;
+    int|string|decimal|string|string|string? attribute7?;
+    int|string|decimal|string|string|string? attribute6?;
+    int|string|decimal|string|string|string? attribute1?;
+    int|string|decimal|string|string|string? attribute14?;
+    int|string|decimal|string|string|string? attribute13?;
+    string? userGroupEdit?;
+    int|string|decimal|string|string|string? attribute3?;
+    int|string|decimal|string|string|string? attribute12?;
+    int|string|decimal|string|string|string? attribute2?;
+    int|string|decimal|string|string|string? attribute11?;
+    int|string|decimal|string|string|string? attribute10?;
+    int|string|decimal|string|string|string? attribute30?;
+    int lastUpdateBy?;
+};
+
+public type CreateWorkflowDelegationResponseResponseData record {
+    @constraint:String {minLength: 1}
+    string note?;
+    boolean createdByAdmin?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    @constraint:String {minLength: 1}
+    string endDate?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    @constraint:String {minLength: 1}
+    string sourceUser?;
+    decimal targetUserId?;
+    anydata label?;
+    decimal version?;
+    @constraint:String {minLength: 1}
+    string uniqueName?;
+    decimal createdBy?;
+    decimal sourceUserId?;
+    @constraint:String {minLength: 1}
+    string targetUser?;
+    @constraint:String {minLength: 1}
+    string startDate?;
+    @constraint:String {minLength: 1}
+    string status?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal lastUpdateBy?;
+};
+
+public type InlineResponse20064DataStatsQuerierStore record {
+    int totalChunksDownloaded?;
+    int chunkRefsFetchTime?;
+    int totalChunksRef?;
+    InlineResponse20064DataStatsQuerierStoreChunk chunk?;
+    int chunksDownloadTime?;
+};
+
+# 
+public type AddWatcherStepResponse record {
+    AddWatcherStepResponseResponse response?;
+};
+
+public type UpdateAITBody record {
+    UpdateAITData data?;
+    string textMatchStyle?;
+    string operationType?;
+    UpdateAITOldValues oldValues?;
+};
+
+# 
+public type ListProductSetsResponse record {
+    ListProductSetsResponseResponse response?;
+};
+
+public type InlineResponse20037ResponseItems record {
+    int score?;
+    InlineResponse20037ResponseItem item?;
+};
+
+public type CancelCalculationResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node;
+    string csrfToken;
+    anydata data?;
+    decimal status;
+};
+
+public type DeleteRebateCalculationResponse record {
+    AddRebateCalculationResponseResponse response?;
+};
+
+public type DeleteCalculationGridRequest record {
+    DeleteSLData data;
+};
+
+public type ListCalculatedFieldSetsResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    decimal startRow?;
+    @constraint:Array {minLength: 1}
+    ListCalculatedFieldSetsResponseResponseData[] data?;
+    decimal endRow?;
+    decimal totalRows?;
+    decimal status?;
+};
+
+# Represents the Queries record for the operation: downloadFileViaPost
+public type DownloadFileViaPostQueries record {
+    # use `file` to download the binary data of the file/attachment
+    string output?;
+};
+
+public type ContractCalculationCalculationConfig record {
+    string formulaName?;
+    ContractCalculationCalculationConfigResultFields[] resultFields?;
+    string targetDate?;
+    record {}[] inputParams?;
+    string skuField?;
+    string feederFormulaName?;
+    string simulationSet?;
+    record {}[] mappingParams?;
+    string targetDateField?;
+    CompensationLineItemInputs[] feederInputParams?;
+    record {}[] allocationFields?;
+    string[] targetFields?;
+    CompensationRecordSetCalculationCalculationConfigOutputElements[] outputElements?;
+};
+
+public type DeleteCommentEnvelope record {
+    InlineResponse20076Response response?;
+};
+
+# 
+public type ListCustomFormTypesRequest record {
+    decimal startRow?;
+    @constraint:String {minLength: 1}
+    string textMatchStyle?;
+    FetchPLData data?;
+    decimal endRow?;
+    @constraint:String {minLength: 1}
+    string operationType?;
+    anydata oldValues?;
+};
+
+public type ListCompensationTypesResponse record {
+    string node?;
+    int startRow?;
+    CompensationHeaderType[] data?;
+    int endRow?;
+    int totalRows?;
+    int status?;
+};
+
+public type ListElementsResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    record {} data?;
+    int status?;
+};
+
+public type PriceGridItemResponse_response record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:Array {minLength: 1}
+    PriceGridItemResponse_response_data[] data?;
+    decimal status?;
+};
+
+public type CompensationLineItemInputs record {
+    string labelTranslations?;
+    boolean addUnknownValues?;
+    string typedId?;
+    record {|record {}...;|} parameterConfig?;
+    record {}[] inputs?;
+    boolean readOnly?;
+    string label?;
+    string 'type?;
+    string parameterGroup?;
+    string url?;
+    string valueHint?;
+    boolean required?;
+    boolean alwaysEditable?;
+    record {|record {}...;|} formattingOptions?;
+    string[] valueOptions?;
+    record {|record {}...;|} filter?;
+    string lookupTableId?;
+    string name?;
+    record {} value?;
+};
+
+public type GetWorkflowDocumentResponse record {
+    GetWorkflowDocumentResponseResponse response?;
+};
+
+public type AccountmanagergetjsonwebtokenData record {
+    string[] permissions?;
+};
+
+public type ListClaimsResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    decimal startRow?;
+    @constraint:Array {minLength: 1}
+    Claim[] data?;
+    decimal endRow?;
+    decimal totalRows?;
+    decimal status?;
+};
+
+public type GetCustomFormResponseResponseCustomFormTypeObjectConfigurationDefault record {
+    @constraint:String {minLength: 1}
+    string translationKey;
+    @constraint:String {minLength: 1}
+    string icon;
+    @constraint:String {minLength: 1}
+    string name;
+    GetCustomFormResponseResponseCustomFormTypeObjectConfigurationDefaultTabs tabs;
+};
+
+public type MassEditResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    # A single item array with a string that represents the number of rows changed
+    string[] data?;
+    # A status code
+    decimal status?;
+};
+
+public type GetKVKeyRequest record {
+    KvservicefetchkeytableNameData data?;
+};
+
+public type CreateSignatureRequest record {
+    CompensationcreatesignaturetypedIdData data?;
+};
+
+# 
+public type AssignRoleToUsersResponse record {
+    AddPriceGridItemsToPriceGridResponseResponse response?;
+};
+
+# 
+public type AssignUserToUserGroupResponse record {
+    RevokeDealResponseResponse response?;
+};
+
+public type ContractmanagersaveDataContractProductGroup record {
+    @constraint:String {minLength: 1}
+    string productFieldName?;
+    @constraint:String {minLength: 1}
+    string productFieldLabel?;
+    @constraint:String {minLength: 1}
+    string productFieldValue?;
+    anydata label?;
+    anydata productFilterCriteria?;
+};
+
+public type RebateagreementsaveDataRebateAgreementInputs record {
+    anydata labelTranslations?;
+    anydata addUnknownValues?;
+    anydata typedId?;
+    record {} parameterConfig?;
+    record {}[] inputs?;
+    anydata readOnly?;
+    @constraint:String {minLength: 1}
+    string label?;
+    @constraint:String {minLength: 1}
+    string 'type?;
+    anydata parameterGroup?;
+    anydata url?;
+    @constraint:String {minLength: 1}
+    string valueHint?;
+    anydata required?;
+    anydata alwaysEditable?;
+    record {} formattingOptions?;
+    anydata valueOptions?;
+    anydata filter?;
+    anydata lookupTableId?;
+    @constraint:String {minLength: 1}
+    string name?;
+    RebateagreementsaveDataRebateAgreementValue value?;
+};
+
+# 
+public type ContractResponse record {
+    ContractResponse_response response?;
+};
+
+public type DeleteKVKeyRequest record {
+    KvservicefetchkeytableNameData data?;
+};
+
+public type DcrmanageraddmassopidDataFilterCriteriaCriteria record {
+    string fieldName?;
+    @jsondata:Name {value: "_constructor"}
+    string constructor?;
+    # IDs of items you want to mass edit
+    string[] value?;
+    string operator?;
+};
+
+public type LookuptablemanageraddData record {
+    @constraint:String {minLength: 1}
+    string uniqueName;
+    @constraint:String {minLength: 1}
+    string valueType;
+    @constraint:String {minLength: 1}
+    string userGroupEdit?;
+    @constraint:String {minLength: 1}
+    string label?;
+    @constraint:String {minLength: 1}
+    string 'type;
+    @constraint:String {minLength: 1}
+    string formatType?;
+    @constraint:String {minLength: 1}
+    string validAfter;
+    @constraint:String {minLength: 1}
+    string status;
+};
+
+public type ContractProductGroup record {
+    string productFieldName?;
+    string productFieldLabel?;
+    string productFieldValue?;
+    string label?;
+    record {|string...;|} productFilterCriteria?;
+};
+
+public type RestoreDefaultDataSourcesResponseResponseData record {
+    @jsondata:Name {value: "0"}
+    RestoreDefaultDataSourcesResponseResponse0[] param0?;
+};
+
+public type DcrmanagerupdatemassopidDataMassChangeDefinitions record {
+    string fieldName?;
+    int? precision?;
+    string massEditOperator?;
+    string fieldValue?;
+};
+
+public type ContractViewState record {
+    string[] openFolders?;
+    string gridViewState?;
+    string[] selectedNodes?;
+};
+
+public type ClaimTypeConfigurationColumnsSku record {
+    "NUMERIC"|"NUMERIC_LONG"|"MONEY"|"PERCENT"|"TEXT"|"MONEY_EUR"|"MONEY_USD"|"MONEY_GBP"|"MONEY_JPY"|"MONEY_CHF"|"MONEY_PLN"|"DATETIME"|"DATE"|"INTEGER"|"LINK"|"COMPLEX"|"SPARKLINE"? fieldFormatType?;
+    boolean canEdit?;
+    string? name?;
+};
+
+public type UpdateJCSBody record {
+    JsonConfigurationStorage data?;
+    ConditionrecordsetupdateidOldValues oldValues?;
+};
+
+public type UpdateCLTDataConfigurationColumnsSku record {
+    string? fieldFormatType?;
+    boolean canEdit?;
+    string? name?;
+};
+
+# 
+public type DeleteObjectsResponse record {
+    DeleteObjectsResponseResponse response?;
+};
+
+public type LookuptablemanagerloaddataTypeCodeData record {
+    # Enter values you want to add to the fields (columns)
+    anydata[] data;
+    # Specify fields (columns) where you want to insert the data to
+    anydata[] header;
+};
+
+# 
+public type ListWorkflowsResponse record {
+    ListWorkflowsResponseResponse response?;
+};
+
+public type ListClaimTypesResponseResponse record {
+    string node?;
+    int startRow?;
+    ListClaimTypesResponseResponseData[] data?;
+    int endRow?;
+    int totalRows?;
+    int status?;
+};
+
+public type QueryApiExecuteEnvelope record {
+    InlineResponse20084Response response?;
+};
+
+# 
+public type GenerateParametersResponse record {
+    ListElementsResponseResponse response?;
+};
+
+# The type code is CX10
+public type CX10 record {
+    string typedId?;
+    string lastUpdateDate?;
+    int version?;
+    @constraint:String {maxLength: 255}
+    string attribute9?;
+    @constraint:String {maxLength: 255}
+    string attribute8?;
+    @constraint:String {maxLength: 255}
+    string attribute5?;
+    int createdBy?;
+    @constraint:String {maxLength: 255}
+    string attribute4?;
+    @constraint:String {maxLength: 255}
+    string attribute7?;
+    @constraint:String {maxLength: 255}
+    string attribute6?;
+    @constraint:String {maxLength: 255}
+    string name?;
+    @constraint:String {maxLength: 255}
+    string customerId?;
+    @constraint:String {maxLength: 255}
+    string attribute1?;
+    @constraint:String {maxLength: 255}
+    string attribute3?;
+    @constraint:String {maxLength: 255}
+    string attribute2?;
+    @constraint:String {maxLength: 255}
+    string attribute10?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+# Values of the object before the update. Especially important is `typedId` (to identify the object to update) and `version` (to detect date inconsistencies)
+public type PricegridmanagerupdateidOldValues record {
+    record {} itemExtensions?;
+    @constraint:String {minLength: 1}
+    string typedId;
+    @constraint:String {minLength: 1}
+    string unitOfMeasure?;
+    @constraint:String {minLength: 1}
+    string label?;
+    boolean completeResultsAvailable?;
+    @jsondata:Name {value: "_key"}
+    string key?;
+    decimal version;
+    boolean manualPriceExpired?;
+    decimal createdBy?;
+    decimal priceGridId?;
+    @jsondata:Name {value: "_level"}
+    decimal level?;
+    decimal manualEditVersion;
+    @constraint:String {minLength: 1}
+    string sku?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+};
+
+public type ImportmanagermassdeletetypedIdData record {
+    record {} filterCriteria?;
+};
+
+public type InlineResponse20048Response record {
+    string node?;
+    Quote[] data?;
+    int status?;
+};
+
+public type ResolveCommentEnvelope record {
+    InlineResponse20078Response response?;
+};
+
+# 
+public type GetLogicReferencesResponse record {
+    GetLogicReferencesResponseResponse response;
+};
+
+public type DatamartrundataloadDataCalculationConfig record {
+    record {}[] inputParams?;
+    record {}[] mappingParams?;
+    record {}[] feederInputParams?;
+    record {}[] outputElements?;
+};
+
+public type FileDownloadEnvelope record {
+    InlineResponse20034Response response?;
+};
+
+public type RebateagreementfetchitemsData record {
+    RebateagreementfetchitemsDataFilterCriteria filterCriteria?;
+    RebateagreementfetchitemsDataRebateAgreement rebateAgreement?;
+};
+
+public type ListRebateCalculationsResponseResponse record {
+    string node?;
+    int startRow?;
+    RebateRecordSetCalculation[] data?;
+    int endRow?;
+    int totalRows?;
+    int status?;
+};
+
+public type DeletePriceListItemResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    string csrfToken?;
+    string[] data?;
+    decimal status?;
+};
+
+public type QueryapiexecuteDataQueryTable record {
+    string dataSourceUniqueName?;
+    string kind?;
+};
+
+public type ValidateClaimItemsResponse record {
+    ValidateClaimItemsResponseResponse response?;
+};
+
+public type PricegridmanagerdeleteidbatchDataFilterCriteriaCriteria record {
+    @constraint:String {minLength: 1}
+    string fieldName;
+    # Specify an operator of the filter criteria.
+    "equals"|"iEquals"|"notEqual"|"iNotEqual"|"isNull"|"notNull"|"contains"|"iContains"|"containsPattern"|"iContainsPattern"|"notContains"|"iNotContains"|"startsWith"|"iStartsWith"|"notStartsWith"|"iNotStartsWith"|"endsWith"|"iEndsWith"|"notEndsWith"|"iNotEndsWith"|"iBetween"|"iBetweenInclusive"|"inSet"|"notInSet" operator;
+    @constraint:String {minLength: 1}
+    string value;
+};
+
+# The type code is CGI3
+public type CalculationGridItem3Key record {
+    string typedId?;
+    @constraint:String {maxLength: 70}
+    string attribute83?;
+    @constraint:String {maxLength: 70}
+    string attribute82?;
+    @constraint:String {maxLength: 70}
+    string attribute81?;
+    @constraint:String {maxLength: 70}
+    string attribute80?;
+    @constraint:String {maxLength: 70}
+    string attribute89?;
+    @constraint:String {maxLength: 70}
+    string attribute88?;
+    @constraint:String {maxLength: 70}
+    string attribute87?;
+    @constraint:String {maxLength: 70}
+    string attribute86?;
+    CalculationGridItem1KeyCalculationResults[] calculationResults?;
+    @constraint:String {maxLength: 70}
+    string attribute85?;
+    @constraint:String {maxLength: 70}
+    string attribute84?;
+    int manualEditUser?;
+    @constraint:String {maxLength: 1300}
+    string allowedOverrides?;
+    int version?;
+    string alerts?;
+    @constraint:String {maxLength: 70}
+    string attribute9?;
+    @constraint:String {maxLength: 70}
+    string attribute94?;
+    decimal significantValueChangePct?;
+    @constraint:String {maxLength: 70}
+    string attribute8?;
+    @constraint:String {maxLength: 70}
+    string attribute93?;
+    @constraint:String {maxLength: 70}
+    string attribute92?;
+    @constraint:String {maxLength: 70}
+    string attribute91?;
+    @constraint:String {maxLength: 70}
+    string attribute5?;
+    @constraint:String {maxLength: 70}
+    string attribute90?;
+    @constraint:String {maxLength: 70}
+    string attribute4?;
+    @constraint:String {maxLength: 70}
+    string attribute7?;
+    @constraint:String {maxLength: 70}
+    string attribute6?;
+    @constraint:String {maxLength: 70}
+    string attribute1?;
+    @constraint:String {maxLength: 70}
+    string attribute14?;
+    @constraint:String {maxLength: 70}
+    string attribute13?;
+    @constraint:String {maxLength: 70}
+    string attribute3?;
+    @constraint:String {maxLength: 70}
+    string attribute12?;
+    @constraint:String {maxLength: 70}
+    string attribute2?;
+    @constraint:String {maxLength: 70}
+    string attribute11?;
+    @constraint:String {maxLength: 70}
+    string attribute99?;
+    @constraint:String {maxLength: 70}
+    string attribute10?;
+    @constraint:String {maxLength: 70}
+    string attribute98?;
+    @constraint:String {maxLength: 70}
+    string attribute97?;
+    @constraint:String {maxLength: 70}
+    string attribute96?;
+    @constraint:String {maxLength: 70}
+    string attribute95?;
+    decimal resultSignificantValue?;
+    string itemExtensions?;
+    @constraint:String {maxLength: 70}
+    string attribute19?;
+    @constraint:String {maxLength: 70}
+    string attribute18?;
+    @constraint:String {maxLength: 70}
+    string attribute17?;
+    @constraint:String {maxLength: 70}
+    string attribute16?;
+    @constraint:String {maxLength: 70}
+    string attribute15?;
+    string manualOverrides?;
+    @constraint:String {maxLength: 70}
+    string attribute25?;
+    @constraint:String {maxLength: 70}
+    string attribute24?;
+    @constraint:String {maxLength: 70}
+    string attribute23?;
+    @constraint:String {maxLength: 70}
+    string attribute22?;
+    @constraint:String {maxLength: 70}
+    string attribute21?;
+    @constraint:String {maxLength: 70}
+    string attribute20?;
+    string createDate?;
+    @constraint:String {maxLength: 70}
+    string attribute29?;
+    @constraint:String {maxLength: 70}
+    string attribute28?;
+    int calculationGridId?;
+    @constraint:String {maxLength: 70}
+    string attribute27?;
+    @constraint:String {maxLength: 70}
+    string attribute26?;
+    @constraint:String {maxLength: 1}
+    string completeResultsAvailable?;
+    @constraint:String {maxLength: 70}
+    string attribute36?;
+    @constraint:String {maxLength: 70}
+    string attribute35?;
+    @constraint:String {maxLength: 70}
+    string attribute34?;
+    @constraint:String {maxLength: 70}
+    string attribute33?;
+    @constraint:String {maxLength: 70}
+    string attribute32?;
+    @constraint:String {maxLength: 70}
+    string attribute31?;
+    @constraint:String {maxLength: 70}
+    string attribute30?;
+    @constraint:String {maxLength: 255}
+    string key1?;
+    @constraint:String {maxLength: 255}
+    string key2?;
+    @constraint:String {maxLength: 70}
+    string attribute39?;
+    @constraint:String {maxLength: 70}
+    string attribute38?;
+    @constraint:String {maxLength: 255}
+    string key3?;
+    string lastUpdateDate?;
+    @constraint:String {maxLength: 70}
+    string attribute37?;
+    @constraint:String {maxLength: 70}
+    string attribute47?;
+    @constraint:String {maxLength: 70}
+    string attribute46?;
+    @constraint:String {maxLength: 70}
+    string attribute45?;
+    @constraint:String {maxLength: 70}
+    string attribute44?;
+    @constraint:String {maxLength: 70}
+    string attribute43?;
+    @constraint:String {maxLength: 70}
+    string attribute42?;
+    @constraint:String {maxLength: 70}
+    string attribute41?;
+    @constraint:String {maxLength: 70}
+    string attribute40?;
+    @constraint:String {maxLength: 70}
+    string attribute49?;
+    @constraint:String {maxLength: 70}
+    string attribute48?;
+    @constraint:String {maxLength: 70}
+    string attribute50?;
+    @constraint:String {maxLength: 70}
+    string attribute100?;
+    @constraint:String {maxLength: 70}
+    string attribute58?;
+    int manualEditVersion?;
+    string name?;
+    @constraint:String {maxLength: 70}
+    string attribute57?;
+    @constraint:String {maxLength: 70}
+    string attribute56?;
+    @constraint:String {maxLength: 70}
+    string attribute55?;
+    @constraint:String {maxLength: 70}
+    string attribute54?;
+    @constraint:String {maxLength: 70}
+    string attribute53?;
+    record {|record {}...;|}[] allCalculationResults?;
+    @constraint:String {maxLength: 70}
+    string attribute52?;
+    @constraint:String {maxLength: 70}
+    string attribute51?;
+    @constraint:String {maxLength: 70}
+    string attribute59?;
+    decimal calculatedResultSignificantValue?;
+    @constraint:String {maxLength: 70}
+    string attribute61?;
+    @constraint:String {maxLength: 70}
+    string attribute60?;
+    decimal previousSignificantValue?;
+    decimal manualResultSignificantValue?;
+    @constraint:String {maxLength: 70}
+    string attribute69?;
+    @constraint:String {maxLength: 70}
+    string attribute68?;
+    @constraint:String {maxLength: 70}
+    string attribute67?;
+    @constraint:String {maxLength: 70}
+    string attribute66?;
+    @constraint:String {maxLength: 70}
+    string attribute65?;
+    @constraint:String {maxLength: 70}
+    string attribute64?;
+    @constraint:String {maxLength: 70}
+    string attribute63?;
+    @constraint:String {maxLength: 70}
+    string attribute62?;
+    @constraint:String {maxLength: 15}
+    string workStatus?;
+    @constraint:String {maxLength: 255}
+    string comments?;
+    decimal significantValueChange?;
+    string warnings?;
+    @constraint:String {maxLength: 255}
+    string label?;
+    @constraint:String {maxLength: 70}
+    string attribute72?;
+    @constraint:String {maxLength: 70}
+    string attribute71?;
+    @constraint:String {maxLength: 70}
+    string attribute70?;
+    int createdBy?;
+    @constraint:String {maxLength: 70}
+    string attribute79?;
+    int tableId?;
+    @constraint:String {maxLength: 70}
+    string attribute78?;
+    @constraint:String {maxLength: 70}
+    string attribute77?;
+    @constraint:String {maxLength: 70}
+    string attribute76?;
+    @constraint:String {maxLength: 70}
+    string attribute75?;
+    @constraint:String {maxLength: 70}
+    string attribute74?;
+    @constraint:String {maxLength: 70}
+    string attribute73?;
+    int lastUpdateBy?;
+};
+
+public type ListPendingApprovalsResponseResponseData record {
+    @constraint:String {minLength: 1}
+    string typedId?;
+    @constraint:String {minLength: 1}
+    string code?;
+    @constraint:String {minLength: 1}
+    string workflowStatus?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    boolean storesOnlyHeaderOfApprovableState?;
+    string expandedActiveUsers?;
+    @constraint:String {minLength: 1}
+    string label?;
+    decimal version?;
+    @constraint:String {minLength: 1}
+    string approvableTypedId?;
+    @constraint:String {minLength: 1}
+    string currentStepId?;
+    @constraint:String {minLength: 1}
+    string uniqueName?;
+    decimal createdBy?;
+    @constraint:String {minLength: 1}
+    string approvableUniqueName?;
+    @constraint:String {minLength: 1}
+    string delegation?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal lastUpdateBy?;
+};
+
+# 
+public type ListUserPendingApprovalsResponse record {
+    ListPendingApprovalsResponseResponse response?;
+};
+
+# The type code is CX20
+public type CX20 record {
+    string typedId?;
+    @constraint:String {maxLength: 255}
+    string attribute19?;
+    @constraint:String {maxLength: 255}
+    string attribute18?;
+    @constraint:String {maxLength: 255}
+    string attribute17?;
+    string lastUpdateDate?;
+    @constraint:String {maxLength: 255}
+    string attribute16?;
+    @constraint:String {maxLength: 255}
+    string attribute15?;
+    @constraint:String {maxLength: 255}
+    string customerId?;
+    @constraint:String {maxLength: 255}
+    string attribute20?;
+    string createDate?;
+    int version?;
+    @constraint:String {maxLength: 255}
+    string attribute9?;
+    @constraint:String {maxLength: 255}
+    string attribute8?;
+    @constraint:String {maxLength: 255}
+    string attribute5?;
+    int createdBy?;
+    @constraint:String {maxLength: 255}
+    string attribute4?;
+    @constraint:String {maxLength: 255}
+    string attribute7?;
+    @constraint:String {maxLength: 255}
+    string attribute6?;
+    @constraint:String {maxLength: 255}
+    string name?;
+    @constraint:String {maxLength: 255}
+    string attribute1?;
+    @constraint:String {maxLength: 255}
+    string attribute14?;
+    @constraint:String {maxLength: 255}
+    string attribute13?;
+    @constraint:String {maxLength: 255}
+    string attribute3?;
+    @constraint:String {maxLength: 255}
+    string attribute12?;
+    @constraint:String {maxLength: 255}
+    string attribute2?;
+    @constraint:String {maxLength: 255}
+    string attribute11?;
+    @constraint:String {maxLength: 255}
+    string attribute10?;
+    int lastUpdateBy?;
+};
+
+public type ExecuteDataLoadLogicResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:String {minLength: 1}
+    string csrfToken?;
+    @constraint:Array {minLength: 1}
+    ExecuteDataLoadLogicResponseResponseData[] data?;
+};
+
+public type JobStatusTrackerResponse_response record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:Array {minLength: 1}
+    JobStatusTrackerResponse_response_data[] data?;
+    decimal status?;
+};
+
+# 
+public type UpsertProductManualPriceListRequest record {
+    ManualpricelistmanagerintegrateidData data;
+};
+
+public type DcrmanagerAddmassopidBody record {
+    DcrmanageraddmassopidData data?;
+};
+
+public type LookuptablemanagerdeletetableIdbatchDataFilterCriteriaCriteria record {
+    string fieldName?;
+    int value?;
+    string operator?;
+};
+
+# 
+public type MassUpdateRequest record {
+    MasseditTypeCodeData data;
+};
+
+public type ManualpricelistmanagermasseditidDataMassEditRecords record {
+    # The name of the field you want to update
+    @constraint:String {minLength: 1}
+    string fieldName;
+    anydata precision?;
+    # Can be either one of these valid operators: `+` `-` `*` If omitted, the provided value is set (`=` operator). Otherwise the specified operation is applied
+    @constraint:String {minLength: 1}
+    string massEditOperator;
+    # The new value of the field. If omitted, the field is set to null
+    @constraint:String {minLength: 1}
+    string fieldValue;
+};
+
+public type AccountmanagerassigngroupData record {
+    # `TypedId` of the group you want to assign or revoke. Either `typedId` or `uniqeName` is required
+    @constraint:String {minLength: 1}
+    string typedId;
+    # `uniqueName` of the role you want to assign or revoke. Either `typedId` or `uniqeName` is required
+    @constraint:String {minLength: 1}
+    string uniqueName;
+    # The list of users' `typedId`s or `loginName`. Can be mixed
+    string[] users;
+    # Set to `true` to assign the group to the user. Set `false` to remove the group from the user
+    boolean assign;
+};
+
+public type RestoreDefaultDataSourcesResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    RestoreDefaultDataSourcesResponseResponseData[] data?;
+    decimal status?;
+};
+
+public type TypeCodetargetBody record {
+    record {byte[] fileContent; string fileName;} file?;
+};
+
+public type WorkflowsmanageraddapprovercurrentStepIdDataAddStepStepInstance record {
+    @constraint:String {minLength: 1}
+    string reason;
+    @constraint:String {minLength: 1}
+    string uniqueName;
+    # `userLoginNames` or `userGroupNames` must be provided
+    record {}[] userGroupNames;
+    anydata userGroupName?;
+    boolean emailAttachment?;
+    anydata userLoginName?;
+    decimal minApprovalsNeeded?;
+    record {} properties?;
+    # `userLoginNames` or `userGroupNames` must be provided
+    anydata[] userLoginNames;
+};
+
+# The type code is CX30
+public type CX30 record {
+    string typedId?;
+    @constraint:String {maxLength: 255}
+    string attribute19?;
+    @constraint:String {maxLength: 255}
+    string attribute18?;
+    @constraint:String {maxLength: 255}
+    string attribute17?;
+    string lastUpdateDate?;
+    @constraint:String {maxLength: 255}
+    string attribute16?;
+    @constraint:String {maxLength: 255}
+    string attribute15?;
+    @constraint:String {maxLength: 255}
+    string customerId?;
+    @constraint:String {maxLength: 255}
+    string attribute25?;
+    @constraint:String {maxLength: 255}
+    string attribute24?;
+    @constraint:String {maxLength: 255}
+    string attribute23?;
+    @constraint:String {maxLength: 255}
+    string attribute22?;
+    @constraint:String {maxLength: 255}
+    string attribute21?;
+    @constraint:String {maxLength: 255}
+    string attribute20?;
+    string createDate?;
+    @constraint:String {maxLength: 255}
+    string attribute29?;
+    @constraint:String {maxLength: 255}
+    string attribute28?;
+    @constraint:String {maxLength: 255}
+    string attribute27?;
+    @constraint:String {maxLength: 255}
+    string attribute26?;
+    int version?;
+    @constraint:String {maxLength: 255}
+    string attribute9?;
+    @constraint:String {maxLength: 255}
+    string attribute8?;
+    @constraint:String {maxLength: 255}
+    string attribute5?;
+    int createdBy?;
+    @constraint:String {maxLength: 255}
+    string attribute4?;
+    @constraint:String {maxLength: 255}
+    string attribute7?;
+    @constraint:String {maxLength: 255}
+    string attribute6?;
+    @constraint:String {maxLength: 255}
+    string name?;
+    @constraint:String {maxLength: 255}
+    string attribute1?;
+    @constraint:String {maxLength: 255}
+    string attribute14?;
+    @constraint:String {maxLength: 255}
+    string attribute13?;
+    @constraint:String {maxLength: 255}
+    string attribute3?;
+    @constraint:String {maxLength: 255}
+    string attribute12?;
+    @constraint:String {maxLength: 255}
+    string attribute2?;
+    @constraint:String {maxLength: 255}
+    string attribute11?;
+    @constraint:String {maxLength: 255}
+    string attribute10?;
+    @constraint:String {maxLength: 255}
+    string attribute30?;
+    int lastUpdateBy?;
+};
+
+public type ListClaimTypesRequest record {
+    int startRow?;
+    string textMatchStyle?;
+    SellermanagerfetchformulafilteredsellersData data?;
+    int endRow?;
+    string operationType?;
+    record {}? oldValues?;
+};
+
+public type AccountmanagerassignroleBRbusinessroleIdData record {
+    # `TypedId` of the role you want to assign or revoke. Either `typedId` or `uniqeName` is required
+    @constraint:String {minLength: 1}
+    string typedId;
+    # Set to `true` to assign the role to the business role. Set `false` to remove the role from the business role
+    boolean assign;
+};
+
+public type ListQuotesResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    decimal startRow?;
+    @constraint:Array {minLength: 1}
+    ListQuotesResponseResponseData[] data;
+    # The number of the end row that defines the end of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal endRow = 300;
+    decimal totalRows?;
+    decimal status?;
+};
+
+public type UpdateSellerExtensionResponse record {
+    string node?;
+    SX3|SX6|SX8|SX10|SX20|SX30|SX50 data?;
+    int status?;
+};
+
+public type SellerExtensionEnvelope record {
+    GetSellerExtensionResponse response?;
+};
+
+public type ContractmanageradditemsDataContractProductGroupProductFilterCriteriaCriteria record {
+    @jsondata:Name {value: "_constructor"}
+    string constructor;
+    @constraint:Array {minLength: 1}
+    PricelistmanagerfetchidDataCriteria[] criteria?;
+    @constraint:String {minLength: 1}
+    string operator;
+};
+
+public type RunDataLoadResponseResponseCalculationConfig record {
+    anydata formulaName?;
+    anydata feederFormulaName?;
+    anydata simulationSet?;
+    anydata targetDate?;
+    record {}[] inputParams?;
+    anydata skuField?;
+    record {}[] mappingParams?;
+    anydata targetDateField?;
+    record {}[] feederInputParams?;
+    anydata targetFields?;
+    record {}[] outputElements?;
+};
+
+public type SaveModelResponseResponse record {
+    string node?;
+    ModelObject[] data?;
+    int status?;
+};
+
+public type ListAccrualRecordsResponse record {
+    ListAccrualRecordsResponseResponse response?;
+};
+
+public type CreateWorkflowDelegationResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:Array {minLength: 1}
+    CreateWorkflowDelegationResponseResponseData[] data?;
+    decimal status?;
+};
+
+# 
+public type SyntaxCheckRequest record {
+    FormulamanagercheckData data;
+};
+
+public type ProductmanagerimportproductcompetitionData record {
+    # INSERT - always inserts new records, even duplicates.
+    # UPDATE - data is always overridden
+    "INSERT"|"UPDATE" importStrategy;
+    @constraint:Array {minLength: 1}
+    ProductmanagerimportproductcompetitionDataProducts[] products;
+};
+
+public type RebaterecordgroupmasssubmittypedIdData record {
+    RebaterecordgroupmasssubmittypedIdDataFilterCriteria filterCriteria?;
+};
+
+# JSON that represents the whole draft formula (the same format as used for the update command)
+public type FormulamanagertestparamsDataTestFormula record {
+    @constraint:String {minLength: 1}
+    string uniqueName;
+    @constraint:Array {minLength: 1}
+    FormulamanagertestparamsDataTestFormulaElements[] elements;
+    @jsondata:Name {value: "__PROC"}
+    FormulamanagertestparamsDataTestFormulaPROC pROC;
+    @constraint:String {minLength: 1}
+    string validAfter;
+    @constraint:String {minLength: 1}
+    string status;
+};
+
+public type ListFilesEnvelope record {
+    InlineResponse20033Response response?;
+};
+
+public type ListBoMForProductResponseResponseData record {
+    anydata additionalInfo4?;
+    anydata additionalInfo3?;
+    anydata additionalInfo2?;
+    decimal quantity?;
+    anydata additionalInfo1?;
+    decimal level?;
+    boolean isNode?;
+    @constraint:String {minLength: 1}
+    string label?;
+    @constraint:String {minLength: 1}
+    string 'type?;
+    decimal parentId?;
+    boolean component?;
+    decimal totalQuantity?;
+    decimal id?;
+    anydata category?;
+};
+
+# The type code is CTC
+public type ContractCalculation record {
+    string typedId?;
+    string calculationMessages?;
+    string targetDate?;
+    string lastUpdateDate?;
+    boolean shouldSubmit?;
+    @constraint:String {maxLength: 255}
+    string label?;
+    @constraint:String {maxLength: 255}
+    string locale?;
+    string calculationDate?;
+    int version?;
+    boolean valid?;
+    record {|record {}...;|} dtoFilter?;
+    boolean isDefault?;
+    int createdBy?;
+    @constraint:String {maxLength: 255}
+    string sortBy?;
+    record {} adhocCalculation?;
+    string calculationStartDate?;
+    ContractCalculationCalculationConfig calculationConfig?;
+    string createDate?;
+    int lastUpdateBy?;
+    "DRAFT"|"PENDING"|"SCHEDULED"|"PROCESSING"|"SCHEDULED_DIRTY"|"ERROR"|"READY"|"CANCELLED" status?;
+};
+
+public type AccountmanagerchangetermsofuseData record {
+    string lastTermsOfUseVersionAgreed?;
+    string lastTermsOfUseAgreedDate?;
+};
+
+public type GetClaimItemsSummaryResponseResponseSummary record {
+    GetClaimItemsSummaryResponseResponseSummaryTotal total?;
+    GetClaimItemsSummaryResponseResponseSummaryAutoRejected autoRejected?;
+    GetClaimItemsSummaryResponseResponseSummaryTotal autoValidated?;
+    GetClaimItemsSummaryResponseResponseSummaryAutoRejected validated?;
+    GetClaimItemsSummaryResponseResponseSummaryAutoRejected rejected?;
+    GetClaimItemsSummaryResponseResponseSummaryTotal totalValidated?;
+    GetClaimItemsSummaryResponseResponseSummaryAutoRejected totalRejected?;
+};
+
+public type QuotemanagersubmitDataQuoteViewState record {
+    anydata openFolders?;
+    anydata gridViewState?;
+    record {}[] selectedNodes?;
+};
+
+public type InlineResponse20042ResponseData DataOneOf1|DataDataOneOf12;
+
+public type DatamartCreatefcfcTypeBody record {
+    # Two files are required – the schema in the JSON format and the data in the AVRO format
+    anydata[] fileName;
+};
+
+public type DeleteBusinessRoleResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:Array {minLength: 1}
+    DeleteBusinessRoleResponseResponseData[] data?;
+    decimal status?;
+};
+
+public type DeleteSellerRequest record {
+    DeleteSLData data?;
+};
+
+# The type code is CX50
+public type CX50 record {
+    string typedId?;
+    string? attribute39?;
+    string lastUpdateDate?;
+    string? attribute38?;
+    string? attribute37?;
+    string? attribute47?;
+    string? attribute46?;
+    string? attribute45?;
+    string? attribute44?;
+    string? attribute43?;
+    string? attribute42?;
+    string? attribute41?;
+    string? attribute40?;
+    string? attribute49?;
+    string? attribute48?;
+    int version?;
+    string? attribute9?;
+    string? attribute50?;
+    string? attribute8?;
+    # any type or `null`
+    anydata attribute5?;
+    string? attribute4?;
+    string? attribute7?;
+    string? attribute6?;
+    @constraint:String {maxLength: 255}
+    string name?;
+    string? attribute1?;
+    string? attribute14?;
+    string? attribute13?;
+    string? attribute3?;
+    string? attribute12?;
+    string? attribute2?;
+    string? attribute11?;
+    string? attribute10?;
+    string? attribute19?;
+    string? attribute18?;
+    string? attribute17?;
+    string? attribute16?;
+    string? attribute15?;
+    @constraint:String {maxLength: 255}
+    string customerId?;
+    string? attribute25?;
+    string? attribute24?;
+    string? attribute23?;
+    string? attribute22?;
+    string? attribute21?;
+    string? attribute20?;
+    string createDate?;
+    string? attribute29?;
+    string? attribute28?;
+    string? attribute27?;
+    string? attribute26?;
+    int createdBy?;
+    string? attribute36?;
+    string? attribute35?;
+    string? attribute34?;
+    string? attribute33?;
+    string? attribute32?;
+    string? attribute31?;
+    string? attribute30?;
+    int lastUpdateBy?;
+};
+
+public type ListLivePriceGridTypesEnvelope record {
+    InlineResponse20068Response response?;
+};
+
+public type GetLogicResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:String {minLength: 1}
+    string csrfToken?;
+    @constraint:Array {minLength: 1}
+    GetLogicResponseResponseData[] data?;
+    decimal status?;
+};
+
+public type GetCustomFormResponseResponseData record {
+    @constraint:Array {minLength: 1}
+    GetCustomFormResponseResponseOutputs[] outputs?;
+    anydata createdByName?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    @constraint:Array {minLength: 1}
+    GetCustomFormResponseResponseInputs[] inputs?;
+    @constraint:String {minLength: 1}
+    string workflowStatus?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    anydata serverMessagesExtended?;
+    GetCustomFormResponseResponseCustomFormTypeObject customFormTypeObject?;
+    anydata deniedByName?;
+    anydata userGroupViewDetails?;
+    anydata approvedByName?;
+    anydata results?;
+    anydata module?;
+    decimal version?;
+    anydata attribute9?;
+    anydata attribute8?;
+    @constraint:String {minLength: 1}
+    string uniqueName?;
+    anydata attribute5?;
+    anydata attribute4?;
+    anydata attribute7?;
+    anydata attribute6?;
+    anydata attribute1?;
+    anydata attribute14?;
+    @constraint:String {minLength: 1}
+    string formStatus?;
+    anydata attribute13?;
+    decimal typeId?;
+    anydata userGroupEdit?;
+    anydata attribute3?;
+    anydata attribute12?;
+    anydata attribute2?;
+    anydata attribute11?;
+    anydata attribute10?;
+    anydata lastUpdateByName?;
+    anydata attribute19?;
+    anydata attribute18?;
+    anydata attribute17?;
+    anydata attribute16?;
+    anydata attribute15?;
+    anydata submitDate?;
+    anydata parentTypedId?;
+    anydata attribute25?;
+    anydata submittedByName?;
+    anydata attribute24?;
+    anydata attribute23?;
+    anydata attribute22?;
+    anydata attribute21?;
+    anydata attribute20?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    record {}[] approvalRequiredEmailAttachments?;
+    anydata attribute29?;
+    anydata attribute28?;
+    anydata attribute27?;
+    anydata attribute26?;
+    @constraint:String {minLength: 1}
+    string label?;
+    decimal createdBy?;
+    decimal calculationStatus?;
+    anydata attribute30?;
+    decimal lastUpdateBy?;
+};
+
+public type ListCompensationPlansResponse record {
+    ListCompensationPlansResponseResponse response?;
+};
+
+public type CreateCustomFormResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    CustomForm data?;
+    decimal status?;
+};
+
+public type AssignmentResponse_response record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:Array {minLength: 1}
+    AssignmentResponse_response_data[] data?;
+    decimal status?;
+};
+
+public type AddCOHTData record {
+    # A unique identification of this type. This name will be used in the Compensation Plan document as a foreign key, to identify the Compensation Header Type used
+    string uniqueName;
+    # A configuration (as JSON string) of the detail page. You can configure e.g., the additional tabs on Compensation Plan detail page, which will show information in form of a dashboard
+    string? configuration?;
+    # A name of the logic used for building inputs and calculating results for the Compensation Plan header, but can also manipulate the items and folders
+    string headerFormulaName?;
+    # A name of the approval workflow logic, which will build the approval steps for the compensation records
+    string scRecordWorkflowFormulaName?;
+    # A name of the logic which will be used to filter the available Compensation Condition Types, while the user is adding a new item to the Compensation Plan document
+    string scTypeFilterFormulaName?;
+    # A name of the approval workflow logic, which will build the approval steps for the Compensation Plan document
+    string workflowFormulaName?;
+};
+
+public type AddMPLData record {
+    @constraint:String {minLength: 1}
+    string uniqueName;
+    @constraint:String {minLength: 1}
+    string label?;
+    anydata nodeId?;
+    @constraint:String {minLength: 1}
+    string validAfter;
+    @constraint:String {minLength: 1}
+    string status;
+};
+
+public type ContractmanagersaveDataContractServerMessagesExtended record {
+    anydata 'key?;
+    @constraint:String {minLength: 1}
+    string message;
+};
+
+# 
+public type MassEditManualPriceListResponse record {
+    MassEditManualPriceListResponseResponse response?;
+};
+
+public type RebaterecordgroupmasssubmittypedIdDataFilterCriteria record {
+    string fieldName?;
+    @jsondata:Name {value: "_constructor"}
+    string constructor?;
+    string[] value?;
+    string operator?;
+};
+
+public type UpdateCFOTOldValuesConfigurationDefaultTabs record {
+    UpdateCFOTOldValuesConfigurationDefaultTabsDetails details?;
+};
+
+public type McpRolesEnvelope record {
+    InlineResponse20087Response response?;
+};
+
+public type InlineResponse20042Response record {
+    string node?;
+    InlineResponse20042ResponseData[] data?;
+    int status?;
+};
+
+public type InlineResponse2009ResponseJobSettings record {
+    string calculableObjectTypedId?;
+    string queueName?;
+    string partitionName?;
+    int jobSize?;
+    boolean enableDirtyTracking?;
+    anydata distributedAction?;
+    boolean distributed?;
+    int runNumber?;
+    boolean agentOption1?;
+    string jobType?;
+    string partitionUUID?;
+    string uuid?;
+};
+
+# Represents the Queries record for the operation: downloadLivePriceGridExcelFile
+public type DownloadLivePriceGridExcelFileQueries record {
+    # Specifies the template to be used when exporting a file
+    string templateName?;
+};
+
+public type FormulamanagertestparamsData record {
+    string item?;
+    # The validity date of the formula
+    @constraint:String {minLength: 1}
+    string targetDate;
+    FormulamanagertestparamsDataTestFormula testFormula;
+};
+
+# Object with custom translations with structure. It tries to pick label according to your language, otherwise it pick label from `""` key. After that translationKey is used
+public type LabelTranslations record {
+    @jsondata:Name {value: ""}
+    string doubleQuoteDoubleQuote;
+    string en?;
+    string additionalProperties?;
+    string fr?;
+};
+
+public type DeleteProductsFromManualPriceListResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    # The number of deleted items
+    string[] data?;
+    decimal status?;
+};
+
+public type ImportCompetitionDataResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    ImportCompetitionDataResponseResponseData data?;
+    decimal status?;
+};
+
+public type UpdateCLData record {
+    string fileName?;
+    string typedId;
+    string fileHandle?;
+    int version;
+};
+
+# 
+public type GetDefaultPricingLogicNameResponse record {
+    GetDefaultPricingLogicNameResponseResponse response?;
+};
+
+public type UpdateSXData record {
+    string sellerId;
+    string typedId;
+};
+
+# 
+public type UpdateWorkflowDelegationResponse record {
+    UpdateWorkflowDelegationResponseResponse response?;
+};
+
+public type AccountmanagerfetchusersData record {
+    @jsondata:Name {value: "_constructor"}
+    string constructor?;
+    @constraint:Array {minLength: 1}
+    AccountmanagerfetchusersDataCriteria[] criteria?;
+    @constraint:String {minLength: 1}
+    string operator?;
+};
+
+# 
+public type AssignBusinessRoleResponse record {
+    AddPriceGridItemsToPriceGridResponseResponse response?;
+};
+
+# Schema for definition of steps and tabs. This object can contains `tabs` array with tabs specifications or `steps` array (categories) with tabs inside
+public type Configuration record {|
+    # DynamicTabs can have several types of layout. Default is `stepper` for config with steps and `tabs` for only tabs
+    "auto"|"stepper"|"tabs"|"menu"|"wizard" layout?;
+    # Text to describe the configuration
+    string name?;
+    Tab[] tabs?;
+    Step[] steps?;
+|};
+
+public type ListDataLoadsResponseResponseCalculationConfig record {
+    @constraint:String {minLength: 1}
+    string formulaName?;
+    @constraint:String {minLength: 1}
+    string targetDate?;
+    record {}[] inputParams?;
+    record {}[] mappingParams?;
+    record {}[] feederInputParams?;
+    record {}[] outputElements?;
+};
+
+# 
+public type UpsertCustomerExtensionRequest record {
+    IntegrateCData data;
+};
+
+public type UpsertObjectReturnOldDataResponseResponseOldData record {
+    @constraint:String {minLength: 1}
+    string formulaName;
+    @constraint:String {minLength: 1}
+    string typedId;
+    @constraint:String {minLength: 1}
+    string unitOfMeasure;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate;
+    @constraint:String {minLength: 1}
+    string label;
+    decimal version;
+    decimal createdBy;
+    @constraint:String {minLength: 1}
+    string attribute1;
+    @constraint:String {minLength: 1}
+    string userGroupEdit;
+    @constraint:String {minLength: 1}
+    string userGroupViewDetails;
+    @constraint:String {minLength: 1}
+    string currency;
+    @constraint:String {minLength: 1}
+    string attribute2;
+    @constraint:String {minLength: 1}
+    string sku;
+    @constraint:String {minLength: 1}
+    string createDate;
+    decimal lastUpdateBy;
+};
+
+public type ExecuteActionItemLogicResponse record {
+    ExecuteActionItemLogicResponseResponse response?;
+};
+
+public type SubmitQuoteContractRebateAgreementResponseResponseData record {
+    decimal version?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    @constraint:String {minLength: 1}
+    string uniqueName?;
+    @constraint:String {minLength: 1}
+    string label?;
+    @constraint:String {minLength: 1}
+    string targetDate?;
+    @constraint:String {minLength: 1}
+    string workflowStatus?;
+    @constraint:Array {minLength: 1}
+    SubmitQuoteContractRebateAgreementResponseResponseInputs[] inputs?;
+    QuotemanageraddproductsDataQuoteViewState viewState?;
+    record {}[] outputs?;
+    @constraint:String {minLength: 1}
+    string lastUpdateByName?;
+    @constraint:String {minLength: 1}
+    string createdByName?;
+    @constraint:String {minLength: 1}
+    string submittedByName?;
+    decimal calculationStatus?;
+    boolean dirty?;
+    boolean refreshInputs?;
+    decimal nodeId?;
+    anydata userGroupEdit?;
+    anydata userGroupViewDetails?;
+    record {}[] serverMessages?;
+    anydata additionalInfo1?;
+    anydata additionalInfo2?;
+    anydata additionalInfo3?;
+    anydata additionalInfo4?;
+    decimal numberOfAttachments?;
+    anydata creationWorkflowStatus?;
+    anydata creationWorkflowCurrentStep?;
+    anydata creationWorkflowStepCount?;
+    anydata creationWorkflowStepLabel?;
+    anydata signature?;
+    anydata customerGroup?;
+    anydata productGroup?;
+    anydata externalRef?;
+    @constraint:String {minLength: 1}
+    string contractStatus?;
+    @constraint:String {minLength: 1}
+    string startDate?;
+    @constraint:String {minLength: 1}
+    string endDate?;
+    @constraint:String {minLength: 1}
+    string status?;
+    @constraint:String {minLength: 1}
+    string approvedByName?;
+    anydata deniedByName?;
+    anydata renderInfo?;
+    @constraint:Array {minLength: 1}
+    ContractmanagersaveDataContractServerMessagesExtended[] serverMessagesExtended?;
+    @constraint:String {minLength: 1}
+    string approvalRequiredEmailAttachmentsJson?;
+    boolean hasWorkflowHistory?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal createdBy?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    decimal lastUpdateBy?;
+    anydata supersededBy?;
+    anydata prevRev?;
+    @constraint:String {minLength: 1}
+    string rootUniqueName?;
+};
+
+public type FetchPLData record {
+    @jsondata:Name {value: "_constructor"}
+    string constructor?;
+    @constraint:Array {minLength: 1}
+    FetchPLDataCriteria[] criteria?;
+    @constraint:String {minLength: 1}
+    string operator?;
+};
+
+public type LogicResponse_response record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:Array {minLength: 1}
+    LogicResponse_response_data[] data?;
+    decimal status?;
+};
+
+public type ListDataLoadsResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:String {minLength: 1}
+    string csrfToken?;
+    @constraint:Array {minLength: 1}
+    ListDataLoadsResponseResponseData[] data?;
+    decimal endRow?;
+    decimal status?;
+};
+
+# 
+public type UpsertProductRequest record {
+    IntegratePData data;
+};
+
+public type TestLogicEnvelope record {
+    InlineResponse2007Response response?;
+};
+
+# 
+public type DmObjectResponse record {
+    DmObjectResponse_response response?;
+};
+
+public type ExecuteDataLoadLogicResponseResponseData record {
+    @constraint:Array {minLength: 1}
+    ExecuteDataLoadLogicResponseResponseContextParameters[] contextParameters?;
+};
+
+public type CustomermanagerassignData record {
+    CustomermanagerassignDataCustomerGroup customerGroup?;
+    # The `typedId` of the entity you want to assign customers to
+    @constraint:String {minLength: 1}
+    string assignment;
+    decimal priority;
+};
+
+public type InlineResponse20064DataResult record {
+    InlineResponse20064DataStream 'stream?;
+    string[] values?;
+};
+
+public type LoaddataCData record {
+    string[][] data;
+    LoaddataCDataOptions options?;
+    string[] header;
+};
+
+public type ListEntityFieldsResponseResponseData record {
+    # The name of the entity
+    @constraint:String {minLength: 1}
+    string name?;
+    # Fields that make up a business key
+    record {}[] businessKey?;
+    # When set to **true**, the multiple records at once can be edited in this entity
+    boolean massEditable?;
+    # When set to **true**, a bulk data can be loaded to the entity using, for example, a **/loaddata/{TypeCode}** endpoint
+    boolean bulkLoadable?;
+    # Entity fields and corresponding properties
+    record {} fields?;
+    # The type code of the entity
+    @constraint:String {minLength: 1}
+    string typeCode?;
+};
+
+# 
+public type DeleteWorkflowDelegationResponse record {
+    CreateWorkflowDelegationResponseResponse response?;
+};
+
+public type ClicmanagerupdatelineitemstypedIdDataInputs record {
+    string name?;
+    int value?;
+};
+
+public type ImportmanagermassedittypedIdDataFilterCriteria record {
+    @jsondata:Name {value: "_constructor"}
+    string constructor?;
+    ImportmanagermassedittypedIdDataFilterCriteriaCriteria[] criteria?;
+    string operator?;
+};
+
+public type LivePriceGridTypeOperationEnvelope record {
+    InlineResponse20070Response response?;
+};
+
+public type RestoreDefaultDataSourcesResponseResponse0 record {
+    anydata reservedWords?;
+    anydata sourceId?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    record {}[] keyFieldNames?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    @constraint:String {minLength: 1}
+    string persistedObjectClass?;
+    anydata[] fieldNames?;
+    @constraint:String {minLength: 1}
+    string dbTable?;
+    anydata identikitFilter?;
+    @constraint:String {minLength: 1}
+    string 'type?;
+    anydata sourceFile?;
+    anydata identikitCriteria?;
+    @constraint:String {minLength: 1}
+    string integrateVerb?;
+    boolean view?;
+    boolean locked?;
+    anydata calculationMessages?;
+    anydata targetDate?;
+    boolean warningsOn?;
+    anydata query?;
+    @constraint:String {minLength: 1}
+    string bulkloadVerb?;
+    decimal version?;
+    @constraint:String {minLength: 1}
+    string dbKey?;
+    @constraint:String {minLength: 1}
+    string uniqueName?;
+    anydata messages?;
+    anydata status?;
+    anydata formulaName?;
+    @constraint:String {minLength: 1}
+    string lastUpdateByName?;
+    @constraint:String {minLength: 1}
+    string sourceLabel?;
+    @constraint:String {minLength: 1}
+    string fetchVerb?;
+    boolean deployed?;
+    anydata calculationDate?;
+    boolean valid?;
+    record {}[] loadableFields?;
+    @constraint:Array {minLength: 1}
+    anydata[] keyFields?;
+    boolean auxiliary?;
+    anydata rowCount?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    anydata lastDataModificationDate?;
+    @constraint:String {minLength: 1}
+    string sourceTypeCode?;
+    boolean isPlasma?;
+    @constraint:String {minLength: 1}
+    string label?;
+    @constraint:String {minLength: 1}
+    string truncateVerb?;
+    @constraint:String {minLength: 1}
+    string typeCode;
+    boolean queryable?;
+    anydata dbView?;
+    decimal createdBy?;
+    @constraint:String {minLength: 1}
+    string sourceName?;
+    anydata calculationStartDate?;
+    decimal lastUpdateBy?;
+};
+
+public type InsertBulkDataFromFileRequest record {
+    # Provide a file in the CSV format. The file must also contain the `name` column with the name(s) of the table (PX, CX, SX) you are inserting the records to
+    record {byte[] fileContent; string fileName;} fileName;
+    # Specify fields that make up a Business key
+    string joinFields?;
+};
+
+public type PriceListItemResponse_response_data record {
+    decimal version?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    @constraint:String {minLength: 1}
+    string sku?;
+    @constraint:String {minLength: 1}
+    string label?;
+    @constraint:String {minLength: 1}
+    string unitOfMeasure?;
+    @constraint:String {minLength: 1}
+    string currency?;
+    @constraint:String {minLength: 1}
+    string comments?;
+    decimal resultPrice?;
+    string allowedOverrides?;
+    decimal calculatedResultPrice?;
+    decimal pricelistId?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal createdBy?;
+    decimal attribute1?;
+    boolean completeResultsAvailable?;
+    record {} itemExtensions?;
+};
+
+public type RebateRecordGroupCalculationResults record {
+    string? alertMessage?;
+    string? cssProperties?;
+    string? labelTranslations?;
+    "CRITICAL"|"RED"|"YELLOW" alertType?;
+    anydata[]? overrideValueOptions?;
+    anydata[]? warnings?;
+    boolean overrideAllowEmpty?;
+    string? resultGroup?;
+    boolean overridden?;
+    string? suffix?;
+    boolean excludeFromExport?;
+    string resultName?;
+    int displayOptions?;
+    anydata result?;
+    boolean overridable?;
+    string? resultDescription?;
+    "NUMERIC"|"NUMERIC_LONG"|"MONEY"|"PERCENT"|"TEXT"|"MONEY_EUR"|"MONEY_USD"|"MONEY_GBP"|"MONEY_JPY"|"MONEY_CHF"|"MONEY_PLN"|"DATETIME"|"DATE"|"INTEGER"|"LINK"|"COMPLEX"|"SPARKLINE"? formatType?;
+    string resultType?;
+    string? userGroup?;
+    string resultLabel?;
+};
+
+public type NotificationSendBody record {
+    NotificationsendData data?;
+};
+
+# 
+public type DeleteBusinessRoleRequest record {
+    AccountmanagerdeletebusinessroleData data;
+};
+
+# 
+public type UpdateLivePriceGridItemRequest record {
+    PricegridmanagerupdateidData data;
+    @constraint:String {minLength: 1}
+    string textMatchStyle?;
+    # Must be 'update' or null or omitted
+    @constraint:String {minLength: 1}
+    string operationType?;
+    PricegridmanagerupdateidOldValues oldValues?;
+};
+
+# 
+public type DeleteUserGroupResponse record {
+    DeleteUserGroupResponseResponse response?;
+};
+
+public type InlineResponse20080ResponseData record {
+    record {} orphanPaDbTables?;
+    record {} dmtsWithMissingOwner?;
+    record {} dlsWithMissingTarget?;
+};
+
+# The type code is EVT
+public type EventTask record {
+    string typedId?;
+    int retriesLeft?;
+    int createdBy?;
+    string lastUpdateDate?;
+    @constraint:String {maxLength: 255}
+    string errorMessage?;
+    @constraint:String {maxLength: 255}
+    string name?;
+    int httpResponse?;
+    string message?;
+    int version?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+public type ContractModelResponse_response_parameterConfig record {
+    @constraint:String {minLength: 1}
+    string dataType?;
+};
+
+public type GetCalculationGridResponse record {
+    AddCalculationGridResponseResponse response?;
+};
+
+# Enter values you want to update in the "field name = value" fashion. Multiple field values in one request can be updated
+public type LookuptablemanagerupdateData record {
+    @constraint:String {minLength: 1}
+    string typedId;
+    @constraint:String {minLength: 1}
+    string label?;
+    @constraint:String {minLength: 1}
+    string status?;
+};
+
+public type DeleteLookupTableResponseResponseData record {
+    decimal version;
+    @constraint:String {minLength: 1}
+    string typedId;
+    @constraint:String {minLength: 1}
+    string uniqueName;
+    @constraint:String {minLength: 1}
+    string label;
+    @constraint:String {minLength: 1}
+    string validAfter;
+    @constraint:String {minLength: 1}
+    string status;
+    anydata simulationSet?;
+    @constraint:String {minLength: 1}
+    string 'type;
+    @constraint:String {minLength: 1}
+    string valueType;
+    anydata nodeId?;
+    anydata userGroupEdit?;
+    anydata userGroupViewDetails?;
+    boolean hideWarnings;
+    anydata formatType?;
+    @constraint:String {minLength: 1}
+    string lastUpdateByName;
+    @constraint:String {minLength: 1}
+    string createdByName;
+    decimal numberOfKeyFields;
+    @constraint:String {minLength: 1}
+    string createDate;
+    decimal createdBy;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate;
+    decimal lastUpdateBy;
+    decimal id;
+    boolean isPlasma;
+};
+
+public type UpsertCompensationPlanResponseResponse record {
+    string node?;
+    Compensation[] data?;
+    int status?;
+};
+
+public type AddInternationalizationMessageEnvelope record {
+    InlineResponse201Response response?;
+};
+
+public type DatamartsqlqueryDataSourcesS0Query record {
+    DatamartsqlqueryDataSourcesS0QueryProjections projections?;
+    record {} filter?;
+    anydata aggregateFilter?;
+    DatamartsqlqueryDataSourcesS0QueryDimensionFilters[] dimensionFilters?;
+    DatamartsqlqueryDataSourcesS0QueryOptions options?;
+    string 'source?;
+    boolean rollup?;
+};
+
+# The type code is CX3
+public type CX3 record {
+    string typedId?;
+    int createdBy?;
+    string lastUpdateDate?;
+    @constraint:String {maxLength: 255}
+    string name?;
+    @constraint:String {maxLength: 255}
+    string customerId?;
+    anydata attribute1?;
+    anydata attribute3?;
+    anydata attribute2?;
+    int version?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+# The type code is CX6
+public type CX6 record {
+    string typedId?;
+    string lastUpdateDate?;
+    int version?;
+    @constraint:String {maxLength: 255}
+    string attribute5?;
+    int createdBy?;
+    @constraint:String {maxLength: 255}
+    string attribute4?;
+    @constraint:String {maxLength: 255}
+    string attribute6?;
+    @constraint:String {maxLength: 255}
+    string name?;
+    @constraint:String {maxLength: 255}
+    string customerId?;
+    @constraint:String {maxLength: 255}
+    string attribute1?;
+    @constraint:String {maxLength: 255}
+    string attribute3?;
+    @constraint:String {maxLength: 255}
+    string attribute2?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+# 
+public type ListCustomerAssignmentsRequest record {
+    decimal startRow?;
+    @constraint:String {minLength: 1}
+    string textMatchStyle?;
+    CustomermanagerfetchassignmentstypedIdData data?;
+    decimal endRow?;
+    @constraint:String {minLength: 1}
+    string operationType?;
+    anydata oldValues?;
+};
+
+public type CustomFormRevisionEnvelope record {
+    InlineResponse20014Response response?;
+};
+
+# The type code is CX8
+public type CX8 record {
+    string typedId?;
+    string lastUpdateDate?;
+    int version?;
+    @constraint:String {maxLength: 255}
+    string attribute8?;
+    @constraint:String {maxLength: 255}
+    string attribute5?;
+    int createdBy?;
+    @constraint:String {maxLength: 255}
+    string attribute4?;
+    @constraint:String {maxLength: 255}
+    string attribute7?;
+    @constraint:String {maxLength: 255}
+    string attribute6?;
+    @constraint:String {maxLength: 255}
+    string name?;
+    @constraint:String {maxLength: 255}
+    string customerId?;
+    @constraint:String {maxLength: 255}
+    string attribute1?;
+    @constraint:String {maxLength: 255}
+    string attribute3?;
+    @constraint:String {maxLength: 255}
+    string attribute2?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+public type DcrmanageraddidData record {
+    string sku;
+};
+
+public type RunCalculationResponse record {
+    CalculatePricelistResponseResponse response?;
+};
+
+public type DcrmanagerFetchmassopidBody record {
+    int startRow?;
+    string textMatchStyle?;
+    int endRow?;
+    string operationType?;
+};
+
+public type DatamartgetrollupsData record {
+    @constraint:String {minLength: 1}
+    string fieldName?;
+    @jsondata:Name {value: "_constructor"}
+    string constructor?;
+    anydata value?;
+    @constraint:String {minLength: 1}
+    string operator?;
+};
+
+public type ApproveDocumentResponseResponseWorkflow record {
+    @constraint:String {minLength: 1}
+    string workflowStatus?;
+    @constraint:String {minLength: 1}
+    string isSelectStepOnDeny?;
+    @constraint:String {minLength: 1}
+    string 'type?;
+    @constraint:Array {minLength: 1}
+    ApproveDocumentResponseResponseWorkflowSteps[] steps?;
+    @constraint:String {minLength: 1}
+    string approvableTypedId?;
+    anydata currentStepId?;
+    anydata submitReason?;
+    @constraint:String {minLength: 1}
+    string submitterUserName?;
+    record {}[] denialReasons?;
+    @constraint:String {minLength: 1}
+    string submitterTypedId?;
+    @constraint:String {minLength: 1}
+    string isDenialReasonOptional?;
+    @constraint:String {minLength: 1}
+    string id?;
+    @constraint:String {minLength: 1}
+    string isAddStepRestrictedToWFAdmin?;
+};
+
+# 
+public type UpdateObjectReturnOldDataRequest record {
+    # Set to `true` when this operation should NOT trigger an update event (where applicable)
+    string noEvent?;
+    UpdatePData data;
+    @constraint:String {minLength: 1}
+    string textMatchStyle?;
+    # Must be 'update' or null or omitted
+    @constraint:String {minLength: 1}
+    string operationType?;
+    UpdateTypeCodereturnolddataOldValues oldValues;
+};
+
+public type InlineResponse20056Response record {
+    string node?;
+    int startRow?;
+    ConditionRecordItemAttributeMeta[] data?;
+    int endRow?;
+    int status?;
+};
+
+public type AssignmentResponse_response_customerGroup_customerFilterCriteria record {
+    @constraint:String {minLength: 1}
+    string _constructor?;
+    @constraint:Array {minLength: 1}
+    AssignmentResponse_response_customerGroup_customerFilterCriteria_criteria[] criteria?;
+    @constraint:String {minLength: 1}
+    string operator?;
+};
+
+# 
+public type DeleteCustomerResponse record {
+    DeleteCustomerResponseResponse response;
+};
+
+public type UpsertObjectReturnOldDataResponseResponseData record {
+    decimal version;
+    @constraint:String {minLength: 1}
+    string typedId;
+    @constraint:String {minLength: 1}
+    string sku;
+    @constraint:String {minLength: 1}
+    string label;
+    @constraint:String {minLength: 1}
+    string unitOfMeasure;
+    @constraint:String {minLength: 1}
+    string userGroupEdit;
+    @constraint:String {minLength: 1}
+    string userGroupViewDetails;
+    @constraint:String {minLength: 1}
+    string currency;
+    @constraint:String {minLength: 1}
+    string formulaName;
+    anydata image?;
+    @constraint:String {minLength: 1}
+    string createDate;
+    decimal createdBy;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate;
+    decimal lastUpdateBy;
+    @constraint:String {minLength: 1}
+    string attribute1;
+    @constraint:String {minLength: 1}
+    string attribute2;
+    anydata attribute3?;
+    anydata attribute4?;
+    anydata attribute5?;
+    anydata attribute6?;
+    anydata attribute7?;
+    anydata attribute8?;
+    anydata attribute9?;
+    anydata attribute10?;
+    anydata attribute11?;
+    anydata attribute12?;
+    anydata attribute13?;
+    anydata attribute14?;
+    anydata attribute15?;
+    anydata attribute16?;
+    anydata attribute17?;
+    anydata attribute18?;
+    anydata attribute19?;
+    anydata attribute20?;
+    anydata attribute21?;
+    anydata attribute22?;
+    anydata attribute23?;
+    anydata attribute24?;
+    anydata attribute25?;
+    anydata attribute26?;
+    anydata attribute27?;
+    anydata attribute28?;
+    anydata attribute29?;
+    anydata attribute30?;
+};
+
+public type KvservicefetchkeytableNameData record {
+    KvserviceputkeytableNameDataKeys keys?;
+};
+
+public type UpdateConditionTypeResponse record {
+    string node?;
+    CompensationConditionType[] data?;
+    int status?;
+};
+
+public type OptimizationmodelcalcexectypedIdstepNamecalcNameitemDataCriteria record {
+    string fieldName;
+    ("FAILED"|"CREATED")[] value;
+    string operator;
+};
+
+# 
+public type UpsertQuoteRequest record {
+    QuotemanagersaveData data;
+};
+
+public type AccountmanagerfetchusersDataCriteria record {
+    @constraint:String {minLength: 1}
+    string fieldName?;
+    boolean value?;
+    # Specify an operator of the filter criteria
+    "equals"|"iEquals"|"notEqual"|"iNotEqual"|"isNull"|"notNull"|"contains"|"iContains"|"containsPattern"|"iContainsPattern"|"notContains"|"iNotContains"|"startsWith"|"iStartsWith"|"notStartsWith"|"iNotStartsWith"|"endsWith"|"iEndsWith"|"notEndsWith"|"iNotEndsWith"|"iBetween"|"iBetweenInclusive"|"inSet"|"notInSet" operator?;
+};
+
+public type GenerateJWTTokenRequest record {
+    AccountmanagergetjsonwebtokenData data?;
+};
+
+public type RebateRecordSetCalculationCalculationConfig record {
+    string formulaName?;
+    string feederFormulaName?;
+    string simulationSet?;
+    string targetDate?;
+    record {}[] inputParams?;
+    string skuField?;
+    record {}[] mappingParams?;
+    string targetDateField?;
+    ContractInputs[] feederInputParams?;
+    string[] targetFields?;
+    CompensationRecordSetCalculationCalculationConfigOutputElements[] outputElements?;
+};
+
+public type ListParallelCalculationItemsResponseResponse record {
+    string node?;
+    int startRow?;
+    ParallelCalculationItem[] data?;
+    int endRow?;
+    int totalRows?;
+    int status?;
+};
+
+public type ImportmanagersubmittypedIdData record {
+    ImportmanagersubmittypedIdDataImportOptions importOptions?;
+};
+
+# Represents the Queries record for the operation: exportCsvFile
+public type ExportCsvFileQueries record {
+    # Set this parameter to override the default timeout (60 seconds) of the query. The maximum allowed timeout is 300 seconds. The default timeout value and the maximum timeout value can be configured in the backend. Setting higher timeout can be useful, for example, when a query takes long time (e.g., when processing large tables)
+    string timeout = "60";
+};
+
+public type BulkDataUploadEnvelope record {
+    InlineResponse2005Response response?;
+};
+
+public type ListAllLookupTablesResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:String {minLength: 1}
+    string csrfToken?;
+    decimal startRow?;
+    @constraint:Array {minLength: 1}
+    ListAllLookupTablesResponseResponseData[] data?;
+    # The number of the end row that defines the end of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal endRow?;
+    decimal totalRows?;
+    decimal status?;
+};
+
+public type InlineResponse20077Response record {
+    string node?;
+    int startRow?;
+    CommentThread[] data?;
+    int endRow?;
+    int totalRows?;
+    int status?;
+};
+
+# 
+public type GenerateJWTTokenTimeLimitedResponse record {
+    GenerateJWTTokenResponseResponse response?;
+};
+
+public type UpsertKVKeyRequest record {
+    KvserviceputkeytableNameData data?;
+};
+
+public type JcsmanagerDeployBody record {
+    DeletePData data?;
+    ConditionrecordsetupdateidOldValues oldValues?;
+};
+
+public type ContractModelResponse_response_data record {
+    decimal version?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    @constraint:String {minLength: 1}
+    string uniqueName?;
+    @constraint:String {minLength: 1}
+    string label?;
+    @constraint:String {minLength: 1}
+    string targetDate?;
+    @constraint:String {minLength: 1}
+    string workflowStatus?;
+    string headerText?;
+    @constraint:Array {minLength: 1}
+    ContractModelResponse_response_inputs[] inputs?;
+    anydata viewState?;
+    record {}[] outputs?;
+    @constraint:String {minLength: 1}
+    string lastUpdateByName?;
+    @constraint:String {minLength: 1}
+    string createdByName?;
+    anydata submittedByName?;
+    decimal calculationStatus?;
+    boolean dirty?;
+    boolean refreshInputs?;
+    anydata nodeId?;
+    anydata userGroupEdit?;
+    anydata userGroupViewDetails?;
+    record {}[] serverMessages?;
+    anydata additionalInfo1?;
+    anydata additionalInfo2?;
+    anydata additionalInfo3?;
+    anydata additionalInfo4?;
+    decimal numberOfAttachments?;
+    anydata creationWorkflowStatus?;
+    anydata creationWorkflowCurrentStep?;
+    anydata creationWorkflowStepCount?;
+    anydata creationWorkflowStepLabel?;
+    anydata signature?;
+    @constraint:Array {minLength: 1}
+    ContractModelResponse_response_lineItems[] lineItems?;
+    anydata customerGroup?;
+    ContractModelResponse_response_productGroup productGroup?;
+    anydata externalRef?;
+    @constraint:String {minLength: 1}
+    string contractStatus?;
+    @constraint:String {minLength: 1}
+    string startDate?;
+    @constraint:String {minLength: 1}
+    string endDate?;
+    @constraint:String {minLength: 1}
+    string status?;
+    anydata approvedByName?;
+    anydata deniedByName?;
+    anydata approvalRequiredEmailAttachmentsJson?;
+    boolean hasWorkflowHistory?;
+    anydata renderInfo?;
+    @constraint:Array {minLength: 1}
+    RebateAgreementResponse_response_serverMessagesExtended[] serverMessagesExtended?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal createdBy?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    decimal lastUpdateBy?;
+    anydata supersededBy?;
+    anydata prevRev?;
+    @constraint:String {minLength: 1}
+    string rootUniqueName?;
+};
+
+public type DeleteObjectResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node;
+    @constraint:Array {minLength: 1}
+    DeleteObjectResponseResponseData[] data;
+    decimal status;
+};
+
+public type ProductmanagerfetchformulafilteredproductsData record {
+    @jsondata:Name {value: "_constructor"}
+    string constructor?;
+    @constraint:Array {minLength: 1}
+    ProductmanagerfetchformulafilteredproductsDataCriteria[] criteria?;
+    @constraint:String {minLength: 1}
+    string operator?;
+};
+
+public type UpdateCLTDataConfigurationColumns record {
+    UpdateCLTDataConfigurationColumnsSku sku?;
+};
+
+# 
+public type ListLogicInputFieldsResponse record {
+    ListElementsResponseResponse response?;
+};
+
+public type ListCompensationRecordsResponse record {
+    ListCompensationRecordsResponseResponse response?;
+};
+
+# 
+public type DeleteProductFromManualPriceListRequest record {
+    ManualpricelistmanagerdeleteidData data;
+};
+
+public type RebateagreementfetchitemsDataRebateAgreementInputs record {
+    anydata labelTranslations?;
+    anydata addUnknownValues?;
+    anydata typedId?;
+    record {} parameterConfig?;
+    record {}[] inputs?;
+    anydata readOnly?;
+    @constraint:String {minLength: 1}
+    string label?;
+    @constraint:String {minLength: 1}
+    string 'type?;
+    anydata parameterGroup?;
+    anydata url?;
+    anydata valueHint?;
+    anydata required?;
+    anydata alwaysEditable?;
+    record {} formattingOptions?;
+    anydata valueOptions?;
+    anydata filter?;
+    anydata lookupTableId?;
+    @constraint:String {minLength: 1}
+    string name?;
+    anydata value?;
+};
+
+# The type code is CLLI
+public type ClaimLineItem record {
+    string typedId?;
+    string? attribute83?;
+    string? attribute82?;
+    string? attribute81?;
+    string? attribute80?;
+    string? attribute89?;
+    string? attribute88?;
+    @constraint:String {maxLength: 255}
+    string sku?;
+    string? attribute87?;
+    string? attribute86?;
+    string? attribute85?;
+    string? attribute84?;
+    int version?;
+    string? attribute9?;
+    string? attribute94?;
+    string? attribute8?;
+    string? attribute93?;
+    string? attribute92?;
+    string? attribute91?;
+    string? attribute5?;
+    string? attribute90?;
+    string? attribute4?;
+    string? attribute7?;
+    string? attribute6?;
+    string? attribute1?;
+    string? attribute14?;
+    string? attribute13?;
+    string? attribute3?;
+    string? attribute12?;
+    @constraint:String {maxLength: 255}
+    string endCustomerId?;
+    string? attribute2?;
+    string? attribute11?;
+    string? attribute99?;
+    string? attribute10?;
+    string? attribute98?;
+    string? attribute97?;
+    string? attribute96?;
+    string? attribute95?;
+    string? attribute19?;
+    string? attribute18?;
+    string? attribute17?;
+    string? attribute16?;
+    string? attribute15?;
+    string? attribute25?;
+    string? attribute24?;
+    string? attribute23?;
+    string? attribute22?;
+    string? attribute21?;
+    string? attribute20?;
+    string createDate?;
+    string? attribute29?;
+    string? attribute28?;
+    string? attribute27?;
+    string? attribute26?;
+    string? attribute36?;
+    @constraint:String {maxLength: 255}
+    string quoteUniqueName?;
+    string? attribute35?;
+    string? attribute34?;
+    string? attribute33?;
+    string? attribute32?;
+    string? attribute31?;
+    string? attribute30?;
+    string? attribute39?;
+    string lastUpdateDate?;
+    string? attribute38?;
+    string? attribute37?;
+    string? attribute47?;
+    string? attribute46?;
+    string? attribute45?;
+    string? attribute44?;
+    string? attribute43?;
+    string? attribute42?;
+    string? attribute41?;
+    string? attribute40?;
+    string? attribute49?;
+    @constraint:String {maxLength: 255}
+    string contractUniqueName?;
+    string? attribute48?;
+    string? attribute50?;
+    decimal totalAmount?;
+    string? attribute100?;
+    string? attribute58?;
+    string? attribute57?;
+    string? attribute56?;
+    string? attribute55?;
+    string? attribute54?;
+    string? attribute53?;
+    string? attribute52?;
+    "NOT_VALIDATED"|"AUTO_VALIDATED"|"AUTO_REJECTED"|"VALIDATED"|"REJECTED" validationState?;
+    string? attribute51?;
+    string? attribute59?;
+    string? attribute61?;
+    string? attribute60?;
+    string? attribute69?;
+    string? attribute68?;
+    string? attribute67?;
+    string? attribute66?;
+    string? attribute65?;
+    string? attribute64?;
+    string? attribute63?;
+    string? attribute62?;
+    decimal quantity?;
+    string? attribute72?;
+    string? attribute71?;
+    string? attribute70?;
+    int createdBy?;
+    int calculationStatus?;
+    string? attribute79?;
+    string? attribute78?;
+    string? attribute77?;
+    string? attribute76?;
+    string? attribute75?;
+    string? attribute74?;
+    int lastUpdateBy?;
+    string? attribute73?;
+};
+
+public type AddConditionTypeRequest record {
+    CompensationConditionType data?;
+    string operationType?;
+};
+
+public type ContractModelResponse_response record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:Array {minLength: 1}
+    ContractModelResponse_response_data[] data?;
+    decimal status;
+};
+
+# 
+public type CopyPriceGridResponse record {
+    CopyPriceGridResponseResponse response;
+};
+
+public type UpdatePGTTDataTypeConfiguration record {
+    string[] elementNames?;
+    string dynamicItemMode?;
+    string resultElementName?;
+};
+
+public type SubmitProductsResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:Array {minLength: 1}
+    SubmitProductsResponseResponseData[] data?;
+    decimal status;
+};
+
+public type LivePriceGridTypeTypeConfigurationCalculationLogicInputs record {
+    record {} parameterConfig?;
+    record {}[] inputs?;
+    string name?;
+    string label?;
+    string 'type?;
+    string[] valueOptions?;
+    record {} formattingOptions?;
+};
+
+# 
+public type SubmitQuoteContractRebateAgreementResponse record {
+    SubmitQuoteContractRebateAgreementResponseResponse response?;
+};
+
+public type UpdateUData record {
+    # The `typedId` of the user you want to update
+    @constraint:String {minLength: 1}
+    string typedId;
+    # The name and a new value of the attribute you want to update
+    @constraint:String {minLength: 1}
+    string email;
+};
+
+public type GetCustomFormResponseResponseCustomFormTypeObject record {
+    @constraint:String {minLength: 1}
+    string typedId?;
+    GetCustomFormResponseResponseCustomFormTypeObjectConfiguration configuration?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    @constraint:String {minLength: 1}
+    string module?;
+    @constraint:String {minLength: 1}
+    string label?;
+    decimal version?;
+    @constraint:String {minLength: 1}
+    string uniqueName?;
+    record {}[] supportedParentTypeCodes?;
+    decimal createdBy?;
+    @constraint:String {minLength: 1}
+    string headerFormulaName?;
+    anydata userGroupEdit?;
+    anydata userGroupViewDetails?;
+    boolean embedded?;
+    anydata workflowFormulaName?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal lastUpdateBy?;
+};
+
+# 
+public type InsertBulkProductsRequest record {
+    LoaddataPData data;
+};
+
+public type ClicmanageradditemstypedIdData record {
+    ClicmanageradditemstypedIdDataContractTermTypes[] contractTermTypes?;
+};
+
+public type ContractmanagersaveDataContractInputs record {
+    @constraint:String {minLength: 1}
+    string name?;
+    @constraint:String {minLength: 1}
+    string label?;
+    anydata lookupTableId?;
+    anydata url?;
+    @constraint:String {minLength: 1}
+    string 'type?;
+    anydata value?;
+    anydata valueHint?;
+    anydata readOnly?;
+    anydata filter?;
+    anydata parameterGroup?;
+    anydata labelTranslations?;
+    anydata addUnknownValues?;
+    anydata typedId?;
+    anydata alwaysEditable?;
+    record {}[] inputs?;
+    record {} parameterConfig?;
+    record {} formattingOptions?;
+    anydata valueOptions?;
+};
+
+public type ListCommentThreadsEnvelope record {
+    InlineResponse20077Response response?;
+};
+
+public type DeleteDCRIRequest record {
+    DeleteSLData data;
+    string operationType;
+};
+
+public type GetLogicResponseResponseData record {
+    @constraint:String {minLength: 1}
+    string lastUpdateByName?;
+    anydata createdByName?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    @constraint:String {minLength: 1}
+    string label?;
+    anydata formulaNature?;
+    decimal version?;
+    anydata simulationSet?;
+    @constraint:String {minLength: 1}
+    string uniqueName?;
+    @constraint:String {minLength: 1}
+    string formulaType?;
+    decimal createdBy?;
+    @constraint:Array {minLength: 1}
+    GetLogicResponseResponseElements[] elements?;
+    anydata userGroupEdit?;
+    anydata userGroupViewDetails?;
+    @constraint:String {minLength: 1}
+    string validAfter?;
+    record {}[] inputDescriptors?;
+    @constraint:String {minLength: 1}
+    string status?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal lastUpdateBy?;
+};
+
+# 
+public type SubmitProductsRequest record {
+    PricegridmanageracceptidData data;
+};
+
+public type UserResponse_response record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:Array {minLength: 1}
+    UserResponse_response_data[] data?;
+    decimal status?;
+};
+
+public type UpdateCRCIMBody record {
+    UpdateCRCIMData data?;
+    string textMatchStyle?;
+    string operationType?;
+    UpdateCRCIMOldValues oldValues?;
+};
+
+# 
+public type ListChartsResponse record {
+    ListChartsResponseResponse response?;
+};
+
+# 
+public type AddPriceGridItemsRequest record {
+    PricegridmanagerdeleteidbatchData data;
+};
+
+public type CalculateCFSResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:Array {minLength: 1}
+    CalculateCFSResponseResponseData[] data?;
+    decimal status?;
+};
+
+public type CommentmanagerAddBody record {
+    CommentmanageraddData data?;
+};
+
+public type DenyDocumentResponseResponseWorkflowSubSteps record {
+    @constraint:String {minLength: 1}
+    string approver;
+    @constraint:String {minLength: 1}
+    string lastExecutedBy;
+    @constraint:String {minLength: 1}
+    string reason;
+    @constraint:String {minLength: 1}
+    string approverTypedId;
+    anydata comments?;
+    @constraint:String {minLength: 1}
+    string executionStatus;
+    @constraint:String {minLength: 1}
+    string approverLoginName;
+    decimal minApprovalsNeeded;
+    @constraint:String {minLength: 1}
+    string comment;
+    @constraint:String {minLength: 1}
+    string lastExecutedByName;
+    @constraint:String {minLength: 1}
+    string lastExecutionDate;
+    decimal approvedCount;
+};
+
+# 
+public type AddProductRequest record {
+    AddPData data;
+    @constraint:String {minLength: 1}
+    string operation;
+};
+
+public type ContractSignature record {
+    string note?;
+    string voidedReason?;
+    record {}[] history?;
+    string 'error?;
+    string customerUserOrEmail?;
+    string customerName?;
+    string statusChangedDateTime?;
+    string senderName?;
+    int sender?;
+    string templateName?;
+    string envelopeId?;
+    string sentDateTime?;
+    "sent"|"delivered"|"signed"|"completed"|"declined"|"voided"|"processing"|"error"|"cancelling" status?;
+};
+
+public type AddConditionTypeResponse record {
+    string node?;
+    CompensationConditionType[] data?;
+    int status?;
+};
+
+public type CommentmanageredittypedIdData record {
+    # Specify the new text content of the comm
+    string body?;
+};
+
+public type CreateCustomFormTypeResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    CustomFormType data?;
+    decimal status?;
+};
+
+public type InsertBulkDataFromFileResponseResponseData record {
+    int uploadStatusId?;
+    int totalRecords?;
+    int loadedRecords?;
+    int invalidRecords?;
+};
+
+# 
+public type UpdateObjectRequest record {
+    # Set to `true` when this operation should NOT trigger an update event (where applicable)
+    string noEvent?;
+    UpdatePData data;
+    @constraint:String {minLength: 1}
+    string textMatchStyle?;
+    # Must be 'update' or null or omitted
+    @constraint:String {minLength: 1}
+    string operationType?;
+    UpdateTypeCodereturnolddataOldValues oldValues;
+};
+
+public type RecalculateCalculationOfStepResponseResponseStateTwoTabsTab2MatrixEntry record {
+    string col2?;
+    string col1?;
+};
+
+public type AddActionItemResponse record {
+    AddActionItemResponseResponse response?;
+};
+
+public type InlineResponse2008ResponseStateConfigurationObjectivesObjectives record {
+    @jsondata:Name {value: "ProductGroupVolumeTarget"}
+    record {}[] productGroupVolumeTarget?;
+    @jsondata:Name {value: "CustomerGroupRevenueTarget"}
+    record {}[] customerGroupRevenueTarget?;
+    @jsondata:Name {value: "RevenueMarginMixCoeff"}
+    int revenueMarginMixCoeff?;
+};
+
+public type InlineResponse20050ResponseData record {
+    string localeLanguage?;
+    InlineResponse20050ResponseLocaleData[] localeData?;
+};
+
+public type ClicmanagerupdatelineitemstypedIdData record {
+    ClicmanagerupdatelineitemstypedIdDataLineItems[] lineItems;
+};
+
+public type ListAttributeFieldsMetadataResponseJsonSchemaProperties record {
+    ListAttributeFieldsMetadataResponseJsonSchemaPropertiesVersion typedId;
+    ListAttributeFieldsMetadataResponseJsonSchemaPropertiesVersion attribute19;
+    ListAttributeFieldsMetadataResponseJsonSchemaPropertiesVersion attribute18;
+    ListAttributeFieldsMetadataResponseJsonSchemaPropertiesVersion attribute17;
+    ListAttributeFieldsMetadataResponseJsonSchemaPropertiesVersion lastUpdateDate;
+    ListAttributeFieldsMetadataResponseJsonSchemaPropertiesVersion attribute16;
+    ListAttributeFieldsMetadataResponseJsonSchemaPropertiesVersion attribute15;
+    ListAttributeFieldsMetadataResponseJsonSchemaPropertiesVersion attribute25;
+    ListAttributeFieldsMetadataResponseJsonSchemaPropertiesVersion attribute24;
+    ListAttributeFieldsMetadataResponseJsonSchemaPropertiesVersion attribute23;
+    ListAttributeFieldsMetadataResponseJsonSchemaPropertiesVersion attribute22;
+    ListAttributeFieldsMetadataResponseJsonSchemaPropertiesVersion sku;
+    ListAttributeFieldsMetadataResponseJsonSchemaPropertiesVersion attribute21;
+    ListAttributeFieldsMetadataResponseJsonSchemaPropertiesVersion attribute20;
+    ListAttributeFieldsMetadataResponseJsonSchemaPropertiesVersion createDate;
+    ListAttributeFieldsMetadataResponseJsonSchemaPropertiesVersion attribute29;
+    ListAttributeFieldsMetadataResponseJsonSchemaPropertiesVersion attribute28;
+    ListAttributeFieldsMetadataResponseJsonSchemaPropertiesVersion attribute27;
+    ListAttributeFieldsMetadataResponseJsonSchemaPropertiesVersion attribute26;
+    ListAttributeFieldsMetadataResponseJsonSchemaPropertiesVersion version;
+    ListAttributeFieldsMetadataResponseJsonSchemaPropertiesVersion attribute9;
+    ListAttributeFieldsMetadataResponseJsonSchemaPropertiesVersion attribute8;
+    ListAttributeFieldsMetadataResponseJsonSchemaPropertiesVersion attribute5;
+    ListAttributeFieldsMetadataResponseJsonSchemaPropertiesVersion createdBy;
+    ListAttributeFieldsMetadataResponseJsonSchemaPropertiesVersion attribute4;
+    ListAttributeFieldsMetadataResponseJsonSchemaPropertiesVersion attribute7;
+    ListAttributeFieldsMetadataResponseJsonSchemaPropertiesVersion attribute6;
+    ListAttributeFieldsMetadataResponseJsonSchemaPropertiesVersion name;
+    ListAttributeFieldsMetadataResponseJsonSchemaPropertiesVersion attribute1;
+    ListAttributeFieldsMetadataResponseJsonSchemaPropertiesVersion attribute14;
+    ListAttributeFieldsMetadataResponseJsonSchemaPropertiesVersion attribute13;
+    ListAttributeFieldsMetadataResponseJsonSchemaPropertiesVersion attribute3;
+    ListAttributeFieldsMetadataResponseJsonSchemaPropertiesVersion attribute12;
+    ListAttributeFieldsMetadataResponseJsonSchemaPropertiesVersion attribute2;
+    ListAttributeFieldsMetadataResponseJsonSchemaPropertiesVersion attribute11;
+    ListAttributeFieldsMetadataResponseJsonSchemaPropertiesVersion attribute10;
+    ListAttributeFieldsMetadataResponseJsonSchemaPropertiesVersion attribute30;
+    ListAttributeFieldsMetadataResponseJsonSchemaPropertiesVersion lastUpdateBy;
+};
+
+public type AddActionItemResponseResponse record {
+    string node?;
+    ActionItem[] data?;
+    int status?;
+};
+
+public type RebateagreementfetchitemsDataFilterCriteria record {
+    @jsondata:Name {value: "_constructor"}
+    string constructor?;
+    record {}[] criteria?;
+    @constraint:String {minLength: 1}
+    string operator?;
+};
+
+public type DatamartexportfcTypedIdOrSourceNameData record {
+    @constraint:Array {minLength: 1}
+    DatamartexportfcTypedIdOrSourceNameDataCriteria[] criteria?;
+    @constraint:String {minLength: 1}
+    string operator?;
+};
+
+public type InlineResponse20034Response record {
+    InlineResponse20034ResponseData[] data?;
+    int status?;
+};
+
+# 
+public type InsertBulkProductExtensionsRequest record {
+    LoaddataPXData data;
+};
+
+public type DatamartSqlqueryBody record {
+    int startRow?;
+    DatamartsqlqueryData data?;
+    int endRow?;
+    string operationType?;
+};
+
+public type ListAccrualRecordsRequest record {
+    int startRow?;
+    string textMatchStyle?;
+    SellermanagerfetchformulafilteredsellersData data?;
+    int endRow?;
+    string operationType?;
+    record {}? oldValues?;
+};
+
+public type OptimizationModelduplicatetypedIdBody record {
+    OptimizationmodelduplicatetypedIdData data?;
+    string operation?;
+};
+
+# 
+public type GetObjectResponse_1 record {
+    GetObjectResponse_1_response response?;
+};
+
+# The Type code is MO
+public type ModelObject record {
+    string? lastUpdateByName?;
+    string? createdByName?;
+    string typedId?;
+    "DRAFT"|"SUBMITTED"|"DENIED"|"APPROVED"|"NO_APPROVAL_REQUIRED"|"WITHDRAWN"|"INVALIDATED" workflowStatus?;
+    string? lastUpdateDate?;
+    int? approvedBy?;
+    string? submitDate?;
+    string? deniedByName?;
+    string? submittedByName?;
+    string? userGroupViewDetails?;
+    string? approvedByName?;
+    record {}? state?;
+    int? id?;
+    string? createDate?;
+    int? submittedBy?;
+    int? deniedBy?;
+    string? label?;
+    string? moduleCategoryUN?;
+    int? version?;
+    string? currentStep?;
+    string? uniqueName?;
+    int? createdBy?;
+    string? userGroupEdit?;
+    string? modelClassUN?;
+    "INVALID"|"DRAFT"|"CALCULATING"|"ERROR"|"READY" status?;
+    int? lastUpdateBy?;
+};
+
+public type CreateKVTableRequest record {
+    KvservicecreatetabletableNameData data?;
+};
+
+public type GetCLICresponseResponseCalculationBase record {
+    record {}[] excludedCustomerGroups?;
+    string dateDimFieldName?;
+    record {}[] includedSellerReferences?;
+    record {}[] includedCustomerGroups?;
+    record {}[] excludedTimePeriods?;
+    record {}[] excludedproductGroups?;
+    record {}[] otherFilters?;
+    record {}[] includedProductGroups?;
+    record {}[] excludedSellerReferences?;
+    GetCLICresponseResponseCalculationBaseIncludedTimePeriods[] includedTimePeriods?;
+};
+
+# Represents the Queries record for the operation: uploadExcelToImportManager
+public type UploadExcelToImportManagerQueries record {
+    # Unique name of the Import Manager in case you are re-uploading the file
+    string managerUN?;
+};
+
+public type GetCLICresponse record {
+    GetCLICresponseResponse response?;
+};
+
+# 
+public type ListProductsRequest record {
+    # The number of the first row that defines the start of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal startRow?;
+    "startsWith"|"exact"|"substring" textMatchStyle = "exact";
+    ProductmanagerfetchformulafilteredproductsData? data?;
+    # The number of the end row that defines the end of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal endRow = 300;
+    @constraint:String {minLength: 1}
+    string operationType?;
+};
+
+# Represents the Queries record for the operation: queryApiExecute
+public type QueryApiExecuteQueries record {
+    # Query timeout in seconds (default: 60, max: 300)
+    int timeout?;
+};
+
+public type AddRRSCBody record {
+    AddRRSCData data?;
+    string operationType?;
+};
+
+public type DeletePriceListResponseResponseData record {
+    @constraint:String {minLength: 1}
+    string lastUpdateByName?;
+    @constraint:String {minLength: 1}
+    string createdByName?;
+    @constraint:String {minLength: 1}
+    string updateDate?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    anydata approvalDate?;
+    @constraint:String {minLength: 1}
+    string configuration?;
+    anydata workflowStatus?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    @constraint:String {minLength: 1}
+    string submitDate?;
+    anydata description?;
+    @constraint:String {minLength: 1}
+    string locale?;
+    @constraint:String {minLength: 1}
+    string calculationDate?;
+    anydata jstId?;
+    anydata deniedByName?;
+    boolean writeOnlyChangedItems?;
+    anydata expiryDate?;
+    @constraint:String {minLength: 1}
+    string pricelistType?;
+    anydata submittedByName?;
+    anydata userGroupViewDetails?;
+    anydata approvedByName?;
+    decimal id?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal previousPricelistId?;
+    @constraint:String {minLength: 1}
+    string calculationMessages?;
+    anydata approvalRequiredEmailAttachments?;
+    decimal updatedBy?;
+    @constraint:String {minLength: 1}
+    string targetDate?;
+    @constraint:String {minLength: 1}
+    string approvalState?;
+    @constraint:String {minLength: 1}
+    string errorMode?;
+    @constraint:String {minLength: 1}
+    string label?;
+    decimal version?;
+    anydata exportDate?;
+    decimal createdBy?;
+    decimal numberOfItems?;
+    anydata userGroupEdit?;
+    anydata integrationStatus?;
+    anydata nodeId?;
+    boolean keepManualOverrides?;
+    @constraint:String {minLength: 1}
+    string calculationStartDate?;
+    decimal lastUpdateBy?;
+    @constraint:String {minLength: 1}
+    string status?;
+};
+
+# 
+public type AssignUserGroupToUsersResponse record {
+    AddPriceGridItemsToPriceGridResponseResponse response?;
+};
+
+public type ListContractPriceRecordsResponse record {
+    string node?;
+    int startRow?;
+    ContractPriceRecord[] data?;
+    int endRow?;
+    int totalRows?;
+    int status?;
+};
+
+public type QuotemanagersubmitDataQuoteInputs record {
+    anydata labelTranslations?;
+    anydata addUnknownValues?;
+    anydata typedId?;
+    record {} parameterConfig?;
+    record {}[] inputs?;
+    anydata readOnly?;
+    @constraint:String {minLength: 1}
+    string label?;
+    @constraint:String {minLength: 1}
+    string 'type?;
+    anydata parameterGroup?;
+    @constraint:String {minLength: 1}
+    string url?;
+    @constraint:String {minLength: 1}
+    string valueHint?;
+    anydata required?;
+    anydata alwaysEditable?;
+    record {} formattingOptions?;
+    anydata valueOptions?;
+    anydata filter?;
+    anydata lookupTableId?;
+    @constraint:String {minLength: 1}
+    string name?;
+    @constraint:String {minLength: 1}
+    string value?;
+};
+
+# The type code is PX3
+public type PX3 record {
+    string typedId?;
+    int createdBy?;
+    string lastUpdateDate?;
+    @constraint:String {maxLength: 255}
+    string name?;
+    anydata attribute1?;
+    anydata attribute3?;
+    anydata attribute2?;
+    @constraint:String {maxLength: 255}
+    string sku?;
+    int version?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+public type DeleteProductExtensionResponseResponseData record {
+    decimal version;
+    @constraint:String {minLength: 1}
+    string typedId;
+    @constraint:String {minLength: 1}
+    string name;
+    @constraint:String {minLength: 1}
+    string sku;
+    @constraint:String {minLength: 1}
+    string createDate;
+    decimal createdBy;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate;
+    decimal lastUpdateBy;
+    @constraint:String {minLength: 1}
+    string attribute1;
+    @constraint:String {minLength: 1}
+    string attribute2;
+    anydata attribute3?;
+    anydata attribute4?;
+    anydata attribute5?;
+    anydata attribute6?;
+};
+
+public type CalculatePricelistResponseResponse record {
+    string node?;
+    JobStatusTracker[] data?;
+    int status?;
+};
+
+public type ConditionrecordsetUpdateidBody record {
+    record {} data?;
+    ConditionrecordsetupdateidOldValues oldValues?;
+};
+
+public type MasseditTypeCodeDataFilterCriteriaCriteria record {
+    @constraint:String {minLength: 1}
+    string fieldName;
+    @jsondata:Name {value: "_constructor"}
+    string constructor;
+    string[] value?;
+    @constraint:String {minLength: 1}
+    string operator;
+};
+
+public type DatamartimportdataloadsData record {
+    @constraint:Array {minLength: 1}
+    DatamartimportdataloadsDataDataLoads[] dataLoads;
+};
+
+# The type code is PX6
+public type PX6 record {
+    string typedId?;
+    string lastUpdateDate?;
+    int version?;
+    @constraint:String {maxLength: 255}
+    string attribute5?;
+    int createdBy?;
+    @constraint:String {maxLength: 255}
+    string attribute4?;
+    @constraint:String {maxLength: 255}
+    string attribute6?;
+    @constraint:String {maxLength: 255}
+    string name?;
+    @constraint:String {maxLength: 255}
+    string attribute1?;
+    @constraint:String {maxLength: 255}
+    string attribute3?;
+    @constraint:String {maxLength: 255}
+    string attribute2?;
+    @constraint:String {maxLength: 255}
+    string sku?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+# The type code is PX8
+public type PX8 record {
+    string typedId?;
+    string lastUpdateDate?;
+    int version?;
+    @constraint:String {maxLength: 255}
+    string attribute8?;
+    @constraint:String {maxLength: 255}
+    string attribute5?;
+    int createdBy?;
+    @constraint:String {maxLength: 255}
+    string attribute4?;
+    @constraint:String {maxLength: 255}
+    string attribute7?;
+    @constraint:String {maxLength: 255}
+    string attribute6?;
+    @constraint:String {maxLength: 255}
+    string name?;
+    @constraint:String {maxLength: 255}
+    string attribute1?;
+    @constraint:String {maxLength: 255}
+    string attribute3?;
+    @constraint:String {maxLength: 255}
+    string attribute2?;
+    @constraint:String {maxLength: 255}
+    string sku?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+public type GetCLICresponseResponseOutputs record {
+    string result?;
+    string[] warnings?;
+    boolean overrideAllowEmpty?;
+    boolean overridable?;
+    string resultGroup?;
+    boolean overridden?;
+    string resultType?;
+    boolean excludeFromExport?;
+    string resultName?;
+    string resultLabel?;
+    int displayOptions?;
+};
+
+public type CreatePriceListResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:Array {minLength: 1}
+    CreatePriceListResponseResponseData[] data?;
+    decimal status?;
+};
+
+# 
+public type ListCustomerExtensionObjectsRequest record {
+    decimal startRow?;
+    @constraint:String {minLength: 1}
+    string textMatchStyle?;
+    FetchPLData data?;
+    decimal endRow?;
+    @constraint:String {minLength: 1}
+    string operationType?;
+    record {}[] sortBy?;
+    anydata oldValues?;
+};
+
+public type UpdateConditionTypeRequest record {
+    UpdateCOCTData data;
+    string textMatchStyle?;
+    string operationType?;
+    UpdateCOCTOldValues oldValues?;
+};
+
+# 
+public type ProductResponse record {
+    anydata response?;
+};
+
+public type QueryDataManagerObjectResponseResponseData record {
+    @constraint:String {minLength: 1}
+    string summary?;
+    @jsondata:Name {value: "bubbleSize_n"}
+    decimal bubbleSizeN?;
+    decimal bubbleSize?;
+    decimal x?;
+    @constraint:String {minLength: 1}
+    string bandBy?;
+    decimal y?;
+    @constraint:String {minLength: 1}
+    string groupBy?;
+};
+
+public type InlineResponse20031ResponseValueInputMatrix record {
+    string oneof?;
+    string name?;
+    string comment?;
+};
+
+public type GetCLICresponseResponse record {
+    string node?;
+    int startRow?;
+    GetCLICresponseResponseData[] data?;
+    int endRow?;
+    int totalRows?;
+    int status?;
+};
+
+# The type code is CT
+public type Contract record {
+    ContractOutputs[] outputs?;
+    @constraint:String {maxLength: 255}
+    string createdByName?;
+    string typedId?;
+    string headerText?;
+    string endDate?;
+    "DRAFT"|"SUBMITTED"|"DENIED"|"APPROVED"|"NO_APPROVAL_REQUIRED"|"WITHDRAWN"|"INVALIDATED" workflowStatus?;
+    ContractInputs[] inputs?;
+    string lastUpdateDate?;
+    ContractServerMessagesExtended[] serverMessagesExtended?;
+    @constraint:String {maxLength: 255}
+    string externalRef?;
+    string deniedByName?;
+    ContractLineItems[] lineItems?;
+    @constraint:String {maxLength: 255}
+    string userGroupViewDetails?;
+    string approvedByName?;
+    int creationWorkflowCurrentStep?;
+    string rootUniqueName?;
+    string originUniqueName?;
+    string targetDate?;
+    record {} customerGroup?;
+    string ioMeta?;
+    boolean originDeleted?;
+    int version?;
+    @constraint:String {maxLength: 255}
+    string uniqueName?;
+    string[] serverMessages?;
+    "DRAFT"|"INPROGRESS"|"FINISHED" creationWorkflowStatus?;
+    @constraint:String {maxLength: 255}
+    string userGroupEdit?;
+    boolean hasWorkflowHistory?;
+    int nodeId?;
+    string startDate?;
+    "DRAFT"|"PENDING"|"SCHEDULED"|"PROCESSING"|"SCHEDULED_DIRTY"|"ERROR"|"READY"|"CANCELLED" status?;
+    @constraint:String {maxLength: 255}
+    string lastUpdateByName?;
+    int originClicId?;
+    record {|string...;|} renderInfo?;
+    ContractSignature signature?;
+    int creationWorkflowStepCount?;
+    @constraint:String {maxLength: 255}
+    string creationWorkflowStepLabel?;
+    @constraint:String {maxLength: 255}
+    string submittedByName?;
+    string createDate?;
+    boolean dirty?;
+    @constraint:String {maxLength: 255}
+    string additionalInfo4?;
+    @constraint:String {maxLength: 255}
+    string additionalInfo3?;
+    boolean refreshInputs?;
+    decimal additionalInfo2?;
+    decimal additionalInfo1?;
+    "DRAFT"|"APPROVED"|"REVOKED"|"SUPERSEDED"|"INVALIDATED" contractStatus?;
+    int numberOfAttachments?;
+    string originLabel?;
+    @constraint:String {maxLength: 255}
+    string label?;
+    string[] nextRevUNs?;
+    record {} productGroup?;
+    int createdBy?;
+    string approvalRequiredEmailAttachmentsJson?;
+    ContractViewState viewState?;
+    string prevRev?;
+    int calculationStatus?;
+    string supersededBy?;
+    int lastUpdateBy?;
+};
+
+# Provides API key configurations needed when communicating with a remote HTTP endpoint.
+public type ApiKeysConfig record {|
+    string X\-PriceFx\-jwt;
+|};
+
+# The type code is IM
+public type ImportManager record {
+    string lastUpdateByName?;
+    string createdByName?;
+    @constraint:String {maxLength: 255}
+    string targetObject?;
+    string typedId?;
+    string? approvalDate?;
+    anydata[] approvalRequiredEmailAttachments?;
+    "DRAFT"|"SUBMITTED"|"DENIED"|"APPROVED"|"NO_APPROVAL_REQUIRED"|"WITHDRAWN"|"INVALIDATED" workflowStatus?;
+    string lastUpdateDate?;
+    "NOT_APPROVED"|"PARTIALLY_APPROVED"|"APPROVED"|"AUTO_APPROVED"|"DENIED" approvalState?;
+    string? targetSpecifics?;
+    @constraint:String {maxLength: 255}
+    string label?;
+    int version?;
+    @constraint:String {maxLength: 255}
+    string ownerUN?;
+    string? deniedByName?;
+    ImportManagerImportOptions? importOptions?;
+    @constraint:String {maxLength: 255}
+    string uniqueName?;
+    int createdBy?;
+    string? submittedByName?;
+    string? approvedByName?;
+    string? workflowFormulaName?;
+    "DRAFT"|"IN_PROGRESS"|"CHANGE_DETECTION"|"FINISHED"|"ERROR" status?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+public type ModelCalculationStepEnvelope record {
+    InlineResponse2008Response response?;
+};
+
+# 
+public type GetCustomerRequest record {
+    RebateagreementadditemsData data?;
+};
+
+public type CompensationProductGroup record {
+    string productFieldName?;
+    string productFieldLabel?;
+    string productFieldValue?;
+    string label?;
+    record {|record {}...;|} productFilterCriteria?;
+};
+
+# 
+public type DeleteActionItemRequest record {
+    DeleteTypeCodeData data;
+};
+
+public type DeleteTypeCodeData record {
+    @constraint:String {minLength: 1}
+    string typedId;
+};
+
+# 
+public type ListProductExtensionObjectsRequest record {
+    decimal startRow?;
+    @constraint:String {minLength: 1}
+    string textMatchStyle?;
+    FetchPLData data?;
+    decimal endRow?;
+    @constraint:String {minLength: 1}
+    string operationType?;
+    record {}[] sortBy?;
+    anydata oldValues?;
+};
+
+public type InlineResponse2003ResponseViewState record {
+    anydata? openFolders?;
+    anydata? gridViewState?;
+    anydata? validationSnapshot?;
+    string[] selectedNodes?;
+};
+
+# 
+public type ChangeUserPasswordRequest record {
+    AccountmanagerchangepassworduserIdData data;
+};
+
+public type BdmanagerListtypedIdBody record {
+    int startRow?;
+    string textMatchStyle?;
+    int endRow?;
+    string operationType?;
+    record {}? oldValues?;
+};
+
+public type GetCustomFormResponseResponseInputs record {
+    anydata labelTranslations?;
+    anydata addUnknownValues?;
+    anydata typedId?;
+    GetCustomFormResponseResponseParameterConfig parameterConfig?;
+    record {}[] inputs?;
+    anydata readOnly?;
+    @constraint:String {minLength: 1}
+    string label?;
+    @constraint:String {minLength: 1}
+    string 'type?;
+    anydata parameterGroup?;
+    anydata url?;
+    anydata valueHint?;
+    boolean required?;
+    anydata alwaysEditable?;
+    record {} formattingOptions?;
+    anydata valueOptions?;
+    anydata filter?;
+    anydata lookupTableId?;
+    @constraint:String {minLength: 1}
+    string name?;
+    decimal value?;
+};
+
+public type CustomermanagerassignDataCustomerGroupCustomerFilterCriteriaCriteria record {
+    @constraint:String {minLength: 1}
+    string fieldName = "customerId";
+    # Specify `customerId`s of customers you want to assign
+    string[] value;
+    @constraint:String {minLength: 1}
+    string operator = "inSet";
+};
+
+public type ImportmanagerDeletechangesBody record {
+    ImportmanagerdeletechangesData data?;
+};
+
+public type UpdateClaimRequest record {
+    string textMatchStyle?;
+    UpdateCLData data?;
+    string operationType;
+};
+
+public type InlineResponse2008Response record {
+    string node?;
+    InlineResponse2008ResponseData[] data?;
+    int status?;
+};
+
+public type ListActionTypesResponse record {
+    ListActionTypesResponseResponse response?;
+};
+
+# 
+public type Tab record {|
+    LabelTranslations labelTranslations?;
+    # Key used to find build-in translation for Tab name. If such key exist, the translation will be used. Otherwise this string will show up on the screen
+    string translationKey?;
+    # Tab unique name. It can be used in URL, use URL-safe letters
+    string name;
+    Icon icon?;
+    TabParameterMapping parameterMapping?;
+    # User group view permissions. The list of user groups which can view the tab
+    string userGroupViewDetails?;
+    # User group edit permissions. The list of user groups which can edit the tab
+    string userGroupEdit?;
+    # Unique identifier for dashboard or logic. The value here depends on the widget used on the Tab
+    string typeReference?;
+    Filter hiddenCheck?;
+    # Name of the widget you would like to see on the tab. In case of dashboard, if you can specify the dashboard name via typeReference attribute
+    "header"|"items"|"attachments"|"actions"|"notes"|"customForms"|"workflow"|"workflowHistory"|"messages"|"dashboard"|"details"|"documents"|"configurationWizards"|"externalApp" 'type;
+    Filter disableCheck?;
+    # Static parameters for the tab. Will be passed to the tab logic (e.g. dashboard) without any changes. They can be extracted by DynamicTabs.getParameters(tab, entity) in TabComponent
+    record {} parameters?;
+|};
+
+public type QuoteResponse_response_lineItems record {
+    decimal version;
+    @constraint:String {minLength: 1}
+    string typedId;
+    anydata clicId?;
+    record {}[] inputs?;
+    @constraint:Array {minLength: 1}
+    QuoteResponse_response_outputs[] outputs?;
+    boolean dirty;
+    @constraint:String {minLength: 1}
+    string lineId;
+    anydata parentId?;
+    decimal calculationStatus;
+    decimal editabilityStatus;
+    @constraint:String {minLength: 1}
+    string label;
+    @constraint:String {minLength: 1}
+    string sku;
+    anydata priceRecordId?;
+    boolean folder;
+    @constraint:String {minLength: 1}
+    string treeLabel;
+    @constraint:String {minLength: 1}
+    string createDate;
+    decimal createdBy;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate;
+    decimal lastUpdateBy;
+};
+
+public type InlineResponse20039Response record {
+    string node?;
+    int startRow?;
+    Notification[] data?;
+    int endRow?;
+    int totalRows?;
+    int status?;
+};
+
+public type ListProductsFromManualPriceListResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:String {minLength: 1}
+    string csrfToken?;
+    decimal startRow?;
+    @constraint:Array {minLength: 1}
+    ListProductsFromManualPriceListResponseResponseData[] data?;
+    decimal endRow?;
+    decimal status?;
+};
+
+public type DatamartupdatedataloadData record {
+    string targetName?;
+    string typedId?;
+    string lastUpdateDate?;
+    boolean isPlasma?;
+    boolean distributed?;
+    string label?;
+    boolean incremental?;
+    string 'type?;
+    int version?;
+    boolean withTargetSnapshot?;
+    int requestTime?;
+    boolean valid?;
+    boolean isDefault?;
+    int createdBy?;
+    int numberOfItems?;
+    record {}[] schedules?;
+    boolean continuous?;
+    int calcItemsLookupTableId?;
+    DatamartupdatedataloadDataCalculationConfig calculationConfig?;
+    int lastUpdateTime?;
+    string createDate?;
+    int lastUpdateBy?;
+    string status?;
+};
+
+# 
+public type SubmitContractRequest record {
+    ContractmanagersubmitData data;
+};
+
+public type DcrmanagerupdatemassopidDataMassChangeFilter record {
+    @jsondata:Name {value: "_constructor"}
+    string constructor?;
+    DcrmanagerupdatemassopidDataMassChangeFilterCriteria[] criteria?;
+    string operator?;
+};
+
+public type RebateRecordSetCalculationRebateRecordSet record {
+    string? updateDate?;
+    string typedId?;
+    string? calculationMessages?;
+    int updatedBy?;
+    string? targetDate?;
+    string lastUpdateDate?;
+    string label?;
+    string? locale?;
+    string? calculationDate?;
+    int version?;
+    boolean writeOnlyChangedItems?;
+    int createdBy?;
+    int numberOfItems?;
+    string? userGroupEdit?;
+    string? userGroupViewDetails?;
+    int id?;
+    boolean keepManualOverrides?;
+    string? calculationStartDate?;
+    string createDate?;
+    int lastUpdateBy?;
+    "DRAFT"|"PENDING"|"SCHEDULED"|"PROCESSING"|"SCHEDULED_DIRTY"|"ERROR"|"READY"|"CANCELLED" status?;
+};
+
+public type InlineResponse20051Response record {
+    string node?;
+    ConditionRecordSet[] data?;
+    int status?;
+};
+
+public type GetProductSetResponseResponseProducts record {
+    @constraint:Array {minLength: 1}
+    GetProductSetResponseResponseAttributes[] attributes?;
+    @constraint:String {minLength: 1}
+    string id;
+};
+
+# 
+public type ListCustomFormTypesResponse record {
+    ListCustomFormTypesResponseResponse response?;
+};
+
+# The type code is MPLI
+public type ManualPricelistItem record {
+    @constraint:String {maxLength: 255}
+    string lastUpdateByName?;
+    string? createdByName?;
+    string typedId?;
+    anydata attribute19?;
+    anydata attribute18?;
+    anydata attribute17?;
+    string lastUpdateDate?;
+    anydata attribute16?;
+    anydata attribute15?;
+    anydata attribute25?;
+    anydata attribute24?;
+    @constraint:String {maxLength: 255}
+    string currency?;
+    anydata attribute23?;
+    anydata attribute22?;
+    @constraint:String {maxLength: 255}
+    string sku?;
+    anydata attribute21?;
+    anydata attribute20?;
+    string createDate?;
+    string? comments?;
+    @constraint:String {maxLength: 255}
+    string unitOfMeasure?;
+    int pricelistId?;
+    anydata attribute29?;
+    anydata attribute28?;
+    anydata attribute27?;
+    anydata attribute26?;
+    @constraint:String {maxLength: 255}
+    string label?;
+    int version?;
+    anydata attribute9?;
+    anydata attribute8?;
+    anydata attribute5?;
+    int createdBy?;
+    anydata attribute4?;
+    anydata attribute7?;
+    anydata attribute6?;
+    anydata attribute1?;
+    anydata attribute14?;
+    anydata attribute13?;
+    anydata attribute3?;
+    anydata attribute12?;
+    anydata attribute2?;
+    anydata attribute11?;
+    anydata attribute10?;
+    anydata attribute30?;
+    int lastUpdateBy?;
+};
+
+public type UpdateCFOTData record {
+    string typedId?;
+    string[]|string? supportedParentTypeCodes?;
+    record {}|string? configuration?;
+    record {}|string? module?;
+    boolean embedded?;
+    string? workflowFormulaName?;
+};
+
+# 
+public type GetDMObjectNoCountResponse record {
+    GetDMObjectNoCountResponseResponse response?;
+};
+
+# The type code is PLI
+public type PricelistItem record {
+    string typedId?;
+    string listLabel?;
+    decimal? resultPrice?;
+    decimal? priceChangePct?;
+    string? attribute83?;
+    string? attribute82?;
+    string? attribute81?;
+    string? attribute80?;
+    string? attribute89?;
+    string? attribute88?;
+    @constraint:String {maxLength: 255}
+    string sku?;
+    string? attribute87?;
+    string? attribute86?;
+    ContractOutputs[] calculationResults?;
+    string? attribute85?;
+    string? attribute84?;
+    @constraint:String {maxLength: 255}
+    string unitOfMeasure?;
+    string targetDate?;
+    @constraint:String {maxLength: 1300}
+    string allowedOverrides?;
+    int version?;
+    string? alerts?;
+    string? attribute9?;
+    string? attribute94?;
+    string? attribute8?;
+    string? attribute93?;
+    string? attribute92?;
+    string? attribute91?;
+    # any type or `null`
+    anydata attribute5?;
+    string? attribute90?;
+    string? attribute4?;
+    string? attribute7?;
+    string? attribute6?;
+    string? attribute1?;
+    string? attribute14?;
+    string? attribute13?;
+    string? attribute3?;
+    string? attribute12?;
+    string? attribute2?;
+    string? attribute11?;
+    string? attribute99?;
+    string? attribute10?;
+    string? attribute98?;
+    string? attribute97?;
+    string? attribute96?;
+    string? attribute95?;
+    string updateDate?;
+    record {}? itemExtensions?;
+    string? attribute19?;
+    string? attribute18?;
+    string? attribute17?;
+    string? attribute16?;
+    string? attribute15?;
+    string? manualOverrides?;
+    string? attribute25?;
+    string? attribute24?;
+    @constraint:String {maxLength: 255}
+    string currency?;
+    string? attribute23?;
+    string? attribute22?;
+    string? attribute21?;
+    string? attribute20?;
+    string createDate?;
+    string? attribute29?;
+    string? attribute28?;
+    string? attribute27?;
+    string? attribute26?;
+    boolean completeResultsAvailable?;
+    string? attribute36?;
+    string? attribute35?;
+    string? attribute34?;
+    string? attribute33?;
+    string? attribute32?;
+    string? attribute31?;
+    string? attribute30?;
+    string? key2?;
+    string? attribute39?;
+    string lastUpdateDate?;
+    string? attribute38?;
+    string? attribute37?;
+    string? attribute47?;
+    string? attribute46?;
+    string? attribute45?;
+    string? attribute44?;
+    string? attribute43?;
+    string? attribute42?;
+    string? attribute41?;
+    string? attribute40?;
+    decimal? priceChange?;
+    int updatedBy?;
+    string? attribute49?;
+    string? attribute48?;
+    string? attribute50?;
+    string? attribute100?;
+    decimal? calculatedResultPrice?;
+    string? attribute58?;
+    string? attribute57?;
+    string? attribute56?;
+    string? attribute55?;
+    string? attribute54?;
+    string? attribute53?;
+    string? attribute52?;
+    record {|string...;|}[] allCalculationResults?;
+    string? attribute51?;
+    string? attribute59?;
+    string? attribute61?;
+    string? attribute60?;
+    decimal? previousPrice?;
+    string? attribute69?;
+    string? attribute68?;
+    string? attribute67?;
+    string? attribute66?;
+    string? attribute65?;
+    string? attribute64?;
+    string? attribute63?;
+    string? attribute62?;
+    string? workStatus?;
+    decimal? manualResultPrice?;
+    @constraint:String {maxLength: 255}
+    string comments?;
+    int pricelistId?;
+    string warnings?;
+    int approvalState?;
+    @constraint:String {maxLength: 255}
+    string label?;
+    string? attribute72?;
+    string? attribute71?;
+    string? attribute70?;
+    int createdBy?;
+    string? attribute79?;
+    string? attribute78?;
+    string? attribute77?;
+    string? attribute76?;
+    string? attribute75?;
+    string? attribute74?;
+    int lastUpdateBy?;
+    string? attribute73?;
+};
+
+public type ContractServerMessagesExtended record {
+    string message?;
+    string 'key?;
+};
+
+# 
+public type AddLookupTableResponse record {
+    AddLookupTableResponseResponse response;
+};
+
+public type DatamartgetfcsTypeCodeDataCriteria record {
+    # Specify a name of the field of the DM entity
+    @constraint:String {minLength: 1}
+    string fieldName?;
+    # 
+    @constraint:String {minLength: 1}
+    string value?;
+    # Specify an operator of the filter criteria
+    "equals"|"iEquals"|"notEqual"|"iNotEqual"|"isNull"|"notNull"|"contains"|"iContains"|"containsPattern"|"iContainsPattern"|"notContains"|"iNotContains"|"startsWith"|"iStartsWith"|"notStartsWith"|"iNotStartsWith"|"endsWith"|"iEndsWith"|"notEndsWith"|"iNotEndsWith"|"iBetween"|"iBetweenInclusive"|"inSet"|"notInSet" operator?;
+};
+
+public type ListConditionTypesResponse record {
+    string node?;
+    int startRow?;
+    CompensationConditionType[] data?;
+    int endRow?;
+    int totalRows?;
+    int status?;
+};
+
+public type GetPriceListResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:String {minLength: 1}
+    string csrfToken?;
+    @constraint:Array {minLength: 1}
+    ListPriceListsResponseResponseData[] data?;
+    decimal status?;
+};
+
+# 
+public type AssignGroupToBusinessRoleRequest record {
+    AccountmanagerassigngroupBRbusinessroleIdData data;
+};
+
+public type GetClaimItemsSummaryResponse record {
+    GetClaimItemsSummaryResponseResponse response?;
+};
+
+# 
+public type DenyCalculationGridItemRequest record {
+    CalculationgridmanagerrejectidData data;
+};
+
+public type DeleteCOHTBody record {
+    DeleteSLData data;
+};
+
+# 
+public type UpsertRebateAgreementRequest record {
+    RebateagreementsaveData data?;
+};
+
+public type LookuptablemanagerfetchData record {
+    @jsondata:Name {value: "_constructor"}
+    string constructor?;
+    @constraint:Array {minLength: 1}
+    ProductmanagerfetchformulafilteredproductsDataCriteria[] criteria?;
+    @constraint:String {minLength: 1}
+    string operator?;
+};
+
+public type InlineResponse2008ResponseStateConfiguration record {
+    InlineResponse2008ResponseStateConfigurationAdvanced advanced?;
+    InlineResponse2008ResponseStateConfigurationBoundaries boundaries?;
+    InlineResponse2008ResponseStateConfigurationObjectives objectives?;
+};
+
+public type ConvertPriceListResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    string csrfToken?;
+    @constraint:Array {minLength: 1}
+    ConvertPriceListResponseResponseData[] data?;
+    decimal status?;
+};
+
+public type ListLivePriceGridItemsResponseResponseData record {
+    record {} itemExtensions?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    boolean manualPriceExpired?;
+    decimal createdBy?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    decimal priceGridId?;
+    decimal manualEditVersion?;
+    boolean completeResultsAvailable?;
+    @constraint:String {minLength: 1}
+    string sku?;
+    decimal version?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal lastUpdateBy?;
+};
+
+public type AddPGTTBody record {
+    string textMatchStyle?;
+    AddPGTTData data?;
+    string operationType?;
+};
+
+# 
+public type DeleteWorkflowDelegationRequest record {
+    WorkflowdelegationmanagerdeleteData data;
+};
+
+# 
+public type SubmitQuoteRequest record {
+    QuotemanagersubmitData data;
+};
+
+public type ListAttributeFieldsMetadataResponseJsonSchema record {
+    ListAttributeFieldsMetadataResponseJsonSchemaProperties properties?;
+};
+
+# Represents the Queries record for the operation: listCommentThreads
+public type ListCommentThreadsQueries record {
+    # `true` - get only comments for "Items for Review" section<br>`false` - get "Other Items" section<br>`null` - get all comments
+    string getMyComments?;
+};
+
+# 
+public type ListCalculatedFieldSetsResponse record {
+    ListCalculatedFieldSetsResponseResponse response?;
+};
+
+public type SubmitProductsResponseResponseItemExtensionsCellStyles record {
+    @constraint:String {minLength: 1}
+    string attribute39?;
+    @constraint:String {minLength: 1}
+    string attribute38?;
+    @constraint:String {minLength: 1}
+    string attribute37?;
+    @constraint:String {minLength: 1}
+    string attribute83?;
+    @constraint:String {minLength: 1}
+    string attribute82?;
+    @constraint:String {minLength: 1}
+    string attribute81?;
+    @constraint:String {minLength: 1}
+    string attribute80?;
+    @constraint:String {minLength: 1}
+    string attribute47?;
+    @constraint:String {minLength: 1}
+    string attribute46?;
+    @constraint:String {minLength: 1}
+    string attribute45?;
+    @constraint:String {minLength: 1}
+    string attribute89?;
+    @constraint:String {minLength: 1}
+    string attribute44?;
+    @constraint:String {minLength: 1}
+    string attribute88?;
+    @constraint:String {minLength: 1}
+    string attribute43?;
+    @constraint:String {minLength: 1}
+    string attribute87?;
+    @constraint:String {minLength: 1}
+    string attribute42?;
+    @constraint:String {minLength: 1}
+    string attribute86?;
+    @constraint:String {minLength: 1}
+    string attribute41?;
+    @constraint:String {minLength: 1}
+    string attribute85?;
+    @constraint:String {minLength: 1}
+    string attribute40?;
+    @constraint:String {minLength: 1}
+    string attribute84?;
+    @constraint:String {minLength: 1}
+    string attribute49?;
+    @constraint:String {minLength: 1}
+    string attribute48?;
+    @constraint:String {minLength: 1}
+    string attribute9?;
+    @constraint:String {minLength: 1}
+    string attribute50?;
+    @constraint:String {minLength: 1}
+    string attribute8?;
+    @constraint:String {minLength: 1}
+    string attribute5?;
+    @constraint:String {minLength: 1}
+    string attribute4?;
+    @constraint:String {minLength: 1}
+    string attribute7?;
+    @constraint:String {minLength: 1}
+    string attribute6?;
+    @constraint:String {minLength: 1}
+    string attribute58?;
+    @constraint:String {minLength: 1}
+    string attribute14?;
+    @constraint:String {minLength: 1}
+    string attribute57?;
+    @constraint:String {minLength: 1}
+    string attribute13?;
+    @constraint:String {minLength: 1}
+    string attribute3?;
+    @constraint:String {minLength: 1}
+    string attribute56?;
+    @constraint:String {minLength: 1}
+    string attribute12?;
+    @constraint:String {minLength: 1}
+    string attribute2?;
+    @constraint:String {minLength: 1}
+    string attribute55?;
+    @constraint:String {minLength: 1}
+    string attribute11?;
+    @constraint:String {minLength: 1}
+    string attribute54?;
+    @constraint:String {minLength: 1}
+    string attribute10?;
+    @constraint:String {minLength: 1}
+    string attribute53?;
+    @constraint:String {minLength: 1}
+    string attribute52?;
+    @constraint:String {minLength: 1}
+    string attribute51?;
+    @constraint:String {minLength: 1}
+    string attribute19?;
+    @constraint:String {minLength: 1}
+    string attribute18?;
+    @constraint:String {minLength: 1}
+    string attribute17?;
+    @constraint:String {minLength: 1}
+    string attribute16?;
+    @constraint:String {minLength: 1}
+    string attribute15?;
+    @constraint:String {minLength: 1}
+    string attribute59?;
+    @constraint:String {minLength: 1}
+    string attribute61?;
+    @constraint:String {minLength: 1}
+    string attribute60?;
+    @constraint:String {minLength: 1}
+    string attribute25?;
+    @constraint:String {minLength: 1}
+    string attribute69?;
+    @constraint:String {minLength: 1}
+    string attribute24?;
+    @constraint:String {minLength: 1}
+    string attribute68?;
+    @constraint:String {minLength: 1}
+    string attribute23?;
+    @constraint:String {minLength: 1}
+    string attribute67?;
+    @constraint:String {minLength: 1}
+    string attribute22?;
+    @constraint:String {minLength: 1}
+    string attribute66?;
+    @constraint:String {minLength: 1}
+    string attribute21?;
+    @constraint:String {minLength: 1}
+    string attribute65?;
+    @constraint:String {minLength: 1}
+    string attribute20?;
+    @constraint:String {minLength: 1}
+    string attribute64?;
+    @constraint:String {minLength: 1}
+    string attribute63?;
+    @constraint:String {minLength: 1}
+    string attribute62?;
+    @constraint:String {minLength: 1}
+    string attribute29?;
+    @constraint:String {minLength: 1}
+    string attribute28?;
+    @constraint:String {minLength: 1}
+    string attribute27?;
+    @constraint:String {minLength: 1}
+    string attribute26?;
+    @constraint:String {minLength: 1}
+    string attribute72?;
+    @constraint:String {minLength: 1}
+    string attribute71?;
+    @constraint:String {minLength: 1}
+    string attribute70?;
+    @constraint:String {minLength: 1}
+    string attribute36?;
+    @constraint:String {minLength: 1}
+    string attribute35?;
+    @constraint:String {minLength: 1}
+    string attribute79?;
+    @constraint:String {minLength: 1}
+    string attribute34?;
+    @constraint:String {minLength: 1}
+    string attribute78?;
+    @constraint:String {minLength: 1}
+    string attribute33?;
+    @constraint:String {minLength: 1}
+    string attribute77?;
+    @constraint:String {minLength: 1}
+    string attribute32?;
+    @constraint:String {minLength: 1}
+    string attribute76?;
+    @constraint:String {minLength: 1}
+    string attribute31?;
+    @constraint:String {minLength: 1}
+    string attribute75?;
+    @constraint:String {minLength: 1}
+    string attribute30?;
+    @constraint:String {minLength: 1}
+    string attribute74?;
+    @constraint:String {minLength: 1}
+    string attribute73?;
+};
+
+public type CustomformdeleteData record {
+    # One or more `typedId` of the Custom Form(s) you want to delete
+    string[] typedIds;
+};
+
+public type InlineResponse2008ResponseStateConfigurationAdvanced record {
+    @jsondata:Name {value: "Advanced"}
+    InlineResponse2008ResponseStateConfigurationAdvancedAdvanced advanced?;
+};
+
+# 
+public type DeleteLogicResponse record {
+    DeleteLogicResponseResponse response?;
+};
+
+# 
+public type ListLivePriceGridsRequest record {
+    # The number of the first row that defines the start of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal startRow?;
+    @constraint:String {minLength: 1}
+    string textMatchStyle?;
+    LookuptablemanagerfetchData data?;
+    # The number of the end row that defines the end of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal endRow = 300;
+    @constraint:String {minLength: 1}
+    string operationType?;
+    anydata oldValues?;
+};
+
+public type SaveRebateCalculationResponse record {
+    AddRebateCalculationResponseResponse response?;
+};
+
+public type InlineResponse20086ResponseData record {
+    string typedId?;
+    string[] messages?;
+    int id?;
+    boolean hasWarning?;
+    string status?;
+};
+
+public type ListDataLoadsWithValidationResponseResponseData record {
+    decimal version?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    @constraint:String {minLength: 1}
+    string targetDate?;
+    @constraint:String {minLength: 1}
+    string label?;
+    @constraint:String {minLength: 1}
+    string 'type?;
+    @constraint:String {minLength: 1}
+    string targetName?;
+    boolean withTargetSnapshot?;
+    @constraint:String {minLength: 1}
+    string calculationContext?;
+    decimal calcItemsLookupTableId?;
+    record {}[] schedules?;
+    decimal numberOfItems?;
+    @constraint:String {minLength: 1}
+    string actionUUID?;
+    @constraint:String {minLength: 1}
+    string resultTableUniqueName?;
+    ListDataLoadsWithValidationResponseResponseCalculationConfig calculationConfig?;
+    decimal requestTime?;
+    decimal lastUpdateTime?;
+    decimal loadCompleteTime?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal createdBy?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    decimal lastUpdateBy?;
+    @constraint:String {minLength: 1}
+    string status?;
+    @constraint:String {minLength: 1}
+    string calculationStartDate?;
+    @constraint:String {minLength: 1}
+    string calculationDate?;
+    boolean isDefault?;
+    boolean incremental?;
+    boolean distributed?;
+    boolean continuous?;
+    boolean valid?;
+    boolean isPlasma?;
+    @constraint:String {minLength: 1}
+    string incLoadDate?;
+};
+
+# 
+public type ExecuteAssignedLogicResponse record {
+    ExecuteAssignedLogicResponseResponse response?;
+};
+
+public type ImportCompetitionDataResponseResponseDataErrorRecords record {
+    string[] errorMessages?;
+    ImportCompetitionDataResponseResponseDataRecord 'record?;
+};
+
+public type PricingFormulaInputDescriptors record {
+    string labelTranslations?;
+    string dataType?;
+    string values?;
+    string name?;
+    string inputType?;
+    string 'from?;
+    string label?;
+    string to?;
+    string formatType?;
+    boolean required?;
+    boolean alwaysEditable?;
+    string group?;
+};
+
+public type SubmitQuoteContractRebateAgreementResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:Array {minLength: 1}
+    SubmitQuoteContractRebateAgreementResponseResponseData[] data?;
+    decimal status?;
+};
+
+public type AddClaimResponseResponse record {
+    string node?;
+    Claim[] data?;
+    int status?;
+};
+
+public type UpdateClicEnvelope record {
+    InlineResponse20029Response response?;
+};
+
+# 
+public type UpdateManualPriceListResponse record {
+    MassEditManualPriceListResponseResponse response?;
+};
+
+# The CompensationAccrualRecord object. The type code is COAR
+public type CompensationAccrualRecord record {
+    string typedId?;
+    string|string endDate?;
+    @constraint:String {maxLength: 255}
+    string 'type?;
+    string|string payoutDate?;
+    @constraint:String {maxLength: 70}
+    string attribute83?;
+    @constraint:String {maxLength: 70}
+    string attribute82?;
+    @constraint:String {maxLength: 70}
+    string attribute81?;
+    @constraint:String {maxLength: 70}
+    string attribute80?;
+    @constraint:String {maxLength: 70}
+    string attribute89?;
+    @constraint:String {maxLength: 70}
+    string attribute88?;
+    @constraint:String {maxLength: 70}
+    string attribute87?;
+    @constraint:String {maxLength: 70}
+    string attribute86?;
+    @constraint:String {maxLength: 70}
+    string attribute85?;
+    string compensationType?;
+    @constraint:String {maxLength: 70}
+    string attribute84?;
+    int version?;
+    @constraint:String {maxLength: 70}
+    string attribute9?;
+    @constraint:String {maxLength: 70}
+    string attribute94?;
+    @constraint:String {maxLength: 70}
+    string attribute8?;
+    @constraint:String {maxLength: 70}
+    string attribute93?;
+    @constraint:String {maxLength: 70}
+    string attribute92?;
+    @constraint:String {maxLength: 70}
+    string attribute91?;
+    @constraint:String {maxLength: 70}
+    string attribute5?;
+    @constraint:String {maxLength: 70}
+    string attribute90?;
+    @constraint:String {maxLength: 70}
+    string attribute4?;
+    @constraint:String {maxLength: 70}
+    string attribute7?;
+    decimal attribute6?;
+    @constraint:String {maxLength: 70}
+    string attribute1?;
+    @constraint:String {maxLength: 70}
+    string attribute14?;
+    @constraint:String {maxLength: 70}
+    string attribute13?;
+    @constraint:String {maxLength: 70}
+    string attribute3?;
+    @constraint:String {maxLength: 70}
+    string attribute12?;
+    @constraint:String {maxLength: 70}
+    string attribute2?;
+    decimal attribute11?;
+    @constraint:String {maxLength: 70}
+    string attribute99?;
+    @constraint:String {maxLength: 70}
+    string attribute10?;
+    @constraint:String {maxLength: 70}
+    string attribute98?;
+    @constraint:String {maxLength: 70}
+    string attribute97?;
+    string|string startDate?;
+    @constraint:String {maxLength: 70}
+    string attribute96?;
+    @constraint:String {maxLength: 255}
+    string status?;
+    @constraint:String {maxLength: 70}
+    string attribute95?;
+    @constraint:String {maxLength: 70}
+    string attribute19?;
+    @constraint:String {maxLength: 70}
+    string attribute18?;
+    @constraint:String {maxLength: 70}
+    string attribute17?;
+    decimal attribute16?;
+    @constraint:String {maxLength: 70}
+    string attribute15?;
+    @constraint:String {maxLength: 70}
+    string attribute25?;
+    @constraint:String {maxLength: 70}
+    string attribute24?;
+    decimal attribute23?;
+    decimal attribute22?;
+    decimal|string attribute21?;
+    @constraint:String {maxLength: 70}
+    string attribute20?;
+    string createDate?;
+    @constraint:String {maxLength: 70}
+    string attribute29?;
+    @constraint:String {maxLength: 70}
+    string attribute28?;
+    @constraint:String {maxLength: 70}
+    string attribute27?;
+    @constraint:String {maxLength: 70}
+    string attribute26?;
+    @constraint:String {maxLength: 70}
+    string attribute36?;
+    @constraint:String {maxLength: 70}
+    string attribute35?;
+    @constraint:String {maxLength: 70}
+    string attribute34?;
+    @constraint:String {maxLength: 70}
+    string attribute33?;
+    @constraint:String {maxLength: 70}
+    string attribute32?;
+    @constraint:String {maxLength: 70}
+    string attribute31?;
+    @constraint:String {maxLength: 70}
+    string attribute30?;
+    @constraint:String {maxLength: 70}
+    string attribute39?;
+    string lastUpdateDate?;
+    @constraint:String {maxLength: 70}
+    string attribute38?;
+    @constraint:String {maxLength: 70}
+    string attribute37?;
+    @constraint:String {maxLength: 70}
+    string attribute47?;
+    @constraint:String {maxLength: 70}
+    string attribute46?;
+    @constraint:String {maxLength: 70}
+    string attribute45?;
+    @constraint:String {maxLength: 70}
+    string attribute44?;
+    @constraint:String {maxLength: 70}
+    string attribute43?;
+    @constraint:String {maxLength: 70}
+    string attribute42?;
+    @constraint:String {maxLength: 70}
+    string attribute41?;
+    @constraint:String {maxLength: 70}
+    string attribute40?;
+    @constraint:String {maxLength: 70}
+    string attribute49?;
+    @constraint:String {maxLength: 70}
+    string attribute48?;
+    @constraint:String {maxLength: 70}
+    string attribute50?;
+    @constraint:String {maxLength: 70}
+    string attribute100?;
+    @constraint:String {maxLength: 255}
+    string name?;
+    @constraint:String {maxLength: 70}
+    string attribute58?;
+    @constraint:String {maxLength: 70}
+    string attribute57?;
+    @constraint:String {maxLength: 70}
+    string attribute56?;
+    @constraint:String {maxLength: 70}
+    string attribute55?;
+    @constraint:String {maxLength: 70}
+    string attribute54?;
+    @constraint:String {maxLength: 70}
+    string attribute53?;
+    @constraint:String {maxLength: 70}
+    string attribute52?;
+    @constraint:String {maxLength: 70}
+    string attribute51?;
+    @constraint:String {maxLength: 70}
+    string attribute59?;
+    @constraint:String {maxLength: 70}
+    string attribute61?;
+    @constraint:String {maxLength: 70}
+    string attribute60?;
+    string lastStatusUpdateDate?;
+    @constraint:String {maxLength: 70}
+    string attribute69?;
+    @constraint:String {maxLength: 70}
+    string attribute68?;
+    @constraint:String {maxLength: 70}
+    string attribute67?;
+    @constraint:String {maxLength: 70}
+    string attribute66?;
+    @constraint:String {maxLength: 70}
+    string attribute65?;
+    @constraint:String {maxLength: 70}
+    string attribute64?;
+    @constraint:String {maxLength: 70}
+    string attribute63?;
+    @constraint:String {maxLength: 70}
+    string attribute62?;
+    @constraint:String {maxLength: 255}
+    string compensationRecordUN?;
+    string label?;
+    @constraint:String {maxLength: 70}
+    string attribute72?;
+    @constraint:String {maxLength: 70}
+    string attribute71?;
+    @constraint:String {maxLength: 70}
+    string attribute70?;
+    int createdBy?;
+    @constraint:String {maxLength: 70}
+    string attribute79?;
+    @constraint:String {maxLength: 70}
+    string attribute78?;
+    @constraint:String {maxLength: 70}
+    string attribute77?;
+    @constraint:String {maxLength: 70}
+    string attribute76?;
+    @constraint:String {maxLength: 70}
+    string attribute75?;
+    @constraint:String {maxLength: 70}
+    string attribute74?;
+    int lastUpdateBy?;
+    @constraint:String {maxLength: 70}
+    string attribute73?;
+};
+
+public type SX6Inner record {
+    string typedId?;
+    string lastUpdateDate?;
+    int version?;
+    @constraint:String {maxLength: 255}
+    string sellerId?;
+    string? attribute5?;
+    int createdBy?;
+    string? attribute4?;
+    string? attribute6?;
+    @constraint:String {maxLength: 255}
+    string name?;
+    string? attribute1?;
+    string? attribute3?;
+    string? attribute2?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+public type DatamartsqlqueryDataSourcesS0QueryProjectionsMonth record {
+    string expression?;
+};
+
+public type InlineResponse2008ResponseJobSettings record {
+    string calculableObjectTypedId?;
+    string? queueName?;
+    string partitionName?;
+    int jobSize?;
+    boolean enableDirtyTracking?;
+    string? distributedAction?;
+    boolean distributed?;
+    int runNumber?;
+    boolean agentOption1?;
+    string jobType?;
+    string partitionUUID?;
+    string uuid?;
+};
+
+public type ManualpricelistmanagermasseditidDataFilterCriteriaCriteria record {
+    @constraint:String {minLength: 1}
+    string fieldName;
+    @jsondata:Name {value: "_constructor"}
+    string constructor;
+    # Specify `id`s of the items you want to update
+    string[] value;
+    @constraint:String {minLength: 1}
+    string operator;
+};
+
+# Represents the Queries record for the operation: executeLogicWithout
+public type ExecuteLogicWithoutQueries record {
+    # Specifies the format of the output file
+    "json"|"xls"|"csv"|"pdf" output?;
+    # Sets the name of the output file
+    string fileName?;
+    # Specifies the template to be used when exporting a file
+    string templateName?;
+};
+
+public type DeleteSellerResponse record {
+    string node?;
+    Seller data?;
+    int status?;
+};
+
+public type WorkflowdelegationmanagerdeleteData record {
+    # The `typedId` of the delegation you want to delete
+    @constraint:String {maxLength: 255, minLength: 1}
+    string typedId;
+};
+
+public type QuotemanagerfetchproductsData record {
+    QuotemanagerfetchproductsDataFilterCriteria filterCriteria;
+    QuotemanagerfetchproductsDataQuote quote;
+};
+
+public type DeleteBusinessRoleResponseResponseData record {
+    @constraint:String {minLength: 1}
+    string typedId?;
+    @constraint:String {minLength: 1}
+    string uniqueName?;
+    decimal createdBy?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    record {}[] roles?;
+    record {}[] groups?;
+    @constraint:String {minLength: 1}
+    string label?;
+    decimal version?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal lastUpdateBy?;
+};
+
+# 
+public type AddContractLineItemsRequest record {
+    ContractmanageradditemsData data?;
+};
+
+public type ActivitylogFetchBody record {
+    int startRow?;
+    string textMatchStyle?;
+    ActivitylogfetchData data?;
+    int endRow?;
+    string operationType?;
+    string[] sortBy?;
+    string oldValues?;
+};
+
+public type DeleteCalculationGridResponse record {
+    AddCalculationGridResponseResponse response?;
+};
+
+public type GetDCRRequestChangeOnly record {
+    int startRow;
+    string textMatchStyle;
+    int endRow;
+    string operationType;
+};
+
+public type AddCalculationGridResponse record {
+    AddCalculationGridResponseResponse response?;
+};
+
+public type IntegrateCData record {
+    @constraint:String {minLength: 1}
+    string name;
+    @constraint:String {minLength: 1}
+    string customerId;
+    @constraint:String {minLength: 1}
+    string attribute1?;
+};
+
+# 
+public type ListFunctionsResponse record {
+    ListFunctionsResponseResponse response?;
+};
+
+public type ClicmanagersetlostreasontypedIdData record {
+    # The name of the lost reason. The name of the reason must be set in **Administration** > **Configuration** > **Quoting** > **Quote Reasons**
+    string lostReason;
+    # An additional comment
+    string lostReasonComment?;
+};
+
+public type CompensationCalculationBaseOtherFilters OtherFiltersAnyOf1|OtherFiltersOtherFiltersAnyOf12|OtherFiltersOtherFiltersOtherFiltersAnyOf123|OtherFiltersOtherFiltersOtherFiltersOtherFiltersAnyOf1234|OtherFiltersOtherFiltersOtherFiltersOtherFiltersOtherFiltersAnyOf12345|OtherFiltersOtherFiltersOtherFiltersOtherFiltersOtherFiltersOtherFiltersAnyOf123456?;
+
+# 
+public type ApproveDocumentResponse record {
+    ApproveDocumentResponseResponse response?;
+};
+
+public type ListProductSetsResponseResponseData record {
+    decimal version?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    @constraint:String {minLength: 1}
+    string label?;
+    @constraint:String {minLength: 1}
+    string filterCriteria?;
+    @constraint:String {minLength: 1}
+    string fieldsMapping?;
+    @constraint:String {minLength: 1}
+    string structure?;
+    @constraint:String {minLength: 1}
+    string options?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal createdBy?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    decimal lastUpdateBy?;
+};
+
+public type ListBoMForProductResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:String {minLength: 1}
+    string csrfToken?;
+    @constraint:Array {minLength: 1}
+    ListBoMForProductResponseResponseData[] data?;
+    decimal status?;
+};
+
+# The type code is CLT
+public type ClaimType record {
+    @constraint:String {maxLength: 255}
+    string formulaName?;
+    string typedId?;
+    @constraint:String {maxLength: 255}
+    string sheetName?;
+    ClaimTypeConfiguration? configuration?;
+    @constraint:String {maxLength: 255}
+    string allocationFormulaName?;
+    string lastUpdateDate?;
+    @constraint:String {maxLength: 255}
+    string validationStateElementName?;
+    @constraint:String {maxLength: 255}
+    string label?;
+    int version?;
+    @constraint:String {maxLength: 255}
+    string uniqueName?;
+    int createdBy?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+public type DeleteDCRIResponse record {
+    AddDCRIResponseResponse response?;
+};
+
+public type ConditionrecordsetFetchCRCI3Body record {
+    int startRow?;
+    string textMatchStyle?;
+    ConditionrecordsetfetchCRCI3Data data?;
+    int endRow?;
+    string operationType?;
+    record {} oldValues?;
+};
+
+public type AddClaimRequest record {
+    AddCLData data;
+    string operation;
+};
+
+public type InlineResponse20064DataStatsCacheChunk record {
+    int bytesReceived?;
+    int entriesFound?;
+    int entriesStored?;
+    int bytesSent?;
+    int requests?;
+    int entriesRequested?;
+    int downloadTime?;
+};
+
+# 
+public type GetProductSetRequest record {
+    # The number of the first row that defines the start of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal startRow?;
+    # The number of the end row that defines the end of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal endRow?;
+};
+
+public type LookuptablemanagermassedittableIdDataMassEditRecords record {
+    @constraint:String {minLength: 1}
+    string fieldName;
+    anydata precision?;
+    # Can be either one of these valid operators: `+`, `-`, `*`. If omitted, the provided value is set (`=` operator). Otherwise the specified operation is applied
+    @constraint:String {minLength: 1}
+    string massEditOperator;
+    # The new value of the field (column)
+    @constraint:String {minLength: 1}
+    string fieldValue;
+};
+
+public type FetchCRCIMData record {
+    int conditionRecordSetId?;
+};
+
+public type ListCompensationPlansRequest record {
+    int startRow?;
+    string textMatchStyle?;
+    SellermanagerfetchformulafilteredsellersData data?;
+    int endRow?;
+    string operationType?;
+    record {}? oldValues?;
+};
+
+# Values of the object before the update. Especially important is `typedId` (to identify the object to update) and `version` (to detect date inconsistencies)
+public type PricegridmanagerupdateidnorecalcOldValues record {
+    record {} itemExtensions?;
+    @constraint:String {minLength: 1}
+    string typedId;
+    @constraint:String {minLength: 1}
+    string unitOfMeasure?;
+    @constraint:String {minLength: 1}
+    string label?;
+    boolean completeResultsAvailable?;
+    @jsondata:Name {value: "_key"}
+    string key?;
+    decimal version;
+    boolean manualPriceExpired?;
+    decimal createdBy?;
+    decimal priceGridId?;
+    @jsondata:Name {value: "_level"}
+    decimal level?;
+    @constraint:String {minLength: 1}
+    string sku?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+};
+
+public type ActivitylogfetchData record {
+    @jsondata:Name {value: "_constructor"}
+    string constructor?;
+    CustomformsearchData[] criteria?;
+    string operator?;
+};
+
+# 
+public type ImportCompetitionDataResponse record {
+    ImportCompetitionDataResponseResponse response;
+};
+
+public type ListCompensationRecordsResponseResponse record {
+    string node?;
+    int startRow?;
+    CompensationRecord[] data?;
+    int endRow?;
+    int totalRows?;
+    int status?;
+};
+
+public type DcrmanagerupdatemassopidDataMassChangeFilterCriteria record {
+    string fieldName?;
+    string[] value?;
+    string operator?;
+};
+
+# 
+public type ChangeUserPasswordResponse record {
+    AddPriceGridItemsToPriceGridResponseResponse response?;
+};
+
+public type DeleteUploadSlotResponseResponseData record {
+    decimal version;
+    @constraint:String {minLength: 1}
+    string typedId;
+    decimal contentLength;
+    decimal totalBytesRead;
+    @constraint:String {minLength: 1}
+    string status;
+    anydata data?;
+    anydata owner?;
+    decimal percentage;
+    @constraint:String {minLength: 1}
+    string createDate;
+    decimal createdBy;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate;
+    decimal lastUpdateBy;
+};
+
+public type UpdateClaimTypeResponseResponse record {
+    string node?;
+    UpdateClaimTypeResponseResponseData[] data?;
+    int status?;
+};
+
+# 
+public type ExecuteDataLoadLogicResponse record {
+    ExecuteDataLoadLogicResponseResponse response?;
+};
+
+# 
+public type DeleteBusinessRoleResponse record {
+    DeleteBusinessRoleResponseResponse response?;
+};
+
+public type UpdateCustomFormTypeRequest record {
+    string textMatchStyle?;
+    UpdateCFOTData data?;
+    string operationType?;
+    UpdateCFOTOldValues oldValues?;
+};
+
+public type RecalculateCalculationOfStepResponseResponseData record {
+    string lastUpdateByName?;
+    string createdByName?;
+    string typedId?;
+    string workflowStatus?;
+    string lastUpdateDate?;
+    string? approvedBy?;
+    string? submitDate?;
+    string? deniedByName?;
+    int totalJobsCount?;
+    string? submittedByName?;
+    string? approvedByName?;
+    RecalculateCalculationOfStepResponseResponseState state?;
+    string createDate?;
+    string? submittedBy?;
+    string? deniedBy?;
+    RecalculateCalculationOfStepResponseResponseJobs[] jobs?;
+    string? label?;
+    int version?;
+    string currentStep?;
+    string uniqueName?;
+    int createdBy?;
+    string step?;
+    string modelClassUN?;
+    string status?;
+    int lastUpdateBy?;
+};
+
+public type UpdateCustomFormTypeResponseResponse record {
+    string node?;
+    CustomFormType[] data?;
+    int status?;
+};
+
+public type InlineResponse2003ResponseData record {
+    record {}[] outputs?;
+    string createdByName?;
+    string typedId?;
+    string workflowStatus?;
+    InlineResponse2003ResponseInputs[] inputs?;
+    string lastUpdateDate?;
+    anydata? serverMessagesExtended?;
+    anydata? externalRef?;
+    anydata? deniedByName?;
+    anydata? userGroupViewDetails?;
+    anydata? approvedByName?;
+    boolean locked?;
+    anydata? creationWorkflowCurrentStep?;
+    string rootUniqueName?;
+    string originUniqueName?;
+    string targetDate?;
+    anydata? customerGroup?;
+    boolean originDeleted?;
+    int version?;
+    string customerName?;
+    string uniqueName?;
+    anydata? serverMessages?;
+    anydata? creationWorkflowInfo?;
+    anydata? creationWorkflowStatus?;
+    anydata? userGroupEdit?;
+    string? nodeId?;
+    string status?;
+    string lastUpdateByName?;
+    int originClicId?;
+    anydata? renderInfo?;
+    anydata? lostReason?;
+    anydata? creationWorkflowStepCount?;
+    anydata? quoteType?;
+    string quoteStatus?;
+    anydata? lostReasonComment?;
+    string expiryDate?;
+    anydata? creationWorkflowStepLabel?;
+    boolean creationWorkflowCurrentStepIsReview?;
+    string customerId?;
+    anydata? submittedByName?;
+    anydata? lastCalculationDate?;
+    string createDate?;
+    boolean dirty?;
+    anydata? additionalInfo4?;
+    anydata? additionalInfo3?;
+    boolean refreshInputs?;
+    anydata? additionalInfo2?;
+    anydata? additionalInfo1?;
+    int numberOfAttachments?;
+    string originLabel?;
+    string label?;
+    int createdBy?;
+    anydata? reviewSubStepInfo?;
+    anydata? approvalRequiredEmailAttachmentsJson?;
+    InlineResponse2003ResponseViewState viewState?;
+    anydata? prevRev?;
+    int calculationStatus?;
+    anydata? supersededBy?;
+    int lastUpdateBy?;
+};
+
+public type FormulamanagertestparamsDataTestFormulaPROC record {
+    @constraint:String {minLength: 1}
+    string sourceId;
+    @constraint:String {minLength: 1}
+    string fsId;
+    @constraint:String {minLength: 1}
+    string 'type;
+    @constraint:String {minLength: 1}
+    string typeCode;
+};
+
+public type OptimizationmodelduplicatetypedIdDataState record {
+    record {} definition?;
+};
+
+# 
+public type TypeCodesResponse record {
+    TypeCodesResponse_response response?;
+};
+
+public type InlineResponse2007ResponseData record {
+    string? labelTranslations?;
+    string? cssProperties?;
+    string? overrideValueOptions?;
+    boolean hideWarnings?;
+    boolean overridden?;
+    string? resultGroup?;
+    string? suffix?;
+    string elementName?;
+    string? elementResult?;
+    string elementLabel?;
+    string? elementResultDescription?;
+    string? formatType?;
+    boolean hideOnNull?;
+    string? userGroup?;
+    string resultType?;
+    string? alertMessage?;
+    string? alertType?;
+    string[]? warnings?;
+    string? cellStyles?;
+    boolean overrideAllowEmpty?;
+    string? traceMessages?;
+    string? elementResultClass?;
+    boolean excludeFromExport?;
+    int displayOptions?;
+    boolean overridable?;
+    boolean summarize?;
+    int fieldType?;
+};
+
+public type InlineResponse2009ResponseData record {
+    string lastUpdateByName?;
+    string createdByName?;
+    string typedId?;
+    string workflowStatus?;
+    string lastUpdateDate?;
+    anydata approvedBy?;
+    anydata submitDate?;
+    anydata deniedByName?;
+    int totalJobsCount?;
+    anydata submittedByName?;
+    anydata approvedByName?;
+    InlineResponse2009ResponseState state?;
+    string createDate?;
+    anydata submittedBy?;
+    anydata deniedBy?;
+    InlineResponse2009ResponseJobs[] jobs?;
+    string label?;
+    int version?;
+    string currentStep?;
+    string uniqueName?;
+    int createdBy?;
+    string step?;
+    string modelClassUN?;
+    string status?;
+    int lastUpdateBy?;
+};
+
+public type InlineResponse2005ResponseData record {
+    int loaded?;
+    int failed?;
+};
+
+public type PreviewCustomFormWorkflowResponseResponseWorkflowSubSteps record {
+    string approver?;
+    string? lastExecutedBy?;
+    string reason?;
+    string approverTypedId?;
+    record {}? comments?;
+    string? executionStatus?;
+    string approverLoginName?;
+    int minApprovalsNeeded?;
+    string? comment?;
+    string lastExecutedByName?;
+    string? lastExecutionDate?;
+    int approvedCount?;
+};
+
+public type DatamartqueryDataQueryProjectionsBubbleSizeParameters record {
+    @constraint:String {minLength: 1}
+    string quantity;
+    @constraint:String {minLength: 1}
+    string 'field;
+    @constraint:String {minLength: 1}
+    string base;
+};
+
+public type PriceListTypeTypeConfiguration record {
+    anydata[] hiddenElementNames?;
+    anydata[] userCanToggleVisibility?;
+    string[] elementNames?;
+    string notifyWhenFinished?;
+    anydata[] overridableFields?;
+    LivePriceGridTypeTypeConfigurationCalculationLogicInputs[] calculationLogicInputs?;
+    string errorMode?;
+    anydata[] calcLogicInputsOverridableFields?;
+    string resultElementName?;
+    boolean shotgunModeEnabled?;
+};
+
+# 
+public type ListUserBusinessRolesResponse record {
+    ListUsersUserGroupsResponseResponse response?;
+};
+
+public type ListSellersRequest record {
+    int startRow?;
+    string textMatchStyle?;
+    SellermanagerfetchformulafilteredsellersData data?;
+    int endRow?;
+    string operationType?;
+    record {}? oldValues?;
+};
+
+public type ListJSTResponseResponse record {
+    string node?;
+    int startRow?;
+    JobStatusTracker[] data?;
+    int endRow?;
+    int totalRows?;
+    int status?;
+};
+
+# 
+public type UpdateLookupTableValueResponse record {
+    UpdateLookupTableValueResponseResponse response;
+};
+
+public type CustomermanagerassignDataCustomerGroupCustomerFilterCriteria record {
+    @jsondata:Name {value: "_constructor"}
+    string constructor;
+    # Specify customers you want to assign by the filter settings (`fielName`:`value`)
+    @constraint:Array {minLength: 1}
+    CustomermanagerassignDataCustomerGroupCustomerFilterCriteriaCriteria[] criteria;
+    @constraint:String {minLength: 1}
+    string operator?;
+};
+
+# 
+public type ExecuteModelLogicResponse record {
+    ExecuteModelLogicResponseResponse response?;
+};
+
+public type ActionItemOutputs record {
+    string alertMessage?;
+    string cssProperties?;
+    string labelTranslations?;
+    "CRITICAL"|"RED"|"YELLOW" alertType?;
+    anydata[] overrideValueOptions?;
+    string[] warnings?;
+    boolean overrideAllowEmpty?;
+    string resultGroup?;
+    boolean overridden?;
+    string suffix?;
+    boolean excludeFromExport?;
+    string resultName?;
+    int displayOptions?;
+    record {} result?;
+    boolean overridable?;
+    string resultDescription?;
+    "NUMERIC"|"NUMERIC_LONG"|"MONEY"|"PERCENT"|"TEXT"|"MONEY_EUR"|"MONEY_USD"|"MONEY_GBP"|"MONEY_JPY"|"MONEY_CHF"|"MONEY_PLN"|"DATETIME"|"DATE"|"INTEGER"|"LINK"|"COMPLEX"|"SPARKLINE" formatType?;
+    string resultType?;
+    string userGroup?;
+    string resultLabel?;
+};
+
+public type GetKVTableInfoResponseResponse record {
+    string node?;
+    GetKVTableInfoResponseResponseData[] data?;
+    int status?;
+};
+
+public type AddDCRIResponse record {
+    AddDCRIResponseResponse response?;
+};
+
+# Provides settings related to HTTP/1.x protocol.
+public type ClientHttp1Settings record {|
+    # Specifies whether to reuse a connection for multiple requests
+    http:KeepAlive keepAlive = http:KEEPALIVE_AUTO;
+    # The chunking behaviour of the request
+    http:Chunking chunking = http:CHUNKING_AUTO;
+    # Proxy server related options
+    ProxyConfig proxy?;
+|};
+
+public type OtherFiltersOtherFiltersOtherFiltersAnyOf123 decimal?;
+
+public type WithdrawDocumentResponseResponseWorkflow record {
+    @constraint:String {minLength: 1}
+    string workflowStatus?;
+    @constraint:String {minLength: 1}
+    string isSelectStepOnDeny?;
+    @constraint:String {minLength: 1}
+    string 'type?;
+    @constraint:Array {minLength: 1}
+    WithdrawDocumentResponseResponseWorkflowSteps[] steps?;
+    @constraint:String {minLength: 1}
+    string approvableTypedId?;
+    anydata currentStepId?;
+    anydata submitReason?;
+    @constraint:String {minLength: 1}
+    string submitterUserName?;
+    record {}[] denialReasons?;
+    @constraint:String {minLength: 1}
+    string submitterTypedId?;
+    @constraint:String {minLength: 1}
+    string isDenialReasonOptional?;
+    @constraint:String {minLength: 1}
+    string id?;
+    @constraint:String {minLength: 1}
+    string isAddStepRestrictedToWFAdmin?;
+};
+
+public type DeleteActionItemResponse record {
+    AddActionItemResponseResponse response?;
+};
+
+# 
+public type DeleteProductExtensionResponse record {
+    DeleteProductExtensionResponseResponse response;
+};
+
+public type DeleteConditionTypeResponse record {
+    string node?;
+    CompensationConditionType[] data?;
+    int status?;
+};
+
+public type CalculationgridmanagerrejectidData record {
+    # Specify `typedId`s of items you want to deny
+    record {}[] ids;
+};
+
+public type JobStatusTrackerResponse_response_jobSettings record {
+    anydata distributedAction?;
+    @constraint:String {minLength: 1}
+    string jobType;
+    @constraint:String {minLength: 1}
+    string uuid;
+    @constraint:String {minLength: 1}
+    string calculableObjectTypedId;
+    anydata queueName?;
+    decimal runNumber;
+    @constraint:String {minLength: 1}
+    string partitionName;
+    @constraint:String {minLength: 1}
+    string partitionUUID;
+    boolean enableDirtyTracking;
+    boolean agentOption1;
+    decimal jobSize;
+    boolean distributed;
+};
+
+public type ListDelegatedWorkflowsResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:String {minLength: 1}
+    string csrfToken?;
+    decimal startRow?;
+    @constraint:Array {minLength: 1}
+    ListDelegatedWorkflowsResponseResponseData[] data?;
+    decimal endRow?;
+    decimal totalRows?;
+    decimal status?;
+};
+
+public type AddCalculationGridItemResponse record {
+    AddCalculationGridItemResponseResponse response?;
+};
+
+public type InlineResponse20083Response record {
+    string[] data?;
+    int status?;
+};
+
+public type GetConfigurationStorageEnvelope record {
+    InlineResponse20058Response response?;
+};
+
+# 
+public type CopyLookupTableResponse record {
+    CopyLookupTableResponseResponse response;
+};
+
+public type UpdateCLICLineItemsRequest record {
+    ClicmanagerupdatelineitemstypedIdData data;
+};
+
+public type AddClaimTypeResponseResponse record {
+    string node?;
+    ClaimType[] data?;
+    int status?;
+};
+
+public type DataChangeRequestMassChangeMassChange record {
+    record {} filter?;
+    "EDIT"|"DELETE"? 'type?;
+    DataChangeRequestMassChangeMassChangeDefinitions[] definitions?;
+};
+
+public type QueryapiExecuteBody record {
+    QueryapiexecuteData data?;
+};
+
+public type CommentmanagerfetchthreadstypedIdData record {
+    @jsondata:Name {value: "_constructor"}
+    string constructor?;
+    SellermanagerfetchformulafilteredsellersDataCriteria[] criteria?;
+    string operator?;
+};
+
+public type CustomFormFilter record {|
+    record {} property1?;
+    record {} property2?;
+    record {}...;
+|};
+
+public type UpdateClicLineItemsEnvelope record {
+    InlineResponse20042Response response?;
+};
+
+public type InlineResponse20055Response record {
+    string node?;
+    CompensationCondTypeAttributeMeta[] data?;
+    int status?;
+};
+
+public type ClicFolderStatsEnvelope record {
+    InlineResponse20079Response response?;
+};
+
+public type DcrmanageraddData record {
+    string dcrTypeName;
+    string label?;
+};
+
+public type FetchJCSData record {
+    @jsondata:Name {value: "_constructor"}
+    string constructor?;
+    FetchJCSDataCriteria[] criteria?;
+    string operator?;
+};
+
+# 
+public type ListRollupsRequest record {
+    decimal startRow?;
+    @constraint:String {minLength: 1}
+    string textMatchStyle?;
+    DatamartgetrollupsData data?;
+    anydata endRow?;
+    @constraint:String {minLength: 1}
+    string operationType?;
+    anydata oldValues?;
+};
+
+# 
+public type ListElementsResponse record {
+    ListElementsResponseResponse response?;
+};
+
+public type DuplicateCompensationPlanEnvelope record {
+    UpsertCompensationPlanResponseResponse response?;
+};
+
+public type InlineResponse20086Response record {
+    InlineResponse20086ResponseData[] data?;
+    int status?;
+};
+
+# 
+public type CustomerResponse record {
+    anydata response?;
+};
+
+public type SaveCompensationRecordRequest record {
+    CompensationrecordsaveData data?;
+};
+
+public type DataChangeRequestItemOldValues record {
+    string newValue?;
+    string oldValue?;
+};
+
+public type DMDataLoadPre80CalculationConfig record {
+    string formulaName?;
+    string feederFormulaName?;
+    string simulationSet?;
+    string? targetDate?;
+    record {}[] inputParams?;
+    string skuField?;
+    record {}[] mappingParams?;
+    string targetDateField?;
+    ContractInputs[] feederInputParams?;
+    string[] targetFields?;
+    CompensationRecordSetCalculationCalculationConfigOutputElements[] outputElements?;
+};
+
+public type GetProductSetResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:String {minLength: 1}
+    string csrfToken?;
+    decimal startRow?;
+    @constraint:Array {minLength: 1}
+    GetProductSetResponseResponseData[] data?;
+    decimal endRow?;
+    decimal totalRows?;
+    decimal status?;
+};
+
+public type PreviewCustomFormWorkflowResponseResponseWorkflowSteps record {
+    string reason?;
+    string[] reasons?;
+    string isUserApprover?;
+    anydata[]? userGroupNames?;
+    string 'type?;
+    anydata[]? minApprovalsForGroups?;
+    boolean? isPostStepLogicFailed?;
+    string postStepLogicName?;
+    string id?;
+    record {}[] executedByNames?;
+    string[] userLoginNames?;
+    string? userGroupTypedId?;
+    record {}[] approvalRequiredEmailAttachments?;
+    PreviewCustomFormWorkflowResponseResponseWorkflowSubSteps[] subSteps?;
+    string executionStatus?;
+    string[] userTypedIds?;
+    string lastAccess?;
+    int minApprovalsNeeded?;
+    string userName?;
+    record {}[] delegatedToTypedIds?;
+    anydata[]? userGroupTypedIds?;
+    string userTypedId?;
+    string uniqueName?;
+    record {}[] denialReasons?;
+    string? userGroupName?;
+    string isDenialReasonOptional?;
+    string[] userNames?;
+    string? comment?;
+    record {}? mandatoryComments?;
+};
+
+# 
+public type UpdateDataManagerEntityRequest record {
+    DatamartupdatefcTypeCodeData data?;
+    @constraint:String {minLength: 1}
+    string operationType?;
+};
+
+public type CompensationLineItemCalculationBase record {
+    record {}[] excludedCustomerGroups?;
+    string dateDimFieldName?;
+    CompensationCalculationBaseIncludedSellerReferences[] includedSellerReferences?;
+    record {}[] includedCustomerGroups?;
+    record {}[] excludedTimePeriods?;
+    record {}[] excludedproductGroups?;
+    string[] otherFilters?;
+    record {}[] includedProductGroups?;
+    record {}[] excludedSellerReferences?;
+    CompensationLineItemCalculationBaseIncludedTimePeriods[] includedTimePeriods?;
+};
+
+# 
+public type GetProductSetResponse record {
+    GetProductSetResponseResponse response;
+};
+
+public type FormulamanagertestparamsDataTestFormulaElements record {
+    @constraint:String {minLength: 1}
+    string formulaExpression;
+    @constraint:String {minLength: 1}
+    string combinationType;
+    record {}[] elementGroups?;
+    boolean protectedExpression;
+    decimal elementTimeout;
+    boolean hideWarnings;
+    boolean summarize;
+    boolean hideOnNull;
+    boolean allowOverride;
+    decimal displayOptions;
+    @constraint:String {minLength: 1}
+    string elementName;
+};
+
+public type ExecuteLogicWithoutProductContextResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:Array {minLength: 1}
+    ExecuteLogicWithoutProductContextResponseResponseData[] data?;
+    decimal status?;
+};
+
+public type ListClaimTypesResponseResponseConfiguration record {
+    ListClaimTypesResponseResponseConfigurationColumns columns?;
+};
+
+public type AddPLTTResponse record {
+    string node?;
+    PriceListType[] data?;
+    int status?;
+};
+
+public type GetClaimItemsSummaryResponseResponseData record {
+    GetClaimItemsSummaryResponseResponseSummary summary?;
+};
+
+public type AddCRCSBody record {
+    AddCRCSData data?;
+    string operation?;
+};
+
+public type AddDCRIResponseResponse record {
+    string node?;
+    DataChangeRequestItem[] data?;
+    int status?;
+};
+
+public type DeletePLTTBody record {
+    string textMatchStyle?;
+    DeletePData data?;
+    string operationType?;
+};
+
+# 
+public type AddPriceGridItemsToPriceGridResponse record {
+    AddPriceGridItemsToPriceGridResponseResponse response?;
+};
+
+public type ListCalculationsResponse record {
+    ListCalculationsResponseResponse response?;
+};
+
+public type CustomformchangestatustypedIdData record {
+    # The status you want the Custom Form to be changed to
+    string operation?;
+};
+
+public type InlineResponse20080Response record {
+    InlineResponse20080ResponseData[] data?;
+    int status?;
+};
+
+public type ListActionItemsResponse record {
+    ListActionItemsResponseResponse response?;
+};
+
+public type LookuptablemanagerintegratetableIdData record {
+    @constraint:String {minLength: 1}
+    string name;
+    @constraint:String {minLength: 1}
+    string value;
+};
+
+public type InlineResponse20058Response record {
+    string node?;
+    int startRow?;
+    JsonConfigurationStorage[] data?;
+    int endRow?;
+    int status?;
+};
+
+public type InlineResponse20064DataStatsCache record {
+    InlineResponse20064DataStatsCacheChunk result?;
+    InlineResponse20064DataStatsCacheChunk statsResult?;
+    InlineResponse20064DataStatsCacheChunk chunk?;
+    InlineResponse20064DataStatsCacheChunk index?;
+};
+
+public type ExecuteLogicWithoutProductContextResponseResponseData record {
+    anydata alertMessage?;
+    anydata cssProperties?;
+    anydata labelTranslations?;
+    anydata alertType?;
+    anydata overrideValueOptions?;
+    anydata warnings?;
+    boolean overrideAllowEmpty?;
+    anydata resultGroup?;
+    boolean overridden?;
+    anydata suffix?;
+    boolean excludeFromExport?;
+    @constraint:String {minLength: 1}
+    string resultName?;
+    decimal displayOptions?;
+    anydata result?;
+    boolean overridable?;
+    anydata resultDescription?;
+    @constraint:String {minLength: 1}
+    string formatType?;
+    @constraint:String {minLength: 1}
+    string resultType?;
+    anydata userGroup?;
+    @constraint:String {minLength: 1}
+    string resultLabel?;
+};
+
+public type UpdateCRCIMData record {
+    string label?;
+    int fieldType?;
+};
+
+public type SX3Inner record {
+    string typedId?;
+    @constraint:String {maxLength: 255}
+    string sellerId?;
+    int createdBy?;
+    string lastUpdateDate?;
+    @constraint:String {maxLength: 255}
+    string name?;
+    string? attribute1?;
+    string? attribute3?;
+    string? attribute2?;
+    int version?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+public type InlineResponse2008ResponseStateDefinitionScope record {
+    @jsondata:Name {value: "Scope"}
+    InlineResponse2008ResponseStateDefinitionScopeScope scope?;
+};
+
+public type GetCLICresponseResponseCalculationBaseIncludedTimePeriods record {
+    boolean single?;
+    string endDate?;
+    string startDate?;
+    string timeUnit?;
+};
+
+public type ListRollupsResponseResponseQueryDto record {
+    ListRollupsResponseResponseQueryDtoProjections projections?;
+    ListRollupsResponseResponseQueryDtoOptions options?;
+    record {}[] sortBy?;
+    @constraint:String {minLength: 1}
+    string 'source?;
+    @constraint:String {minLength: 1}
+    string label?;
+    record {} filters?;
+    @constraint:String {minLength: 1}
+    string datamart?;
+    boolean rollup?;
+};
+
+# The Seller object. The type code is SL
+public type Seller SellerInner[];
+
+# 
+public type CreateWorkflowDelegationRequest record {
+    WorkflowdelegationmanageraddData data;
+};
+
+public type DeleteNotificationEnvelope record {
+    InlineResponse20040Response response?;
+};
+
+# Represents the Queries record for the operation: insertBulkDataFromFile
+public type InsertBulkDataFromFileQueries record {
+    # The name of the table you want to upload a file to
+    string name?;
+};
+
+public type ValidateClaimItemsResponseResponse record {
+    string node?;
+    ClaimLineItem[] data?;
+    int status?;
+};
+
+public type ListCustomerExtensionObjectsResponseResponseData CX3|CX6|CX8|CX10|CX20|CX30|CX50;
+
+public type AccountmanagerchangepasswordData record {
+    # The current password. Necessary when changing own password
+    @constraint:String {maxLength: 255, minLength: 1}
+    string oldPassword;
+    # The new password
+    @constraint:String {maxLength: 255, minLength: 1}
+    string newPassword;
+};
+
+public type CompensationcreatesignaturetypedIdData record {
+    string note;
+    string templateName;
+    string customerUserOrEmail;
+    string customerName;
+};
+
+public type ValidateClaimItemsRequest record {
+    ClaimmanagervalidateitemstypedIdData data?;
+};
+
+public type ListProductSetsResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    decimal startRow?;
+    @constraint:Array {minLength: 1}
+    ListProductSetsResponseResponseData[] data?;
+    # The number of the end row that defines the end of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal endRow?;
+    decimal totalRows?;
+    decimal status?;
+};
+
+public type DatamartimportdataloadsDataDataLoads record {
+    @constraint:String {minLength: 1}
+    string valid?;
+    @constraint:String {minLength: 1}
+    string targetName;
+    @constraint:String {minLength: 1}
+    string typedId;
+    record {}[] calculationMessages?;
+    @constraint:String {minLength: 1}
+    string incLoadDate?;
+    boolean continuous?;
+    @constraint:String {minLength: 1}
+    string sourceName?;
+    boolean incremental?;
+    @constraint:String {minLength: 1}
+    string 'type;
+};
+
+public type DeleteCustomerResponseResponseData record {
+    decimal version;
+    @constraint:String {minLength: 1}
+    string typedId;
+    @constraint:String {minLength: 1}
+    string customerId;
+    @constraint:String {minLength: 1}
+    string name;
+    anydata parentId?;
+    anydata userGroupEdit?;
+    anydata userGroupViewDetails?;
+    decimal nodeId;
+    @constraint:String {minLength: 1}
+    string createDate;
+    decimal createdBy;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate;
+    decimal lastUpdateBy;
+    @constraint:String {minLength: 1}
+    string attribute1;
+    @constraint:String {minLength: 1}
+    string attribute2;
+    anydata attribute3?;
+    anydata attribute4?;
+    anydata attribute5?;
+    anydata attribute6?;
+    anydata attribute7?;
+    anydata attribute8?;
+    anydata attribute9?;
+    anydata attribute10?;
+    anydata attribute11?;
+    anydata attribute12?;
+    anydata attribute13?;
+    anydata attribute14?;
+    anydata attribute15?;
+    anydata attribute16?;
+    anydata attribute17?;
+    anydata attribute18?;
+    anydata attribute19?;
+    anydata attribute20?;
+    anydata attribute21?;
+    anydata attribute22?;
+    anydata attribute23?;
+    anydata attribute24?;
+    anydata attribute25?;
+    anydata attribute26?;
+    anydata attribute27?;
+    anydata attribute28?;
+    anydata attribute29?;
+    anydata attribute30?;
+    boolean isParent;
+};
+
+public type PreviewCustomFormWorkflowResponseResponse record {
+    string node?;
+    PreviewCustomFormWorkflowResponseResponseData[] data?;
+    int status?;
+};
+
+# 
+public type AddProductsToManualPriceListRequest record {
+    ManualpricelistmanageraddidrecalculateData data;
+};
+
+public type CalculateCFSResponseResponseJobSettings record {
+    @constraint:String {minLength: 1}
+    string calculableObjectTypedId?;
+    anydata queueName?;
+    @constraint:String {minLength: 1}
+    string partitionName?;
+    decimal jobSize?;
+    boolean enableDirtyTracking?;
+    anydata distributedAction?;
+    boolean distributed?;
+    decimal runNumber?;
+    boolean agentOption1?;
+    @constraint:String {minLength: 1}
+    string jobType?;
+    @constraint:String {minLength: 1}
+    string partitionUUID?;
+    @constraint:String {minLength: 1}
+    string uuid?;
+};
+
+# 
+public type ListModelLogicParametersResponse record {
+    ListModelLogicParametersResponseResponse response?;
+};
+
+public type AdvancedConfigPropertyEnvelope record {
+    InlineResponse20083Response response?;
+};
+
+public type InlineResponse201ResponseErrorsMessage record {
+    string? errorMessage?;
+};
+
+public type InlineResponse2009ResponseStateTwoTabsTab2MatrixEntry record {
+    string col2?;
+    boolean selected?;
+    string col1?;
+};
+
+public type WorkflowdelegationmanagerupdateData record {
+    @constraint:String {minLength: 1}
+    string note?;
+    @constraint:String {minLength: 1}
+    string typedId;
+};
+
+public type RecalculateCalculationOfStepResponseResponseStateTwoTabs record {
+    RecalculateCalculationOfStepResponseResponseStateTwoTabsTab1 tab1?;
+    RecalculateCalculationOfStepResponseResponseStateTwoTabsTab2 tab2?;
+};
+
+public type InlineResponse20037ResponseItem record {
+    string? formulaName?;
+    string typedId?;
+    string? attribute19?;
+    string? attribute18?;
+    string? attribute17?;
+    string lastUpdateDate?;
+    string? attribute16?;
+    string? attribute15?;
+    string? attribute25?;
+    string? attribute24?;
+    string? userGroupViewDetails?;
+    string currency?;
+    string? attribute23?;
+    string? attribute22?;
+    string sku?;
+    string? attribute21?;
+    string? attribute20?;
+    string createDate?;
+    string? image?;
+    string? unitOfMeasure?;
+    string? attribute29?;
+    string? attribute28?;
+    string? attribute27?;
+    string? attribute26?;
+    string label?;
+    int version?;
+    string? attribute9?;
+    string? attribute8?;
+    # any type or `null`
+    anydata attribute5?;
+    int createdBy?;
+    string? attribute4?;
+    int? attribute7?;
+    string? attribute6?;
+    string? attribute1?;
+    string? attribute14?;
+    string? attribute13?;
+    string? userGroupEdit?;
+    string? attribute3?;
+    string? attribute12?;
+    string? attribute2?;
+    string? attribute11?;
+    string? attribute10?;
+    string? attribute30?;
+    int lastUpdateBy?;
+};
+
+# Represents the Queries record for the operation: listAttributeFieldsMetadata
+public type ListAttributeFieldsMetadataQueries record {
+    # The ID of the Company Parameters table when retrieving MLTV (`MatrixLookupTableValue`)
+    string lookupTableId?;
+    # The name of the PX or CX category
+    string name?;
+};
+
+public type UpsertCustomerExtensionResponseResponseData record {
+    decimal version;
+    @constraint:String {minLength: 1}
+    string typedId;
+    @constraint:String {minLength: 1}
+    string name;
+    @constraint:String {minLength: 1}
+    string customerId;
+    @constraint:String {minLength: 1}
+    string createDate;
+    decimal createdBy;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate;
+    decimal lastUpdateBy;
+    @constraint:String {minLength: 1}
+    string attribute1;
+    anydata attribute2?;
+    anydata attribute3?;
+};
+
+public type JobStatusTrackerJobSettingsDistributedAction record {
+    string calculableObjectTypedId?;
+    string? queueName?;
+    string? partitionName?;
+    int jobSize?;
+    boolean? enableDirtyTracking?;
+    int? runNumber?;
+    record {}|boolean? agentOption1?;
+};
+
+# 
+public type ListRollupsResponse record {
+    ListRollupsResponseResponse response?;
+};
+
+# Specify options of the bulk data insertion
+public type LoaddataPDataOptions record {
+    # Set to `true` to use join fields definitions from the server. Set to `false` to specify join fields with the `joinFields` parameter in the request
+    boolean detectJoinFields?;
+};
+
+public type UpdatePricelistDetailResponseResponse record {
+    string node?;
+    PricelistItem[] data?;
+    int status?;
+};
+
+public type ListSellersEnvelope record {
+    ListSellersResponse response?;
+};
+
+public type DatamartqueryDataQueryFilter record {
+    @jsondata:Name {value: "_constructor"}
+    string constructor?;
+    string[] criteria?;
+    @constraint:String {minLength: 1}
+    string operator?;
+};
+
+public type ListConditionRecordSetsEnvelope record {
+    InlineResponse20052Response response?;
+};
+
+public type ListRecommendationsEnvelope record {
+    InlineResponse20037Response response?;
+};
+
+public type CompensationRecordSetCalculationCompensationRecordSet record {
+    string|string? updateDate?;
+    string typedId?;
+    string? calculationMessages?;
+    int updatedBy?;
+    string? targetDate?;
+    string lastUpdateDate?;
+    string label?;
+    string? locale?;
+    string? calculationDate?;
+    int version?;
+    boolean writeOnlyChangedItems?;
+    int createdBy?;
+    int numberOfItems?;
+    string? userGroupEdit?;
+    string? userGroupViewDetails?;
+    int recordSetId?;
+    int id?;
+    boolean keepManualOverrides?;
+    string? calculationStartDate?;
+    string createDate?;
+    int lastUpdateBy?;
+    "DRAFT"|"PENDING"|"SCHEDULED"|"PROCESSING"|"SCHEDULED_DIRTY"|"ERROR"|"READY"|"CANCELLED" status?;
+};
+
+public type CreateSignatureResponse record {
+    UpsertCompensationPlanResponseResponse response?;
+};
+
+public type ClicmanagercreateTypeCodeData record {
+    Quote quote?;
+};
+
+# 
+public type AssignCustomersRequest record {
+    CustomermanagerassignData data;
+    @constraint:String {minLength: 1}
+    string operation = "add";
+};
+
+# 
+public type GetActionStatusResponse record {
+    GetActionStatusResponseResponse response?;
+};
+
+public type AddPGTTData record {
+    AddPGTTDataTypeConfiguration typeConfiguration?;
+    string dimensionType?;
+    string targetDate?;
+    AddPGTTDataContextualActions contextualActions?;
+    string label?;
+    string uniqueName?;
+    AddPGTTDataButtonsConfiguration buttonsConfiguration?;
+    string matrixFormulaName?;
+    string headerFormulaName?;
+    string matrixFormulaElementName?;
+    AddPGTTDataCustomActionLogics customActionLogics?;
+    string userGroupViewDetails?;
+    string userGroupEdit?;
+    string calculationFormulaName?;
+    string userGroupCanUseType?;
+};
+
+public type ListCalculationGridItemsResponseResponseData CalculationGridItem1Key|CalculationGridItem2Key|CalculationGridItem3Key|CalculationGridItem4Key|CalculationGridItem5Key|CalculationGridItem6Key;
+
+# 
+public type ListProductsFromManualPriceListResponse record {
+    ListProductsFromManualPriceListResponseResponse response?;
+};
+
+public type QuotemanagersaveDataQuoteOutputs record {
+    anydata alertMessage?;
+    anydata cssProperties?;
+    anydata labelTranslations?;
+    anydata alertType?;
+    anydata overrideValueOptions?;
+    anydata warnings?;
+    boolean overrideAllowEmpty;
+    anydata resultGroup?;
+    boolean overridden;
+    anydata suffix?;
+    boolean excludeFromExport;
+    @constraint:String {minLength: 1}
+    string resultName;
+    decimal displayOptions;
+    decimal result;
+    boolean overridable;
+    anydata resultDescription?;
+    @constraint:String {minLength: 1}
+    string formatType;
+    @constraint:String {minLength: 1}
+    string resultType;
+    anydata userGroup?;
+    @constraint:String {minLength: 1}
+    string resultLabel;
+};
+
+# 
+public type DeleteObjectResponse_1 record {
+    DeleteObjectResponse_1_response response;
+};
+
+public type InlineResponse20061Response record {
+    string node?;
+    int startRow?;
+    SecurityAuditTrail[] data?;
+    int endRow?;
+    int totalRows?;
+    int status?;
+};
+
+public type FetchCGIkeyNumberData record {
+    # `id` of the Calculation Grid you want to retrieve Calculation Grid Items for
+    string calculationGridId;
+};
+
+# 
+public type ListPriceListsResponse record {
+    ListPriceListsResponseResponse response?;
+};
+
+# 
+public type CancelCalculationResponse record {
+    CancelCalculationResponseResponse response;
+};
+
+# 
+public type ManualPriceListResponse record {
+    ManualPriceListResponse_response response?;
+};
+
+public type UpdateCompensationTypeRequest record {
+    UpdateCOHTData data;
+    string textMatchStyle?;
+    string operationType;
+    UpdateCOHTOldValues oldValues?;
+};
+
+# Specify field names and values you want to insert or update
+public type IntegrateTypeCodeData record {
+    @constraint:String {minLength: 1}
+    string formulaName?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    @constraint:String {minLength: 1}
+    string unitOfMeasure?;
+    @constraint:String {minLength: 1}
+    string attribute1?;
+    @constraint:String {minLength: 1}
+    string currency?;
+    @constraint:String {minLength: 1}
+    string userGroupEdit?;
+    @constraint:String {minLength: 1}
+    string userGroupViewDetails?;
+    @constraint:String {minLength: 1}
+    string label?;
+    @constraint:String {minLength: 1}
+    string attribute2?;
+    @constraint:String {minLength: 1}
+    string sku;
+};
+
+public type OptimizationUpdatejstBody record {
+    OptimizationupdatejstData data?;
+};
+
+public type DcrmanagerupdatemassopidDataMassChange record {
+    DcrmanagerupdatemassopidDataMassChangeFilter filter?;
+    DcrmanagerupdatemassopidDataMassChangeDefinitions[] definitions?;
+};
+
+public type RebateagreementadditemsDataRebateAgreement record {
+    record {}[] outputs?;
+    anydata seller?;
+    @constraint:String {minLength: 1}
+    string createdByName?;
+    @constraint:String {minLength: 1}
+    string typedId;
+    anydata headerText?;
+    @constraint:String {minLength: 1}
+    string endDate?;
+    @constraint:String {minLength: 1}
+    string workflowStatus;
+    @constraint:Array {minLength: 1}
+    RebateagreementfetchitemsDataRebateAgreementInputs[] inputs?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    anydata serverMessagesExtended?;
+    @constraint:String {minLength: 1}
+    string payoutDate?;
+    anydata deniedByName?;
+    record {}[] lineItems;
+    anydata userGroupViewDetails?;
+    anydata approvedByName?;
+    anydata creationWorkflowCurrentStep?;
+    @constraint:String {minLength: 1}
+    string rootUniqueName?;
+    @constraint:String {minLength: 1}
+    string targetDate;
+    anydata customerGroup?;
+    decimal version?;
+    @constraint:String {minLength: 1}
+    string uniqueName;
+    anydata serverMessages?;
+    anydata creationWorkflowStatus?;
+    anydata userGroupEdit?;
+    boolean hasWorkflowHistory?;
+    decimal nodeId?;
+    @constraint:String {minLength: 1}
+    string startDate?;
+    @constraint:String {minLength: 1}
+    string status?;
+    @constraint:String {minLength: 1}
+    string lastUpdateByName?;
+    anydata renderInfo?;
+    anydata signature?;
+    anydata rebateRecordSetId?;
+    anydata creationWorkflowStepCount?;
+    anydata sellerName?;
+    anydata creationWorkflowStepLabel?;
+    anydata submittedByName?;
+    @constraint:String {minLength: 1}
+    string rebateAgreementStatus?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    boolean dirty?;
+    anydata additionalInfo4?;
+    anydata additionalInfo3?;
+    boolean refreshInputs?;
+    anydata additionalInfo2?;
+    anydata additionalInfo1?;
+    decimal numberOfAttachments?;
+    anydata simulationType?;
+    @constraint:String {minLength: 1}
+    string label?;
+    anydata rebateRecordSetLabel?;
+    anydata simulationSet?;
+    decimal createdBy?;
+    anydata approvalRequiredEmailAttachmentsJson?;
+    QuotemanageraddproductsDataQuoteViewState viewState?;
+    anydata prevRev?;
+    decimal calculationStatus?;
+    anydata supersededBy?;
+    anydata headerRebateType?;
+    decimal lastUpdateBy?;
+};
+
+public type QuotemanagerfetchproductsDataFilterCriteria record {
+    @jsondata:Name {value: "_constructor"}
+    string constructor;
+    record {}[] criteria;
+    @constraint:String {minLength: 1}
+    string operator;
+};
+
+public type ListClaimTypesResponse record {
+    ListClaimTypesResponseResponse response?;
+};
+
+public type RebateAgreementResponse_response_value record {
+    @constraint:String {minLength: 1}
+    string customerFieldName?;
+    @constraint:String {minLength: 1}
+    string customerFieldValue?;
+    @constraint:String {minLength: 1}
+    string customerFieldLabel?;
+};
+
+# Specify field names and values you want to insert or update
+public type IntegratePData record {
+    @constraint:String {maxLength: 255, minLength: 1}
+    string formulaName?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    @constraint:String {maxLength: 255, minLength: 1}
+    string unitOfMeasure?;
+    @constraint:String {maxLength: 255, minLength: 1}
+    string attribute1?;
+    @constraint:String {maxLength: 255, minLength: 1}
+    string currency?;
+    @constraint:String {maxLength: 255, minLength: 1}
+    string userGroupEdit?;
+    @constraint:String {maxLength: 255, minLength: 1}
+    string userGroupViewDetails?;
+    @constraint:String {maxLength: 255, minLength: 1}
+    string label?;
+    @constraint:String {maxLength: 255, minLength: 1}
+    string attribute2?;
+    @constraint:String {maxLength: 255, minLength: 1}
+    string sku;
+};
+
+public type AssignmentResponse_response_data record {
+    decimal version?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    AssignmentResponse_response_customerGroup customerGroup?;
+    decimal assignmentId?;
+    decimal priority?;
+    anydata additionalInfo1?;
+    anydata additionalInfo2?;
+    anydata additionalInfo3?;
+    anydata additionalInfo4?;
+    @constraint:String {minLength: 1}
+    string lastUpdateByName?;
+    @constraint:String {minLength: 1}
+    string createdByName?;
+    @constraint:String {minLength: 1}
+    string assignment?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal createdBy?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    decimal lastUpdateBy?;
+};
+
+public type CustomFormOutputs record {
+    string? alertMessage?;
+    string? cssProperties?;
+    string? labelTranslations?;
+    "CRITICAL"|"RED"|"YELLOW"? alertType?;
+    anydata[]? overrideValueOptions?;
+    anydata[]? warnings?;
+    boolean overrideAllowEmpty?;
+    string? resultGroup?;
+    boolean overridden?;
+    string? suffix?;
+    boolean excludeFromExport?;
+    string resultName?;
+    int? displayOptions?;
+    int? result?;
+    boolean overridable?;
+    string? resultDescription?;
+    "NUMERIC"|"NUMERIC_LONG"|"MONEY"|"PERCENT"|"TEXT"|"MONEY_EUR"|"MONEY_USD"|"MONEY_GBP"|"MONEY_JPY"|"MONEY_CHF"|"MONEY_PLN"|"DATETIME"|"DATE"|"INTEGER"|"LINK"|"COMPLEX"|"SPARKLINE" formatType?;
+    string? resultType?;
+    string? userGroup?;
+    string resultLabel?;
+};
+
+public type PricelistmanageraddidDataConfiguration record {
+    anydata uomOverrideElementName?;
+    record {}[] hiddenElementNames?;
+    @constraint:String {minLength: 1}
+    string notifyWhenFinished?;
+    @constraint:String {minLength: 1}
+    string defaultFormulaOverride?;
+    record {} formulaParameters?;
+    decimal preferencesSource?;
+    string[] elementNames?;
+    anydata matrixFormulaName?;
+    anydata currencyOverrideElementName?;
+    anydata plTypeTypeId?;
+    anydata sortKeys?;
+    anydata matrixElementName?;
+    @constraint:String {minLength: 1}
+    string resultElementName?;
+    boolean shotgunModeEnabled?;
+};
+
+public type ManualpricelistmanagerdeleteidbatchData record {
+    ManualpricelistmanagerdeleteidbatchDataFilterCriteria filterCriteria;
+};
+
+# 
+public type GetPriceListResponse record {
+    GetPriceListResponseResponse response?;
+};
+
+public type FetchCPRBody record {
+    int startRow?;
+    string textMatchStyle?;
+    FetchCPRData data?;
+    int endRow?;
+    string operationType?;
+};
+
+public type ListPriceListTypesEnvelope record {
+    InlineResponse20067Response response?;
+};
+
+public type InlineResponse20036Response record {
+    string node?;
+    InlineResponse20036ResponseData[] data?;
+    int status?;
+};
+
+# Represents the Queries record for the operation: sqlQueryDataManagerObject
+public type SqlQueryDataManagerObjectQueries record {
+    # Set this parameter to override the default timeout (60 seconds) of the query. The maximum allowed timeout is 300 seconds. The default timeout value and the maximum timeout value can be configured in the backend. Setting higher timeout can be useful, for example, when a query takes long time (e.g., when processing large tables)
+    string timeout = "60";
+};
+
+public type ClicmanagerfetchtypedIdDataCriteria record {
+    string fieldName?;
+    string operator?;
+};
+
+public type AddSellerExtensionResponseResponse record {
+    string node?;
+    SX3|SX6|SX8|SX10|SX20|SX30|SX50 data?;
+    int status?;
+};
+
+public type AddActionTypeRequest record {
+    ActionItemType data?;
+    string operation;
+};
+
+# 
+public type ListUsersUserGroupsResponse record {
+    ListUsersUserGroupsResponseResponse response?;
+};
+
+# 
+public type AddUserRequest record {
+    AddUData data;
+    @constraint:String {minLength: 1}
+    string operation?;
+};
+
+public type CompensationRecordSetCalculationCalculationConfigOutputElements record {
+    string formulaName?;
+    boolean displayedInPriceShop?;
+    string formulaDate?;
+    string elementLabel?;
+    string[] elementGroups?;
+    "NUMERIC"|"NUMERIC_LONG"|"MONEY"|"PERCENT"|"TEXT"|"MONEY_EUR"|"MONEY_USD"|"MONEY_GBP"|"MONEY_JPY"|"MONEY_CHF"|"MONEY_PLN"|"DATETIME"|"DATE"|"INTEGER"|"LINK"|"COMPLEX"|"SPARKLINE" formatType?;
+    boolean 'key?;
+    boolean selected?;
+    string elementName?;
+};
+
+public type InlineResponse20031ResponseIoMeta record {
+    record {} outputs?;
+    record {} inputs?;
+};
+
+public type WorkflowsmanagerapprovecurrentStepIdData record {
+    @constraint:String {minLength: 1}
+    string actionComment;
+};
+
+public type ClicmanagerUpdatetypedIdBody record {
+    Quote|Compensation|Contract|RebateAgreement data?;
+};
+
+# 
+public type MassEditMPLRequest record {
+    ManualpricelistmanagermasseditidData data;
+};
+
+public type ListEmailTasksEnvelope record {
+    InlineResponse20062Response response?;
+};
+
+public type DatamartsqlqueryDataSourcesS0QueryProjections record {
+    @jsondata:Name {value: "Month"}
+    DatamartsqlqueryDataSourcesS0QueryProjectionsMonth month?;
+    @jsondata:Name {value: "Quantity"}
+    DatamartsqlqueryDataSourcesS0QueryProjectionsQuantity quantity?;
+};
+
+public type ClicmanageradditemstypedIdDataInputs record {
+    string name?;
+    string? value?;
+};
+
+public type QuotemanagersaveDataQuoteInputs record {
+    anydata labelTranslations?;
+    anydata addUnknownValues?;
+    anydata typedId?;
+    record {} parameterConfig?;
+    record {}[] inputs?;
+    anydata readOnly?;
+    @constraint:String {minLength: 1}
+    string label;
+    @constraint:String {minLength: 1}
+    string 'type;
+    anydata parameterGroup?;
+    @constraint:String {minLength: 1}
+    string url;
+    @constraint:String {minLength: 1}
+    string valueHint;
+    anydata required?;
+    anydata alwaysEditable?;
+    record {} formattingOptions?;
+    anydata valueOptions?;
+    anydata filter?;
+    anydata lookupTableId?;
+    @constraint:String {minLength: 1}
+    string name;
+    @constraint:String {minLength: 1}
+    string value;
+};
+
+# 
+public type AssignBusinessRoleToUserResponse record {
+    AddPriceGridItemsToPriceGridResponseResponse response?;
+};
+
+public type AddPGTTDataButtonsConfiguration record {
+    string key3?;
+};
+
+public type CustomformsearchData record {
+    @jsondata:Name {value: "_constructor"}
+    string constructor?;
+    FetchAIData[] criteria?;
+    string operator?;
+};
+
+public type CustomFormServerMessagesExtended record {
+    string 'source?;
+    string message?;
+    string 'key?;
+};
+
+# 
+public type AssignRoleToUsersRequest record {
+    AccountmanagerassignroleData data;
+};
+
+# 
+public type ListAttributeFieldsMetadata record {
+    ListAttributeFieldsMetadataResponse response?;
+};
+
+public type DeleteLogicResponseResponseData record {
+    @constraint:String {minLength: 1}
+    string lastUpdateByName?;
+    anydata createdByName?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    anydata label?;
+    anydata formulaNature?;
+    decimal version?;
+    anydata simulationSet?;
+    @constraint:String {minLength: 1}
+    string uniqueName?;
+    @constraint:String {minLength: 1}
+    string formulaType?;
+    decimal createdBy?;
+    anydata userGroupEdit?;
+    anydata userGroupViewDetails?;
+    @constraint:String {minLength: 1}
+    string validAfter?;
+    @constraint:String {minLength: 1}
+    string status?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal lastUpdateBy?;
+};
+
+# 
+public type RestoreDefaultDataSourcesResponse record {
+    RestoreDefaultDataSourcesResponseResponse response?;
+};
+
+public type DeleteSellerEnvelope record {
+    DeleteSellerResponse response?;
+};
+
+public type InlineResponse2011Response record {
+    string node?;
+    InlineResponse2011ResponseData[] data?;
+    int status?;
+};
+
+public type DenyDocumentResponseResponseData record {
+    DenyDocumentResponseResponseWorkflow workflow?;
+    @constraint:String {minLength: 1}
+    string resultType?;
+};
+
+# The type code is CGI4
+public type CalculationGridItem4Key record {
+    string typedId?;
+    @constraint:String {maxLength: 70}
+    string attribute83?;
+    @constraint:String {maxLength: 70}
+    string attribute82?;
+    @constraint:String {maxLength: 70}
+    string attribute81?;
+    @constraint:String {maxLength: 70}
+    string attribute80?;
+    @constraint:String {maxLength: 70}
+    string attribute89?;
+    @constraint:String {maxLength: 70}
+    string attribute88?;
+    @constraint:String {maxLength: 70}
+    string attribute87?;
+    @constraint:String {maxLength: 70}
+    string attribute86?;
+    CalculationGridItem1KeyCalculationResults[] calculationResults?;
+    @constraint:String {maxLength: 70}
+    string attribute85?;
+    @constraint:String {maxLength: 70}
+    string attribute84?;
+    int manualEditUser?;
+    @constraint:String {maxLength: 1300}
+    string allowedOverrides?;
+    int version?;
+    string alerts?;
+    @constraint:String {maxLength: 70}
+    string attribute9?;
+    @constraint:String {maxLength: 70}
+    string attribute94?;
+    decimal significantValueChangePct?;
+    @constraint:String {maxLength: 70}
+    string attribute8?;
+    @constraint:String {maxLength: 70}
+    string attribute93?;
+    @constraint:String {maxLength: 70}
+    string attribute92?;
+    @constraint:String {maxLength: 70}
+    string attribute91?;
+    @constraint:String {maxLength: 70}
+    string attribute5?;
+    @constraint:String {maxLength: 70}
+    string attribute90?;
+    @constraint:String {maxLength: 70}
+    string attribute4?;
+    @constraint:String {maxLength: 70}
+    string attribute7?;
+    @constraint:String {maxLength: 70}
+    string attribute6?;
+    @constraint:String {maxLength: 70}
+    string attribute1?;
+    @constraint:String {maxLength: 70}
+    string attribute14?;
+    @constraint:String {maxLength: 70}
+    string attribute13?;
+    @constraint:String {maxLength: 70}
+    string attribute3?;
+    @constraint:String {maxLength: 70}
+    string attribute12?;
+    @constraint:String {maxLength: 70}
+    string attribute2?;
+    @constraint:String {maxLength: 70}
+    string attribute11?;
+    @constraint:String {maxLength: 70}
+    string attribute99?;
+    @constraint:String {maxLength: 70}
+    string attribute10?;
+    @constraint:String {maxLength: 70}
+    string attribute98?;
+    @constraint:String {maxLength: 70}
+    string attribute97?;
+    @constraint:String {maxLength: 70}
+    string attribute96?;
+    @constraint:String {maxLength: 70}
+    string attribute95?;
+    decimal resultSignificantValue?;
+    string itemExtensions?;
+    @constraint:String {maxLength: 70}
+    string attribute19?;
+    @constraint:String {maxLength: 70}
+    string attribute18?;
+    @constraint:String {maxLength: 70}
+    string attribute17?;
+    @constraint:String {maxLength: 70}
+    string attribute16?;
+    @constraint:String {maxLength: 70}
+    string attribute15?;
+    string manualOverrides?;
+    @constraint:String {maxLength: 70}
+    string attribute25?;
+    @constraint:String {maxLength: 70}
+    string attribute24?;
+    @constraint:String {maxLength: 70}
+    string attribute23?;
+    @constraint:String {maxLength: 70}
+    string attribute22?;
+    @constraint:String {maxLength: 70}
+    string attribute21?;
+    @constraint:String {maxLength: 70}
+    string attribute20?;
+    string createDate?;
+    @constraint:String {maxLength: 70}
+    string attribute29?;
+    @constraint:String {maxLength: 70}
+    string attribute28?;
+    int calculationGridId?;
+    @constraint:String {maxLength: 70}
+    string attribute27?;
+    @constraint:String {maxLength: 70}
+    string attribute26?;
+    @constraint:String {maxLength: 1}
+    string completeResultsAvailable?;
+    @constraint:String {maxLength: 70}
+    string attribute36?;
+    @constraint:String {maxLength: 70}
+    string attribute35?;
+    @constraint:String {maxLength: 70}
+    string attribute34?;
+    @constraint:String {maxLength: 70}
+    string attribute33?;
+    @constraint:String {maxLength: 70}
+    string attribute32?;
+    @constraint:String {maxLength: 70}
+    string attribute31?;
+    @constraint:String {maxLength: 70}
+    string attribute30?;
+    @constraint:String {maxLength: 255}
+    string key1?;
+    @constraint:String {maxLength: 255}
+    string key2?;
+    @constraint:String {maxLength: 70}
+    string attribute39?;
+    @constraint:String {maxLength: 70}
+    string attribute38?;
+    @constraint:String {maxLength: 255}
+    string key3?;
+    string lastUpdateDate?;
+    @constraint:String {maxLength: 70}
+    string attribute37?;
+    @constraint:String {maxLength: 255}
+    string key4?;
+    @constraint:String {maxLength: 70}
+    string attribute47?;
+    @constraint:String {maxLength: 70}
+    string attribute46?;
+    @constraint:String {maxLength: 70}
+    string attribute45?;
+    @constraint:String {maxLength: 70}
+    string attribute44?;
+    @constraint:String {maxLength: 70}
+    string attribute43?;
+    @constraint:String {maxLength: 70}
+    string attribute42?;
+    @constraint:String {maxLength: 70}
+    string attribute41?;
+    @constraint:String {maxLength: 70}
+    string attribute40?;
+    @constraint:String {maxLength: 70}
+    string attribute49?;
+    @constraint:String {maxLength: 70}
+    string attribute48?;
+    @constraint:String {maxLength: 70}
+    string attribute50?;
+    @constraint:String {maxLength: 70}
+    string attribute100?;
+    @constraint:String {maxLength: 70}
+    string attribute58?;
+    int manualEditVersion?;
+    string name?;
+    @constraint:String {maxLength: 70}
+    string attribute57?;
+    @constraint:String {maxLength: 70}
+    string attribute56?;
+    @constraint:String {maxLength: 70}
+    string attribute55?;
+    @constraint:String {maxLength: 70}
+    string attribute54?;
+    @constraint:String {maxLength: 70}
+    string attribute53?;
+    record {|record {}...;|}[] allCalculationResults?;
+    @constraint:String {maxLength: 70}
+    string attribute52?;
+    @constraint:String {maxLength: 70}
+    string attribute51?;
+    @constraint:String {maxLength: 70}
+    string attribute59?;
+    decimal calculatedResultSignificantValue?;
+    @constraint:String {maxLength: 70}
+    string attribute61?;
+    @constraint:String {maxLength: 70}
+    string attribute60?;
+    decimal previousSignificantValue?;
+    decimal manualResultSignificantValue?;
+    @constraint:String {maxLength: 70}
+    string attribute69?;
+    @constraint:String {maxLength: 70}
+    string attribute68?;
+    @constraint:String {maxLength: 70}
+    string attribute67?;
+    @constraint:String {maxLength: 70}
+    string attribute66?;
+    @constraint:String {maxLength: 70}
+    string attribute65?;
+    @constraint:String {maxLength: 70}
+    string attribute64?;
+    @constraint:String {maxLength: 70}
+    string attribute63?;
+    @constraint:String {maxLength: 70}
+    string attribute62?;
+    @constraint:String {maxLength: 15}
+    string workStatus?;
+    @constraint:String {maxLength: 255}
+    string comments?;
+    decimal significantValueChange?;
+    string warnings?;
+    @constraint:String {maxLength: 255}
+    string label?;
+    @constraint:String {maxLength: 70}
+    string attribute72?;
+    @constraint:String {maxLength: 70}
+    string attribute71?;
+    @constraint:String {maxLength: 70}
+    string attribute70?;
+    int createdBy?;
+    @constraint:String {maxLength: 70}
+    string attribute79?;
+    int tableId?;
+    @constraint:String {maxLength: 70}
+    string attribute78?;
+    @constraint:String {maxLength: 70}
+    string attribute77?;
+    @constraint:String {maxLength: 70}
+    string attribute76?;
+    @constraint:String {maxLength: 70}
+    string attribute75?;
+    @constraint:String {maxLength: 70}
+    string attribute74?;
+    @constraint:String {maxLength: 70}
+    string attribute73?;
+    int lastUpdateBy?;
+};
+
+# The type code is BR
+public type BusinessRole record {
+    string typedId?;
+    @constraint:String {maxLength: 255}
+    string uniqueName?;
+    int createdBy?;
+    string lastUpdateDate?;
+    BusinessRoleRoles[] roles?;
+    BusinessRoleGroups[] groups?;
+    @constraint:String {maxLength: 255}
+    string label?;
+    int version?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+public type DeleteCGIkeyNumberData record {
+    # `typedId` of the CGI you want to delete
+    string typedId;
+};
+
+# 
+public type ListContractsRequest record {
+    # The number of the first row that defines the start of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal startRow?;
+    @constraint:String {minLength: 1}
+    string textMatchStyle?;
+    LookuptablemanagerfetchData data?;
+    # The number of the end row that defines the end of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal endRow = 300;
+    @constraint:String {minLength: 1}
+    string operationType?;
+    anydata oldValues?;
+};
+
+public type QuoteResponse_response_data record {
+    decimal version?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    @constraint:String {minLength: 1}
+    string uniqueName?;
+    @constraint:String {minLength: 1}
+    string label?;
+    @constraint:String {minLength: 1}
+    string targetDate?;
+    @constraint:String {minLength: 1}
+    string workflowStatus?;
+    @constraint:String {minLength: 1}
+    string headerText?;
+    @constraint:Array {minLength: 1}
+    QuoteResponse_response_inputs[] inputs?;
+    QuoteResponse_response_viewState viewState?;
+    record {}[] outputs?;
+    @constraint:String {minLength: 1}
+    string lastUpdateByName?;
+    @constraint:String {minLength: 1}
+    string createdByName?;
+    @constraint:String {minLength: 1}
+    string submittedByName?;
+    decimal calculationStatus?;
+    boolean dirty?;
+    boolean refreshInputs?;
+    anydata nodeId?;
+    anydata userGroupEdit?;
+    anydata userGroupViewDetails?;
+    anydata[] serverMessages?;
+    anydata additionalInfo1?;
+    anydata additionalInfo2?;
+    anydata additionalInfo3?;
+    anydata additionalInfo4?;
+    decimal numberOfAttachments?;
+    anydata creationWorkflowStatus?;
+    anydata creationWorkflowCurrentStep?;
+    anydata creationWorkflowStepCount?;
+    anydata creationWorkflowStepLabel?;
+    anydata signature?;
+    @constraint:Array {minLength: 1}
+    QuoteResponse_response_lineItems[] lineItems?;
+    @constraint:String {minLength: 1}
+    string expiryDate?;
+    anydata externalRef?;
+    @constraint:String {minLength: 1}
+    string customerId?;
+    @constraint:String {minLength: 1}
+    string customerName?;
+    anydata customerGroup?;
+    @constraint:String {minLength: 1}
+    string quoteStatus?;
+    anydata renderInfo?;
+    @constraint:Array {minLength: 1}
+    anydata[] serverMessagesExtended?;
+    anydata approvalRequiredEmailAttachmentsJson?;
+    boolean hasWorkflowHistory?;
+    @constraint:String {minLength: 1}
+    string approvedByName?;
+    anydata deniedByName?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal createdBy?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    decimal lastUpdateBy?;
+    anydata supersededBy?;
+    @constraint:String {minLength: 1}
+    string prevRev?;
+    @constraint:String {minLength: 1}
+    string rootUniqueName?;
+    anydata quoteType?;
+    @constraint:String {minLength: 1}
+    string status?;
+};
+
+public type UpdateCFOTOldValuesConfigurationDefaultTabsDetails record {
+    string translationKey?;
+    string icon?;
+    string name?;
+    string 'type?;
+};
+
+public type LogicResponse_response_data record {
+    LogicResponse_response_formula formula?;
+};
+
+public type GetClaimItemsSummaryResponseResponseSummaryAutoRejected record {
+    int amount?;
+    int itemCount?;
+};
+
+public type ListActionTypesResponseResponse record {
+    string node?;
+    int startRow?;
+    ActionItemType[] data?;
+    int endRow?;
+    int totalRows?;
+    int status?;
+};
+
+public type ContractmanageradditemsData record {
+    @constraint:String {minLength: 1}
+    string parent?;
+    ContractmanageradditemsDataContract contract?;
+    record {}[] contractTermTypes?;
+};
+
+public type MasseditTypeCodeDataFilterCriteria record {
+    @jsondata:Name {value: "_constructor"}
+    string constructor;
+    @constraint:Array {minLength: 1}
+    MasseditTypeCodeDataFilterCriteriaCriteria[] criteria;
+    @constraint:String {minLength: 1}
+    string operator;
+};
+
+public type SearchProductResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:String {minLength: 1}
+    string csrfToken?;
+    @constraint:Array {minLength: 1}
+    SearchProductResponseResponseData[] data?;
+    decimal totalRows?;
+    decimal status?;
+};
+
+public type GetDMObjectResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    decimal startRow?;
+    @constraint:Array {minLength: 1}
+    record {}[] data?;
+    decimal endRow?;
+    decimal totalRows?;
+    decimal status?;
+};
+
+public type ClicDraftHeaderEnvelope record {
+    InlineResponse20049Response response?;
+};
+
+public type AddLookupTableResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node;
+    @constraint:Array {minLength: 1}
+    AddLookupTableResponseResponseData[] data;
+    decimal status;
+};
+
+# 
+public type InsertBulkCustomersRequest record {
+    LoaddataCData data;
+};
+
+# 
+public type CreateObjectRequest_1 record {
+    # The initial values of the object. The request needs to contain all fields that are part of the business key for that object and all non-nullable fields.
+    record {} data;
+    # Must be `add`, null, or omitted.
+    @constraint:String {minLength: 1}
+    string operation;
+};
+
+public type MassEditImportsEnvelope record {
+    InlineResponse2013Response response?;
+};
+
+public type DatamartmassedittypedIdData record {
+    record {} filterCriteria?;
+    @constraint:Array {minLength: 1}
+    DatamartmassedittypedIdDataMassEditRecords[] massEditRecords;
+};
+
+public type GetCustomFormResponseResponseOutputs record {
+    anydata alertMessage?;
+    anydata cssProperties?;
+    anydata labelTranslations?;
+    anydata alertType?;
+    anydata overrideValueOptions?;
+    anydata warnings?;
+    boolean overrideAllowEmpty?;
+    anydata resultGroup?;
+    boolean overridden?;
+    anydata suffix?;
+    boolean excludeFromExport?;
+    @constraint:String {minLength: 1}
+    string resultName?;
+    anydata displayOptions?;
+    anydata result?;
+    boolean overridable?;
+    anydata resultDescription?;
+    @constraint:String {minLength: 1}
+    string formatType?;
+    anydata resultType?;
+    anydata userGroup?;
+    @constraint:String {minLength: 1}
+    string resultLabel?;
+};
+
+public type DatamartupdatefcTypeCodeData record {
+    anydata formulaName?;
+    anydata reservedWords?;
+    @constraint:String {minLength: 1}
+    string lastUpdateByName?;
+    @constraint:String {minLength: 1}
+    string typedId;
+    @constraint:String {minLength: 1}
+    string fetchVerb?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    @constraint:String {minLength: 1}
+    string dbTable?;
+    # Set to `true` if the matching tables were created/updated
+    boolean deployed?;
+    @constraint:String {minLength: 1}
+    string 'type?;
+    anydata calculationDate?;
+    anydata sourceFile?;
+    anydata identikitCriteria?;
+    boolean valid?;
+    @constraint:String {minLength: 1}
+    string defaultDataSourceName?;
+    anydata integrateVerb?;
+    boolean view?;
+    string[] loadableFields?;
+    boolean reload?;
+    string[] keyFields?;
+    boolean auxiliary?;
+    boolean draft?;
+    anydata rowCount?;
+    boolean locked?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    @constraint:String {minLength: 1}
+    string lastDataModificationDate?;
+    anydata quoteChar?;
+    anydata calculationMessages?;
+    anydata targetDate?;
+    anydata query?;
+    boolean isPlasma?;
+    @constraint:String {minLength: 1}
+    string bulkloadVerb?;
+    @constraint:String {minLength: 1}
+    string label?;
+    anydata fieldSeperator?;
+    decimal version?;
+    string dbKey?;
+    anydata typeCode?;
+    boolean queryable?;
+    anydata dbView?;
+    @constraint:String {minLength: 1}
+    string uniqueName;
+    decimal createdBy?;
+    anydata messages?;
+    @constraint:String {minLength: 1}
+    string sourceName?;
+    @constraint:Array {minLength: 1}
+    DatamartupdatefcTypeCodeDataFields[] fields;
+    anydata lineSeperator?;
+    anydata calculationStartDate?;
+    anydata status?;
+    decimal lastUpdateBy?;
+};
+
+public type DeleteCOCTData record {
+    string typedId;
+};
+
+public type AddClaimTypeResponse record {
+    AddClaimTypeResponseResponse response?;
+};
+
+public type QuoteResponse_response_viewState record {
+    anydata gridViewState?;
+    anydata openFolders?;
+    string[] selectedNodes?;
+};
+
+public type ListPriceListsResponseResponseData record {
+    @constraint:String {minLength: 1}
+    string lastUpdateByName?;
+    @constraint:String {minLength: 1}
+    string createdByName?;
+    @constraint:String {minLength: 1}
+    string updateDate?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    @constraint:String {minLength: 1}
+    string calculationMessages?;
+    decimal updatedBy?;
+    @constraint:String {minLength: 1}
+    string configuration?;
+    @constraint:String {minLength: 1}
+    string targetDate?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    @constraint:String {minLength: 1}
+    string approvalState?;
+    @constraint:String {minLength: 1}
+    string errorMode?;
+    @constraint:String {minLength: 1}
+    string label?;
+    @constraint:String {minLength: 1}
+    string calculationDate?;
+    decimal version?;
+    boolean writeOnlyChangedItems?;
+    decimal createdBy?;
+    decimal numberOfItems?;
+    @constraint:String {minLength: 1}
+    string pricelistType?;
+    decimal id?;
+    boolean keepManualOverrides?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal lastUpdateBy?;
+    @constraint:String {minLength: 1}
+    string status?;
+};
+
+# The type code is RRG
+public type RebateRecordGroup record {
+    string typedId?;
+    string endDate?;
+    "DRAFT"|"SUBMITTED"|"DENIED"|"APPROVED"|"NO_APPROVAL_REQUIRED"|"WITHDRAWN"|"INVALIDATED" workflowStatus?;
+    "DRAFT"|"APPROVED"|"OPEN"|"CLOSED"|"REVOKED"|"SUPERSEDED"|"INVALIDATED" agreementStatus?;
+    string payoutDate?;
+    anydata attribute83?;
+    anydata attribute82?;
+    anydata attribute81?;
+    anydata attribute80?;
+    @constraint:String {maxLength: 255}
+    string sourceIdNoRev?;
+    anydata attribute89?;
+    anydata attribute88?;
+    anydata attribute87?;
+    anydata attribute86?;
+    RebateRecordGroupCalculationResults[] calculationResults?;
+    anydata attribute85?;
+    anydata attribute84?;
+    string? targetDate?;
+    string? allowedOverrides?;
+    int version?;
+    string? alerts?;
+    anydata attribute9?;
+    anydata attribute94?;
+    anydata attribute8?;
+    anydata attribute93?;
+    anydata attribute92?;
+    anydata attribute91?;
+    anydata attribute5?;
+    anydata attribute90?;
+    anydata attribute4?;
+    anydata attribute7?;
+    anydata attribute6?;
+    anydata attribute1?;
+    anydata attribute14?;
+    anydata attribute13?;
+    string? userGroupEdit?;
+    anydata attribute3?;
+    anydata attribute12?;
+    anydata attribute2?;
+    anydata attribute11?;
+    anydata attribute99?;
+    anydata attribute10?;
+    anydata attribute98?;
+    anydata attribute97?;
+    string startDate?;
+    anydata attribute96?;
+    "DRAFT"|"SUBMITTED"|"APPROVED"|"REVOKED"|"INVALIDATED" status?;
+    anydata attribute95?;
+    @constraint:String {maxLength: 255}
+    string formulaName?;
+    record {}? itemExtensions?;
+    anydata attribute19?;
+    anydata attribute18?;
+    anydata attribute17?;
+    anydata attribute16?;
+    anydata attribute15?;
+    string calculationDate?;
+    string? manualOverrides?;
+    string? parentTypedId?;
+    anydata attribute25?;
+    string? submittedByName?;
+    anydata attribute24?;
+    anydata attribute23?;
+    anydata attribute22?;
+    anydata attribute21?;
+    anydata attribute20?;
+    string createDate?;
+    anydata[]? approvalRequiredEmailAttachments?;
+    anydata attribute29?;
+    anydata attribute28?;
+    anydata attribute27?;
+    anydata attribute26?;
+    anydata completeResultsAvailable?;
+    "SUCCESS"|"COMMAND_GENERAL_ERROR"|"COMMAND_GENERAL_ERROR_WITH_MSG"|"COMMAND_GENERAL_ERROR_CONFLICT"|"COMMAND_GENERAL_ERROR_CONFLICT_FIELD"|"COMMAND_NOT_FOUND"|"COMMAND_CONFIG_ERROR"|"COMMAND_CONTEXT_PATH_NOTFOUND"|"COMMAND_NOT_AUTHORIZED"|"COMMAND_INVALID_PARAMETERS"|"COMMAND_FORBIDDEN_IN_K8S"|"COMMAND_FORBIDDEN_IN_READONLYMODE"|"COMMAND_FORM_TOO_LARGE"|"OBJECT_NOT_FOUND"|"LOGIN_FAILURE"|"LOGIN_FAILURE_BANNED"|"LOGIN_FAILURE_TFA"|"LOGIN_FAILURE_INACTIVE_OR_EXPIRED"|"PARTITION_UNKNOWN"|"COPY_OF_PREFIX"|"SIM_OF_PREFIX"|"TOO_MANY_WARNINGS"|"NO_NAME"|"ERROR_MESSAGE"|"ERROR_STATUS"|"ERROR_HTTPCODE"|"ERROR_ACTION"|"ERROR_TIMESTAMP"|"INVALID"|"FORMULA_ERROR"|"DEFAULT_FORMULA_NOT_FOUND"|"ACTIVE_FORMULA_NOT_FOUND"|"ACTIVE_FORMULA_OF_NATURE_NOT_FOUND"|"FORMULA_NOT_FOUND"|"FORMULA_NOT_FOUND_FOR"|"FE_SYNTAX_ERROR"|"FE_UNKNOWN_SYMBOL_ERROR"|"FE_WRONG_NUMBER_OF_ARGS"|"FE_ILLEGAL_OPERATION"|"FE_ILLEGAL_ARGUMENT"|"FE_ILLEGAL_STATUS"|"FE_UNDEFINED_FUNCTION"|"FE_UNDEFINED_UNIT"|"FE_UNDEFINED_VARIABLE"|"FE_FLEXCHART_UNSUPPORTED_FEATURE"|"FE_FLEXCHART_UNRECOGNIZED_OPTION"|"FE_FLEXCHART_INVALID_OPTION"|"FE_FLEXCHART_FORBIDDEN_OPTION"|"FE_FLEXCHART_INVALID_JSON"|"FE_FLEXCHART_GENERIC_ERROR"|"FE_EMBEDDED_DASHBOARD_API_MALFORMED_CONF"|"FE_EMBEDDED_DASHBOARD_API_FUNCTION_DOES_NOT_EXIST"|"FE_EMBEDDED_DASHBOARD_API_ILLEGAL_FUNCTION_CALL"|"FE_EMBEDDED_DASHBOARD_API_ILLEGAL_ARGUMENT"|"FE_WARNING_FLEXCHART_UNRECOGNIZED_TEMPLATE"|"FE_WARNING_ATTRIBUTE_NOTFOUND"|"FE_WARNING_PRODUCT_NOTSET"|"FE_WARNING_PRODUCT_NOTFOUND"|"FE_WARNING_PRODUCTATTRIBUTE_NOTFOUND"|"FE_WARNING_PRODUCTATTRIBUTE_AMIBGUOUS"|"FE_WARNING_CUSTOMER_NOTSET"|"FE_WARNING_CUSTOMER_NOTFOUND"|"FE_WARNING_CUSTOMERATTRIBUTE_NOTFOUND"|"FE_WARNING_CUSTOMERATTRIBUTE_AMIBGUOUS"|"FE_WARNING_SELLER_NOTFOUND"|"FE_WARNING_SELLERATTRIBUTE_NOTFOUND"|"FE_WARNING_SELLERATTRIBUTE_AMIBGUOUS"|"FE_WARNING_SELLER_NOTSET"|"FE_WARNING_VLOOKUP_TABLE_NOTFOUND"|"FE_WARNING_VLOOKUP_KEY_NOTFOUND"|"FE_WARNING_VLOOKUP_KEY_ISNULL"|"FE_WARNING_VLOOKUP_AMIBGUOUS"|"FE_WARNING_VLOOKUP_AMIBGUOUS_NOKEY"|"FE_WARNING_CONTEXT_NOTFOUND"|"FE_WARNING_CONTEXT_AMIBGUOUS"|"FE_WARNING_USERENTRY_NOTFOUND"|"FE_WARNING_CONFIGURATOR_NOTFOUND"|"FE_WARNING_OPTION_NOTFOUND"|"FE_WARNING_FUNCTIONCALL_AMIBGUOUS"|"FE_WARNING_ARITHMETICEXCEPTION"|"FE_WARNING_PRICELIST_ITEMNOTFOUND"|"FE_INFO_DATAMARTQUERY_USINGCACHEDRESULT"|"FE_WARNING_DATAMARTQUERY_INVALIDQUERY"|"FE_WARNING_DATAMARTQUERY_MAXROWSEXCEEDED"|"FE_WARNING_DATAMARTLOOKUP_QUERYNOTFOUND"|"FE_WARNING_DATAMARTLOOKUP_FIELDNOTFOUND"|"FE_WARNING_DATAMARTLOOKUP_INVALIDFILTER"|"FE_WARNING_DATAMARTLOOKUP_MAXROWSEXCEEDED"|"FE_WARNING_COULD_NOT_COMBINE_ELEMENTS"|"FE_WARNING_PRODUCT_EXTENSION_NAME_NOTSET"|"FE_WARNING_CUSTOMER_EXTENSION_NAME_NOTSET"|"FE_WARNING_PRICERECORD_NOTFOUND"|"FE_WARNING_PRODUCTGROUP_NOTFOUND"|"FE_WARNING_CUSTOMERGROUP_NOTFOUND"|"FE_WARNING_SELLERGROUP_NOTFOUND"|"FE_WARNING_ANYUSER_NOTFOUND"|"FE_WARNING_MULTITIERENTRY_NOTFOUND"|"FE_WARNING_DATASOURCE_NOTFOUND"|"FE_WARNING_FIELD_NOTFOUND"|"FE_WARNING_REBATERECORD_NOTFOUND"|"FE_WARNING_CONTEXTSKUSET_NOTSETORMALFORMED"|"FE_WARNING_FILTERBUILDERUSERENTRY_NOTFOUND"|"FE_WARNING_FILTERBUILDERUSERENTRY_ILLEGALVALUE"|"FE_WARNING_DMFILTERBUILDERUSERENTRY_NOTFOUND"|"FE_WARNING_DMFILTERBUILDERUSERENTRY_ILLEGALVALUE"|"FE_WARNING_REBATE_AGREEMENT_NOTFOUND"|"FE_WARNING_REBATE_AGREEMENT_ATTRIBUTE_NOTFOUND"|"FE_WARNING_CLAIM_WRONG_VALIDATION_STATE"|"FE_WARNING_HOOK_GENERIC_ERROR"|"FE_WARNING_HOOK_GENERIC_DENIED_MESSAGE"|"FE_WARNING_PARENT_NOTFOUND"|"FE_WARNING_MAX_RESULTS_SIZE_EXCEEDED"|"FE_WARNING_MISSING_BUSINESSKEY_VALUE"|"VALIDATION_SKU_MISSING"|"VALIDATION_PARTITION_USERNAME_UPDATE"|"VALIDATION_PARTITION_PASSWORD_UPDATE"|"VALIDATION_PARTITION_NULL"|"VALIDATION_PARTITION_MISMATCH"|"VALIDATION_CUSTOMERID_MISSING"|"VALIDATION_SELLERID_MISSING"|"VALIDATION_DUPLICATE_BUSINESSKEY"|"VALIDATION_DUPLICATE_BUSINESSKEY_PARAMETERIZED"|"VALIDATION_DUPLICATE_BUSINESSKEY_DETAILED"|"VALIDATION_DUPLICATE_LABEL_NAME_DETAILED"|"VALIDATION_DYNAMIC_TABS_DUPLICATED_CUSTOM_FORMS"|"VALIDATION_DYNAMIC_TABS_STANDALONE_CUSTOM_FORM"|"VALIDATION_DYNAMIC_TABS_UNSUPPORTED_TYPE_CUSTOM_FORM"|"VALIDATION_DYNAMIC_TABS_NON_EXISTING_CONFIG_WIZARD"|"VALIDATION_DYNAMIC_TABS_NON_EXISTING_ACTION_ITEM_TYPE"|"VALIDATION_DYNAMIC_TABS_MISSING_TAB"|"VALIDATION_NEWER_VERSION_EXISTS"|"VALIDATION_FORMULAELEMENT_EMPTYNAME"|"VALIDATION_FORMULAELEMENT_INVALIDNAME"|"VALIDATION_FAILED"|"VALIDATION_FIELD_DUPLICATE_VALUE"|"VALIDATION_FIELD_MISSING"|"VALIDATION_NEITHER_FIELD_PRESENT"|"VALIDATION_DEFAULT_LABEL_TRANSLATION_MISSING"|"VALIDATION_FIELD_INVALID_CHARS"|"VALIDATION_FIELD_INVALID"|"VALIDATION_FIELD_TOO_BIG"|"VALIDATION_FIELD_TOO_BIG_WITH_MSG"|"VALIDATION_NUMBER_TOO_BIG"|"VALIDATION_STATUS_RESTRICTED"|"VALIDATION_USERGROUP_RESTRICTED"|"VALIDATION_WORKFLOW_RESTRICTED"|"VALIDATION_EDIT_NOT_AUTHORIZED"|"VALIDATION_FETCH_NOT_AUTHORIZED"|"VALIDATION_DELETE_NOT_AUTHORIZED"|"VALIDATION_ADD_NOT_AUTHORIZED"|"VALIDATION_INVALID_STATUS"|"VALIDATION_LINKED_OBJ_NOT_SAVED"|"VALIDATION_BOTH_SKU_AND_PRODUCTGROUP_PRESENTED"|"VALIDATION_BOTH_CUSTOMERID_AND_CUSTOMERGROUP_PRESENTED"|"VALIDATION_PLASMA_DELETE"|"VALIDATION_PLASMA_MISMATCH"|"VALIDATION_PLASMA_UPDATE"|"VALIDATION_PWDCOMPLEXITYRULES_INVALID_PASSWORD"|"VALIDATION_PWNED_PASSWORD"|"VALIDATION_PWNED_PASSWORD_DIGEST_ERROR"|"VALIDATION_PWNED_SERVICE_ERROR"|"VALIDATION_INVALID_OLD_PASSWORD"|"VALIDATION_APPLICATIONPROPERTIES_PWDCOMPLEXITYRULES_UNKNOWN"|"VALIDATION_FORMULA_WITH_NAME_AND_DIFFERENT_NATURE_EXISTS"|"VALIDATION_FORMULA_WORKFLOWTYPE_NOTALIGNED"|"VALIDATION_DATE_CONFLICT_WITH"|"VALIDATION_INVALID_ENDDATE"|"VALIDATION_MISSING_DRIVERS"|"VALIDATION_APPLICATIONPROPERTIES_REVISIONPATTERN_FIELD_MISSING"|"VALIDATION_IMPORT_EXCEL_INVALID_HEADER"|"VALIDATION_WARNING_BUSINESS_KEYS_LENGTHS_EXCEEDED"|"VALIDATION_MULTIPLE_FORMULA_INHERITANCE_NOT_ALLOWED"|"VALIDATION_NATURE_NOT_ALLOWED_FOR_INHERITANCE"|"VALIDATION_PARENT_AND_CHILD_NATURES_DO_NOT_MATCH"|"VALIDATION_PLATFORM_MANAGER_ACCOUNT_CANNOT_BE_EDITED"|"VALIDATION_TOO_MANY_ENTITIES_FOR_THE_TIME_PERIOD"|"PL_ALERT_PRICEDEVIATION_TOO_HIGH"|"PL_WRONG_TYPE"|"PL_ALREADY_APPROVED"|"PL_NOTFOUND"|"PL_CAN_CONVERT_TO_APPROVED"|"CALC_ALREADY_FINISHED"|"CALC_CANCEL_QUEUED"|"CALC_SERIALIZATION_ERROR"|"NO_MAPPING"|"PG_ISEMPTY"|"PGI_OFNONEXISTENTSKU_SKIPPED"|"PGI_OFNONEXISTENTSKU_INVALIDATED"|"PGI_OFNONEXISTENTSKU_HARDDELETED"|"SIM_ISEMPTY"|"SIM_BASEPL_INVALID"|"NOT_ENOUGH_LICENSES"|"CANNOT_EXPAND_SCOPE_BUSINESSROLE"|"ACCESS_DENIED"|"DM_DEPLOYMENT_IN_PROGRESS"|"DM_OBJECT_ISLOCKED"|"DM_DEFAULT_DS_CREATION_FAILED"|"DM_SCHEMA_INTEGRITY_ERROR"|"DM_ACTION_NOTALLOWED"|"DM_VALIDATION_MAXROWS_EXCEEDED"|"DM_VALIDATION_HEADER_INVALIDFIELD"|"DM_VALIDATION_FIELD_UNKNOWN"|"DM_VALIDATION_KEYFIELD_MISSING"|"DM_VALIDATION_FIELD_MISSING"|"DM_VALIDATION_ROW_INVALIDFORMAT"|"DM_VALIDATION_ROW_FIELDMISMATCH"|"DM_VALIDATION_FIELD_INVALIDVALUE"|"DM_VALIDATION_INVALID"|"DM_VALIDATION_DM_FIELD_AMBIGIOUS"|"DM_VALIDATION_SCHEMA_FIELDCONFLICT"|"DM_VALIDATION_SCHEMA_AMBIGUOUSFIELDTYPE"|"DM_VALIDATION_SCHEMA_CIRCULARDEPENDENCY"|"DM_VALIDATION_DS_INVALID"|"DM_VALIDATION_DM_INVALID"|"DM_VALIDATION_FC_DEPENDENTONINVALIDFC"|"DM_VALIDATION_FC_INVALIDFIELDS"|"DM_VALIDATION_FC_INVALIDCALCULATEDFIELDS"|"DM_VALIDATION_FC_INVALIDNAME"|"DM_VALIDATION_FC_DUPLICATEFIELDS"|"DM_VALIDATION_DS_NOKEY"|"DM_VALIDATION_DS_AMBIGUOUSCCY"|"DM_VALIDATION_DS_AMBIGUOUSUOM"|"DM_VALIDATION_DS_MISSINGKEYFIELDS"|"DM_VALIDATION_DM_NOKEY"|"DM_VALIDATION_DM_SOURCE_MISSING"|"DM_VALIDATION_DM_FIELD_UNKNOWN"|"DM_VALIDATION_DM_INVALIDFIELDS"|"DM_VALIDATION_DEPENDENCIES_MISSING"|"DM_VALIDATION_SOURCE_NOTACCESSIBLE"|"DM_VALIDATION_SOURCE_FIELD_UNKNOWN"|"DM_VALIDATION_SOURCE_FIELD_MISSING"|"DM_VALIDATION_SYSTEM_GENERATED_DATASOURCE"|"DM_VALIDATION_CFS_KEYNOTALLOWED"|"DM_VALIDATION_KEYFIELD_INVALIDTYPE"|"DM_VALIDATION_FIELD_INVALIDNAME"|"DM_VALIDATION_FIELD_INVALIDTYPE"|"DM_VALIDATION_FIELD_INVALIDEXPRESSION"|"DM_VALIDATION_QUERY_SOURCE_MISSING"|"DM_VALIDATION_QUERY_NOTQUERYABLE"|"DM_VALIDATION_QUERY_INVALIDCCYCODE"|"DM_VALIDATION_QUERY_CANNOTGENSTATPROJ"|"DM_VALIDATION_QUERY_PROJ_INVALID"|"DM_VALIDATION_QUERY_PROJ_INVALIDTYPE"|"DM_VALIDATION_QUERY_PROJ_INVALIDCALCMODE"|"DM_VALIDATION_QUERY_PROJ_CANNOTROLLUP"|"DM_VALIDATION_QUERY_PROJ_CANNOTGENSTATPROJ"|"DM_VALIDATION_QUERY_PROJ_INVALIDDEFAULT"|"DM_VALIDATION_QUERY_EXPR_UNKNOWNIDENTIFIER"|"DM_VALIDATION_QUERY_ROWLIMIT_INVALID"|"DM_VALIDATION_QUERY_PIVOTCOLUMNLIMIT"|"DM_VALIDATION_QUERY_FILTER_INVALID"|"DM_VALIDATION_QUERY_MISSING_SQL"|"DM_VALIDATION_DUPLICATE"|"DM_VALIDATION_AMBIGUOUS"|"DM_LABEL_CALENDAR"|"DM_LABEL_TIMEDIM_DAY"|"DM_LABEL_TIMEDIM_WEEK"|"DM_LABEL_TIMEDIM_MONTH"|"DM_LABEL_TIMEDIM_QUARTER"|"DM_LABEL_TIMEDIM_YEAR"|"DM_LABEL_DEFAULTFEED2DSFORMULA"|"DM_DATASOURCES"|"DM_VALIDATION_PARTITIONING_KEY_MORE_THAN_ONE"|"DM_VALIDATION_PARTITIONING_KEY_HAS_TO_BE_DATE"|"DM_VALIDATION_FIELD_PARTITIONING_KEY_HAS_TO_BE_DATE"|"DM_VALIDATION_PARTITIONING_NO_EFFECT_ON_EXISTING"|"DM_QUERY_TIMEOUT"|"JST_CANNOT_START"|"IMPORTFILE_VALIDATION_ERROR_DATASOURCE"|"IMPORTFILE_VALIDATION_ERROR_LIST"|"IMPORTFILE_VALIDATION_ERROR_READONLY"|"IMPORTFILE_VALIDATION_ERROR_REQUIRED"|"IMPORTFILE_VALIDATION_ERROR_START"|"IMPORTFILE_VALIDATION_ERROR_FIELDTYPE"|"IMPORTFILE_VALIDATION_ERROR_FILTER"|"IMPORTFILE_VALIDATION_ERROR_HEADER"|"MODEL_MODELTYPE_NOT_FOUND"|"MODEL_CALCSTEP_NOT_FOUND"|"MODEL_NATURE_NOT_FOUND"|"MODEL_TYPE_DEFINITION_INVALID"|"MODEL_NOT_SPECIFIED"|"MODEL_RECORD_NOT_SPECIFIED"|"ROLLUP_INVALID"|"QUOTE_USERGROUP_RESTRICTED"|"QUOTE_CALCULATED"|"QUOTE_CALCULATED_WITHERRORS"|"QUOTE_SUBMITTED"|"QUOTE_SAVED"|"QUOTE_SUPERSEDEDBY"|"QUOTE_PRODUCTSNOTADDED"|"QUOTE_ALREADY_EXPIRED"|"QUOTE_TESTRESULTELEMENTNAME"|"QUOTE_LINEITEMS_DOTOMATCHQPF"|"QUOTE_QPF_COMPUTATION_FAILED"|"QUOTE_COULD_NOT_CONVERT_TO_DEAL"|"QUOTE_NON_EXISTENT_SKUS"|"QUOTE_WASDELETEDONSERVER"|"QUOTETYPE_DEFAULTTYPE_DELETE_NOTALLOWED"|"QUOTETYPE_DEFAULTTYPE_EDIT_NOTALLOWED"|"QUOTETYPE_EDIT_NOTALLOWED"|"QUOTETYPE_MISSING"|"HEADER_PREPHASE_ELEMENTPOSTFIX"|"HEADER_POSTPHASE_ELEMENTPOSTFIX"|"RBA_USERGROUP_RESTRICTED"|"RBA_CALCULATED"|"RBA_CALCULATED_WITHERRORS"|"RBA_SUBMITTED"|"RBA_SAVED"|"RBA_SUPERSEDEDBY"|"RBA_ITEMSNOTADDED"|"RBA_TESTRESULTELEMENTNAME"|"RBA_WASDELETEDONSERVER"|"REBATETYPE_MISSING"|"RBA_LINEITEMS_DONOTMATCHRBTF"|"RBA_RBTF_COMPUTATION_FAILED"|"RBA_HEADERREBATETYPE_MISSING"|"HEADERREBATETYPE_DEFAULTTYPE_DELETE_NOTALLOWED"|"HEADERREBATETYPE_EDIT_NOTALLOWED"|"HEADERREBATETYPE_MISSING"|"COMPENSATION_CONDITIONTYPE_MISSING"|"COMPENSATION_USERGROUP_RESTRICTED"|"COMPENSATION_CALCULATED"|"COMPENSATION_CALCULATED_WITHERRORS"|"COMPENSATION_SUBMITTED"|"COMPENSATION_SAVED"|"COMPENSATION_SUPERSEDEDBY"|"COMPENSATION_ITEMSNOTADDED"|"COMPENSATION_TESTRESULTELEMENTNAME"|"COMPENSATION_WASDELETEDONSERVER"|"COMPENSATION_LINEITEMS_DONOTMATCHRBTF"|"COMPENSATION_RBTF_COMPUTATION_FAILED"|"COMPENSATION_COMPENSATIONHEADERTYPE_MISSING"|"COMPENSATIONHEADERTYPE_DEFAULTTYPE_DELETE_NOTALLOWED"|"COMPENSATIONHEADERTYPE_EDIT_NOTALLOWED"|"COMPENSATIONHEADERTYPE_MISSING"|"COR_CALCULATED"|"COR_CALCULATED_WITHERRORS"|"COR_SUBMITTED"|"COR_SAVED"|"COR_ONGOING_CALCULATION"|"RR_CALCULATED"|"RR_CALCULATED_WITHERRORS"|"RR_SUBMITTED"|"RR_SAVED"|"RR_ONGOING_CALCULATION"|"RRG_CALCULATED"|"RRG_CALCULATED_WITHERRORS"|"RRG_SUBMITTED"|"RRG_SAVED"|"RRG_ONGOING_CALCULATION"|"MR_CALCULATED"|"MR_CALCULATED_WITHERRORS"|"MR_SUBMITTED"|"MR_SAVED"|"MR_WARNING_NOTALLRECORDSSUBMITTED"|"CONTRACT_SAVED"|"CONTRACT_SUPERSEDEDBY"|"CONTRACT_CALCULATED"|"CONTRACT_CALCULATED_WITHERRORS"|"CONTRACT_SUBMITTED"|"CONTRACT_ITEMSNOTADDED"|"CONTRACT_INVALID_CUSTOMER_GROUP"|"CONTRACT_INVALID_CUSTOMER_GROUP_FOR_LINE"|"CONTRACT_INVALID_PRODUCT_GROUP"|"CONTRACT_INVALID_PRODUCT_GROUP_FOR_LINE"|"CONTRACT_INVALID_SELLER_REFERENCE"|"CONTRACT_INVALID_SELLER_REFERENCE_FOR_LINE"|"CONTRACT_TESTRESULTELEMENTNAME"|"CONTRACT_LINEITEMS_DONOTMATCHCTTF"|"CONTRACT_CTTF_COMPUTATION_FAILED"|"CONTRACT_WASDELETEDONSERVER"|"CONTRACTTERMTYPE_MISSING"|"CONTRACT_ONGOING_CALCULATION"|"CONTRACTHEADERTYPE_DEFAULTTYPE_DELETE_NOTALLOWED"|"CONTRACTHEADERTYPE_EDIT_NOTALLOWED"|"CONTRACTHEADERTYPE_MISSING"|"ACTIONITEMTYPE_DEFAULTTYPE_DELETE_NOTALLOWED"|"ACTIONITEMTYPE_EDIT_NOTALLOWED"|"CUSTOM_FORM"|"CUSTOM_FORM_CALCULATED"|"CUSTOM_FORM_CALCULATED_WITH_ERRORS"|"CUSTOM_FORM_CANNOT_BE_CALCULATED"|"CUSTOM_FORM_CANNOT_BE_DELETED"|"CUSTOM_FORM_CANNOT_CREATE_REVISION"|"CUSTOM_FORM_CANNOT_CREATE_REVISION_FROM_EMBEDDED"|"CUSTOM_FORM_CANNOT_SUBMIT"|"CUSTOM_FORM_COPY_PREFIX"|"CUSTOM_FORM_MISSING_REQUIRED_INPUTS"|"VIEW_EDIT_RESTRICTED_BY_FORMULA_ENTITLEMENT_FILTER"|"WORKFLOW_PREVIEW_NO_APPROVAL_REQUIRED"|"WORKFLOW_ERROR"|"WORKFLOW_ONBEHALF_MESSAGE"|"WORKFLOW_USERGROUP_INFORMATION_ERROR"|"WORKFLOW_INVALID_EMAILS_IN_WATCHER_STEP"|"WORKFLOW_MAIL_ERROR_USER_MAIL_NOT_DEFINED"|"WORKFLOW_STEP_USER_CANNOT_EXECUTE_STEP"|"WORKFLOW_STEP_USER_CANNOT_EXECUTE_STEP_ONBEHALF"|"WORKFLOW_STEP_USER_CANNOT_EXECUTE_STEP_SUBMITTER"|"WORKFLOW_STEP_WRONG_STEP_BEING_EXECUTED"|"WORKFLOW_USER_INFORMATION_ERROR"|"WORKFLOW_ATTACHMENT_NOT_FOUND_ERROR"|"WORKFLOW_MANDATORY_COMMENT_MISSING_ERROR"|"WORKFLOW_MANDATORY_COMMENT_IMPOSSIBLE_ERROR"|"WORKFLOW_MAX_CUMULATIVE_SIZE_OF_ATTACHMENTS_EXCEEDED_ERROR"|"WORKFLOW_MULTIPLE_ATTACHMENTS_WITH_SAME_NAME_ERROR"|"WORKFLOW_MAX_NUMBER_OF_ATTACHMENTS_EXCEEDED_ERROR"|"WORKFLOW_NOT_FOUND"|"WORKFLOW_STEPEXECUTIONSTATUS_INITIALIZED"|"WORKFLOW_STEPEXECUTIONSTATUS_PREEXECUTED"|"WORKFLOW_STEPEXECUTIONSTATUS_EXECUTEDDENIED"|"WORKFLOW_STEPEXECUTIONSTATUS_EXECUTEDWITHDRAWN"|"WORKFLOW_STEPEXECUTIONSTATUS_EXECUTEDAPPROVED"|"WORKFLOW_STEP_NON_ALLOWED_DENIAL_REASON"|"WORKFLOW_STEP_USER_CANNOT_ADD_STEP"|"WORKFLOW_STEP_USER_CANNOT_APPROVE_MORE_THAN_ONCE"|"WORKFLOW_APPROVERS"|"WORKFLOW_DELEGATION_COMBINED"|"WORKFLOW_DELEGATION_DELEGATED"|"WORKFLOW_DELEGATION_NONE"|"WORKFLOW_USER_USERGROUP_NOT_DEFINED_ERROR"|"WORKFLOW_USER_USERGROUP_BOTH_DEFINED_ERROR"|"SUBMIT_NOT_ALLOWED"|"PREVIEW_NOT_ALLOWED"|"REVOKE_NOT_ALLOWED"|"PO_NOT_ENABLED"|"PO_OPTIMIZER_NOT_ENABLED"|"CALCULATIONFLOW_EDITING_OF_DEPLOYEDFLOW_NOT_ALLOWED"|"WORKFLOW_STEPEXECUTIONSTATUS_ALREADYSATISFIED"|"DCR_DUPLICATE_KEY"|"BINARY_RESP_ERR_ATTACHMENT_CONTENT"|"ACTION_NOT_ALLOWED"|"COMMON_ERROR"|"PRICELISTTYPE_EDIT_NOTALLOWED"|"SIGNATURE_ABORTED"|"DOCX_CONVERSION_NOT_AVAILABLE"|"DOCX_CONVERSION_FAILED"|"RECIPIENTS"|"NOTIFICATION_DOWNLOAD_READY_TITLE"|"NOTIFICATION_DOWNLOAD_READY_MSG"|"NOTIFICATION_CLIC_MESSAGE_TITLE"|"NOTIFICATION_CLIC_MESSAGE_MSG"|"NOTIFICATION_CALCULATION_END_MSG"|"NOTIFICATION_CALCULATION_END_TITLE_CANCELLED"|"NOTIFICATION_CALCULATION_END_TITLE_FINISHED"|"NOTIFICATION_CALCULATION_END_TITLE_FAILED"|"NOTIFICATION_ACTION_ITEM_ASSIGNED"|"NOTIFICATION_ACTION_CHANGED_STATUS"|"NOTIFICATION_ACTION_OVERDUE"|"NOTIFICATION_SUBMISSION_FINISHED"|"NOTIFICATION_SUBMISSION_FAILED"|"CRITICAL_ALERT"|"RED_ALERT"|"YELLOW_ALERT"|"WARNING"|"EXCEPTION"|"WARNING_ITEM"|"WARNING_HEADER"|"ERROR"|"VALIDATION"|"CALCULATION"|"TITLE"|"SUBMIT_FOR_APPROVAL" submittedMsg?;
+    anydata attribute36?;
+    anydata attribute35?;
+    anydata attribute34?;
+    anydata attribute33?;
+    anydata attribute32?;
+    anydata attribute31?;
+    string headerRebateType?;
+    anydata attribute30?;
+    @constraint:String {maxLength: 255}
+    string sourceId?;
+    string? createdByName?;
+    anydata attribute39?;
+    anydata[]? inputs?;
+    string lastUpdateDate?;
+    anydata attribute38?;
+    anydata attribute37?;
+    anydata[]? serverMessagesExtended?;
+    string? deniedByName?;
+    anydata attribute47?;
+    anydata attribute46?;
+    string? userGroupViewDetails?;
+    string? approvedByName?;
+    anydata attribute45?;
+    anydata attribute44?;
+    boolean locked?;
+    anydata attribute43?;
+    anydata attribute42?;
+    anydata attribute41?;
+    anydata attribute40?;
+    "SUCCESS"|"COMMAND_GENERAL_ERROR"|"COMMAND_GENERAL_ERROR_WITH_MSG"|"COMMAND_GENERAL_ERROR_CONFLICT"|"COMMAND_GENERAL_ERROR_CONFLICT_FIELD"|"COMMAND_NOT_FOUND"|"COMMAND_CONFIG_ERROR"|"COMMAND_CONTEXT_PATH_NOTFOUND"|"COMMAND_NOT_AUTHORIZED"|"COMMAND_INVALID_PARAMETERS"|"COMMAND_FORBIDDEN_IN_K8S"|"COMMAND_FORBIDDEN_IN_READONLYMODE"|"COMMAND_FORM_TOO_LARGE"|"OBJECT_NOT_FOUND"|"LOGIN_FAILURE"|"LOGIN_FAILURE_BANNED"|"LOGIN_FAILURE_TFA"|"LOGIN_FAILURE_INACTIVE_OR_EXPIRED"|"PARTITION_UNKNOWN"|"COPY_OF_PREFIX"|"SIM_OF_PREFIX"|"TOO_MANY_WARNINGS"|"NO_NAME"|"ERROR_MESSAGE"|"ERROR_STATUS"|"ERROR_HTTPCODE"|"ERROR_ACTION"|"ERROR_TIMESTAMP"|"INVALID"|"FORMULA_ERROR"|"DEFAULT_FORMULA_NOT_FOUND"|"ACTIVE_FORMULA_NOT_FOUND"|"ACTIVE_FORMULA_OF_NATURE_NOT_FOUND"|"FORMULA_NOT_FOUND"|"FORMULA_NOT_FOUND_FOR"|"FE_SYNTAX_ERROR"|"FE_UNKNOWN_SYMBOL_ERROR"|"FE_WRONG_NUMBER_OF_ARGS"|"FE_ILLEGAL_OPERATION"|"FE_ILLEGAL_ARGUMENT"|"FE_ILLEGAL_STATUS"|"FE_UNDEFINED_FUNCTION"|"FE_UNDEFINED_UNIT"|"FE_UNDEFINED_VARIABLE"|"FE_FLEXCHART_UNSUPPORTED_FEATURE"|"FE_FLEXCHART_UNRECOGNIZED_OPTION"|"FE_FLEXCHART_INVALID_OPTION"|"FE_FLEXCHART_FORBIDDEN_OPTION"|"FE_FLEXCHART_INVALID_JSON"|"FE_FLEXCHART_GENERIC_ERROR"|"FE_EMBEDDED_DASHBOARD_API_MALFORMED_CONF"|"FE_EMBEDDED_DASHBOARD_API_FUNCTION_DOES_NOT_EXIST"|"FE_EMBEDDED_DASHBOARD_API_ILLEGAL_FUNCTION_CALL"|"FE_EMBEDDED_DASHBOARD_API_ILLEGAL_ARGUMENT"|"FE_WARNING_FLEXCHART_UNRECOGNIZED_TEMPLATE"|"FE_WARNING_ATTRIBUTE_NOTFOUND"|"FE_WARNING_PRODUCT_NOTSET"|"FE_WARNING_PRODUCT_NOTFOUND"|"FE_WARNING_PRODUCTATTRIBUTE_NOTFOUND"|"FE_WARNING_PRODUCTATTRIBUTE_AMIBGUOUS"|"FE_WARNING_CUSTOMER_NOTSET"|"FE_WARNING_CUSTOMER_NOTFOUND"|"FE_WARNING_CUSTOMERATTRIBUTE_NOTFOUND"|"FE_WARNING_CUSTOMERATTRIBUTE_AMIBGUOUS"|"FE_WARNING_SELLER_NOTFOUND"|"FE_WARNING_SELLERATTRIBUTE_NOTFOUND"|"FE_WARNING_SELLERATTRIBUTE_AMIBGUOUS"|"FE_WARNING_SELLER_NOTSET"|"FE_WARNING_VLOOKUP_TABLE_NOTFOUND"|"FE_WARNING_VLOOKUP_KEY_NOTFOUND"|"FE_WARNING_VLOOKUP_KEY_ISNULL"|"FE_WARNING_VLOOKUP_AMIBGUOUS"|"FE_WARNING_VLOOKUP_AMIBGUOUS_NOKEY"|"FE_WARNING_CONTEXT_NOTFOUND"|"FE_WARNING_CONTEXT_AMIBGUOUS"|"FE_WARNING_USERENTRY_NOTFOUND"|"FE_WARNING_CONFIGURATOR_NOTFOUND"|"FE_WARNING_OPTION_NOTFOUND"|"FE_WARNING_FUNCTIONCALL_AMIBGUOUS"|"FE_WARNING_ARITHMETICEXCEPTION"|"FE_WARNING_PRICELIST_ITEMNOTFOUND"|"FE_INFO_DATAMARTQUERY_USINGCACHEDRESULT"|"FE_WARNING_DATAMARTQUERY_INVALIDQUERY"|"FE_WARNING_DATAMARTQUERY_MAXROWSEXCEEDED"|"FE_WARNING_DATAMARTLOOKUP_QUERYNOTFOUND"|"FE_WARNING_DATAMARTLOOKUP_FIELDNOTFOUND"|"FE_WARNING_DATAMARTLOOKUP_INVALIDFILTER"|"FE_WARNING_DATAMARTLOOKUP_MAXROWSEXCEEDED"|"FE_WARNING_COULD_NOT_COMBINE_ELEMENTS"|"FE_WARNING_PRODUCT_EXTENSION_NAME_NOTSET"|"FE_WARNING_CUSTOMER_EXTENSION_NAME_NOTSET"|"FE_WARNING_PRICERECORD_NOTFOUND"|"FE_WARNING_PRODUCTGROUP_NOTFOUND"|"FE_WARNING_CUSTOMERGROUP_NOTFOUND"|"FE_WARNING_SELLERGROUP_NOTFOUND"|"FE_WARNING_ANYUSER_NOTFOUND"|"FE_WARNING_MULTITIERENTRY_NOTFOUND"|"FE_WARNING_DATASOURCE_NOTFOUND"|"FE_WARNING_FIELD_NOTFOUND"|"FE_WARNING_REBATERECORD_NOTFOUND"|"FE_WARNING_CONTEXTSKUSET_NOTSETORMALFORMED"|"FE_WARNING_FILTERBUILDERUSERENTRY_NOTFOUND"|"FE_WARNING_FILTERBUILDERUSERENTRY_ILLEGALVALUE"|"FE_WARNING_DMFILTERBUILDERUSERENTRY_NOTFOUND"|"FE_WARNING_DMFILTERBUILDERUSERENTRY_ILLEGALVALUE"|"FE_WARNING_REBATE_AGREEMENT_NOTFOUND"|"FE_WARNING_REBATE_AGREEMENT_ATTRIBUTE_NOTFOUND"|"FE_WARNING_CLAIM_WRONG_VALIDATION_STATE"|"FE_WARNING_HOOK_GENERIC_ERROR"|"FE_WARNING_HOOK_GENERIC_DENIED_MESSAGE"|"FE_WARNING_PARENT_NOTFOUND"|"FE_WARNING_MAX_RESULTS_SIZE_EXCEEDED"|"FE_WARNING_MISSING_BUSINESSKEY_VALUE"|"VALIDATION_SKU_MISSING"|"VALIDATION_PARTITION_USERNAME_UPDATE"|"VALIDATION_PARTITION_PASSWORD_UPDATE"|"VALIDATION_PARTITION_NULL"|"VALIDATION_PARTITION_MISMATCH"|"VALIDATION_CUSTOMERID_MISSING"|"VALIDATION_SELLERID_MISSING"|"VALIDATION_DUPLICATE_BUSINESSKEY"|"VALIDATION_DUPLICATE_BUSINESSKEY_PARAMETERIZED"|"VALIDATION_DUPLICATE_BUSINESSKEY_DETAILED"|"VALIDATION_DUPLICATE_LABEL_NAME_DETAILED"|"VALIDATION_DYNAMIC_TABS_DUPLICATED_CUSTOM_FORMS"|"VALIDATION_DYNAMIC_TABS_STANDALONE_CUSTOM_FORM"|"VALIDATION_DYNAMIC_TABS_UNSUPPORTED_TYPE_CUSTOM_FORM"|"VALIDATION_DYNAMIC_TABS_NON_EXISTING_CONFIG_WIZARD"|"VALIDATION_DYNAMIC_TABS_NON_EXISTING_ACTION_ITEM_TYPE"|"VALIDATION_DYNAMIC_TABS_MISSING_TAB"|"VALIDATION_NEWER_VERSION_EXISTS"|"VALIDATION_FORMULAELEMENT_EMPTYNAME"|"VALIDATION_FORMULAELEMENT_INVALIDNAME"|"VALIDATION_FAILED"|"VALIDATION_FIELD_DUPLICATE_VALUE"|"VALIDATION_FIELD_MISSING"|"VALIDATION_NEITHER_FIELD_PRESENT"|"VALIDATION_DEFAULT_LABEL_TRANSLATION_MISSING"|"VALIDATION_FIELD_INVALID_CHARS"|"VALIDATION_FIELD_INVALID"|"VALIDATION_FIELD_TOO_BIG"|"VALIDATION_FIELD_TOO_BIG_WITH_MSG"|"VALIDATION_NUMBER_TOO_BIG"|"VALIDATION_STATUS_RESTRICTED"|"VALIDATION_USERGROUP_RESTRICTED"|"VALIDATION_WORKFLOW_RESTRICTED"|"VALIDATION_EDIT_NOT_AUTHORIZED"|"VALIDATION_FETCH_NOT_AUTHORIZED"|"VALIDATION_DELETE_NOT_AUTHORIZED"|"VALIDATION_ADD_NOT_AUTHORIZED"|"VALIDATION_INVALID_STATUS"|"VALIDATION_LINKED_OBJ_NOT_SAVED"|"VALIDATION_BOTH_SKU_AND_PRODUCTGROUP_PRESENTED"|"VALIDATION_BOTH_CUSTOMERID_AND_CUSTOMERGROUP_PRESENTED"|"VALIDATION_PLASMA_DELETE"|"VALIDATION_PLASMA_MISMATCH"|"VALIDATION_PLASMA_UPDATE"|"VALIDATION_PWDCOMPLEXITYRULES_INVALID_PASSWORD"|"VALIDATION_PWNED_PASSWORD"|"VALIDATION_PWNED_PASSWORD_DIGEST_ERROR"|"VALIDATION_PWNED_SERVICE_ERROR"|"VALIDATION_INVALID_OLD_PASSWORD"|"VALIDATION_APPLICATIONPROPERTIES_PWDCOMPLEXITYRULES_UNKNOWN"|"VALIDATION_FORMULA_WITH_NAME_AND_DIFFERENT_NATURE_EXISTS"|"VALIDATION_FORMULA_WORKFLOWTYPE_NOTALIGNED"|"VALIDATION_DATE_CONFLICT_WITH"|"VALIDATION_INVALID_ENDDATE"|"VALIDATION_MISSING_DRIVERS"|"VALIDATION_APPLICATIONPROPERTIES_REVISIONPATTERN_FIELD_MISSING"|"VALIDATION_IMPORT_EXCEL_INVALID_HEADER"|"VALIDATION_WARNING_BUSINESS_KEYS_LENGTHS_EXCEEDED"|"VALIDATION_MULTIPLE_FORMULA_INHERITANCE_NOT_ALLOWED"|"VALIDATION_NATURE_NOT_ALLOWED_FOR_INHERITANCE"|"VALIDATION_PARENT_AND_CHILD_NATURES_DO_NOT_MATCH"|"VALIDATION_PLATFORM_MANAGER_ACCOUNT_CANNOT_BE_EDITED"|"VALIDATION_TOO_MANY_ENTITIES_FOR_THE_TIME_PERIOD"|"PL_ALERT_PRICEDEVIATION_TOO_HIGH"|"PL_WRONG_TYPE"|"PL_ALREADY_APPROVED"|"PL_NOTFOUND"|"PL_CAN_CONVERT_TO_APPROVED"|"CALC_ALREADY_FINISHED"|"CALC_CANCEL_QUEUED"|"CALC_SERIALIZATION_ERROR"|"NO_MAPPING"|"PG_ISEMPTY"|"PGI_OFNONEXISTENTSKU_SKIPPED"|"PGI_OFNONEXISTENTSKU_INVALIDATED"|"PGI_OFNONEXISTENTSKU_HARDDELETED"|"SIM_ISEMPTY"|"SIM_BASEPL_INVALID"|"NOT_ENOUGH_LICENSES"|"CANNOT_EXPAND_SCOPE_BUSINESSROLE"|"ACCESS_DENIED"|"DM_DEPLOYMENT_IN_PROGRESS"|"DM_OBJECT_ISLOCKED"|"DM_DEFAULT_DS_CREATION_FAILED"|"DM_SCHEMA_INTEGRITY_ERROR"|"DM_ACTION_NOTALLOWED"|"DM_VALIDATION_MAXROWS_EXCEEDED"|"DM_VALIDATION_HEADER_INVALIDFIELD"|"DM_VALIDATION_FIELD_UNKNOWN"|"DM_VALIDATION_KEYFIELD_MISSING"|"DM_VALIDATION_FIELD_MISSING"|"DM_VALIDATION_ROW_INVALIDFORMAT"|"DM_VALIDATION_ROW_FIELDMISMATCH"|"DM_VALIDATION_FIELD_INVALIDVALUE"|"DM_VALIDATION_INVALID"|"DM_VALIDATION_DM_FIELD_AMBIGIOUS"|"DM_VALIDATION_SCHEMA_FIELDCONFLICT"|"DM_VALIDATION_SCHEMA_AMBIGUOUSFIELDTYPE"|"DM_VALIDATION_SCHEMA_CIRCULARDEPENDENCY"|"DM_VALIDATION_DS_INVALID"|"DM_VALIDATION_DM_INVALID"|"DM_VALIDATION_FC_DEPENDENTONINVALIDFC"|"DM_VALIDATION_FC_INVALIDFIELDS"|"DM_VALIDATION_FC_INVALIDCALCULATEDFIELDS"|"DM_VALIDATION_FC_INVALIDNAME"|"DM_VALIDATION_FC_DUPLICATEFIELDS"|"DM_VALIDATION_DS_NOKEY"|"DM_VALIDATION_DS_AMBIGUOUSCCY"|"DM_VALIDATION_DS_AMBIGUOUSUOM"|"DM_VALIDATION_DS_MISSINGKEYFIELDS"|"DM_VALIDATION_DM_NOKEY"|"DM_VALIDATION_DM_SOURCE_MISSING"|"DM_VALIDATION_DM_FIELD_UNKNOWN"|"DM_VALIDATION_DM_INVALIDFIELDS"|"DM_VALIDATION_DEPENDENCIES_MISSING"|"DM_VALIDATION_SOURCE_NOTACCESSIBLE"|"DM_VALIDATION_SOURCE_FIELD_UNKNOWN"|"DM_VALIDATION_SOURCE_FIELD_MISSING"|"DM_VALIDATION_SYSTEM_GENERATED_DATASOURCE"|"DM_VALIDATION_CFS_KEYNOTALLOWED"|"DM_VALIDATION_KEYFIELD_INVALIDTYPE"|"DM_VALIDATION_FIELD_INVALIDNAME"|"DM_VALIDATION_FIELD_INVALIDTYPE"|"DM_VALIDATION_FIELD_INVALIDEXPRESSION"|"DM_VALIDATION_QUERY_SOURCE_MISSING"|"DM_VALIDATION_QUERY_NOTQUERYABLE"|"DM_VALIDATION_QUERY_INVALIDCCYCODE"|"DM_VALIDATION_QUERY_CANNOTGENSTATPROJ"|"DM_VALIDATION_QUERY_PROJ_INVALID"|"DM_VALIDATION_QUERY_PROJ_INVALIDTYPE"|"DM_VALIDATION_QUERY_PROJ_INVALIDCALCMODE"|"DM_VALIDATION_QUERY_PROJ_CANNOTROLLUP"|"DM_VALIDATION_QUERY_PROJ_CANNOTGENSTATPROJ"|"DM_VALIDATION_QUERY_PROJ_INVALIDDEFAULT"|"DM_VALIDATION_QUERY_EXPR_UNKNOWNIDENTIFIER"|"DM_VALIDATION_QUERY_ROWLIMIT_INVALID"|"DM_VALIDATION_QUERY_PIVOTCOLUMNLIMIT"|"DM_VALIDATION_QUERY_FILTER_INVALID"|"DM_VALIDATION_QUERY_MISSING_SQL"|"DM_VALIDATION_DUPLICATE"|"DM_VALIDATION_AMBIGUOUS"|"DM_LABEL_CALENDAR"|"DM_LABEL_TIMEDIM_DAY"|"DM_LABEL_TIMEDIM_WEEK"|"DM_LABEL_TIMEDIM_MONTH"|"DM_LABEL_TIMEDIM_QUARTER"|"DM_LABEL_TIMEDIM_YEAR"|"DM_LABEL_DEFAULTFEED2DSFORMULA"|"DM_DATASOURCES"|"DM_VALIDATION_PARTITIONING_KEY_MORE_THAN_ONE"|"DM_VALIDATION_PARTITIONING_KEY_HAS_TO_BE_DATE"|"DM_VALIDATION_FIELD_PARTITIONING_KEY_HAS_TO_BE_DATE"|"DM_VALIDATION_PARTITIONING_NO_EFFECT_ON_EXISTING"|"DM_QUERY_TIMEOUT"|"JST_CANNOT_START"|"IMPORTFILE_VALIDATION_ERROR_DATASOURCE"|"IMPORTFILE_VALIDATION_ERROR_LIST"|"IMPORTFILE_VALIDATION_ERROR_READONLY"|"IMPORTFILE_VALIDATION_ERROR_REQUIRED"|"IMPORTFILE_VALIDATION_ERROR_START"|"IMPORTFILE_VALIDATION_ERROR_FIELDTYPE"|"IMPORTFILE_VALIDATION_ERROR_FILTER"|"IMPORTFILE_VALIDATION_ERROR_HEADER"|"MODEL_MODELTYPE_NOT_FOUND"|"MODEL_CALCSTEP_NOT_FOUND"|"MODEL_NATURE_NOT_FOUND"|"MODEL_TYPE_DEFINITION_INVALID"|"MODEL_NOT_SPECIFIED"|"MODEL_RECORD_NOT_SPECIFIED"|"ROLLUP_INVALID"|"QUOTE_USERGROUP_RESTRICTED"|"QUOTE_CALCULATED"|"QUOTE_CALCULATED_WITHERRORS"|"QUOTE_SUBMITTED"|"QUOTE_SAVED"|"QUOTE_SUPERSEDEDBY"|"QUOTE_PRODUCTSNOTADDED"|"QUOTE_ALREADY_EXPIRED"|"QUOTE_TESTRESULTELEMENTNAME"|"QUOTE_LINEITEMS_DOTOMATCHQPF"|"QUOTE_QPF_COMPUTATION_FAILED"|"QUOTE_COULD_NOT_CONVERT_TO_DEAL"|"QUOTE_NON_EXISTENT_SKUS"|"QUOTE_WASDELETEDONSERVER"|"QUOTETYPE_DEFAULTTYPE_DELETE_NOTALLOWED"|"QUOTETYPE_DEFAULTTYPE_EDIT_NOTALLOWED"|"QUOTETYPE_EDIT_NOTALLOWED"|"QUOTETYPE_MISSING"|"HEADER_PREPHASE_ELEMENTPOSTFIX"|"HEADER_POSTPHASE_ELEMENTPOSTFIX"|"RBA_USERGROUP_RESTRICTED"|"RBA_CALCULATED"|"RBA_CALCULATED_WITHERRORS"|"RBA_SUBMITTED"|"RBA_SAVED"|"RBA_SUPERSEDEDBY"|"RBA_ITEMSNOTADDED"|"RBA_TESTRESULTELEMENTNAME"|"RBA_WASDELETEDONSERVER"|"REBATETYPE_MISSING"|"RBA_LINEITEMS_DONOTMATCHRBTF"|"RBA_RBTF_COMPUTATION_FAILED"|"RBA_HEADERREBATETYPE_MISSING"|"HEADERREBATETYPE_DEFAULTTYPE_DELETE_NOTALLOWED"|"HEADERREBATETYPE_EDIT_NOTALLOWED"|"HEADERREBATETYPE_MISSING"|"COMPENSATION_CONDITIONTYPE_MISSING"|"COMPENSATION_USERGROUP_RESTRICTED"|"COMPENSATION_CALCULATED"|"COMPENSATION_CALCULATED_WITHERRORS"|"COMPENSATION_SUBMITTED"|"COMPENSATION_SAVED"|"COMPENSATION_SUPERSEDEDBY"|"COMPENSATION_ITEMSNOTADDED"|"COMPENSATION_TESTRESULTELEMENTNAME"|"COMPENSATION_WASDELETEDONSERVER"|"COMPENSATION_LINEITEMS_DONOTMATCHRBTF"|"COMPENSATION_RBTF_COMPUTATION_FAILED"|"COMPENSATION_COMPENSATIONHEADERTYPE_MISSING"|"COMPENSATIONHEADERTYPE_DEFAULTTYPE_DELETE_NOTALLOWED"|"COMPENSATIONHEADERTYPE_EDIT_NOTALLOWED"|"COMPENSATIONHEADERTYPE_MISSING"|"COR_CALCULATED"|"COR_CALCULATED_WITHERRORS"|"COR_SUBMITTED"|"COR_SAVED"|"COR_ONGOING_CALCULATION"|"RR_CALCULATED"|"RR_CALCULATED_WITHERRORS"|"RR_SUBMITTED"|"RR_SAVED"|"RR_ONGOING_CALCULATION"|"RRG_CALCULATED"|"RRG_CALCULATED_WITHERRORS"|"RRG_SUBMITTED"|"RRG_SAVED"|"RRG_ONGOING_CALCULATION"|"MR_CALCULATED"|"MR_CALCULATED_WITHERRORS"|"MR_SUBMITTED"|"MR_SAVED"|"MR_WARNING_NOTALLRECORDSSUBMITTED"|"CONTRACT_SAVED"|"CONTRACT_SUPERSEDEDBY"|"CONTRACT_CALCULATED"|"CONTRACT_CALCULATED_WITHERRORS"|"CONTRACT_SUBMITTED"|"CONTRACT_ITEMSNOTADDED"|"CONTRACT_INVALID_CUSTOMER_GROUP"|"CONTRACT_INVALID_CUSTOMER_GROUP_FOR_LINE"|"CONTRACT_INVALID_PRODUCT_GROUP"|"CONTRACT_INVALID_PRODUCT_GROUP_FOR_LINE"|"CONTRACT_INVALID_SELLER_REFERENCE"|"CONTRACT_INVALID_SELLER_REFERENCE_FOR_LINE"|"CONTRACT_TESTRESULTELEMENTNAME"|"CONTRACT_LINEITEMS_DONOTMATCHCTTF"|"CONTRACT_CTTF_COMPUTATION_FAILED"|"CONTRACT_WASDELETEDONSERVER"|"CONTRACTTERMTYPE_MISSING"|"CONTRACT_ONGOING_CALCULATION"|"CONTRACTHEADERTYPE_DEFAULTTYPE_DELETE_NOTALLOWED"|"CONTRACTHEADERTYPE_EDIT_NOTALLOWED"|"CONTRACTHEADERTYPE_MISSING"|"ACTIONITEMTYPE_DEFAULTTYPE_DELETE_NOTALLOWED"|"ACTIONITEMTYPE_EDIT_NOTALLOWED"|"CUSTOM_FORM"|"CUSTOM_FORM_CALCULATED"|"CUSTOM_FORM_CALCULATED_WITH_ERRORS"|"CUSTOM_FORM_CANNOT_BE_CALCULATED"|"CUSTOM_FORM_CANNOT_BE_DELETED"|"CUSTOM_FORM_CANNOT_CREATE_REVISION"|"CUSTOM_FORM_CANNOT_CREATE_REVISION_FROM_EMBEDDED"|"CUSTOM_FORM_CANNOT_SUBMIT"|"CUSTOM_FORM_COPY_PREFIX"|"CUSTOM_FORM_MISSING_REQUIRED_INPUTS"|"VIEW_EDIT_RESTRICTED_BY_FORMULA_ENTITLEMENT_FILTER"|"WORKFLOW_PREVIEW_NO_APPROVAL_REQUIRED"|"WORKFLOW_ERROR"|"WORKFLOW_ONBEHALF_MESSAGE"|"WORKFLOW_USERGROUP_INFORMATION_ERROR"|"WORKFLOW_INVALID_EMAILS_IN_WATCHER_STEP"|"WORKFLOW_MAIL_ERROR_USER_MAIL_NOT_DEFINED"|"WORKFLOW_STEP_USER_CANNOT_EXECUTE_STEP"|"WORKFLOW_STEP_USER_CANNOT_EXECUTE_STEP_ONBEHALF"|"WORKFLOW_STEP_USER_CANNOT_EXECUTE_STEP_SUBMITTER"|"WORKFLOW_STEP_WRONG_STEP_BEING_EXECUTED"|"WORKFLOW_USER_INFORMATION_ERROR"|"WORKFLOW_ATTACHMENT_NOT_FOUND_ERROR"|"WORKFLOW_MANDATORY_COMMENT_MISSING_ERROR"|"WORKFLOW_MANDATORY_COMMENT_IMPOSSIBLE_ERROR"|"WORKFLOW_MAX_CUMULATIVE_SIZE_OF_ATTACHMENTS_EXCEEDED_ERROR"|"WORKFLOW_MULTIPLE_ATTACHMENTS_WITH_SAME_NAME_ERROR"|"WORKFLOW_MAX_NUMBER_OF_ATTACHMENTS_EXCEEDED_ERROR"|"WORKFLOW_NOT_FOUND"|"WORKFLOW_STEPEXECUTIONSTATUS_INITIALIZED"|"WORKFLOW_STEPEXECUTIONSTATUS_PREEXECUTED"|"WORKFLOW_STEPEXECUTIONSTATUS_EXECUTEDDENIED"|"WORKFLOW_STEPEXECUTIONSTATUS_EXECUTEDWITHDRAWN"|"WORKFLOW_STEPEXECUTIONSTATUS_EXECUTEDAPPROVED"|"WORKFLOW_STEP_NON_ALLOWED_DENIAL_REASON"|"WORKFLOW_STEP_USER_CANNOT_ADD_STEP"|"WORKFLOW_STEP_USER_CANNOT_APPROVE_MORE_THAN_ONCE"|"WORKFLOW_APPROVERS"|"WORKFLOW_DELEGATION_COMBINED"|"WORKFLOW_DELEGATION_DELEGATED"|"WORKFLOW_DELEGATION_NONE"|"WORKFLOW_USER_USERGROUP_NOT_DEFINED_ERROR"|"WORKFLOW_USER_USERGROUP_BOTH_DEFINED_ERROR"|"SUBMIT_NOT_ALLOWED"|"PREVIEW_NOT_ALLOWED"|"REVOKE_NOT_ALLOWED"|"PO_NOT_ENABLED"|"PO_OPTIMIZER_NOT_ENABLED"|"CALCULATIONFLOW_EDITING_OF_DEPLOYEDFLOW_NOT_ALLOWED"|"WORKFLOW_STEPEXECUTIONSTATUS_ALREADYSATISFIED"|"DCR_DUPLICATE_KEY"|"BINARY_RESP_ERR_ATTACHMENT_CONTENT"|"ACTION_NOT_ALLOWED"|"COMMON_ERROR"|"PRICELISTTYPE_EDIT_NOTALLOWED"|"SIGNATURE_ABORTED"|"DOCX_CONVERSION_NOT_AVAILABLE"|"DOCX_CONVERSION_FAILED"|"RECIPIENTS"|"NOTIFICATION_DOWNLOAD_READY_TITLE"|"NOTIFICATION_DOWNLOAD_READY_MSG"|"NOTIFICATION_CLIC_MESSAGE_TITLE"|"NOTIFICATION_CLIC_MESSAGE_MSG"|"NOTIFICATION_CALCULATION_END_MSG"|"NOTIFICATION_CALCULATION_END_TITLE_CANCELLED"|"NOTIFICATION_CALCULATION_END_TITLE_FINISHED"|"NOTIFICATION_CALCULATION_END_TITLE_FAILED"|"NOTIFICATION_ACTION_ITEM_ASSIGNED"|"NOTIFICATION_ACTION_CHANGED_STATUS"|"NOTIFICATION_ACTION_OVERDUE"|"NOTIFICATION_SUBMISSION_FINISHED"|"NOTIFICATION_SUBMISSION_FAILED"|"CRITICAL_ALERT"|"RED_ALERT"|"YELLOW_ALERT"|"WARNING"|"EXCEPTION"|"WARNING_ITEM"|"WARNING_HEADER"|"ERROR"|"VALIDATION"|"CALCULATION"|"TITLE"|"SUBMIT_FOR_APPROVAL" ongoingCalculationMsg?;
+    anydata attribute49?;
+    anydata attribute48?;
+    anydata attribute50?;
+    string rebateType?;
+    anydata attribute100?;
+    @constraint:String {maxLength: 255}
+    string uniqueName?;
+    @constraint:String {maxLength: 255}
+    string name?;
+    anydata attribute58?;
+    anydata attribute57?;
+    anydata attribute56?;
+    anydata attribute55?;
+    boolean hasWorkflowHistory?;
+    anydata attribute54?;
+    anydata attribute53?;
+    anydata attribute52?;
+    record {|record {}...;|}[] allCalculationResults?;
+    anydata attribute51?;
+    string? lastUpdateByName?;
+    string? approvalDate?;
+    anydata attribute59?;
+    anydata attribute61?;
+    anydata attribute60?;
+    anydata attribute69?;
+    anydata attribute68?;
+    anydata attribute67?;
+    "SUCCESS"|"COMMAND_GENERAL_ERROR"|"COMMAND_GENERAL_ERROR_WITH_MSG"|"COMMAND_GENERAL_ERROR_CONFLICT"|"COMMAND_GENERAL_ERROR_CONFLICT_FIELD"|"COMMAND_NOT_FOUND"|"COMMAND_CONFIG_ERROR"|"COMMAND_CONTEXT_PATH_NOTFOUND"|"COMMAND_NOT_AUTHORIZED"|"COMMAND_INVALID_PARAMETERS"|"COMMAND_FORBIDDEN_IN_K8S"|"COMMAND_FORBIDDEN_IN_READONLYMODE"|"COMMAND_FORM_TOO_LARGE"|"OBJECT_NOT_FOUND"|"LOGIN_FAILURE"|"LOGIN_FAILURE_BANNED"|"LOGIN_FAILURE_TFA"|"LOGIN_FAILURE_INACTIVE_OR_EXPIRED"|"PARTITION_UNKNOWN"|"COPY_OF_PREFIX"|"SIM_OF_PREFIX"|"TOO_MANY_WARNINGS"|"NO_NAME"|"ERROR_MESSAGE"|"ERROR_STATUS"|"ERROR_HTTPCODE"|"ERROR_ACTION"|"ERROR_TIMESTAMP"|"INVALID"|"FORMULA_ERROR"|"DEFAULT_FORMULA_NOT_FOUND"|"ACTIVE_FORMULA_NOT_FOUND"|"ACTIVE_FORMULA_OF_NATURE_NOT_FOUND"|"FORMULA_NOT_FOUND"|"FORMULA_NOT_FOUND_FOR"|"FE_SYNTAX_ERROR"|"FE_UNKNOWN_SYMBOL_ERROR"|"FE_WRONG_NUMBER_OF_ARGS"|"FE_ILLEGAL_OPERATION"|"FE_ILLEGAL_ARGUMENT"|"FE_ILLEGAL_STATUS"|"FE_UNDEFINED_FUNCTION"|"FE_UNDEFINED_UNIT"|"FE_UNDEFINED_VARIABLE"|"FE_FLEXCHART_UNSUPPORTED_FEATURE"|"FE_FLEXCHART_UNRECOGNIZED_OPTION"|"FE_FLEXCHART_INVALID_OPTION"|"FE_FLEXCHART_FORBIDDEN_OPTION"|"FE_FLEXCHART_INVALID_JSON"|"FE_FLEXCHART_GENERIC_ERROR"|"FE_EMBEDDED_DASHBOARD_API_MALFORMED_CONF"|"FE_EMBEDDED_DASHBOARD_API_FUNCTION_DOES_NOT_EXIST"|"FE_EMBEDDED_DASHBOARD_API_ILLEGAL_FUNCTION_CALL"|"FE_EMBEDDED_DASHBOARD_API_ILLEGAL_ARGUMENT"|"FE_WARNING_FLEXCHART_UNRECOGNIZED_TEMPLATE"|"FE_WARNING_ATTRIBUTE_NOTFOUND"|"FE_WARNING_PRODUCT_NOTSET"|"FE_WARNING_PRODUCT_NOTFOUND"|"FE_WARNING_PRODUCTATTRIBUTE_NOTFOUND"|"FE_WARNING_PRODUCTATTRIBUTE_AMIBGUOUS"|"FE_WARNING_CUSTOMER_NOTSET"|"FE_WARNING_CUSTOMER_NOTFOUND"|"FE_WARNING_CUSTOMERATTRIBUTE_NOTFOUND"|"FE_WARNING_CUSTOMERATTRIBUTE_AMIBGUOUS"|"FE_WARNING_SELLER_NOTFOUND"|"FE_WARNING_SELLERATTRIBUTE_NOTFOUND"|"FE_WARNING_SELLERATTRIBUTE_AMIBGUOUS"|"FE_WARNING_SELLER_NOTSET"|"FE_WARNING_VLOOKUP_TABLE_NOTFOUND"|"FE_WARNING_VLOOKUP_KEY_NOTFOUND"|"FE_WARNING_VLOOKUP_KEY_ISNULL"|"FE_WARNING_VLOOKUP_AMIBGUOUS"|"FE_WARNING_VLOOKUP_AMIBGUOUS_NOKEY"|"FE_WARNING_CONTEXT_NOTFOUND"|"FE_WARNING_CONTEXT_AMIBGUOUS"|"FE_WARNING_USERENTRY_NOTFOUND"|"FE_WARNING_CONFIGURATOR_NOTFOUND"|"FE_WARNING_OPTION_NOTFOUND"|"FE_WARNING_FUNCTIONCALL_AMIBGUOUS"|"FE_WARNING_ARITHMETICEXCEPTION"|"FE_WARNING_PRICELIST_ITEMNOTFOUND"|"FE_INFO_DATAMARTQUERY_USINGCACHEDRESULT"|"FE_WARNING_DATAMARTQUERY_INVALIDQUERY"|"FE_WARNING_DATAMARTQUERY_MAXROWSEXCEEDED"|"FE_WARNING_DATAMARTLOOKUP_QUERYNOTFOUND"|"FE_WARNING_DATAMARTLOOKUP_FIELDNOTFOUND"|"FE_WARNING_DATAMARTLOOKUP_INVALIDFILTER"|"FE_WARNING_DATAMARTLOOKUP_MAXROWSEXCEEDED"|"FE_WARNING_COULD_NOT_COMBINE_ELEMENTS"|"FE_WARNING_PRODUCT_EXTENSION_NAME_NOTSET"|"FE_WARNING_CUSTOMER_EXTENSION_NAME_NOTSET"|"FE_WARNING_PRICERECORD_NOTFOUND"|"FE_WARNING_PRODUCTGROUP_NOTFOUND"|"FE_WARNING_CUSTOMERGROUP_NOTFOUND"|"FE_WARNING_SELLERGROUP_NOTFOUND"|"FE_WARNING_ANYUSER_NOTFOUND"|"FE_WARNING_MULTITIERENTRY_NOTFOUND"|"FE_WARNING_DATASOURCE_NOTFOUND"|"FE_WARNING_FIELD_NOTFOUND"|"FE_WARNING_REBATERECORD_NOTFOUND"|"FE_WARNING_CONTEXTSKUSET_NOTSETORMALFORMED"|"FE_WARNING_FILTERBUILDERUSERENTRY_NOTFOUND"|"FE_WARNING_FILTERBUILDERUSERENTRY_ILLEGALVALUE"|"FE_WARNING_DMFILTERBUILDERUSERENTRY_NOTFOUND"|"FE_WARNING_DMFILTERBUILDERUSERENTRY_ILLEGALVALUE"|"FE_WARNING_REBATE_AGREEMENT_NOTFOUND"|"FE_WARNING_REBATE_AGREEMENT_ATTRIBUTE_NOTFOUND"|"FE_WARNING_CLAIM_WRONG_VALIDATION_STATE"|"FE_WARNING_HOOK_GENERIC_ERROR"|"FE_WARNING_HOOK_GENERIC_DENIED_MESSAGE"|"FE_WARNING_PARENT_NOTFOUND"|"FE_WARNING_MAX_RESULTS_SIZE_EXCEEDED"|"FE_WARNING_MISSING_BUSINESSKEY_VALUE"|"VALIDATION_SKU_MISSING"|"VALIDATION_PARTITION_USERNAME_UPDATE"|"VALIDATION_PARTITION_PASSWORD_UPDATE"|"VALIDATION_PARTITION_NULL"|"VALIDATION_PARTITION_MISMATCH"|"VALIDATION_CUSTOMERID_MISSING"|"VALIDATION_SELLERID_MISSING"|"VALIDATION_DUPLICATE_BUSINESSKEY"|"VALIDATION_DUPLICATE_BUSINESSKEY_PARAMETERIZED"|"VALIDATION_DUPLICATE_BUSINESSKEY_DETAILED"|"VALIDATION_DUPLICATE_LABEL_NAME_DETAILED"|"VALIDATION_DYNAMIC_TABS_DUPLICATED_CUSTOM_FORMS"|"VALIDATION_DYNAMIC_TABS_STANDALONE_CUSTOM_FORM"|"VALIDATION_DYNAMIC_TABS_UNSUPPORTED_TYPE_CUSTOM_FORM"|"VALIDATION_DYNAMIC_TABS_NON_EXISTING_CONFIG_WIZARD"|"VALIDATION_DYNAMIC_TABS_NON_EXISTING_ACTION_ITEM_TYPE"|"VALIDATION_DYNAMIC_TABS_MISSING_TAB"|"VALIDATION_NEWER_VERSION_EXISTS"|"VALIDATION_FORMULAELEMENT_EMPTYNAME"|"VALIDATION_FORMULAELEMENT_INVALIDNAME"|"VALIDATION_FAILED"|"VALIDATION_FIELD_DUPLICATE_VALUE"|"VALIDATION_FIELD_MISSING"|"VALIDATION_NEITHER_FIELD_PRESENT"|"VALIDATION_DEFAULT_LABEL_TRANSLATION_MISSING"|"VALIDATION_FIELD_INVALID_CHARS"|"VALIDATION_FIELD_INVALID"|"VALIDATION_FIELD_TOO_BIG"|"VALIDATION_FIELD_TOO_BIG_WITH_MSG"|"VALIDATION_NUMBER_TOO_BIG"|"VALIDATION_STATUS_RESTRICTED"|"VALIDATION_USERGROUP_RESTRICTED"|"VALIDATION_WORKFLOW_RESTRICTED"|"VALIDATION_EDIT_NOT_AUTHORIZED"|"VALIDATION_FETCH_NOT_AUTHORIZED"|"VALIDATION_DELETE_NOT_AUTHORIZED"|"VALIDATION_ADD_NOT_AUTHORIZED"|"VALIDATION_INVALID_STATUS"|"VALIDATION_LINKED_OBJ_NOT_SAVED"|"VALIDATION_BOTH_SKU_AND_PRODUCTGROUP_PRESENTED"|"VALIDATION_BOTH_CUSTOMERID_AND_CUSTOMERGROUP_PRESENTED"|"VALIDATION_PLASMA_DELETE"|"VALIDATION_PLASMA_MISMATCH"|"VALIDATION_PLASMA_UPDATE"|"VALIDATION_PWDCOMPLEXITYRULES_INVALID_PASSWORD"|"VALIDATION_PWNED_PASSWORD"|"VALIDATION_PWNED_PASSWORD_DIGEST_ERROR"|"VALIDATION_PWNED_SERVICE_ERROR"|"VALIDATION_INVALID_OLD_PASSWORD"|"VALIDATION_APPLICATIONPROPERTIES_PWDCOMPLEXITYRULES_UNKNOWN"|"VALIDATION_FORMULA_WITH_NAME_AND_DIFFERENT_NATURE_EXISTS"|"VALIDATION_FORMULA_WORKFLOWTYPE_NOTALIGNED"|"VALIDATION_DATE_CONFLICT_WITH"|"VALIDATION_INVALID_ENDDATE"|"VALIDATION_MISSING_DRIVERS"|"VALIDATION_APPLICATIONPROPERTIES_REVISIONPATTERN_FIELD_MISSING"|"VALIDATION_IMPORT_EXCEL_INVALID_HEADER"|"VALIDATION_WARNING_BUSINESS_KEYS_LENGTHS_EXCEEDED"|"VALIDATION_MULTIPLE_FORMULA_INHERITANCE_NOT_ALLOWED"|"VALIDATION_NATURE_NOT_ALLOWED_FOR_INHERITANCE"|"VALIDATION_PARENT_AND_CHILD_NATURES_DO_NOT_MATCH"|"VALIDATION_PLATFORM_MANAGER_ACCOUNT_CANNOT_BE_EDITED"|"VALIDATION_TOO_MANY_ENTITIES_FOR_THE_TIME_PERIOD"|"PL_ALERT_PRICEDEVIATION_TOO_HIGH"|"PL_WRONG_TYPE"|"PL_ALREADY_APPROVED"|"PL_NOTFOUND"|"PL_CAN_CONVERT_TO_APPROVED"|"CALC_ALREADY_FINISHED"|"CALC_CANCEL_QUEUED"|"CALC_SERIALIZATION_ERROR"|"NO_MAPPING"|"PG_ISEMPTY"|"PGI_OFNONEXISTENTSKU_SKIPPED"|"PGI_OFNONEXISTENTSKU_INVALIDATED"|"PGI_OFNONEXISTENTSKU_HARDDELETED"|"SIM_ISEMPTY"|"SIM_BASEPL_INVALID"|"NOT_ENOUGH_LICENSES"|"CANNOT_EXPAND_SCOPE_BUSINESSROLE"|"ACCESS_DENIED"|"DM_DEPLOYMENT_IN_PROGRESS"|"DM_OBJECT_ISLOCKED"|"DM_DEFAULT_DS_CREATION_FAILED"|"DM_SCHEMA_INTEGRITY_ERROR"|"DM_ACTION_NOTALLOWED"|"DM_VALIDATION_MAXROWS_EXCEEDED"|"DM_VALIDATION_HEADER_INVALIDFIELD"|"DM_VALIDATION_FIELD_UNKNOWN"|"DM_VALIDATION_KEYFIELD_MISSING"|"DM_VALIDATION_FIELD_MISSING"|"DM_VALIDATION_ROW_INVALIDFORMAT"|"DM_VALIDATION_ROW_FIELDMISMATCH"|"DM_VALIDATION_FIELD_INVALIDVALUE"|"DM_VALIDATION_INVALID"|"DM_VALIDATION_DM_FIELD_AMBIGIOUS"|"DM_VALIDATION_SCHEMA_FIELDCONFLICT"|"DM_VALIDATION_SCHEMA_AMBIGUOUSFIELDTYPE"|"DM_VALIDATION_SCHEMA_CIRCULARDEPENDENCY"|"DM_VALIDATION_DS_INVALID"|"DM_VALIDATION_DM_INVALID"|"DM_VALIDATION_FC_DEPENDENTONINVALIDFC"|"DM_VALIDATION_FC_INVALIDFIELDS"|"DM_VALIDATION_FC_INVALIDCALCULATEDFIELDS"|"DM_VALIDATION_FC_INVALIDNAME"|"DM_VALIDATION_FC_DUPLICATEFIELDS"|"DM_VALIDATION_DS_NOKEY"|"DM_VALIDATION_DS_AMBIGUOUSCCY"|"DM_VALIDATION_DS_AMBIGUOUSUOM"|"DM_VALIDATION_DS_MISSINGKEYFIELDS"|"DM_VALIDATION_DM_NOKEY"|"DM_VALIDATION_DM_SOURCE_MISSING"|"DM_VALIDATION_DM_FIELD_UNKNOWN"|"DM_VALIDATION_DM_INVALIDFIELDS"|"DM_VALIDATION_DEPENDENCIES_MISSING"|"DM_VALIDATION_SOURCE_NOTACCESSIBLE"|"DM_VALIDATION_SOURCE_FIELD_UNKNOWN"|"DM_VALIDATION_SOURCE_FIELD_MISSING"|"DM_VALIDATION_SYSTEM_GENERATED_DATASOURCE"|"DM_VALIDATION_CFS_KEYNOTALLOWED"|"DM_VALIDATION_KEYFIELD_INVALIDTYPE"|"DM_VALIDATION_FIELD_INVALIDNAME"|"DM_VALIDATION_FIELD_INVALIDTYPE"|"DM_VALIDATION_FIELD_INVALIDEXPRESSION"|"DM_VALIDATION_QUERY_SOURCE_MISSING"|"DM_VALIDATION_QUERY_NOTQUERYABLE"|"DM_VALIDATION_QUERY_INVALIDCCYCODE"|"DM_VALIDATION_QUERY_CANNOTGENSTATPROJ"|"DM_VALIDATION_QUERY_PROJ_INVALID"|"DM_VALIDATION_QUERY_PROJ_INVALIDTYPE"|"DM_VALIDATION_QUERY_PROJ_INVALIDCALCMODE"|"DM_VALIDATION_QUERY_PROJ_CANNOTROLLUP"|"DM_VALIDATION_QUERY_PROJ_CANNOTGENSTATPROJ"|"DM_VALIDATION_QUERY_PROJ_INVALIDDEFAULT"|"DM_VALIDATION_QUERY_EXPR_UNKNOWNIDENTIFIER"|"DM_VALIDATION_QUERY_ROWLIMIT_INVALID"|"DM_VALIDATION_QUERY_PIVOTCOLUMNLIMIT"|"DM_VALIDATION_QUERY_FILTER_INVALID"|"DM_VALIDATION_QUERY_MISSING_SQL"|"DM_VALIDATION_DUPLICATE"|"DM_VALIDATION_AMBIGUOUS"|"DM_LABEL_CALENDAR"|"DM_LABEL_TIMEDIM_DAY"|"DM_LABEL_TIMEDIM_WEEK"|"DM_LABEL_TIMEDIM_MONTH"|"DM_LABEL_TIMEDIM_QUARTER"|"DM_LABEL_TIMEDIM_YEAR"|"DM_LABEL_DEFAULTFEED2DSFORMULA"|"DM_DATASOURCES"|"DM_VALIDATION_PARTITIONING_KEY_MORE_THAN_ONE"|"DM_VALIDATION_PARTITIONING_KEY_HAS_TO_BE_DATE"|"DM_VALIDATION_FIELD_PARTITIONING_KEY_HAS_TO_BE_DATE"|"DM_VALIDATION_PARTITIONING_NO_EFFECT_ON_EXISTING"|"DM_QUERY_TIMEOUT"|"JST_CANNOT_START"|"IMPORTFILE_VALIDATION_ERROR_DATASOURCE"|"IMPORTFILE_VALIDATION_ERROR_LIST"|"IMPORTFILE_VALIDATION_ERROR_READONLY"|"IMPORTFILE_VALIDATION_ERROR_REQUIRED"|"IMPORTFILE_VALIDATION_ERROR_START"|"IMPORTFILE_VALIDATION_ERROR_FIELDTYPE"|"IMPORTFILE_VALIDATION_ERROR_FILTER"|"IMPORTFILE_VALIDATION_ERROR_HEADER"|"MODEL_MODELTYPE_NOT_FOUND"|"MODEL_CALCSTEP_NOT_FOUND"|"MODEL_NATURE_NOT_FOUND"|"MODEL_TYPE_DEFINITION_INVALID"|"MODEL_NOT_SPECIFIED"|"MODEL_RECORD_NOT_SPECIFIED"|"ROLLUP_INVALID"|"QUOTE_USERGROUP_RESTRICTED"|"QUOTE_CALCULATED"|"QUOTE_CALCULATED_WITHERRORS"|"QUOTE_SUBMITTED"|"QUOTE_SAVED"|"QUOTE_SUPERSEDEDBY"|"QUOTE_PRODUCTSNOTADDED"|"QUOTE_ALREADY_EXPIRED"|"QUOTE_TESTRESULTELEMENTNAME"|"QUOTE_LINEITEMS_DOTOMATCHQPF"|"QUOTE_QPF_COMPUTATION_FAILED"|"QUOTE_COULD_NOT_CONVERT_TO_DEAL"|"QUOTE_NON_EXISTENT_SKUS"|"QUOTE_WASDELETEDONSERVER"|"QUOTETYPE_DEFAULTTYPE_DELETE_NOTALLOWED"|"QUOTETYPE_DEFAULTTYPE_EDIT_NOTALLOWED"|"QUOTETYPE_EDIT_NOTALLOWED"|"QUOTETYPE_MISSING"|"HEADER_PREPHASE_ELEMENTPOSTFIX"|"HEADER_POSTPHASE_ELEMENTPOSTFIX"|"RBA_USERGROUP_RESTRICTED"|"RBA_CALCULATED"|"RBA_CALCULATED_WITHERRORS"|"RBA_SUBMITTED"|"RBA_SAVED"|"RBA_SUPERSEDEDBY"|"RBA_ITEMSNOTADDED"|"RBA_TESTRESULTELEMENTNAME"|"RBA_WASDELETEDONSERVER"|"REBATETYPE_MISSING"|"RBA_LINEITEMS_DONOTMATCHRBTF"|"RBA_RBTF_COMPUTATION_FAILED"|"RBA_HEADERREBATETYPE_MISSING"|"HEADERREBATETYPE_DEFAULTTYPE_DELETE_NOTALLOWED"|"HEADERREBATETYPE_EDIT_NOTALLOWED"|"HEADERREBATETYPE_MISSING"|"COMPENSATION_CONDITIONTYPE_MISSING"|"COMPENSATION_USERGROUP_RESTRICTED"|"COMPENSATION_CALCULATED"|"COMPENSATION_CALCULATED_WITHERRORS"|"COMPENSATION_SUBMITTED"|"COMPENSATION_SAVED"|"COMPENSATION_SUPERSEDEDBY"|"COMPENSATION_ITEMSNOTADDED"|"COMPENSATION_TESTRESULTELEMENTNAME"|"COMPENSATION_WASDELETEDONSERVER"|"COMPENSATION_LINEITEMS_DONOTMATCHRBTF"|"COMPENSATION_RBTF_COMPUTATION_FAILED"|"COMPENSATION_COMPENSATIONHEADERTYPE_MISSING"|"COMPENSATIONHEADERTYPE_DEFAULTTYPE_DELETE_NOTALLOWED"|"COMPENSATIONHEADERTYPE_EDIT_NOTALLOWED"|"COMPENSATIONHEADERTYPE_MISSING"|"COR_CALCULATED"|"COR_CALCULATED_WITHERRORS"|"COR_SUBMITTED"|"COR_SAVED"|"COR_ONGOING_CALCULATION"|"RR_CALCULATED"|"RR_CALCULATED_WITHERRORS"|"RR_SUBMITTED"|"RR_SAVED"|"RR_ONGOING_CALCULATION"|"RRG_CALCULATED"|"RRG_CALCULATED_WITHERRORS"|"RRG_SUBMITTED"|"RRG_SAVED"|"RRG_ONGOING_CALCULATION"|"MR_CALCULATED"|"MR_CALCULATED_WITHERRORS"|"MR_SUBMITTED"|"MR_SAVED"|"MR_WARNING_NOTALLRECORDSSUBMITTED"|"CONTRACT_SAVED"|"CONTRACT_SUPERSEDEDBY"|"CONTRACT_CALCULATED"|"CONTRACT_CALCULATED_WITHERRORS"|"CONTRACT_SUBMITTED"|"CONTRACT_ITEMSNOTADDED"|"CONTRACT_INVALID_CUSTOMER_GROUP"|"CONTRACT_INVALID_CUSTOMER_GROUP_FOR_LINE"|"CONTRACT_INVALID_PRODUCT_GROUP"|"CONTRACT_INVALID_PRODUCT_GROUP_FOR_LINE"|"CONTRACT_INVALID_SELLER_REFERENCE"|"CONTRACT_INVALID_SELLER_REFERENCE_FOR_LINE"|"CONTRACT_TESTRESULTELEMENTNAME"|"CONTRACT_LINEITEMS_DONOTMATCHCTTF"|"CONTRACT_CTTF_COMPUTATION_FAILED"|"CONTRACT_WASDELETEDONSERVER"|"CONTRACTTERMTYPE_MISSING"|"CONTRACT_ONGOING_CALCULATION"|"CONTRACTHEADERTYPE_DEFAULTTYPE_DELETE_NOTALLOWED"|"CONTRACTHEADERTYPE_EDIT_NOTALLOWED"|"CONTRACTHEADERTYPE_MISSING"|"ACTIONITEMTYPE_DEFAULTTYPE_DELETE_NOTALLOWED"|"ACTIONITEMTYPE_EDIT_NOTALLOWED"|"CUSTOM_FORM"|"CUSTOM_FORM_CALCULATED"|"CUSTOM_FORM_CALCULATED_WITH_ERRORS"|"CUSTOM_FORM_CANNOT_BE_CALCULATED"|"CUSTOM_FORM_CANNOT_BE_DELETED"|"CUSTOM_FORM_CANNOT_CREATE_REVISION"|"CUSTOM_FORM_CANNOT_CREATE_REVISION_FROM_EMBEDDED"|"CUSTOM_FORM_CANNOT_SUBMIT"|"CUSTOM_FORM_COPY_PREFIX"|"CUSTOM_FORM_MISSING_REQUIRED_INPUTS"|"VIEW_EDIT_RESTRICTED_BY_FORMULA_ENTITLEMENT_FILTER"|"WORKFLOW_PREVIEW_NO_APPROVAL_REQUIRED"|"WORKFLOW_ERROR"|"WORKFLOW_ONBEHALF_MESSAGE"|"WORKFLOW_USERGROUP_INFORMATION_ERROR"|"WORKFLOW_INVALID_EMAILS_IN_WATCHER_STEP"|"WORKFLOW_MAIL_ERROR_USER_MAIL_NOT_DEFINED"|"WORKFLOW_STEP_USER_CANNOT_EXECUTE_STEP"|"WORKFLOW_STEP_USER_CANNOT_EXECUTE_STEP_ONBEHALF"|"WORKFLOW_STEP_USER_CANNOT_EXECUTE_STEP_SUBMITTER"|"WORKFLOW_STEP_WRONG_STEP_BEING_EXECUTED"|"WORKFLOW_USER_INFORMATION_ERROR"|"WORKFLOW_ATTACHMENT_NOT_FOUND_ERROR"|"WORKFLOW_MANDATORY_COMMENT_MISSING_ERROR"|"WORKFLOW_MANDATORY_COMMENT_IMPOSSIBLE_ERROR"|"WORKFLOW_MAX_CUMULATIVE_SIZE_OF_ATTACHMENTS_EXCEEDED_ERROR"|"WORKFLOW_MULTIPLE_ATTACHMENTS_WITH_SAME_NAME_ERROR"|"WORKFLOW_MAX_NUMBER_OF_ATTACHMENTS_EXCEEDED_ERROR"|"WORKFLOW_NOT_FOUND"|"WORKFLOW_STEPEXECUTIONSTATUS_INITIALIZED"|"WORKFLOW_STEPEXECUTIONSTATUS_PREEXECUTED"|"WORKFLOW_STEPEXECUTIONSTATUS_EXECUTEDDENIED"|"WORKFLOW_STEPEXECUTIONSTATUS_EXECUTEDWITHDRAWN"|"WORKFLOW_STEPEXECUTIONSTATUS_EXECUTEDAPPROVED"|"WORKFLOW_STEP_NON_ALLOWED_DENIAL_REASON"|"WORKFLOW_STEP_USER_CANNOT_ADD_STEP"|"WORKFLOW_STEP_USER_CANNOT_APPROVE_MORE_THAN_ONCE"|"WORKFLOW_APPROVERS"|"WORKFLOW_DELEGATION_COMBINED"|"WORKFLOW_DELEGATION_DELEGATED"|"WORKFLOW_DELEGATION_NONE"|"WORKFLOW_USER_USERGROUP_NOT_DEFINED_ERROR"|"WORKFLOW_USER_USERGROUP_BOTH_DEFINED_ERROR"|"SUBMIT_NOT_ALLOWED"|"PREVIEW_NOT_ALLOWED"|"REVOKE_NOT_ALLOWED"|"PO_NOT_ENABLED"|"PO_OPTIMIZER_NOT_ENABLED"|"CALCULATIONFLOW_EDITING_OF_DEPLOYEDFLOW_NOT_ALLOWED"|"WORKFLOW_STEPEXECUTIONSTATUS_ALREADYSATISFIED"|"DCR_DUPLICATE_KEY"|"BINARY_RESP_ERR_ATTACHMENT_CONTENT"|"ACTION_NOT_ALLOWED"|"COMMON_ERROR"|"PRICELISTTYPE_EDIT_NOTALLOWED"|"SIGNATURE_ABORTED"|"DOCX_CONVERSION_NOT_AVAILABLE"|"DOCX_CONVERSION_FAILED"|"RECIPIENTS"|"NOTIFICATION_DOWNLOAD_READY_TITLE"|"NOTIFICATION_DOWNLOAD_READY_MSG"|"NOTIFICATION_CLIC_MESSAGE_TITLE"|"NOTIFICATION_CLIC_MESSAGE_MSG"|"NOTIFICATION_CALCULATION_END_MSG"|"NOTIFICATION_CALCULATION_END_TITLE_CANCELLED"|"NOTIFICATION_CALCULATION_END_TITLE_FINISHED"|"NOTIFICATION_CALCULATION_END_TITLE_FAILED"|"NOTIFICATION_ACTION_ITEM_ASSIGNED"|"NOTIFICATION_ACTION_CHANGED_STATUS"|"NOTIFICATION_ACTION_OVERDUE"|"NOTIFICATION_SUBMISSION_FINISHED"|"NOTIFICATION_SUBMISSION_FAILED"|"CRITICAL_ALERT"|"RED_ALERT"|"YELLOW_ALERT"|"WARNING"|"EXCEPTION"|"WARNING_ITEM"|"WARNING_HEADER"|"ERROR"|"VALIDATION"|"CALCULATION"|"TITLE"|"SUBMIT_FOR_APPROVAL" calculatedWithErrorsMsg?;
+    anydata attribute66?;
+    anydata attribute65?;
+    anydata attribute64?;
+    anydata attribute63?;
+    anydata attribute62?;
+    string? workStatus?;
+    string? comments?;
+    string? warnings?;
+    "NOT_APPROVED"|"PARTIALLY_APPROVED"|"APPROVED"|"AUTO_APPROVED"|"DENIED" approvalState?;
+    @constraint:String {maxLength: 255}
+    string label?;
+    "SUCCESS"|"COMMAND_GENERAL_ERROR"|"COMMAND_GENERAL_ERROR_WITH_MSG"|"COMMAND_GENERAL_ERROR_CONFLICT"|"COMMAND_GENERAL_ERROR_CONFLICT_FIELD"|"COMMAND_NOT_FOUND"|"COMMAND_CONFIG_ERROR"|"COMMAND_CONTEXT_PATH_NOTFOUND"|"COMMAND_NOT_AUTHORIZED"|"COMMAND_INVALID_PARAMETERS"|"COMMAND_FORBIDDEN_IN_K8S"|"COMMAND_FORBIDDEN_IN_READONLYMODE"|"COMMAND_FORM_TOO_LARGE"|"OBJECT_NOT_FOUND"|"LOGIN_FAILURE"|"LOGIN_FAILURE_BANNED"|"LOGIN_FAILURE_TFA"|"LOGIN_FAILURE_INACTIVE_OR_EXPIRED"|"PARTITION_UNKNOWN"|"COPY_OF_PREFIX"|"SIM_OF_PREFIX"|"TOO_MANY_WARNINGS"|"NO_NAME"|"ERROR_MESSAGE"|"ERROR_STATUS"|"ERROR_HTTPCODE"|"ERROR_ACTION"|"ERROR_TIMESTAMP"|"INVALID"|"FORMULA_ERROR"|"DEFAULT_FORMULA_NOT_FOUND"|"ACTIVE_FORMULA_NOT_FOUND"|"ACTIVE_FORMULA_OF_NATURE_NOT_FOUND"|"FORMULA_NOT_FOUND"|"FORMULA_NOT_FOUND_FOR"|"FE_SYNTAX_ERROR"|"FE_UNKNOWN_SYMBOL_ERROR"|"FE_WRONG_NUMBER_OF_ARGS"|"FE_ILLEGAL_OPERATION"|"FE_ILLEGAL_ARGUMENT"|"FE_ILLEGAL_STATUS"|"FE_UNDEFINED_FUNCTION"|"FE_UNDEFINED_UNIT"|"FE_UNDEFINED_VARIABLE"|"FE_FLEXCHART_UNSUPPORTED_FEATURE"|"FE_FLEXCHART_UNRECOGNIZED_OPTION"|"FE_FLEXCHART_INVALID_OPTION"|"FE_FLEXCHART_FORBIDDEN_OPTION"|"FE_FLEXCHART_INVALID_JSON"|"FE_FLEXCHART_GENERIC_ERROR"|"FE_EMBEDDED_DASHBOARD_API_MALFORMED_CONF"|"FE_EMBEDDED_DASHBOARD_API_FUNCTION_DOES_NOT_EXIST"|"FE_EMBEDDED_DASHBOARD_API_ILLEGAL_FUNCTION_CALL"|"FE_EMBEDDED_DASHBOARD_API_ILLEGAL_ARGUMENT"|"FE_WARNING_FLEXCHART_UNRECOGNIZED_TEMPLATE"|"FE_WARNING_ATTRIBUTE_NOTFOUND"|"FE_WARNING_PRODUCT_NOTSET"|"FE_WARNING_PRODUCT_NOTFOUND"|"FE_WARNING_PRODUCTATTRIBUTE_NOTFOUND"|"FE_WARNING_PRODUCTATTRIBUTE_AMIBGUOUS"|"FE_WARNING_CUSTOMER_NOTSET"|"FE_WARNING_CUSTOMER_NOTFOUND"|"FE_WARNING_CUSTOMERATTRIBUTE_NOTFOUND"|"FE_WARNING_CUSTOMERATTRIBUTE_AMIBGUOUS"|"FE_WARNING_SELLER_NOTFOUND"|"FE_WARNING_SELLERATTRIBUTE_NOTFOUND"|"FE_WARNING_SELLERATTRIBUTE_AMIBGUOUS"|"FE_WARNING_SELLER_NOTSET"|"FE_WARNING_VLOOKUP_TABLE_NOTFOUND"|"FE_WARNING_VLOOKUP_KEY_NOTFOUND"|"FE_WARNING_VLOOKUP_KEY_ISNULL"|"FE_WARNING_VLOOKUP_AMIBGUOUS"|"FE_WARNING_VLOOKUP_AMIBGUOUS_NOKEY"|"FE_WARNING_CONTEXT_NOTFOUND"|"FE_WARNING_CONTEXT_AMIBGUOUS"|"FE_WARNING_USERENTRY_NOTFOUND"|"FE_WARNING_CONFIGURATOR_NOTFOUND"|"FE_WARNING_OPTION_NOTFOUND"|"FE_WARNING_FUNCTIONCALL_AMIBGUOUS"|"FE_WARNING_ARITHMETICEXCEPTION"|"FE_WARNING_PRICELIST_ITEMNOTFOUND"|"FE_INFO_DATAMARTQUERY_USINGCACHEDRESULT"|"FE_WARNING_DATAMARTQUERY_INVALIDQUERY"|"FE_WARNING_DATAMARTQUERY_MAXROWSEXCEEDED"|"FE_WARNING_DATAMARTLOOKUP_QUERYNOTFOUND"|"FE_WARNING_DATAMARTLOOKUP_FIELDNOTFOUND"|"FE_WARNING_DATAMARTLOOKUP_INVALIDFILTER"|"FE_WARNING_DATAMARTLOOKUP_MAXROWSEXCEEDED"|"FE_WARNING_COULD_NOT_COMBINE_ELEMENTS"|"FE_WARNING_PRODUCT_EXTENSION_NAME_NOTSET"|"FE_WARNING_CUSTOMER_EXTENSION_NAME_NOTSET"|"FE_WARNING_PRICERECORD_NOTFOUND"|"FE_WARNING_PRODUCTGROUP_NOTFOUND"|"FE_WARNING_CUSTOMERGROUP_NOTFOUND"|"FE_WARNING_SELLERGROUP_NOTFOUND"|"FE_WARNING_ANYUSER_NOTFOUND"|"FE_WARNING_MULTITIERENTRY_NOTFOUND"|"FE_WARNING_DATASOURCE_NOTFOUND"|"FE_WARNING_FIELD_NOTFOUND"|"FE_WARNING_REBATERECORD_NOTFOUND"|"FE_WARNING_CONTEXTSKUSET_NOTSETORMALFORMED"|"FE_WARNING_FILTERBUILDERUSERENTRY_NOTFOUND"|"FE_WARNING_FILTERBUILDERUSERENTRY_ILLEGALVALUE"|"FE_WARNING_DMFILTERBUILDERUSERENTRY_NOTFOUND"|"FE_WARNING_DMFILTERBUILDERUSERENTRY_ILLEGALVALUE"|"FE_WARNING_REBATE_AGREEMENT_NOTFOUND"|"FE_WARNING_REBATE_AGREEMENT_ATTRIBUTE_NOTFOUND"|"FE_WARNING_CLAIM_WRONG_VALIDATION_STATE"|"FE_WARNING_HOOK_GENERIC_ERROR"|"FE_WARNING_HOOK_GENERIC_DENIED_MESSAGE"|"FE_WARNING_PARENT_NOTFOUND"|"FE_WARNING_MAX_RESULTS_SIZE_EXCEEDED"|"FE_WARNING_MISSING_BUSINESSKEY_VALUE"|"VALIDATION_SKU_MISSING"|"VALIDATION_PARTITION_USERNAME_UPDATE"|"VALIDATION_PARTITION_PASSWORD_UPDATE"|"VALIDATION_PARTITION_NULL"|"VALIDATION_PARTITION_MISMATCH"|"VALIDATION_CUSTOMERID_MISSING"|"VALIDATION_SELLERID_MISSING"|"VALIDATION_DUPLICATE_BUSINESSKEY"|"VALIDATION_DUPLICATE_BUSINESSKEY_PARAMETERIZED"|"VALIDATION_DUPLICATE_BUSINESSKEY_DETAILED"|"VALIDATION_DUPLICATE_LABEL_NAME_DETAILED"|"VALIDATION_DYNAMIC_TABS_DUPLICATED_CUSTOM_FORMS"|"VALIDATION_DYNAMIC_TABS_STANDALONE_CUSTOM_FORM"|"VALIDATION_DYNAMIC_TABS_UNSUPPORTED_TYPE_CUSTOM_FORM"|"VALIDATION_DYNAMIC_TABS_NON_EXISTING_CONFIG_WIZARD"|"VALIDATION_DYNAMIC_TABS_NON_EXISTING_ACTION_ITEM_TYPE"|"VALIDATION_DYNAMIC_TABS_MISSING_TAB"|"VALIDATION_NEWER_VERSION_EXISTS"|"VALIDATION_FORMULAELEMENT_EMPTYNAME"|"VALIDATION_FORMULAELEMENT_INVALIDNAME"|"VALIDATION_FAILED"|"VALIDATION_FIELD_DUPLICATE_VALUE"|"VALIDATION_FIELD_MISSING"|"VALIDATION_NEITHER_FIELD_PRESENT"|"VALIDATION_DEFAULT_LABEL_TRANSLATION_MISSING"|"VALIDATION_FIELD_INVALID_CHARS"|"VALIDATION_FIELD_INVALID"|"VALIDATION_FIELD_TOO_BIG"|"VALIDATION_FIELD_TOO_BIG_WITH_MSG"|"VALIDATION_NUMBER_TOO_BIG"|"VALIDATION_STATUS_RESTRICTED"|"VALIDATION_USERGROUP_RESTRICTED"|"VALIDATION_WORKFLOW_RESTRICTED"|"VALIDATION_EDIT_NOT_AUTHORIZED"|"VALIDATION_FETCH_NOT_AUTHORIZED"|"VALIDATION_DELETE_NOT_AUTHORIZED"|"VALIDATION_ADD_NOT_AUTHORIZED"|"VALIDATION_INVALID_STATUS"|"VALIDATION_LINKED_OBJ_NOT_SAVED"|"VALIDATION_BOTH_SKU_AND_PRODUCTGROUP_PRESENTED"|"VALIDATION_BOTH_CUSTOMERID_AND_CUSTOMERGROUP_PRESENTED"|"VALIDATION_PLASMA_DELETE"|"VALIDATION_PLASMA_MISMATCH"|"VALIDATION_PLASMA_UPDATE"|"VALIDATION_PWDCOMPLEXITYRULES_INVALID_PASSWORD"|"VALIDATION_PWNED_PASSWORD"|"VALIDATION_PWNED_PASSWORD_DIGEST_ERROR"|"VALIDATION_PWNED_SERVICE_ERROR"|"VALIDATION_INVALID_OLD_PASSWORD"|"VALIDATION_APPLICATIONPROPERTIES_PWDCOMPLEXITYRULES_UNKNOWN"|"VALIDATION_FORMULA_WITH_NAME_AND_DIFFERENT_NATURE_EXISTS"|"VALIDATION_FORMULA_WORKFLOWTYPE_NOTALIGNED"|"VALIDATION_DATE_CONFLICT_WITH"|"VALIDATION_INVALID_ENDDATE"|"VALIDATION_MISSING_DRIVERS"|"VALIDATION_APPLICATIONPROPERTIES_REVISIONPATTERN_FIELD_MISSING"|"VALIDATION_IMPORT_EXCEL_INVALID_HEADER"|"VALIDATION_WARNING_BUSINESS_KEYS_LENGTHS_EXCEEDED"|"VALIDATION_MULTIPLE_FORMULA_INHERITANCE_NOT_ALLOWED"|"VALIDATION_NATURE_NOT_ALLOWED_FOR_INHERITANCE"|"VALIDATION_PARENT_AND_CHILD_NATURES_DO_NOT_MATCH"|"VALIDATION_PLATFORM_MANAGER_ACCOUNT_CANNOT_BE_EDITED"|"VALIDATION_TOO_MANY_ENTITIES_FOR_THE_TIME_PERIOD"|"PL_ALERT_PRICEDEVIATION_TOO_HIGH"|"PL_WRONG_TYPE"|"PL_ALREADY_APPROVED"|"PL_NOTFOUND"|"PL_CAN_CONVERT_TO_APPROVED"|"CALC_ALREADY_FINISHED"|"CALC_CANCEL_QUEUED"|"CALC_SERIALIZATION_ERROR"|"NO_MAPPING"|"PG_ISEMPTY"|"PGI_OFNONEXISTENTSKU_SKIPPED"|"PGI_OFNONEXISTENTSKU_INVALIDATED"|"PGI_OFNONEXISTENTSKU_HARDDELETED"|"SIM_ISEMPTY"|"SIM_BASEPL_INVALID"|"NOT_ENOUGH_LICENSES"|"CANNOT_EXPAND_SCOPE_BUSINESSROLE"|"ACCESS_DENIED"|"DM_DEPLOYMENT_IN_PROGRESS"|"DM_OBJECT_ISLOCKED"|"DM_DEFAULT_DS_CREATION_FAILED"|"DM_SCHEMA_INTEGRITY_ERROR"|"DM_ACTION_NOTALLOWED"|"DM_VALIDATION_MAXROWS_EXCEEDED"|"DM_VALIDATION_HEADER_INVALIDFIELD"|"DM_VALIDATION_FIELD_UNKNOWN"|"DM_VALIDATION_KEYFIELD_MISSING"|"DM_VALIDATION_FIELD_MISSING"|"DM_VALIDATION_ROW_INVALIDFORMAT"|"DM_VALIDATION_ROW_FIELDMISMATCH"|"DM_VALIDATION_FIELD_INVALIDVALUE"|"DM_VALIDATION_INVALID"|"DM_VALIDATION_DM_FIELD_AMBIGIOUS"|"DM_VALIDATION_SCHEMA_FIELDCONFLICT"|"DM_VALIDATION_SCHEMA_AMBIGUOUSFIELDTYPE"|"DM_VALIDATION_SCHEMA_CIRCULARDEPENDENCY"|"DM_VALIDATION_DS_INVALID"|"DM_VALIDATION_DM_INVALID"|"DM_VALIDATION_FC_DEPENDENTONINVALIDFC"|"DM_VALIDATION_FC_INVALIDFIELDS"|"DM_VALIDATION_FC_INVALIDCALCULATEDFIELDS"|"DM_VALIDATION_FC_INVALIDNAME"|"DM_VALIDATION_FC_DUPLICATEFIELDS"|"DM_VALIDATION_DS_NOKEY"|"DM_VALIDATION_DS_AMBIGUOUSCCY"|"DM_VALIDATION_DS_AMBIGUOUSUOM"|"DM_VALIDATION_DS_MISSINGKEYFIELDS"|"DM_VALIDATION_DM_NOKEY"|"DM_VALIDATION_DM_SOURCE_MISSING"|"DM_VALIDATION_DM_FIELD_UNKNOWN"|"DM_VALIDATION_DM_INVALIDFIELDS"|"DM_VALIDATION_DEPENDENCIES_MISSING"|"DM_VALIDATION_SOURCE_NOTACCESSIBLE"|"DM_VALIDATION_SOURCE_FIELD_UNKNOWN"|"DM_VALIDATION_SOURCE_FIELD_MISSING"|"DM_VALIDATION_SYSTEM_GENERATED_DATASOURCE"|"DM_VALIDATION_CFS_KEYNOTALLOWED"|"DM_VALIDATION_KEYFIELD_INVALIDTYPE"|"DM_VALIDATION_FIELD_INVALIDNAME"|"DM_VALIDATION_FIELD_INVALIDTYPE"|"DM_VALIDATION_FIELD_INVALIDEXPRESSION"|"DM_VALIDATION_QUERY_SOURCE_MISSING"|"DM_VALIDATION_QUERY_NOTQUERYABLE"|"DM_VALIDATION_QUERY_INVALIDCCYCODE"|"DM_VALIDATION_QUERY_CANNOTGENSTATPROJ"|"DM_VALIDATION_QUERY_PROJ_INVALID"|"DM_VALIDATION_QUERY_PROJ_INVALIDTYPE"|"DM_VALIDATION_QUERY_PROJ_INVALIDCALCMODE"|"DM_VALIDATION_QUERY_PROJ_CANNOTROLLUP"|"DM_VALIDATION_QUERY_PROJ_CANNOTGENSTATPROJ"|"DM_VALIDATION_QUERY_PROJ_INVALIDDEFAULT"|"DM_VALIDATION_QUERY_EXPR_UNKNOWNIDENTIFIER"|"DM_VALIDATION_QUERY_ROWLIMIT_INVALID"|"DM_VALIDATION_QUERY_PIVOTCOLUMNLIMIT"|"DM_VALIDATION_QUERY_FILTER_INVALID"|"DM_VALIDATION_QUERY_MISSING_SQL"|"DM_VALIDATION_DUPLICATE"|"DM_VALIDATION_AMBIGUOUS"|"DM_LABEL_CALENDAR"|"DM_LABEL_TIMEDIM_DAY"|"DM_LABEL_TIMEDIM_WEEK"|"DM_LABEL_TIMEDIM_MONTH"|"DM_LABEL_TIMEDIM_QUARTER"|"DM_LABEL_TIMEDIM_YEAR"|"DM_LABEL_DEFAULTFEED2DSFORMULA"|"DM_DATASOURCES"|"DM_VALIDATION_PARTITIONING_KEY_MORE_THAN_ONE"|"DM_VALIDATION_PARTITIONING_KEY_HAS_TO_BE_DATE"|"DM_VALIDATION_FIELD_PARTITIONING_KEY_HAS_TO_BE_DATE"|"DM_VALIDATION_PARTITIONING_NO_EFFECT_ON_EXISTING"|"DM_QUERY_TIMEOUT"|"JST_CANNOT_START"|"IMPORTFILE_VALIDATION_ERROR_DATASOURCE"|"IMPORTFILE_VALIDATION_ERROR_LIST"|"IMPORTFILE_VALIDATION_ERROR_READONLY"|"IMPORTFILE_VALIDATION_ERROR_REQUIRED"|"IMPORTFILE_VALIDATION_ERROR_START"|"IMPORTFILE_VALIDATION_ERROR_FIELDTYPE"|"IMPORTFILE_VALIDATION_ERROR_FILTER"|"IMPORTFILE_VALIDATION_ERROR_HEADER"|"MODEL_MODELTYPE_NOT_FOUND"|"MODEL_CALCSTEP_NOT_FOUND"|"MODEL_NATURE_NOT_FOUND"|"MODEL_TYPE_DEFINITION_INVALID"|"MODEL_NOT_SPECIFIED"|"MODEL_RECORD_NOT_SPECIFIED"|"ROLLUP_INVALID"|"QUOTE_USERGROUP_RESTRICTED"|"QUOTE_CALCULATED"|"QUOTE_CALCULATED_WITHERRORS"|"QUOTE_SUBMITTED"|"QUOTE_SAVED"|"QUOTE_SUPERSEDEDBY"|"QUOTE_PRODUCTSNOTADDED"|"QUOTE_ALREADY_EXPIRED"|"QUOTE_TESTRESULTELEMENTNAME"|"QUOTE_LINEITEMS_DOTOMATCHQPF"|"QUOTE_QPF_COMPUTATION_FAILED"|"QUOTE_COULD_NOT_CONVERT_TO_DEAL"|"QUOTE_NON_EXISTENT_SKUS"|"QUOTE_WASDELETEDONSERVER"|"QUOTETYPE_DEFAULTTYPE_DELETE_NOTALLOWED"|"QUOTETYPE_DEFAULTTYPE_EDIT_NOTALLOWED"|"QUOTETYPE_EDIT_NOTALLOWED"|"QUOTETYPE_MISSING"|"HEADER_PREPHASE_ELEMENTPOSTFIX"|"HEADER_POSTPHASE_ELEMENTPOSTFIX"|"RBA_USERGROUP_RESTRICTED"|"RBA_CALCULATED"|"RBA_CALCULATED_WITHERRORS"|"RBA_SUBMITTED"|"RBA_SAVED"|"RBA_SUPERSEDEDBY"|"RBA_ITEMSNOTADDED"|"RBA_TESTRESULTELEMENTNAME"|"RBA_WASDELETEDONSERVER"|"REBATETYPE_MISSING"|"RBA_LINEITEMS_DONOTMATCHRBTF"|"RBA_RBTF_COMPUTATION_FAILED"|"RBA_HEADERREBATETYPE_MISSING"|"HEADERREBATETYPE_DEFAULTTYPE_DELETE_NOTALLOWED"|"HEADERREBATETYPE_EDIT_NOTALLOWED"|"HEADERREBATETYPE_MISSING"|"COMPENSATION_CONDITIONTYPE_MISSING"|"COMPENSATION_USERGROUP_RESTRICTED"|"COMPENSATION_CALCULATED"|"COMPENSATION_CALCULATED_WITHERRORS"|"COMPENSATION_SUBMITTED"|"COMPENSATION_SAVED"|"COMPENSATION_SUPERSEDEDBY"|"COMPENSATION_ITEMSNOTADDED"|"COMPENSATION_TESTRESULTELEMENTNAME"|"COMPENSATION_WASDELETEDONSERVER"|"COMPENSATION_LINEITEMS_DONOTMATCHRBTF"|"COMPENSATION_RBTF_COMPUTATION_FAILED"|"COMPENSATION_COMPENSATIONHEADERTYPE_MISSING"|"COMPENSATIONHEADERTYPE_DEFAULTTYPE_DELETE_NOTALLOWED"|"COMPENSATIONHEADERTYPE_EDIT_NOTALLOWED"|"COMPENSATIONHEADERTYPE_MISSING"|"COR_CALCULATED"|"COR_CALCULATED_WITHERRORS"|"COR_SUBMITTED"|"COR_SAVED"|"COR_ONGOING_CALCULATION"|"RR_CALCULATED"|"RR_CALCULATED_WITHERRORS"|"RR_SUBMITTED"|"RR_SAVED"|"RR_ONGOING_CALCULATION"|"RRG_CALCULATED"|"RRG_CALCULATED_WITHERRORS"|"RRG_SUBMITTED"|"RRG_SAVED"|"RRG_ONGOING_CALCULATION"|"MR_CALCULATED"|"MR_CALCULATED_WITHERRORS"|"MR_SUBMITTED"|"MR_SAVED"|"MR_WARNING_NOTALLRECORDSSUBMITTED"|"CONTRACT_SAVED"|"CONTRACT_SUPERSEDEDBY"|"CONTRACT_CALCULATED"|"CONTRACT_CALCULATED_WITHERRORS"|"CONTRACT_SUBMITTED"|"CONTRACT_ITEMSNOTADDED"|"CONTRACT_INVALID_CUSTOMER_GROUP"|"CONTRACT_INVALID_CUSTOMER_GROUP_FOR_LINE"|"CONTRACT_INVALID_PRODUCT_GROUP"|"CONTRACT_INVALID_PRODUCT_GROUP_FOR_LINE"|"CONTRACT_INVALID_SELLER_REFERENCE"|"CONTRACT_INVALID_SELLER_REFERENCE_FOR_LINE"|"CONTRACT_TESTRESULTELEMENTNAME"|"CONTRACT_LINEITEMS_DONOTMATCHCTTF"|"CONTRACT_CTTF_COMPUTATION_FAILED"|"CONTRACT_WASDELETEDONSERVER"|"CONTRACTTERMTYPE_MISSING"|"CONTRACT_ONGOING_CALCULATION"|"CONTRACTHEADERTYPE_DEFAULTTYPE_DELETE_NOTALLOWED"|"CONTRACTHEADERTYPE_EDIT_NOTALLOWED"|"CONTRACTHEADERTYPE_MISSING"|"ACTIONITEMTYPE_DEFAULTTYPE_DELETE_NOTALLOWED"|"ACTIONITEMTYPE_EDIT_NOTALLOWED"|"CUSTOM_FORM"|"CUSTOM_FORM_CALCULATED"|"CUSTOM_FORM_CALCULATED_WITH_ERRORS"|"CUSTOM_FORM_CANNOT_BE_CALCULATED"|"CUSTOM_FORM_CANNOT_BE_DELETED"|"CUSTOM_FORM_CANNOT_CREATE_REVISION"|"CUSTOM_FORM_CANNOT_CREATE_REVISION_FROM_EMBEDDED"|"CUSTOM_FORM_CANNOT_SUBMIT"|"CUSTOM_FORM_COPY_PREFIX"|"CUSTOM_FORM_MISSING_REQUIRED_INPUTS"|"VIEW_EDIT_RESTRICTED_BY_FORMULA_ENTITLEMENT_FILTER"|"WORKFLOW_PREVIEW_NO_APPROVAL_REQUIRED"|"WORKFLOW_ERROR"|"WORKFLOW_ONBEHALF_MESSAGE"|"WORKFLOW_USERGROUP_INFORMATION_ERROR"|"WORKFLOW_INVALID_EMAILS_IN_WATCHER_STEP"|"WORKFLOW_MAIL_ERROR_USER_MAIL_NOT_DEFINED"|"WORKFLOW_STEP_USER_CANNOT_EXECUTE_STEP"|"WORKFLOW_STEP_USER_CANNOT_EXECUTE_STEP_ONBEHALF"|"WORKFLOW_STEP_USER_CANNOT_EXECUTE_STEP_SUBMITTER"|"WORKFLOW_STEP_WRONG_STEP_BEING_EXECUTED"|"WORKFLOW_USER_INFORMATION_ERROR"|"WORKFLOW_ATTACHMENT_NOT_FOUND_ERROR"|"WORKFLOW_MANDATORY_COMMENT_MISSING_ERROR"|"WORKFLOW_MANDATORY_COMMENT_IMPOSSIBLE_ERROR"|"WORKFLOW_MAX_CUMULATIVE_SIZE_OF_ATTACHMENTS_EXCEEDED_ERROR"|"WORKFLOW_MULTIPLE_ATTACHMENTS_WITH_SAME_NAME_ERROR"|"WORKFLOW_MAX_NUMBER_OF_ATTACHMENTS_EXCEEDED_ERROR"|"WORKFLOW_NOT_FOUND"|"WORKFLOW_STEPEXECUTIONSTATUS_INITIALIZED"|"WORKFLOW_STEPEXECUTIONSTATUS_PREEXECUTED"|"WORKFLOW_STEPEXECUTIONSTATUS_EXECUTEDDENIED"|"WORKFLOW_STEPEXECUTIONSTATUS_EXECUTEDWITHDRAWN"|"WORKFLOW_STEPEXECUTIONSTATUS_EXECUTEDAPPROVED"|"WORKFLOW_STEP_NON_ALLOWED_DENIAL_REASON"|"WORKFLOW_STEP_USER_CANNOT_ADD_STEP"|"WORKFLOW_STEP_USER_CANNOT_APPROVE_MORE_THAN_ONCE"|"WORKFLOW_APPROVERS"|"WORKFLOW_DELEGATION_COMBINED"|"WORKFLOW_DELEGATION_DELEGATED"|"WORKFLOW_DELEGATION_NONE"|"WORKFLOW_USER_USERGROUP_NOT_DEFINED_ERROR"|"WORKFLOW_USER_USERGROUP_BOTH_DEFINED_ERROR"|"SUBMIT_NOT_ALLOWED"|"PREVIEW_NOT_ALLOWED"|"REVOKE_NOT_ALLOWED"|"PO_NOT_ENABLED"|"PO_OPTIMIZER_NOT_ENABLED"|"CALCULATIONFLOW_EDITING_OF_DEPLOYEDFLOW_NOT_ALLOWED"|"WORKFLOW_STEPEXECUTIONSTATUS_ALREADYSATISFIED"|"DCR_DUPLICATE_KEY"|"BINARY_RESP_ERR_ATTACHMENT_CONTENT"|"ACTION_NOT_ALLOWED"|"COMMON_ERROR"|"PRICELISTTYPE_EDIT_NOTALLOWED"|"SIGNATURE_ABORTED"|"DOCX_CONVERSION_NOT_AVAILABLE"|"DOCX_CONVERSION_FAILED"|"RECIPIENTS"|"NOTIFICATION_DOWNLOAD_READY_TITLE"|"NOTIFICATION_DOWNLOAD_READY_MSG"|"NOTIFICATION_CLIC_MESSAGE_TITLE"|"NOTIFICATION_CLIC_MESSAGE_MSG"|"NOTIFICATION_CALCULATION_END_MSG"|"NOTIFICATION_CALCULATION_END_TITLE_CANCELLED"|"NOTIFICATION_CALCULATION_END_TITLE_FINISHED"|"NOTIFICATION_CALCULATION_END_TITLE_FAILED"|"NOTIFICATION_ACTION_ITEM_ASSIGNED"|"NOTIFICATION_ACTION_CHANGED_STATUS"|"NOTIFICATION_ACTION_OVERDUE"|"NOTIFICATION_SUBMISSION_FINISHED"|"NOTIFICATION_SUBMISSION_FAILED"|"CRITICAL_ALERT"|"RED_ALERT"|"YELLOW_ALERT"|"WARNING"|"EXCEPTION"|"WARNING_ITEM"|"WARNING_HEADER"|"ERROR"|"VALIDATION"|"CALCULATION"|"TITLE"|"SUBMIT_FOR_APPROVAL" calculatedMsg?;
+    anydata attribute72?;
+    anydata attribute71?;
+    anydata attribute70?;
+    int createdBy?;
+    int calculationStatus?;
+    anydata attribute79?;
+    anydata attribute78?;
+    anydata attribute77?;
+    anydata attribute76?;
+    anydata attribute75?;
+    anydata attribute74?;
+    int lastUpdateBy?;
+    anydata attribute73?;
+};
+
+public type ImportManagerImportOptions record {|
+    boolean? includeNewRows?;
+    boolean? includeDeletedRows?;
+    boolean? includeUpdatedRows?;
+    record {}...;
+|};
+
+# 
+public type ExecuteLogicResponse record {
+    ExecuteAssignedLogicResponseResponse response?;
+};
+
+public type InlineResponse20031ResponseInputs record {
+    record {} parameterConfig?;
+    record {}[] inputs?;
+    string name?;
+    string label?;
+    string 'type?;
+    InlineResponse20031ResponseValue value?;
+    string url?;
+    record {} formattingOptions?;
+};
+
+# 
+public type ImportCompetitionDataRequest record {
+    ProductmanagerimportproductcompetitionData data;
+};
+
+public type SubmitRebateRecordGroup record {
+    SubmitRebateRecordGroupResponse response?;
+};
+
+public type ApproveDocumentResponseResponseData record {
+    ApproveDocumentResponseResponseWorkflow workflow?;
+    @constraint:String {minLength: 1}
+    string resultType?;
+};
+
+# Represents the Queries record for the operation: downloadAttachmentData
+public type DownloadAttachmentDataQueries record {
+    # file
+    string output;
+};
+
+public type ListActionItemsResponseResponse record {
+    string node?;
+    int startRow?;
+    ActionItem[] data?;
+    int endRow?;
+    int status?;
+};
+
+public type RevokeRebateRecordGroupEnvelope record {
+    SubmitRebateRecordGroupResponse response?;
+};
+
+public type SX20Inner record {
+    string typedId?;
+    string? attribute19?;
+    string? attribute18?;
+    string? attribute17?;
+    string lastUpdateDate?;
+    string? attribute16?;
+    string? attribute15?;
+    @constraint:String {maxLength: 255}
+    string sellerId?;
+    string? attribute20?;
+    string createDate?;
+    int version?;
+    string? attribute9?;
+    string? attribute8?;
+    string? attribute5?;
+    int createdBy?;
+    string? attribute4?;
+    string? attribute7?;
+    string? attribute6?;
+    @constraint:String {maxLength: 255}
+    string name?;
+    string? attribute1?;
+    string? attribute14?;
+    string? attribute13?;
+    string? attribute3?;
+    string? attribute12?;
+    string? attribute2?;
+    string? attribute11?;
+    string? attribute10?;
+    int lastUpdateBy?;
+};
+
+public type ContractCalculationCalculationConfigResultFields record {
+    string owningFC?;
+    record {|string...;|} labelTranslations?;
+    record {} defaultValue?;
+    string dbTable?;
+    boolean partitioningKey?;
+    boolean numeric?;
+    boolean deployed?;
+    boolean aggregation?;
+    string 'source?;
+    "NUMBER"|"QUANTITY"|"TEXT"|"DATE"|"MONEY"|"CURRENCY"|"UOM"|"LOB"|"DATETIME"|"BOOLEAN"|"INTEGER" 'type?;
+    string dbColumn?;
+    string sourceField?;
+    "PERUNITBASIS"|"PERCENTBASIS"|"PRICINGDATE"|"LEVEL"|"ALTKEY"|"OBSOLETE_CONVERSIONFROM"|"OBSOLETE_CONVERSIONTO"|"OBSOLETE_CONVERSIONRATE"|"OBSOLETE_BASECCY"|"OBSOLETE_BASEUOM"|"TIMEDIMENSION"|"OBSOLETE_DELETE" functionalType?;
+    boolean auxiliary?;
+    "SUM"|"AVG"|"MIN"|"MAX"|"COUNT"|"EVERY"|"ANY"|"COUNTDISTINCT"|"COUNT_DISTINCT"|"PERCENTILE_DISC"|"PERCENTILE_CONT"|"GROUP_CONCAT"|"ROW_NUMBER"|"ROW_ID"|"PERCENT_RANK"|"CUME_DIST"|"NTILE"|"BIN_IDX"|"BIN_ABS"|"BIN_PCT"|"ISNULL"|"IF"|"IFNULL"|"NULLIF"|"TOSTRING"|"TODATE"|"SQL0"|"SQL1"|"SQL2"|"SQL3"|"SQL4"|"SQL5"|"PARSE"|"RANGE"|"CEILING"|"FLOOR"|"ROUND"|"CORR"|"COVAR_POP"|"COVAR_SAMP"|"REGR_AVGX"|"REGR_AVGY"|"REGR_COUNT"|"REGR_INTERCEPT"|"REGR_R2"|"REGR_SLOPE"|"REGR_SXX"|"REGR_SXY"|"REGR_SYY"|"STDDEV_POP"|"STDDEV_SAMP"|"VAR_POP"|"VAR_SAMP" 'function?;
+    int rank?;
+    boolean dimension?;
+    boolean calculated?;
+    boolean 'key?;
+    "PERUNIT"|"EXTENDED"|"FIXED" measureType?;
+    string expression?;
+    int visibility?;
+    string format?;
+    string label?;
+    string formulaElement?;
+    boolean queryable?;
+    boolean system?;
+    boolean deleted?;
+    string name?;
+    record {|record {}...;|} messages?;
+    boolean persisted?;
+    boolean time?;
+};
+
+public type InlineResponse2004Response record {
+    int startRow?;
+    InlineResponse2004ResponseData[] data?;
+    int endRow?;
+    int status?;
+};
+
+public type UpsertCustomerExtensionResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node;
+    @constraint:String {minLength: 1}
+    string csrfToken;
+    @constraint:Array {minLength: 1}
+    UpsertCustomerExtensionResponseResponseData[] data;
+    decimal status;
+};
+
+public type UpdateCRCIMOldValues record {
+    string typedId?;
+    int version?;
+};
+
+# 
+public type CalculatePriceGridResponse record {
+    CalculatePriceGridResponseResponse response;
+};
+
+public type LoaddataPXData record {
+    # The data fields. Appearing in same order as specified in `header` list
+    anydata[] data;
+    LoaddataPXDataOptions options?;
+    # The header fields
+    anydata[] header;
+};
+
+public type ClicmanagerimportlineitemstypedIdDataInputs record {
+    string name?;
+    string value?;
+};
+
+# 
+public type UpdateLookupTableResponse record {
+    DeleteLookupTableResponseResponse response;
+};
+
+public type AddSellerRequest record {
+    AddSLData data?;
+    string operation;
+};
+
+public type ContractmanagersubmitData record {
+    ContractmanagersubmitDataContract contract;
+};
+
+public type TruncateKVTableResponseResponse record {
+    string node?;
+    record {}? data?;
+    int status?;
+};
+
+public type ContractmanagersaveDataContractInputs1 record {
+    @constraint:String {minLength: 1}
+    string name?;
+    @constraint:String {minLength: 1}
+    string label?;
+    anydata lookupTableId?;
+    anydata url?;
+    @constraint:String {minLength: 1}
+    string 'type?;
+    anydata value?;
+    anydata valueHint?;
+    anydata readOnly?;
+    anydata filter?;
+    anydata parameterGroup?;
+    anydata labelTranslations?;
+    anydata addUnknownValues?;
+    anydata typedId?;
+    anydata alwaysEditable?;
+    record {}[] inputs?;
+    ContractmanagersaveDataContractParameterConfig parameterConfig?;
+    record {} formattingOptions?;
+    anydata valueOptions?;
+    anydata inheritedValue?;
+};
+
+# 
+public type MassEditPriceGridItemsResponse record {
+    MassEditPriceGridItemsResponseResponse response;
+};
+
+# Stats result of the currently performed calculation
+public type InlineResponse20031ResponseDurations record {
+    InlineResponse20031ResponseDurationsHeader[] header?;
+    record {}[] items?;
+};
+
+public type AddCData record {
+    @constraint:String {minLength: 1}
+    string customerId;
+    @constraint:String {minLength: 1}
+    string name?;
+    @constraint:String {minLength: 1}
+    string attribute1?;
+    @constraint:String {minLength: 1}
+    string userGroupEdit?;
+    @constraint:String {minLength: 1}
+    string attribute2?;
+};
+
+public type InlineResponse20082ResponseData record {
+    string typedId?;
+    string managerUN?;
+    string lastUpdateDate?;
+    string? originalValue?;
+    KvservicefetchtableNameData targetPrimaryKeys?;
+    string typeOfChange?;
+    int version?;
+    int createdBy?;
+    string? validationErrors?;
+    string? value?;
+    string? columnName?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+public type UpdatePGTTOldValues record {
+    string lastUpdateByName?;
+    UpdatePGTTDataTypeConfiguration typeConfiguration?;
+    string createdByName?;
+    string dimensionType?;
+    string typedId?;
+    string targetDate?;
+    string lastUpdateDate?;
+    record {} contextualActions?;
+    string label?;
+    int version?;
+    string uniqueName?;
+    record {} buttonsConfiguration?;
+    int createdBy?;
+    string matrixFormulaName?;
+    string headerFormulaName?;
+    string matrixFormulaElementName?;
+    string customActionLogics?;
+    string userGroupEdit?;
+    string userGroupViewDetails?;
+    int id?;
+    string calculationFormulaName?;
+    string userGroupCanUseType?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+public type ListCustomFormTypesResponseResponseData record {
+    @constraint:String {minLength: 1}
+    string typedId?;
+    @constraint:String {minLength: 1}
+    string uniqueName?;
+    anydata[] supportedParentTypeCodes?;
+    decimal createdBy?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    @constraint:String {minLength: 1}
+    string headerFormulaName?;
+    @constraint:String {minLength: 1}
+    string label?;
+    decimal version?;
+    boolean embedded?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal lastUpdateBy?;
+};
+
+# 
+public type GetCompetitionDataResponse record {
+    GetCompetitionDataResponseResponse response?;
+};
+
+public type GetexternalapppropertiesResponse record {
+    GetexternalapppropertiesResponseResponse response?;
+};
+
+public type DeleteSellerExtensionResponse record {
+    AddSellerExtensionResponseResponse response?;
+};
+
+public type DeleteLogicResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:String {minLength: 1}
+    string csrfToken?;
+    @constraint:Array {minLength: 1}
+    DeleteLogicResponseResponseData[] data?;
+    decimal status?;
+};
+
+public type DeleteCalculationRequest record {
+    ClicmanagerdeleteCompensationCalculationData data;
+};
+
+public type PricingFormulaElements record {
+    string cssProperties?;
+    string labelTranslations?;
+    string typedId?;
+    string formulaExpression?;
+    string lastUpdateDate?;
+    boolean protectedExpression?;
+    boolean hideWarnings?;
+    int elementTimeout?;
+    string resultGroup?;
+    record {} redAlert?;
+    string elementName?;
+    record {} yellowAlert?;
+    string elementSuffix?;
+    string elementLabel?;
+    "ADD"|"SUBTRACT"|"RESULT"|"INFO"|"FUNCTION"|"BRICK"|"PYTHON" combinationType?;
+    "NUMERIC"|"NUMERIC_LONG"|"MONEY"|"PERCENT"|"TEXT"|"MONEY_EUR"|"MONEY_USD"|"MONEY_GBP"|"MONEY_JPY"|"MONEY_CHF"|"MONEY_PLN"|"DATETIME"|"DATE"|"INTEGER"|"LINK"|"COMPLEX"|"SPARKLINE" formatType?;
+    boolean hideOnNull?;
+    string userGroup?;
+    boolean allowOverride?;
+    string createDate?;
+    string conditionElementName?;
+    string[] elementGroups?;
+    int version?;
+    PricingFormulaCriticalAlert criticalAlert?;
+    boolean excludeFromExport?;
+    int displayOptions?;
+    int createdBy?;
+    boolean summarize?;
+    string elementDescription?;
+    int lastUpdateBy?;
+};
+
+# 
+public type SubmitQuoteContractRebateAgreementRequest record {
+    ClicmanagersubmittypedIdData data?;
+};
+
+# 
+public type UpsertLookupTableValueResponse record {
+    UpsertLookupTableValueResponseResponse response;
+};
+
+public type DatamartrundataloadData record {
+    # Use the `typedId` to run calculations. For other types (flush, refresh or truncate), use `targetName` (and `sourceName`)
+    @constraint:String {minLength: 1}
+    string targetName;
+    # Use the `typedId` to run calculations. For other types (flush, refresh or truncate), use `targetName` (and `sourceName`)
+    @constraint:String {minLength: 1}
+    string typedId;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    boolean isPlasma?;
+    boolean distributed?;
+    @constraint:String {minLength: 1}
+    string label?;
+    boolean incremental?;
+    # The Data Load Type
+    "CALCULATION"|"DM_REFRESH"|"DM_SIMULATION"|"DS_CUSTOMERS"|"DS_DEFAULTCA"|"DS_FLUSH"|"DS_PRODUCTSL"|"TRUNCATE" 'type?;
+    decimal version?;
+    boolean withTargetSnapshot?;
+    decimal requestTime?;
+    boolean valid?;
+    boolean isDefault?;
+    decimal createdBy?;
+    decimal numberOfItems?;
+    record {}[] schedules?;
+    boolean continuous?;
+    @constraint:String {minLength: 1}
+    string sourceName;
+    DatamartrundataloadDataCalculationConfig calculationConfig?;
+    decimal lastUpdateTime?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal lastUpdateBy?;
+    @constraint:String {minLength: 1}
+    string status?;
+};
+
+public type OtherFiltersOtherFiltersOtherFiltersOtherFiltersAnyOf1234 string?;
+
+public type InlineResponse20085ResponseColumns record {
+    string name?;
+    string 'type?;
+};
+
+public type fetchtypeCode_data_criteria record {
+    string fieldName?;
+    # Specify an operator of the filter criteria.
+    "equals"|"iEquals"|"notEqual"|"iNotEqual"|"greaterThan"|"greaterOrEqual"|"lessOrEqual"|"lessThan"|"isNull"|"notNull"|"contains"|"iContains"|"containsPattern"|"iContainsPattern"|"notContains"|"iNotContains"|"startsWith"|"iStartsWith"|"notStartsWith"|"iNotStartsWith"|"endsWith"|"iEndsWith"|"notEndsWith"|"iNotEndsWith"|"iBetween"|"iBetweenInclusive"|"inSet"|"notInSet" operator?;
+    string value?;
+};
+
+# 
+public type MassUpdateResponse record {
+    MassUpdateResponseResponse response?;
+};
+
+public type AddWatcherStepResponseResponseWorkflow record {
+    @constraint:String {minLength: 1}
+    string workflowStatus?;
+    @constraint:String {minLength: 1}
+    string isSelectStepOnDeny;
+    @constraint:String {minLength: 1}
+    string 'type?;
+    @constraint:Array {minLength: 1}
+    AddWatcherStepResponseResponseWorkflowSteps[] steps?;
+    @constraint:String {minLength: 1}
+    string approvableTypedId?;
+    @constraint:String {minLength: 1}
+    string currentStepId?;
+    anydata submitReason?;
+    @constraint:String {minLength: 1}
+    string submitterUserName?;
+    record {}[] denialReasons?;
+    @constraint:String {minLength: 1}
+    string submitterTypedId?;
+    @constraint:String {minLength: 1}
+    string isDenialReasonOptional?;
+    @constraint:String {minLength: 1}
+    string id?;
+    @constraint:String {minLength: 1}
+    string isAddStepRestrictedToWFAdmin?;
+};
+
+public type AddCalculationGridItemResponseResponse record {
+    string node?;
+    CalculationGridItem6Key[] data?;
+    int status?;
+};
+
+# 
+public type AssignBusinessRoleToUserRequest record {
+    AccountmanagerassignbusinessroleuserIdData data;
+};
+
+public type OptimizationmodelfetchpciDataCriteria record {
+    string fieldName;
+    # The `id` of the job
+    int value;
+    string operator;
+};
+
+public type QuoteTmpInputs record {
+    string? labelTranslations?;
+    boolean? addUnknownValues?;
+    string? typedId?;
+    record {|record {}...;|} parameterConfig?;
+    record {}[] inputs?;
+    boolean? readOnly?;
+    string label?;
+    string 'type?;
+    string? parameterGroup?;
+    string? url?;
+    string? valueHint?;
+    boolean? required?;
+    boolean? alwaysEditable?;
+    record {|record {}...;|} formattingOptions?;
+    anydata[]? valueOptions?;
+    record {|record {}...;|}? filter?;
+    string? lookupTableId?;
+    string name?;
+    record {}? value?;
+};
+
+# The type code is PXAM
+public type ProductExtensionAttributeMeta record {
+    @constraint:String {maxLength: 255}
+    string cssProperties?;
+    string labelTranslations?;
+    string typedId?;
+    @constraint:String {maxLength: 255}
+    string fieldName?;
+    string lastUpdateDate?;
+    string fieldValueOptions?;
+    @constraint:String {maxLength: 1000}
+    string description?;
+    boolean readOnly?;
+    @constraint:String {maxLength: 255}
+    string label?;
+    int version?;
+    boolean requiredField?;
+    int createdBy?;
+    @constraint:String {maxLength: 255}
+    string name?;
+    @constraint:String {maxLength: 255}
+    string entityRefTypeCode?;
+    "NUMERIC"|"NUMERIC_LONG"|"MONEY"|"PERCENT"|"TEXT"|"MONEY_EUR"|"MONEY_USD"|"MONEY_GBP"|"MONEY_JPY"|"MONEY_CHF"|"MONEY_PLN"|"DATETIME"|"DATE"|"INTEGER"|"LINK"|"COMPLEX"|"SPARKLINE" formatType?;
+    int fieldType?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+public type ListSellersResponse record {
+    string node?;
+    int startRow?;
+    Seller data?;
+    int endRow?;
+    int totalRows?;
+    int status?;
+};
+
+# 
+public type AssignBusinessRoleRequest record {
+    AccountmanagerassignbusinessroleData data;
+};
+
+# Represents the Queries record for the operation: fetchDataMartObject
+public type FetchDataMartObjectQueries record {
+    # Set this parameter to override the default timeout (60 seconds) of the query. The maximum allowed timeout is 300 seconds. The default timeout value and the maximum timeout value can be configured in the backend. Setting higher timeout can be useful, for example, when a query takes long time (e.g., when processing large tables)
+    string timeout = "60";
+};
+
+# The type code is CG
+public type CalculationGrid record {
+    string? lastUpdateByName?;
+    string? createdByName?;
+    string? updateDate?;
+    string typedId?;
+    string configuration?;
+    int? relativeTargetDateDays?;
+    string lastUpdateDate?;
+    int numberOfSubmittedItems?;
+    int numberOfAutoApprovedItems?;
+    string? locale?;
+    int numberOfDeniedItems?;
+    string? calculationDate?;
+    "DATA_DRIVEN"|"LOGIC_DRIVEN"|"MANUAL" keyGenerationType?;
+    boolean writeOnlyChangedItems?;
+    string? userGroupViewDetails?;
+    int id?;
+    "CG1"|"CG2"|"CG3"|"CG4"|"CG5"|"CG6"? calculationGridType?;
+    string createDate?;
+    string? calculationMessages?;
+    int updatedBy?;
+    int numberOfApprovedItems?;
+    int keySize?;
+    string targetDate?;
+    @constraint:String {maxLength: 255}
+    string label?;
+    int version?;
+    string? partialCalculationDate?;
+    int numberOfOpenItems?;
+    int createdBy?;
+    int numberOfItems?;
+    string? userGroupEdit?;
+    "LINE_ITEM" approvalLevel?;
+    int? nodeId?;
+    boolean keepManualOverrides?;
+    string? calculationStartDate?;
+    int lastUpdateBy?;
+    "DRAFT"|"PENDING"|"SCHEDULED"|"PROCESSING"|"SCHEDULED_DIRTY"|"ERROR"|"READY"|"CANCELLED" status?;
+};
+
+public type ListCalculationsRequest record {
+    int startRow?;
+    string textMatchStyle?;
+    SellermanagerfetchformulafilteredsellersData data?;
+    int endRow?;
+    string operationType?;
+    record {}? oldValues?;
+};
+
+public type CustomFormInputs record {
+    string? labelTranslations?;
+    boolean? addUnknownValues?;
+    string? typedId?;
+    CustomFormParameterConfig parameterConfig?;
+    record {}[] inputs?;
+    boolean? readOnly?;
+    string? label?;
+    string 'type?;
+    string? parameterGroup?;
+    string? url?;
+    string? valueHint?;
+    boolean? required?;
+    boolean? alwaysEditable?;
+    CustomFormParameterConfig formattingOptions?;
+    string[]? valueOptions?;
+    CustomFormFilter? filter?;
+    string? lookupTableId?;
+    string name?;
+    int? value?;
+};
+
+public type QuotemanagerchangestatusidentifierData record {
+    @constraint:String {minLength: 1}
+    string targetStatus;
+};
+
+# 
+public type CreateRevisionRequest record {
+    PricelistmanageraddidData data;
+};
+
+public type I18nmanagerdeleteKeysData record {
+    # The list of keys you want to delete
+    string[] messages?;
+    # Set to `true` to delete Partition-wide messages, or  `false` to fetch Private messages
+    boolean partitionWideOverride?;
+};
+
+public type MasseditTypeCodeData record {
+    MasseditTypeCodeDataFilterCriteria filterCriteria;
+    @constraint:Array {minLength: 1}
+    MasseditTypeCodeDataMassEditRecords[] massEditRecords;
+};
+
+public type RunRebateCalculationResponse record {
+    CalculatePricelistResponseResponse response?;
+};
+
+# 
+public type MassEditPriceGridItemsRequest record {
+    PricegridmanagermasseditidData data?;
+};
+
+# The type code is RRSC
+public type RebateRecordSetCalculation record {
+    string typedId?;
+    int rebateRecordSetId?;
+    string lastUpdateDate?;
+    string? locale?;
+    string? calculationDate?;
+    boolean valid?;
+    string? sortBy?;
+    record {}? adhocCalculation?;
+    RebateRecordSetCalculationRebateRecordSet? rebateRecordSet?;
+    string createDate?;
+    string? calculationMessages?;
+    string? targetDate?;
+    boolean shouldSubmit?;
+    @constraint:String {maxLength: 255}
+    string label?;
+    boolean incremental?;
+    int version?;
+    @constraint:String {maxLength: 255}
+    string rebateRecordSetLabel?;
+    record {|string...;|}? dtoFilter?;
+    boolean isDefault?;
+    string? incCalculationDate?;
+    int createdBy?;
+    string? calculationStartDate?;
+    RebateRecordSetCalculationCalculationConfig? calculationConfig?;
+    int lastUpdateBy?;
+    "DRAFT"|"PENDING"|"SCHEDULED"|"PROCESSING"|"SCHEDULED_DIRTY"|"ERROR"|"READY"|"CANCELLED" status?;
+};
+
+# `data` should contain the `typedId` of the Action Item you want to update and the updated field
+public type UpdateAIData record {
+    @constraint:String {minLength: 1}
+    string typedId;
+    decimal assignedTo?;
+};
+
+# 
+public type AddLookupTableValueRequest record {
+    LookuptablemanagerintegratetableIdData data;
+    # Must be 'add' or null or omitted
+    @constraint:String {minLength: 1}
+    string operation?;
+};
+
+public type KvservicecreatetabletableNameDataKeys record {
+    "UUID"|"TEXT"|"INT"|"TIMESTAMP"|"DECIMAL"|"DATE" columnType?;
+    # Additional non-Primary Key columns can be added for further filtering (you cannot filter on “payload”). If also fast lookup on these secondary columns is required they should be indexed. See also [Performance Considerations](https://knowledge.pricefx.com/configuration-engineer-knowledge-base/reference/groovy-api-functions/key-value-database-storage#Performance-Considerations)
+    boolean isIndexed?;
+    # Sets the column as a primary key. A primary key uniquely identifies a column, so it can be used for a look up. At least one column must be set as a primary key
+    boolean isPrimaryKey?;
+    # A unique name of the column. Only lower case letters, numbers and underscores are allowed. Do not use special characters
+    string columnName?;
+};
+
+# 
+public type AddLookupTableValueResponse record {
+    AddLookupTableValueResponseResponse response;
+};
+
+# 
+public type ValidateWorkflowDelegationResponse record {
+    AddPriceGridItemsToPriceGridResponseResponse response?;
+};
+
+public type InlineResponse20049Response record {
+    string node?;
+    QuoteTmp[] data?;
+    int status?;
+};
+
+public type InlineResponse20079ResponseData record {
+    @jsondata:Name {value: "ROOT"}
+    int rOOT?;
+    @jsondata:Name {value: "execution time"}
+    string executionTime?;
+    @jsondata:Name {value: "FolderID"}
+    int folderID?;
+};
+
+public type ListParallelCalculationItemsRequest record {
+    int startRow?;
+    string textMatchStyle?;
+    OptimizationmodelfetchpciData data;
+    int endRow?;
+    string operationType?;
+    record {}? oldValues?;
+};
+
+public type ListRebateCalculationsResponse record {
+    ListRebateCalculationsResponseResponse response?;
+};
+
+# 
+public type ListUsersResponse record {
+    ListUsersResponseResponse response?;
+};
+
+public type GetCLICresponseResponseData record {
+    GetCLICresponseResponseOutputs[] outputs?;
+    boolean dirty?;
+    GetCLICresponseResponseCalculationBase calculationBase?;
+    string compensationConditionType?;
+    string typedId?;
+    string calculationBaseJson?;
+    string endDate?;
+    string treeLabel?;
+    GetCLICresponseResponseInputs[] inputs?;
+    string lastUpdateDate?;
+    string lineId?;
+    string label?;
+    int clicId?;
+    int version?;
+    string payoutDate?;
+    boolean folder?;
+    int createdBy?;
+    string compensationConditionTypeLabel?;
+    int calculationStatus?;
+    int editabilityStatus?;
+    string startDate?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+# 
+public type ListDelegatedWorkflowsRequest record {
+    # The number of the first row that defines the start of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal startRow?;
+    @constraint:String {minLength: 1}
+    string textMatchStyle?;
+    LookuptablemanagerfetchData data?;
+    # The number of the end row that defines the end of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal endRow = 300;
+    @constraint:String {minLength: 1}
+    string operationType?;
+    anydata oldValues?;
+};
+
+public type UpsertCompensationPlanResponse record {
+    UpsertCompensationPlanResponseResponse response?;
+};
+
+public type NotificationListBody record {
+    int startRow?;
+    string textMatchStyle?;
+    SellermanagerfetchformulafilteredsellersData data?;
+    int endRow?;
+    string operationType?;
+    record {}? oldValues?;
+};
+
+public type ManualpricelistmanagerdeleteidbatchDataFilterCriteria record {
+    @jsondata:Name {value: "_constructor"}
+    string constructor;
+    @constraint:Array {minLength: 1}
+    PricelistmanagerfetchidDataCriteria[] criteria;
+    @constraint:String {minLength: 1}
+    string operator;
+};
+
+public type DmObjectResponse_response record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:String {minLength: 1}
+    string csrfToken?;
+    @constraint:Array {minLength: 1}
+    DmObjectResponse_response_data[] data?;
+    decimal endRow?;
+    decimal status?;
+};
+
+public type DatamartUpdatedataloadBody record {
+    DatamartupdatedataloadData data?;
+};
+
+public type PricelistmanagerSubmitidBody record {
+    PricelistmanagersubmitidData data;
+};
+
+public type ApproveDocumentResponseResponseWorkflowSubSteps record {
+    @constraint:String {minLength: 1}
+    string approver;
+    @constraint:String {minLength: 1}
+    string lastExecutedBy;
+    @constraint:String {minLength: 1}
+    string reason;
+    @constraint:String {minLength: 1}
+    string approverTypedId;
+    anydata comments?;
+    @constraint:String {minLength: 1}
+    string executionStatus;
+    @constraint:String {minLength: 1}
+    string approverLoginName;
+    decimal minApprovalsNeeded;
+    anydata comment?;
+    @constraint:String {minLength: 1}
+    string lastExecutedByName;
+    @constraint:String {minLength: 1}
+    string lastExecutionDate;
+    decimal approvedCount;
+};
+
+public type UpdateActionItemResponse record {
+    AddActionItemResponseResponse response?;
+};
+
+# The `CompensationRecord` object. The type code is COR
+public type CompensationRecord record {
+    string typedId?;
+    decimal? resultPrice?;
+    anydata endDate?;
+    "DRAFT"|"SUBMITTED"|"DENIED"|"APPROVED"|"NO_APPROVAL_REQUIRED"|"WITHDRAWN"|"INVALIDATED"? workflowStatus?;
+    string? intgStatus?;
+    anydata payoutDate?;
+    decimal? priceChangePct?;
+    string? attribute83?;
+    string? attribute82?;
+    string? intgStatusDetails?;
+    string? attribute81?;
+    string? attribute80?;
+    string sourceIdNoRev?;
+    int rank?;
+    string? attribute89?;
+    string? attribute88?;
+    string? sku?;
+    string? attribute87?;
+    string? attribute86?;
+    CompensationRecordCalculationResults[] calculationResults?;
+    string? attribute85?;
+    string? attribute84?;
+    string? unitOfMeasure?;
+    CompensationRecordAgreementTerms agreementTerms?;
+    string? targetDate?;
+    string? allowedOverrides?;
+    int version?;
+    string? alerts?;
+    string? attribute9?;
+    string? attribute94?;
+    string? attribute8?;
+    string? attribute93?;
+    string? attribute92?;
+    string? attribute91?;
+    string? attribute5?;
+    string? attribute90?;
+    string? attribute4?;
+    string? attribute7?;
+    string? attribute6?;
+    string? attribute1?;
+    string? attribute14?;
+    string[] messages?;
+    string? attribute13?;
+    string? userGroupEdit?;
+    string? attribute3?;
+    string? attribute12?;
+    string? attribute2?;
+    string? attribute11?;
+    string? attribute99?;
+    string? attribute10?;
+    string? attribute98?;
+    string? attribute97?;
+    string|string? startDate?;
+    string? attribute96?;
+    "DRAFT"|"SUBMITTED"|"APPROVED"|"REVOKED"|"INVALIDATED" status?;
+    string? attribute95?;
+    @constraint:String {maxLength: 255}
+    string formulaName?;
+    record {}? itemExtensions?;
+    string agreementClass?;
+    string? attribute19?;
+    string? attribute18?;
+    string? attribute17?;
+    string? attribute16?;
+    string? attribute15?;
+    string sellerName?;
+    boolean manual?;
+    string calculationDate?;
+    string? manualOverrides?;
+    CompensationRecordCalculationBaseAsAdvancedFilterCriteria? calculationBaseAsAdvancedFilterCriteria?;
+    string parentTypedId?;
+    string? attribute25?;
+    @constraint:String {maxLength: 255}
+    string submittedByName?;
+    string? attribute24?;
+    @constraint:String {maxLength: 255}
+    string currency?;
+    string? attribute23?;
+    string? attribute22?;
+    string? attribute21?;
+    string? attribute20?;
+    string createDate?;
+    CompensationRecordCalculationBase calculationBase?;
+    anydata[] approvalRequiredEmailAttachments?;
+    string? attribute29?;
+    "DRAFT"|"APPROVED"|"OPEN"|"CLOSED"|"REVOKED"|"SUPERSEDED"|"INVALIDATED" compensationStatus?;
+    string? attribute28?;
+    string? attribute27?;
+    string? attribute26?;
+    @constraint:String {maxLength: 255}
+    string lineId?;
+    @constraint:String {maxLength: 1}
+    string completeResultsAvailable?;
+    string? attribute36?;
+    string? attribute35?;
+    string? attribute34?;
+    string? attribute33?;
+    string? attribute32?;
+    string? attribute31?;
+    @constraint:String {maxLength: 255}
+    string intgStatusErpReference?;
+    string? attribute30?;
+    @constraint:String {maxLength: 255}
+    string sourceId?;
+    CompensationCalculationBaseIncludedSellerReferences seller?;
+    string key2?;
+    string? attribute39?;
+    CompensationLineItemInputs[] inputs?;
+    string lastUpdateDate?;
+    string? attribute38?;
+    string? attribute37?;
+    string compensationHeaderType?;
+    @constraint:String {maxLength: 255}
+    string compensationRecordSetLabel?;
+    string deniedByName?;
+    string? attribute47?;
+    string? attribute46?;
+    @constraint:String {maxLength: 255}
+    string userGroupViewDetails?;
+    string approvedByName?;
+    string? attribute45?;
+    string? attribute44?;
+    string? attribute43?;
+    string? attribute42?;
+    string? attribute41?;
+    string? attribute40?;
+    decimal priceChange?;
+    record {}[] agreementInputs?;
+    CompensationCustomerGroup customerGroup?;
+    string? attribute49?;
+    string? attribute48?;
+    string? attribute50?;
+    string? attribute100?;
+    @constraint:String {maxLength: 255}
+    string uniqueName?;
+    decimal calculatedResultPrice?;
+    @constraint:String {maxLength: 255}
+    string name?;
+    string? attribute58?;
+    string? attribute57?;
+    string? attribute56?;
+    string? attribute55?;
+    string productFilterString?;
+    boolean hasWorkflowHistory?;
+    string? attribute54?;
+    string? attribute53?;
+    string? attribute52?;
+    record {|record {}...;|}[] allCalculationResults?;
+    string? attribute51?;
+    string calculationBaseJson?;
+    string approvalDate?;
+    string recordSetLabel?;
+    string? attribute59?;
+    string description?;
+    int compensationRecordSetId?;
+    string? attribute61?;
+    string? attribute60?;
+    string customerFilterString?;
+    decimal previousPrice?;
+    string? attribute69?;
+    string formulaElementGroup?;
+    string? attribute68?;
+    string? attribute67?;
+    "SUCCESS"|"COMMAND_GENERAL_ERROR"|"COMMAND_GENERAL_ERROR_WITH_MSG"|"COMMAND_GENERAL_ERROR_CONFLICT"|"COMMAND_GENERAL_ERROR_CONFLICT_FIELD"|"COMMAND_NOT_FOUND"|"COMMAND_CONFIG_ERROR"|"COMMAND_CONTEXT_PATH_NOTFOUND"|"COMMAND_NOT_AUTHORIZED"|"COMMAND_INVALID_PARAMETERS"|"COMMAND_FORBIDDEN_IN_K8S"|"COMMAND_FORBIDDEN_IN_READONLYMODE"|"COMMAND_FORM_TOO_LARGE"|"OBJECT_NOT_FOUND"|"LOGIN_FAILURE"|"LOGIN_FAILURE_BANNED"|"LOGIN_FAILURE_TFA"|"LOGIN_FAILURE_INACTIVE_OR_EXPIRED"|"PARTITION_UNKNOWN"|"COPY_OF_PREFIX"|"SIM_OF_PREFIX"|"TOO_MANY_WARNINGS"|"NO_NAME"|"ERROR_MESSAGE"|"ERROR_STATUS"|"ERROR_HTTPCODE"|"ERROR_ACTION"|"ERROR_TIMESTAMP"|"INVALID"|"FORMULA_ERROR"|"DEFAULT_FORMULA_NOT_FOUND"|"FORMULA_NOT_FOUND"|"FORMULA_NOT_FOUND_FOR"|"FE_SYNTAX_ERROR"|"FE_UNKNOWN_SYMBOL_ERROR"|"FE_WRONG_NUMBER_OF_ARGS"|"FE_ILLEGAL_OPERATION"|"FE_ILLEGAL_ARGUMENT"|"FE_ILLEGAL_STATUS"|"FE_UNDEFINED_FUNCTION"|"FE_UNDEFINED_UNIT"|"FE_UNDEFINED_VARIABLE"|"FE_FLEXCHART_UNSUPPORTED_FEATURE"|"FE_FLEXCHART_UNRECOGNIZED_OPTION"|"FE_FLEXCHART_INVALID_OPTION"|"FE_FLEXCHART_FORBIDDEN_OPTION"|"FE_FLEXCHART_INVALID_JSON"|"FE_FLEXCHART_GENERIC_ERROR"|"FE_EMBEDDED_DASHBOARD_API_MALFORMED_CONF"|"FE_EMBEDDED_DASHBOARD_API_FUNCTION_DOES_NOT_EXIST"|"FE_EMBEDDED_DASHBOARD_API_ILLEGAL_FUNCTION_CALL"|"FE_EMBEDDED_DASHBOARD_API_ILLEGAL_ARGUMENT"|"FE_WARNING_FLEXCHART_UNRECOGNIZED_TEMPLATE"|"FE_WARNING_ATTRIBUTE_NOTFOUND"|"FE_WARNING_PRODUCT_NOTSET"|"FE_WARNING_PRODUCT_NOTFOUND"|"FE_WARNING_PRODUCTATTRIBUTE_NOTFOUND"|"FE_WARNING_PRODUCTATTRIBUTE_AMIBGUOUS"|"FE_WARNING_CUSTOMER_NOTSET"|"FE_WARNING_CUSTOMER_NOTFOUND"|"FE_WARNING_CUSTOMERATTRIBUTE_NOTFOUND"|"FE_WARNING_CUSTOMERATTRIBUTE_AMIBGUOUS"|"FE_WARNING_VLOOKUP_TABLE_NOTFOUND"|"FE_WARNING_VLOOKUP_KEY_NOTFOUND"|"FE_WARNING_VLOOKUP_KEY_ISNULL"|"FE_WARNING_VLOOKUP_AMIBGUOUS"|"FE_WARNING_VLOOKUP_AMIBGUOUS_NOKEY"|"FE_WARNING_CONTEXT_NOTFOUND"|"FE_WARNING_CONTEXT_AMIBGUOUS"|"FE_WARNING_USERENTRY_NOTFOUND"|"FE_WARNING_CONFIGURATOR_NOTFOUND"|"FE_WARNING_OPTION_NOTFOUND"|"FE_WARNING_FUNCTIONCALL_AMIBGUOUS"|"FE_WARNING_ARITHMETICEXCEPTION"|"FE_WARNING_PRICELIST_ITEMNOTFOUND"|"FE_INFO_DATAMARTQUERY_USINGCACHEDRESULT"|"FE_WARNING_DATAMARTQUERY_INVALIDQUERY"|"FE_WARNING_DATAMARTQUERY_MAXROWSEXCEEDED"|"FE_WARNING_DATAMARTLOOKUP_QUERYNOTFOUND"|"FE_WARNING_DATAMARTLOOKUP_FIELDNOTFOUND"|"FE_WARNING_DATAMARTLOOKUP_INVALIDFILTER"|"FE_WARNING_DATAMARTLOOKUP_MAXROWSEXCEEDED"|"FE_WARNING_COULD_NOT_COMBINE_ELEMENTS"|"FE_WARNING_PRODUCT_EXTENSION_NAME_NOTSET"|"FE_WARNING_CUSTOMER_EXTENSION_NAME_NOTSET"|"FE_WARNING_PRICERECORD_NOTFOUND"|"FE_WARNING_PRODUCTGROUP_NOTFOUND"|"FE_WARNING_CUSTOMERGROUP_NOTFOUND"|"FE_WARNING_SELLERGROUP_NOTFOUND"|"FE_WARNING_ANYUSER_NOTFOUND"|"FE_WARNING_MULTITIERENTRY_NOTFOUND"|"FE_WARNING_DATASOURCE_NOTFOUND"|"FE_WARNING_FIELD_NOTFOUND"|"FE_WARNING_REBATERECORD_NOTFOUND"|"FE_WARNING_CONTEXTSKUSET_NOTSETORMALFORMED"|"FE_WARNING_FILTERBUILDERUSERENTRY_NOTFOUND"|"FE_WARNING_FILTERBUILDERUSERENTRY_ILLEGALVALUE"|"FE_WARNING_DMFILTERBUILDERUSERENTRY_NOTFOUND"|"FE_WARNING_DMFILTERBUILDERUSERENTRY_ILLEGALVALUE"|"FE_WARNING_REBATE_AGREEMENT_NOTFOUND"|"FE_WARNING_REBATE_AGREEMENT_ATTRIBUTE_NOTFOUND"|"FE_WARNING_CLAIM_WRONG_VALIDATION_STATE"|"FE_WARNING_HOOK_GENERIC_ERROR"|"FE_WARNING_HOOK_GENERIC_DENIED_MESSAGE"|"FE_WARNING_PARENT_NOTFOUND"|"FE_WARNING_MAX_RESULTS_SIZE_EXCEEDED"|"FE_WARNING_MISSING_BUSINESSKEY_VALUE"|"VALIDATION_SKU_MISSING"|"VALIDATION_PARTITION_USERNAME_UPDATE"|"VALIDATION_PARTITION_PASSWORD_UPDATE"|"VALIDATION_PARTITION_NULL"|"VALIDATION_PARTITION_MISMATCH"|"VALIDATION_CUSTOMERID_MISSING"|"VALIDATION_SELLERID_MISSING"|"VALIDATION_DUPLICATE_BUSINESSKEY"|"VALIDATION_DUPLICATE_BUSINESSKEY_PARAMETERIZED"|"VALIDATION_DYNAMIC_TABS_MISSING_TAB"|"VALIDATION_NEWER_VERSION_EXISTS"|"VALIDATION_FORMULAELEMENT_EMPTYNAME"|"VALIDATION_FORMULAELEMENT_INVALIDNAME"|"VALIDATION_FAILED"|"VALIDATION_FIELD_DUPLICATE_VALUE"|"VALIDATION_FIELD_MISSING"|"VALIDATION_FIELD_INVALID_CHARS"|"VALIDATION_FIELD_INVALID"|"VALIDATION_FIELD_TOO_BIG"|"VALIDATION_FIELD_TOO_BIG_WITH_MSG"|"VALIDATION_NUMBER_TOO_BIG"|"VALIDATION_STATUS_RESTRICTED"|"VALIDATION_USERGROUP_RESTRICTED"|"VALIDATION_WORKFLOW_RESTRICTED"|"VALIDATION_EDIT_NOT_AUTHORIZED"|"VALIDATION_DELETE_NOT_AUTHORIZED"|"VALIDATION_ADD_NOT_AUTHORIZED"|"VALIDATION_INVALID_STATUS"|"VALIDATION_LINKED_OBJ_NOT_SAVED"|"VALIDATION_BOTH_SKU_AND_PRODUCTGROUP_PRESENTED"|"VALIDATION_BOTH_CUSTOMERID_AND_CUSTOMERGROUP_PRESENTED"|"VALIDATION_PLASMA_DELETE"|"VALIDATION_PLASMA_MISMATCH"|"VALIDATION_PLASMA_UPDATE"|"VALIDATION_PWDCOMPLEXITYRULES_INVALID_PASSWORD"|"VALIDATION_PWNED_PASSWORD"|"VALIDATION_INVALID_OLD_PASSWORD"|"VALIDATION_APPLICATIONPROPERTIES_PWDCOMPLEXITYRULES_UNKNOWN"|"VALIDATION_FORMULA_WITH_NAME_AND_DIFFERENT_NATURE_EXISTS"|"VALIDATION_FORMULA_WORKFLOWTYPE_NOTALIGNED"|"VALIDATION_DATE_CONFLICT_WITH"|"VALIDATION_INVALID_ENDDATE"|"VALIDATION_MISSING_DRIVERS"|"VALIDATION_APPLICATIONPROPERTIES_REVISIONPATTERN_FIELD_MISSING"|"VALIDATION_IMPORT_EXCEL_INVALID_HEADER"|"VALIDATION_WARNING_BUSINESS_KEYS_LENGTHS_EXCEEDED"|"PL_ALERT_PRICEDEVIATION_TOO_HIGH"|"PL_WRONG_TYPE"|"PL_ALREADY_APPROVED"|"PL_NOTFOUND"|"PL_CAN_CONVERT_TO_APPROVED"|"CALC_ALREADY_FINISHED"|"CALC_CANCEL_QUEUED"|"CALC_SERIALIZATION_ERROR"|"NO_MAPPING"|"PG_ISEMPTY"|"PGI_OFNONEXISTENTSKU_SKIPPED"|"PGI_OFNONEXISTENTSKU_INVALIDATED"|"PGI_OFNONEXISTENTSKU_HARDDELETED"|"PGI_OFNONEXISTENTSKU_SOFTDELETED"|"SIM_ISEMPTY"|"SIM_BASEPL_INVALID"|"NOT_ENOUGH_LICENSES"|"CANNOT_EXPAND_SCOPE_BUSINESSROLE"|"ACCESS_DENIED"|"DM_DEPLOYMENT_IN_PROGRESS"|"DM_OBJECT_ISLOCKED"|"DM_DEFAULT_DS_CREATION_FAILED"|"DM_SCHEMA_INTEGRITY_ERROR"|"DM_ACTION_NOTALLOWED"|"DM_VALIDATION_MAXROWS_EXCEEDED"|"DM_VALIDATION_HEADER_INVALIDFIELD"|"DM_VALIDATION_FIELD_UNKNOWN"|"DM_VALIDATION_KEYFIELD_MISSING"|"DM_VALIDATION_FIELD_MISSING"|"DM_VALIDATION_ROW_INVALIDFORMAT"|"DM_VALIDATION_ROW_FIELDMISMATCH"|"DM_VALIDATION_FIELD_INVALIDVALUE"|"DM_VALIDATION_INVALID"|"DM_VALIDATION_DM_FIELD_AMBIGIOUS"|"DM_VALIDATION_SCHEMA_FIELDCONFLICT"|"DM_VALIDATION_SCHEMA_AMBIGUOUSFIELDTYPE"|"DM_VALIDATION_SCHEMA_CIRCULARDEPENDENCY"|"DM_VALIDATION_DS_INVALID"|"DM_VALIDATION_DM_INVALID"|"DM_VALIDATION_FC_DEPENDENTONINVALIDFC"|"DM_VALIDATION_FC_INVALIDFIELDS"|"DM_VALIDATION_FC_INVALIDCALCULATEDFIELDS"|"DM_VALIDATION_FC_INVALIDNAME"|"DM_VALIDATION_FC_DUPLICATEFIELDS"|"DM_VALIDATION_DS_NOKEY"|"DM_VALIDATION_DS_AMBIGUOUSCCY"|"DM_VALIDATION_DS_AMBIGUOUSUOM"|"DM_VALIDATION_DS_MISSINGKEYFIELDS"|"DM_VALIDATION_DM_NOKEY"|"DM_VALIDATION_DM_SOURCE_MISSING"|"DM_VALIDATION_DM_FIELD_UNKNOWN"|"DM_VALIDATION_DM_INVALIDFIELDS"|"DM_VALIDATION_DEPENDENCIES_MISSING"|"DM_VALIDATION_SOURCE_NOTACCESSIBLE"|"DM_VALIDATION_SOURCE_FIELD_UNKNOWN"|"DM_VALIDATION_SOURCE_FIELD_MISSING"|"DM_VALIDATION_SYSTEM_GENERATED_DATASOURCE"|"DM_VALIDATION_CFS_KEYNOTALLOWED"|"DM_VALIDATION_KEYFIELD_INVALIDTYPE"|"DM_VALIDATION_FIELD_INVALIDNAME"|"DM_VALIDATION_FIELD_INVALIDTYPE"|"DM_VALIDATION_FIELD_INVALIDEXPRESSION"|"DM_VALIDATION_QUERY_SOURCE_MISSING"|"DM_VALIDATION_QUERY_NOTQUERYABLE"|"DM_VALIDATION_QUERY_INVALIDCCYCODE"|"DM_VALIDATION_QUERY_CANNOTGENSTATPROJ"|"DM_VALIDATION_QUERY_PROJ_INVALID"|"DM_VALIDATION_QUERY_PROJ_INVALIDTYPE"|"DM_VALIDATION_QUERY_PROJ_INVALIDCALCMODE"|"DM_VALIDATION_QUERY_PROJ_CANNOTROLLUP"|"DM_VALIDATION_QUERY_PROJ_CANNOTGENSTATPROJ"|"DM_VALIDATION_QUERY_PROJ_INVALIDDEFAULT"|"DM_VALIDATION_QUERY_EXPR_UNKNOWNIDENTIFIER"|"DM_VALIDATION_QUERY_ROWLIMIT_INVALID"|"DM_VALIDATION_QUERY_PIVOTCOLUMNLIMIT"|"DM_VALIDATION_QUERY_FILTER_INVALID"|"DM_VALIDATION_QUERY_MISSING_SQL"|"DM_VALIDATION_DUPLICATE"|"DM_VALIDATION_AMBIGUOUS"|"DM_LABEL_CALENDAR"|"DM_LABEL_TIMEDIM_DAY"|"DM_LABEL_TIMEDIM_WEEK"|"DM_LABEL_TIMEDIM_MONTH"|"DM_LABEL_TIMEDIM_QUARTER"|"DM_LABEL_TIMEDIM_YEAR"|"DM_LABEL_DEFAULTFEED2DSFORMULA"|"DM_DATASOURCES"|"DM_VALIDATION_PARTITIONING_KEY_MORE_THAN_ONE"|"DM_VALIDATION_PARTITIONING_KEY_HAS_TO_BE_DATE"|"DM_VALIDATION_FIELD_PARTITIONING_KEY_HAS_TO_BE_DATE"|"DM_VALIDATION_PARTITIONING_NO_EFFECT_ON_EXISTING"|"DM_QUERY_TIMEOUT"|"JST_CANNOT_START"|"IMPORTFILE_VALIDATION_ERROR_DATASOURCE"|"IMPORTFILE_VALIDATION_ERROR_LIST"|"IMPORTFILE_VALIDATION_ERROR_READONLY"|"IMPORTFILE_VALIDATION_ERROR_REQUIRED"|"IMPORTFILE_VALIDATION_ERROR_START"|"IMPORTFILE_VALIDATION_ERROR_FIELDTYPE"|"IMPORTFILE_VALIDATION_ERROR_FILTER"|"IMPORTFILE_VALIDATION_ERROR_HEADER"|"MODEL_MODELTYPE_NOT_FOUND"|"MODEL_CALCSTEP_NOT_FOUND"|"MODEL_NATURE_NOT_FOUND"|"MODEL_TYPE_DEFINITION_INVALID"|"MODEL_NOT_SPECIFIED"|"MODEL_RECORD_NOT_SPECIFIED"|"ROLLUP_INVALID"|"QUOTE_USERGROUP_RESTRICTED"|"QUOTE_CALCULATED"|"QUOTE_CALCULATED_WITHERRORS"|"QUOTE_SUBMITTED"|"QUOTE_SAVED"|"QUOTE_SUPERSEDEDBY"|"QUOTE_PRODUCTSNOTADDED"|"QUOTE_ALREADY_EXPIRED"|"QUOTE_TESTRESULTELEMENTNAME"|"QUOTE_LINEITEMS_DOTOMATCHQPF"|"QUOTE_QPF_COMPUTATION_FAILED"|"QUOTE_COULD_NOT_CONVERT_TO_DEAL"|"QUOTE_NON_EXISTENT_SKUS"|"QUOTE_WASDELETEDONSERVER"|"QUOTETYPE_DEFAULTTYPE_DELETE_NOTALLOWED"|"QUOTETYPE_DEFAULTTYPE_EDIT_NOTALLOWED"|"QUOTETYPE_EDIT_NOTALLOWED"|"QUOTETYPE_MISSING"|"HEADER_PREPHASE_ELEMENTPOSTFIX"|"HEADER_POSTPHASE_ELEMENTPOSTFIX"|"RBA_USERGROUP_RESTRICTED"|"RBA_CALCULATED"|"RBA_CALCULATED_WITHERRORS"|"RBA_SUBMITTED"|"RBA_SAVED"|"RBA_SUPERSEDEDBY"|"RBA_ITEMSNOTADDED"|"RBA_TESTRESULTELEMENTNAME"|"RBA_WASDELETEDONSERVER"|"REBATETYPE_MISSING"|"RBA_LINEITEMS_DONOTMATCHRBTF"|"RBA_RBTF_COMPUTATION_FAILED"|"RBA_HEADERREBATETYPE_MISSING"|"HEADERREBATETYPE_DEFAULTTYPE_DELETE_NOTALLOWED"|"HEADERREBATETYPE_EDIT_NOTALLOWED"|"HEADERREBATETYPE_MISSING"|"COMPENSATION_CONDITIONTYPE_MISSING"|"COMPENSATION_USERGROUP_RESTRICTED"|"COMPENSATION_CALCULATED"|"COMPENSATION_CALCULATED_WITHERRORS"|"COMPENSATION_SUBMITTED"|"COMPENSATION_SAVED"|"COMPENSATION_SUPERSEDEDBY"|"COMPENSATION_ITEMSNOTADDED"|"COMPENSATION_TESTRESULTELEMENTNAME"|"COMPENSATION_WASDELETEDONSERVER"|"COMPENSATION_LINEITEMS_DONOTMATCHRBTF"|"COMPENSATION_RBTF_COMPUTATION_FAILED"|"COMPENSATION_COMPENSATIONHEADERTYPE_MISSING"|"COMPENSATIONHEADERTYPE_DEFAULTTYPE_DELETE_NOTALLOWED"|"COMPENSATIONHEADERTYPE_EDIT_NOTALLOWED"|"COMPENSATIONHEADERTYPE_MISSING"|"COR_CALCULATED"|"COR_CALCULATED_WITHERRORS"|"COR_SUBMITTED"|"COR_SAVED"|"RR_CALCULATED"|"RR_CALCULATED_WITHERRORS"|"RR_SUBMITTED"|"RR_SAVED"|"MR_CALCULATED"|"MR_CALCULATED_WITHERRORS"|"MR_SUBMITTED"|"MR_SAVED"|"MR_WARNING_NOTALLRECORDSSUBMITTED"|"CONTRACT_SAVED"|"CONTRACT_SUPERSEDEDBY"|"CONTRACT_CALCULATED"|"CONTRACT_CALCULATED_WITHERRORS"|"CONTRACT_SUBMITTED"|"CONTRACT_ITEMSNOTADDED"|"CONTRACT_INVALID_CUSTOMER_GROUP"|"CONTRACT_INVALID_CUSTOMER_GROUP_FOR_LINE"|"CONTRACT_INVALID_PRODUCT_GROUP"|"CONTRACT_INVALID_PRODUCT_GROUP_FOR_LINE"|"CONTRACT_INVALID_SELLER_REFERENCE"|"CONTRACT_INVALID_SELLER_REFERENCE_FOR_LINE"|"CONTRACT_TESTRESULTELEMENTNAME"|"CONTRACT_LINEITEMS_DONOTMATCHCTTF"|"CONTRACT_CTTF_COMPUTATION_FAILED"|"CONTRACT_WASDELETEDONSERVER"|"CONTRACTTERMTYPE_MISSING"|"VIEW_EDIT_RESTRICTED_BY_FORMULA_ENTITLEMENT_FILTER"|"WORKFLOW_PREVIEW_NO_APPROVAL_REQUIRED"|"WORKFLOW_ERROR"|"WORKFLOW_ONBEHALF_MESSAGE"|"WORKFLOW_USERGROUP_INFORMATION_ERROR"|"WORKFLOW_INVALID_EMAILS_IN_WATCHER_STEP"|"WORKFLOW_MAIL_ERROR_USER_MAIL_NOT_DEFINED"|"WORKFLOW_STEP_USER_CANNOT_EXECUTE_STEP"|"WORKFLOW_STEP_USER_CANNOT_EXECUTE_STEP_ONBEHALF"|"WORKFLOW_STEP_USER_CANNOT_EXECUTE_STEP_SUBMITTER"|"WORKFLOW_STEP_WRONG_STEP_BEING_EXECUTED"|"WORKFLOW_USER_INFORMATION_ERROR"|"WORKFLOW_ATTACHMENT_NOT_FOUND_ERROR"|"WORKFLOW_MANDATORY_COMMENT_MISSING_ERROR"|"WORKFLOW_MANDATORY_COMMENT_IMPOSSIBLE_ERROR"|"WORKFLOW_MAX_CUMULATIVE_SIZE_OF_ATTACHMENTS_EXCEEDED_ERROR"|"WORKFLOW_MULTIPLE_ATTACHMENTS_WITH_SAME_NAME_ERROR"|"WORKFLOW_MAX_NUMBER_OF_ATTACHMENTS_EXCEEDED_ERROR"|"WORKFLOW_NOT_FOUND"|"WORKFLOW_STEPEXECUTIONSTATUS_INITIALIZED"|"WORKFLOW_STEPEXECUTIONSTATUS_PREEXECUTED"|"WORKFLOW_STEPEXECUTIONSTATUS_EXECUTEDDENIED"|"WORKFLOW_STEPEXECUTIONSTATUS_EXECUTEDWITHDRAWN"|"WORKFLOW_STEPEXECUTIONSTATUS_EXECUTEDAPPROVED"|"WORKFLOW_STEP_NON_ALLOWED_DENIAL_REASON"|"WORKFLOW_STEP_USER_CANNOT_ADD_STEP"|"WORKFLOW_STEP_USER_CANNOT_APPROVE_MORE_THAN_ONCE"|"WORKFLOW_APPROVERS"|"WORKFLOW_DELEGATION_COMBINED"|"WORKFLOW_DELEGATION_DELEGATED"|"WORKFLOW_DELEGATION_NONE"|"WORKFLOW_USER_USERGROUP_NOT_DEFINED_ERROR"|"WORKFLOW_USER_USERGROUP_BOTH_DEFINED_ERROR"|"SUBMIT_NOT_ALLOWED"|"PREVIEW_NOT_ALLOWED"|"REVOKE_NOT_ALLOWED"|"PO_NOT_ENABLED"|"PO_OPTIMIZER_NOT_ENABLED"|"CALCULATIONFLOW_EDITING_OF_DEPLOYEDFLOW_NOT_ALLOWED"|"WORKFLOW_STEPEXECUTIONSTATUS_ALREADYSATISFIED"|"DCR_DUPLICATE_KEY"|"BINARY_RESP_ERR_ATTACHMENT_CONTENT"|"ACTION_NOT_ALLOWED"|"COMMON_ERROR"|"PRICELISTTYPE_EDIT_NOTALLOWED"|"SIGNATURE_ABORTED"|"DOCX_CONVERSION_NOT_AVAILABLE"|"DOCX_CONVERSION_FAILED"|"RECIPIENTS" calculatedWithErrorsMsg?;
+    string? attribute66?;
+    string? attribute65?;
+    string? attribute64?;
+    string? attribute63?;
+    string? attribute62?;
+    @constraint:String {maxLength: 15}
+    string workStatus?;
+    decimal manualResultPrice?;
+    string compensationConditionType?;
+    @constraint:String {maxLength: 255}
+    string comments?;
+    string warnings?;
+    "NOT_APPROVED"|"PARTIALLY_APPROVED"|"APPROVED"|"AUTO_APPROVED"|"DENIED" approvalState?;
+    @constraint:String {maxLength: 255}
+    string label?;
+    "SUCCESS"|"COMMAND_GENERAL_ERROR"|"COMMAND_GENERAL_ERROR_WITH_MSG"|"COMMAND_GENERAL_ERROR_CONFLICT"|"COMMAND_GENERAL_ERROR_CONFLICT_FIELD"|"COMMAND_NOT_FOUND"|"COMMAND_CONFIG_ERROR"|"COMMAND_CONTEXT_PATH_NOTFOUND"|"COMMAND_NOT_AUTHORIZED"|"COMMAND_INVALID_PARAMETERS"|"COMMAND_FORBIDDEN_IN_K8S"|"COMMAND_FORBIDDEN_IN_READONLYMODE"|"COMMAND_FORM_TOO_LARGE"|"OBJECT_NOT_FOUND"|"LOGIN_FAILURE"|"LOGIN_FAILURE_BANNED"|"LOGIN_FAILURE_TFA"|"LOGIN_FAILURE_INACTIVE_OR_EXPIRED"|"PARTITION_UNKNOWN"|"COPY_OF_PREFIX"|"SIM_OF_PREFIX"|"TOO_MANY_WARNINGS"|"NO_NAME"|"ERROR_MESSAGE"|"ERROR_STATUS"|"ERROR_HTTPCODE"|"ERROR_ACTION"|"ERROR_TIMESTAMP"|"INVALID"|"FORMULA_ERROR"|"DEFAULT_FORMULA_NOT_FOUND"|"FORMULA_NOT_FOUND"|"FORMULA_NOT_FOUND_FOR"|"FE_SYNTAX_ERROR"|"FE_UNKNOWN_SYMBOL_ERROR"|"FE_WRONG_NUMBER_OF_ARGS"|"FE_ILLEGAL_OPERATION"|"FE_ILLEGAL_ARGUMENT"|"FE_ILLEGAL_STATUS"|"FE_UNDEFINED_FUNCTION"|"FE_UNDEFINED_UNIT"|"FE_UNDEFINED_VARIABLE"|"FE_FLEXCHART_UNSUPPORTED_FEATURE"|"FE_FLEXCHART_UNRECOGNIZED_OPTION"|"FE_FLEXCHART_INVALID_OPTION"|"FE_FLEXCHART_FORBIDDEN_OPTION"|"FE_FLEXCHART_INVALID_JSON"|"FE_FLEXCHART_GENERIC_ERROR"|"FE_EMBEDDED_DASHBOARD_API_MALFORMED_CONF"|"FE_EMBEDDED_DASHBOARD_API_FUNCTION_DOES_NOT_EXIST"|"FE_EMBEDDED_DASHBOARD_API_ILLEGAL_FUNCTION_CALL"|"FE_EMBEDDED_DASHBOARD_API_ILLEGAL_ARGUMENT"|"FE_WARNING_FLEXCHART_UNRECOGNIZED_TEMPLATE"|"FE_WARNING_ATTRIBUTE_NOTFOUND"|"FE_WARNING_PRODUCT_NOTSET"|"FE_WARNING_PRODUCT_NOTFOUND"|"FE_WARNING_PRODUCTATTRIBUTE_NOTFOUND"|"FE_WARNING_PRODUCTATTRIBUTE_AMIBGUOUS"|"FE_WARNING_CUSTOMER_NOTSET"|"FE_WARNING_CUSTOMER_NOTFOUND"|"FE_WARNING_CUSTOMERATTRIBUTE_NOTFOUND"|"FE_WARNING_CUSTOMERATTRIBUTE_AMIBGUOUS"|"FE_WARNING_VLOOKUP_TABLE_NOTFOUND"|"FE_WARNING_VLOOKUP_KEY_NOTFOUND"|"FE_WARNING_VLOOKUP_KEY_ISNULL"|"FE_WARNING_VLOOKUP_AMIBGUOUS"|"FE_WARNING_VLOOKUP_AMIBGUOUS_NOKEY"|"FE_WARNING_CONTEXT_NOTFOUND"|"FE_WARNING_CONTEXT_AMIBGUOUS"|"FE_WARNING_USERENTRY_NOTFOUND"|"FE_WARNING_CONFIGURATOR_NOTFOUND"|"FE_WARNING_OPTION_NOTFOUND"|"FE_WARNING_FUNCTIONCALL_AMIBGUOUS"|"FE_WARNING_ARITHMETICEXCEPTION"|"FE_WARNING_PRICELIST_ITEMNOTFOUND"|"FE_INFO_DATAMARTQUERY_USINGCACHEDRESULT"|"FE_WARNING_DATAMARTQUERY_INVALIDQUERY"|"FE_WARNING_DATAMARTQUERY_MAXROWSEXCEEDED"|"FE_WARNING_DATAMARTLOOKUP_QUERYNOTFOUND"|"FE_WARNING_DATAMARTLOOKUP_FIELDNOTFOUND"|"FE_WARNING_DATAMARTLOOKUP_INVALIDFILTER"|"FE_WARNING_DATAMARTLOOKUP_MAXROWSEXCEEDED"|"FE_WARNING_COULD_NOT_COMBINE_ELEMENTS"|"FE_WARNING_PRODUCT_EXTENSION_NAME_NOTSET"|"FE_WARNING_CUSTOMER_EXTENSION_NAME_NOTSET"|"FE_WARNING_PRICERECORD_NOTFOUND"|"FE_WARNING_PRODUCTGROUP_NOTFOUND"|"FE_WARNING_CUSTOMERGROUP_NOTFOUND"|"FE_WARNING_SELLERGROUP_NOTFOUND"|"FE_WARNING_ANYUSER_NOTFOUND"|"FE_WARNING_MULTITIERENTRY_NOTFOUND"|"FE_WARNING_DATASOURCE_NOTFOUND"|"FE_WARNING_FIELD_NOTFOUND"|"FE_WARNING_REBATERECORD_NOTFOUND"|"FE_WARNING_CONTEXTSKUSET_NOTSETORMALFORMED"|"FE_WARNING_FILTERBUILDERUSERENTRY_NOTFOUND"|"FE_WARNING_FILTERBUILDERUSERENTRY_ILLEGALVALUE"|"FE_WARNING_DMFILTERBUILDERUSERENTRY_NOTFOUND"|"FE_WARNING_DMFILTERBUILDERUSERENTRY_ILLEGALVALUE"|"FE_WARNING_REBATE_AGREEMENT_NOTFOUND"|"FE_WARNING_REBATE_AGREEMENT_ATTRIBUTE_NOTFOUND"|"FE_WARNING_CLAIM_WRONG_VALIDATION_STATE"|"FE_WARNING_HOOK_GENERIC_ERROR"|"FE_WARNING_HOOK_GENERIC_DENIED_MESSAGE"|"FE_WARNING_PARENT_NOTFOUND"|"FE_WARNING_MAX_RESULTS_SIZE_EXCEEDED"|"FE_WARNING_MISSING_BUSINESSKEY_VALUE"|"VALIDATION_SKU_MISSING"|"VALIDATION_PARTITION_USERNAME_UPDATE"|"VALIDATION_PARTITION_PASSWORD_UPDATE"|"VALIDATION_PARTITION_NULL"|"VALIDATION_PARTITION_MISMATCH"|"VALIDATION_CUSTOMERID_MISSING"|"VALIDATION_SELLERID_MISSING"|"VALIDATION_DUPLICATE_BUSINESSKEY"|"VALIDATION_DUPLICATE_BUSINESSKEY_PARAMETERIZED"|"VALIDATION_DYNAMIC_TABS_MISSING_TAB"|"VALIDATION_NEWER_VERSION_EXISTS"|"VALIDATION_FORMULAELEMENT_EMPTYNAME"|"VALIDATION_FORMULAELEMENT_INVALIDNAME"|"VALIDATION_FAILED"|"VALIDATION_FIELD_DUPLICATE_VALUE"|"VALIDATION_FIELD_MISSING"|"VALIDATION_FIELD_INVALID_CHARS"|"VALIDATION_FIELD_INVALID"|"VALIDATION_FIELD_TOO_BIG"|"VALIDATION_FIELD_TOO_BIG_WITH_MSG"|"VALIDATION_NUMBER_TOO_BIG"|"VALIDATION_STATUS_RESTRICTED"|"VALIDATION_USERGROUP_RESTRICTED"|"VALIDATION_WORKFLOW_RESTRICTED"|"VALIDATION_EDIT_NOT_AUTHORIZED"|"VALIDATION_DELETE_NOT_AUTHORIZED"|"VALIDATION_ADD_NOT_AUTHORIZED"|"VALIDATION_INVALID_STATUS"|"VALIDATION_LINKED_OBJ_NOT_SAVED"|"VALIDATION_BOTH_SKU_AND_PRODUCTGROUP_PRESENTED"|"VALIDATION_BOTH_CUSTOMERID_AND_CUSTOMERGROUP_PRESENTED"|"VALIDATION_PLASMA_DELETE"|"VALIDATION_PLASMA_MISMATCH"|"VALIDATION_PLASMA_UPDATE"|"VALIDATION_PWDCOMPLEXITYRULES_INVALID_PASSWORD"|"VALIDATION_PWNED_PASSWORD"|"VALIDATION_INVALID_OLD_PASSWORD"|"VALIDATION_APPLICATIONPROPERTIES_PWDCOMPLEXITYRULES_UNKNOWN"|"VALIDATION_FORMULA_WITH_NAME_AND_DIFFERENT_NATURE_EXISTS"|"VALIDATION_FORMULA_WORKFLOWTYPE_NOTALIGNED"|"VALIDATION_DATE_CONFLICT_WITH"|"VALIDATION_INVALID_ENDDATE"|"VALIDATION_MISSING_DRIVERS"|"VALIDATION_APPLICATIONPROPERTIES_REVISIONPATTERN_FIELD_MISSING"|"VALIDATION_IMPORT_EXCEL_INVALID_HEADER"|"VALIDATION_WARNING_BUSINESS_KEYS_LENGTHS_EXCEEDED"|"PL_ALERT_PRICEDEVIATION_TOO_HIGH"|"PL_WRONG_TYPE"|"PL_ALREADY_APPROVED"|"PL_NOTFOUND"|"PL_CAN_CONVERT_TO_APPROVED"|"CALC_ALREADY_FINISHED"|"CALC_CANCEL_QUEUED"|"CALC_SERIALIZATION_ERROR"|"NO_MAPPING"|"PG_ISEMPTY"|"PGI_OFNONEXISTENTSKU_SKIPPED"|"PGI_OFNONEXISTENTSKU_INVALIDATED"|"PGI_OFNONEXISTENTSKU_HARDDELETED"|"PGI_OFNONEXISTENTSKU_SOFTDELETED"|"SIM_ISEMPTY"|"SIM_BASEPL_INVALID"|"NOT_ENOUGH_LICENSES"|"CANNOT_EXPAND_SCOPE_BUSINESSROLE"|"ACCESS_DENIED"|"DM_DEPLOYMENT_IN_PROGRESS"|"DM_OBJECT_ISLOCKED"|"DM_DEFAULT_DS_CREATION_FAILED"|"DM_SCHEMA_INTEGRITY_ERROR"|"DM_ACTION_NOTALLOWED"|"DM_VALIDATION_MAXROWS_EXCEEDED"|"DM_VALIDATION_HEADER_INVALIDFIELD"|"DM_VALIDATION_FIELD_UNKNOWN"|"DM_VALIDATION_KEYFIELD_MISSING"|"DM_VALIDATION_FIELD_MISSING"|"DM_VALIDATION_ROW_INVALIDFORMAT"|"DM_VALIDATION_ROW_FIELDMISMATCH"|"DM_VALIDATION_FIELD_INVALIDVALUE"|"DM_VALIDATION_INVALID"|"DM_VALIDATION_DM_FIELD_AMBIGIOUS"|"DM_VALIDATION_SCHEMA_FIELDCONFLICT"|"DM_VALIDATION_SCHEMA_AMBIGUOUSFIELDTYPE"|"DM_VALIDATION_SCHEMA_CIRCULARDEPENDENCY"|"DM_VALIDATION_DS_INVALID"|"DM_VALIDATION_DM_INVALID"|"DM_VALIDATION_FC_DEPENDENTONINVALIDFC"|"DM_VALIDATION_FC_INVALIDFIELDS"|"DM_VALIDATION_FC_INVALIDCALCULATEDFIELDS"|"DM_VALIDATION_FC_INVALIDNAME"|"DM_VALIDATION_FC_DUPLICATEFIELDS"|"DM_VALIDATION_DS_NOKEY"|"DM_VALIDATION_DS_AMBIGUOUSCCY"|"DM_VALIDATION_DS_AMBIGUOUSUOM"|"DM_VALIDATION_DS_MISSINGKEYFIELDS"|"DM_VALIDATION_DM_NOKEY"|"DM_VALIDATION_DM_SOURCE_MISSING"|"DM_VALIDATION_DM_FIELD_UNKNOWN"|"DM_VALIDATION_DM_INVALIDFIELDS"|"DM_VALIDATION_DEPENDENCIES_MISSING"|"DM_VALIDATION_SOURCE_NOTACCESSIBLE"|"DM_VALIDATION_SOURCE_FIELD_UNKNOWN"|"DM_VALIDATION_SOURCE_FIELD_MISSING"|"DM_VALIDATION_SYSTEM_GENERATED_DATASOURCE"|"DM_VALIDATION_CFS_KEYNOTALLOWED"|"DM_VALIDATION_KEYFIELD_INVALIDTYPE"|"DM_VALIDATION_FIELD_INVALIDNAME"|"DM_VALIDATION_FIELD_INVALIDTYPE"|"DM_VALIDATION_FIELD_INVALIDEXPRESSION"|"DM_VALIDATION_QUERY_SOURCE_MISSING"|"DM_VALIDATION_QUERY_NOTQUERYABLE"|"DM_VALIDATION_QUERY_INVALIDCCYCODE"|"DM_VALIDATION_QUERY_CANNOTGENSTATPROJ"|"DM_VALIDATION_QUERY_PROJ_INVALID"|"DM_VALIDATION_QUERY_PROJ_INVALIDTYPE"|"DM_VALIDATION_QUERY_PROJ_INVALIDCALCMODE"|"DM_VALIDATION_QUERY_PROJ_CANNOTROLLUP"|"DM_VALIDATION_QUERY_PROJ_CANNOTGENSTATPROJ"|"DM_VALIDATION_QUERY_PROJ_INVALIDDEFAULT"|"DM_VALIDATION_QUERY_EXPR_UNKNOWNIDENTIFIER"|"DM_VALIDATION_QUERY_ROWLIMIT_INVALID"|"DM_VALIDATION_QUERY_PIVOTCOLUMNLIMIT"|"DM_VALIDATION_QUERY_FILTER_INVALID"|"DM_VALIDATION_QUERY_MISSING_SQL"|"DM_VALIDATION_DUPLICATE"|"DM_VALIDATION_AMBIGUOUS"|"DM_LABEL_CALENDAR"|"DM_LABEL_TIMEDIM_DAY"|"DM_LABEL_TIMEDIM_WEEK"|"DM_LABEL_TIMEDIM_MONTH"|"DM_LABEL_TIMEDIM_QUARTER"|"DM_LABEL_TIMEDIM_YEAR"|"DM_LABEL_DEFAULTFEED2DSFORMULA"|"DM_DATASOURCES"|"DM_VALIDATION_PARTITIONING_KEY_MORE_THAN_ONE"|"DM_VALIDATION_PARTITIONING_KEY_HAS_TO_BE_DATE"|"DM_VALIDATION_FIELD_PARTITIONING_KEY_HAS_TO_BE_DATE"|"DM_VALIDATION_PARTITIONING_NO_EFFECT_ON_EXISTING"|"DM_QUERY_TIMEOUT"|"JST_CANNOT_START"|"IMPORTFILE_VALIDATION_ERROR_DATASOURCE"|"IMPORTFILE_VALIDATION_ERROR_LIST"|"IMPORTFILE_VALIDATION_ERROR_READONLY"|"IMPORTFILE_VALIDATION_ERROR_REQUIRED"|"IMPORTFILE_VALIDATION_ERROR_START"|"IMPORTFILE_VALIDATION_ERROR_FIELDTYPE"|"IMPORTFILE_VALIDATION_ERROR_FILTER"|"IMPORTFILE_VALIDATION_ERROR_HEADER"|"MODEL_MODELTYPE_NOT_FOUND"|"MODEL_CALCSTEP_NOT_FOUND"|"MODEL_NATURE_NOT_FOUND"|"MODEL_TYPE_DEFINITION_INVALID"|"MODEL_NOT_SPECIFIED"|"MODEL_RECORD_NOT_SPECIFIED"|"ROLLUP_INVALID"|"QUOTE_USERGROUP_RESTRICTED"|"QUOTE_CALCULATED"|"QUOTE_CALCULATED_WITHERRORS"|"QUOTE_SUBMITTED"|"QUOTE_SAVED"|"QUOTE_SUPERSEDEDBY"|"QUOTE_PRODUCTSNOTADDED"|"QUOTE_ALREADY_EXPIRED"|"QUOTE_TESTRESULTELEMENTNAME"|"QUOTE_LINEITEMS_DOTOMATCHQPF"|"QUOTE_QPF_COMPUTATION_FAILED"|"QUOTE_COULD_NOT_CONVERT_TO_DEAL"|"QUOTE_NON_EXISTENT_SKUS"|"QUOTE_WASDELETEDONSERVER"|"QUOTETYPE_DEFAULTTYPE_DELETE_NOTALLOWED"|"QUOTETYPE_DEFAULTTYPE_EDIT_NOTALLOWED"|"QUOTETYPE_EDIT_NOTALLOWED"|"QUOTETYPE_MISSING"|"HEADER_PREPHASE_ELEMENTPOSTFIX"|"HEADER_POSTPHASE_ELEMENTPOSTFIX"|"RBA_USERGROUP_RESTRICTED"|"RBA_CALCULATED"|"RBA_CALCULATED_WITHERRORS"|"RBA_SUBMITTED"|"RBA_SAVED"|"RBA_SUPERSEDEDBY"|"RBA_ITEMSNOTADDED"|"RBA_TESTRESULTELEMENTNAME"|"RBA_WASDELETEDONSERVER"|"REBATETYPE_MISSING"|"RBA_LINEITEMS_DONOTMATCHRBTF"|"RBA_RBTF_COMPUTATION_FAILED"|"RBA_HEADERREBATETYPE_MISSING"|"HEADERREBATETYPE_DEFAULTTYPE_DELETE_NOTALLOWED"|"HEADERREBATETYPE_EDIT_NOTALLOWED"|"HEADERREBATETYPE_MISSING"|"COMPENSATION_CONDITIONTYPE_MISSING"|"COMPENSATION_USERGROUP_RESTRICTED"|"COMPENSATION_CALCULATED"|"COMPENSATION_CALCULATED_WITHERRORS"|"COMPENSATION_SUBMITTED"|"COMPENSATION_SAVED"|"COMPENSATION_SUPERSEDEDBY"|"COMPENSATION_ITEMSNOTADDED"|"COMPENSATION_TESTRESULTELEMENTNAME"|"COMPENSATION_WASDELETEDONSERVER"|"COMPENSATION_LINEITEMS_DONOTMATCHRBTF"|"COMPENSATION_RBTF_COMPUTATION_FAILED"|"COMPENSATION_COMPENSATIONHEADERTYPE_MISSING"|"COMPENSATIONHEADERTYPE_DEFAULTTYPE_DELETE_NOTALLOWED"|"COMPENSATIONHEADERTYPE_EDIT_NOTALLOWED"|"COMPENSATIONHEADERTYPE_MISSING"|"COR_CALCULATED"|"COR_CALCULATED_WITHERRORS"|"COR_SUBMITTED"|"COR_SAVED"|"RR_CALCULATED"|"RR_CALCULATED_WITHERRORS"|"RR_SUBMITTED"|"RR_SAVED"|"MR_CALCULATED"|"MR_CALCULATED_WITHERRORS"|"MR_SUBMITTED"|"MR_SAVED"|"MR_WARNING_NOTALLRECORDSSUBMITTED"|"CONTRACT_SAVED"|"CONTRACT_SUPERSEDEDBY"|"CONTRACT_CALCULATED"|"CONTRACT_CALCULATED_WITHERRORS"|"CONTRACT_SUBMITTED"|"CONTRACT_ITEMSNOTADDED"|"CONTRACT_INVALID_CUSTOMER_GROUP"|"CONTRACT_INVALID_CUSTOMER_GROUP_FOR_LINE"|"CONTRACT_INVALID_PRODUCT_GROUP"|"CONTRACT_INVALID_PRODUCT_GROUP_FOR_LINE"|"CONTRACT_INVALID_SELLER_REFERENCE"|"CONTRACT_INVALID_SELLER_REFERENCE_FOR_LINE"|"CONTRACT_TESTRESULTELEMENTNAME"|"CONTRACT_LINEITEMS_DONOTMATCHCTTF"|"CONTRACT_CTTF_COMPUTATION_FAILED"|"CONTRACT_WASDELETEDONSERVER"|"CONTRACTTERMTYPE_MISSING"|"VIEW_EDIT_RESTRICTED_BY_FORMULA_ENTITLEMENT_FILTER"|"WORKFLOW_PREVIEW_NO_APPROVAL_REQUIRED"|"WORKFLOW_ERROR"|"WORKFLOW_ONBEHALF_MESSAGE"|"WORKFLOW_USERGROUP_INFORMATION_ERROR"|"WORKFLOW_INVALID_EMAILS_IN_WATCHER_STEP"|"WORKFLOW_MAIL_ERROR_USER_MAIL_NOT_DEFINED"|"WORKFLOW_STEP_USER_CANNOT_EXECUTE_STEP"|"WORKFLOW_STEP_USER_CANNOT_EXECUTE_STEP_ONBEHALF"|"WORKFLOW_STEP_USER_CANNOT_EXECUTE_STEP_SUBMITTER"|"WORKFLOW_STEP_WRONG_STEP_BEING_EXECUTED"|"WORKFLOW_USER_INFORMATION_ERROR"|"WORKFLOW_ATTACHMENT_NOT_FOUND_ERROR"|"WORKFLOW_MANDATORY_COMMENT_MISSING_ERROR"|"WORKFLOW_MANDATORY_COMMENT_IMPOSSIBLE_ERROR"|"WORKFLOW_MAX_CUMULATIVE_SIZE_OF_ATTACHMENTS_EXCEEDED_ERROR"|"WORKFLOW_MULTIPLE_ATTACHMENTS_WITH_SAME_NAME_ERROR"|"WORKFLOW_MAX_NUMBER_OF_ATTACHMENTS_EXCEEDED_ERROR"|"WORKFLOW_NOT_FOUND"|"WORKFLOW_STEPEXECUTIONSTATUS_INITIALIZED"|"WORKFLOW_STEPEXECUTIONSTATUS_PREEXECUTED"|"WORKFLOW_STEPEXECUTIONSTATUS_EXECUTEDDENIED"|"WORKFLOW_STEPEXECUTIONSTATUS_EXECUTEDWITHDRAWN"|"WORKFLOW_STEPEXECUTIONSTATUS_EXECUTEDAPPROVED"|"WORKFLOW_STEP_NON_ALLOWED_DENIAL_REASON"|"WORKFLOW_STEP_USER_CANNOT_ADD_STEP"|"WORKFLOW_STEP_USER_CANNOT_APPROVE_MORE_THAN_ONCE"|"WORKFLOW_APPROVERS"|"WORKFLOW_DELEGATION_COMBINED"|"WORKFLOW_DELEGATION_DELEGATED"|"WORKFLOW_DELEGATION_NONE"|"WORKFLOW_USER_USERGROUP_NOT_DEFINED_ERROR"|"WORKFLOW_USER_USERGROUP_BOTH_DEFINED_ERROR"|"SUBMIT_NOT_ALLOWED"|"PREVIEW_NOT_ALLOWED"|"REVOKE_NOT_ALLOWED"|"PO_NOT_ENABLED"|"PO_OPTIMIZER_NOT_ENABLED"|"CALCULATIONFLOW_EDITING_OF_DEPLOYEDFLOW_NOT_ALLOWED"|"WORKFLOW_STEPEXECUTIONSTATUS_ALREADYSATISFIED"|"DCR_DUPLICATE_KEY"|"BINARY_RESP_ERR_ATTACHMENT_CONTENT"|"ACTION_NOT_ALLOWED"|"COMMON_ERROR"|"PRICELISTTYPE_EDIT_NOTALLOWED"|"SIGNATURE_ABORTED"|"DOCX_CONVERSION_NOT_AVAILABLE"|"DOCX_CONVERSION_FAILED"|"RECIPIENTS" calculatedMsg?;
+    record {|record {}...;|} agreementInputsAsMap?;
+    string? attribute72?;
+    string? attribute71?;
+    string? attribute70?;
+    CompensationProductGroup productGroup?;
+    int createdBy?;
+    int calculationStatus?;
+    string? attribute79?;
+    string? attribute78?;
+    string? attribute77?;
+    string? attribute76?;
+    string? attribute75?;
+    string? attribute74?;
+    int lastUpdateBy?;
+    string? attribute73?;
+};
+
+public type InlineResponse20074Response record {
+    string node?;
+    ImportChange[] data?;
+    int status?;
+};
+
+public type UpdatePricelistDetailRequest record {
+    PricelistmanagerupdateidData data;
+    string textMatchStyle?;
+    string operationType?;
+    PricelistItem oldValues;
+};
+
+public type AddSXData record {
+    string sellerId;
+    # The name of the Seller Extension Category. The Category settings can be found in the following location: Administration > Configuration > Master Data > Seller Master Extension
+    string name;
+};
+
+public type CalculateRebateRecordGroupEnvelope record {
+    CalculateRebateRecordGroupResponse response?;
+};
+
+public type ManualpricelistmanageraddidrecalculateData record {
+    string[] skus;
+};
+
+public type GetLogicResponse record {
+    GetLogicResponseResponse response?;
+};
+
+public type ConvertPriceListResponseResponseData record {
+    # The ID of the created Price List
+    decimal pricelistId?;
+};
+
+# 
+public type SubmitCalculationGridItemRequest record {
+    PricegridmanageracceptidData data;
+};
+
+public type SaveCalculationRequest record {
+    CompensationRecordSetCalculation data?;
+    string textMatchStyle?;
+    string operationType?;
+    record {}? oldValues?;
+};
+
+public type WorkflowdelegationmanageraddData record {
+    # A comment for the workflow delegation
+    @constraint:String {maxLength: 255, minLength: 1}
+    string note?;
+    # The date until which the workflow delegation should be effective
+    @constraint:String {minLength: 1}
+    string endDate;
+    # The name of the user whose workflow you want to delegate
+    @constraint:String {maxLength: 255, minLength: 1}
+    string sourceUser?;
+    # The ID of the user you want to delegate a workflow to
+    @constraint:String {minLength: 1}
+    string targetUserId;
+    # The ID of the user whose workflow you want to delegate
+    @constraint:String {minLength: 1}
+    string sourceUserId;
+    # The name of the user you want to delegate a workflow to
+    @constraint:String {maxLength: 255, minLength: 1}
+    string targetUser?;
+    # The date from which the workflow delegation should come into effect
+    @constraint:String {maxLength: 255, minLength: 1}
+    string startDate;
+};
+
+# 
+public type WithdrawDocumentResponse record {
+    WithdrawDocumentResponseResponse response?;
+};
+
+public type CalculationrecordcalculatesetData record {
+    string typedId?;
+    string lastUpdateDate?;
+    boolean shouldSubmit?;
+    string label?;
+    boolean incremental?;
+    int version?;
+    string compensationRecordSetLabel?;
+    int compensationRecordSetId?;
+    boolean valid?;
+    boolean isDefault?;
+    int createdBy?;
+    DatamartupdatedataloadDataCalculationConfig calculationConfig?;
+    string createDate?;
+    int lastUpdateBy?;
+    string status?;
+};
+
+public type AddPGTTDataTypeConfiguration record {
+    string uomOverrideElementName?;
+    int maxIncreasePct?;
+    string[] hiddenElementNames?;
+    string[] userCanToggleVisibility?;
+    string[] overridableFields?;
+    int relativeTargetDateDays?;
+    AddPGTTDataTypeConfigurationCalculationLogicInputs[] calculationLogicInputs?;
+    string preferencesSource?;
+    string[] calcLogicInputsOverridableFields?;
+    DcrmanagerupdatemassopidDataMassChangeFilter productFilterCriteria?;
+    string autoApproveElementName?;
+    boolean allowColumnTypeChange?;
+    AddPGTTDataTypeConfigurationHeaderInputs[] headerInputs?;
+    int maxDecreasePct?;
+    string[] elementNames?;
+    string[] approvalTriggerFields?;
+    string[] approvalMappings?;
+    string manualResultExpiryElementName?;
+    string dynamicItemMode?;
+    string currencyOverrideElementName?;
+    string resultElementName?;
+    boolean shotgunModeEnabled?;
+};
+
+public type ListRebateAgreementItemsResponseResponseData record {
+    @constraint:String {minLength: 1}
+    string formulaName?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    anydata attribute19?;
+    anydata attribute18?;
+    anydata attribute17?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    anydata attribute16?;
+    anydata attribute15?;
+    anydata attribute25?;
+    anydata attribute24?;
+    anydata userGroupViewDetails?;
+    anydata attribute23?;
+    anydata attribute22?;
+    anydata attribute21?;
+    anydata attribute20?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    anydata waterfallElement?;
+    anydata attribute29?;
+    anydata attribute28?;
+    anydata attribute27?;
+    anydata attribute26?;
+    @constraint:String {minLength: 1}
+    string label?;
+    decimal version?;
+    anydata attribute9?;
+    anydata attribute8?;
+    @constraint:String {minLength: 1}
+    string uniqueName?;
+    anydata attribute5?;
+    decimal createdBy?;
+    anydata attribute4?;
+    anydata attribute7?;
+    anydata attribute6?;
+    anydata attribute1?;
+    anydata attribute14?;
+    anydata attribute13?;
+    anydata userGroupEdit?;
+    anydata attribute3?;
+    anydata attribute12?;
+    anydata attribute2?;
+    anydata attribute11?;
+    anydata attribute10?;
+    anydata attribute30?;
+    decimal lastUpdateBy?;
+};
+
+public type SaveModelResponse record {
+    SaveModelResponseResponse response?;
+};
+
+public type RejectClaimItemsRequest record {
+    ClaimmanagervalidateitemstypedIdData data?;
+};
+
+public type ContractmanagersaveDataContract record {
+    record {}[] outputs;
+    anydata createdByName?;
+    anydata typedId?;
+    @constraint:String {minLength: 1}
+    string headerText;
+    @constraint:String {minLength: 1}
+    string endDate;
+    @constraint:String {minLength: 1}
+    string workflowStatus;
+    @constraint:Array {minLength: 1}
+    ContractmanagersaveDataContractInputs[] inputs;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate;
+    @constraint:Array {minLength: 1}
+    ContractmanagersaveDataContractServerMessagesExtended[] serverMessagesExtended;
+    anydata externalRef?;
+    anydata deniedByName?;
+    @constraint:Array {minLength: 1}
+    ContractmanagersaveDataContractLineItems[] lineItems;
+    anydata userGroupViewDetails?;
+    anydata approvedByName?;
+    anydata creationWorkflowCurrentStep?;
+    anydata rootUniqueName?;
+    @constraint:String {minLength: 1}
+    string targetDate;
+    anydata customerGroup?;
+    anydata version?;
+    anydata uniqueName?;
+    record {}[] serverMessages;
+    anydata creationWorkflowStatus?;
+    anydata userGroupEdit?;
+    boolean hasWorkflowHistory;
+    decimal nodeId;
+    @constraint:String {minLength: 1}
+    string startDate;
+    @constraint:String {minLength: 1}
+    string status;
+    anydata lastUpdateByName?;
+    anydata renderInfo?;
+    anydata signature?;
+    anydata creationWorkflowStepCount?;
+    anydata creationWorkflowStepLabel?;
+    anydata submittedByName?;
+    @constraint:String {minLength: 1}
+    string createDate;
+    boolean dirty;
+    anydata additionalInfo4?;
+    anydata additionalInfo3?;
+    boolean refreshInputs;
+    anydata additionalInfo2?;
+    anydata additionalInfo1?;
+    @constraint:String {minLength: 1}
+    string contractStatus;
+    decimal numberOfAttachments;
+    @constraint:String {minLength: 1}
+    string label;
+    ContractmanagersaveDataContractProductGroup1 productGroup;
+    decimal createdBy;
+    anydata approvalRequiredEmailAttachmentsJson?;
+    ContractmanagersaveDataContractViewState viewState;
+    anydata prevRev?;
+    decimal calculationStatus;
+    anydata supersededBy?;
+    decimal lastUpdateBy;
+};
+
+# Represents the Queries record for the operation: exportDatamart
+public type ExportDatamartQueries record {
+    # The maximum number of returned rows
+    string maxRows?;
+    # A suffix appended to the standard output file name: `<typeCode>_<sourceUniqueName>_<suffix>.csv.gz`
+    string suffix?;
+};
+
+public type ManualpricelistmanagerdeleteidData record {
+    # typedId of the product you want to delete
+    @constraint:String {minLength: 1}
+    string typedId;
+};
+
+public type ContractmanagersaveDataContractLineItems record {
+    anydata version?;
+    anydata typedId?;
+    anydata clicId?;
+    @constraint:Array {minLength: 1}
+    ContractmanagersaveDataContractInputs1[] inputs?;
+    record {}[] outputs?;
+    boolean dirty?;
+    @constraint:String {minLength: 1}
+    string lineId?;
+    anydata parentId?;
+    decimal calculationStatus?;
+    decimal editabilityStatus?;
+    @constraint:String {minLength: 1}
+    string label?;
+    anydata startDate?;
+    anydata endDate?;
+    anydata priceRecordId?;
+    anydata customerGroup?;
+    ContractmanagersaveDataContractProductGroup productGroup?;
+    @constraint:String {minLength: 1}
+    string calculationBaseJson?;
+    ContractmanagersaveDataContractCalculationBase calculationBase?;
+    boolean folder?;
+    @constraint:String {minLength: 1}
+    string treeLabel?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal createdBy?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    decimal lastUpdateBy?;
+    @constraint:String {minLength: 1}
+    string contractTermType?;
+};
+
+public type Step record {
+    LabelTranslations labelTranslations?;
+    # If such key exist, the translation will be used. Otherwise this string will show up on the screen
+    string translationKey?;
+    # It can be used in URL, so use URL-safe letters
+    string name?;
+    Icon icon?;
+    Tab[] tabs?;
+    # List of user groups names (separated by comma), which can view the step
+    string userGroupViewDetails?;
+    # List of user groups names (separated by comma), which can edit the step
+    string userGroupEdit?;
+    Filter hiddenCheck?;
+    Filter disableCheck?;
+};
+
+public type ProductAttributeMetaEnvelope record {
+    InlineResponse20071Response response?;
+};
+
+public type InlineResponse20064DataStatsSummary record {
+    int shards?;
+    int bytesProcessedPerSecond?;
+    int splits?;
+    int totalStructuredMetadataBytesProcessed?;
+    int subqueries?;
+    decimal execTime?;
+    int totalPostFilterLines?;
+    int totalLinesProcessed?;
+    int linesProcessedPerSecond?;
+    int totalBytesProcessed?;
+    decimal queueTime?;
+    int totalEntriesReturned?;
+};
+
+public type PricegridmanagerfetchidData record {
+    @jsondata:Name {value: "_constructor"}
+    string constructor?;
+    @constraint:Array {minLength: 1}
+    PricegridmanagerfetchidDataCriteria[] criteria?;
+    @constraint:String {minLength: 1}
+    string operator?;
+};
+
+# 
+public type AddCustomerRequest record {
+    AddCData data;
+    @constraint:String {minLength: 1}
+    string operation;
+};
+
+public type AddCalculationRequest record {
+    AddCORSCData data?;
+    string operationType?;
+};
+
+public type UpdatePOldValues record {
+    anydata formulaName?;
+    @constraint:String {minLength: 1}
+    string typedId;
+    anydata attribute19?;
+    anydata attribute18?;
+    anydata attribute17?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    anydata attribute16?;
+    anydata attribute15?;
+    anydata attribute25?;
+    anydata attribute24?;
+    string? userGroupViewDetails?;
+    @constraint:String {maxLength: 255, minLength: 1}
+    string currency?;
+    anydata attribute23?;
+    anydata attribute22?;
+    @constraint:String {maxLength: 255, minLength: 1}
+    string sku?;
+    anydata attribute21?;
+    anydata attribute20?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    anydata image?;
+    @constraint:String {maxLength: 255, minLength: 1}
+    string unitOfMeasure?;
+    anydata attribute29?;
+    anydata attribute28?;
+    anydata attribute27?;
+    anydata attribute26?;
+    @constraint:String {maxLength: 255, minLength: 1}
+    string label?;
+    decimal version;
+    anydata attribute9?;
+    anydata attribute8?;
+    anydata attribute5?;
+    decimal createdBy?;
+    anydata attribute4?;
+    anydata attribute7?;
+    anydata attribute6?;
+    anydata attribute1?;
+    anydata attribute14?;
+    anydata attribute13?;
+    string? userGroupEdit?;
+    anydata attribute3?;
+    anydata attribute12?;
+    anydata attribute2?;
+    anydata attribute11?;
+    anydata attribute10?;
+    anydata attribute30?;
+    decimal lastUpdateBy?;
+};
+
+public type ListCompensationRecordsRequest record {
+    int startRow?;
+    string textMatchStyle?;
+    SellermanagerfetchformulafilteredsellersData data?;
+    int endRow?;
+    string operationType?;
+    record {} oldValues?;
+};
+
+public type ListRollupsResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    decimal startRow?;
+    @constraint:Array {minLength: 1}
+    ListRollupsResponseResponseData[] data?;
+    decimal endRow?;
+    decimal status?;
+};
+
+public type InlineResponse20046Response record {
+    string node?;
+    int startRow?;
+    ContractCalculation[] data?;
+    int endRow?;
+    int totalRows?;
+    int status?;
+};
+
+public type GetDMObjectRequest record {
+    # The list of fields you want to return
+    string[] resultFields?;
+    decimal startRow?;
+    @constraint:String {minLength: 1}
+    string textMatchStyle?;
+    FetchPLData data?;
+    decimal endRow?;
+    @constraint:String {minLength: 1}
+    string operationType?;
+    string[] sortBy?;
+    anydata[] valueFields?;
+    anydata oldValues?;
+    # set to `true` to return only unique values
+    boolean distinctResults?;
+};
+
+public type ContractModelResponse_response_inputs record {
+    @constraint:String {minLength: 1}
+    string name?;
+    @constraint:String {minLength: 1}
+    string label?;
+    anydata lookupTableId?;
+    anydata url?;
+    @constraint:String {minLength: 1}
+    string 'type?;
+    anydata value?;
+    anydata valueHint?;
+    anydata readOnly?;
+    anydata filter?;
+    anydata parameterGroup?;
+    anydata required?;
+    anydata labelTranslations?;
+    anydata addUnknownValues?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    anydata alwaysEditable?;
+    record {}[] inputs?;
+    record {} parameterConfig?;
+    record {} formattingOptions?;
+    anydata valueOptions?;
+};
+
+public type QuotemanagerpriceDataQuoteViewState record {
+    anydata openFolders?;
+    anydata gridViewState?;
+    record {}[] selectedNodes;
+};
+
+public type GetCompetitionDataResponseResponseData record {
+    decimal version;
+    @constraint:String {minLength: 1}
+    string typedId;
+    @constraint:String {minLength: 1}
+    string sku;
+    anydata competitorSku?;
+    anydata competitor?;
+    @constraint:String {minLength: 1}
+    string label;
+    decimal price;
+    anydata priceType?;
+    anydata priceUnit?;
+    anydata unitOfMeasure?;
+    anydata currency?;
+    anydata competitionType?;
+    anydata 'source?;
+    anydata country?;
+    anydata priority?;
+    anydata comments?;
+    anydata additionalInfo1?;
+    anydata additionalInfo2?;
+    anydata additionalInfo3?;
+    anydata additionalInfo4?;
+    anydata priceAPIRecord?;
+    anydata integrationToken?;
+    @constraint:String {minLength: 1}
+    string createDate;
+    decimal createdBy;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate;
+    decimal lastUpdateBy;
+    anydata infoDate?;
+};
+
+public type ListRolesOfBusinessRoleResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:Array {minLength: 1}
+    ListRolesOfBusinessRoleResponseResponseData[] data?;
+    decimal totalRows?;
+    decimal status?;
+};
+
+# 
+public type GetQuoteContractRebateAgreementResponse record {
+    GetQuoteContractRebateAgreementResponseResponse response?;
+};
+
+# 
+public type RunDataLoadRequest record {
+    DatamartrundataloadData data?;
+};
+
+public type UpdateConditionRecordItemMetaEnvelope record {
+    InlineResponse20055Response response?;
+};
+
+public type SaveCalculationResponse record {
+    AddCalculationResponseResponse response?;
+};
+
+public type ContractmanagersaveData record {
+    ContractmanagersaveDataContract contract;
+};
+
+# The type code is Q
+public type Quote record {
+    ActionItemOutputs[]? outputs?;
+    @constraint:String {maxLength: 255}
+    string createdByName?;
+    string typedId?;
+    string headerText?;
+    "DRAFT"|"SUBMITTED"|"DENIED"|"APPROVED"|"NO_APPROVAL_REQUIRED"|"WITHDRAWN"|"INVALIDATED" workflowStatus?;
+    CompensationLineItemInputs[]? inputs?;
+    string lastUpdateDate?;
+    ContractServerMessagesExtended[]? serverMessagesExtended?;
+    string? externalRef?;
+    string? deniedByName?;
+    QuoteLineItems[] lineItems?;
+    string? userGroupViewDetails?;
+    string? approvedByName?;
+    int? creationWorkflowCurrentStep?;
+    int? persistedClicId?;
+    string rootUniqueName?;
+    string? originUniqueName?;
+    string? targetDate?;
+    string? customerGroup?;
+    record {}|string ioMeta?;
+    boolean? originDeleted?;
+    int version?;
+    string? customerName?;
+    @constraint:String {maxLength: 255}
+    string uniqueName?;
+    string[]? serverMessages?;
+    "DRAFT"|"INPROGRESS"|"FINISHED" creationWorkflowStatus?;
+    string? userGroupEdit?;
+    boolean hasWorkflowHistory?;
+    int nodeId?;
+    "DRAFT"|"PENDING"|"SCHEDULED"|"PROCESSING"|"SCHEDULED_DIRTY"|"ERROR"|"READY"|"CANCELLED" status?;
+    @constraint:String {maxLength: 255}
+    string lastUpdateByName?;
+    int? originClicId?;
+    record {|record {}...;|}? renderInfo?;
+    string? lostReason?;
+    QuoteSignature? signature?;
+    int? creationWorkflowStepCount?;
+    string? quoteType?;
+    "DRAFT"|"OFFER"|"DEAL"|"REVOKED"|"SUPERSEDED"|"INVALIDATED"|"LOST"|"PARTIALDEAL" quoteStatus?;
+    string? lostReasonComment?;
+    string? expiryDate?;
+    string? creationWorkflowStepLabel?;
+    int persistedClicVersion?;
+    string? customerId?;
+    string? submittedByName?;
+    string createDate?;
+    boolean dirty?;
+    string? additionalInfo4?;
+    string? additionalInfo3?;
+    boolean refreshInputs?;
+    decimal? additionalInfo2?;
+    decimal? additionalInfo1?;
+    int numberOfAttachments?;
+    string? originLabel?;
+    @constraint:String {maxLength: 255}
+    string label?;
+    string[] nextRevUNs?;
+    int createdBy?;
+    string? approvalRequiredEmailAttachmentsJson?;
+    QuoteViewState? viewState?;
+    string? prevRev?;
+    int calculationStatus?;
+    string? supersededBy?;
+    int lastUpdateBy?;
+};
+
+# 
+public type UserResponse record {
+    UserResponse_response response?;
+};
+
+# The type code is RBA
+public type RebateAgreement record {
+    ActionItemOutputs[] outputs?;
+    record {} seller?;
+    @constraint:String {maxLength: 255}
+    string createdByName?;
+    string typedId?;
+    string headerText?;
+    "SUCCESS"|"COMMAND_GENERAL_ERROR"|"COMMAND_GENERAL_ERROR_WITH_MSG"|"COMMAND_GENERAL_ERROR_CONFLICT"|"COMMAND_GENERAL_ERROR_CONFLICT_FIELD"|"COMMAND_NOT_FOUND"|"COMMAND_CONFIG_ERROR"|"COMMAND_CONTEXT_PATH_NOTFOUND"|"COMMAND_NOT_AUTHORIZED"|"COMMAND_INVALID_PARAMETERS"|"COMMAND_FORBIDDEN_IN_K8S"|"COMMAND_FORBIDDEN_IN_READONLYMODE"|"COMMAND_FORM_TOO_LARGE"|"OBJECT_NOT_FOUND"|"LOGIN_FAILURE"|"LOGIN_FAILURE_BANNED"|"LOGIN_FAILURE_TFA"|"LOGIN_FAILURE_INACTIVE_OR_EXPIRED"|"PARTITION_UNKNOWN"|"COPY_OF_PREFIX"|"SIM_OF_PREFIX"|"TOO_MANY_WARNINGS"|"NO_NAME"|"ERROR_MESSAGE"|"ERROR_STATUS"|"ERROR_HTTPCODE"|"ERROR_ACTION"|"ERROR_TIMESTAMP"|"INVALID"|"FORMULA_ERROR"|"DEFAULT_FORMULA_NOT_FOUND"|"ACTIVE_FORMULA_NOT_FOUND"|"ACTIVE_FORMULA_OF_NATURE_NOT_FOUND"|"FORMULA_NOT_FOUND"|"FORMULA_NOT_FOUND_FOR"|"FE_SYNTAX_ERROR"|"FE_UNKNOWN_SYMBOL_ERROR"|"FE_WRONG_NUMBER_OF_ARGS"|"FE_ILLEGAL_OPERATION"|"FE_ILLEGAL_ARGUMENT"|"FE_ILLEGAL_STATUS"|"FE_UNDEFINED_FUNCTION"|"FE_UNDEFINED_UNIT"|"FE_UNDEFINED_VARIABLE"|"FE_FLEXCHART_UNSUPPORTED_FEATURE"|"FE_FLEXCHART_UNRECOGNIZED_OPTION"|"FE_FLEXCHART_INVALID_OPTION"|"FE_FLEXCHART_FORBIDDEN_OPTION"|"FE_FLEXCHART_INVALID_JSON"|"FE_FLEXCHART_GENERIC_ERROR"|"FE_EMBEDDED_DASHBOARD_API_MALFORMED_CONF"|"FE_EMBEDDED_DASHBOARD_API_FUNCTION_DOES_NOT_EXIST"|"FE_EMBEDDED_DASHBOARD_API_ILLEGAL_FUNCTION_CALL"|"FE_EMBEDDED_DASHBOARD_API_ILLEGAL_ARGUMENT"|"FE_WARNING_FLEXCHART_UNRECOGNIZED_TEMPLATE"|"FE_WARNING_ATTRIBUTE_NOTFOUND"|"FE_WARNING_PRODUCT_NOTSET"|"FE_WARNING_PRODUCT_NOTFOUND"|"FE_WARNING_PRODUCTATTRIBUTE_NOTFOUND"|"FE_WARNING_PRODUCTATTRIBUTE_AMIBGUOUS"|"FE_WARNING_CUSTOMER_NOTSET"|"FE_WARNING_CUSTOMER_NOTFOUND"|"FE_WARNING_CUSTOMERATTRIBUTE_NOTFOUND"|"FE_WARNING_CUSTOMERATTRIBUTE_AMIBGUOUS"|"FE_WARNING_SELLER_NOTFOUND"|"FE_WARNING_SELLERATTRIBUTE_NOTFOUND"|"FE_WARNING_SELLERATTRIBUTE_AMIBGUOUS"|"FE_WARNING_SELLER_NOTSET"|"FE_WARNING_VLOOKUP_TABLE_NOTFOUND"|"FE_WARNING_VLOOKUP_KEY_NOTFOUND"|"FE_WARNING_VLOOKUP_KEY_ISNULL"|"FE_WARNING_VLOOKUP_AMIBGUOUS"|"FE_WARNING_VLOOKUP_AMIBGUOUS_NOKEY"|"FE_WARNING_CONTEXT_NOTFOUND"|"FE_WARNING_CONTEXT_AMIBGUOUS"|"FE_WARNING_USERENTRY_NOTFOUND"|"FE_WARNING_CONFIGURATOR_NOTFOUND"|"FE_WARNING_OPTION_NOTFOUND"|"FE_WARNING_FUNCTIONCALL_AMIBGUOUS"|"FE_WARNING_ARITHMETICEXCEPTION"|"FE_WARNING_PRICELIST_ITEMNOTFOUND"|"FE_INFO_DATAMARTQUERY_USINGCACHEDRESULT"|"FE_WARNING_DATAMARTQUERY_INVALIDQUERY"|"FE_WARNING_DATAMARTQUERY_MAXROWSEXCEEDED"|"FE_WARNING_DATAMARTLOOKUP_QUERYNOTFOUND"|"FE_WARNING_DATAMARTLOOKUP_FIELDNOTFOUND"|"FE_WARNING_DATAMARTLOOKUP_INVALIDFILTER"|"FE_WARNING_DATAMARTLOOKUP_MAXROWSEXCEEDED"|"FE_WARNING_COULD_NOT_COMBINE_ELEMENTS"|"FE_WARNING_PRODUCT_EXTENSION_NAME_NOTSET"|"FE_WARNING_CUSTOMER_EXTENSION_NAME_NOTSET"|"FE_WARNING_PRICERECORD_NOTFOUND"|"FE_WARNING_PRODUCTGROUP_NOTFOUND"|"FE_WARNING_CUSTOMERGROUP_NOTFOUND"|"FE_WARNING_SELLERGROUP_NOTFOUND"|"FE_WARNING_ANYUSER_NOTFOUND"|"FE_WARNING_MULTITIERENTRY_NOTFOUND"|"FE_WARNING_DATASOURCE_NOTFOUND"|"FE_WARNING_FIELD_NOTFOUND"|"FE_WARNING_REBATERECORD_NOTFOUND"|"FE_WARNING_CONTEXTSKUSET_NOTSETORMALFORMED"|"FE_WARNING_FILTERBUILDERUSERENTRY_NOTFOUND"|"FE_WARNING_FILTERBUILDERUSERENTRY_ILLEGALVALUE"|"FE_WARNING_DMFILTERBUILDERUSERENTRY_NOTFOUND"|"FE_WARNING_DMFILTERBUILDERUSERENTRY_ILLEGALVALUE"|"FE_WARNING_REBATE_AGREEMENT_NOTFOUND"|"FE_WARNING_REBATE_AGREEMENT_ATTRIBUTE_NOTFOUND"|"FE_WARNING_CLAIM_WRONG_VALIDATION_STATE"|"FE_WARNING_HOOK_GENERIC_ERROR"|"FE_WARNING_HOOK_GENERIC_DENIED_MESSAGE"|"FE_WARNING_PARENT_NOTFOUND"|"FE_WARNING_MAX_RESULTS_SIZE_EXCEEDED"|"FE_WARNING_MISSING_BUSINESSKEY_VALUE"|"VALIDATION_SKU_MISSING"|"VALIDATION_PARTITION_USERNAME_UPDATE"|"VALIDATION_PARTITION_PASSWORD_UPDATE"|"VALIDATION_PARTITION_NULL"|"VALIDATION_PARTITION_MISMATCH"|"VALIDATION_CUSTOMERID_MISSING"|"VALIDATION_SELLERID_MISSING"|"VALIDATION_DUPLICATE_BUSINESSKEY"|"VALIDATION_DUPLICATE_BUSINESSKEY_PARAMETERIZED"|"VALIDATION_DYNAMIC_TABS_DUPLICATED_CUSTOM_FORMS"|"VALIDATION_DYNAMIC_TABS_STANDALONE_CUSTOM_FORM"|"VALIDATION_DYNAMIC_TABS_UNSUPPORTED_TYPE_CUSTOM_FORM"|"VALIDATION_DYNAMIC_TABS_NON_EXISTING_CONFIG_WIZARD"|"VALIDATION_DYNAMIC_TABS_MISSING_TAB"|"VALIDATION_NEWER_VERSION_EXISTS"|"VALIDATION_FORMULAELEMENT_EMPTYNAME"|"VALIDATION_FORMULAELEMENT_INVALIDNAME"|"VALIDATION_FAILED"|"VALIDATION_FIELD_DUPLICATE_VALUE"|"VALIDATION_FIELD_MISSING"|"VALIDATION_NEITHER_FIELD_PRESENT"|"VALIDATION_DEFAULT_LABEL_TRANSLATION_MISSING"|"VALIDATION_FIELD_INVALID_CHARS"|"VALIDATION_FIELD_INVALID"|"VALIDATION_FIELD_TOO_BIG"|"VALIDATION_FIELD_TOO_BIG_WITH_MSG"|"VALIDATION_NUMBER_TOO_BIG"|"VALIDATION_STATUS_RESTRICTED"|"VALIDATION_USERGROUP_RESTRICTED"|"VALIDATION_WORKFLOW_RESTRICTED"|"VALIDATION_EDIT_NOT_AUTHORIZED"|"VALIDATION_FETCH_NOT_AUTHORIZED"|"VALIDATION_DELETE_NOT_AUTHORIZED"|"VALIDATION_ADD_NOT_AUTHORIZED"|"VALIDATION_INVALID_STATUS"|"VALIDATION_LINKED_OBJ_NOT_SAVED"|"VALIDATION_BOTH_SKU_AND_PRODUCTGROUP_PRESENTED"|"VALIDATION_BOTH_CUSTOMERID_AND_CUSTOMERGROUP_PRESENTED"|"VALIDATION_PLASMA_DELETE"|"VALIDATION_PLASMA_MISMATCH"|"VALIDATION_PLASMA_UPDATE"|"VALIDATION_PWDCOMPLEXITYRULES_INVALID_PASSWORD"|"VALIDATION_PWNED_PASSWORD"|"VALIDATION_INVALID_OLD_PASSWORD"|"VALIDATION_APPLICATIONPROPERTIES_PWDCOMPLEXITYRULES_UNKNOWN"|"VALIDATION_FORMULA_WITH_NAME_AND_DIFFERENT_NATURE_EXISTS"|"VALIDATION_FORMULA_WORKFLOWTYPE_NOTALIGNED"|"VALIDATION_DATE_CONFLICT_WITH"|"VALIDATION_INVALID_ENDDATE"|"VALIDATION_MISSING_DRIVERS"|"VALIDATION_APPLICATIONPROPERTIES_REVISIONPATTERN_FIELD_MISSING"|"VALIDATION_IMPORT_EXCEL_INVALID_HEADER"|"VALIDATION_WARNING_BUSINESS_KEYS_LENGTHS_EXCEEDED"|"VALIDATION_MULTIPLE_FORMULA_INHERITANCE_NOT_ALLOWED"|"VALIDATION_NATURE_NOT_ALLOWED_FOR_INHERITANCE"|"VALIDATION_PARENT_AND_CHILD_NATURES_DO_NOT_MATCH"|"PL_ALERT_PRICEDEVIATION_TOO_HIGH"|"PL_WRONG_TYPE"|"PL_ALREADY_APPROVED"|"PL_NOTFOUND"|"PL_CAN_CONVERT_TO_APPROVED"|"CALC_ALREADY_FINISHED"|"CALC_CANCEL_QUEUED"|"CALC_SERIALIZATION_ERROR"|"NO_MAPPING"|"PG_ISEMPTY"|"PGI_OFNONEXISTENTSKU_SKIPPED"|"PGI_OFNONEXISTENTSKU_INVALIDATED"|"PGI_OFNONEXISTENTSKU_HARDDELETED"|"PGI_OFNONEXISTENTSKU_SOFTDELETED"|"SIM_ISEMPTY"|"SIM_BASEPL_INVALID"|"NOT_ENOUGH_LICENSES"|"CANNOT_EXPAND_SCOPE_BUSINESSROLE"|"ACCESS_DENIED"|"DM_DEPLOYMENT_IN_PROGRESS"|"DM_OBJECT_ISLOCKED"|"DM_DEFAULT_DS_CREATION_FAILED"|"DM_SCHEMA_INTEGRITY_ERROR"|"DM_ACTION_NOTALLOWED"|"DM_VALIDATION_MAXROWS_EXCEEDED"|"DM_VALIDATION_HEADER_INVALIDFIELD"|"DM_VALIDATION_FIELD_UNKNOWN"|"DM_VALIDATION_KEYFIELD_MISSING"|"DM_VALIDATION_FIELD_MISSING"|"DM_VALIDATION_ROW_INVALIDFORMAT"|"DM_VALIDATION_ROW_FIELDMISMATCH"|"DM_VALIDATION_FIELD_INVALIDVALUE"|"DM_VALIDATION_INVALID"|"DM_VALIDATION_DM_FIELD_AMBIGIOUS"|"DM_VALIDATION_SCHEMA_FIELDCONFLICT"|"DM_VALIDATION_SCHEMA_AMBIGUOUSFIELDTYPE"|"DM_VALIDATION_SCHEMA_CIRCULARDEPENDENCY"|"DM_VALIDATION_DS_INVALID"|"DM_VALIDATION_DM_INVALID"|"DM_VALIDATION_FC_DEPENDENTONINVALIDFC"|"DM_VALIDATION_FC_INVALIDFIELDS"|"DM_VALIDATION_FC_INVALIDCALCULATEDFIELDS"|"DM_VALIDATION_FC_INVALIDNAME"|"DM_VALIDATION_FC_DUPLICATEFIELDS"|"DM_VALIDATION_DS_NOKEY"|"DM_VALIDATION_DS_AMBIGUOUSCCY"|"DM_VALIDATION_DS_AMBIGUOUSUOM"|"DM_VALIDATION_DS_MISSINGKEYFIELDS"|"DM_VALIDATION_DM_NOKEY"|"DM_VALIDATION_DM_SOURCE_MISSING"|"DM_VALIDATION_DM_FIELD_UNKNOWN"|"DM_VALIDATION_DM_INVALIDFIELDS"|"DM_VALIDATION_DEPENDENCIES_MISSING"|"DM_VALIDATION_SOURCE_NOTACCESSIBLE"|"DM_VALIDATION_SOURCE_FIELD_UNKNOWN"|"DM_VALIDATION_SOURCE_FIELD_MISSING"|"DM_VALIDATION_SYSTEM_GENERATED_DATASOURCE"|"DM_VALIDATION_CFS_KEYNOTALLOWED"|"DM_VALIDATION_KEYFIELD_INVALIDTYPE"|"DM_VALIDATION_FIELD_INVALIDNAME"|"DM_VALIDATION_FIELD_INVALIDTYPE"|"DM_VALIDATION_FIELD_INVALIDEXPRESSION"|"DM_VALIDATION_QUERY_SOURCE_MISSING"|"DM_VALIDATION_QUERY_NOTQUERYABLE"|"DM_VALIDATION_QUERY_INVALIDCCYCODE"|"DM_VALIDATION_QUERY_CANNOTGENSTATPROJ"|"DM_VALIDATION_QUERY_PROJ_INVALID"|"DM_VALIDATION_QUERY_PROJ_INVALIDTYPE"|"DM_VALIDATION_QUERY_PROJ_INVALIDCALCMODE"|"DM_VALIDATION_QUERY_PROJ_CANNOTROLLUP"|"DM_VALIDATION_QUERY_PROJ_CANNOTGENSTATPROJ"|"DM_VALIDATION_QUERY_PROJ_INVALIDDEFAULT"|"DM_VALIDATION_QUERY_EXPR_UNKNOWNIDENTIFIER"|"DM_VALIDATION_QUERY_ROWLIMIT_INVALID"|"DM_VALIDATION_QUERY_PIVOTCOLUMNLIMIT"|"DM_VALIDATION_QUERY_FILTER_INVALID"|"DM_VALIDATION_QUERY_MISSING_SQL"|"DM_VALIDATION_DUPLICATE"|"DM_VALIDATION_AMBIGUOUS"|"DM_LABEL_CALENDAR"|"DM_LABEL_TIMEDIM_DAY"|"DM_LABEL_TIMEDIM_WEEK"|"DM_LABEL_TIMEDIM_MONTH"|"DM_LABEL_TIMEDIM_QUARTER"|"DM_LABEL_TIMEDIM_YEAR"|"DM_LABEL_DEFAULTFEED2DSFORMULA"|"DM_DATASOURCES"|"DM_VALIDATION_PARTITIONING_KEY_MORE_THAN_ONE"|"DM_VALIDATION_PARTITIONING_KEY_HAS_TO_BE_DATE"|"DM_VALIDATION_FIELD_PARTITIONING_KEY_HAS_TO_BE_DATE"|"DM_VALIDATION_PARTITIONING_NO_EFFECT_ON_EXISTING"|"DM_QUERY_TIMEOUT"|"JST_CANNOT_START"|"IMPORTFILE_VALIDATION_ERROR_DATASOURCE"|"IMPORTFILE_VALIDATION_ERROR_LIST"|"IMPORTFILE_VALIDATION_ERROR_READONLY"|"IMPORTFILE_VALIDATION_ERROR_REQUIRED"|"IMPORTFILE_VALIDATION_ERROR_START"|"IMPORTFILE_VALIDATION_ERROR_FIELDTYPE"|"IMPORTFILE_VALIDATION_ERROR_FILTER"|"IMPORTFILE_VALIDATION_ERROR_HEADER"|"MODEL_MODELTYPE_NOT_FOUND"|"MODEL_CALCSTEP_NOT_FOUND"|"MODEL_NATURE_NOT_FOUND"|"MODEL_TYPE_DEFINITION_INVALID"|"MODEL_NOT_SPECIFIED"|"MODEL_RECORD_NOT_SPECIFIED"|"ROLLUP_INVALID"|"QUOTE_USERGROUP_RESTRICTED"|"QUOTE_CALCULATED"|"QUOTE_CALCULATED_WITHERRORS"|"QUOTE_SUBMITTED"|"QUOTE_SAVED"|"QUOTE_SUPERSEDEDBY"|"QUOTE_PRODUCTSNOTADDED"|"QUOTE_ALREADY_EXPIRED"|"QUOTE_TESTRESULTELEMENTNAME"|"QUOTE_LINEITEMS_DOTOMATCHQPF"|"QUOTE_QPF_COMPUTATION_FAILED"|"QUOTE_COULD_NOT_CONVERT_TO_DEAL"|"QUOTE_NON_EXISTENT_SKUS"|"QUOTE_WASDELETEDONSERVER"|"QUOTETYPE_DEFAULTTYPE_DELETE_NOTALLOWED"|"QUOTETYPE_DEFAULTTYPE_EDIT_NOTALLOWED"|"QUOTETYPE_EDIT_NOTALLOWED"|"QUOTETYPE_MISSING"|"HEADER_PREPHASE_ELEMENTPOSTFIX"|"HEADER_POSTPHASE_ELEMENTPOSTFIX"|"RBA_USERGROUP_RESTRICTED"|"RBA_CALCULATED"|"RBA_CALCULATED_WITHERRORS"|"RBA_SUBMITTED"|"RBA_SAVED"|"RBA_SUPERSEDEDBY"|"RBA_ITEMSNOTADDED"|"RBA_TESTRESULTELEMENTNAME"|"RBA_WASDELETEDONSERVER"|"REBATETYPE_MISSING"|"RBA_LINEITEMS_DONOTMATCHRBTF"|"RBA_RBTF_COMPUTATION_FAILED"|"RBA_HEADERREBATETYPE_MISSING"|"HEADERREBATETYPE_DEFAULTTYPE_DELETE_NOTALLOWED"|"HEADERREBATETYPE_EDIT_NOTALLOWED"|"HEADERREBATETYPE_MISSING"|"COMPENSATION_CONDITIONTYPE_MISSING"|"COMPENSATION_USERGROUP_RESTRICTED"|"COMPENSATION_CALCULATED"|"COMPENSATION_CALCULATED_WITHERRORS"|"COMPENSATION_SUBMITTED"|"COMPENSATION_SAVED"|"COMPENSATION_SUPERSEDEDBY"|"COMPENSATION_ITEMSNOTADDED"|"COMPENSATION_TESTRESULTELEMENTNAME"|"COMPENSATION_WASDELETEDONSERVER"|"COMPENSATION_LINEITEMS_DONOTMATCHRBTF"|"COMPENSATION_RBTF_COMPUTATION_FAILED"|"COMPENSATION_COMPENSATIONHEADERTYPE_MISSING"|"COMPENSATIONHEADERTYPE_DEFAULTTYPE_DELETE_NOTALLOWED"|"COMPENSATIONHEADERTYPE_EDIT_NOTALLOWED"|"COMPENSATIONHEADERTYPE_MISSING"|"COR_CALCULATED"|"COR_CALCULATED_WITHERRORS"|"COR_SUBMITTED"|"COR_SAVED"|"RR_CALCULATED"|"RR_CALCULATED_WITHERRORS"|"RR_SUBMITTED"|"RR_SAVED"|"MR_CALCULATED"|"MR_CALCULATED_WITHERRORS"|"MR_SUBMITTED"|"MR_SAVED"|"MR_WARNING_NOTALLRECORDSSUBMITTED"|"CONTRACT_SAVED"|"CONTRACT_SUPERSEDEDBY"|"CONTRACT_CALCULATED"|"CONTRACT_CALCULATED_WITHERRORS"|"CONTRACT_SUBMITTED"|"CONTRACT_ITEMSNOTADDED"|"CONTRACT_INVALID_CUSTOMER_GROUP"|"CONTRACT_INVALID_CUSTOMER_GROUP_FOR_LINE"|"CONTRACT_INVALID_PRODUCT_GROUP"|"CONTRACT_INVALID_PRODUCT_GROUP_FOR_LINE"|"CONTRACT_INVALID_SELLER_REFERENCE"|"CONTRACT_INVALID_SELLER_REFERENCE_FOR_LINE"|"CONTRACT_TESTRESULTELEMENTNAME"|"CONTRACT_LINEITEMS_DONOTMATCHCTTF"|"CONTRACT_CTTF_COMPUTATION_FAILED"|"CONTRACT_WASDELETEDONSERVER"|"CONTRACTTERMTYPE_MISSING"|"CONTRACTHEADERTYPE_DEFAULTTYPE_DELETE_NOTALLOWED"|"CONTRACTHEADERTYPE_EDIT_NOTALLOWED"|"CONTRACTHEADERTYPE_MISSING"|"CUSTOM_FORM_CALCULATED"|"CUSTOM_FORM_CALCULATED_WITH_ERRORS"|"CUSTOM_FORM_MISSING_REQUIRED_INPUTS"|"CUSTOM_FORM_UNDELETABLE_STATUS"|"VIEW_EDIT_RESTRICTED_BY_FORMULA_ENTITLEMENT_FILTER"|"WORKFLOW_PREVIEW_NO_APPROVAL_REQUIRED"|"WORKFLOW_ERROR"|"WORKFLOW_ONBEHALF_MESSAGE"|"WORKFLOW_USERGROUP_INFORMATION_ERROR"|"WORKFLOW_INVALID_EMAILS_IN_WATCHER_STEP"|"WORKFLOW_MAIL_ERROR_USER_MAIL_NOT_DEFINED"|"WORKFLOW_STEP_USER_CANNOT_EXECUTE_STEP"|"WORKFLOW_STEP_USER_CANNOT_EXECUTE_STEP_ONBEHALF"|"WORKFLOW_STEP_USER_CANNOT_EXECUTE_STEP_SUBMITTER"|"WORKFLOW_STEP_WRONG_STEP_BEING_EXECUTED"|"WORKFLOW_USER_INFORMATION_ERROR"|"WORKFLOW_ATTACHMENT_NOT_FOUND_ERROR"|"WORKFLOW_MANDATORY_COMMENT_MISSING_ERROR"|"WORKFLOW_MANDATORY_COMMENT_IMPOSSIBLE_ERROR"|"WORKFLOW_MAX_CUMULATIVE_SIZE_OF_ATTACHMENTS_EXCEEDED_ERROR"|"WORKFLOW_MULTIPLE_ATTACHMENTS_WITH_SAME_NAME_ERROR"|"WORKFLOW_MAX_NUMBER_OF_ATTACHMENTS_EXCEEDED_ERROR"|"WORKFLOW_NOT_FOUND"|"WORKFLOW_STEPEXECUTIONSTATUS_INITIALIZED"|"WORKFLOW_STEPEXECUTIONSTATUS_PREEXECUTED"|"WORKFLOW_STEPEXECUTIONSTATUS_EXECUTEDDENIED"|"WORKFLOW_STEPEXECUTIONSTATUS_EXECUTEDWITHDRAWN"|"WORKFLOW_STEPEXECUTIONSTATUS_EXECUTEDAPPROVED"|"WORKFLOW_STEP_NON_ALLOWED_DENIAL_REASON"|"WORKFLOW_STEP_USER_CANNOT_ADD_STEP"|"WORKFLOW_STEP_USER_CANNOT_APPROVE_MORE_THAN_ONCE"|"WORKFLOW_APPROVERS"|"WORKFLOW_DELEGATION_COMBINED"|"WORKFLOW_DELEGATION_DELEGATED"|"WORKFLOW_DELEGATION_NONE"|"WORKFLOW_USER_USERGROUP_NOT_DEFINED_ERROR"|"WORKFLOW_USER_USERGROUP_BOTH_DEFINED_ERROR"|"SUBMIT_NOT_ALLOWED"|"PREVIEW_NOT_ALLOWED"|"REVOKE_NOT_ALLOWED"|"PO_NOT_ENABLED"|"PO_OPTIMIZER_NOT_ENABLED"|"CALCULATIONFLOW_EDITING_OF_DEPLOYEDFLOW_NOT_ALLOWED"|"WORKFLOW_STEPEXECUTIONSTATUS_ALREADYSATISFIED"|"DCR_DUPLICATE_KEY"|"BINARY_RESP_ERR_ATTACHMENT_CONTENT"|"ACTION_NOT_ALLOWED"|"COMMON_ERROR"|"PRICELISTTYPE_EDIT_NOTALLOWED"|"SIGNATURE_ABORTED"|"DOCX_CONVERSION_NOT_AVAILABLE"|"DOCX_CONVERSION_FAILED"|"RECIPIENTS"|"NOTIFICATION_DOWNLOAD_READY_TITLE"|"NOTIFICATION_DOWNLOAD_READY_MSG"|"NOTIFICATION_CLIC_MESSAGE_TITLE"|"NOTIFICATION_CLIC_MESSAGE_MSG"|"NOTIFICATION_CALCULATION_END_MSG"|"NOTIFICATION_CALCULATION_END_TITLE_CANCELLED"|"NOTIFICATION_CALCULATION_END_TITLE_FINISHED"|"NOTIFICATION_CALCULATION_END_TITLE_FAILED" successfulCalculationMsg?;
+    string endDate?;
+    "DRAFT"|"SUBMITTED"|"DENIED"|"APPROVED"|"NO_APPROVAL_REQUIRED"|"WITHDRAWN"|"INVALIDATED" workflowStatus?;
+    CompensationLineItemInputs[] inputs?;
+    string lastUpdateDate?;
+    string readOnlyLineItemClass?;
+    ContractServerMessagesExtended[] serverMessagesExtended?;
+    @constraint:String {maxLength: 255}
+    string externalRef?;
+    string payoutDate?;
+    string deniedByName?;
+    RebateAgreementLineItems[] lineItems?;
+    @constraint:String {maxLength: 255}
+    string userGroupViewDetails?;
+    string approvedByName?;
+    int creationWorkflowCurrentStep?;
+    string rootUniqueName?;
+    string originUniqueName?;
+    string targetDate?;
+    record {} customerGroup?;
+    string ioMeta?;
+    boolean originDeleted?;
+    int version?;
+    @constraint:String {maxLength: 255}
+    string uniqueName?;
+    string[] serverMessages?;
+    "DRAFT"|"INPROGRESS"|"FINISHED" creationWorkflowStatus?;
+    @constraint:String {maxLength: 255}
+    string userGroupEdit?;
+    string conditionTypeClass?;
+    boolean hasWorkflowHistory?;
+    int nodeId?;
+    string startDate?;
+    "DRAFT"|"PENDING"|"SCHEDULED"|"PROCESSING"|"SCHEDULED_DIRTY"|"ERROR"|"READY"|"CANCELLED" status?;
+    @constraint:String {maxLength: 255}
+    string lastUpdateByName?;
+    int originClicId?;
+    record {|record {}...;|} renderInfo?;
+    ContractSignature signature?;
+    int rebateRecordSetId?;
+    int creationWorkflowStepCount?;
+    string sellerName?;
+    @constraint:String {maxLength: 255}
+    string creationWorkflowStepLabel?;
+    string formulaElementGroupReadOnly?;
+    @constraint:String {maxLength: 255}
+    string submittedByName?;
+    string formulaElementGroup?;
+    "DRAFT"|"APPROVED"|"OPEN"|"CLOSED"|"REVOKED"|"SUPERSEDED"|"INVALIDATED" rebateAgreementStatus?;
+    string createDate?;
+    boolean dirty?;
+    @constraint:String {maxLength: 255}
+    string additionalInfo4?;
+    @constraint:String {maxLength: 255}
+    string additionalInfo3?;
+    boolean refreshInputs?;
+    decimal additionalInfo2?;
+    decimal additionalInfo1?;
+    int numberOfAttachments?;
+    string originLabel?;
+    @constraint:String {maxLength: 255}
+    string simulationType?;
+    @constraint:String {maxLength: 255}
+    string label?;
+    string[] nextRevUNs?;
+    @constraint:String {maxLength: 255}
+    string rebateRecordSetLabel?;
+    @constraint:String {maxLength: 255}
+    string simulationSet?;
+    record {} productGroup?;
+    int createdBy?;
+    "SUCCESS"|"COMMAND_GENERAL_ERROR"|"COMMAND_GENERAL_ERROR_WITH_MSG"|"COMMAND_GENERAL_ERROR_CONFLICT"|"COMMAND_GENERAL_ERROR_CONFLICT_FIELD"|"COMMAND_NOT_FOUND"|"COMMAND_CONFIG_ERROR"|"COMMAND_CONTEXT_PATH_NOTFOUND"|"COMMAND_NOT_AUTHORIZED"|"COMMAND_INVALID_PARAMETERS"|"COMMAND_FORBIDDEN_IN_K8S"|"COMMAND_FORBIDDEN_IN_READONLYMODE"|"COMMAND_FORM_TOO_LARGE"|"OBJECT_NOT_FOUND"|"LOGIN_FAILURE"|"LOGIN_FAILURE_BANNED"|"LOGIN_FAILURE_TFA"|"LOGIN_FAILURE_INACTIVE_OR_EXPIRED"|"PARTITION_UNKNOWN"|"COPY_OF_PREFIX"|"SIM_OF_PREFIX"|"TOO_MANY_WARNINGS"|"NO_NAME"|"ERROR_MESSAGE"|"ERROR_STATUS"|"ERROR_HTTPCODE"|"ERROR_ACTION"|"ERROR_TIMESTAMP"|"INVALID"|"FORMULA_ERROR"|"DEFAULT_FORMULA_NOT_FOUND"|"ACTIVE_FORMULA_NOT_FOUND"|"ACTIVE_FORMULA_OF_NATURE_NOT_FOUND"|"FORMULA_NOT_FOUND"|"FORMULA_NOT_FOUND_FOR"|"FE_SYNTAX_ERROR"|"FE_UNKNOWN_SYMBOL_ERROR"|"FE_WRONG_NUMBER_OF_ARGS"|"FE_ILLEGAL_OPERATION"|"FE_ILLEGAL_ARGUMENT"|"FE_ILLEGAL_STATUS"|"FE_UNDEFINED_FUNCTION"|"FE_UNDEFINED_UNIT"|"FE_UNDEFINED_VARIABLE"|"FE_FLEXCHART_UNSUPPORTED_FEATURE"|"FE_FLEXCHART_UNRECOGNIZED_OPTION"|"FE_FLEXCHART_INVALID_OPTION"|"FE_FLEXCHART_FORBIDDEN_OPTION"|"FE_FLEXCHART_INVALID_JSON"|"FE_FLEXCHART_GENERIC_ERROR"|"FE_EMBEDDED_DASHBOARD_API_MALFORMED_CONF"|"FE_EMBEDDED_DASHBOARD_API_FUNCTION_DOES_NOT_EXIST"|"FE_EMBEDDED_DASHBOARD_API_ILLEGAL_FUNCTION_CALL"|"FE_EMBEDDED_DASHBOARD_API_ILLEGAL_ARGUMENT"|"FE_WARNING_FLEXCHART_UNRECOGNIZED_TEMPLATE"|"FE_WARNING_ATTRIBUTE_NOTFOUND"|"FE_WARNING_PRODUCT_NOTSET"|"FE_WARNING_PRODUCT_NOTFOUND"|"FE_WARNING_PRODUCTATTRIBUTE_NOTFOUND"|"FE_WARNING_PRODUCTATTRIBUTE_AMIBGUOUS"|"FE_WARNING_CUSTOMER_NOTSET"|"FE_WARNING_CUSTOMER_NOTFOUND"|"FE_WARNING_CUSTOMERATTRIBUTE_NOTFOUND"|"FE_WARNING_CUSTOMERATTRIBUTE_AMIBGUOUS"|"FE_WARNING_SELLER_NOTFOUND"|"FE_WARNING_SELLERATTRIBUTE_NOTFOUND"|"FE_WARNING_SELLERATTRIBUTE_AMIBGUOUS"|"FE_WARNING_SELLER_NOTSET"|"FE_WARNING_VLOOKUP_TABLE_NOTFOUND"|"FE_WARNING_VLOOKUP_KEY_NOTFOUND"|"FE_WARNING_VLOOKUP_KEY_ISNULL"|"FE_WARNING_VLOOKUP_AMIBGUOUS"|"FE_WARNING_VLOOKUP_AMIBGUOUS_NOKEY"|"FE_WARNING_CONTEXT_NOTFOUND"|"FE_WARNING_CONTEXT_AMIBGUOUS"|"FE_WARNING_USERENTRY_NOTFOUND"|"FE_WARNING_CONFIGURATOR_NOTFOUND"|"FE_WARNING_OPTION_NOTFOUND"|"FE_WARNING_FUNCTIONCALL_AMIBGUOUS"|"FE_WARNING_ARITHMETICEXCEPTION"|"FE_WARNING_PRICELIST_ITEMNOTFOUND"|"FE_INFO_DATAMARTQUERY_USINGCACHEDRESULT"|"FE_WARNING_DATAMARTQUERY_INVALIDQUERY"|"FE_WARNING_DATAMARTQUERY_MAXROWSEXCEEDED"|"FE_WARNING_DATAMARTLOOKUP_QUERYNOTFOUND"|"FE_WARNING_DATAMARTLOOKUP_FIELDNOTFOUND"|"FE_WARNING_DATAMARTLOOKUP_INVALIDFILTER"|"FE_WARNING_DATAMARTLOOKUP_MAXROWSEXCEEDED"|"FE_WARNING_COULD_NOT_COMBINE_ELEMENTS"|"FE_WARNING_PRODUCT_EXTENSION_NAME_NOTSET"|"FE_WARNING_CUSTOMER_EXTENSION_NAME_NOTSET"|"FE_WARNING_PRICERECORD_NOTFOUND"|"FE_WARNING_PRODUCTGROUP_NOTFOUND"|"FE_WARNING_CUSTOMERGROUP_NOTFOUND"|"FE_WARNING_SELLERGROUP_NOTFOUND"|"FE_WARNING_ANYUSER_NOTFOUND"|"FE_WARNING_MULTITIERENTRY_NOTFOUND"|"FE_WARNING_DATASOURCE_NOTFOUND"|"FE_WARNING_FIELD_NOTFOUND"|"FE_WARNING_REBATERECORD_NOTFOUND"|"FE_WARNING_CONTEXTSKUSET_NOTSETORMALFORMED"|"FE_WARNING_FILTERBUILDERUSERENTRY_NOTFOUND"|"FE_WARNING_FILTERBUILDERUSERENTRY_ILLEGALVALUE"|"FE_WARNING_DMFILTERBUILDERUSERENTRY_NOTFOUND"|"FE_WARNING_DMFILTERBUILDERUSERENTRY_ILLEGALVALUE"|"FE_WARNING_REBATE_AGREEMENT_NOTFOUND"|"FE_WARNING_REBATE_AGREEMENT_ATTRIBUTE_NOTFOUND"|"FE_WARNING_CLAIM_WRONG_VALIDATION_STATE"|"FE_WARNING_HOOK_GENERIC_ERROR"|"FE_WARNING_HOOK_GENERIC_DENIED_MESSAGE"|"FE_WARNING_PARENT_NOTFOUND"|"FE_WARNING_MAX_RESULTS_SIZE_EXCEEDED"|"FE_WARNING_MISSING_BUSINESSKEY_VALUE"|"VALIDATION_SKU_MISSING"|"VALIDATION_PARTITION_USERNAME_UPDATE"|"VALIDATION_PARTITION_PASSWORD_UPDATE"|"VALIDATION_PARTITION_NULL"|"VALIDATION_PARTITION_MISMATCH"|"VALIDATION_CUSTOMERID_MISSING"|"VALIDATION_SELLERID_MISSING"|"VALIDATION_DUPLICATE_BUSINESSKEY"|"VALIDATION_DUPLICATE_BUSINESSKEY_PARAMETERIZED"|"VALIDATION_DYNAMIC_TABS_DUPLICATED_CUSTOM_FORMS"|"VALIDATION_DYNAMIC_TABS_STANDALONE_CUSTOM_FORM"|"VALIDATION_DYNAMIC_TABS_UNSUPPORTED_TYPE_CUSTOM_FORM"|"VALIDATION_DYNAMIC_TABS_NON_EXISTING_CONFIG_WIZARD"|"VALIDATION_DYNAMIC_TABS_MISSING_TAB"|"VALIDATION_NEWER_VERSION_EXISTS"|"VALIDATION_FORMULAELEMENT_EMPTYNAME"|"VALIDATION_FORMULAELEMENT_INVALIDNAME"|"VALIDATION_FAILED"|"VALIDATION_FIELD_DUPLICATE_VALUE"|"VALIDATION_FIELD_MISSING"|"VALIDATION_NEITHER_FIELD_PRESENT"|"VALIDATION_DEFAULT_LABEL_TRANSLATION_MISSING"|"VALIDATION_FIELD_INVALID_CHARS"|"VALIDATION_FIELD_INVALID"|"VALIDATION_FIELD_TOO_BIG"|"VALIDATION_FIELD_TOO_BIG_WITH_MSG"|"VALIDATION_NUMBER_TOO_BIG"|"VALIDATION_STATUS_RESTRICTED"|"VALIDATION_USERGROUP_RESTRICTED"|"VALIDATION_WORKFLOW_RESTRICTED"|"VALIDATION_EDIT_NOT_AUTHORIZED"|"VALIDATION_FETCH_NOT_AUTHORIZED"|"VALIDATION_DELETE_NOT_AUTHORIZED"|"VALIDATION_ADD_NOT_AUTHORIZED"|"VALIDATION_INVALID_STATUS"|"VALIDATION_LINKED_OBJ_NOT_SAVED"|"VALIDATION_BOTH_SKU_AND_PRODUCTGROUP_PRESENTED"|"VALIDATION_BOTH_CUSTOMERID_AND_CUSTOMERGROUP_PRESENTED"|"VALIDATION_PLASMA_DELETE"|"VALIDATION_PLASMA_MISMATCH"|"VALIDATION_PLASMA_UPDATE"|"VALIDATION_PWDCOMPLEXITYRULES_INVALID_PASSWORD"|"VALIDATION_PWNED_PASSWORD"|"VALIDATION_INVALID_OLD_PASSWORD"|"VALIDATION_APPLICATIONPROPERTIES_PWDCOMPLEXITYRULES_UNKNOWN"|"VALIDATION_FORMULA_WITH_NAME_AND_DIFFERENT_NATURE_EXISTS"|"VALIDATION_FORMULA_WORKFLOWTYPE_NOTALIGNED"|"VALIDATION_DATE_CONFLICT_WITH"|"VALIDATION_INVALID_ENDDATE"|"VALIDATION_MISSING_DRIVERS"|"VALIDATION_APPLICATIONPROPERTIES_REVISIONPATTERN_FIELD_MISSING"|"VALIDATION_IMPORT_EXCEL_INVALID_HEADER"|"VALIDATION_WARNING_BUSINESS_KEYS_LENGTHS_EXCEEDED"|"VALIDATION_MULTIPLE_FORMULA_INHERITANCE_NOT_ALLOWED"|"VALIDATION_NATURE_NOT_ALLOWED_FOR_INHERITANCE"|"VALIDATION_PARENT_AND_CHILD_NATURES_DO_NOT_MATCH"|"PL_ALERT_PRICEDEVIATION_TOO_HIGH"|"PL_WRONG_TYPE"|"PL_ALREADY_APPROVED"|"PL_NOTFOUND"|"PL_CAN_CONVERT_TO_APPROVED"|"CALC_ALREADY_FINISHED"|"CALC_CANCEL_QUEUED"|"CALC_SERIALIZATION_ERROR"|"NO_MAPPING"|"PG_ISEMPTY"|"PGI_OFNONEXISTENTSKU_SKIPPED"|"PGI_OFNONEXISTENTSKU_INVALIDATED"|"PGI_OFNONEXISTENTSKU_HARDDELETED"|"PGI_OFNONEXISTENTSKU_SOFTDELETED"|"SIM_ISEMPTY"|"SIM_BASEPL_INVALID"|"NOT_ENOUGH_LICENSES"|"CANNOT_EXPAND_SCOPE_BUSINESSROLE"|"ACCESS_DENIED"|"DM_DEPLOYMENT_IN_PROGRESS"|"DM_OBJECT_ISLOCKED"|"DM_DEFAULT_DS_CREATION_FAILED"|"DM_SCHEMA_INTEGRITY_ERROR"|"DM_ACTION_NOTALLOWED"|"DM_VALIDATION_MAXROWS_EXCEEDED"|"DM_VALIDATION_HEADER_INVALIDFIELD"|"DM_VALIDATION_FIELD_UNKNOWN"|"DM_VALIDATION_KEYFIELD_MISSING"|"DM_VALIDATION_FIELD_MISSING"|"DM_VALIDATION_ROW_INVALIDFORMAT"|"DM_VALIDATION_ROW_FIELDMISMATCH"|"DM_VALIDATION_FIELD_INVALIDVALUE"|"DM_VALIDATION_INVALID"|"DM_VALIDATION_DM_FIELD_AMBIGIOUS"|"DM_VALIDATION_SCHEMA_FIELDCONFLICT"|"DM_VALIDATION_SCHEMA_AMBIGUOUSFIELDTYPE"|"DM_VALIDATION_SCHEMA_CIRCULARDEPENDENCY"|"DM_VALIDATION_DS_INVALID"|"DM_VALIDATION_DM_INVALID"|"DM_VALIDATION_FC_DEPENDENTONINVALIDFC"|"DM_VALIDATION_FC_INVALIDFIELDS"|"DM_VALIDATION_FC_INVALIDCALCULATEDFIELDS"|"DM_VALIDATION_FC_INVALIDNAME"|"DM_VALIDATION_FC_DUPLICATEFIELDS"|"DM_VALIDATION_DS_NOKEY"|"DM_VALIDATION_DS_AMBIGUOUSCCY"|"DM_VALIDATION_DS_AMBIGUOUSUOM"|"DM_VALIDATION_DS_MISSINGKEYFIELDS"|"DM_VALIDATION_DM_NOKEY"|"DM_VALIDATION_DM_SOURCE_MISSING"|"DM_VALIDATION_DM_FIELD_UNKNOWN"|"DM_VALIDATION_DM_INVALIDFIELDS"|"DM_VALIDATION_DEPENDENCIES_MISSING"|"DM_VALIDATION_SOURCE_NOTACCESSIBLE"|"DM_VALIDATION_SOURCE_FIELD_UNKNOWN"|"DM_VALIDATION_SOURCE_FIELD_MISSING"|"DM_VALIDATION_SYSTEM_GENERATED_DATASOURCE"|"DM_VALIDATION_CFS_KEYNOTALLOWED"|"DM_VALIDATION_KEYFIELD_INVALIDTYPE"|"DM_VALIDATION_FIELD_INVALIDNAME"|"DM_VALIDATION_FIELD_INVALIDTYPE"|"DM_VALIDATION_FIELD_INVALIDEXPRESSION"|"DM_VALIDATION_QUERY_SOURCE_MISSING"|"DM_VALIDATION_QUERY_NOTQUERYABLE"|"DM_VALIDATION_QUERY_INVALIDCCYCODE"|"DM_VALIDATION_QUERY_CANNOTGENSTATPROJ"|"DM_VALIDATION_QUERY_PROJ_INVALID"|"DM_VALIDATION_QUERY_PROJ_INVALIDTYPE"|"DM_VALIDATION_QUERY_PROJ_INVALIDCALCMODE"|"DM_VALIDATION_QUERY_PROJ_CANNOTROLLUP"|"DM_VALIDATION_QUERY_PROJ_CANNOTGENSTATPROJ"|"DM_VALIDATION_QUERY_PROJ_INVALIDDEFAULT"|"DM_VALIDATION_QUERY_EXPR_UNKNOWNIDENTIFIER"|"DM_VALIDATION_QUERY_ROWLIMIT_INVALID"|"DM_VALIDATION_QUERY_PIVOTCOLUMNLIMIT"|"DM_VALIDATION_QUERY_FILTER_INVALID"|"DM_VALIDATION_QUERY_MISSING_SQL"|"DM_VALIDATION_DUPLICATE"|"DM_VALIDATION_AMBIGUOUS"|"DM_LABEL_CALENDAR"|"DM_LABEL_TIMEDIM_DAY"|"DM_LABEL_TIMEDIM_WEEK"|"DM_LABEL_TIMEDIM_MONTH"|"DM_LABEL_TIMEDIM_QUARTER"|"DM_LABEL_TIMEDIM_YEAR"|"DM_LABEL_DEFAULTFEED2DSFORMULA"|"DM_DATASOURCES"|"DM_VALIDATION_PARTITIONING_KEY_MORE_THAN_ONE"|"DM_VALIDATION_PARTITIONING_KEY_HAS_TO_BE_DATE"|"DM_VALIDATION_FIELD_PARTITIONING_KEY_HAS_TO_BE_DATE"|"DM_VALIDATION_PARTITIONING_NO_EFFECT_ON_EXISTING"|"DM_QUERY_TIMEOUT"|"JST_CANNOT_START"|"IMPORTFILE_VALIDATION_ERROR_DATASOURCE"|"IMPORTFILE_VALIDATION_ERROR_LIST"|"IMPORTFILE_VALIDATION_ERROR_READONLY"|"IMPORTFILE_VALIDATION_ERROR_REQUIRED"|"IMPORTFILE_VALIDATION_ERROR_START"|"IMPORTFILE_VALIDATION_ERROR_FIELDTYPE"|"IMPORTFILE_VALIDATION_ERROR_FILTER"|"IMPORTFILE_VALIDATION_ERROR_HEADER"|"MODEL_MODELTYPE_NOT_FOUND"|"MODEL_CALCSTEP_NOT_FOUND"|"MODEL_NATURE_NOT_FOUND"|"MODEL_TYPE_DEFINITION_INVALID"|"MODEL_NOT_SPECIFIED"|"MODEL_RECORD_NOT_SPECIFIED"|"ROLLUP_INVALID"|"QUOTE_USERGROUP_RESTRICTED"|"QUOTE_CALCULATED"|"QUOTE_CALCULATED_WITHERRORS"|"QUOTE_SUBMITTED"|"QUOTE_SAVED"|"QUOTE_SUPERSEDEDBY"|"QUOTE_PRODUCTSNOTADDED"|"QUOTE_ALREADY_EXPIRED"|"QUOTE_TESTRESULTELEMENTNAME"|"QUOTE_LINEITEMS_DOTOMATCHQPF"|"QUOTE_QPF_COMPUTATION_FAILED"|"QUOTE_COULD_NOT_CONVERT_TO_DEAL"|"QUOTE_NON_EXISTENT_SKUS"|"QUOTE_WASDELETEDONSERVER"|"QUOTETYPE_DEFAULTTYPE_DELETE_NOTALLOWED"|"QUOTETYPE_DEFAULTTYPE_EDIT_NOTALLOWED"|"QUOTETYPE_EDIT_NOTALLOWED"|"QUOTETYPE_MISSING"|"HEADER_PREPHASE_ELEMENTPOSTFIX"|"HEADER_POSTPHASE_ELEMENTPOSTFIX"|"RBA_USERGROUP_RESTRICTED"|"RBA_CALCULATED"|"RBA_CALCULATED_WITHERRORS"|"RBA_SUBMITTED"|"RBA_SAVED"|"RBA_SUPERSEDEDBY"|"RBA_ITEMSNOTADDED"|"RBA_TESTRESULTELEMENTNAME"|"RBA_WASDELETEDONSERVER"|"REBATETYPE_MISSING"|"RBA_LINEITEMS_DONOTMATCHRBTF"|"RBA_RBTF_COMPUTATION_FAILED"|"RBA_HEADERREBATETYPE_MISSING"|"HEADERREBATETYPE_DEFAULTTYPE_DELETE_NOTALLOWED"|"HEADERREBATETYPE_EDIT_NOTALLOWED"|"HEADERREBATETYPE_MISSING"|"COMPENSATION_CONDITIONTYPE_MISSING"|"COMPENSATION_USERGROUP_RESTRICTED"|"COMPENSATION_CALCULATED"|"COMPENSATION_CALCULATED_WITHERRORS"|"COMPENSATION_SUBMITTED"|"COMPENSATION_SAVED"|"COMPENSATION_SUPERSEDEDBY"|"COMPENSATION_ITEMSNOTADDED"|"COMPENSATION_TESTRESULTELEMENTNAME"|"COMPENSATION_WASDELETEDONSERVER"|"COMPENSATION_LINEITEMS_DONOTMATCHRBTF"|"COMPENSATION_RBTF_COMPUTATION_FAILED"|"COMPENSATION_COMPENSATIONHEADERTYPE_MISSING"|"COMPENSATIONHEADERTYPE_DEFAULTTYPE_DELETE_NOTALLOWED"|"COMPENSATIONHEADERTYPE_EDIT_NOTALLOWED"|"COMPENSATIONHEADERTYPE_MISSING"|"COR_CALCULATED"|"COR_CALCULATED_WITHERRORS"|"COR_SUBMITTED"|"COR_SAVED"|"RR_CALCULATED"|"RR_CALCULATED_WITHERRORS"|"RR_SUBMITTED"|"RR_SAVED"|"MR_CALCULATED"|"MR_CALCULATED_WITHERRORS"|"MR_SUBMITTED"|"MR_SAVED"|"MR_WARNING_NOTALLRECORDSSUBMITTED"|"CONTRACT_SAVED"|"CONTRACT_SUPERSEDEDBY"|"CONTRACT_CALCULATED"|"CONTRACT_CALCULATED_WITHERRORS"|"CONTRACT_SUBMITTED"|"CONTRACT_ITEMSNOTADDED"|"CONTRACT_INVALID_CUSTOMER_GROUP"|"CONTRACT_INVALID_CUSTOMER_GROUP_FOR_LINE"|"CONTRACT_INVALID_PRODUCT_GROUP"|"CONTRACT_INVALID_PRODUCT_GROUP_FOR_LINE"|"CONTRACT_INVALID_SELLER_REFERENCE"|"CONTRACT_INVALID_SELLER_REFERENCE_FOR_LINE"|"CONTRACT_TESTRESULTELEMENTNAME"|"CONTRACT_LINEITEMS_DONOTMATCHCTTF"|"CONTRACT_CTTF_COMPUTATION_FAILED"|"CONTRACT_WASDELETEDONSERVER"|"CONTRACTTERMTYPE_MISSING"|"CONTRACTHEADERTYPE_DEFAULTTYPE_DELETE_NOTALLOWED"|"CONTRACTHEADERTYPE_EDIT_NOTALLOWED"|"CONTRACTHEADERTYPE_MISSING"|"CUSTOM_FORM_CALCULATED"|"CUSTOM_FORM_CALCULATED_WITH_ERRORS"|"CUSTOM_FORM_MISSING_REQUIRED_INPUTS"|"CUSTOM_FORM_UNDELETABLE_STATUS"|"VIEW_EDIT_RESTRICTED_BY_FORMULA_ENTITLEMENT_FILTER"|"WORKFLOW_PREVIEW_NO_APPROVAL_REQUIRED"|"WORKFLOW_ERROR"|"WORKFLOW_ONBEHALF_MESSAGE"|"WORKFLOW_USERGROUP_INFORMATION_ERROR"|"WORKFLOW_INVALID_EMAILS_IN_WATCHER_STEP"|"WORKFLOW_MAIL_ERROR_USER_MAIL_NOT_DEFINED"|"WORKFLOW_STEP_USER_CANNOT_EXECUTE_STEP"|"WORKFLOW_STEP_USER_CANNOT_EXECUTE_STEP_ONBEHALF"|"WORKFLOW_STEP_USER_CANNOT_EXECUTE_STEP_SUBMITTER"|"WORKFLOW_STEP_WRONG_STEP_BEING_EXECUTED"|"WORKFLOW_USER_INFORMATION_ERROR"|"WORKFLOW_ATTACHMENT_NOT_FOUND_ERROR"|"WORKFLOW_MANDATORY_COMMENT_MISSING_ERROR"|"WORKFLOW_MANDATORY_COMMENT_IMPOSSIBLE_ERROR"|"WORKFLOW_MAX_CUMULATIVE_SIZE_OF_ATTACHMENTS_EXCEEDED_ERROR"|"WORKFLOW_MULTIPLE_ATTACHMENTS_WITH_SAME_NAME_ERROR"|"WORKFLOW_MAX_NUMBER_OF_ATTACHMENTS_EXCEEDED_ERROR"|"WORKFLOW_NOT_FOUND"|"WORKFLOW_STEPEXECUTIONSTATUS_INITIALIZED"|"WORKFLOW_STEPEXECUTIONSTATUS_PREEXECUTED"|"WORKFLOW_STEPEXECUTIONSTATUS_EXECUTEDDENIED"|"WORKFLOW_STEPEXECUTIONSTATUS_EXECUTEDWITHDRAWN"|"WORKFLOW_STEPEXECUTIONSTATUS_EXECUTEDAPPROVED"|"WORKFLOW_STEP_NON_ALLOWED_DENIAL_REASON"|"WORKFLOW_STEP_USER_CANNOT_ADD_STEP"|"WORKFLOW_STEP_USER_CANNOT_APPROVE_MORE_THAN_ONCE"|"WORKFLOW_APPROVERS"|"WORKFLOW_DELEGATION_COMBINED"|"WORKFLOW_DELEGATION_DELEGATED"|"WORKFLOW_DELEGATION_NONE"|"WORKFLOW_USER_USERGROUP_NOT_DEFINED_ERROR"|"WORKFLOW_USER_USERGROUP_BOTH_DEFINED_ERROR"|"SUBMIT_NOT_ALLOWED"|"PREVIEW_NOT_ALLOWED"|"REVOKE_NOT_ALLOWED"|"PO_NOT_ENABLED"|"PO_OPTIMIZER_NOT_ENABLED"|"CALCULATIONFLOW_EDITING_OF_DEPLOYEDFLOW_NOT_ALLOWED"|"WORKFLOW_STEPEXECUTIONSTATUS_ALREADYSATISFIED"|"DCR_DUPLICATE_KEY"|"BINARY_RESP_ERR_ATTACHMENT_CONTENT"|"ACTION_NOT_ALLOWED"|"COMMON_ERROR"|"PRICELISTTYPE_EDIT_NOTALLOWED"|"SIGNATURE_ABORTED"|"DOCX_CONVERSION_NOT_AVAILABLE"|"DOCX_CONVERSION_FAILED"|"RECIPIENTS"|"NOTIFICATION_DOWNLOAD_READY_TITLE"|"NOTIFICATION_DOWNLOAD_READY_MSG"|"NOTIFICATION_CLIC_MESSAGE_TITLE"|"NOTIFICATION_CLIC_MESSAGE_MSG"|"NOTIFICATION_CALCULATION_END_MSG"|"NOTIFICATION_CALCULATION_END_TITLE_CANCELLED"|"NOTIFICATION_CALCULATION_END_TITLE_FINISHED"|"NOTIFICATION_CALCULATION_END_TITLE_FAILED" calculationWithErrorsMsg?;
+    string approvalRequiredEmailAttachmentsJson?;
+    ContractViewState viewState?;
+    string prevRev?;
+    int calculationStatus?;
+    string supersededBy?;
+    string headerRebateType?;
+    int lastUpdateBy?;
+};
+
+# The type code is AIT.
+# >Action Types can be added or edited via UI: <b>Administration</b> > <b>Configuration</b> > <b>Actions</b> > <b>Action Types</b>
+public type ActionItemType record {
+    # A name of the Action Item Logic used by this type. See the [Action Item Logic](https://pricefx.atlassian.net/wiki/spaces/KB/pages/4601675834/Action+Item+Logic) documentation
+    string? formulaName?;
+    string typedId?;
+    # A unique name of the Action Item Type
+    @constraint:String {maxLength: 255}
+    string uniqueName;
+    # Tabs defined as a JSON. Used for configuring dynamicTabs in actions, labels of the tabs etc. See the [Detail Page Layout and Dynamic Tabs](https://pricefx.atlassian.net/wiki/spaces/KB/pages/3980492805/Detail+Page+Layout+and+Dynamic+Tabs) documentation
+    record {} configuration?;
+    int createdBy?;
+    string lastUpdateDate?;
+    string? userGroupEdit?;
+    string? userGroupViewDetails?;
+    @constraint:String {maxLength: 255}
+    string label?;
+    int version?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+public type PricelistmanagersubmitidData record {
+    string actionComment?;
+};
+
+public type InlineResponse201ResponseErrorsStatus record {
+    string errorMessage?;
+};
+
+public type LoaddataCDataOptions record {
+    boolean detectJoinFields?;
+};
+
+# Filter can be a rule or a group of rules with a combining operator
+public type Filter Group|Rule;
+
+public type RebateAgreementResponse_response_serverMessagesExtended record {
+    anydata 'key?;
+    @constraint:String {minLength: 1}
+    string message;
+};
+
+public type CancelClaimCalculationResponse record {
+    TruncateKVTableResponseResponse response?;
+};
+
+public type InlineResponse20071Response record {
+    string node?;
+    int startRow?;
+    ProductExtensionAttributeMeta[] data?;
+    int endRow?;
+    int totalRows?;
+    int status?;
+};
+
+public type OptimizationmodelfetchpciData record {
+    @jsondata:Name {value: "_constructor"}
+    string constructor?;
+    OptimizationmodelfetchpciDataCriteria[] criteria;
+    string operator?;
+};
+
+public type ImportmanagermassedittypedIdDataMassEditRecords record {
+    string fieldName?;
+    int precision?;
+    string massEditOperator?;
+    string fieldValue?;
+};
+
+public type AccountmanagerassignbusinessroleData record {
+    # `TypedId` of the business role you want to assign or revoke. Either `typedId` or `uniqeName` is required
+    @constraint:String {minLength: 1}
+    string typedId;
+    # `uniqueName` of the business role you want to assign or revoke. Either `typedId` or `uniqeName` is required
+    @constraint:String {minLength: 1}
+    string uniqueName;
+    # The list of users' `typedId`s or `loginName`. Can be mixed
+    string[] users;
+    # Set to `true` to assign the user to the business role. Set `false` to remove the business role from the user
+    boolean assign;
+};
+
+public type InlineResponse2008ResponseStateDefinition record {
+    InlineResponse2008ResponseStateDefinitionScope scope?;
+    InlineResponse2008ResponseStateDefinitionSource 'source?;
+};
+
+public type ContractmanagersubmitDataContract record {
+    record {}[] outputs?;
+    @constraint:String {minLength: 1}
+    string createdByName?;
+    @constraint:String {minLength: 1}
+    string typedId;
+    string headerText?;
+    @constraint:String {minLength: 1}
+    string endDate?;
+    @constraint:String {minLength: 1}
+    string workflowStatus?;
+    @constraint:Array {minLength: 1}
+    RebateagreementfetchitemsDataRebateAgreementInputs[] inputs?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    anydata serverMessagesExtended?;
+    anydata externalRef?;
+    anydata deniedByName?;
+    record {}[] lineItems?;
+    anydata userGroupViewDetails?;
+    anydata approvedByName?;
+    anydata creationWorkflowCurrentStep?;
+    @constraint:String {minLength: 1}
+    string rootUniqueName?;
+    @constraint:String {minLength: 1}
+    string targetDate?;
+    anydata customerGroup?;
+    decimal version;
+    @constraint:String {minLength: 1}
+    string uniqueName;
+    anydata serverMessages?;
+    anydata creationWorkflowStatus?;
+    anydata userGroupEdit?;
+    boolean hasWorkflowHistory?;
+    anydata nodeId?;
+    @constraint:String {minLength: 1}
+    string startDate?;
+    @constraint:String {minLength: 1}
+    string status?;
+    @constraint:String {minLength: 1}
+    string lastUpdateByName?;
+    anydata renderInfo?;
+    anydata signature?;
+    anydata creationWorkflowStepCount?;
+    anydata creationWorkflowStepLabel?;
+    anydata submittedByName?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    boolean dirty?;
+    anydata additionalInfo4?;
+    anydata additionalInfo3?;
+    boolean refreshInputs?;
+    anydata additionalInfo2?;
+    anydata additionalInfo1?;
+    @constraint:String {minLength: 1}
+    string contractStatus?;
+    decimal numberOfAttachments?;
+    @constraint:String {minLength: 1}
+    string label?;
+    anydata productGroup?;
+    decimal createdBy?;
+    anydata approvalRequiredEmailAttachmentsJson?;
+    QuotemanageraddproductsDataQuoteViewState viewState?;
+    anydata prevRev?;
+    decimal calculationStatus?;
+    anydata supersededBy?;
+    decimal lastUpdateBy?;
+};
+
+public type AddConditionTypeEnvelope record {
+    AddConditionTypeResponse response?;
+};
+
+# 
+public type DenyLivePriceGridItemRequest record {
+    PricegridmanagerrejectidData data;
+};
+
+public type LoaddataTypeCodeData record {
+    # Specify the field values in the same order as specified in the header object
+    anydata[][] data;
+    LoaddataTypeCodeDataOptions options?;
+    # Specify header field names (table columns) of the record in the target table
+    anydata[] header;
+};
+
+# 
+public type ListProductSetsRequest record {
+    # The number of the first row that defines the start of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal startRow?;
+    @constraint:String {minLength: 1}
+    string textMatchStyle?;
+    # The number of the end row that defines the end of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal endRow = 300;
+    @constraint:String {minLength: 1}
+    string operationType?;
+    anydata oldValues?;
+};
+
+public type DenyDocumentResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:Array {minLength: 1}
+    DenyDocumentResponseResponseData[] data?;
+    decimal status?;
+};
+
+public type ConditionrecordsetupdateidOldValues record {
+    int version?;
+};
+
+# The type code is UG
+public type UserGroup record {
+    @constraint:String {maxLength: 255}
+    string additionalInfo4?;
+    @constraint:String {maxLength: 255}
+    string additionalInfo3?;
+    decimal additionalInfo2?;
+    string typedId?;
+    @constraint:String {maxLength: 255}
+    string uniqueName?;
+    decimal additionalInfo1?;
+    int createdBy?;
+    string lastUpdateDate?;
+    @constraint:String {maxLength: 255}
+    string label?;
+    int version?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+public type CreatePriceListResponseResponseData record {
+    @constraint:String {minLength: 1}
+    string lastUpdateByName?;
+    @constraint:String {minLength: 1}
+    string createdByName?;
+    @constraint:String {minLength: 1}
+    string updateDate?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    anydata approvalDate?;
+    @constraint:String {minLength: 1}
+    string configuration?;
+    anydata workflowStatus?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    anydata submitDate?;
+    anydata description?;
+    @constraint:String {minLength: 1}
+    string locale?;
+    anydata calculationDate?;
+    decimal jstId?;
+    anydata deniedByName?;
+    boolean writeOnlyChangedItems?;
+    anydata expiryDate?;
+    @constraint:String {minLength: 1}
+    string pricelistType?;
+    anydata submittedByName?;
+    anydata userGroupViewDetails?;
+    anydata approvedByName?;
+    decimal id?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    anydata previousPricelistId?;
+    anydata calculationMessages?;
+    anydata approvalRequiredEmailAttachments?;
+    decimal updatedBy?;
+    @constraint:String {minLength: 1}
+    string targetDate?;
+    @constraint:String {minLength: 1}
+    string approvalState?;
+    @constraint:String {minLength: 1}
+    string errorMode?;
+    @constraint:String {minLength: 1}
+    string label?;
+    decimal version?;
+    anydata exportDate?;
+    decimal createdBy?;
+    decimal numberOfItems?;
+    anydata userGroupEdit?;
+    anydata integrationStatus?;
+    anydata nodeId?;
+    boolean keepManualOverrides?;
+    anydata calculationStartDate?;
+    decimal lastUpdateBy?;
+    @constraint:String {minLength: 1}
+    string status?;
+};
+
+public type ClicmanagersendemailData record {
+    # `typedId` of the Quote you want to send as an email attachament
+    string typedId;
+    # `typedId` of the attachment you want to send together with the Quote. This must be an existing attachment. You can upload a file on the **Attachments** tab of the document
+    string attachedFiles?;
+    # A name of the existing template. See the [Publishing Templates](https://pricefx.atlassian.net/wiki/display/UNITY/Publishing+Templates) documentation
+    string templateName;
+    # Select the type of the attachment template
+    "WORD"|"PDF"|"EXCEL" attachmentType;
+    string subject;
+    ClicmanagersendemailDataRecipients[] recipients;
+    string emailText?;
+};
+
+public type SX50Inner record {
+    string typedId?;
+    string? attribute39?;
+    string lastUpdateDate?;
+    string? attribute38?;
+    string? attribute37?;
+    @constraint:String {maxLength: 255}
+    string sellerId?;
+    string? attribute47?;
+    string? attribute46?;
+    string? attribute45?;
+    string? attribute44?;
+    string? attribute43?;
+    string? attribute42?;
+    string? attribute41?;
+    string? attribute40?;
+    string? attribute49?;
+    string? attribute48?;
+    int version?;
+    string? attribute9?;
+    string? attribute50?;
+    string? attribute8?;
+    string? attribute5?;
+    string? attribute4?;
+    string? attribute7?;
+    string? attribute6?;
+    @constraint:String {maxLength: 255}
+    string name?;
+    string? attribute1?;
+    string? attribute14?;
+    string? attribute13?;
+    string? attribute3?;
+    string? attribute12?;
+    string? attribute2?;
+    string? attribute11?;
+    string? attribute10?;
+    string? attribute19?;
+    string? attribute18?;
+    string? attribute17?;
+    string? attribute16?;
+    string? attribute15?;
+    string? attribute25?;
+    string? attribute24?;
+    string? attribute23?;
+    string? attribute22?;
+    string? attribute21?;
+    string? attribute20?;
+    string createDate?;
+    string? attribute29?;
+    string? attribute28?;
+    string? attribute27?;
+    string? attribute26?;
+    int createdBy?;
+    string? attribute36?;
+    string? attribute35?;
+    string? attribute34?;
+    string? attribute33?;
+    string? attribute32?;
+    string? attribute31?;
+    string? attribute30?;
+    int lastUpdateBy?;
+};
+
+public type QuotemanagersaveDataQuoteViewState record {
+    anydata openFolders?;
+    anydata gridViewState?;
+    string[] selectedNodes;
+};
+
+public type WithdrawDocumentResponseResponseWorkflowSubSteps record {
+    @constraint:String {minLength: 1}
+    string approver;
+    @constraint:String {minLength: 1}
+    string lastExecutedBy;
+    @constraint:String {minLength: 1}
+    string reason;
+    @constraint:String {minLength: 1}
+    string approverTypedId;
+    anydata comments?;
+    @constraint:String {minLength: 1}
+    string executionStatus;
+    @constraint:String {minLength: 1}
+    string approverLoginName;
+    decimal minApprovalsNeeded;
+    string comment;
+    @constraint:String {minLength: 1}
+    string lastExecutedByName;
+    @constraint:String {minLength: 1}
+    string lastExecutionDate;
+    decimal approvedCount;
+};
+
+public type AssignmentResponse_response_customerGroup_customerFilterCriteria_criteria record {
+    @constraint:String {minLength: 1}
+    string fieldName?;
+    @constraint:String {minLength: 1}
+    string operator?;
+    string[] value?;
+};
+
+public type RecalculateCalculationOfStepResponseResponse record {
+    string node?;
+    RecalculateCalculationOfStepResponseResponseData[] data?;
+    int status?;
+};
+
+# 
+public type ListRebateAgreementsRequest record {
+    decimal startRow?;
+    @constraint:String {minLength: 1}
+    string textMatchStyle?;
+    LookuptablemanagerfetchData data?;
+    decimal endRow?;
+    @constraint:String {minLength: 1}
+    string operationType?;
+    string[] sortBy?;
+    anydata oldValues?;
+};
+
+public type CompensationLineItemCalculationBaseIncludedTimePeriods record {
+    boolean single?;
+    string endDate?;
+    string startDate?;
+    "DAY"|"WEEK"|"MONTH"|"QUARTER"|"YEAR" timeUnit?;
+};
+
+# 
+public type ListPriceListsRequest record {
+    # The number of the first row that defines the start of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal startRow?;
+    @constraint:String {minLength: 1}
+    string textMatchStyle?;
+    FetchPLData data?;
+    # The number of the end row that defines the end of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal endRow = 300;
+    @constraint:String {minLength: 1}
+    string operationType?;
+    anydata oldValues?;
+};
+
+public type UpdateCLTOldValues record {
+    string formulaName?;
+    string typedId;
+    string uniqueName?;
+    string sheetName?;
+    int createdBy?;
+    string allocationFormulaName?;
+    string lastUpdateDate?;
+    string validationStateElementName?;
+    string label?;
+    int version;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+public type CustomFormCustomFormTypeObject record {
+    string? typedId?;
+    record {} configuration?;
+    string lastUpdateDate?;
+    "PRICESETTING"|"QUOTING"|"ANALYTICS"|"ADMIN"|"WORKFLOW"|"REBATES"|"AGREEMENTSPROMOTIONS"|"OPTIMIZATION"|"CHANNELMANAGEMENT"|"MASTERDATA"|"CONFIGURATION"|"DASHBOARDS"|"PROCESSES"|"SALESCOMPENSATION"|"CUSTOM_FORM"|"ACTIONABLEINSIGHTS" module?;
+    string label?;
+    string? moduleCategoryUN?;
+    int version?;
+    string uniqueName?;
+    string[] supportedParentTypeCodes?;
+    int createdBy?;
+    string headerFormulaName?;
+    string? userGroupEdit?;
+    string userGroupViewDetails?;
+    boolean embedded?;
+    string workflowFormulaName?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+# The type code is LAT
+public type LoginAuditTrail record {
+    string typedId?;
+    int createdBy?;
+    string lastUpdateDate?;
+    @constraint:String {maxLength: 255}
+    string clientIP?;
+    @constraint:String {maxLength: 20}
+    string details?;
+    @constraint:String {maxLength: 255}
+    string userName?;
+    int version?;
+    string timestamp?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+public type ListChartsResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    decimal startRow?;
+    @constraint:Array {minLength: 1}
+    ListChartsResponseResponseData[] data?;
+    decimal endRow?;
+    decimal status?;
+};
+
+public type ListClaimItemsResponse record {
+    ListClaimItemsResponseResponse response?;
+};
+
+public type InlineResponse201Response record {
+    string node?;
+    record {}? data?;
+    InlineResponse201ResponseErrors errors?;
+    int status?;
+};
+
+public type AccountmanagerdeletebusinessroleData record {
+    # The `typedId` of the business role object you want to delete
+    @constraint:String {minLength: 1}
+    string typedId;
+};
+
+# 
+public type ExecuteLogicReadOnlyResponse record {
+    ExecuteLogicWithoutProductContextResponseResponse response?;
+};
+
+public type RebaterecordgrouppreviewtypedIdData record {
+    RebaterecordgrouppreviewtypedIdDataRebateRecordGroup rebateRecordGroup?;
+};
+
+# A Filter rule with the actual condition
+public type Rule record {|
+    # Entity property to check
+    string fieldName;
+    @jsondata:Name {value: "_constructor"}
+    "AdvancedCriteria" constructor?;
+    string value?;
+    # Operator for comparing
+    "\"equals\""|"\"notEqual\""|"\"iEquals\""|"\"iNotEqual\""|"\"greaterThan\""|"\"lessThan\""|"\"greaterOrEqual\""|"\"lessOrEqual\""|"\"isNull\""|"\"notNull\""|"\"iBetween\""|"\"iBetweenInclusive\""|"\"between\""|"\"betweenInclusive\""|"\"inSet\""|"\"notInSet\""|"\"contains\""|"\"notContains\""|"\"iContains\""|"\"iNotContains\""|"\"containsPattern\""|"\"iContainsPattern\""|"\"startsWith\""|"\"notStartsWith\""|"\"iStartsWith\""|"\"iNotStartsWith\""|"\"endsWith\""|"\"notEndsWith\""|"\"iEndsWith\""|"\"iNotEndsWith\"" operator;
+|};
+
+public type BusinessRoleRoles record {
+    string typedId?;
+    string uniqueName?;
+    int createdBy?;
+    string lastUpdateDate?;
+    "PRICESETTING"|"QUOTING"|"ANALYTICS"|"ADMIN"|"WORKFLOW"|"REBATES"|"AGREEMENTSPROMOTIONS"|"OPTIMIZATION"|"CHANNELMANAGEMENT"|"MASTERDATA"|"CONFIGURATION"|"DASHBOARDS" module?;
+    string label?;
+    int version?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+public type UpdateDCRIRequest record {
+    DcrmanagerupdateidData data;
+    string textMatchStyle?;
+    string operationType?;
+    DataChangeRequestItem oldValues;
+};
+
+public type DatamartLoadfctypedIdBody record {
+    # AVRO file containing the data to load
+    record {byte[] fileContent; string fileName;} fcData?;
+};
+
+public type FetchPLDataCriteria record {
+    @constraint:String {minLength: 1}
+    string fieldName?;
+    @constraint:String {minLength: 1}
+    string value?;
+    @constraint:String {minLength: 1}
+    string operator?;
+};
+
+public type ContractModelResponse_response_calculationBase_includedTimePeriods record {
+    @constraint:String {minLength: 1}
+    string timeUnit;
+    @constraint:String {minLength: 1}
+    string startDate;
+    @constraint:String {minLength: 1}
+    string endDate;
+    boolean single;
+};
+
+# 
+public type DeleteColumnValuesResponse record {
+    RevokeDealResponseResponse response?;
+};
+
+# The Seller Extension object. The type code is SX20 (contains 20 attribute fields)
+public type SX20 SX20Inner[];
+
+# 
+public type ExecuteLogicWithoutProductContextResponse record {
+    ExecuteLogicWithoutProductContextResponseResponse response?;
+};
+
+public type InlineResponse20052Response record {
+    string node?;
+    int startRow?;
+    ConditionRecordSet[] data?;
+    int endRow?;
+    int totalRows?;
+    int status?;
+};
+
+# Represents the Queries record for the operation: exportQuoteExcel
+public type ExportQuoteExcelQueries record {
+    # Specifies the format of the output file
+    "json"|"xls"|"csv"|"pdf" output?;
+    # Specifies the template to be used when exporting a file
+    string templateName?;
+};
+
+public type SX8Inner record {
+    string typedId?;
+    string lastUpdateDate?;
+    int version?;
+    string? attribute8?;
+    @constraint:String {maxLength: 255}
+    string sellerId?;
+    string? attribute5?;
+    int createdBy?;
+    string? attribute4?;
+    string? attribute7?;
+    string? attribute6?;
+    @constraint:String {maxLength: 255}
+    string name?;
+    string? attribute1?;
+    string? attribute3?;
+    string? attribute2?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+# 
+public type ListPendingApprovalsResponse record {
+    ListPendingApprovalsResponseResponse response?;
+};
+
+public type OptimizationmodelduplicatetypedIdData record {
+    string uniqueName?;
+    boolean copyParamTables = true;
+    string label?;
+    OptimizationmodelduplicatetypedIdDataState state?;
+    string modelClassUN?;
+};
+
+public type SellermanagerfetchformulafilteredsellersDataCriteria record {
+    string fieldName?;
+    string value?;
+    string operator?;
+};
+
+# 
+public type DeleteCustomerRequest record {
+    DeleteTypeCodeData data;
+};
+
+public type GetProductSetResponseResponseAttributes record {
+    @constraint:String {minLength: 1}
+    string 'field;
+    anydata value?;
+};
+
+# 
+public type DeleteObjectRequest_1 record {
+    deletetypeCode_data data;
+};
+
+# 
+public type CreateCustomFormTypeResponse record {
+    CreateCustomFormTypeResponseResponse response?;
+};
+
+public type ListLivePriceGridsResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:String {minLength: 1}
+    string csrfToken?;
+    decimal startRow?;
+    @constraint:Array {minLength: 1}
+    ListLivePriceGridsResponseResponseData[] data?;
+    # The number of the end row that defines the end of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal endRow = 300;
+    decimal status?;
+};
+
+# The Seller Extension object. The type code is SX10 (contains 10 attribute fields)
+public type SX10 SX10Inner[];
+
+public type GenericDataResponse_response record {
+    string node?;
+    record {}? data?;
+    int status?;
+    int startRow?;
+    int endRow?;
+};
+
+public type UpdateCFOTOldValuesConfigurationDefault record {
+    string translationKey?;
+    string icon?;
+    string name?;
+    UpdateCFOTOldValuesConfigurationDefaultTabs tabs?;
+};
+
+public type MarkOfferLostWithReasonResponse record {
+    string node?;
+    Quote[] data?;
+    int status?;
+};
+
+public type CompensationCalculationBase record {
+    record {}[] excludedCustomerGroups?;
+    string dateDimFieldName?;
+    CompensationCalculationBaseIncludedSellerReferences[] includedSellerReferences?;
+    record {}[] includedCustomerGroups?;
+    record {}[] excludedTimePeriods?;
+    record {}[] excludedproductGroups?;
+    CompensationCalculationBaseOtherFilters[] otherFilters?;
+    record {}[] includedProductGroups?;
+    record {}[] excludedSellerReferences?;
+    CompensationCalculationBaseIncludedTimePeriods[] includedTimePeriods?;
+};
+
+public type CopyLogicResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:Array {minLength: 1}
+    CopyLogicResponseResponseData[] data?;
+    decimal status?;
+};
+
+public type InlineResponse200ResponseData record {
+    string id?;
+};
+
+# 
+public type DenyDocumentRequest record {
+    WorkflowsmanagerapprovecurrentStepIdData data;
+};
+
+public type MassEditPriceGridItemsResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node;
+    anydata data?;
+    decimal status;
+};
+
+public type ConditionRecordItemMetaOperationEnvelope record {
+    InlineResponse20054Response response?;
+};
+
+public type PriceGridItemResponse_response_data record {
+    decimal version?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    @constraint:String {minLength: 1}
+    string sku?;
+    @constraint:String {minLength: 1}
+    string label?;
+    @constraint:String {minLength: 1}
+    string unitOfMeasure?;
+    anydata currency?;
+    @constraint:String {minLength: 1}
+    string comments?;
+    anydata resultPrice?;
+    anydata previousPrice?;
+    anydata priceChange?;
+    anydata priceChangePct?;
+    anydata workStatus?;
+    anydata alerts?;
+    anydata warnings?;
+    anydata allowedOverrides?;
+    anydata manualOverrides?;
+    anydata manualResultPrice?;
+    anydata calculatedResultPrice?;
+    decimal priceGridId?;
+    anydata approvalState?;
+    anydata denialReason?;
+    anydata activePrice?;
+    anydata priceChange_ActivePrev?;
+    anydata priceChangePct_ActivePrev?;
+    decimal manualEditVersion?;
+    boolean manualPriceExpired?;
+    anydata workflowStatus?;
+    anydata submittedByName?;
+    anydata approvedByName?;
+    anydata deniedByName?;
+    anydata approvalRequiredEmailAttachments?;
+    anydata key2?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal createdBy?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    decimal lastUpdateBy?;
+    anydata attribute1?;
+    anydata attribute2?;
+    anydata attribute3?;
+    anydata attribute4?;
+    anydata attribute5?;
+    anydata attribute6?;
+    anydata attribute7?;
+    anydata attribute8?;
+    anydata attribute9?;
+    anydata attribute10?;
+    anydata attribute11?;
+    anydata attribute12?;
+    anydata attribute13?;
+    anydata attribute14?;
+    anydata attribute15?;
+    anydata attribute16?;
+    anydata attribute17?;
+    anydata attribute18?;
+    anydata attribute19?;
+    anydata attribute20?;
+    anydata attribute21?;
+    anydata attribute22?;
+    anydata attribute23?;
+    anydata attribute24?;
+    anydata attribute25?;
+    anydata attribute26?;
+    anydata attribute27?;
+    anydata attribute28?;
+    anydata attribute29?;
+    anydata attribute30?;
+    anydata attribute31?;
+    anydata attribute32?;
+    anydata attribute33?;
+    anydata attribute34?;
+    anydata attribute35?;
+    anydata attribute36?;
+    anydata attribute37?;
+    anydata attribute38?;
+    anydata attribute39?;
+    anydata attribute40?;
+    anydata attribute41?;
+    anydata attribute42?;
+    anydata attribute43?;
+    anydata attribute44?;
+    anydata attribute45?;
+    anydata attribute46?;
+    anydata attribute47?;
+    anydata attribute48?;
+    anydata attribute49?;
+    anydata attribute50?;
+    anydata attribute51?;
+    anydata attribute52?;
+    anydata attribute53?;
+    anydata attribute54?;
+    anydata attribute55?;
+    anydata attribute56?;
+    anydata attribute57?;
+    anydata attribute58?;
+    anydata attribute59?;
+    anydata attribute60?;
+    anydata attribute61?;
+    anydata attribute62?;
+    anydata attribute63?;
+    anydata attribute64?;
+    anydata attribute65?;
+    anydata attribute66?;
+    anydata attribute67?;
+    anydata attribute68?;
+    anydata attribute69?;
+    anydata attribute70?;
+    anydata attribute71?;
+    anydata attribute72?;
+    anydata attribute73?;
+    anydata attribute74?;
+    anydata attribute75?;
+    anydata attribute76?;
+    anydata attribute77?;
+    anydata attribute78?;
+    anydata attribute79?;
+    anydata attribute80?;
+    anydata attribute81?;
+    anydata attribute82?;
+    anydata attribute83?;
+    anydata attribute84?;
+    anydata attribute85?;
+    anydata attribute86?;
+    anydata attribute87?;
+    anydata attribute88?;
+    anydata attribute89?;
+    anydata attribute90?;
+    anydata attribute91?;
+    anydata attribute92?;
+    anydata attribute93?;
+    anydata attribute94?;
+    anydata attribute95?;
+    anydata attribute96?;
+    anydata attribute97?;
+    anydata attribute98?;
+    anydata attribute99?;
+    anydata attribute100?;
+    anydata approvalDate?;
+    anydata denialDate?;
+    anydata previousPriceDate?;
+    anydata activePriceDate?;
+    decimal manualEditUser?;
+    anydata manualPriceDate?;
+    anydata submitDate?;
+    record {} itemExtensions?;
+    boolean completeResultsAvailable?;
+};
+
+public type PriceListItemResponse_response record {
+    @constraint:String {minLength: 1}
+    string node?;
+    decimal startRow?;
+    @constraint:Array {minLength: 1}
+    PriceListItemResponse_response_data[] data?;
+    # The number of the end row that defines the end of the result set's returned objects. Use this parameter if you want to implement paging for results.
+    decimal endRow = 300;
+    decimal totalRows?;
+    decimal status?;
+};
+
+public type InsertBulkDataLookupTableResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node;
+    @constraint:String {minLength: 1}
+    string csrfToken;
+    record {}[] data;
+    decimal status;
+};
+
+public type LookuptablemanagerdeletetableIdbatchData record {
+    LookuptablemanagerdeletetableIdbatchDataFilterCriteria filterCriteria?;
+};
+
+public type QueryapiexecuteDataQueryStages record {
+    string kind?;
+    QueryapiexecuteDataQueryTable 'table?;
+};
+
+public type PreviewCustomFormWorkflowResponseResponseWorkflow record {
+    string workflowStatus?;
+    string isSelectStepOnDeny?;
+    string 'type?;
+    PreviewCustomFormWorkflowResponseResponseWorkflowSteps[] steps?;
+    string approvableTypedId?;
+    string currentStepId?;
+    string? submitReason?;
+    string? submitterUserName?;
+    record {}[] denialReasons?;
+    string? submitterTypedId?;
+    string isDenialReasonOptional?;
+    string id?;
+    string isAddStepRestrictedToWFAdmin?;
+};
+
+public type QuotemanagerfetchproductsDataQuote record {
+    record {}[] outputs;
+    @constraint:String {minLength: 1}
+    string expiryDate;
+    @constraint:String {minLength: 1}
+    string headerText;
+    @constraint:String {minLength: 1}
+    string targetDate;
+    @constraint:Array {minLength: 1}
+    QuotemanagersaveDataQuoteInputs[] inputs;
+    anydata userGroupEdit?;
+    anydata userGroupViewDetails?;
+    @constraint:String {minLength: 1}
+    string label;
+    anydata nodeId?;
+    anydata externalRef?;
+    anydata quoteType?;
+};
+
+public type ClaimTypeConfigurationColumns record {|
+    ClaimTypeConfigurationColumnsSku? sku?;
+    record {string name?; "NUMERIC"|"NUMERIC_LONG"|"MONEY"|"PERCENT"|"TEXT"|"MONEY_EUR"|"MONEY_USD"|"MONEY_GBP"|"MONEY_JPY"|"MONEY_CHF"|"MONEY_PLN"|"DATETIME"|"DATE"|"INTEGER"|"LINK"|"COMPLEX"|"SPARKLINE" fieldFormatType?; boolean canEdit?;}...;
+|};
+
+public type PricelistmanageraddidData record {
+    # A flag to indicate if only items with price changes should be written to the revision
+    anydata writeOnlyChangedItems?;
+    PricelistmanageraddidDataConfiguration configuration?;
+    # Set the validity date of the price list
+    @constraint:String {minLength: 1}
+    string targetDate;
+    @constraint:String {minLength: 1}
+    string errorMode;
+    # If set to `true`, adds products from products selection criteria to the price list and will override existing results if present. If set to `false`, adds products, but will not override results. If this value is null, then a revision of the entire Price List is triggered
+    anydata override?;
+    # Specifies parameter names and values used for formula computation
+    @constraint:String {minLength: 1}
+    string priceListName;
+    # A flag to indicate if manual overrides should be preserved in the revision
+    anydata keepManualOverrides?;
+    # Specifies whether the original product filter criteria (if still available/applicable) should be used
+    anydata useFilter?;
+};
+
+public type QuotemanagersubmitData record {
+    QuotemanagersubmitDataQuote quote;
+};
+
+public type ListCalculationGridItemsRequest record {
+    int startRow?;
+    string textMatchStyle?;
+    FetchCGIkeyNumberData data;
+    int endRow?;
+    string operationType?;
+    record {}? oldValues?;
+};
+
+public type AddWatcherStepResponseResponseData record {
+    AddWatcherStepResponseResponseWorkflow workflow?;
+    @constraint:String {minLength: 1}
+    string resultType?;
+};
+
+# The type code is DCRI
+public type DataChangeRequestItem record {
+    string? key1?;
+    int changeRequestId?;
+    string? key2?;
+    string typedId?;
+    string? key5?;
+    string? key6?;
+    string? key3?;
+    string lastUpdateDate?;
+    string? key4?;
+    string? approvalReason?;
+    @constraint:String {maxLength: 255}
+    string sku?;
+    string? unitOfMeasure?;
+    int version?;
+    anydata attribute9?;
+    boolean deleteRow?;
+    anydata attribute8?;
+    anydata attribute5?;
+    anydata attribute4?;
+    anydata attribute7?;
+    anydata attribute6?;
+    string? name?;
+    anydata attribute1?;
+    anydata attribute14?;
+    anydata attribute13?;
+    anydata attribute3?;
+    anydata attribute12?;
+    anydata attribute2?;
+    anydata attribute11?;
+    anydata attribute10?;
+    anydata attribute19?;
+    anydata attribute18?;
+    anydata attribute17?;
+    anydata itemTypedId?;
+    anydata attribute16?;
+    anydata attribute15?;
+    record {|DataChangeRequestItemOldValues...;|}? oldValues?;
+    boolean ignoreChange?;
+    string? customerId?;
+    anydata attribute25?;
+    anydata attribute24?;
+    string? currency?;
+    anydata attribute23?;
+    anydata attribute22?;
+    anydata attribute21?;
+    string? value?;
+    anydata attribute20?;
+    string createDate?;
+    string? comments?;
+    anydata attribute29?;
+    anydata attribute28?;
+    anydata attribute27?;
+    anydata attribute26?;
+    string? label?;
+    int createdBy?;
+    record {|string[]...;|}? changeRef?;
+    anydata attribute30?;
+    int lastUpdateBy?;
+};
+
+public type AddCalculationResponseResponse record {
+    string node?;
+    CompensationRecordSetCalculation[] data?;
+    int status?;
+};
+
+public type AccountmanagerassignbusinessroleuserIdData record {
+    # `TypedId` of the business role you want to assign or revoke. Either `typedId` or `uniqeName` is required
+    @constraint:String {minLength: 1}
+    string typedId;
+    # `uniqueName` of the role you want to assign or revoke. Either `typedId` or `uniqeName` is required
+    @constraint:String {minLength: 1}
+    string uniqueName;
+    # Set to `true` to assign the business role to the user. Set `false` to remove the business role from the user
+    boolean assign;
+};
+
+# 
+public type ListClaimsRequest record {
+    # The number of the first row that defines the start of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal startRow?;
+    @constraint:String {minLength: 1}
+    string textMatchStyle?;
+    # The number of the end row that defines the end of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal endRow = 300;
+    @constraint:String {minLength: 1}
+    string operationType?;
+    anydata oldValues?;
+};
+
+public type InlineResponse2012Data record {
+    string createdByName?;
+    int objId?;
+    string operationType?;
+    string objType?;
+    string objLabel?;
+    string createDate?;
+};
+
+public type InlineResponse20014Response record {
+    string node?;
+    CustomForm[] data?;
+    int status?;
+};
+
+public type DatamartqueryData record {
+    DatamartqueryDataQuery query?;
+};
+
+# The Seller Extension object. The type code is SX30 (contains 30 attribute fields)
+public type SX30 SX30Inner[];
+
+# The type code is AI
+public type ActionItem record {
+    string? lastUpdateByName?;
+    ActionItemOutputs[] outputs?;
+    string? createdByName?;
+    string typedId?;
+    @constraint:String {maxLength: 255}
+    string assignedToName?;
+    string lastUpdateDate?;
+    string dueDate?;
+    string actionItemType;
+    string? description?;
+    string? parentTabName?;
+    int assignedTo;
+    string? assignedToGroup?;
+    string? sourceContext?;
+    string? targetContext?;
+    string? parentTypedId?;
+    string? completedByName?;
+    string createDate?;
+    @constraint:String {maxLength: 255}
+    string summary;
+    string? originatorTypedId?;
+    int version?;
+    string? completedDate?;
+    @constraint:String {maxLength: 255}
+    string uniqueName?;
+    int createdBy?;
+    int? completedBy?;
+    "OPEN"|"DONE"|"REJECTED"|"BLOCKED"|"POSTPONED" status?;
+    int lastUpdateBy?;
+};
+
+public type ChangeCustomFormStatusRequest record {
+    CustomformchangestatustypedIdData data?;
+};
+
+public type PreviewCustomFormWorkflowResponseResponseData record {
+    string? layout?;
+    PreviewCustomFormWorkflowResponseResponseWorkflow workflow?;
+    string resultType?;
+};
+
+public type InlineResponse2007Response record {
+    string node?;
+    InlineResponse2007ResponseData[] data?;
+    int status?;
+};
+
+public type WithdrawDocumentResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:Array {minLength: 1}
+    WithdrawDocumentResponseResponseData[] data?;
+    decimal status?;
+};
+
+public type ListLogicsResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:Array {minLength: 1}
+    ListLogicsResponseResponseData[] data?;
+    decimal status?;
+};
+
+public type InlineResponse2002Response record {
+    InlineResponse2002ResponseData[] data?;
+    int status?;
+};
+
+public type DeleteTypeCodebatchforcefilterDataFilterCriteria record {
+    @jsondata:Name {value: "_constructor"}
+    string constructor;
+    @constraint:Array {minLength: 1}
+    PricelistmanagerdeletePLidbatchDataFilterCriteriaCriteria[] criteria;
+    @constraint:String {minLength: 1}
+    string operator;
+};
+
+public type ContractResponse_response_data record {
+    decimal version?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    @constraint:String {minLength: 1}
+    string uniqueName?;
+    @constraint:String {minLength: 1}
+    string label?;
+    @constraint:String {minLength: 1}
+    string targetDate?;
+    @constraint:String {minLength: 1}
+    string workflowStatus?;
+    @constraint:String {minLength: 1}
+    string lastUpdateByName?;
+    @constraint:String {minLength: 1}
+    string createdByName?;
+    decimal calculationStatus?;
+    boolean dirty?;
+    boolean refreshInputs?;
+    decimal numberOfAttachments?;
+    @constraint:String {minLength: 1}
+    string contractStatus?;
+    @constraint:String {minLength: 1}
+    string startDate?;
+    @constraint:String {minLength: 1}
+    string endDate?;
+    @constraint:String {minLength: 1}
+    string status?;
+    boolean hasWorkflowHistory?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal createdBy?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    decimal lastUpdateBy?;
+    @constraint:String {minLength: 1}
+    string rootUniqueName?;
+};
+
+public type I18nmanagerfetchWithExtraDataData record {
+    # Set to `true` to fetch Partition-wide messages, or  `false` to fetch Private messages
+    boolean partitionWideOverride?;
+};
+
+public type MarkOfferLostWithReasonRequest record {
+    ClicmanagersetlostreasontypedIdData data;
+};
+
+public type RebateagreementsaveDataRebateAgreement record {
+    record {}[] outputs?;
+    anydata seller?;
+    anydata createdByName?;
+    anydata typedId?;
+    string headerText?;
+    @constraint:String {minLength: 1}
+    string endDate?;
+    @constraint:String {minLength: 1}
+    string workflowStatus?;
+    @constraint:Array {minLength: 1}
+    RebateagreementsaveDataRebateAgreementInputs[] inputs?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    @constraint:Array {minLength: 1}
+    RebateagreementsaveDataRebateAgreementServerMessagesExtended[] serverMessagesExtended?;
+    @constraint:String {minLength: 1}
+    string payoutDate?;
+    anydata deniedByName?;
+    record {}[] lineItems?;
+    anydata userGroupViewDetails?;
+    anydata approvedByName?;
+    anydata creationWorkflowCurrentStep?;
+    anydata rootUniqueName?;
+    @constraint:String {minLength: 1}
+    string targetDate?;
+    anydata customerGroup?;
+    anydata version?;
+    anydata uniqueName?;
+    string[] serverMessages?;
+    anydata creationWorkflowStatus?;
+    anydata userGroupEdit?;
+    boolean hasWorkflowHistory?;
+    anydata nodeId?;
+    @constraint:String {minLength: 1}
+    string startDate?;
+    @constraint:String {minLength: 1}
+    string status?;
+    anydata lastUpdateByName?;
+    anydata renderInfo?;
+    anydata signature?;
+    anydata rebateRecordSetId?;
+    anydata creationWorkflowStepCount?;
+    anydata sellerName?;
+    anydata creationWorkflowStepLabel?;
+    anydata submittedByName?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    boolean dirty?;
+    anydata additionalInfo4?;
+    anydata additionalInfo3?;
+    boolean refreshInputs?;
+    anydata additionalInfo2?;
+    anydata additionalInfo1?;
+    decimal numberOfAttachments?;
+    anydata simulationType?;
+    @constraint:String {minLength: 1}
+    string label?;
+    anydata rebateRecordSetLabel?;
+    anydata simulationSet?;
+    decimal createdBy?;
+    anydata approvalRequiredEmailAttachmentsJson?;
+    QuotemanageraddproductsDataQuoteViewState viewState?;
+    anydata prevRev?;
+    decimal calculationStatus?;
+    anydata supersededBy?;
+    anydata headerRebateType?;
+    decimal lastUpdateBy?;
+};
+
+public type LokiLogEnvelope record {
+    InlineResponse20064Data data?;
+    string status?;
+};
+
+# 
+public type ListProductsRequest1 record {
+    decimal startRow?;
+    @constraint:String {minLength: 1}
+    string textMatchStyle?;
+    QuotemanagerfetchproductsData data;
+    # The number of the end row that defines the end of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal endRow = 300;
+    @constraint:String {minLength: 1}
+    string operationType?;
+    anydata[] sortBy;
+    anydata oldValues?;
+    boolean distinctResults?;
+};
+
+# 
+public type UpsertObjectReturnOldDataResponse record {
+    UpsertObjectReturnOldDataResponseResponse response;
+};
+
+public type ListAttributeFieldsMetadataResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:String {minLength: 1}
+    string csrfToken?;
+    @constraint:Array {minLength: 1}
+    ListAttributeFieldsMetadataResponseData[] data?;
+    decimal status?;
+};
+
+public type InlineResponse20033Response record {
+    string node?;
+    int startRow?;
+    BinaryData[] data?;
+    int endRow?;
+    int totalRows?;
+    int status?;
+};
+
+public type ContractmanagersaveDataContractProductGroup1 record {
+    @constraint:String {minLength: 1}
+    string productFieldName;
+    @constraint:String {minLength: 1}
+    string productFieldLabel;
+    @constraint:String {minLength: 1}
+    string productFieldValue;
+    anydata label?;
+    anydata productFilterCriteria?;
+};
+
+public type CopyLogicResponseResponseData record {
+    @constraint:String {minLength: 1}
+    string lastUpdateByName?;
+    anydata createdByName?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    @constraint:String {minLength: 1}
+    string label?;
+    anydata formulaNature?;
+    decimal version?;
+    anydata simulationSet?;
+    @constraint:String {minLength: 1}
+    string uniqueName?;
+    @constraint:String {minLength: 1}
+    string formulaType?;
+    decimal createdBy?;
+    anydata userGroupEdit?;
+    anydata userGroupViewDetails?;
+    @constraint:String {minLength: 1}
+    string validAfter?;
+    @constraint:String {minLength: 1}
+    string status?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal lastUpdateBy?;
+};
+
+public type InlineResponse20031ResponseValueInlineConfigurator record {
+    @jsondata:Name {value: "Checkbox1"}
+    boolean checkbox1?;
+};
+
+public type ContractmanagersaveDataContractParameterConfig record {
+    @constraint:String {minLength: 1}
+    string dataType?;
+};
+
+public type ListConditionTypesRequest record {
+    int startRow?;
+    string textMatchStyle?;
+    LookuptablemanagerdeletetableIdbatchDataFilterCriteria data?;
+    int endRow?;
+    string operationType?;
+    record {}? oldValues?;
+};
+
+# 
+public type GetDMObjectNoCountRequest record {
+    decimal startRow?;
+    @constraint:String {minLength: 1}
+    string textMatchStyle?;
+    FetchPLData data?;
+    decimal endRow?;
+    @constraint:String {minLength: 1}
+    string operationType?;
+    anydata oldValues?;
+};
+
+# 
+public type ListDataLoadsResponse record {
+    ListDataLoadsResponseResponse response?;
+};
+
+public type ConditionRecordItemMetaEnvelope record {
+    InlineResponse20056Response response?;
+};
+
+public type ManualpricelistmanagerintegrateidData record {
+    @constraint:String {minLength: 1}
+    string comments?;
+    @constraint:String {minLength: 1}
+    string currency?;
+    @constraint:String {minLength: 1}
+    string label?;
+    @constraint:String {minLength: 1}
+    string sku;
+};
+
+public type MassSubmitRebateRecordGroupsEnvelope record {
+    CalculatePricelistResponseResponse response?;
+};
+
+public type DeleteSXData record {
+    # `typedId` of the Seller Extension you want to delete
+    string typedId?;
+};
+
+public type AddPGTTDataCustomActionLogics record {
+    string key1?;
+};
+
+public type GetWorkflowDocumentResponseResponseData record {
+    GetWorkflowDocumentResponseResponseWorkflow workflow?;
+    @constraint:String {minLength: 1}
+    string resultType?;
+};
+
+# The Seller Extension object. The type code is SX50 (contains 50 attribute fields)
+public type SX50 SX50Inner[];
+
+public type AddWatcherStepResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:Array {minLength: 1}
+    AddWatcherStepResponseResponseData[] data?;
+    decimal status?;
+};
+
+public type EmailTaskSender record {
+    string senderName?;
+    string senderEmailAddress?;
+};
+
+public type CompensationInputs record {
+    string? labelTranslations?;
+    boolean? addUnknownValues?;
+    string? typedId?;
+    record {|record {}...;|} parameterConfig?;
+    record {}[] inputs?;
+    boolean? readOnly?;
+    string label?;
+    string 'type?;
+    string? parameterGroup?;
+    string? url?;
+    string? valueHint?;
+    boolean? required?;
+    boolean? alwaysEditable?;
+    record {|record {}...;|} formattingOptions?;
+    string[]? valueOptions?;
+    record {|record {}...;|}? filter?;
+    string? lookupTableId?;
+    string name?;
+    record {}? value?;
+};
+
+public type QuoteLineItems record {
+    record {}[] outputs?;
+    boolean dirty?;
+    string typedId?;
+    string treeLabel?;
+    record {}[] inputs?;
+    string lastUpdateDate?;
+    string lineId?;
+    string label?;
+    int clicId?;
+    int priceRecordId?;
+    int version?;
+    string parentId?;
+    boolean folder?;
+    int createdBy?;
+    int calculationStatus?;
+    int editabilityStatus?;
+    string sku?;
+    boolean containsProductImage?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+# 
+public type ListRolesOfBusinessRoleResponse record {
+    ListRolesOfBusinessRoleResponseResponse response?;
+};
+
+public type AddCalculationGridRequest record {
+    CalculationgridmanageraddgridData data?;
+};
+
+public type ContractmanageradditemsDataContractInputs record {
+    anydata labelTranslations?;
+    anydata addUnknownValues?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    record {} parameterConfig?;
+    record {}[] inputs?;
+    anydata readOnly?;
+    @constraint:String {minLength: 1}
+    string label?;
+    @constraint:String {minLength: 1}
+    string 'type?;
+    anydata parameterGroup?;
+    anydata url?;
+    anydata valueHint?;
+    anydata required?;
+    anydata alwaysEditable?;
+    record {} formattingOptions?;
+    anydata valueOptions?;
+    anydata filter?;
+    anydata lookupTableId?;
+    @constraint:String {minLength: 1}
+    string name?;
+    anydata value?;
+};
+
+# 
+public type AddWatcherStepRequest record {
+    WorkflowsmanageraddwatchercurrentStepIdData data;
+};
+
+# 
+public type SetDefaultPricingLogicResponse record {
+    GetDefaultPricingLogicNameResponseResponse response?;
+};
+
+public type BinaryDataIdslotIdBody record {
+    # A **base64** encoded file data
+    record {byte[] fileContent; string fileName;} file?;
+};
+
+# The type code is CL
+public type Claim record {
+    @constraint:String {maxLength: 255}
+    string lastUpdateByName?;
+    @constraint:String {maxLength: 255}
+    string createdByName?;
+    string? fileName?;
+    string typedId?;
+    string? claimRecord?;
+    "DRAFT"|"SUBMITTED"|"DENIED"|"APPROVED"|"NO_APPROVAL_REQUIRED"|"WITHDRAWN"|"INVALIDATED" workflowStatus?;
+    string lastUpdateDate?;
+    string? submitDate?;
+    string? locale?;
+    string? calculationDate?;
+    string? externalRef?;
+    string? deniedByName?;
+    @constraint:String {maxLength: 255}
+    string claimType?;
+    string? fileHandle?;
+    string? sourceQuoteUniqueName?;
+    string? customerId?;
+    string? submittedByName?;
+    string? approvedByName?;
+    int id?;
+    string createDate?;
+    string? sourceContractUniqueName?;
+    string? calculationMessages?;
+    record {}[]? approvalRequiredEmailAttachments?;
+    string? targetDate?;
+    @constraint:String {maxLength: 255}
+    string label?;
+    int version?;
+    string? customerName?;
+    @constraint:String {maxLength: 255}
+    string uniqueName?;
+    int createdBy?;
+    string? progress?;
+    "DRAFT"|"APPROVED"|"REVOKED" claimStatus?;
+    string? calculationStartDate?;
+    int lastUpdateBy?;
+    "DRAFT"|"PENDING"|"SCHEDULED"|"PROCESSING"|"SCHEDULED_DIRTY"|"ERROR"|"READY"|"CANCELLED" status?;
+};
+
+public type ApproveDocumentResponseResponseWorkflowSteps record {
+    @constraint:String {minLength: 1}
+    string reason;
+    record {}[] reasons?;
+    @constraint:String {minLength: 1}
+    string isUserApprover;
+    anydata userGroupNames?;
+    @constraint:String {minLength: 1}
+    string 'type;
+    record {}[] minApprovalsForGroups?;
+    anydata isPostStepLogicFailed?;
+    anydata postStepLogicName?;
+    @constraint:String {minLength: 1}
+    string id;
+    record {}[] executedByNames?;
+    record {}[] userLoginNames?;
+    anydata userGroupTypedId?;
+    record {}[] approvalRequiredEmailAttachments?;
+    @constraint:Array {minLength: 1}
+    ApproveDocumentResponseResponseWorkflowSubSteps[] subSteps?;
+    @constraint:String {minLength: 1}
+    string executionStatus;
+    record {}[] userTypedIds?;
+    @constraint:String {minLength: 1}
+    string lastAccess;
+    decimal minApprovalsNeeded;
+    @constraint:String {minLength: 1}
+    string userName;
+    record {}[] delegatedToTypedIds?;
+    anydata userGroupTypedIds?;
+    @constraint:String {minLength: 1}
+    string userTypedId;
+    @constraint:String {minLength: 1}
+    string uniqueName;
+    record {}[] denialReasons?;
+    anydata userGroupName?;
+    @constraint:String {minLength: 1}
+    string isDenialReasonOptional;
+    record {}[] userNames?;
+    anydata comment?;
+    record {}[] mandatoryComments?;
+};
+
+public type DatamartsqlqueryDataSourcesS0QueryDimensionFilters record {
+    @jsondata:Name {value: "Invoice_DateYear"}
+    string[] invoiceDateYear?;
+};
+
+public type WorkflowsmanageraddwatchercurrentStepIdData record {
+    @constraint:String {minLength: 1}
+    string addStepCurrentStepId;
+    WorkflowsmanageraddwatchercurrentStepIdDataAddStepStepInstance addStepStepInstance;
+};
+
+public type GetWorkflowDocumentResponseResponseWorkflowSteps record {
+    @constraint:String {minLength: 1}
+    string reason?;
+    anydata[] reasons?;
+    @constraint:String {minLength: 1}
+    string isUserApprover?;
+    anydata userGroupNames?;
+    @constraint:String {minLength: 1}
+    string 'type?;
+    anydata[] minApprovalsForGroups?;
+    anydata isPostStepLogicFailed?;
+    anydata postStepLogicName?;
+    @constraint:String {minLength: 1}
+    string id?;
+    anydata[] executedByNames?;
+    anydata[] userLoginNames?;
+    anydata userGroupTypedId?;
+    anydata[] approvalRequiredEmailAttachments?;
+    @constraint:Array {minLength: 1}
+    anydata[] subSteps?;
+    @constraint:String {minLength: 1}
+    string executionStatus?;
+    anydata[] userTypedIds?;
+    @constraint:String {minLength: 1}
+    string lastAccess?;
+    decimal minApprovalsNeeded?;
+    @constraint:String {minLength: 1}
+    string userName?;
+    anydata[] delegatedToTypedIds?;
+    anydata userGroupTypedIds?;
+    @constraint:String {minLength: 1}
+    string userTypedId?;
+    @constraint:String {minLength: 1}
+    string uniqueName?;
+    anydata[] denialReasons?;
+    anydata userGroupName?;
+    @constraint:String {minLength: 1}
+    string isDenialReasonOptional?;
+    anydata[] userNames?;
+    anydata comment?;
+    anydata[] mandatoryComments?;
+};
+
+public type InlineResponse20062Response record {
+    string node?;
+    int startRow?;
+    EmailTask[] data?;
+    int endRow?;
+    int totalRows?;
+    int status?;
+};
+
+public type InlineResponse2009ResponseStateTwoTabsTab2 record {
+    @jsondata:Name {value: "StringEntry"}
+    anydata stringEntry?;
+    @jsondata:Name {value: "OptionEntry"}
+    string optionEntry?;
+    @jsondata:Name {value: "MatrixEntry"}
+    InlineResponse2009ResponseStateTwoTabsTab2MatrixEntry[] matrixEntry?;
+};
+
+# Represents the Queries record for the operation: listCustomerExtensionObjects
+public type ListCustomerExtensionObjectsQueries record {
+    # Specifies the format of the output file
+    "json"|"xls"|"csv"|"pdf" output?;
+    # Set to **false** to retrieve the table with labels (as used in the database) instead of names in the table header
+    "true"|"false" useColumnNames = "true";
+};
+
+public type CalculatePriceGridResponseResponseJobSettings record {
+    @constraint:String {minLength: 1}
+    string calculableObjectTypedId;
+    anydata queueName?;
+    @constraint:String {minLength: 1}
+    string partitionName;
+    decimal jobSize;
+    boolean enableDirtyTracking;
+    anydata distributedAction?;
+    boolean distributed;
+    decimal runNumber;
+    boolean agentOption1;
+    @constraint:String {minLength: 1}
+    string jobType;
+    @constraint:String {minLength: 1}
+    string partitionUUID;
+    @constraint:String {minLength: 1}
+    string uuid;
+};
+
+public type InlineResponse20079Response record {
+    string node?;
+    InlineResponse20079ResponseData[] data?;
+    int status?;
+};
+
+# The Compensation object. The type code is CO
+public type Compensation record {
+    # Header results calculated for the Compensation Plan by the compensation header logic. Usually a summary / overall results for the whole agreement
+    ActionItemOutputs[]? outputs?;
+    @constraint:String {maxLength: 255}
+    string createdByName?;
+    string typedId?;
+    string? headerText?;
+    "SUCCESS"|"COMMAND_GENERAL_ERROR"|"COMMAND_GENERAL_ERROR_WITH_MSG"|"COMMAND_GENERAL_ERROR_CONFLICT"|"COMMAND_GENERAL_ERROR_CONFLICT_FIELD"|"COMMAND_NOT_FOUND"|"COMMAND_CONFIG_ERROR"|"COMMAND_CONTEXT_PATH_NOTFOUND"|"COMMAND_NOT_AUTHORIZED"|"COMMAND_INVALID_PARAMETERS"|"COMMAND_FORBIDDEN_IN_K8S"|"COMMAND_FORBIDDEN_IN_READONLYMODE"|"COMMAND_FORM_TOO_LARGE"|"OBJECT_NOT_FOUND"|"LOGIN_FAILURE"|"LOGIN_FAILURE_BANNED"|"LOGIN_FAILURE_TFA"|"LOGIN_FAILURE_INACTIVE_OR_EXPIRED"|"PARTITION_UNKNOWN"|"COPY_OF_PREFIX"|"SIM_OF_PREFIX"|"TOO_MANY_WARNINGS"|"NO_NAME"|"ERROR_MESSAGE"|"ERROR_STATUS"|"ERROR_HTTPCODE"|"ERROR_ACTION"|"ERROR_TIMESTAMP"|"INVALID"|"FORMULA_ERROR"|"DEFAULT_FORMULA_NOT_FOUND"|"FORMULA_NOT_FOUND"|"FORMULA_NOT_FOUND_FOR"|"FE_SYNTAX_ERROR"|"FE_UNKNOWN_SYMBOL_ERROR"|"FE_WRONG_NUMBER_OF_ARGS"|"FE_ILLEGAL_OPERATION"|"FE_ILLEGAL_ARGUMENT"|"FE_ILLEGAL_STATUS"|"FE_UNDEFINED_FUNCTION"|"FE_UNDEFINED_UNIT"|"FE_UNDEFINED_VARIABLE"|"FE_FLEXCHART_UNSUPPORTED_FEATURE"|"FE_FLEXCHART_UNRECOGNIZED_OPTION"|"FE_FLEXCHART_INVALID_OPTION"|"FE_FLEXCHART_FORBIDDEN_OPTION"|"FE_FLEXCHART_INVALID_JSON"|"FE_FLEXCHART_GENERIC_ERROR"|"FE_EMBEDDED_DASHBOARD_API_MALFORMED_CONF"|"FE_EMBEDDED_DASHBOARD_API_FUNCTION_DOES_NOT_EXIST"|"FE_EMBEDDED_DASHBOARD_API_ILLEGAL_FUNCTION_CALL"|"FE_EMBEDDED_DASHBOARD_API_ILLEGAL_ARGUMENT"|"FE_WARNING_FLEXCHART_UNRECOGNIZED_TEMPLATE"|"FE_WARNING_ATTRIBUTE_NOTFOUND"|"FE_WARNING_PRODUCT_NOTSET"|"FE_WARNING_PRODUCT_NOTFOUND"|"FE_WARNING_PRODUCTATTRIBUTE_NOTFOUND"|"FE_WARNING_PRODUCTATTRIBUTE_AMIBGUOUS"|"FE_WARNING_CUSTOMER_NOTSET"|"FE_WARNING_CUSTOMER_NOTFOUND"|"FE_WARNING_CUSTOMERATTRIBUTE_NOTFOUND"|"FE_WARNING_CUSTOMERATTRIBUTE_AMIBGUOUS"|"FE_WARNING_VLOOKUP_TABLE_NOTFOUND"|"FE_WARNING_VLOOKUP_KEY_NOTFOUND"|"FE_WARNING_VLOOKUP_KEY_ISNULL"|"FE_WARNING_VLOOKUP_AMIBGUOUS"|"FE_WARNING_VLOOKUP_AMIBGUOUS_NOKEY"|"FE_WARNING_CONTEXT_NOTFOUND"|"FE_WARNING_CONTEXT_AMIBGUOUS"|"FE_WARNING_USERENTRY_NOTFOUND"|"FE_WARNING_CONFIGURATOR_NOTFOUND"|"FE_WARNING_OPTION_NOTFOUND"|"FE_WARNING_FUNCTIONCALL_AMIBGUOUS"|"FE_WARNING_ARITHMETICEXCEPTION"|"FE_WARNING_PRICELIST_ITEMNOTFOUND"|"FE_INFO_DATAMARTQUERY_USINGCACHEDRESULT"|"FE_WARNING_DATAMARTQUERY_INVALIDQUERY"|"FE_WARNING_DATAMARTQUERY_MAXROWSEXCEEDED"|"FE_WARNING_DATAMARTLOOKUP_QUERYNOTFOUND"|"FE_WARNING_DATAMARTLOOKUP_FIELDNOTFOUND"|"FE_WARNING_DATAMARTLOOKUP_INVALIDFILTER"|"FE_WARNING_DATAMARTLOOKUP_MAXROWSEXCEEDED"|"FE_WARNING_COULD_NOT_COMBINE_ELEMENTS"|"FE_WARNING_PRODUCT_EXTENSION_NAME_NOTSET"|"FE_WARNING_CUSTOMER_EXTENSION_NAME_NOTSET"|"FE_WARNING_PRICERECORD_NOTFOUND"|"FE_WARNING_PRODUCTGROUP_NOTFOUND"|"FE_WARNING_CUSTOMERGROUP_NOTFOUND"|"FE_WARNING_SELLERGROUP_NOTFOUND"|"FE_WARNING_ANYUSER_NOTFOUND"|"FE_WARNING_MULTITIERENTRY_NOTFOUND"|"FE_WARNING_DATASOURCE_NOTFOUND"|"FE_WARNING_FIELD_NOTFOUND"|"FE_WARNING_REBATERECORD_NOTFOUND"|"FE_WARNING_CONTEXTSKUSET_NOTSETORMALFORMED"|"FE_WARNING_FILTERBUILDERUSERENTRY_NOTFOUND"|"FE_WARNING_FILTERBUILDERUSERENTRY_ILLEGALVALUE"|"FE_WARNING_DMFILTERBUILDERUSERENTRY_NOTFOUND"|"FE_WARNING_DMFILTERBUILDERUSERENTRY_ILLEGALVALUE"|"FE_WARNING_REBATE_AGREEMENT_NOTFOUND"|"FE_WARNING_REBATE_AGREEMENT_ATTRIBUTE_NOTFOUND"|"FE_WARNING_CLAIM_WRONG_VALIDATION_STATE"|"FE_WARNING_HOOK_GENERIC_ERROR"|"FE_WARNING_HOOK_GENERIC_DENIED_MESSAGE"|"FE_WARNING_PARENT_NOTFOUND"|"FE_WARNING_MAX_RESULTS_SIZE_EXCEEDED"|"FE_WARNING_MISSING_BUSINESSKEY_VALUE"|"VALIDATION_SKU_MISSING"|"VALIDATION_PARTITION_USERNAME_UPDATE"|"VALIDATION_PARTITION_PASSWORD_UPDATE"|"VALIDATION_PARTITION_NULL"|"VALIDATION_PARTITION_MISMATCH"|"VALIDATION_CUSTOMERID_MISSING"|"VALIDATION_SELLERID_MISSING"|"VALIDATION_DUPLICATE_BUSINESSKEY"|"VALIDATION_DUPLICATE_BUSINESSKEY_PARAMETERIZED"|"VALIDATION_DYNAMIC_TABS_DUPLICATED_CUSTOM_FORMS"|"VALIDATION_DYNAMIC_TABS_STANDALONE_CUSTOM_FORM"|"VALIDATION_DYNAMIC_TABS_UNSUPPORTED_TYPE_CUSTOM_FORM"|"VALIDATION_DYNAMIC_TABS_MISSING_TAB"|"VALIDATION_NEWER_VERSION_EXISTS"|"VALIDATION_FORMULAELEMENT_EMPTYNAME"|"VALIDATION_FORMULAELEMENT_INVALIDNAME"|"VALIDATION_FAILED"|"VALIDATION_FIELD_DUPLICATE_VALUE"|"VALIDATION_FIELD_MISSING"|"VALIDATION_FIELD_INVALID_CHARS"|"VALIDATION_FIELD_INVALID"|"VALIDATION_FIELD_TOO_BIG"|"VALIDATION_FIELD_TOO_BIG_WITH_MSG"|"VALIDATION_NUMBER_TOO_BIG"|"VALIDATION_STATUS_RESTRICTED"|"VALIDATION_USERGROUP_RESTRICTED"|"VALIDATION_WORKFLOW_RESTRICTED"|"VALIDATION_EDIT_NOT_AUTHORIZED"|"VALIDATION_DELETE_NOT_AUTHORIZED"|"VALIDATION_ADD_NOT_AUTHORIZED"|"VALIDATION_INVALID_STATUS"|"VALIDATION_LINKED_OBJ_NOT_SAVED"|"VALIDATION_BOTH_SKU_AND_PRODUCTGROUP_PRESENTED"|"VALIDATION_BOTH_CUSTOMERID_AND_CUSTOMERGROUP_PRESENTED"|"VALIDATION_PLASMA_DELETE"|"VALIDATION_PLASMA_MISMATCH"|"VALIDATION_PLASMA_UPDATE"|"VALIDATION_PWDCOMPLEXITYRULES_INVALID_PASSWORD"|"VALIDATION_PWNED_PASSWORD"|"VALIDATION_INVALID_OLD_PASSWORD"|"VALIDATION_APPLICATIONPROPERTIES_PWDCOMPLEXITYRULES_UNKNOWN"|"VALIDATION_FORMULA_WITH_NAME_AND_DIFFERENT_NATURE_EXISTS"|"VALIDATION_FORMULA_WORKFLOWTYPE_NOTALIGNED"|"VALIDATION_DATE_CONFLICT_WITH"|"VALIDATION_INVALID_ENDDATE"|"VALIDATION_MISSING_DRIVERS"|"VALIDATION_APPLICATIONPROPERTIES_REVISIONPATTERN_FIELD_MISSING"|"VALIDATION_IMPORT_EXCEL_INVALID_HEADER"|"VALIDATION_WARNING_BUSINESS_KEYS_LENGTHS_EXCEEDED"|"VALIDATION_MULTIPLE_FORMULA_INHERITANCE_NOT_ALLOWED"|"VALIDATION_NATURE_NOT_ALLOWED_FOR_INHERITANCE"|"VALIDATION_PARENT_AND_CHILD_NATURES_DO_NOT_MATCH"|"PL_ALERT_PRICEDEVIATION_TOO_HIGH"|"PL_WRONG_TYPE"|"PL_ALREADY_APPROVED"|"PL_NOTFOUND"|"PL_CAN_CONVERT_TO_APPROVED"|"CALC_ALREADY_FINISHED"|"CALC_CANCEL_QUEUED"|"CALC_SERIALIZATION_ERROR"|"NO_MAPPING"|"PG_ISEMPTY"|"PGI_OFNONEXISTENTSKU_SKIPPED"|"PGI_OFNONEXISTENTSKU_INVALIDATED"|"PGI_OFNONEXISTENTSKU_HARDDELETED"|"PGI_OFNONEXISTENTSKU_SOFTDELETED"|"SIM_ISEMPTY"|"SIM_BASEPL_INVALID"|"NOT_ENOUGH_LICENSES"|"CANNOT_EXPAND_SCOPE_BUSINESSROLE"|"ACCESS_DENIED"|"DM_DEPLOYMENT_IN_PROGRESS"|"DM_OBJECT_ISLOCKED"|"DM_DEFAULT_DS_CREATION_FAILED"|"DM_SCHEMA_INTEGRITY_ERROR"|"DM_ACTION_NOTALLOWED"|"DM_VALIDATION_MAXROWS_EXCEEDED"|"DM_VALIDATION_HEADER_INVALIDFIELD"|"DM_VALIDATION_FIELD_UNKNOWN"|"DM_VALIDATION_KEYFIELD_MISSING"|"DM_VALIDATION_FIELD_MISSING"|"DM_VALIDATION_ROW_INVALIDFORMAT"|"DM_VALIDATION_ROW_FIELDMISMATCH"|"DM_VALIDATION_FIELD_INVALIDVALUE"|"DM_VALIDATION_INVALID"|"DM_VALIDATION_DM_FIELD_AMBIGIOUS"|"DM_VALIDATION_SCHEMA_FIELDCONFLICT"|"DM_VALIDATION_SCHEMA_AMBIGUOUSFIELDTYPE"|"DM_VALIDATION_SCHEMA_CIRCULARDEPENDENCY"|"DM_VALIDATION_DS_INVALID"|"DM_VALIDATION_DM_INVALID"|"DM_VALIDATION_FC_DEPENDENTONINVALIDFC"|"DM_VALIDATION_FC_INVALIDFIELDS"|"DM_VALIDATION_FC_INVALIDCALCULATEDFIELDS"|"DM_VALIDATION_FC_INVALIDNAME"|"DM_VALIDATION_FC_DUPLICATEFIELDS"|"DM_VALIDATION_DS_NOKEY"|"DM_VALIDATION_DS_AMBIGUOUSCCY"|"DM_VALIDATION_DS_AMBIGUOUSUOM"|"DM_VALIDATION_DS_MISSINGKEYFIELDS"|"DM_VALIDATION_DM_NOKEY"|"DM_VALIDATION_DM_SOURCE_MISSING"|"DM_VALIDATION_DM_FIELD_UNKNOWN"|"DM_VALIDATION_DM_INVALIDFIELDS"|"DM_VALIDATION_DEPENDENCIES_MISSING"|"DM_VALIDATION_SOURCE_NOTACCESSIBLE"|"DM_VALIDATION_SOURCE_FIELD_UNKNOWN"|"DM_VALIDATION_SOURCE_FIELD_MISSING"|"DM_VALIDATION_SYSTEM_GENERATED_DATASOURCE"|"DM_VALIDATION_CFS_KEYNOTALLOWED"|"DM_VALIDATION_KEYFIELD_INVALIDTYPE"|"DM_VALIDATION_FIELD_INVALIDNAME"|"DM_VALIDATION_FIELD_INVALIDTYPE"|"DM_VALIDATION_FIELD_INVALIDEXPRESSION"|"DM_VALIDATION_QUERY_SOURCE_MISSING"|"DM_VALIDATION_QUERY_NOTQUERYABLE"|"DM_VALIDATION_QUERY_INVALIDCCYCODE"|"DM_VALIDATION_QUERY_CANNOTGENSTATPROJ"|"DM_VALIDATION_QUERY_PROJ_INVALID"|"DM_VALIDATION_QUERY_PROJ_INVALIDTYPE"|"DM_VALIDATION_QUERY_PROJ_INVALIDCALCMODE"|"DM_VALIDATION_QUERY_PROJ_CANNOTROLLUP"|"DM_VALIDATION_QUERY_PROJ_CANNOTGENSTATPROJ"|"DM_VALIDATION_QUERY_PROJ_INVALIDDEFAULT"|"DM_VALIDATION_QUERY_EXPR_UNKNOWNIDENTIFIER"|"DM_VALIDATION_QUERY_ROWLIMIT_INVALID"|"DM_VALIDATION_QUERY_PIVOTCOLUMNLIMIT"|"DM_VALIDATION_QUERY_FILTER_INVALID"|"DM_VALIDATION_QUERY_MISSING_SQL"|"DM_VALIDATION_DUPLICATE"|"DM_VALIDATION_AMBIGUOUS"|"DM_LABEL_CALENDAR"|"DM_LABEL_TIMEDIM_DAY"|"DM_LABEL_TIMEDIM_WEEK"|"DM_LABEL_TIMEDIM_MONTH"|"DM_LABEL_TIMEDIM_QUARTER"|"DM_LABEL_TIMEDIM_YEAR"|"DM_LABEL_DEFAULTFEED2DSFORMULA"|"DM_DATASOURCES"|"DM_VALIDATION_PARTITIONING_KEY_MORE_THAN_ONE"|"DM_VALIDATION_PARTITIONING_KEY_HAS_TO_BE_DATE"|"DM_VALIDATION_FIELD_PARTITIONING_KEY_HAS_TO_BE_DATE"|"DM_VALIDATION_PARTITIONING_NO_EFFECT_ON_EXISTING"|"DM_QUERY_TIMEOUT"|"JST_CANNOT_START"|"IMPORTFILE_VALIDATION_ERROR_DATASOURCE"|"IMPORTFILE_VALIDATION_ERROR_LIST"|"IMPORTFILE_VALIDATION_ERROR_READONLY"|"IMPORTFILE_VALIDATION_ERROR_REQUIRED"|"IMPORTFILE_VALIDATION_ERROR_START"|"IMPORTFILE_VALIDATION_ERROR_FIELDTYPE"|"IMPORTFILE_VALIDATION_ERROR_FILTER"|"IMPORTFILE_VALIDATION_ERROR_HEADER"|"MODEL_MODELTYPE_NOT_FOUND"|"MODEL_CALCSTEP_NOT_FOUND"|"MODEL_NATURE_NOT_FOUND"|"MODEL_TYPE_DEFINITION_INVALID"|"MODEL_NOT_SPECIFIED"|"MODEL_RECORD_NOT_SPECIFIED"|"ROLLUP_INVALID"|"QUOTE_USERGROUP_RESTRICTED"|"QUOTE_CALCULATED"|"QUOTE_CALCULATED_WITHERRORS"|"QUOTE_SUBMITTED"|"QUOTE_SAVED"|"QUOTE_SUPERSEDEDBY"|"QUOTE_PRODUCTSNOTADDED"|"QUOTE_ALREADY_EXPIRED"|"QUOTE_TESTRESULTELEMENTNAME"|"QUOTE_LINEITEMS_DOTOMATCHQPF"|"QUOTE_QPF_COMPUTATION_FAILED"|"QUOTE_COULD_NOT_CONVERT_TO_DEAL"|"QUOTE_NON_EXISTENT_SKUS"|"QUOTE_WASDELETEDONSERVER"|"QUOTETYPE_DEFAULTTYPE_DELETE_NOTALLOWED"|"QUOTETYPE_DEFAULTTYPE_EDIT_NOTALLOWED"|"QUOTETYPE_EDIT_NOTALLOWED"|"QUOTETYPE_MISSING"|"HEADER_PREPHASE_ELEMENTPOSTFIX"|"HEADER_POSTPHASE_ELEMENTPOSTFIX"|"RBA_USERGROUP_RESTRICTED"|"RBA_CALCULATED"|"RBA_CALCULATED_WITHERRORS"|"RBA_SUBMITTED"|"RBA_SAVED"|"RBA_SUPERSEDEDBY"|"RBA_ITEMSNOTADDED"|"RBA_TESTRESULTELEMENTNAME"|"RBA_WASDELETEDONSERVER"|"REBATETYPE_MISSING"|"RBA_LINEITEMS_DONOTMATCHRBTF"|"RBA_RBTF_COMPUTATION_FAILED"|"RBA_HEADERREBATETYPE_MISSING"|"HEADERREBATETYPE_DEFAULTTYPE_DELETE_NOTALLOWED"|"HEADERREBATETYPE_EDIT_NOTALLOWED"|"HEADERREBATETYPE_MISSING"|"COMPENSATION_CONDITIONTYPE_MISSING"|"COMPENSATION_USERGROUP_RESTRICTED"|"COMPENSATION_CALCULATED"|"COMPENSATION_CALCULATED_WITHERRORS"|"COMPENSATION_SUBMITTED"|"COMPENSATION_SAVED"|"COMPENSATION_SUPERSEDEDBY"|"COMPENSATION_ITEMSNOTADDED"|"COMPENSATION_TESTRESULTELEMENTNAME"|"COMPENSATION_WASDELETEDONSERVER"|"COMPENSATION_LINEITEMS_DONOTMATCHRBTF"|"COMPENSATION_RBTF_COMPUTATION_FAILED"|"COMPENSATION_COMPENSATIONHEADERTYPE_MISSING"|"COMPENSATIONHEADERTYPE_DEFAULTTYPE_DELETE_NOTALLOWED"|"COMPENSATIONHEADERTYPE_EDIT_NOTALLOWED"|"COMPENSATIONHEADERTYPE_MISSING"|"COR_CALCULATED"|"COR_CALCULATED_WITHERRORS"|"COR_SUBMITTED"|"COR_SAVED"|"RR_CALCULATED"|"RR_CALCULATED_WITHERRORS"|"RR_SUBMITTED"|"RR_SAVED"|"MR_CALCULATED"|"MR_CALCULATED_WITHERRORS"|"MR_SUBMITTED"|"MR_SAVED"|"MR_WARNING_NOTALLRECORDSSUBMITTED"|"CONTRACT_SAVED"|"CONTRACT_SUPERSEDEDBY"|"CONTRACT_CALCULATED"|"CONTRACT_CALCULATED_WITHERRORS"|"CONTRACT_SUBMITTED"|"CONTRACT_ITEMSNOTADDED"|"CONTRACT_INVALID_CUSTOMER_GROUP"|"CONTRACT_INVALID_CUSTOMER_GROUP_FOR_LINE"|"CONTRACT_INVALID_PRODUCT_GROUP"|"CONTRACT_INVALID_PRODUCT_GROUP_FOR_LINE"|"CONTRACT_INVALID_SELLER_REFERENCE"|"CONTRACT_INVALID_SELLER_REFERENCE_FOR_LINE"|"CONTRACT_TESTRESULTELEMENTNAME"|"CONTRACT_LINEITEMS_DONOTMATCHCTTF"|"CONTRACT_CTTF_COMPUTATION_FAILED"|"CONTRACT_WASDELETEDONSERVER"|"CONTRACTTERMTYPE_MISSING"|"CUSTOM_FORM_CALCULATED_WITH_ERRORS"|"CUSTOM_FORM_UNDELETABLE_STATUS"|"VIEW_EDIT_RESTRICTED_BY_FORMULA_ENTITLEMENT_FILTER"|"WORKFLOW_PREVIEW_NO_APPROVAL_REQUIRED"|"WORKFLOW_ERROR"|"WORKFLOW_ONBEHALF_MESSAGE"|"WORKFLOW_USERGROUP_INFORMATION_ERROR"|"WORKFLOW_INVALID_EMAILS_IN_WATCHER_STEP"|"WORKFLOW_MAIL_ERROR_USER_MAIL_NOT_DEFINED"|"WORKFLOW_STEP_USER_CANNOT_EXECUTE_STEP"|"WORKFLOW_STEP_USER_CANNOT_EXECUTE_STEP_ONBEHALF"|"WORKFLOW_STEP_USER_CANNOT_EXECUTE_STEP_SUBMITTER"|"WORKFLOW_STEP_WRONG_STEP_BEING_EXECUTED"|"WORKFLOW_USER_INFORMATION_ERROR"|"WORKFLOW_ATTACHMENT_NOT_FOUND_ERROR"|"WORKFLOW_MANDATORY_COMMENT_MISSING_ERROR"|"WORKFLOW_MANDATORY_COMMENT_IMPOSSIBLE_ERROR"|"WORKFLOW_MAX_CUMULATIVE_SIZE_OF_ATTACHMENTS_EXCEEDED_ERROR"|"WORKFLOW_MULTIPLE_ATTACHMENTS_WITH_SAME_NAME_ERROR"|"WORKFLOW_MAX_NUMBER_OF_ATTACHMENTS_EXCEEDED_ERROR"|"WORKFLOW_NOT_FOUND"|"WORKFLOW_STEPEXECUTIONSTATUS_INITIALIZED"|"WORKFLOW_STEPEXECUTIONSTATUS_PREEXECUTED"|"WORKFLOW_STEPEXECUTIONSTATUS_EXECUTEDDENIED"|"WORKFLOW_STEPEXECUTIONSTATUS_EXECUTEDWITHDRAWN"|"WORKFLOW_STEPEXECUTIONSTATUS_EXECUTEDAPPROVED"|"WORKFLOW_STEP_NON_ALLOWED_DENIAL_REASON"|"WORKFLOW_STEP_USER_CANNOT_ADD_STEP"|"WORKFLOW_STEP_USER_CANNOT_APPROVE_MORE_THAN_ONCE"|"WORKFLOW_APPROVERS"|"WORKFLOW_DELEGATION_COMBINED"|"WORKFLOW_DELEGATION_DELEGATED"|"WORKFLOW_DELEGATION_NONE"|"WORKFLOW_USER_USERGROUP_NOT_DEFINED_ERROR"|"WORKFLOW_USER_USERGROUP_BOTH_DEFINED_ERROR"|"SUBMIT_NOT_ALLOWED"|"PREVIEW_NOT_ALLOWED"|"REVOKE_NOT_ALLOWED"|"PO_NOT_ENABLED"|"PO_OPTIMIZER_NOT_ENABLED"|"CALCULATIONFLOW_EDITING_OF_DEPLOYEDFLOW_NOT_ALLOWED"|"WORKFLOW_STEPEXECUTIONSTATUS_ALREADYSATISFIED"|"DCR_DUPLICATE_KEY"|"BINARY_RESP_ERR_ATTACHMENT_CONTENT"|"ACTION_NOT_ALLOWED"|"COMMON_ERROR"|"PRICELISTTYPE_EDIT_NOTALLOWED"|"SIGNATURE_ABORTED"|"DOCX_CONVERSION_NOT_AVAILABLE"|"DOCX_CONVERSION_FAILED"|"RECIPIENTS" successfulCalculationMsg?;
+    # The last day of validity
+    string? endDate?;
+    "DRAFT"|"SUBMITTED"|"DENIED"|"APPROVED"|"NO_APPROVAL_REQUIRED"|"WITHDRAWN"|"INVALIDATED" workflowStatus?;
+    # Custom header input fields, created by the compensation header logic. It is used by the user to enter values/conditions needed to calculate the results
+    CompensationInputs[]? inputs?;
+    string lastUpdateDate?;
+    string readOnlyLineItemClass?;
+    string? compensationHeaderType?;
+    CompensationServerMessagesExtended[]? serverMessagesExtended?;
+    string? compensationRecordSetLabel?;
+    # The date on which the seller expects to receive the compensation money. If there are more payout periods during the Contract duration, such dates will be specified via custom input fields
+    string? payoutDate?;
+    string? deniedByName?;
+    CompensationLineItems[] lineItems?;
+    string? userGroupViewDetails?;
+    string? approvedByName?;
+    # The order of the current active creation step. The first step is the number 0
+    int? creationWorkflowCurrentStep?;
+    string rootUniqueName?;
+    string? originUniqueName?;
+    # Stands for a "calculation date" – a date which will be used to distinguish which data are used for calculation. Its value is used automatically by the system when retrieving proper versions of Company Parameters. You can also use it the logic to select correct data which change in time
+    string? targetDate?;
+    # A selection of customers (usually based on the customer hierarchy) the plan is intended for
+    record {}? customerGroup?;
+    string|record {} ioMeta?;
+    boolean originDeleted?;
+    int version?;
+    # ID of the plan, generated by the system. The prefix of the uniqueName can be modified in Administration > Configuration > System Configuration > **Advanced Configuration Options**
+    @constraint:String {maxLength: 255}
+    string uniqueName?;
+    string[]? serverMessages?;
+    "DRAFT"|"INPROGRESS"|"FINISHED"? creationWorkflowStatus?;
+    string? userGroupEdit?;
+    string conditionTypeClass?;
+    boolean hasWorkflowHistory?;
+    int nodeId?;
+    # The first day of validity of conditions negotiated on the Compensation Plan header & lines
+    string? startDate?;
+    "DRAFT"|"PENDING"|"SCHEDULED"|"PROCESSING"|"SCHEDULED_DIRTY"|"ERROR"|"READY"|"CANCELLED" status?;
+    @constraint:String {maxLength: 255}
+    string lastUpdateByName?;
+    int? originClicId?;
+    record {|record {}...;|}? renderInfo?;
+    CompensationSignature? signature?;
+    # The total number of all creation steps
+    int? creationWorkflowStepCount?;
+    # A selection of sellers (usually based on the seller hierarchy) the plan is intended for
+    int|string|decimal|string|string|string|record {}? sellerGroup?;
+    int? compensationRecordSetId?;
+    # The label of the current creation workflow step
+    string? creationWorkflowStepLabel?;
+    string formulaElementGroupReadOnly?;
+    string? submittedByName?;
+    string formulaElementGroup?;
+    string createDate?;
+    boolean dirty?;
+    string? additionalInfo4?;
+    string? additionalInfo3?;
+    boolean refreshInputs?;
+    decimal? additionalInfo2?;
+    decimal? additionalInfo1?;
+    int numberOfAttachments?;
+    # Status of the Compensation Plan
+    "DRAFT"|"APPROVED"|"OPEN"|"CLOSED"|"REVOKED"|"SUPERSEDED"|"INVALIDATED" compensationStatus?;
+    string? originLabel?;
+    string? simulationType?;
+    # The name of the Compensation Plan entered by the user
+    @constraint:String {maxLength: 255}
+    string label?;
+    string[] nextRevUNs?;
+    string? simulationSet?;
+    int createdBy?;
+    "SUCCESS"|"COMMAND_GENERAL_ERROR"|"COMMAND_GENERAL_ERROR_WITH_MSG"|"COMMAND_GENERAL_ERROR_CONFLICT"|"COMMAND_GENERAL_ERROR_CONFLICT_FIELD"|"COMMAND_NOT_FOUND"|"COMMAND_CONFIG_ERROR"|"COMMAND_CONTEXT_PATH_NOTFOUND"|"COMMAND_NOT_AUTHORIZED"|"COMMAND_INVALID_PARAMETERS"|"COMMAND_FORBIDDEN_IN_K8S"|"COMMAND_FORBIDDEN_IN_READONLYMODE"|"COMMAND_FORM_TOO_LARGE"|"OBJECT_NOT_FOUND"|"LOGIN_FAILURE"|"LOGIN_FAILURE_BANNED"|"LOGIN_FAILURE_TFA"|"LOGIN_FAILURE_INACTIVE_OR_EXPIRED"|"PARTITION_UNKNOWN"|"COPY_OF_PREFIX"|"SIM_OF_PREFIX"|"TOO_MANY_WARNINGS"|"NO_NAME"|"ERROR_MESSAGE"|"ERROR_STATUS"|"ERROR_HTTPCODE"|"ERROR_ACTION"|"ERROR_TIMESTAMP"|"INVALID"|"FORMULA_ERROR"|"DEFAULT_FORMULA_NOT_FOUND"|"FORMULA_NOT_FOUND"|"FORMULA_NOT_FOUND_FOR"|"FE_SYNTAX_ERROR"|"FE_UNKNOWN_SYMBOL_ERROR"|"FE_WRONG_NUMBER_OF_ARGS"|"FE_ILLEGAL_OPERATION"|"FE_ILLEGAL_ARGUMENT"|"FE_ILLEGAL_STATUS"|"FE_UNDEFINED_FUNCTION"|"FE_UNDEFINED_UNIT"|"FE_UNDEFINED_VARIABLE"|"FE_FLEXCHART_UNSUPPORTED_FEATURE"|"FE_FLEXCHART_UNRECOGNIZED_OPTION"|"FE_FLEXCHART_INVALID_OPTION"|"FE_FLEXCHART_FORBIDDEN_OPTION"|"FE_FLEXCHART_INVALID_JSON"|"FE_FLEXCHART_GENERIC_ERROR"|"FE_EMBEDDED_DASHBOARD_API_MALFORMED_CONF"|"FE_EMBEDDED_DASHBOARD_API_FUNCTION_DOES_NOT_EXIST"|"FE_EMBEDDED_DASHBOARD_API_ILLEGAL_FUNCTION_CALL"|"FE_EMBEDDED_DASHBOARD_API_ILLEGAL_ARGUMENT"|"FE_WARNING_FLEXCHART_UNRECOGNIZED_TEMPLATE"|"FE_WARNING_ATTRIBUTE_NOTFOUND"|"FE_WARNING_PRODUCT_NOTSET"|"FE_WARNING_PRODUCT_NOTFOUND"|"FE_WARNING_PRODUCTATTRIBUTE_NOTFOUND"|"FE_WARNING_PRODUCTATTRIBUTE_AMIBGUOUS"|"FE_WARNING_CUSTOMER_NOTSET"|"FE_WARNING_CUSTOMER_NOTFOUND"|"FE_WARNING_CUSTOMERATTRIBUTE_NOTFOUND"|"FE_WARNING_CUSTOMERATTRIBUTE_AMIBGUOUS"|"FE_WARNING_VLOOKUP_TABLE_NOTFOUND"|"FE_WARNING_VLOOKUP_KEY_NOTFOUND"|"FE_WARNING_VLOOKUP_KEY_ISNULL"|"FE_WARNING_VLOOKUP_AMIBGUOUS"|"FE_WARNING_VLOOKUP_AMIBGUOUS_NOKEY"|"FE_WARNING_CONTEXT_NOTFOUND"|"FE_WARNING_CONTEXT_AMIBGUOUS"|"FE_WARNING_USERENTRY_NOTFOUND"|"FE_WARNING_CONFIGURATOR_NOTFOUND"|"FE_WARNING_OPTION_NOTFOUND"|"FE_WARNING_FUNCTIONCALL_AMIBGUOUS"|"FE_WARNING_ARITHMETICEXCEPTION"|"FE_WARNING_PRICELIST_ITEMNOTFOUND"|"FE_INFO_DATAMARTQUERY_USINGCACHEDRESULT"|"FE_WARNING_DATAMARTQUERY_INVALIDQUERY"|"FE_WARNING_DATAMARTQUERY_MAXROWSEXCEEDED"|"FE_WARNING_DATAMARTLOOKUP_QUERYNOTFOUND"|"FE_WARNING_DATAMARTLOOKUP_FIELDNOTFOUND"|"FE_WARNING_DATAMARTLOOKUP_INVALIDFILTER"|"FE_WARNING_DATAMARTLOOKUP_MAXROWSEXCEEDED"|"FE_WARNING_COULD_NOT_COMBINE_ELEMENTS"|"FE_WARNING_PRODUCT_EXTENSION_NAME_NOTSET"|"FE_WARNING_CUSTOMER_EXTENSION_NAME_NOTSET"|"FE_WARNING_PRICERECORD_NOTFOUND"|"FE_WARNING_PRODUCTGROUP_NOTFOUND"|"FE_WARNING_CUSTOMERGROUP_NOTFOUND"|"FE_WARNING_SELLERGROUP_NOTFOUND"|"FE_WARNING_ANYUSER_NOTFOUND"|"FE_WARNING_MULTITIERENTRY_NOTFOUND"|"FE_WARNING_DATASOURCE_NOTFOUND"|"FE_WARNING_FIELD_NOTFOUND"|"FE_WARNING_REBATERECORD_NOTFOUND"|"FE_WARNING_CONTEXTSKUSET_NOTSETORMALFORMED"|"FE_WARNING_FILTERBUILDERUSERENTRY_NOTFOUND"|"FE_WARNING_FILTERBUILDERUSERENTRY_ILLEGALVALUE"|"FE_WARNING_DMFILTERBUILDERUSERENTRY_NOTFOUND"|"FE_WARNING_DMFILTERBUILDERUSERENTRY_ILLEGALVALUE"|"FE_WARNING_REBATE_AGREEMENT_NOTFOUND"|"FE_WARNING_REBATE_AGREEMENT_ATTRIBUTE_NOTFOUND"|"FE_WARNING_CLAIM_WRONG_VALIDATION_STATE"|"FE_WARNING_HOOK_GENERIC_ERROR"|"FE_WARNING_HOOK_GENERIC_DENIED_MESSAGE"|"FE_WARNING_PARENT_NOTFOUND"|"FE_WARNING_MAX_RESULTS_SIZE_EXCEEDED"|"FE_WARNING_MISSING_BUSINESSKEY_VALUE"|"VALIDATION_SKU_MISSING"|"VALIDATION_PARTITION_USERNAME_UPDATE"|"VALIDATION_PARTITION_PASSWORD_UPDATE"|"VALIDATION_PARTITION_NULL"|"VALIDATION_PARTITION_MISMATCH"|"VALIDATION_CUSTOMERID_MISSING"|"VALIDATION_SELLERID_MISSING"|"VALIDATION_DUPLICATE_BUSINESSKEY"|"VALIDATION_DUPLICATE_BUSINESSKEY_PARAMETERIZED"|"VALIDATION_DYNAMIC_TABS_DUPLICATED_CUSTOM_FORMS"|"VALIDATION_DYNAMIC_TABS_STANDALONE_CUSTOM_FORM"|"VALIDATION_DYNAMIC_TABS_UNSUPPORTED_TYPE_CUSTOM_FORM"|"VALIDATION_DYNAMIC_TABS_MISSING_TAB"|"VALIDATION_NEWER_VERSION_EXISTS"|"VALIDATION_FORMULAELEMENT_EMPTYNAME"|"VALIDATION_FORMULAELEMENT_INVALIDNAME"|"VALIDATION_FAILED"|"VALIDATION_FIELD_DUPLICATE_VALUE"|"VALIDATION_FIELD_MISSING"|"VALIDATION_FIELD_INVALID_CHARS"|"VALIDATION_FIELD_INVALID"|"VALIDATION_FIELD_TOO_BIG"|"VALIDATION_FIELD_TOO_BIG_WITH_MSG"|"VALIDATION_NUMBER_TOO_BIG"|"VALIDATION_STATUS_RESTRICTED"|"VALIDATION_USERGROUP_RESTRICTED"|"VALIDATION_WORKFLOW_RESTRICTED"|"VALIDATION_EDIT_NOT_AUTHORIZED"|"VALIDATION_DELETE_NOT_AUTHORIZED"|"VALIDATION_ADD_NOT_AUTHORIZED"|"VALIDATION_INVALID_STATUS"|"VALIDATION_LINKED_OBJ_NOT_SAVED"|"VALIDATION_BOTH_SKU_AND_PRODUCTGROUP_PRESENTED"|"VALIDATION_BOTH_CUSTOMERID_AND_CUSTOMERGROUP_PRESENTED"|"VALIDATION_PLASMA_DELETE"|"VALIDATION_PLASMA_MISMATCH"|"VALIDATION_PLASMA_UPDATE"|"VALIDATION_PWDCOMPLEXITYRULES_INVALID_PASSWORD"|"VALIDATION_PWNED_PASSWORD"|"VALIDATION_INVALID_OLD_PASSWORD"|"VALIDATION_APPLICATIONPROPERTIES_PWDCOMPLEXITYRULES_UNKNOWN"|"VALIDATION_FORMULA_WITH_NAME_AND_DIFFERENT_NATURE_EXISTS"|"VALIDATION_FORMULA_WORKFLOWTYPE_NOTALIGNED"|"VALIDATION_DATE_CONFLICT_WITH"|"VALIDATION_INVALID_ENDDATE"|"VALIDATION_MISSING_DRIVERS"|"VALIDATION_APPLICATIONPROPERTIES_REVISIONPATTERN_FIELD_MISSING"|"VALIDATION_IMPORT_EXCEL_INVALID_HEADER"|"VALIDATION_WARNING_BUSINESS_KEYS_LENGTHS_EXCEEDED"|"VALIDATION_MULTIPLE_FORMULA_INHERITANCE_NOT_ALLOWED"|"VALIDATION_NATURE_NOT_ALLOWED_FOR_INHERITANCE"|"VALIDATION_PARENT_AND_CHILD_NATURES_DO_NOT_MATCH"|"PL_ALERT_PRICEDEVIATION_TOO_HIGH"|"PL_WRONG_TYPE"|"PL_ALREADY_APPROVED"|"PL_NOTFOUND"|"PL_CAN_CONVERT_TO_APPROVED"|"CALC_ALREADY_FINISHED"|"CALC_CANCEL_QUEUED"|"CALC_SERIALIZATION_ERROR"|"NO_MAPPING"|"PG_ISEMPTY"|"PGI_OFNONEXISTENTSKU_SKIPPED"|"PGI_OFNONEXISTENTSKU_INVALIDATED"|"PGI_OFNONEXISTENTSKU_HARDDELETED"|"PGI_OFNONEXISTENTSKU_SOFTDELETED"|"SIM_ISEMPTY"|"SIM_BASEPL_INVALID"|"NOT_ENOUGH_LICENSES"|"CANNOT_EXPAND_SCOPE_BUSINESSROLE"|"ACCESS_DENIED"|"DM_DEPLOYMENT_IN_PROGRESS"|"DM_OBJECT_ISLOCKED"|"DM_DEFAULT_DS_CREATION_FAILED"|"DM_SCHEMA_INTEGRITY_ERROR"|"DM_ACTION_NOTALLOWED"|"DM_VALIDATION_MAXROWS_EXCEEDED"|"DM_VALIDATION_HEADER_INVALIDFIELD"|"DM_VALIDATION_FIELD_UNKNOWN"|"DM_VALIDATION_KEYFIELD_MISSING"|"DM_VALIDATION_FIELD_MISSING"|"DM_VALIDATION_ROW_INVALIDFORMAT"|"DM_VALIDATION_ROW_FIELDMISMATCH"|"DM_VALIDATION_FIELD_INVALIDVALUE"|"DM_VALIDATION_INVALID"|"DM_VALIDATION_DM_FIELD_AMBIGIOUS"|"DM_VALIDATION_SCHEMA_FIELDCONFLICT"|"DM_VALIDATION_SCHEMA_AMBIGUOUSFIELDTYPE"|"DM_VALIDATION_SCHEMA_CIRCULARDEPENDENCY"|"DM_VALIDATION_DS_INVALID"|"DM_VALIDATION_DM_INVALID"|"DM_VALIDATION_FC_DEPENDENTONINVALIDFC"|"DM_VALIDATION_FC_INVALIDFIELDS"|"DM_VALIDATION_FC_INVALIDCALCULATEDFIELDS"|"DM_VALIDATION_FC_INVALIDNAME"|"DM_VALIDATION_FC_DUPLICATEFIELDS"|"DM_VALIDATION_DS_NOKEY"|"DM_VALIDATION_DS_AMBIGUOUSCCY"|"DM_VALIDATION_DS_AMBIGUOUSUOM"|"DM_VALIDATION_DS_MISSINGKEYFIELDS"|"DM_VALIDATION_DM_NOKEY"|"DM_VALIDATION_DM_SOURCE_MISSING"|"DM_VALIDATION_DM_FIELD_UNKNOWN"|"DM_VALIDATION_DM_INVALIDFIELDS"|"DM_VALIDATION_DEPENDENCIES_MISSING"|"DM_VALIDATION_SOURCE_NOTACCESSIBLE"|"DM_VALIDATION_SOURCE_FIELD_UNKNOWN"|"DM_VALIDATION_SOURCE_FIELD_MISSING"|"DM_VALIDATION_SYSTEM_GENERATED_DATASOURCE"|"DM_VALIDATION_CFS_KEYNOTALLOWED"|"DM_VALIDATION_KEYFIELD_INVALIDTYPE"|"DM_VALIDATION_FIELD_INVALIDNAME"|"DM_VALIDATION_FIELD_INVALIDTYPE"|"DM_VALIDATION_FIELD_INVALIDEXPRESSION"|"DM_VALIDATION_QUERY_SOURCE_MISSING"|"DM_VALIDATION_QUERY_NOTQUERYABLE"|"DM_VALIDATION_QUERY_INVALIDCCYCODE"|"DM_VALIDATION_QUERY_CANNOTGENSTATPROJ"|"DM_VALIDATION_QUERY_PROJ_INVALID"|"DM_VALIDATION_QUERY_PROJ_INVALIDTYPE"|"DM_VALIDATION_QUERY_PROJ_INVALIDCALCMODE"|"DM_VALIDATION_QUERY_PROJ_CANNOTROLLUP"|"DM_VALIDATION_QUERY_PROJ_CANNOTGENSTATPROJ"|"DM_VALIDATION_QUERY_PROJ_INVALIDDEFAULT"|"DM_VALIDATION_QUERY_EXPR_UNKNOWNIDENTIFIER"|"DM_VALIDATION_QUERY_ROWLIMIT_INVALID"|"DM_VALIDATION_QUERY_PIVOTCOLUMNLIMIT"|"DM_VALIDATION_QUERY_FILTER_INVALID"|"DM_VALIDATION_QUERY_MISSING_SQL"|"DM_VALIDATION_DUPLICATE"|"DM_VALIDATION_AMBIGUOUS"|"DM_LABEL_CALENDAR"|"DM_LABEL_TIMEDIM_DAY"|"DM_LABEL_TIMEDIM_WEEK"|"DM_LABEL_TIMEDIM_MONTH"|"DM_LABEL_TIMEDIM_QUARTER"|"DM_LABEL_TIMEDIM_YEAR"|"DM_LABEL_DEFAULTFEED2DSFORMULA"|"DM_DATASOURCES"|"DM_VALIDATION_PARTITIONING_KEY_MORE_THAN_ONE"|"DM_VALIDATION_PARTITIONING_KEY_HAS_TO_BE_DATE"|"DM_VALIDATION_FIELD_PARTITIONING_KEY_HAS_TO_BE_DATE"|"DM_VALIDATION_PARTITIONING_NO_EFFECT_ON_EXISTING"|"DM_QUERY_TIMEOUT"|"JST_CANNOT_START"|"IMPORTFILE_VALIDATION_ERROR_DATASOURCE"|"IMPORTFILE_VALIDATION_ERROR_LIST"|"IMPORTFILE_VALIDATION_ERROR_READONLY"|"IMPORTFILE_VALIDATION_ERROR_REQUIRED"|"IMPORTFILE_VALIDATION_ERROR_START"|"IMPORTFILE_VALIDATION_ERROR_FIELDTYPE"|"IMPORTFILE_VALIDATION_ERROR_FILTER"|"IMPORTFILE_VALIDATION_ERROR_HEADER"|"MODEL_MODELTYPE_NOT_FOUND"|"MODEL_CALCSTEP_NOT_FOUND"|"MODEL_NATURE_NOT_FOUND"|"MODEL_TYPE_DEFINITION_INVALID"|"MODEL_NOT_SPECIFIED"|"MODEL_RECORD_NOT_SPECIFIED"|"ROLLUP_INVALID"|"QUOTE_USERGROUP_RESTRICTED"|"QUOTE_CALCULATED"|"QUOTE_CALCULATED_WITHERRORS"|"QUOTE_SUBMITTED"|"QUOTE_SAVED"|"QUOTE_SUPERSEDEDBY"|"QUOTE_PRODUCTSNOTADDED"|"QUOTE_ALREADY_EXPIRED"|"QUOTE_TESTRESULTELEMENTNAME"|"QUOTE_LINEITEMS_DOTOMATCHQPF"|"QUOTE_QPF_COMPUTATION_FAILED"|"QUOTE_COULD_NOT_CONVERT_TO_DEAL"|"QUOTE_NON_EXISTENT_SKUS"|"QUOTE_WASDELETEDONSERVER"|"QUOTETYPE_DEFAULTTYPE_DELETE_NOTALLOWED"|"QUOTETYPE_DEFAULTTYPE_EDIT_NOTALLOWED"|"QUOTETYPE_EDIT_NOTALLOWED"|"QUOTETYPE_MISSING"|"HEADER_PREPHASE_ELEMENTPOSTFIX"|"HEADER_POSTPHASE_ELEMENTPOSTFIX"|"RBA_USERGROUP_RESTRICTED"|"RBA_CALCULATED"|"RBA_CALCULATED_WITHERRORS"|"RBA_SUBMITTED"|"RBA_SAVED"|"RBA_SUPERSEDEDBY"|"RBA_ITEMSNOTADDED"|"RBA_TESTRESULTELEMENTNAME"|"RBA_WASDELETEDONSERVER"|"REBATETYPE_MISSING"|"RBA_LINEITEMS_DONOTMATCHRBTF"|"RBA_RBTF_COMPUTATION_FAILED"|"RBA_HEADERREBATETYPE_MISSING"|"HEADERREBATETYPE_DEFAULTTYPE_DELETE_NOTALLOWED"|"HEADERREBATETYPE_EDIT_NOTALLOWED"|"HEADERREBATETYPE_MISSING"|"COMPENSATION_CONDITIONTYPE_MISSING"|"COMPENSATION_USERGROUP_RESTRICTED"|"COMPENSATION_CALCULATED"|"COMPENSATION_CALCULATED_WITHERRORS"|"COMPENSATION_SUBMITTED"|"COMPENSATION_SAVED"|"COMPENSATION_SUPERSEDEDBY"|"COMPENSATION_ITEMSNOTADDED"|"COMPENSATION_TESTRESULTELEMENTNAME"|"COMPENSATION_WASDELETEDONSERVER"|"COMPENSATION_LINEITEMS_DONOTMATCHRBTF"|"COMPENSATION_RBTF_COMPUTATION_FAILED"|"COMPENSATION_COMPENSATIONHEADERTYPE_MISSING"|"COMPENSATIONHEADERTYPE_DEFAULTTYPE_DELETE_NOTALLOWED"|"COMPENSATIONHEADERTYPE_EDIT_NOTALLOWED"|"COMPENSATIONHEADERTYPE_MISSING"|"COR_CALCULATED"|"COR_CALCULATED_WITHERRORS"|"COR_SUBMITTED"|"COR_SAVED"|"RR_CALCULATED"|"RR_CALCULATED_WITHERRORS"|"RR_SUBMITTED"|"RR_SAVED"|"MR_CALCULATED"|"MR_CALCULATED_WITHERRORS"|"MR_SUBMITTED"|"MR_SAVED"|"MR_WARNING_NOTALLRECORDSSUBMITTED"|"CONTRACT_SAVED"|"CONTRACT_SUPERSEDEDBY"|"CONTRACT_CALCULATED"|"CONTRACT_CALCULATED_WITHERRORS"|"CONTRACT_SUBMITTED"|"CONTRACT_ITEMSNOTADDED"|"CONTRACT_INVALID_CUSTOMER_GROUP"|"CONTRACT_INVALID_CUSTOMER_GROUP_FOR_LINE"|"CONTRACT_INVALID_PRODUCT_GROUP"|"CONTRACT_INVALID_PRODUCT_GROUP_FOR_LINE"|"CONTRACT_INVALID_SELLER_REFERENCE"|"CONTRACT_INVALID_SELLER_REFERENCE_FOR_LINE"|"CONTRACT_TESTRESULTELEMENTNAME"|"CONTRACT_LINEITEMS_DONOTMATCHCTTF"|"CONTRACT_CTTF_COMPUTATION_FAILED"|"CONTRACT_WASDELETEDONSERVER"|"CONTRACTTERMTYPE_MISSING"|"CUSTOM_FORM_CALCULATED_WITH_ERRORS"|"CUSTOM_FORM_UNDELETABLE_STATUS"|"VIEW_EDIT_RESTRICTED_BY_FORMULA_ENTITLEMENT_FILTER"|"WORKFLOW_PREVIEW_NO_APPROVAL_REQUIRED"|"WORKFLOW_ERROR"|"WORKFLOW_ONBEHALF_MESSAGE"|"WORKFLOW_USERGROUP_INFORMATION_ERROR"|"WORKFLOW_INVALID_EMAILS_IN_WATCHER_STEP"|"WORKFLOW_MAIL_ERROR_USER_MAIL_NOT_DEFINED"|"WORKFLOW_STEP_USER_CANNOT_EXECUTE_STEP"|"WORKFLOW_STEP_USER_CANNOT_EXECUTE_STEP_ONBEHALF"|"WORKFLOW_STEP_USER_CANNOT_EXECUTE_STEP_SUBMITTER"|"WORKFLOW_STEP_WRONG_STEP_BEING_EXECUTED"|"WORKFLOW_USER_INFORMATION_ERROR"|"WORKFLOW_ATTACHMENT_NOT_FOUND_ERROR"|"WORKFLOW_MANDATORY_COMMENT_MISSING_ERROR"|"WORKFLOW_MANDATORY_COMMENT_IMPOSSIBLE_ERROR"|"WORKFLOW_MAX_CUMULATIVE_SIZE_OF_ATTACHMENTS_EXCEEDED_ERROR"|"WORKFLOW_MULTIPLE_ATTACHMENTS_WITH_SAME_NAME_ERROR"|"WORKFLOW_MAX_NUMBER_OF_ATTACHMENTS_EXCEEDED_ERROR"|"WORKFLOW_NOT_FOUND"|"WORKFLOW_STEPEXECUTIONSTATUS_INITIALIZED"|"WORKFLOW_STEPEXECUTIONSTATUS_PREEXECUTED"|"WORKFLOW_STEPEXECUTIONSTATUS_EXECUTEDDENIED"|"WORKFLOW_STEPEXECUTIONSTATUS_EXECUTEDWITHDRAWN"|"WORKFLOW_STEPEXECUTIONSTATUS_EXECUTEDAPPROVED"|"WORKFLOW_STEP_NON_ALLOWED_DENIAL_REASON"|"WORKFLOW_STEP_USER_CANNOT_ADD_STEP"|"WORKFLOW_STEP_USER_CANNOT_APPROVE_MORE_THAN_ONCE"|"WORKFLOW_APPROVERS"|"WORKFLOW_DELEGATION_COMBINED"|"WORKFLOW_DELEGATION_DELEGATED"|"WORKFLOW_DELEGATION_NONE"|"WORKFLOW_USER_USERGROUP_NOT_DEFINED_ERROR"|"WORKFLOW_USER_USERGROUP_BOTH_DEFINED_ERROR"|"SUBMIT_NOT_ALLOWED"|"PREVIEW_NOT_ALLOWED"|"REVOKE_NOT_ALLOWED"|"PO_NOT_ENABLED"|"PO_OPTIMIZER_NOT_ENABLED"|"CALCULATIONFLOW_EDITING_OF_DEPLOYEDFLOW_NOT_ALLOWED"|"WORKFLOW_STEPEXECUTIONSTATUS_ALREADYSATISFIED"|"DCR_DUPLICATE_KEY"|"BINARY_RESP_ERR_ATTACHMENT_CONTENT"|"ACTION_NOT_ALLOWED"|"COMMON_ERROR"|"PRICELISTTYPE_EDIT_NOTALLOWED"|"SIGNATURE_ABORTED"|"DOCX_CONVERSION_NOT_AVAILABLE"|"DOCX_CONVERSION_FAILED"|"RECIPIENTS" calculationWithErrorsMsg?;
+    string? approvalRequiredEmailAttachmentsJson?;
+    CompensationViewState? viewState?;
+    string? prevRev?;
+    int calculationStatus?;
+    string? supersededBy?;
+    int lastUpdateBy?;
+};
+
+public type PricegridmanageracceptidData record {
+    # Specify `typedId`s of items you want to accept
+    record {}[] ids;
+};
+
+public type ListAttributeFieldsMetadataResponseJsonSchemaPropertiesVersion record {
+    @constraint:String {minLength: 1}
+    string 'type;
+};
+
+public type AddDCRIRequest record {
+    DcrmanageraddidData data;
+    string operationType;
+};
+
+public type InlineResponse20050ResponseLocaleData record {
+    string? overriddenValue?;
+    string value?;
+    string 'key?;
+};
+
+public type InlineResponse20029Response record {
+    string node?;
+    InlineResponse20029ResponseData[] data?;
+    int status?;
+};
+
+public type AddSellerExtensionRequest record {
+    AddSXData data?;
+    string operation;
+};
+
+# 
+public type UpdateLivePriceGridItemNoRecalcRequest record {
+    PricegridmanagerupdateidData data;
+    @constraint:String {minLength: 1}
+    string textMatchStyle?;
+    # Must be 'update' or null or omitted
+    @constraint:String {minLength: 1}
+    string operationType?;
+    PricegridmanagerupdateidnorecalcOldValues oldValues?;
+};
+
+# `data` must contain the `typedId` of the user group object you want to delete or all business key fields of that object type.'
+public type AccountmanagerdeletegroupData record {
+    @constraint:String {minLength: 1}
+    string typedId;
+};
+
+public type CreateUploadSlotResponseData record {
+    @constraint:String {minLength: 1}
+    string id?;
+};
+
+# 
+public type CountMassActionItemsResponse record {
+    CountMassActionItemsResponseResponse response?;
+};
+
+public type GetDCRRequest record {
+    int startRow;
+    string textMatchStyle;
+    int endRow;
+    string operationType;
+};
+
+public type ExecuteAssignedLogicResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:Array {minLength: 1}
+    ExecuteAssignedLogicResponseResponseData[] data?;
+    decimal status?;
+};
+
+public type AccountmanagerassignroleData record {
+    # `TypedId` of the role you want to assign or revoke. Either `typedId` or `uniqeName` is required
+    @constraint:String {minLength: 1}
+    string typedId;
+    # `uniqueName` of the role you want to assign or revoke. Either `typedId` or `uniqeName` is required
+    @constraint:String {minLength: 1}
+    string uniqueName;
+    # The list of users' `typedId`s or `loginName`. Can be mixed
+    string[] users;
+    # Set to `true` to assign the user to the role. Set `false` to remove the role from the user
+    boolean assign;
+};
+
+public type DeleteActionItemTypeResponse record {
+    AddActionTypeResponseResponse response?;
+};
+
+public type GetDCRResponse record {
+    GetDCRResponseResponse response?;
+};
+
+public type InlineResponse20063ResponseAllGroups record {
+    string typedId?;
+    string uniqueName?;
+    int createdBy?;
+    string lastUpdateDate?;
+    string label?;
+    int version?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+public type DeleteUserGroupResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:Array {minLength: 1}
+    ListUsersUserGroupsResponseResponseData[] data?;
+    decimal status?;
+};
+
+public type DatamartqueryDataQueryProjections record {
+    @jsondata:Name {value: "bubbleSize_n"}
+    DatamartqueryDataQueryProjectionsBubbleSize bubbleSizeN?;
+    DatamartqueryDataQueryProjectionsBubbleSize bubbleSize?;
+    DatamartqueryDataQueryProjectionsBubbleSize x?;
+    DatamartqueryDataQueryProjectionsBandBy bandBy;
+    DatamartqueryDataQueryProjectionsBubbleSize y?;
+    DatamartqueryDataQueryProjectionsBandBy groupBy?;
+};
+
+# Specify field names and values you want to insert or update
+public type IntegrateTypeCodereturnolddataData record {
+    @constraint:String {minLength: 1}
+    string formulaName?;
+    @constraint:String {minLength: 1}
+    string unitOfMeasure?;
+    @constraint:String {minLength: 1}
+    string attribute1?;
+    @constraint:String {minLength: 1}
+    string currency?;
+    @constraint:String {minLength: 1}
+    string userGroupEdit?;
+    @constraint:String {minLength: 1}
+    string userGroupViewDetails?;
+    @constraint:String {minLength: 1}
+    string label?;
+    @constraint:String {minLength: 1}
+    string attribute2?;
+    @constraint:String {minLength: 1}
+    string sku;
+};
+
+public type InlineResponse2009ResponseStateTwoTabs record {
+    RecalculateCalculationOfStepResponseResponseStateTwoTabsTab1 tab1?;
+    InlineResponse2009ResponseStateTwoTabsTab2 tab2?;
+};
+
+public type GetCalculationGridItemResponseResponseData CalculationGridItem6Key|CalculationGridItem5Key|CalculationGridItem4Key|CalculationGridItem3Key|CalculationGridItem2Key|CalculationGridItem1Key;
+
+# 
+public type CreateWorkflowDelegationResponse record {
+    CreateWorkflowDelegationResponseResponse response?;
+};
+
+# 
+public type SearchProductRequest record {
+    ProductmanagerquicksearchData data;
+};
+
+public type InlineResponse20076Response record {
+    string node?;
+    InlineResponse20076ResponseData[] data?;
+    int status?;
+};
+
+public type AddSellerEnvelope record {
+    AddSellerResponse response?;
+};
+
+public type CalculationGridItem1KeyCalculationResults record {
+    string alertMessage?;
+    string cssProperties?;
+    string labelTranslations?;
+    "CRITICAL"|"RED"|"YELLOW" alertType?;
+    anydata[] overrideValueOptions?;
+    boolean overrideAllowEmpty?;
+    string[] warnings?;
+    boolean overridden?;
+    string resultGroup?;
+    string suffix?;
+    boolean excludeFromExport?;
+    int displayOptions?;
+    string resultName?;
+    record {} result?;
+    boolean overridable?;
+    string resultDescription?;
+    "NUMERIC"|"NUMERIC_LONG"|"MONEY"|"PERCENT"|"TEXT"|"MONEY_EUR"|"MONEY_USD"|"MONEY_GBP"|"MONEY_JPY"|"MONEY_CHF"|"MONEY_PLN"|"DATETIME"|"DATE"|"INTEGER"|"LINK"|"COMPLEX"|"SPARKLINE" formatType?;
+    string resultType?;
+    string userGroup?;
+    string resultLabel?;
+};
+
+public type DatamartqueryDataQuery record {
+    DatamartqueryDataQueryProjections projections;
+    DatamartqueryDataQueryFilter filter?;
+    anydata aggregateFilter?;
+    record {}[] dimensionFilters?;
+    anydata name?;
+    DatamartqueryDataQueryOptions options?;
+    anydata 'limit?;
+    record {}[] sortBy?;
+    @constraint:String {minLength: 1}
+    string label?;
+    @constraint:String {minLength: 1}
+    string 'source;
+    @constraint:String {minLength: 1}
+    string datamart;
+    boolean rollup?;
+};
+
+public type AddCFOTDataConfigurationDefault record {
+    @constraint:String {minLength: 1}
+    string translationKey?;
+    @constraint:String {minLength: 1}
+    string name?;
+    @constraint:String {minLength: 1}
+    string icon?;
+    AddCFOTDataConfigurationDefaultTabs tabs?;
+};
+
+public type NotificationsendDataNotification record {
+    string actionType;
+    string dueDate?;
+    boolean dismissible?;
+    string topic;
+    string validUntil?;
+    string 'source;
+    string validFrom?;
+    string title;
+    string message;
+    string status;
+};
+
+# 
+public type ListUsersRequest record {
+    # The number of the first row that defines the start of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal startRow?;
+    @constraint:String {minLength: 1}
+    string textMatchStyle?;
+    AccountmanagerfetchusersData data?;
+    # The number of the end row that defines the end of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal endRow = 300;
+    @constraint:String {minLength: 1}
+    string operationType?;
+    anydata oldValues?;
+};
+
+public type ClicmanagersubmittypedIdData record {
+    @constraint:Array {minLength: 1}
+    ClicmanagersubmittypedIdDataApprovalRequiredEmailAttachments[] approvalRequiredEmailAttachments?;
+};
+
+public type CalculatePriceGridResponseResponseData record {
+    decimal version;
+    @constraint:String {minLength: 1}
+    string typedId;
+    anydata processingNode?;
+    anydata threadId?;
+    anydata threadUUID?;
+    @constraint:String {minLength: 1}
+    string status;
+    @constraint:String {minLength: 1}
+    string trackerType;
+    @constraint:String {minLength: 1}
+    string targetObject;
+    @constraint:String {minLength: 1}
+    string jobName;
+    @constraint:String {minLength: 1}
+    string concurrencyKey;
+    anydata calculationContext?;
+    anydata progress?;
+    boolean cancelRequested;
+    decimal runNumber;
+    decimal priority;
+    anydata messages?;
+    CalculatePriceGridResponseResponseJobSettings jobSettings?;
+    @constraint:String {minLength: 1}
+    string createDate;
+    decimal createdBy;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate;
+    decimal lastUpdateBy;
+    anydata calculationResults?;
+    anydata processingStart?;
+    anydata processingEnd?;
+    decimal id;
+};
+
+public type LoadDataResponse_response record {
+    @constraint:String {minLength: 1}
+    string node?;
+    anydata[] data?;
+    decimal status?;
+};
+
+public type IntegratePXData record {
+    @constraint:String {minLength: 1}
+    string name;
+    @constraint:String {minLength: 1}
+    string attribute1?;
+    @constraint:String {minLength: 1}
+    string attribute2?;
+    @constraint:String {minLength: 1}
+    string sku;
+};
+
+public type ListModelLogicParametersResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:Array {minLength: 1}
+    ListModelLogicParametersResponseResponseData[] data?;
+    decimal status?;
+};
+
+public type ConditionRecordItemEnvelope record {
+    InlineResponse20053Response response?;
+};
+
+# Represents the Queries record for the operation: uploadFileToPxCxSx
+public type UploadFileToPxCxSxQueries record {
+    # Set to `true` to overwrite existing data, or `false` to add new lines to existing data
+    "true"|"false" truncate?;
+};
+
+public type AddActionTypeResponseResponse record {
+    string node?;
+    ActionItemType[] data?;
+    int status?;
+};
+
+public type InlineResponse2013Response record {
+    string node?;
+    InlineResponse2013ResponseData[] data?;
+    int status?;
+};
+
+public type CommentOperationEnvelope record {
+    InlineResponse20075Response response?;
+};
+
+public type ListRollupsResponseResponseQueryDtoOptions record {
+    @constraint:String {minLength: 1}
+    string currency?;
+};
+
+public type CalculateRebateRecordGroupResponse record {
+    string node?;
+    RebateRecordGroup[] data?;
+    int status?;
+};
+
+# 
+public type DeleteProductResponse record {
+    DeleteObjectResponseResponse response;
+};
+
+# 
+public type AddProductsToQuoteRequest record {
+    QuotemanageraddproductsData data;
+};
+
+# 
+public type ProductExtensionResponse record {
+    ProductExtensionResponse_response response?;
+};
+
+# 
+public type LogicResponse record {
+    LogicResponse_response response?;
+};
+
+# 
+public type InsertBulkProductExtensionsRequest1 record {
+    LoaddataSXData data;
+};
+
+# Applies only to standalone Custom Forms, add a JSON definition describing the content of the Custom Form – its steps and tabs
+public type AddCFOTDataConfiguration record {
+    AddCFOTDataConfigurationDefault default?;
+};
+
+public type LookuptablemanagermassedittableIdDataFilterCriteriaCriteria record {
+    @constraint:String {minLength: 1}
+    string fieldName;
+    @jsondata:Name {value: "_constructor"}
+    string constructor;
+    # `TypedId` of rows whose columns you want to update
+    string[] value?;
+    @constraint:String {minLength: 1}
+    string operator;
+};
+
+public type CalcNameItemBody record {
+    OptimizationmodelcalcexectypedIdstepNamecalcNameitemData data;
+};
+
+public type InlineResponse20037ResponseData record {
+    string categoryName?;
+    InlineResponse20037ResponseItems[] items?;
+};
+
+public type DcrmanagerDeletemassopidBody record {
+    DeletePData data?;
+};
+
+public type TabParameterMapping record {|
+    # Dynamic parameters for the tab. Will be passed to the logic. Values will be obtained from the entity. Key value mapping of the entity fields to the dashboard logic inputs. The value is path to value in the underlying entity.
+    string additionalProperties?;
+    string...;
+|};
+
+# 
+public type MassEditDatamartResponse record {
+    MassEditDatamartResponseResponse response?;
+};
+
+public type PricelistmanagerdeletePLidbatchDataFilterCriteriaCriteria record {
+    @constraint:String {minLength: 1}
+    string fieldName;
+    @constraint:String {minLength: 1}
+    string operator;
+    @constraint:String {minLength: 1}
+    string value;
+};
+
+public type MasseditTypeCodeDataMassEditRecords record {
+    # The name of the field you want to update
+    @constraint:String {minLength: 1}
+    string fieldName;
+    # The new value of the field. If omitted, the field is set to null
+    anydata precision?;
+    # Can be either one of these valid operators: `+` `-` `*` If omitted, the provided value is set (`=` operator). Otherwise the specified operation is applied
+    @constraint:String {minLength: 1}
+    string massEditOperator;
+    @constraint:String {minLength: 1}
+    string fieldValue;
+};
+
+# 
+public type QueryDataManagerObjectRequest record {
+    decimal startRow?;
+    @constraint:String {minLength: 1}
+    string textMatchStyle?;
+    DatamartqueryData data;
+    decimal endRow?;
+    @constraint:String {minLength: 1}
+    string operationType?;
+    record {}[] sortBy?;
+    anydata oldValues?;
+};
+
+public type RebateAgreementResponse_response_customerGroup record {
+    anydata label?;
+    @constraint:String {minLength: 1}
+    string customerFieldName?;
+    @constraint:String {minLength: 1}
+    string customerFieldLabel?;
+    @constraint:String {minLength: 1}
+    string customerFieldValue?;
+    anydata customerFilterCriteria?;
+};
+
+public type CalculatePricelistResponse record {
+    CalculatePricelistResponseResponse response?;
+};
+
+public type OtherFiltersOtherFiltersOtherFiltersOtherFiltersOtherFiltersOtherFiltersAnyOf123456 string?;
+
+public type UpdatePLTTDataTypeConfiguration record {
+    string[] elementNames?;
+    string resultElementName?;
+    boolean shotgunModeEnabled?;
+};
+
+public type ExportDatamartResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:Array {minLength: 1}
+    ExportDatamartResponseResponseData[] data?;
+    decimal status?;
+};
+
+public type AddCalculationGridItemRequest record {
+    CalculationGridItem1Key|CalculationGridItem2Key|CalculationGridItem3Key|CalculationGridItem4Key|CalculationGridItem5Key|CalculationGridItem6Key data?;
+};
+
+public type PricegridmanagermasseditidDataFilterCriteriaCriteria record {
+    @constraint:String {minLength: 1}
+    string fieldName?;
+    @jsondata:Name {value: "_constructor"}
+    string constructor?;
+    string[] value?;
+    @constraint:String {minLength: 1}
+    string operator?;
+};
+
+# The type code is CGI1
+public type CalculationGridItem1Key record {
+    string typedId?;
+    @constraint:String {maxLength: 70}
+    string attribute83?;
+    @constraint:String {maxLength: 70}
+    string attribute82?;
+    @constraint:String {maxLength: 70}
+    string attribute81?;
+    @constraint:String {maxLength: 70}
+    string attribute80?;
+    @constraint:String {maxLength: 70}
+    string attribute89?;
+    @constraint:String {maxLength: 70}
+    string attribute88?;
+    @constraint:String {maxLength: 70}
+    string attribute87?;
+    @constraint:String {maxLength: 70}
+    string attribute86?;
+    CalculationGridItem1KeyCalculationResults[] calculationResults?;
+    @constraint:String {maxLength: 70}
+    string attribute85?;
+    @constraint:String {maxLength: 70}
+    string attribute84?;
+    int manualEditUser?;
+    @constraint:String {maxLength: 1300}
+    string allowedOverrides?;
+    int version?;
+    string alerts?;
+    @constraint:String {maxLength: 70}
+    string attribute9?;
+    @constraint:String {maxLength: 70}
+    string attribute94?;
+    decimal significantValueChangePct?;
+    @constraint:String {maxLength: 70}
+    string attribute8?;
+    @constraint:String {maxLength: 70}
+    string attribute93?;
+    @constraint:String {maxLength: 70}
+    string attribute92?;
+    @constraint:String {maxLength: 70}
+    string attribute91?;
+    @constraint:String {maxLength: 70}
+    string attribute5?;
+    @constraint:String {maxLength: 70}
+    string attribute90?;
+    @constraint:String {maxLength: 70}
+    string attribute4?;
+    @constraint:String {maxLength: 70}
+    string attribute7?;
+    @constraint:String {maxLength: 70}
+    string attribute6?;
+    @constraint:String {maxLength: 70}
+    string attribute1?;
+    @constraint:String {maxLength: 70}
+    string attribute14?;
+    @constraint:String {maxLength: 70}
+    string attribute13?;
+    @constraint:String {maxLength: 70}
+    string attribute3?;
+    @constraint:String {maxLength: 70}
+    string attribute12?;
+    @constraint:String {maxLength: 70}
+    string attribute2?;
+    @constraint:String {maxLength: 70}
+    string attribute11?;
+    @constraint:String {maxLength: 70}
+    string attribute99?;
+    @constraint:String {maxLength: 70}
+    string attribute10?;
+    @constraint:String {maxLength: 70}
+    string attribute98?;
+    @constraint:String {maxLength: 70}
+    string attribute97?;
+    @constraint:String {maxLength: 70}
+    string attribute96?;
+    @constraint:String {maxLength: 70}
+    string attribute95?;
+    decimal resultSignificantValue?;
+    string itemExtensions?;
+    @constraint:String {maxLength: 70}
+    string attribute19?;
+    @constraint:String {maxLength: 70}
+    string attribute18?;
+    @constraint:String {maxLength: 70}
+    string attribute17?;
+    @constraint:String {maxLength: 70}
+    string attribute16?;
+    @constraint:String {maxLength: 70}
+    string attribute15?;
+    string manualOverrides?;
+    @constraint:String {maxLength: 70}
+    string attribute25?;
+    @constraint:String {maxLength: 70}
+    string attribute24?;
+    @constraint:String {maxLength: 70}
+    string attribute23?;
+    @constraint:String {maxLength: 70}
+    string attribute22?;
+    @constraint:String {maxLength: 70}
+    string attribute21?;
+    @constraint:String {maxLength: 70}
+    string attribute20?;
+    string createDate?;
+    @constraint:String {maxLength: 70}
+    string attribute29?;
+    @constraint:String {maxLength: 70}
+    string attribute28?;
+    int calculationGridId?;
+    @constraint:String {maxLength: 70}
+    string attribute27?;
+    @constraint:String {maxLength: 70}
+    string attribute26?;
+    @constraint:String {maxLength: 1}
+    string completeResultsAvailable?;
+    @constraint:String {maxLength: 70}
+    string attribute36?;
+    @constraint:String {maxLength: 70}
+    string attribute35?;
+    @constraint:String {maxLength: 70}
+    string attribute34?;
+    @constraint:String {maxLength: 70}
+    string attribute33?;
+    @constraint:String {maxLength: 70}
+    string attribute32?;
+    @constraint:String {maxLength: 70}
+    string attribute31?;
+    @constraint:String {maxLength: 70}
+    string attribute30?;
+    @constraint:String {maxLength: 255}
+    string key1?;
+    @constraint:String {maxLength: 70}
+    string attribute39?;
+    @constraint:String {maxLength: 70}
+    string attribute38?;
+    string lastUpdateDate?;
+    @constraint:String {maxLength: 70}
+    string attribute37?;
+    @constraint:String {maxLength: 70}
+    string attribute47?;
+    @constraint:String {maxLength: 70}
+    string attribute46?;
+    @constraint:String {maxLength: 70}
+    string attribute45?;
+    @constraint:String {maxLength: 70}
+    string attribute44?;
+    @constraint:String {maxLength: 70}
+    string attribute43?;
+    @constraint:String {maxLength: 70}
+    string attribute42?;
+    @constraint:String {maxLength: 70}
+    string attribute41?;
+    @constraint:String {maxLength: 70}
+    string attribute40?;
+    @constraint:String {maxLength: 70}
+    string attribute49?;
+    @constraint:String {maxLength: 70}
+    string attribute48?;
+    @constraint:String {maxLength: 70}
+    string attribute50?;
+    @constraint:String {maxLength: 70}
+    string attribute100?;
+    @constraint:String {maxLength: 70}
+    string attribute58?;
+    int manualEditVersion?;
+    string name?;
+    @constraint:String {maxLength: 70}
+    string attribute57?;
+    @constraint:String {maxLength: 70}
+    string attribute56?;
+    @constraint:String {maxLength: 70}
+    string attribute55?;
+    @constraint:String {maxLength: 70}
+    string attribute54?;
+    @constraint:String {maxLength: 70}
+    string attribute53?;
+    record {|record {}...;|}[] allCalculationResults?;
+    @constraint:String {maxLength: 70}
+    string attribute52?;
+    @constraint:String {maxLength: 70}
+    string attribute51?;
+    @constraint:String {maxLength: 70}
+    string attribute59?;
+    decimal calculatedResultSignificantValue?;
+    @constraint:String {maxLength: 70}
+    string attribute61?;
+    @constraint:String {maxLength: 70}
+    string attribute60?;
+    decimal previousSignificantValue?;
+    decimal manualResultSignificantValue?;
+    @constraint:String {maxLength: 70}
+    string attribute69?;
+    @constraint:String {maxLength: 70}
+    string attribute68?;
+    @constraint:String {maxLength: 70}
+    string attribute67?;
+    @constraint:String {maxLength: 70}
+    string attribute66?;
+    @constraint:String {maxLength: 70}
+    string attribute65?;
+    @constraint:String {maxLength: 70}
+    string attribute64?;
+    @constraint:String {maxLength: 70}
+    string attribute63?;
+    @constraint:String {maxLength: 70}
+    string attribute62?;
+    @constraint:String {maxLength: 15}
+    string workStatus?;
+    @constraint:String {maxLength: 255}
+    string comments?;
+    decimal significantValueChange?;
+    string warnings?;
+    @constraint:String {maxLength: 255}
+    string label?;
+    @constraint:String {maxLength: 70}
+    string attribute72?;
+    @constraint:String {maxLength: 70}
+    string attribute71?;
+    @constraint:String {maxLength: 70}
+    string attribute70?;
+    int createdBy?;
+    @constraint:String {maxLength: 70}
+    string attribute79?;
+    int tableId?;
+    @constraint:String {maxLength: 70}
+    string attribute78?;
+    @constraint:String {maxLength: 70}
+    string attribute77?;
+    @constraint:String {maxLength: 70}
+    string attribute76?;
+    @constraint:String {maxLength: 70}
+    string attribute75?;
+    @constraint:String {maxLength: 70}
+    string attribute74?;
+    @constraint:String {maxLength: 70}
+    string attribute73?;
+    int lastUpdateBy?;
+};
+
+public type CalculatePriceGridResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node;
+    string csrfToken;
+    @constraint:Array {minLength: 1}
+    CalculatePriceGridResponseResponseData[] data;
+    decimal status;
+};
+
+# 
+public type CreatePriceListRequest record {
+    PricelistmanageraddidData data;
+};
+
+public type ImportmanagerdeletechangesData record {
+    # Array of typedIds of import changes you want to delete
+    string[] typedIds?;
+};
+
+public type InlineResponse20037Response record {
+    string node?;
+    InlineResponse20037ResponseData[] data?;
+    int status?;
+};
+
+# 
+public type ListLivePriceGridItemsResponse record {
+    ListLivePriceGridItemsResponseResponse response?;
+};
+
+public type TypeCodesResponse_response record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:Array {minLength: 1}
+    TypeCodesResponse_response_data[] data?;
+    decimal status?;
+};
+
+public type SearchKVTableRequest record {
+    KvservicefetchtableNameData data?;
+};
+
+public type UpdateCOHTData record {
+    string typedId;
+    string headerFormulaName?;
+};
+
+public type ConditionRecordSetItemsEnvelope record {
+    InlineResponse20066Response response?;
+};
+
+public type ListCustomerExtensionObjectsResponseResponse record {
+    string node?;
+    ListCustomerExtensionObjectsResponseResponseData[] data?;
+    int endRow?;
+    int totalRows?;
+    int status?;
+};
+
+public type CountMassActionItemsResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    anydata data?;
+    # The number of affected items by the mass action operation
+    decimal totalRows?;
+    decimal status?;
+};
+
+public type OptimizationmodelexportData record {
+    # List of model typedIds to export (e.g. "1.MO", "2.MO")
+    string[] typedIds?;
+};
+
+public type ConditionrecordsetfetchCRCI3DataCriteria record {
+    string fieldName?;
+    string|int value?;
+    string operator?;
+};
+
+public type CompensationLineItems record {
+    record {}[] outputs?;
+    string typedId?;
+    string calculationBaseJson?;
+    string? endDate?;
+    record {}[] inputs?;
+    string lastUpdateDate?;
+    string? payoutDate?;
+    string createDate?;
+    boolean dirty?;
+    CompensationCalculationBase calculationBase?;
+    string compensationConditionType?;
+    string treeLabel?;
+    CompensationCustomerGroup customerGroup?;
+    string lineId?;
+    string simulationType?;
+    string label?;
+    int clicId?;
+    int version?;
+    string parentId?;
+    boolean folder?;
+    CompensationProductGroup productGroup?;
+    int createdBy?;
+    string compensationConditionTypeLabel?;
+    int calculationStatus?;
+    int editabilityStatus?;
+    boolean containsProductImage?;
+    string? startDate?;
+    int lastUpdateBy?;
+};
+
+public type ListDataLoadsWithValidationResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:String {minLength: 1}
+    string csrfToken?;
+    @constraint:Array {minLength: 1}
+    ListDataLoadsWithValidationResponseResponseData[] data?;
+    decimal endRow?;
+    decimal status?;
+};
+
+public type DeleteCOData record {
+    string typedId;
+};
+
+# The CompensationConditionType object. The type code is COCT.<p>
+# Defines which logic will be used to calculate particular Compensation Condition Type and what parameters (in attributeX fields) will be available to the logic when it executes.
+# 
+# Whether you use a different logic for various Compensation Condition Types or the same logic, depends on how much different the processes behind the various Compensation Condition Types are.</p>
+public type CompensationConditionType record {
+    # A compensation condition logic. This logic is used to calculate all following:
+    # 
+    # - COLI –  compensation line item – for draft / editable document
+    # 
+    # - COLI – compensation line item – for approved/read-only document
+    # 
+    # - COR – Compensation Record
+    string? formulaName?;
+    string typedId?;
+    int|string|decimal|string|string|string? attribute19?;
+    int|string|decimal|string|string|string? attribute18?;
+    int|string|decimal|string|string|string? attribute17?;
+    string lastUpdateDate?;
+    int|string|decimal|string|string|string? attribute16?;
+    int|string|decimal|string|string|string? attribute15?;
+    int|string|decimal|string|string|string? attribute25?;
+    int|string|decimal|string|string|string? attribute24?;
+    string? userGroupViewDetails?;
+    int|string|decimal|string|string|string? attribute23?;
+    int|string|decimal|string|string|string? attribute22?;
+    int|string|decimal|string|string|string? attribute21?;
+    int|string|decimal|string|string|string? attribute20?;
+    string createDate?;
+    # Stands for a name of a waterfall element which will contain the compensation money amount calculated by this compensation condition type.
+    # 
+    # The actual usage of this setting is up to the implementation engineer who has to use this value then in another logic (e.g. in the Quote Line Item logic)
+    string? waterfallElement?;
+    int|string|decimal|string|string|string? attribute29?;
+    int|string|decimal|string|string|string? attribute28?;
+    int|string|decimal|string|string|string? attribute27?;
+    int|string|decimal|string|string|string? attribute26?;
+    # A name of the Compensation Condition Type, visible to business users when selecting a type of new line on a Compensation Plan
+    @constraint:String {maxLength: 255}
+    string label?;
+    int version?;
+    int|string|decimal|string|string|string? attribute9?;
+    int|string|decimal|string|string|string? attribute8?;
+    # A unique identifier name, given by an implementation engineer
+    @constraint:String {maxLength: 255}
+    string uniqueName?;
+    int|string|decimal|string|string|string? attribute5?;
+    int createdBy?;
+    int|string|decimal|string|string|string? attribute4?;
+    int|string|decimal|string|string|string? attribute7?;
+    int|string|decimal|string|string|string? attribute6?;
+    int|string|decimal|string|string|string? attribute1?;
+    int|string|decimal|string|string|string? attribute14?;
+    int|string|decimal|string|string|string? attribute13?;
+    string? userGroupEdit?;
+    int|string|decimal|string|string|string? attribute3?;
+    int|string|decimal|string|string|string? attribute12?;
+    int|string|decimal|string|string|string? attribute2?;
+    int|string|decimal|string|string|string? attribute11?;
+    int|string|decimal|string|string|string? attribute10?;
+    int|string|decimal|string|string|string? attribute30?;
+    int lastUpdateBy?;
+};
+
+# 
+public type CreateManualPriceListRequest record {
+    @constraint:String {minLength: 1}
+    string textMatchStyle;
+    AddMPLData data;
+    @constraint:String {minLength: 1}
+    string operationType;
+    anydata oldValues?;
+};
+
+# 
+public type DeleteCustomerExtensionResponse record {
+    DeleteCustomerExtensionResponseResponse response;
+};
+
+public type ListCalculationGridsResponseResponse record {
+    string node?;
+    int startRow?;
+    CalculationGrid[] data?;
+    int endRow?;
+    int totalRows?;
+    int status?;
+};
+
+public type UpdateCalculationGridItemRequest record {
+    CalculationgridmanagerupdateidData data;
+    string textMatchStyle?;
+    string operationType?;
+    CalculationGridItem6Key oldValues?;
+};
+
+public type DataChangeRequestMassChangeMassChangeDefinitions record {
+    string? changeStateReason?;
+    string fieldName?;
+    int? precision?;
+    "="|"+"|"-"|"*" massEditOperator?;
+    string fieldValue?;
+    "edit"|"recalculate" itemAction?;
+};
+
+# Specify options of the bulk data insertion
+public type LoaddataTypeCodeDataOptions record {
+    LoaddataTypeCodeDataOptionsConditionRecords conditionRecords?;
+    # A list of fields (that also need to appear in `header` and `data`) that make up the business key
+    string[] joinFields;
+    # Set to `true` to use join fields definitions from the server. Set to `false` to specify join fields with the `joinFields` parameter in the request
+    boolean detectJoinFields;
+};
+
+public type ManualpricelistmanagerupdateidrecalculateData record {
+    # `typedId` of the item (`MPLI`) you want to update
+    string typedId;
+    string currency?;
+};
+
+public type fetchtypeCode_data record {
+    string _constructor?;
+    string operator?;
+    fetchtypeCode_data_criteria[] criteria?;
+};
+
+public type UpdateConditionTypeEnvelope record {
+    UpdateConditionTypeResponse response?;
+};
+
+public type RecalculateCalculationOfStepResponseResponseJobs record {
+    string? processingStart?;
+    string targetObject?;
+    string typedId?;
+    string lastUpdateDate?;
+    string trackerType?;
+    string? threadId?;
+    RecalculateCalculationOfStepResponseResponseJobSettings jobSettings?;
+    string calculationContext?;
+    string? threadUUID?;
+    int id?;
+    string? calculationResults?;
+    string? processingNode?;
+    string createDate?;
+    string jobName?;
+    string concurrencyKey?;
+    int priority?;
+    int version?;
+    int createdBy?;
+    string? processingEnd?;
+    string? progress?;
+    record {}? messages?;
+    int runNumber?;
+    boolean cancelRequested?;
+    string? parameters?;
+    string status?;
+    int lastUpdateBy?;
+};
+
+public type InlineResponse20064DataStats record {
+    InlineResponse20064DataStatsSummary summary?;
+    InlineResponse20064DataStatsIngester ingester?;
+    InlineResponse20064DataStatsCache cache?;
+    InlineResponse20064DataStatsQuerier querier?;
+};
+
+# 
+public type ListDataManagerEntitiesRequest record {
+    DatamartgetfcsTypeCodeData data?;
+};
+
+public type ListAttributeFieldsMetadataResponseAttributeMetas record {
+    anydata cssProperties?;
+    @constraint:String {minLength: 1}
+    string labelTranslations;
+    @constraint:String {minLength: 1}
+    string typedId;
+    @constraint:String {minLength: 1}
+    string fieldName;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate;
+    anydata fieldValueOptions?;
+    string description;
+    boolean readOnly;
+    @constraint:String {minLength: 1}
+    string label;
+    decimal version;
+    boolean requiredField;
+    decimal createdBy;
+    @constraint:String {minLength: 1}
+    string name;
+    string entityRefTypeCode;
+    @constraint:String {minLength: 1}
+    string formatType;
+    decimal fieldType;
+    @constraint:String {minLength: 1}
+    string createDate;
+    decimal lastUpdateBy;
+};
+
+public type ClaimTypeConfiguration record {
+    ClaimTypeConfigurationColumns columns?;
+};
+
+public type JobStatusTrackerUpdateEnvelope record {
+    InlineResponse20086Response response?;
+};
+
+public type RebateAgreementCalculationBase record {
+    record {}[] excludedCustomerGroups?;
+    string dateDimFieldName?;
+    CompensationCalculationBaseIncludedSellerReferences[] includedSellerReferences?;
+    record {}[] includedCustomerGroups?;
+    record {}[] excludedTimePeriods?;
+    record {}[] excludedproductGroups?;
+    record {}[] otherFilters?;
+    record {}[] includedProductGroups?;
+    record {}[] excludedSellerReferences?;
+    CompensationLineItemCalculationBaseIncludedTimePeriods[] includedTimePeriods?;
+};
+
+public type GetCustomFormResponseResponseCustomFormTypeObjectConfigurationDefaultTabs record {
+    GetCustomFormResponseResponseCustomFormTypeObjectConfigurationDefaultTabsDetails details;
+};
+
+public type OptimizationmodelsavetypedIdstepNameOldValues record {
+    int version;
+};
+
+public type WorkflowsmanageraddwatchercurrentStepIdDataAddStepStepInstance record {
+    anydata emails?;
+    @constraint:String {minLength: 1}
+    string reason;
+    @constraint:String {minLength: 1}
+    string uniqueName;
+    record {}[] userGroupNames;
+    anydata userGroupName?;
+    boolean emailAttachment?;
+    anydata userLoginName?;
+    record {} properties;
+    string[] userLoginNames;
+};
+
+public type DeleteRebateCalculationRequest record {
+    ClicmanagerdeleteRebateCalculationData data?;
+};
+
+public type AddWatcherStepResponseResponseWorkflowSteps record {
+    @constraint:String {minLength: 1}
+    string reason;
+    record {}[] reasons?;
+    @constraint:String {minLength: 1}
+    string isUserApprover;
+    anydata userGroupNames?;
+    @constraint:String {minLength: 1}
+    string 'type;
+    record {}[] minApprovalsForGroups?;
+    anydata isPostStepLogicFailed?;
+    anydata postStepLogicName?;
+    @constraint:String {minLength: 1}
+    string id;
+    record {}[] executedByNames?;
+    record {}[] userLoginNames?;
+    anydata userGroupTypedId?;
+    record {}[] approvalRequiredEmailAttachments?;
+    @constraint:Array {minLength: 1}
+    AddWatcherStepResponseResponseWorkflowSubSteps[] subSteps?;
+    @constraint:String {minLength: 1}
+    string executionStatus;
+    record {}[] userTypedIds?;
+    @constraint:String {minLength: 1}
+    string lastAccess;
+    decimal minApprovalsNeeded;
+    @constraint:String {minLength: 1}
+    string userName;
+    record {}[] delegatedToTypedIds?;
+    anydata userGroupTypedIds?;
+    @constraint:String {minLength: 1}
+    string userTypedId;
+    @constraint:String {minLength: 1}
+    string uniqueName;
+    record {}[] denialReasons?;
+    anydata userGroupName?;
+    @constraint:String {minLength: 1}
+    string isDenialReasonOptional;
+    record {}[] userNames?;
+    anydata comment?;
+    record {}[] mandatoryComments?;
+};
+
+public type ListCompensationPlansResponseResponse record {
+    string node?;
+    int startRow?;
+    Compensation[] data?;
+    int endRow?;
+    int totalRows?;
+    int status?;
+};
+
+public type deletetypeCode_data record {
+    @constraint:String {minLength: 1}
+    string typedId;
+};
+
+public type DeleteCompensationTypeEnvelope record {
+    InlineResponse20024Response response?;
+};
+
+public type PricelistmanagerdeletePLidbatchData record {
+    PricelistmanagerdeletePLidbatchDataFilterCriteria filterCriteria;
+};
+
+public type AddRebateCalculationResponse record {
+    AddRebateCalculationResponseResponse response?;
+};
+
+public type UpdateCLTDataConfiguration record {
+    UpdateCLTDataConfigurationColumns columns?;
+};
+
+public type ListConditionTypesEnvelope record {
+    ListConditionTypesResponse response?;
+};
+
+public type DeleteProductExtensionResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node;
+    @constraint:Array {minLength: 1}
+    DeleteProductExtensionResponseResponseData[] data;
+    decimal status;
+};
+
+public type AddCRCIMData record {
+    string cssProperties?;
+    string labelTranslations?;
+    string fieldName?;
+    string hidden?;
+    string? fieldValueOptions?;
+    string description?;
+    string? entityRefTypeCode?;
+    boolean readOnly?;
+    string label?;
+    string conditionRecordSetId?;
+    string formatType?;
+    int fieldType?;
+};
+
+public type DeleteSLData record {
+    string typedId;
+};
+
+public type SaveImportChangeEnvelope record {
+    InlineResponse20074Response response?;
+};
+
+public type SendEmailRequest record {
+    ClicmanagersendemailData data;
+};
+
+# 
+public type DeletePriceListRequest record {
+    DeleteTypeCodeData data;
+};
+
+public type InlineResponse20064DataStatsIngester record {
+    int totalLinesSent?;
+    int totalReached?;
+    int totalChunksMatched?;
+    int totalBatches?;
+    InlineResponse20064DataStatsQuerierStore store?;
+};
+
+public type CalculatePricelistRequest record {
+    # Calculates a whole price list. If true then `fullCalculationDateTime` is set. If false or not set and `idsToRecalc` are specified, then the `partialCalculationDateTime` is set
+    boolean fullListRecalc = false;
+};
+
+# 
+public type DeleteLookupTableValueResponse record {
+    UpdateLookupTableValueResponseResponse response;
+};
+
+public type ContractmanagersaveDataContractCalculationBaseIncludedProductGroups record {
+    anydata label?;
+    @constraint:String {minLength: 1}
+    string productFieldName?;
+    @constraint:String {minLength: 1}
+    string productFieldLabel?;
+    @constraint:String {minLength: 1}
+    string productFieldValue?;
+    anydata productFilterCriteria?;
+};
+
+# 
+public type AddApproverStepResponse record {
+    WithdrawDocumentResponseResponse response?;
+};
+
+public type InlineResponse20084Response record {
+    int startRow?;
+    anydata[]? data?;
+    int endRow?;
+    int status?;
+};
+
+# 
+public type AddApproverStepRequest record {
+    WorkflowsmanageraddapprovercurrentStepIdData data;
+};
+
+public type ExecuteActionItemLogicResponseResponse record {
+    string node?;
+    ExecuteActionItemLogicResponseResponseData[] data?;
+    int status?;
+};
+
+public type ManualpricelistmanagermasseditidData record {
+    ManualpricelistmanagermasseditidDataFilterCriteria filterCriteria;
+    @constraint:Array {minLength: 1}
+    ManualpricelistmanagermasseditidDataMassEditRecords[] massEditRecords;
+};
+
+public type ClicmanagerimportlineitemstypedIdDataSkus record {
+    boolean folder?;
+    ClicmanagerimportlineitemstypedIdDataInputs[] inputs?;
+    string label?;
+    string sku?;
+};
+
+public type InlineResponse20064DataStream record {
+    string app?;
+    string container?;
+    string component?;
+    string filename?;
+    string instance?;
+    string partition?;
+    string pod?;
+    string 'stream?;
+    string namespace?;
+    @jsondata:Name {value: "node_name"}
+    string nodeName?;
+    string job?;
+};
+
+public type ElementNamefunctionNameBody record {
+    FormulamanagerexecutelibraryfunctionformulaNameelementNamefunctionNameData data?;
+};
+
+public type LookuptablemanagerupdatetableIdOldValues record {
+    @constraint:String {minLength: 1}
+    string lastUpdateByName;
+    @constraint:String {minLength: 1}
+    string createdByName;
+    @constraint:String {minLength: 1}
+    string typedId;
+    anydata attribute19?;
+    anydata attribute18?;
+    anydata attribute17?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    anydata attribute16?;
+    anydata attribute15?;
+    @constraint:String {minLength: 1}
+    string 'type;
+    @constraint:String {minLength: 1}
+    string valueType;
+    anydata attribute25?;
+    anydata attribute24?;
+    anydata attribute23?;
+    anydata attribute22?;
+    anydata attribute21?;
+    anydata attribute20?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    anydata attribute29?;
+    anydata attribute28?;
+    anydata attribute27?;
+    anydata attribute26?;
+    @constraint:String {minLength: 1}
+    string lookupTableTypedId;
+    decimal version;
+    anydata attribute9?;
+    anydata attribute8?;
+    anydata attribute5?;
+    decimal createdBy?;
+    anydata attribute4?;
+    anydata attribute7?;
+    anydata attribute6?;
+    anydata attribute1?;
+    anydata attribute14?;
+    @constraint:String {minLength: 1}
+    string name;
+    anydata tableId?;
+    anydata attribute13?;
+    anydata attribute3?;
+    anydata attribute12?;
+    anydata attribute2?;
+    anydata attribute11?;
+    anydata attribute10?;
+    anydata attribute30?;
+    decimal lastUpdateBy?;
+};
+
+public type DeleteLivePriceGridResponseResponseData record {
+    decimal version;
+    @constraint:String {minLength: 1}
+    string typedId;
+    anydata targetDate?;
+    @constraint:String {minLength: 1}
+    string label;
+    anydata locale?;
+    @constraint:String {minLength: 1}
+    string calculationMessages;
+    decimal numberOfItems;
+    boolean keepManualOverrides;
+    boolean writeOnlyChangedItems;
+    @constraint:String {minLength: 1}
+    string configuration;
+    anydata nodeId?;
+    @constraint:String {minLength: 1}
+    string approvalState;
+    anydata description?;
+    anydata relativeTargetDateDays?;
+    anydata userGroupEdit?;
+    anydata userGroupViewDetails?;
+    decimal numberOfApprovedItems;
+    decimal numberOfOpenItems;
+    decimal numberOfDeniedItems;
+    decimal numberOfSubmittedItems;
+    decimal numberOfAutoApprovedItems;
+    anydata integrationStatus?;
+    @constraint:String {minLength: 1}
+    string priceGridType;
+    anydata headerTypeUniqueName?;
+    @constraint:String {minLength: 1}
+    string createdByName;
+    @constraint:String {minLength: 1}
+    string lastUpdateByName;
+    decimal updatedBy;
+    @constraint:String {minLength: 1}
+    string updateDate;
+    @constraint:String {minLength: 1}
+    string createDate;
+    decimal createdBy;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate;
+    decimal lastUpdateBy;
+    @constraint:String {minLength: 1}
+    string status;
+    @constraint:String {minLength: 1}
+    string calculationStartDate;
+    @constraint:String {minLength: 1}
+    string calculationDate;
+    @constraint:String {minLength: 1}
+    string partialCalculationDate;
+    decimal id;
+};
+
+public type ListLivePriceGridItemsResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:String {minLength: 1}
+    string csrfToken?;
+    decimal startRow?;
+    @constraint:Array {minLength: 1}
+    ListLivePriceGridItemsResponseResponseData[] data?;
+    # The number of the end row that defines the end of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal endRow = 300;
+    decimal totalRows?;
+    decimal status?;
+};
+
+public type CustomermanagerfetchassignmentstypedIdDataCriteria record {
+    @constraint:String {minLength: 1}
+    string fieldName?;
+    decimal value?;
+    @constraint:String {minLength: 1}
+    string operator;
+};
+
+public type QueryapiexecuteDataQuery record {
+    string kind?;
+    QueryapiexecuteDataQueryStages[] stages?;
+};
+
+public type GetClaimItemsSummaryResponseResponseSummaryTotal record {
+    decimal amount?;
+    int itemCount?;
+};
+
+public type FormulamanagertestexecData record {
+    boolean allResults?;
+    string item?;
+    string formulaExpression?;
+    string nature?;
+    @constraint:String {minLength: 1}
+    string targetDate?;
+    string natureValue?;
+    PricingFormula testFormula;
+    string 'type?;
+    boolean allowObjectMods?;
+    string formulaFilterParam?;
+    string[] knownElements?;
+    string productSKU?;
+    # Used by PFX Studio for Header logics only
+    boolean forceLineRecalculation?;
+    record {} headerPhases?;
+    string[] selectedRows?;
+    string debugPort?;
+    string[] items?;
+};
+
+public type InlineResponse20031Response record {
+    string node?;
+    InlineResponse20031ResponseData[] data?;
+    int status?;
+};
+
+public type GetWorkflowDocumentResponseResponseWorkflow record {
+    @constraint:String {minLength: 1}
+    string typedId?;
+    @constraint:String {minLength: 1}
+    string workflowStatus?;
+    @constraint:String {minLength: 1}
+    string isSelectStepOnDeny?;
+    @constraint:String {minLength: 1}
+    string 'type?;
+    @constraint:Array {minLength: 1}
+    GetWorkflowDocumentResponseResponseWorkflowSteps[] steps?;
+    @constraint:String {minLength: 1}
+    string approvableTypedId?;
+    anydata currentStepId?;
+    anydata submitReason?;
+    @constraint:String {minLength: 1}
+    string submitterUserName?;
+    record {}[] denialReasons?;
+    @constraint:String {minLength: 1}
+    string submitterTypedId?;
+    @constraint:String {minLength: 1}
+    string isDenialReasonOptional?;
+    @constraint:String {minLength: 1}
+    string id?;
+    @constraint:String {minLength: 1}
+    string isAddStepRestrictedToWFAdmin?;
+};
+
+public type DmObjectResponse_response_data record {
+    decimal version?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    @constraint:String {minLength: 1}
+    string uniqueName?;
+    @constraint:String {minLength: 1}
+    string label?;
+    record {}[] fields?;
+    record {}[] keyFields?;
+    @constraint:String {minLength: 1}
+    string lastUpdateByName?;
+    @constraint:String {minLength: 1}
+    string sourceTypeCode?;
+    @constraint:String {minLength: 1}
+    string sourceId?;
+    @constraint:String {minLength: 1}
+    string sourceLabel?;
+    @constraint:String {minLength: 1}
+    string fetchVerb?;
+    @constraint:String {minLength: 1}
+    string bulkloadVerb?;
+    @constraint:String {minLength: 1}
+    string 'type?;
+    boolean queryable?;
+    boolean view?;
+    @constraint:String {minLength: 1}
+    string sourceName?;
+    boolean draft?;
+    boolean locked?;
+    boolean valid?;
+    record {}[] fieldNames?;
+    record {}[] keyFieldNames?;
+    boolean deployed?;
+    boolean auxiliary?;
+    record {}[] loadableFields?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal createdBy?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    decimal lastUpdateBy?;
+    @constraint:String {minLength: 1}
+    string persistedObjectClass?;
+    boolean isPlasma?;
+};
+
+# The type code is CRCS.<p>
+# **MassEditable**: no<br>
+# **bulkLoadable**: no
+public type ConditionRecordSet record {
+    @constraint:String {maxLength: 255}
+    string lastUpdateByName?;
+    @constraint:String {maxLength: 255}
+    string createdByName?;
+    string updateDate?;
+    string typedId?;
+    int updatedBy?;
+    # The number of key fields (key1..key12). Cannot be changed once the Condition Record Set is created
+    int keySize?;
+    string lastUpdateDate?;
+    string? label?;
+    int version?;
+    @constraint:String {maxLength: 255}
+    string uniqueName?;
+    int createdBy?;
+    string? userGroupViewDetails?;
+    string? userGroupEdit?;
+    int id?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+# The type code is SAT
+public type SecurityAuditTrail record {
+    string typedId?;
+    string lastUpdateDate?;
+    @constraint:String {maxLength: 255}
+    string userName?;
+    int version?;
+    @constraint:String {maxLength: 255}
+    string targetObjectName?;
+    int createdBy?;
+    @constraint:String {maxLength: 255}
+    string clientIP?;
+    string action?;
+    string details?;
+    @constraint:String {maxLength: 255}
+    string targetObjectType?;
+    string timestamp?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+# Represents the Queries record for the operation: queryDataManagerObject
+public type QueryDataManagerObjectQueries record {
+    # Set this parameter to override the default timeout (60 seconds) of the query. The maximum allowed timeout is 300 seconds. The default timeout value and the maximum timeout value can be configured in the backend. Setting higher timeout can be useful, for example, when a query takes long time (e.g., when processing large tables)
+    string timeout = "60";
+};
+
+public type InlineResponse2005Response record {
+    string node?;
+    InlineResponse2005ResponseData[] data?;
+    int status?;
+};
+
+public type ListUniqueCLICItemsResponse record {
+    ListUniqueCLICItemsResponseResponse response?;
+};
+
+# 
+public type CopyUserResponse record {
+    CopyUserResponseResponse response?;
+};
+
+public type ListCompensationTypesRequest record {
+    int startRow?;
+    string textMatchStyle?;
+    SellermanagerfetchformulafilteredsellersData data?;
+    int endRow?;
+    string operationType?;
+};
+
+# The type code is CRCIM
+public type ConditionRecordItemAttributeMeta record {
+    string? cssProperties?;
+    string labelTranslations?;
+    string typedId?;
+    @constraint:String {maxLength: 255}
+    string fieldName?;
+    boolean hidden?;
+    string lastUpdateDate?;
+    string? fieldValueOptions?;
+    string? description?;
+    boolean readOnly?;
+    @constraint:String {maxLength: 255}
+    string label?;
+    int conditionRecordSetId?;
+    boolean manual?;
+    int version?;
+    string? elementName?;
+    boolean inputAttribute?;
+    boolean requiredField?;
+    int createdBy?;
+    string? entityRefTypeCode?;
+    "NUMERIC"|"NUMERIC_LONG"|"MONEY"|"PERCENT"|"TEXT"|"MONEY_EUR"|"MONEY_USD"|"MONEY_GBP"|"MONEY_JPY"|"MONEY_CHF"|"MONEY_PLN"|"DATETIME"|"DATE"|"INTEGER"|"LINK"|"COMPLEX"|"SPARKLINE" formatType?;
+    int fieldType?;
+    string? userGroup?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+# 
+public type AssignRoleToBusinessRoleResponse record {
+    AddPriceGridItemsToPriceGridResponseResponse response?;
+};
+
+# Options applicable only for the CRCP data load
+public type LoaddataTypeCodeDataOptionsConditionRecords record {
+    LoaddataTypeCodeDataOptionsConditionRecordsSplicing splicing?;
+};
+
+# Represents the Queries record for the operation: listAllLookupTableValues
+public type ListAllLookupTableValuesQueries record {
+    # Specifies the format of the output file
+    "json"|"xls"|"csv"|"pdf" output?;
+    # Set to **false** to retrieve the table with labels (as used in the database) instead of names in the table header
+    "true"|"false" useColumnNames = "true";
+};
+
+public type ListSecurityConfigEventsEnvelope record {
+    InlineResponse20061Response response?;
+};
+
+public type RebateagreementsaveData record {
+    RebateagreementsaveDataRebateAgreement rebateAgreement?;
+};
+
+# Represents the Queries record for the operation: getLokiLog
+public type GetLokiLogQueries record {
+    # A specific point in time as a Unix timestamp where the logging stream should start
+    string 'start;
+    # The number of log entries you want to retrieve
+    string 'limit;
+    # `forward` to retrieve the logs that were generated after the specified start time
+    "forward"|"backward" direction;
+};
+
+# The type code is DCR
+public type DataChangeRequest record {
+    @constraint:String {maxLength: 255}
+    string lastUpdateByName?;
+    @constraint:String {maxLength: 255}
+    string createdByName?;
+    string typedId?;
+    string? approvalDate?;
+    string[]? approvalRequiredEmailAttachments?;
+    @constraint:String {maxLength: 255}
+    string dcrTypeName?;
+    "DRAFT"|"SUBMITTED"|"DENIED"|"APPROVED"|"NO_APPROVAL_REQUIRED"|"WITHDRAWN"|"INVALIDATED" workflowStatus?;
+    string lastUpdateDate?;
+    "NOT_APPROVED"|"PARTIALLY_APPROVED"|"APPROVED"|"AUTO_APPROVED"|"DENIED"? approvalState?;
+    @constraint:String {maxLength: 255}
+    string label?;
+    int version?;
+    string? deniedByName?;
+    @constraint:String {maxLength: 255}
+    string dcrTargetType?;
+    @constraint:String {maxLength: 255}
+    string uniqueName?;
+    string? dcrTargetInfo?;
+    int createdBy?;
+    string? submittedByName?;
+    string? userGroupEdit?;
+    string? userGroupViewDetails?;
+    string? approvedByName?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+public type CompensationrecordsaveData record {
+    CompensationRecord compensationRecord?;
+};
+
+# 
+public type ListWorkflowsRequest record {
+    # The number of the first row that defines the start of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal startRow?;
+    @constraint:String {minLength: 1}
+    string textMatchStyle?;
+    WorkflowsmanagerfetchData data?;
+    # The number of the end row that defines the end of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal endRow = 300;
+    @constraint:String {minLength: 1}
+    string operationType?;
+    anydata oldValues?;
+};
+
+public type AddPData record {
+    @constraint:String {minLength: 1}
+    string formulaName?;
+    @constraint:String {minLength: 1}
+    string unitOfMeasure?;
+    @constraint:String {minLength: 1}
+    string attribute1?;
+    @constraint:String {minLength: 1}
+    string currency?;
+    decimal attribute3?;
+    @constraint:String {minLength: 1}
+    string userGroupEdit?;
+    @constraint:String {minLength: 1}
+    string userGroupViewDetails?;
+    @constraint:String {minLength: 1}
+    string label?;
+    @constraint:String {minLength: 1}
+    string attribute2?;
+    @constraint:String {minLength: 1}
+    string sku;
+};
+
+# 
+public type GetCompetitionDataRequest record {
+    # The number of the first row that defines the start of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal startRow?;
+    @constraint:String {minLength: 1}
+    string textMatchStyle?;
+    # The number of the end row that defines the end of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal endRow = 300;
+    @constraint:String {minLength: 1}
+    string operationType?;
+    anydata oldValues?;
+};
+
+public type ListDataLoadsResponseResponseData record {
+    @constraint:String {minLength: 1}
+    string targetName?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    @constraint:String {minLength: 1}
+    string 'type?;
+    @constraint:String {minLength: 1}
+    string calculationDate?;
+    boolean withTargetSnapshot?;
+    @constraint:String {minLength: 1}
+    string actionUUID?;
+    boolean valid?;
+    decimal loadCompleteTime?;
+    @constraint:String {minLength: 1}
+    string incLoadDate?;
+    boolean continuous?;
+    @constraint:String {minLength: 1}
+    string calculationContext?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    @constraint:String {minLength: 1}
+    string resultTableUniqueName?;
+    @constraint:String {minLength: 1}
+    string targetDate?;
+    boolean isPlasma?;
+    boolean distributed?;
+    @constraint:String {minLength: 1}
+    string label?;
+    boolean incremental?;
+    decimal version?;
+    decimal requestTime?;
+    boolean isDefault?;
+    decimal createdBy?;
+    decimal numberOfItems?;
+    decimal calcItemsLookupTableId?;
+    @constraint:String {minLength: 1}
+    string calculationStartDate?;
+    ListDataLoadsResponseResponseCalculationConfig calculationConfig?;
+    decimal lastUpdateTime?;
+    decimal lastUpdateBy?;
+    @constraint:String {minLength: 1}
+    string status?;
+};
+
+public type GetWorkflowDocumentResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:Array {minLength: 1}
+    GetWorkflowDocumentResponseResponseData[] data?;
+    int status?;
+};
+
+public type CopyQuoteEnvelope record {
+    InlineResponse2003Response response?;
+};
+
+# 
+public type DeleteLivePriceGridResponse record {
+    DeleteLivePriceGridResponseResponse response;
+};
+
+public type InlineResponse20036ResponseData record {
+    string lastUpdateByName?;
+    string createdByName?;
+    string fileName?;
+    string typedId?;
+    string lastUpdateDate?;
+    int length?;
+    int latestUploadStatusId?;
+    int version?;
+    string? sender?;
+    int createdBy?;
+    string? recipients?;
+    boolean sentViaEmail?;
+    string? userGroupEdit?;
+    string? userGroupViewDetails?;
+    string contentType?;
+    string? embeddedOwner?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+public type GetDCRResponseChangeOnly record {
+    GetDCRResponseResponse response?;
+};
+
+public type RevokeModelResponse record {
+    SaveModelResponseResponse response?;
+};
+
+public type RebaterecordgroupCalculatetypedIdBody record {
+    RebaterecordgroupcalculatetypedIdData data?;
+};
+
+public type CustomerAssignmentCustomerGroup record {
+    string customerFieldName?;
+    string customerFieldLabel?;
+    string label?;
+    string customerFieldValue?;
+    record {|string...;|} customerFilterCriteria?;
+};
+
+public type UpdateSXOldValues record {
+    string typedId?;
+    string sellerId?;
+    int createdBy?;
+    string lastUpdateDate?;
+    string name?;
+    string? attribute1?;
+    string? attribute3?;
+    string? attribute2?;
+    int version;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+public type PricelistmanagerupdateidData record {
+    string manualResultPrice?;
+    string typedId;
+    string comments?;
+};
+
+# 
+public type DeleteLookupTableValueRequest record {
+    DeleteTypeCodeData data;
+};
+
+public type ListKVTablesResponseResponse record {
+    string node?;
+    string csrfToken?;
+    anydata[][] data?;
+    int status?;
+};
+
+public type DeleteObjectResponseResponseData record {
+    decimal version;
+    @constraint:String {minLength: 1}
+    string typedId;
+    @constraint:String {minLength: 1}
+    string sku;
+    @constraint:String {minLength: 1}
+    string label;
+    @constraint:String {minLength: 1}
+    string unitOfMeasure;
+    @constraint:String {minLength: 1}
+    string userGroupEdit;
+    @constraint:String {minLength: 1}
+    string userGroupViewDetails;
+    @constraint:String {minLength: 1}
+    string currency;
+    @constraint:String {minLength: 1}
+    string formulaName;
+    boolean image;
+    @constraint:String {minLength: 1}
+    string createDate;
+    decimal createdBy;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate;
+    decimal lastUpdateBy;
+    @constraint:String {minLength: 1}
+    string attribute1;
+    @constraint:String {minLength: 1}
+    string attribute2;
+    anydata attribute3?;
+    anydata attribute4?;
+    anydata attribute5?;
+    anydata attribute6?;
+    anydata attribute7?;
+    anydata attribute8?;
+    anydata attribute9?;
+    anydata attribute10?;
+    anydata attribute11?;
+    anydata attribute12?;
+    anydata attribute13?;
+    anydata attribute14?;
+    anydata attribute15?;
+    anydata attribute16?;
+    anydata attribute17?;
+    anydata attribute18?;
+    anydata attribute19?;
+    anydata attribute20?;
+    anydata attribute21?;
+    anydata attribute22?;
+    anydata attribute23?;
+    anydata attribute24?;
+    anydata attribute25?;
+    anydata attribute26?;
+    anydata attribute27?;
+    anydata attribute28?;
+    anydata attribute29?;
+    anydata attribute30?;
+};
+
+public type InlineResponse20059Response record {
+    string node?;
+    int startRow?;
+    LoginAuditTrail[] data?;
+    int endRow?;
+    int totalRows?;
+    int status?;
+};
+
+# 
+public type ExportDatamartRequest record {
+    DatamartexportfcTypedIdOrSourceNameData data?;
+};
+
+# 
+public type DeletePriceGridItemRequest record {
+    DeleteTypeCodeData data;
+};
+
+public type CalculateClaimResponse record {
+    CalculatePricelistResponseResponse response?;
+};
+
+# Represents the Queries record for the operation: getClicFolderStats
+public type GetClicFolderStatsQueries record {
+    # If set to true, returns a list of line item IDs inside the folders instead of their count
+    boolean withLineIds?;
+};
+
+# Represents the Queries record for the operation: getDataMartObject
+public type GetDataMartObjectQueries record {
+    # Output format
+    string output?;
+    # If true, stream the response
+    boolean 'stream?;
+    # Use the following format: (e.g., `DM.TransactionsDM`)
+    string typedUniquename?;
+    # Optional locale for formatted output (e.g. en, de)
+    string dataLocale?;
+};
+
+public type AddActionTypeResponse record {
+    AddActionTypeResponseResponse response?;
+};
+
+public type SubmitDCRAsyncResponse record {
+    CalculatePricelistResponseResponse response?;
+};
+
+public type RebateagreementadditemsData record {
+    anydata parent?;
+    RebateagreementadditemsDataRebateAgreement rebateAgreement?;
+    string[] rebateTypes?;
+};
+
+public type GetDefaultPricingLogicNameResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:Array {minLength: 1}
+    GetDefaultPricingLogicNameResponseResponseData[] data?;
+    decimal status?;
+};
+
+public type ListAllLookupTableValuesResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:String {minLength: 1}
+    string csrfToken?;
+    decimal startRow?;
+    @constraint:Array {minLength: 1}
+    ListAllLookupTableValuesResponseResponseData[] data?;
+    # The number of the end row that defines the end of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal endRow?;
+    decimal status?;
+};
+
+public type AddJCSBody record {
+    string textMatchStyle?;
+    JsonConfigurationStorage data?;
+    string operationType?;
+};
+
+# The Compensation Header Type object. The type code is COHT
+public type CompensationHeaderType record {
+    string typedId?;
+    int|string|decimal|string|string|string? attribute19?;
+    int|string|decimal|string|string|string? attribute18?;
+    CompensationHeaderTypeConfiguration? configuration?;
+    int|string|decimal|string|string|string? attribute17?;
+    string lastUpdateDate?;
+    int|string|decimal|string|string|string? attribute16?;
+    int|string|decimal|string|string|string? attribute15?;
+    # A name of the logic which will be used to filter the available Compensation Condition Types, while the user is adding a new item to the Compensation Plan document
+    string? scTypeFilterFormulaName?;
+    # A name of the logic used for building inputs and calculating results for the Compensation Plan header, but can also manipulate the items and folders
+    @constraint:String {maxLength: 255}
+    string headerFormulaName?;
+    int|string|decimal|string|string|string? attribute25?;
+    int|string|decimal|string|string|string? attribute24?;
+    string? userGroupViewDetails?;
+    int|string|decimal|string|string|string? attribute23?;
+    int|string|decimal|string|string|string? attribute22?;
+    int|string|decimal|string|string|string? attribute21?;
+    int|string|decimal|string|string|string? attribute20?;
+    string createDate?;
+    int|string|decimal|string|string|string? attribute29?;
+    int|string|decimal|string|string|string? attribute28?;
+    int|string|decimal|string|string|string? attribute27?;
+    int|string|decimal|string|string|string? attribute26?;
+    string? label?;
+    int version?;
+    int|string|decimal|string|string|string? attribute9?;
+    int|string|decimal|string|string|string? attribute8?;
+    # A unique identification of this type. This name will be used in the Compensation Plan document as a foreign key, to identify the compensation header type used
+    @constraint:String {maxLength: 255}
+    string uniqueName?;
+    int|string|decimal|string|string|string? attribute5?;
+    int createdBy?;
+    int|string|decimal|string|string|string? attribute4?;
+    int|string|decimal|string|string|string? attribute7?;
+    int|string|decimal|string|string|string? attribute6?;
+    int|string|decimal|string|string|string? attribute1?;
+    int|string|decimal|string|string|string? attribute14?;
+    int|string|decimal|string|string|string? attribute13?;
+    # A name of the approval workflow logic, which will build the approval steps for the compensation records
+    @constraint:String {maxLength: 255}
+    string scRecordWorkflowFormulaName?;
+    string? userGroupEdit?;
+    int|string|decimal|string|string|string? attribute3?;
+    int|string|decimal|string|string|string? attribute12?;
+    int|string|decimal|string|string|string? attribute2?;
+    int|string|decimal|string|string|string? attribute11?;
+    int|string|decimal|string|string|string? attribute10?;
+    # A name of the approval workflow logic, which will build the approval steps for the Compensation Plan document
+    string? workflowFormulaName?;
+    int|string|decimal|string|string|string? attribute30?;
+    int lastUpdateBy?;
+};
+
+# 
+public type DeletePriceListItemRequest record {
+    PricelistmanagerdeletePLidbatchData data;
+};
+
+# 
+public type AssignRoleToBusinessRoleRequest record {
+    AccountmanagerassignroleBRbusinessroleIdData data;
+};
+
+public type DeleteLookupTableValueResponse1Response record {
+    @constraint:String {minLength: 1}
+    string node;
+    # The number of deleted records
+    @constraint:Array {minLength: 1}
+    anydata[] data;
+    decimal status;
+};
+
+# 
+public type UpdateUserRequest record {
+    UpdateUData data;
+    @constraint:String {minLength: 1}
+    string textMatchStyle?;
+    @constraint:String {minLength: 1}
+    string operationType?;
+    UpdateUOldValues oldValues;
+};
+
+# 
+public type DeletePriceGridItemFilterRequest record {
+    PricegridmanagerdeleteidbatchData data;
+};
+
+public type RecalculateCalculationOfStepResponseResponseJobSettings record {
+    string calculableObjectTypedId?;
+    string queueName?;
+    string partitionName?;
+    int jobSize?;
+    boolean enableDirtyTracking?;
+    string? distributedAction?;
+    boolean distributed?;
+    int runNumber?;
+    boolean agentOption1?;
+    string jobType?;
+    string partitionUUID?;
+    string uuid?;
+};
+
+public type ImportSXFileRequest record {
+    record {byte[] fileContent; string fileName;} fileName?;
+};
+
+public type InlineResponse20063ResponseData record {
+    string lastName?;
+    string typedId?;
+    boolean firstLogin?;
+    InlineResponse20063ResponseAllGroups[] allGroups?;
+    boolean noSession?;
+    UserGroup[] groups?;
+    BusinessRole[] businessRoles?;
+    boolean platformManaged?;
+    string lastTermsOfUseVersionAgreed?;
+    int version?;
+    boolean ssoOnly?;
+    string firstName?;
+    boolean workflowEmailingActivated?;
+    int createdBy?;
+    string loginName?;
+    string[] allRoleNames?;
+    boolean receiveAdminEmail?;
+    string[] roleNames?;
+    string email?;
+    boolean requireTFA?;
+    string lastTermsOfUseAgreedDate?;
+    boolean activated?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+# The type code is DMDL
+public type DMDataLoad record {
+    record {}? adhocDataLoadDefinition?;
+    @constraint:String {maxLength: 255}
+    string targetName?;
+    string typedId?;
+    string lastUpdateDate?;
+    boolean? allowBatching?;
+    string? locale?;
+    "DM_REFRESH"|"DS_FLUSH"|"DS_PRODUCTS"|"DS_CUSTOMERS"|"DS_DEFAULTCAL"|"CALCULATION"|"TRUNCATE"|"DM_SIMULATION"|"DMM_CALCULATION"|"MR_CALCULATION"|"DS_INTERNAL_COPY"|"INDEX_MAINTENANCE"|"ADD_TABLE_PARTITIONS"|"DISTRIBUTED_CALCULATION"|"IMPORT" 'type?;
+    string? calculationDate?;
+    int? jstId?;
+    string? sourceSortBy?;
+    boolean withTargetSnapshot?;
+    string? actionUUID?;
+    boolean valid?;
+    int? loadCompleteTime?;
+    string? incLoadDate?;
+    "FULL"|"INCREMENTAL"|"ENRICHMENT"|"ALLOCATION"? loadMode?;
+    DMDataLoadSchedules[]? schedules?;
+    boolean continuous?;
+    string? sortBy?;
+    record {|string...;|}? dtoSourceFilter?;
+    string? calculationContext?;
+    record {|record {}[]...;|} calculationResults?;
+    record {|string...;|}? testRow?;
+    string createDate?;
+    string? resultTableUniqueName?;
+    DMDataLoadPre80CalculationConfig? pre80CalculationConfig?;
+    string calculationMessages?;
+    string? targetDate?;
+    string? validationLogic?;
+    boolean isPlasma?;
+    boolean distributed?;
+    @constraint:String {maxLength: 255}
+    string label?;
+    boolean incremental?;
+    int version?;
+    int requestTime?;
+    record {|string...;|}? dtoFilter?;
+    boolean isDefault?;
+    int createdBy?;
+    int numberOfItems?;
+    int calcItemsLookupTableId?;
+    string? sourceName?;
+    record {|DMDataLoadProgressInfo...;|}? progressInfo?;
+    DMDataLoadTestResult? testResult?;
+    string? calculationStartDate?;
+    record {} calculationConfig?;
+    int lastUpdateTime?;
+    int lastUpdateBy?;
+    "DRAFT"|"PENDING"|"SCHEDULED"|"PROCESSING"|"SCHEDULED_DIRTY"|"ERROR"|"READY"|"CANCELLED" status?;
+};
+
+public type DeleteUploadSlotResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node;
+    @constraint:String {minLength: 1}
+    string csrfToken;
+    @constraint:Array {minLength: 1}
+    DeleteUploadSlotResponseResponseData[] data;
+    decimal status;
+};
+
+public type InlineResponse20088ResponseData record {
+    @jsondata:Name {value: "MCP_tool_parameters_read"}
+    string mCPToolParametersRead?;
+    @jsondata:Name {value: "MCP_tool_Agents_List"}
+    string mCPToolAgentsList?;
+    @jsondata:Name {value: "MCP_tool_schema_analytics_getdatamartdetails"}
+    string mCPToolSchemaAnalyticsGetdatamartdetails?;
+    @jsondata:Name {value: "MCP_tool_schema_master_listproductcustomerattributes"}
+    string mCPToolSchemaMasterListproductcustomerattributes?;
+    @jsondata:Name {value: "MCP_tool_agents_listimportantactions"}
+    string mCPToolAgentsListimportantactions?;
+    @jsondata:Name {value: "MCP_tool_parameters_list"}
+    string mCPToolParametersList?;
+    @jsondata:Name {value: "MCP_tool_Agents_GetActionItem"}
+    string mCPToolAgentsGetActionItem?;
+    @jsondata:Name {value: "MCP_tool_schema_analytics_listdatamarts"}
+    string mCPToolSchemaAnalyticsListdatamarts?;
+    @jsondata:Name {value: "MCP_tool_parameters_update"}
+    string mCPToolParametersUpdate?;
+};
+
+public type InlineResponse20029ResponseData Quote|Compensation|Contract|RebateAgreement;
+
+public type DataDataOneOf12 record {
+    int version?;
+};
+
+# 
+public type RunDataLoadResponse record {
+    RunDataLoadResponseResponse response?;
+};
+
+public type ContractOutputs record {
+    string alertMessage?;
+    string cssProperties?;
+    string labelTranslations?;
+    "CRITICAL"|"RED"|"YELLOW" alertType?;
+    string[] overrideValueOptions?;
+    string[] warnings?;
+    boolean overrideAllowEmpty?;
+    string resultGroup?;
+    boolean overridden?;
+    string suffix?;
+    boolean excludeFromExport?;
+    string resultName?;
+    int displayOptions?;
+    string result?;
+    boolean overridable?;
+    string resultDescription?;
+    "NUMERIC"|"NUMERIC_LONG"|"MONEY"|"PERCENT"|"TEXT"|"MONEY_EUR"|"MONEY_USD"|"MONEY_GBP"|"MONEY_JPY"|"MONEY_CHF"|"MONEY_PLN"|"DATETIME"|"DATE"|"INTEGER"|"LINK"|"COMPLEX"|"SPARKLINE" formatType?;
+    string resultType?;
+    string userGroup?;
+    string resultLabel?;
+};
+
+public type UpdateLookupTableValueResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node;
+    @constraint:Array {minLength: 1}
+    UpdateLookupTableValueResponseResponseData[] data;
+    decimal status;
+};
+
+# The type code is CMNT
+public type Comment record {
+    string typedId?;
+    int createdBy?;
+    string lastUpdateDate?;
+    @constraint:String {maxLength: 3000}
+    string body?;
+    int version?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+public type KvservicefetchtableNameData record {
+    string sku?;
+};
+
+public type ManualPriceListResponse_response_data record {
+    decimal version?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    @constraint:String {minLength: 1}
+    string uniqueName?;
+    @constraint:String {minLength: 1}
+    string label?;
+    @constraint:String {minLength: 1}
+    string validAfter?;
+    @constraint:String {minLength: 1}
+    string status?;
+    anydata simulationSet?;
+    anydata nodeId?;
+    anydata userGroupEdit?;
+    anydata userGroupViewDetails?;
+    anydata linkedCFStypedId?;
+    anydata expiryDate?;
+    anydata integrationStatus?;
+    anydata targetDate?;
+    @constraint:String {minLength: 1}
+    string createdByName?;
+    @constraint:String {minLength: 1}
+    string lastUpdateByName?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal createdBy?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    decimal lastUpdateBy?;
+};
+
+public type UpdateActionTypeResponse record {
+    AddActionTypeResponseResponse response?;
+};
+
+public type UpsertCompensationPlanRequest record {
+    CompensationsaveData data?;
+};
+
+public type WorkflowsmanagerfetchData record {
+    @jsondata:Name {value: "_constructor"}
+    string constructor?;
+    @constraint:Array {minLength: 1}
+    WorkflowsmanagerfetchDataCriteria[] criteria?;
+    "and"|"or" operator?;
+};
+
+# 
+public type DeletePriceListResponse record {
+    DeletePriceListResponseResponse response?;
+};
+
+public type ClicmanagerupdatelineitemstypedIdDataLineItems record {
+    # `typedId` of the line item you want to update
+    string typedId;
+    ClicmanagerupdatelineitemstypedIdDataInputs[] inputs?;
+    int version;
+};
+
+# 
+public type DeleteCustomFormTypeEnvelope record {
+    CreateCustomFormTypeResponseResponse response?;
+};
+
+public type UpdateCalculationGridResponse record {
+    AddCalculationGridResponseResponse response?;
+};
+
+public type MassEditManualPriceListResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    # A single item array with a string that represents the number of rows changed
+    string[] data?;
+    decimal status?;
+};
+
+public type ListRollupsResponseResponseQueryDtoProjectionsRegion record {
+    @constraint:String {minLength: 1}
+    string expression;
+    @constraint:String {minLength: 1}
+    string name;
+    @constraint:String {minLength: 1}
+    string alias;
+};
+
+public type InlineResponse20054Response record {
+    string node?;
+    ConditionRecordItemAttributeMeta[] data?;
+    int status?;
+};
+
+# The type code is PX10
+public type PX10 record {
+    string typedId?;
+    string lastUpdateDate?;
+    int version?;
+    @constraint:String {maxLength: 255}
+    string attribute9?;
+    @constraint:String {maxLength: 255}
+    string attribute8?;
+    @constraint:String {maxLength: 255}
+    string attribute5?;
+    int createdBy?;
+    @constraint:String {maxLength: 255}
+    string attribute4?;
+    @constraint:String {maxLength: 255}
+    string attribute7?;
+    @constraint:String {maxLength: 255}
+    string attribute6?;
+    @constraint:String {maxLength: 255}
+    string name?;
+    @constraint:String {maxLength: 255}
+    string attribute1?;
+    @constraint:String {maxLength: 255}
+    string attribute3?;
+    @constraint:String {maxLength: 255}
+    string attribute2?;
+    @constraint:String {maxLength: 255}
+    string sku?;
+    @constraint:String {maxLength: 255}
+    string attribute10?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+public type ListClaimTypesResponseResponseData record {
+    string formulaName?;
+    string typedId?;
+    string sheetName?;
+    ListClaimTypesResponseResponseConfiguration configuration?;
+    string allocationFormulaName?;
+    string lastUpdateDate?;
+    string validationStateElementName?;
+    string label?;
+    int version?;
+    string uniqueName?;
+    int createdBy?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+public type KvservicecreatetabletableNameData record {
+    KvservicecreatetabletableNameDataKeys[] keys?;
+};
+
+# 
+public type ListLogicsResponse record {
+    ListLogicsResponseResponse response?;
+};
+
+# 
+public type ExecuteModelLogicRequest record {
+    record {} data?;
+};
+
+public type SubmitClaimResponse record {
+    CalculatePricelistResponseResponse response?;
+};
+
+# Values of the object before the update. Especially important are `typedId` (to identify the object to update) and `version` (to detect date inconsistencies)
+public type UpdateTypeCodereturnolddataOldValues record {
+    anydata formulaName?;
+    @constraint:String {minLength: 1}
+    string typedId;
+    anydata attribute19?;
+    anydata attribute18?;
+    anydata attribute17?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    anydata attribute16?;
+    anydata attribute15?;
+    anydata attribute25?;
+    anydata attribute24?;
+    string? userGroupViewDetails?;
+    @constraint:String {maxLength: 255, minLength: 1}
+    string currency?;
+    anydata attribute23?;
+    anydata attribute22?;
+    @constraint:String {maxLength: 255, minLength: 1}
+    string sku?;
+    anydata attribute21?;
+    anydata attribute20?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    anydata image?;
+    @constraint:String {maxLength: 255, minLength: 1}
+    string unitOfMeasure?;
+    anydata attribute29?;
+    anydata attribute28?;
+    anydata attribute27?;
+    anydata attribute26?;
+    @constraint:String {maxLength: 255, minLength: 1}
+    string label?;
+    decimal version;
+    anydata attribute9?;
+    anydata attribute8?;
+    anydata attribute5?;
+    decimal createdBy?;
+    anydata attribute4?;
+    anydata attribute7?;
+    anydata attribute6?;
+    anydata attribute1?;
+    anydata attribute14?;
+    anydata attribute13?;
+    string? userGroupEdit?;
+    anydata attribute3?;
+    anydata attribute12?;
+    anydata attribute2?;
+    anydata attribute11?;
+    anydata attribute10?;
+    anydata attribute30?;
+    decimal lastUpdateBy?;
+};
+
+# 
+public type DeleteLivePriceGridRequest record {
+    DeleteTypeCodeData data;
+};
+
+public type ManualpricelistmanagermasseditidDataFilterCriteria record {
+    @jsondata:Name {value: "_constructor"}
+    string constructor;
+    @constraint:Array {minLength: 1}
+    ManualpricelistmanagermasseditidDataFilterCriteriaCriteria[] criteria;
+    @constraint:String {minLength: 1}
+    string operator;
+};
+
+# The type code is CRCI3.<p>
+# 
+# **MassEditable**: no<br>
+# **bulkLoadable**: no
+public type ConditionRecordItem3Key record {
+    @constraint:String {maxLength: 63}
+    string key1?;
+    @constraint:String {maxLength: 63}
+    string key2?;
+    string typedId?;
+    @constraint:String {maxLength: 63}
+    string key5?;
+    @constraint:String {maxLength: 63}
+    string key6?;
+    string lastUpdateDate?;
+    @constraint:String {maxLength: 63}
+    string key3?;
+    @constraint:String {maxLength: 63}
+    string key4?;
+    @constraint:String {maxLength: 63}
+    string key9?;
+    @constraint:String {maxLength: 63}
+    string key7?;
+    string validFrom?;
+    @constraint:String {maxLength: 63}
+    string key8?;
+    decimal? priceUnit?;
+    string? unitOfMeasure?;
+    int conditionRecordSetId?;
+    @constraint:String {maxLength: 63}
+    string key11?;
+    int version?;
+    @constraint:String {maxLength: 63}
+    string key10?;
+    anydata attribute9?;
+    anydata attribute8?;
+    anydata attribute5?;
+    anydata attribute4?;
+    anydata attribute7?;
+    anydata attribute6?;
+    anydata attribute1?;
+    anydata attribute14?;
+    decimal? conditionValue?;
+    anydata attribute13?;
+    int integrationStatus?;
+    anydata attribute3?;
+    anydata attribute12?;
+    anydata attribute2?;
+    anydata attribute11?;
+    anydata attribute10?;
+    anydata attribute19?;
+    anydata attribute18?;
+    anydata attribute17?;
+    anydata attribute16?;
+    anydata attribute15?;
+    @constraint:String {maxLength: 63}
+    string key12?;
+    string? createdByObj?;
+    anydata attribute25?;
+    anydata attribute24?;
+    string? currency?;
+    anydata attribute23?;
+    anydata attribute22?;
+    anydata attribute21?;
+    anydata attribute20?;
+    string validTo?;
+    string createDate?;
+    anydata attribute29?;
+    anydata attribute28?;
+    anydata attribute27?;
+    anydata attribute26?;
+    string? lastUpdatedByObj?;
+    int createdBy?;
+    int? tableId?;
+    anydata attribute30?;
+    int lastUpdateBy?;
+};
+
+public type JobStatusTrackerResponse_response_data record {
+    @constraint:String {minLength: 1}
+    string step?;
+    decimal totalJobsCount?;
+    @constraint:Array {minLength: 1}
+    JobStatusTrackerResponse_response_jobs[] jobs?;
+};
+
+public type ContractInputs record {
+    string labelTranslations?;
+    boolean addUnknownValues?;
+    string typedId?;
+    record {|string...;|} parameterConfig?;
+    record {}[] inputs?;
+    boolean readOnly?;
+    string label?;
+    string 'type?;
+    string parameterGroup?;
+    string url?;
+    string valueHint?;
+    boolean required?;
+    boolean alwaysEditable?;
+    record {|string...;|} formattingOptions?;
+    string[] valueOptions?;
+    record {|string...;|} filter?;
+    string lookupTableId?;
+    string name?;
+    string value?;
+};
+
+public type McpToolsEnvelope record {
+    InlineResponse20088Response response?;
+};
+
+public type GetActionStatusResponseResponseData record {
+    @constraint:String {minLength: 1}
+    string actionUUID?;
+    GetActionStatusResponseResponseResult result?;
+    @constraint:String {minLength: 1}
+    string executionThread?;
+    record {}[] calculationMessages?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    @constraint:String {minLength: 1}
+    string executionNode?;
+    record {}[] skippedOps?;
+    anydata validationErrors?;
+    boolean cancelRequested?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    @constraint:String {minLength: 1}
+    string status?;
+};
+
+public type QueryapiexecuteData record {
+    QueryapiexecuteDataQuery query?;
+};
+
+public type BusinessRoleGroups record {
+    string additionalInfo4?;
+    string additionalInfo3?;
+    decimal additionalInfo2?;
+    string typedId?;
+    string uniqueName?;
+    decimal additionalInfo1?;
+    int createdBy?;
+    string lastUpdateDate?;
+    string label?;
+    int version?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+# The type code is CGI5
+public type CalculationGridItem5Key record {
+    string typedId?;
+    @constraint:String {maxLength: 70}
+    string attribute83?;
+    @constraint:String {maxLength: 70}
+    string attribute82?;
+    @constraint:String {maxLength: 70}
+    string attribute81?;
+    @constraint:String {maxLength: 70}
+    string attribute80?;
+    @constraint:String {maxLength: 70}
+    string attribute89?;
+    @constraint:String {maxLength: 70}
+    string attribute88?;
+    @constraint:String {maxLength: 70}
+    string attribute87?;
+    @constraint:String {maxLength: 70}
+    string attribute86?;
+    CalculationGridItem1KeyCalculationResults[] calculationResults?;
+    @constraint:String {maxLength: 70}
+    string attribute85?;
+    @constraint:String {maxLength: 70}
+    string attribute84?;
+    int manualEditUser?;
+    @constraint:String {maxLength: 1300}
+    string allowedOverrides?;
+    int version?;
+    string alerts?;
+    @constraint:String {maxLength: 70}
+    string attribute9?;
+    @constraint:String {maxLength: 70}
+    string attribute94?;
+    decimal significantValueChangePct?;
+    @constraint:String {maxLength: 70}
+    string attribute8?;
+    @constraint:String {maxLength: 70}
+    string attribute93?;
+    @constraint:String {maxLength: 70}
+    string attribute92?;
+    @constraint:String {maxLength: 70}
+    string attribute91?;
+    @constraint:String {maxLength: 70}
+    string attribute5?;
+    @constraint:String {maxLength: 70}
+    string attribute90?;
+    @constraint:String {maxLength: 70}
+    string attribute4?;
+    @constraint:String {maxLength: 70}
+    string attribute7?;
+    @constraint:String {maxLength: 70}
+    string attribute6?;
+    @constraint:String {maxLength: 70}
+    string attribute1?;
+    @constraint:String {maxLength: 70}
+    string attribute14?;
+    @constraint:String {maxLength: 70}
+    string attribute13?;
+    @constraint:String {maxLength: 70}
+    string attribute3?;
+    @constraint:String {maxLength: 70}
+    string attribute12?;
+    @constraint:String {maxLength: 70}
+    string attribute2?;
+    @constraint:String {maxLength: 70}
+    string attribute11?;
+    @constraint:String {maxLength: 70}
+    string attribute99?;
+    @constraint:String {maxLength: 70}
+    string attribute10?;
+    @constraint:String {maxLength: 70}
+    string attribute98?;
+    @constraint:String {maxLength: 70}
+    string attribute97?;
+    @constraint:String {maxLength: 70}
+    string attribute96?;
+    @constraint:String {maxLength: 70}
+    string attribute95?;
+    decimal resultSignificantValue?;
+    string itemExtensions?;
+    @constraint:String {maxLength: 70}
+    string attribute19?;
+    @constraint:String {maxLength: 70}
+    string attribute18?;
+    @constraint:String {maxLength: 70}
+    string attribute17?;
+    @constraint:String {maxLength: 70}
+    string attribute16?;
+    @constraint:String {maxLength: 70}
+    string attribute15?;
+    string manualOverrides?;
+    @constraint:String {maxLength: 70}
+    string attribute25?;
+    @constraint:String {maxLength: 70}
+    string attribute24?;
+    @constraint:String {maxLength: 70}
+    string attribute23?;
+    @constraint:String {maxLength: 70}
+    string attribute22?;
+    @constraint:String {maxLength: 70}
+    string attribute21?;
+    @constraint:String {maxLength: 70}
+    string attribute20?;
+    string createDate?;
+    @constraint:String {maxLength: 70}
+    string attribute29?;
+    @constraint:String {maxLength: 70}
+    string attribute28?;
+    int calculationGridId?;
+    @constraint:String {maxLength: 70}
+    string attribute27?;
+    @constraint:String {maxLength: 70}
+    string attribute26?;
+    @constraint:String {maxLength: 1}
+    string completeResultsAvailable?;
+    @constraint:String {maxLength: 70}
+    string attribute36?;
+    @constraint:String {maxLength: 70}
+    string attribute35?;
+    @constraint:String {maxLength: 70}
+    string attribute34?;
+    @constraint:String {maxLength: 70}
+    string attribute33?;
+    @constraint:String {maxLength: 70}
+    string attribute32?;
+    @constraint:String {maxLength: 70}
+    string attribute31?;
+    @constraint:String {maxLength: 70}
+    string attribute30?;
+    @constraint:String {maxLength: 255}
+    string key1?;
+    @constraint:String {maxLength: 255}
+    string key2?;
+    @constraint:String {maxLength: 255}
+    string key5?;
+    @constraint:String {maxLength: 70}
+    string attribute39?;
+    @constraint:String {maxLength: 70}
+    string attribute38?;
+    @constraint:String {maxLength: 255}
+    string key3?;
+    string lastUpdateDate?;
+    @constraint:String {maxLength: 70}
+    string attribute37?;
+    @constraint:String {maxLength: 255}
+    string key4?;
+    @constraint:String {maxLength: 70}
+    string attribute47?;
+    @constraint:String {maxLength: 70}
+    string attribute46?;
+    @constraint:String {maxLength: 70}
+    string attribute45?;
+    @constraint:String {maxLength: 70}
+    string attribute44?;
+    @constraint:String {maxLength: 70}
+    string attribute43?;
+    @constraint:String {maxLength: 70}
+    string attribute42?;
+    @constraint:String {maxLength: 70}
+    string attribute41?;
+    @constraint:String {maxLength: 70}
+    string attribute40?;
+    @constraint:String {maxLength: 70}
+    string attribute49?;
+    @constraint:String {maxLength: 70}
+    string attribute48?;
+    @constraint:String {maxLength: 70}
+    string attribute50?;
+    @constraint:String {maxLength: 70}
+    string attribute100?;
+    @constraint:String {maxLength: 70}
+    string attribute58?;
+    int manualEditVersion?;
+    string name?;
+    @constraint:String {maxLength: 70}
+    string attribute57?;
+    @constraint:String {maxLength: 70}
+    string attribute56?;
+    @constraint:String {maxLength: 70}
+    string attribute55?;
+    @constraint:String {maxLength: 70}
+    string attribute54?;
+    @constraint:String {maxLength: 70}
+    string attribute53?;
+    record {|record {}...;|}[] allCalculationResults?;
+    @constraint:String {maxLength: 70}
+    string attribute52?;
+    @constraint:String {maxLength: 70}
+    string attribute51?;
+    @constraint:String {maxLength: 70}
+    string attribute59?;
+    decimal calculatedResultSignificantValue?;
+    @constraint:String {maxLength: 70}
+    string attribute61?;
+    @constraint:String {maxLength: 70}
+    string attribute60?;
+    decimal previousSignificantValue?;
+    decimal manualResultSignificantValue?;
+    @constraint:String {maxLength: 70}
+    string attribute69?;
+    @constraint:String {maxLength: 70}
+    string attribute68?;
+    @constraint:String {maxLength: 70}
+    string attribute67?;
+    @constraint:String {maxLength: 70}
+    string attribute66?;
+    @constraint:String {maxLength: 70}
+    string attribute65?;
+    @constraint:String {maxLength: 70}
+    string attribute64?;
+    @constraint:String {maxLength: 70}
+    string attribute63?;
+    @constraint:String {maxLength: 70}
+    string attribute62?;
+    @constraint:String {maxLength: 15}
+    string workStatus?;
+    @constraint:String {maxLength: 255}
+    string comments?;
+    decimal significantValueChange?;
+    string warnings?;
+    @constraint:String {maxLength: 255}
+    string label?;
+    @constraint:String {maxLength: 70}
+    string attribute72?;
+    @constraint:String {maxLength: 70}
+    string attribute71?;
+    @constraint:String {maxLength: 70}
+    string attribute70?;
+    int createdBy?;
+    @constraint:String {maxLength: 70}
+    string attribute79?;
+    int tableId?;
+    @constraint:String {maxLength: 70}
+    string attribute78?;
+    @constraint:String {maxLength: 70}
+    string attribute77?;
+    @constraint:String {maxLength: 70}
+    string attribute76?;
+    @constraint:String {maxLength: 70}
+    string attribute75?;
+    @constraint:String {maxLength: 70}
+    string attribute74?;
+    @constraint:String {maxLength: 70}
+    string attribute73?;
+    int lastUpdateBy?;
+};
+
+public type PricegridmanagermasseditidDataFilterCriteria record {
+    @jsondata:Name {value: "_constructor"}
+    string constructor?;
+    @constraint:Array {minLength: 1}
+    PricegridmanagermasseditidDataFilterCriteriaCriteria[] criteria?;
+    @constraint:String {minLength: 1}
+    string operator?;
+};
+
+public type AddCORSCData record {
+    string label?;
+    int compensationRecordSetId?;
+};
+
+public type InlineResponse2008ResponseStateConfigurationBoundaries record {
+    @jsondata:Name {value: "Boundaries"}
+    InlineResponse2008ResponseStateConfigurationBoundariesBoundaries boundaries?;
+};
+
+public type OtherFiltersOtherFiltersOtherFiltersOtherFiltersOtherFiltersAnyOf12345 string?;
+
+public type PricegridmanagermasseditidData record {
+    PricegridmanagermasseditidDataFilterCriteria filterCriteria?;
+    @constraint:Array {minLength: 1}
+    PricegridmanagermasseditidDataMassEditRecords[] massEditRecords?;
+};
+
+public type InlineResponse20088Response record {
+    InlineResponse20088ResponseData[] data?;
+    int status?;
+};
+
+public type UpdateCustomFormResponse record {
+    string node?;
+    CustomForm data?;
+    int status?;
+};
+
+public type NotificationsetreadData record {
+    string[] id?;
+};
+
+public type QuoteResponse_response record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:Array {minLength: 1}
+    QuoteResponse_response_data[] data?;
+    decimal status?;
+};
+
+# Represents the Queries record for the operation: insertBulkDataFromFileAsync
+public type InsertBulkDataFromFileAsyncQueries record {
+    # The name of the table you want to upload a file to
+    string name?;
+};
+
+public type InlineResponse20024Response record {
+    string node?;
+    CompensationHeaderType[] data?;
+    int status?;
+};
+
+# 
+public type ListCustomersRequest record {
+    # The number of the first row that defines the start of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal startRow?;
+    @constraint:String {minLength: 1}
+    string textMatchStyle?;
+    ProductmanagerfetchformulafilteredproductsData? data?;
+    # The number of the end row that defines the end of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal endRow = 300;
+    @constraint:String {minLength: 1}
+    string operationType?;
+    anydata oldValues?;
+};
+
+public type FetchAIBody record {
+    FetchAIData data?;
+};
+
+public type KvserviceputkeytableNameData record {
+    string payload?;
+    KvserviceputkeytableNameDataKeys keys?;
+};
+
+public type InlineResponse20053Response record {
+    string node?;
+    int startRow?;
+    ConditionRecordItem12Key[] data?;
+    int endRow?;
+    int status?;
+};
+
+public type FileOperationEnvelope record {
+    InlineResponse2001Response response?;
+};
+
+public type PricegridmanagerdeleteidbatchData record {
+    PricegridmanagerdeleteidbatchDataFilterCriteria filterCriteria;
+};
+
+public type InlineResponse201ResponseErrors record {
+    @jsondata:Name {value: "Status"}
+    InlineResponse201ResponseErrorsStatus status?;
+    @jsondata:Name {value: "Action"}
+    InlineResponse201ResponseErrorsMessage action?;
+    @jsondata:Name {value: "Message"}
+    InlineResponse201ResponseErrorsMessage message?;
+    @jsondata:Name {value: "HTTPCode"}
+    InlineResponse201ResponseErrorsStatus hTTPCode?;
+    @jsondata:Name {value: "Timestamp"}
+    InlineResponse201ResponseErrorsMessage timestamp?;
+};
+
+public type DatamartqueryDataQueryProjectionsBubbleSize record {
+    @constraint:String {minLength: 1}
+    string formatString;
+    anydata default?;
+    @constraint:String {minLength: 1}
+    string expression;
+    anydata 'function?;
+    @constraint:String {minLength: 1}
+    string name;
+    @constraint:String {minLength: 1}
+    string alias;
+    boolean advancedProjection;
+    @constraint:String {minLength: 1}
+    string label;
+    DatamartqueryDataQueryProjectionsBubbleSizeParameters parameters;
+};
+
+public type ConditionRecordSetOperationEnvelope record {
+    InlineResponse20051Response response?;
+};
+
+public type CompensationServerMessagesExtended record {
+    string message?;
+    string? 'key?;
+};
+
+# The type code is PX30
+public type PX30 record {
+    string typedId?;
+    @constraint:String {maxLength: 255}
+    string attribute19?;
+    @constraint:String {maxLength: 255}
+    string attribute18?;
+    @constraint:String {maxLength: 255}
+    string attribute17?;
+    string lastUpdateDate?;
+    @constraint:String {maxLength: 255}
+    string attribute16?;
+    @constraint:String {maxLength: 255}
+    string attribute15?;
+    @constraint:String {maxLength: 255}
+    string attribute25?;
+    @constraint:String {maxLength: 255}
+    string attribute24?;
+    @constraint:String {maxLength: 255}
+    string attribute23?;
+    @constraint:String {maxLength: 255}
+    string attribute22?;
+    @constraint:String {maxLength: 255}
+    string sku?;
+    @constraint:String {maxLength: 255}
+    string attribute21?;
+    @constraint:String {maxLength: 255}
+    string attribute20?;
+    string createDate?;
+    @constraint:String {maxLength: 255}
+    string attribute29?;
+    @constraint:String {maxLength: 255}
+    string attribute28?;
+    @constraint:String {maxLength: 255}
+    string attribute27?;
+    @constraint:String {maxLength: 255}
+    string attribute26?;
+    int version?;
+    @constraint:String {maxLength: 255}
+    string attribute9?;
+    @constraint:String {maxLength: 255}
+    string attribute8?;
+    @constraint:String {maxLength: 255}
+    string attribute5?;
+    int createdBy?;
+    @constraint:String {maxLength: 255}
+    string attribute4?;
+    @constraint:String {maxLength: 255}
+    string attribute7?;
+    @constraint:String {maxLength: 255}
+    string attribute6?;
+    @constraint:String {maxLength: 255}
+    string name?;
+    @constraint:String {maxLength: 255}
+    string attribute1?;
+    @constraint:String {maxLength: 255}
+    string attribute14?;
+    @constraint:String {maxLength: 255}
+    string attribute13?;
+    @constraint:String {maxLength: 255}
+    string attribute3?;
+    @constraint:String {maxLength: 255}
+    string attribute12?;
+    @constraint:String {maxLength: 255}
+    string attribute2?;
+    @constraint:String {maxLength: 255}
+    string attribute11?;
+    @constraint:String {maxLength: 255}
+    string attribute10?;
+    @constraint:String {maxLength: 255}
+    string attribute30?;
+    int lastUpdateBy?;
+};
+
+public type UpdatePricelistDetailResponse record {
+    UpdatePricelistDetailResponseResponse response?;
+};
+
+public type MassUpdateResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    # The number of updated records. This number can be different from what the client UI initially thinks because the server takes edit restrictions into account
+    string[] data?;
+    decimal status?;
+};
+
+public type QuotemanagersaveData record {
+    QuotemanagersaveDataQuote quote;
+};
+
+public type QueryApiMetadataEnvelope record {
+    InlineResponse20085Response response?;
+};
+
+# 
+public type ListRebateAgreementsResponse record {
+    ListRebateAgreementsResponseResponse response?;
+};
+
+public type QuoteResponse_response_outputs record {
+    @constraint:String {minLength: 1}
+    string resultName;
+    @constraint:String {minLength: 1}
+    string resultLabel;
+    decimal result;
+    boolean excludeFromExport;
+    anydata warnings?;
+    anydata alertMessage?;
+    anydata alertType?;
+    decimal displayOptions;
+    @constraint:String {minLength: 1}
+    string formatType;
+    anydata suffix?;
+    @constraint:String {minLength: 1}
+    string resultType;
+    anydata cssProperties?;
+    anydata userGroup?;
+    anydata resultGroup?;
+    anydata overrideValueOptions?;
+    boolean overrideAllowEmpty;
+    anydata labelTranslations?;
+    boolean overridable;
+    boolean overridden;
+    anydata resultDescription?;
+};
+
+# 
+public type CreateCustomFormTypeRequest record {
+    AddCFOTData data;
+    @constraint:String {minLength: 1}
+    string operation;
+};
+
+# 
+public type DeleteUploadSlotResponse record {
+    DeleteUploadSlotResponseResponse response;
+};
+
+# The type code is PX20
+public type PX20 record {
+    string typedId?;
+    @constraint:String {maxLength: 255}
+    string attribute19?;
+    @constraint:String {maxLength: 255}
+    string attribute18?;
+    @constraint:String {maxLength: 255}
+    string attribute17?;
+    string lastUpdateDate?;
+    @constraint:String {maxLength: 255}
+    string attribute16?;
+    @constraint:String {maxLength: 255}
+    string attribute15?;
+    @constraint:String {maxLength: 255}
+    string sku?;
+    @constraint:String {maxLength: 255}
+    string attribute20?;
+    string createDate?;
+    int version?;
+    @constraint:String {maxLength: 255}
+    string attribute9?;
+    @constraint:String {maxLength: 255}
+    string attribute8?;
+    @constraint:String {maxLength: 255}
+    string attribute5?;
+    int createdBy?;
+    @constraint:String {maxLength: 255}
+    string attribute4?;
+    @constraint:String {maxLength: 255}
+    string attribute7?;
+    @constraint:String {maxLength: 255}
+    string attribute6?;
+    @constraint:String {maxLength: 255}
+    string name?;
+    @constraint:String {maxLength: 255}
+    string attribute1?;
+    @constraint:String {maxLength: 255}
+    string attribute14?;
+    @constraint:String {maxLength: 255}
+    string attribute13?;
+    @constraint:String {maxLength: 255}
+    string attribute3?;
+    @constraint:String {maxLength: 255}
+    string attribute12?;
+    @constraint:String {maxLength: 255}
+    string attribute2?;
+    @constraint:String {maxLength: 255}
+    string attribute11?;
+    @constraint:String {maxLength: 255}
+    string attribute10?;
+    int lastUpdateBy?;
+};
+
+public type RebaterecordCalculatesetBody record {
+    RebateRecordSetCalculation data?;
+};
+
+public type UserAuditReportEnvelope record {
+    InlineResponse20063Response response?;
+};
+
+public type DeleteClaimTypeResponse record {
+    AddClaimTypeResponseResponse response?;
+};
+
+public type AddClaimTypeRequest record {
+    AddCLTData data?;
+    string operation;
+};
+
+public type PriceListTypeOperationEnvelope record {
+    AddPLTTResponse response?;
+};
+
+public type PricegridmanagermassactionidData record {
+    @jsondata:Name {value: "_constructor"}
+    string constructor;
+    # Specify the criteria for which you want to filter the data
+    @constraint:Array {minLength: 1}
+    PricegridmanagermassactionidDataCriteria[] criteria;
+    # Enter the comment. Only for **Approve** and **Deny** actions
+    string comment;
+    # Specify the workflow action you want to perform
+    "SUBMITTED"|"WITHDRAWN"|"APPROVED"|"DENIED" workflowAction?;
+    # Specify the item action you want to perform
+    "recalculate"|"edit" itemAction?;
+    @constraint:String {minLength: 1}
+    string operator;
+};
+
+public type AddSellerExtensionResponse record {
+    AddSellerExtensionResponseResponse response?;
+};
+
+# 
+public type DeleteCFOTBody record {
+    DeleteTypeCodeData data;
+};
+
+public type ImportCompetitionDataResponseResponseData record {
+    # The number of newly added records
+    int inserted?;
+    # The number of error records
+    int 'error?;
+    # The number of records that have been updated
+    int updated?;
+    # The list of errors with its records from the request
+    ImportCompetitionDataResponseResponseDataErrorRecords[] errorRecords?;
+};
+
+public type InlineResponse2001Response record {
+    string node?;
+    BinaryData[] data?;
+    int status?;
+};
+
+public type ExportDatamartResponseResponseData record {
+    # Use this in the `datamart.getactionstatus/{actionUUID}` endpoint to retrieve a file path of the exported file
+    record {}[] actionUUID?;
+};
+
+public type ConditionrecordsetfetchCRCI3Data record {
+    @jsondata:Name {value: "_constructor"}
+    string constructor?;
+    ConditionrecordsetfetchCRCI3DataCriteria[] criteria?;
+    string operator?;
+};
+
+# 
+public type DeleteLookupTableResponse record {
+    DeleteLookupTableResponseResponse response;
+};
+
+public type AddClaimResponse record {
+    AddClaimResponseResponse response?;
+};
+
+public type ClicmanagersubmittypedIdDataApprovalRequiredEmailAttachments record {
+    @constraint:String {minLength: 1}
+    string fieldName?;
+    @jsondata:Name {value: "_constructor"}
+    string constructor?;
+    record {}[] value?;
+    @constraint:String {minLength: 1}
+    string operator?;
+};
+
+# The type code is PX50
+public type PX50 record {
+    string typedId?;
+    string? attribute39?;
+    string lastUpdateDate?;
+    string? attribute38?;
+    string? attribute37?;
+    string? attribute47?;
+    string? attribute46?;
+    string? attribute45?;
+    string? attribute44?;
+    @constraint:String {maxLength: 255}
+    string sku?;
+    string? attribute43?;
+    string? attribute42?;
+    string? attribute41?;
+    string? attribute40?;
+    string? attribute49?;
+    string? attribute48?;
+    int version?;
+    string? attribute9?;
+    string? attribute50?;
+    string? attribute8?;
+    # any type or `null`
+    anydata attribute5?;
+    string? attribute4?;
+    string? attribute7?;
+    string? attribute6?;
+    @constraint:String {maxLength: 255}
+    string name?;
+    string? attribute1?;
+    string? attribute14?;
+    string? attribute13?;
+    string? attribute3?;
+    string? attribute12?;
+    string? attribute2?;
+    string? attribute11?;
+    string? attribute10?;
+    string? attribute19?;
+    string? attribute18?;
+    string? attribute17?;
+    string? attribute16?;
+    string? attribute15?;
+    string? attribute25?;
+    string? attribute24?;
+    string? attribute23?;
+    string? attribute22?;
+    string? attribute21?;
+    string? attribute20?;
+    string createDate?;
+    string? attribute29?;
+    string? attribute28?;
+    string? attribute27?;
+    string? attribute26?;
+    int createdBy?;
+    string? attribute36?;
+    string? attribute35?;
+    string? attribute34?;
+    string? attribute33?;
+    string? attribute32?;
+    string? attribute31?;
+    string? attribute30?;
+    int lastUpdateBy?;
+};
+
+public type DeleteCalculationResponse record {
+    AddCalculationResponseResponse response?;
+};
+
+public type ContractModelResponse_response_productGroup_productFilterCriteria record {
+    @constraint:String {minLength: 1}
+    string _constructor;
+    @constraint:String {minLength: 1}
+    string operator;
+    @constraint:Array {minLength: 1}
+    ContractModelResponse_response_productGroup_productFilterCriteria_criteria_1[] criteria;
+};
+
+public type DeletePData record {
+    string typedId?;
+};
+
+public type CompensationCalculationBaseIncludedSellerReferences record {
+    string sellerId?;
+    string sellerName?;
+};
+
+public type OtherFiltersAnyOf1 int?;
+
+public type RunCalculationRequest record {
+    CalculationrecordcalculatesetData data?;
+};
+
+public type SellermanagerfetchformulafilteredsellersData record {
+    @jsondata:Name {value: "_constructor"}
+    string constructor?;
+    SellermanagerfetchformulafilteredsellersDataCriteria[] criteria?;
+    string operator?;
+};
+
+# 
+public type QueryDataManagerObjectResponse record {
+    QueryDataManagerObjectResponseResponse response?;
+};
+
+public type ClicmanagerdeleteCompensationCalculationData record {
+    string typedId;
+};
+
+# Represents the Queries record for the operation: exportQuoteDocx
+public type ExportQuoteDocxQueries record {
+    # Specifies the format of the output file
+    "json"|"xls"|"csv"|"pdf" output?;
+    # Specifies the template to be used when exporting a file
+    string templateName?;
+};
+
+public type UpdateCOHTOldValues record {
+    string typedId?;
+    string uniqueName?;
+    record {} configuration?;
+    int createdBy?;
+    string lastUpdateDate?;
+    string headerFormulaName?;
+    string scRecordWorkflowFormulaName?;
+    int version;
+    string workflowFormulaName?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+public type OptimizationupdatejstDataLogEvents record {
+    string level?;
+    string message?;
+};
+
+public type DataOneOf1 DataOneOf1_inner[];
+
+public type TypedIdslotIdBody record {
+    # A **base64** encoded file data
+    record {byte[] fileContent; string fileName;} file?;
+};
+
+# 
+public type RevokeDealResponse record {
+    RevokeDealResponseResponse response?;
+};
+
+public type QuoteSignature record {
+    string note?;
+    string voidedReason?;
+    record {}[] history?;
+    string 'error?;
+    string customerUserOrEmail?;
+    string customerName?;
+    string statusChangedDateTime?;
+    string senderName?;
+    int sender?;
+    string templateName?;
+    string envelopeId?;
+    string sentDateTime?;
+    "sent"|"delivered"|"signed"|"completed"|"declined"|"voided"|"processing"|"error"|"cancelling" status?;
+};
+
+public type AddDCRResponse record {
+    AddDCRResponseResponse response?;
+};
+
+# 
+public type DeactivateWorkflowDelegationResponse record {
+    DeactivateWorkflowDelegationResponseResponse response;
+};
+
+public type DeleteClaimTypeRequest record {
+    DeleteSLData data;
+};
+
+public type OptimizationmodelcalcexectypedIdstepNamecalcNameitemData record {
+    OptimizationmodelcalcexectypedIdstepNamecalcNameitemDataCriteria1[] criteria;
+};
+
+public type InlineResponse2003ResponseInputs record {
+    anydata? labelTranslations?;
+    anydata? addUnknownValues?;
+    anydata? typedId?;
+    record {} parameterConfig?;
+    record {}[] inputs?;
+    anydata? readOnly?;
+    string label?;
+    string 'type?;
+    anydata? parameterGroup?;
+    string url?;
+    string valueHint?;
+    anydata? required?;
+    anydata? alwaysEditable?;
+    record {} formattingOptions?;
+    anydata? valueOptions?;
+    anydata? filter?;
+    anydata? lookupTableId?;
+    anydata? userGroupView?;
+    string name?;
+    anydata? userGroupEdit?;
+    string value?;
+};
+
+public type JobStatusTrackerJobSettings record {
+    string calculableObjectTypedId?;
+    string? queueName?;
+    string partitionName?;
+    int jobSize?;
+    boolean enableDirtyTracking?;
+    JobStatusTrackerJobSettingsDistributedAction? distributedAction?;
+    boolean distributed?;
+    int runNumber?;
+    record {}|boolean? agentOption1?;
+    string jobType?;
+    string partitionUUID?;
+    string uuid?;
+};
+
+# 
+public type MarkOfferAsLostRequest record {
+    QuotemanagerchangestatusidentifierData data;
+};
+
+# Specify values of the object before the update. Especially important are typedId (to identify the object to update) and version (to detect date inconsistencies)
+public type LookuptablemanagerupdateOldValues record {
+    @constraint:String {minLength: 1}
+    string lastUpdateByName?;
+    @constraint:String {minLength: 1}
+    string createdByName?;
+    @constraint:String {minLength: 1}
+    string typedId;
+    decimal numberOfKeyFields?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    boolean isPlasma?;
+    boolean hideWarnings?;
+    anydata label?;
+    @constraint:String {minLength: 1}
+    string 'type;
+    decimal version;
+    anydata simulationSet?;
+    @constraint:String {minLength: 1}
+    string uniqueName;
+    decimal createdBy?;
+    @constraint:String {minLength: 1}
+    string valueType;
+    anydata userGroupEdit?;
+    anydata userGroupViewDetails?;
+    decimal id?;
+    anydata formatType?;
+    anydata nodeId?;
+    @constraint:String {minLength: 1}
+    string validAfter;
+    @constraint:String {minLength: 1}
+    string status?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal lastUpdateBy?;
+};
+
+public type RebateAgreementResponse_response_viewState record {
+    anydata gridViewState?;
+    anydata openFolders?;
+    anydata selectedNodes?;
+};
+
+public type GetKVTableInfoResponse record {
+    GetKVTableInfoResponseResponse response?;
+};
+
+public type PricegridmanagermassactioncountidData record {
+    @jsondata:Name {value: "_constructor"}
+    string constructor;
+    @constraint:Array {minLength: 1}
+    PricegridmanagerdeleteidbatchDataFilterCriteriaCriteria[] criteria;
+    @constraint:String {minLength: 1}
+    string workflowAction;
+    @constraint:String {minLength: 1}
+    string operator;
+};
+
+public type UpsertKVKeyResponseResponse record {
+    string node?;
+    string csrfToken?;
+    record {}? data?;
+    int status?;
+};
+
+public type InlineResponse20067Response record {
+    string node?;
+    int startRow?;
+    PriceListType[] data?;
+    int endRow?;
+    int status?;
+};
+
+public type SubmitProductsResponseResponseData record {
+    anydata denialDate?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    decimal resultPrice?;
+    @constraint:String {minLength: 1}
+    string workflowStatus?;
+    anydata activePriceDate?;
+    anydata priceChangePct?;
+    decimal attribute83?;
+    decimal attribute82?;
+    decimal attribute81?;
+    decimal attribute80?;
+    anydata denialReason?;
+    decimal attribute89?;
+    decimal attribute88?;
+    @constraint:String {minLength: 1}
+    string sku?;
+    decimal attribute87?;
+    decimal attribute86?;
+    decimal attribute85?;
+    @jsondata:Name {value: "priceChangePct_ActivePrev"}
+    anydata priceChangePctActivePrev?;
+    decimal attribute84?;
+    decimal manualEditUser?;
+    @constraint:String {minLength: 1}
+    string unitOfMeasure?;
+    string allowedOverrides?;
+    decimal version?;
+    anydata alerts?;
+    decimal attribute9?;
+    anydata attribute94?;
+    decimal attribute8?;
+    anydata attribute93?;
+    anydata attribute92?;
+    anydata attribute91?;
+    boolean manualPriceExpired?;
+    decimal attribute5?;
+    anydata attribute90?;
+    decimal attribute4?;
+    decimal attribute7?;
+    decimal attribute6?;
+    decimal attribute1?;
+    decimal attribute14?;
+    decimal attribute13?;
+    decimal attribute3?;
+    decimal attribute12?;
+    decimal attribute2?;
+    decimal attribute11?;
+    anydata attribute99?;
+    decimal attribute10?;
+    anydata attribute98?;
+    anydata attribute97?;
+    anydata manualPriceDate?;
+    anydata attribute96?;
+    anydata attribute95?;
+    SubmitProductsResponseResponseItemExtensions itemExtensions?;
+    decimal attribute19?;
+    decimal attribute18?;
+    decimal attribute17?;
+    decimal attribute16?;
+    decimal attribute15?;
+    anydata manualOverrides?;
+    decimal attribute25?;
+    @constraint:String {minLength: 1}
+    string submittedByName?;
+    decimal attribute24?;
+    @constraint:String {minLength: 1}
+    string currency?;
+    decimal attribute23?;
+    decimal attribute22?;
+    decimal attribute21?;
+    decimal attribute20?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    anydata activePrice?;
+    anydata approvalRequiredEmailAttachments?;
+    decimal attribute29?;
+    decimal attribute28?;
+    decimal attribute27?;
+    decimal attribute26?;
+    boolean completeResultsAvailable?;
+    anydata previousPriceDate?;
+    decimal attribute36?;
+    decimal attribute35?;
+    decimal attribute34?;
+    decimal attribute33?;
+    decimal attribute32?;
+    decimal attribute31?;
+    decimal attribute30?;
+    @constraint:String {minLength: 1}
+    string key2?;
+    decimal attribute39?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    decimal attribute38?;
+    decimal attribute37?;
+    anydata deniedByName?;
+    decimal attribute47?;
+    decimal attribute46?;
+    anydata approvedByName?;
+    decimal attribute45?;
+    decimal attribute44?;
+    decimal attribute43?;
+    decimal attribute42?;
+    decimal attribute41?;
+    decimal attribute40?;
+    anydata priceChange?;
+    decimal attribute49?;
+    decimal attribute48?;
+    decimal attribute50?;
+    anydata attribute100?;
+    decimal calculatedResultPrice?;
+    decimal manualEditVersion?;
+    decimal attribute58?;
+    decimal attribute57?;
+    decimal attribute56?;
+    decimal attribute55?;
+    decimal attribute54?;
+    decimal attribute53?;
+    decimal attribute52?;
+    decimal attribute51?;
+    anydata approvalDate?;
+    decimal attribute59?;
+    @constraint:String {minLength: 1}
+    string submitDate?;
+    decimal attribute61?;
+    decimal attribute60?;
+    anydata previousPrice?;
+    decimal attribute69?;
+    decimal attribute68?;
+    decimal attribute67?;
+    decimal attribute66?;
+    decimal attribute65?;
+    decimal attribute64?;
+    decimal attribute63?;
+    decimal attribute62?;
+    anydata workStatus?;
+    anydata manualResultPrice?;
+    anydata comments?;
+    anydata warnings?;
+    @constraint:String {minLength: 1}
+    string approvalState?;
+    @constraint:String {minLength: 1}
+    string label?;
+    decimal attribute72?;
+    decimal attribute71?;
+    decimal attribute70?;
+    decimal createdBy?;
+    @jsondata:Name {value: "priceChange_ActivePrev"}
+    anydata priceChangeActivePrev?;
+    decimal priceGridId?;
+    decimal attribute79?;
+    decimal attribute78?;
+    decimal attribute77?;
+    decimal attribute76?;
+    decimal attribute75?;
+    decimal attribute74?;
+    decimal lastUpdateBy?;
+    decimal attribute73?;
+};
+
+public type RebaterecordgroupPreviewtypedIdBody record {
+    RebaterecordgrouppreviewtypedIdData data?;
+};
+
+public type PricelistmanagerCalculateidBody record {
+    CalculatePricelistRequest data?;
+};
+
+public type DatamartnewfcTypeCodeData record {
+    # Short type code identifying the kind of master object the Data Source is based on
+    @constraint:String {minLength: 1}
+    string sourceTypeCode?;
+    # The name of the field collection. Special characters are not allowed, except the underscore ("_")
+    @constraint:String {minLength: 1}
+    string uniqueName;
+    # Fully qualified name of the domain class whose persisted objects the Data Source is based on
+    @constraint:String {minLength: 1}
+    string persistedObjectClass?;
+    # Label of the source master object or template from which the Data Source was created
+    @constraint:String {minLength: 1}
+    string sourceLabel?;
+    # The label for the new Datamart, Data Source, or Data Feed
+    @constraint:String {minLength: 1}
+    string label;
+};
+
+public type ListContractCalculationsEnvelope record {
+    InlineResponse20046Response response?;
+};
+
+public type UpdateClaimTypeResponse record {
+    UpdateClaimTypeResponseResponse response?;
+};
+
+public type ListChartsResponseResponseData record {
+    @constraint:String {minLength: 1}
+    string chartDefinition?;
+    @constraint:String {minLength: 1}
+    string createdByName?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    @constraint:String {minLength: 1}
+    string visibility?;
+    @constraint:String {minLength: 1}
+    string externalChartDefinition?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    @constraint:String {minLength: 1}
+    string description?;
+    @constraint:String {minLength: 1}
+    string label?;
+    decimal version?;
+    @constraint:String {minLength: 1}
+    string uniqueName?;
+    decimal createdBy?;
+    @constraint:String {minLength: 1}
+    string chartType?;
+    decimal nodeId?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal lastUpdateBy?;
+};
+
+public type CustomformupdateData record {
+    # The `typedId` of the Custom Form you want to update
+    string typedId;
+    string userGroupEdit?;
+    string userGroupViewDetails?;
+    string label?;
+};
+
+# 
+public type DeleteCustomerExtensionRequest record {
+    DeleteTypeCodeData data;
+};
+
+# The type code is PCI
+public type ParallelCalculationItem record {
+    string lastUpdateByName?;
+    # Returned only when a PCI is fetched using **fetch/PCI/{id}** and **fetch/PCI** endpoints. Use the **optimization.modelfetchpci** endpoint to fetch the PCIs without possibly large `outputs` and `messages` fields
+    anydata[]? outputs?;
+    string createdByName?;
+    string typedId?;
+    ParallelCalculationItemInputs inputs?;
+    string lastUpdateDate?;
+    int version?;
+    int jstId?;
+    int createdBy?;
+    # Returned only when a PCI is fetched using **fetch/PCI/{id}** and **fetch/PCI** endpoints. Use the **optimization.modelfetchpci** endpoint to fetch the PCIs without possibly large `outputs` and `messages` fields
+    anydata[]? messages?;
+    @constraint:String {maxLength: 255}
+    string 'key?;
+    "CREATED"|"CALCULATED"|"FAILED" status?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+public type ListCalculationGridsResponse record {
+    ListCalculationGridsResponseResponse response?;
+};
+
+# 
+public type AssignRoleToUserRequest record {
+    AccountmanagerassignroleuserIdData data;
+};
+
+public type ImportmanagermassedittypedIdData record {
+    ImportmanagermassedittypedIdDataFilterCriteria filterCriteria?;
+    ImportmanagermassedittypedIdDataMassEditRecords[] massEditRecords?;
+};
+
+public type ListCalculationGridItemsResponse record {
+    ListCalculationGridItemsResponseResponse response?;
+};
+
+public type DeleteCRCIMBody record {
+    DeletePData data?;
+    string operationType?;
+};
+
+# Represents the Queries record for the operation: exportExcelFileXlsx
+public type ExportExcelFileXlsxQueries record {
+    # Set this parameter to override the default timeout (60 seconds) of the query. The maximum allowed timeout is 300 seconds. The default timeout value and the maximum timeout value can be configured in the backend. Setting higher timeout can be useful, for example, when a query takes long time (e.g., when processing large tables)
+    string timeout = "60";
+};
+
+public type UpdateFileEnvelope record {
+    InlineResponse20036Response response?;
+};
+
+public type GetCalculationGridItemResponse record {
+    GetCalculationGridItemResponseResponse response?;
+};
+
+# 
+public type InsertBulkDataLookupTableResponse record {
+    InsertBulkDataLookupTableResponseResponse response;
+};
+
+public type ListAllLookupTableValuesResponseResponseData record {
+    decimal version;
+    @constraint:String {minLength: 1}
+    string typedId;
+    @constraint:String {minLength: 1}
+    string name;
+    @constraint:String {minLength: 1}
+    string value;
+    anydata lowerBound?;
+    anydata upperBound?;
+    @constraint:String {minLength: 1}
+    string lastUpdateByName;
+    @constraint:String {minLength: 1}
+    string createdByName;
+    anydata tableId?;
+    @constraint:String {minLength: 1}
+    string valueType;
+    @constraint:String {minLength: 1}
+    string 'type;
+    @constraint:String {minLength: 1}
+    string rawValue;
+    @constraint:String {minLength: 1}
+    string createDate;
+    decimal createdBy;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate;
+    decimal lastUpdateBy;
+};
+
+public type UpdateAITData record {
+    string typedId?;
+    string userGroupViewDetails?;
+};
+
+public type AddRebateCalculationResponseResponse record {
+    string node?;
+    RebateRecordSetCalculation[] data?;
+    int status?;
+};
+
+public type ListRollupsResponseResponseQueryDtoProjectionsCosts record {
+    @constraint:String {minLength: 1}
+    string formatString?;
+    @constraint:String {minLength: 1}
+    string expression?;
+    @constraint:String {minLength: 1}
+    string name?;
+    @constraint:String {minLength: 1}
+    string alias?;
+    boolean advancedProjection?;
+    @constraint:String {minLength: 1}
+    string label?;
+    DatamartqueryDataQueryProjectionsBubbleSizeParameters parameters?;
+};
+
+public type InlineResponse200Response record {
+    InlineResponse200ResponseData[] data?;
+    int status?;
+};
+
+# 
+public type AddActionItemRequest record {
+    ActionItem data;
+};
+
+public type InlineResponse2013ResponseValue record {
+    string attribute18?;
+};
+
+public type InsertBulkDataFromFileResponseResponse record {
+    string node?;
+    InsertBulkDataFromFileResponseResponseData[] data?;
+    int status?;
+};
+
+public type EmailTaskReplyTo record {
+    string replyToEmailAddress?;
+    string replyToName?;
+};
+
+public type DeleteCustomerResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node;
+    @constraint:Array {minLength: 1}
+    DeleteCustomerResponseResponseData[] data;
+    decimal status;
+};
+
+# The `Formula` object. The type code is F
+public type PricingFormula record {
+    @constraint:String {maxLength: 255}
+    string lastUpdateByName?;
+    string createdByName?;
+    string typedId?;
+    string lastUpdateDate?;
+    @constraint:String {maxLength: 255}
+    string label?;
+    @constraint:String {maxLength: 255}
+    string formulaNature?;
+    int version?;
+    @constraint:String {maxLength: 255}
+    string simulationSet?;
+    @constraint:String {maxLength: 255}
+    string uniqueName?;
+    "PRICING"|"WORKFLOW"|"LIBRARY" formulaType?;
+    int createdBy?;
+    PricingFormulaElements[] elements?;
+    @constraint:String {maxLength: 255}
+    string userGroupEdit?;
+    @constraint:String {maxLength: 255}
+    string userGroupViewDetails?;
+    string validAfter?;
+    PricingFormulaInputDescriptors[] inputDescriptors?;
+    "ACTIVE"|"SIMULATIONONLY"|"INACTIVE" status?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+public type FetchJCSDataCriteria record {
+    # `storageType` must be defined within the filter
+    string fieldName;
+    @jsondata:Name {value: "_constructor"}
+    string constructor?;
+    "STRATEGY"|"STRATEGY_LOOKUP"|"FORMULA"|"FORMULA_LOOKUP" value?;
+    string operator?;
+};
+
+public type InsertBulkDataFromFileAsyncResponseResponse record {
+    string node?;
+    InsertBulkDataFromFileAsyncResponseResponseData[] data?;
+    int status?;
+};
+
+public type ListUsersUserGroupsResponseResponseData record {
+    anydata additionalInfo4?;
+    anydata additionalInfo3?;
+    anydata additionalInfo2?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    @constraint:String {minLength: 1}
+    string uniqueName?;
+    anydata additionalInfo1?;
+    decimal createdBy?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    @constraint:String {minLength: 1}
+    string label?;
+    decimal version?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal lastUpdateBy?;
+};
+
+# 
+public type DeleteDataManagerEntityResponse record {
+    AddPriceGridItemsToPriceGridResponseResponse response?;
+};
+
+public type DataOneOf1_inner record {
+    string typedId?;
+    int version?;
+    string lineId?;
+};
+
+# 
+public type ExportDatamartResponse record {
+    ExportDatamartResponseResponse response?;
+};
+
+public type RecalculateCalculationOfStepResponse record {
+    RecalculateCalculationOfStepResponseResponse response?;
+};
+
+public type ListRebateAgreementsResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    decimal startRow?;
+    @constraint:Array {minLength: 1}
+    ListRebateAgreementsResponseResponseData[] data?;
+    decimal endRow?;
+    decimal totalRows?;
+    decimal status?;
+};
+
+public type SubmitQuoteContractRebateAgreementResponseResponseInputs record {
+    @constraint:String {minLength: 1}
+    string name?;
+    @constraint:String {minLength: 1}
+    string label?;
+    anydata lookupTableId?;
+    anydata url?;
+    @constraint:String {minLength: 1}
+    string 'type?;
+    SubmitQuoteContractRebateAgreementResponseResponseValue value?;
+    anydata valueHint?;
+    anydata readOnly?;
+    anydata filter?;
+    anydata parameterGroup?;
+    anydata labelTranslations?;
+    anydata addUnknownValues?;
+    anydata typedId?;
+    anydata alwaysEditable?;
+    record {}[] inputs?;
+    record {} parameterConfig?;
+    record {} formattingOptions?;
+    anydata valueOptions?;
+};
+
+# 
+public type ListEntityFieldsResponse record {
+    ListEntityFieldsResponseResponse response?;
+};
+
+public type CalculationgridmanagerupdateidData record {
+    string typedId;
+    string key6?;
+};
+
+public type RebateRecordGroupWorkflowEnvelope record {
+    InlineResponse20045Response response?;
+};
+
+public type DeleteCalculationGridItemRequest record {
+    DeleteCGIkeyNumberData data;
+    string operationType;
+};
+
+public type ContractResponse_response record {
+    decimal status?;
+    decimal startRow?;
+    @constraint:String {minLength: 1}
+    string node?;
+    string csrfToken?;
+    @constraint:Array {minLength: 1}
+    ContractResponse_response_data[] data?;
+    decimal endRow?;
+};
+
+public type DatamartsqlqueryData record {
+    DatamartsqlqueryDataWith with?;
+    DatamartsqlqueryDataSources sources?;
+    string sql?;
+};
+
+public type AddCFOTDataConfigurationDefaultTabs record {
+    AddCFOTDataConfigurationDefaultTabsDetails details?;
+};
+
+public type AccountmanagercopyrolesData record {
+    # The `typedId` of the source user
+    @constraint:String {minLength: 1}
+    string 'from;
+    # The `typedId`s of target users
+    string[] to;
+};
+
+public type ListUsersResponseResponseData record {
+    string lastName?;
+    @constraint:String {minLength: 1}
+    string lastLogin?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    boolean firstLogin?;
+    boolean noSession?;
+    decimal version?;
+    boolean ssoOnly?;
+    string firstName?;
+    boolean workflowEmailingActivated?;
+    decimal createdBy?;
+    @constraint:String {minLength: 1}
+    string loginName?;
+    boolean receiveAdminEmail?;
+    @constraint:String {minLength: 1}
+    string email?;
+    boolean requireTFA?;
+    boolean activated?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal lastUpdateBy?;
+};
+
+# 
+public type UpsertCustomerRequest record {
+    IntegrateCData data;
+};
+
+# 
+public type ListLivePriceGridItemsRequest record {
+    # The number of the first row that defines the start of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal startRow?;
+    @constraint:String {minLength: 1}
+    string textMatchStyle?;
+    PricegridmanagerfetchidData data?;
+    # The number of the end row that defines the end of the result set's returned objects. Use this parameter if you want to implement paging for results
+    decimal endRow = 300;
+    # Enter `fetch`, null, or omit the param
+    @constraint:String {minLength: 1}
+    string operationType?;
+    anydata oldValues?;
+};
+
+public type InlineResponse20031ResponseValue record {
+    @jsondata:Name {value: "Placeholder"}
+    string placeholder?;
+    @jsondata:Name {value: "CustAttrValue"}
+    string custAttrValue?;
+    @jsondata:Name {value: "Exportable"}
+    boolean exportable?;
+    @jsondata:Name {value: "Options"}
+    string options?;
+    @jsondata:Name {value: "Configurator"}
+    record {} configurator?;
+    @jsondata:Name {value: "Title"}
+    string title?;
+    string helplink?;
+    @jsondata:Name {value: "InputMatrix"}
+    InlineResponse20031ResponseValueInputMatrix[] inputMatrix?;
+    @jsondata:Name {value: "CustAttrName"}
+    string custAttrName?;
+    @jsondata:Name {value: "Option"}
+    string option?;
+    @jsondata:Name {value: "Helptext"}
+    string helptext?;
+    @jsondata:Name {value: "Importable"}
+    boolean importable?;
+    @jsondata:Name {value: "InlineConfigurator"}
+    InlineResponse20031ResponseValueInlineConfigurator inlineConfigurator?;
+};
+
+# 
+public type PriceGridItemResponse record {
+    PriceGridItemResponse_response response?;
+};
+
+public type PerformMassActionRequest record {
+    PricegridmanagermassactionidData data;
+};
+
+public type DcrmanagerupdatemassopidData record {
+    string typedId?;
+    DcrmanagerupdatemassopidDataMassChange massChange?;
+};
+
+public type ListClaimTypesResponseResponseConfigurationColumns record {
+    ListClaimTypesResponseResponseConfigurationColumnsSku totalAmount?;
+    ListClaimTypesResponseResponseConfigurationColumnsSku quantity?;
+    ListClaimTypesResponseResponseConfigurationColumnsSku attribute5?;
+    ListClaimTypesResponseResponseConfigurationColumnsSku attribute4?;
+    ListClaimTypesResponseResponseConfigurationColumnsSku attribute7?;
+    ListClaimTypesResponseResponseConfigurationColumnsSku attribute6?;
+    ListClaimTypesResponseResponseConfigurationColumnsSku attribute1?;
+    ListClaimTypesResponseResponseConfigurationColumnsSku attribute3?;
+    ListClaimTypesResponseResponseConfigurationColumnsSku attribute2?;
+    ListClaimTypesResponseResponseConfigurationColumnsSku endCustomerId?;
+    ListClaimTypesResponseResponseConfigurationColumnsSku sku?;
+};
+
+public type ParallelCalculationItemInputs record {
+    record {} additionalProperties?;
+};
+
+# 
+public type InsertBulkCustomerExtensionsRequest record {
+    LoaddataCXData data;
+};
+
+public type InlineResponse2008ResponseStateDefinitionSource record {
+    @jsondata:Name {value: "Source"}
+    InlineResponse2008ResponseStateDefinitionSourceSource 'source?;
+};
+
+# 
+public type GetCustomFormResponse record {
+    GetCustomFormResponseResponse response?;
+};
+
+public type CheckFileExistsEnvelope record {
+    InlineResponse20035Response response?;
+};
+
+public type DatamartexportfcTypedIdOrSourceNameDataCriteria record {
+    @constraint:String {minLength: 1}
+    string fieldName?;
+    @constraint:String {minLength: 1}
+    string value?;
+    @constraint:String {minLength: 1}
+    string operator?;
+};
+
+public type QuotemanagersubmitDataQuoteLineItems record {
+    @constraint:Array {minLength: 1}
+    QuotemanagersaveDataQuoteOutputs[] outputs?;
+    boolean dirty?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    @constraint:String {minLength: 1}
+    string treeLabel?;
+    record {}[] inputs?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    @constraint:String {minLength: 1}
+    string lineId?;
+    @constraint:String {minLength: 1}
+    string label?;
+    decimal clicId?;
+    anydata priceRecordId?;
+    decimal version?;
+    anydata parentId?;
+    boolean folder?;
+    decimal createdBy?;
+    decimal calculationStatus?;
+    decimal editabilityStatus?;
+    @constraint:String {minLength: 1}
+    string sku?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal lastUpdateBy?;
+};
+
+public type LookuptablemanagerdeletetableIdbatchDataFilterCriteria record {
+    @jsondata:Name {value: "_constructor"}
+    string constructor?;
+    LookuptablemanagerdeletetableIdbatchDataFilterCriteriaCriteria[] criteria?;
+    string operator?;
+};
+
+# 
+public type DeleteProductExtensionRequest record {
+    DeleteTypeCodeData data;
+};
+
+# 
+public type SubmitProductsResponse record {
+    SubmitProductsResponseResponse response?;
+};
+
+# The Type code is CFO
+public type CustomForm record {
+    CustomFormOutputs[] outputs?;
+    @constraint:String {maxLength: 255}
+    string createdByName?;
+    string? typedId?;
+    CustomFormInputs[] inputs?;
+    "DRAFT"|"SUBMITTED"|"DENIED"|"APPROVED"|"NO_APPROVAL_REQUIRED"|"WITHDRAWN"|"INVALIDATED" workflowStatus?;
+    string lastUpdateDate?;
+    CustomFormServerMessagesExtended[] serverMessagesExtended?;
+    CustomFormCustomFormTypeObject? customFormTypeObject?;
+    string? deniedByName?;
+    string? userGroupViewDetails?;
+    string? approvedByName?;
+    # any type
+    anydata results?;
+    # The unique name of the origin CFO
+    string originUniqueName?;
+    "PRICESETTING"|"QUOTING"|"ANALYTICS"|"ADMIN"|"WORKFLOW"|"REBATES"|"AGREEMENTSPROMOTIONS"|"OPTIMIZATION"|"CHANNELMANAGEMENT"|"MASTERDATA"|"CONFIGURATION"|"DASHBOARDS"|"PROCESSES"|"SALESCOMPENSATION"|"CUSTOM_FORM"|"ACTIONABLEINSIGHTS" module?;
+    # Indicates the deletion status of the origin CFO
+    boolean originDeleted?;
+    string? moduleCategoryUN?;
+    int version?;
+    # Stores the identifier of the original CFO from which the current CFO was duplicated
+    int originCustomFormId?;
+    # any type or null
+    anydata attribute9?;
+    # any type or null
+    anydata attribute8?;
+    string? uniqueName?;
+    # any type or `null`
+    anydata attribute5?;
+    # any type or null
+    anydata attribute4?;
+    # any type or null
+    anydata attribute7?;
+    # any type or null
+    anydata attribute6?;
+    # any type or null
+    anydata attribute1?;
+    # any type or null
+    anydata attribute14?;
+    "DRAFT"|"APPROVED"|"REVOKED"|"SUPERSEDED"|"INVALIDATED" formStatus?;
+    # any type or null
+    anydata attribute13?;
+    int typeId?;
+    string? userGroupEdit?;
+    # any type or null
+    anydata attribute3?;
+    # any type or null
+    anydata attribute12?;
+    # any type or null
+    anydata attribute2?;
+    # any type or null
+    anydata attribute11?;
+    # any type or null
+    anydata attribute10?;
+    @constraint:String {maxLength: 255}
+    string lastUpdateByName?;
+    record {|record {}?...;|}? renderInfo?;
+    # any type or null
+    anydata attribute19?;
+    # any type or null
+    anydata attribute18?;
+    # any type or null
+    anydata attribute17?;
+    # any type or null
+    anydata attribute16?;
+    # any type or null
+    anydata attribute15?;
+    string? submitDate?;
+    string? parentTypedId?;
+    # any type or null
+    anydata attribute25?;
+    string? submittedByName?;
+    # any type or null
+    anydata attribute24?;
+    # any type or null
+    anydata attribute23?;
+    # any type or null
+    anydata attribute22?;
+    # any type or null
+    anydata attribute21?;
+    # any type or null
+    anydata attribute20?;
+    string? createDate?;
+    record {}[] approvalRequiredEmailAttachments?;
+    # any type or null
+    anydata attribute29?;
+    # any type or null
+    anydata attribute28?;
+    string originLabel?;
+    # any type or null
+    anydata attribute27?;
+    # any type or null
+    anydata attribute26?;
+    @constraint:String {maxLength: 255}
+    string label?;
+    string[] nextRevUNs?;
+    int createdBy?;
+    string? prevRev?;
+    int calculationStatus?;
+    string? supersededBy?;
+    # any type or null
+    anydata attribute30?;
+    int lastUpdateBy?;
+};
+
+# 
+public type UpdateWorkflowDelegationRequest record {
+    WorkflowdelegationmanagerupdateData data;
+};
+
+public type ListProductsFromManualPriceListResponseResponseData record {
+    decimal version?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    @constraint:String {minLength: 1}
+    string sku?;
+    @constraint:String {minLength: 1}
+    string label?;
+    @constraint:String {minLength: 1}
+    string unitOfMeasure?;
+    @constraint:String {minLength: 1}
+    string currency?;
+    anydata comments?;
+    decimal pricelistId?;
+    @constraint:String {minLength: 1}
+    string lastUpdateByName?;
+    anydata createdByName?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal createdBy?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    decimal lastUpdateBy?;
+    anydata attribute1?;
+    anydata attribute2?;
+    anydata attribute3?;
+    anydata attribute4?;
+    anydata attribute5?;
+    anydata attribute6?;
+    anydata attribute7?;
+    anydata attribute8?;
+    anydata attribute9?;
+    anydata attribute10?;
+    anydata attribute11?;
+    anydata attribute12?;
+    anydata attribute13?;
+    anydata attribute14?;
+    anydata attribute15?;
+    anydata attribute16?;
+    anydata attribute17?;
+    anydata attribute18?;
+    anydata attribute19?;
+    anydata attribute20?;
+    anydata attribute21?;
+    anydata attribute22?;
+    anydata attribute23?;
+    anydata attribute24?;
+    anydata attribute25?;
+    anydata attribute26?;
+    anydata attribute27?;
+    anydata attribute28?;
+    anydata attribute29?;
+    anydata attribute30?;
+};
+
+public type InlineResponse20045ResponseWorkflowSubSteps record {
+    string approver?;
+    string? lastExecutedBy?;
+    string reason?;
+    string approverTypedId?;
+    string? comments?;
+    string? executionStatus?;
+    string approverLoginName?;
+    int minApprovalsNeeded?;
+    string? comment?;
+    string lastExecutedByName?;
+    string? lastExecutionDate?;
+    int approvedCount?;
+};
+
+# The type code is CMTRD
+public type CommentThread record {
+    string typedId?;
+    Comment[] comments?;
+    int createdBy?;
+    string lastUpdateDate?;
+    int version?;
+    # A transient list of strings representing the identifiers of related objects. This attribute is derived from the relations attribute
+    string[] relatedObjects?;
+    boolean resolved?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+public type UpdateSellerResponse record {
+    string node?;
+    Seller data?;
+    int status?;
+};
+
+public type InlineResponse20040Response record {
+    string node?;
+    record {}? data?;
+    # A total number of deleted notifications
+    int totalRows?;
+    int status?;
+};
+
+public type CompensationCustomerGroup record {
+    string customerFieldName?;
+    string customerFieldLabel?;
+    string label?;
+    string customerFieldValue?;
+    record {|record {}...;|} customerFilterCriteria?;
+};
+
+public type ListWorkflowsResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:String {minLength: 1}
+    string csrfToken?;
+    decimal startRow?;
+    @constraint:Array {minLength: 1}
+    ListPendingApprovalsResponseResponseData[] data?;
+    decimal endRow?;
+    decimal status?;
+};
+
+# 
+public type ListLivePriceGridsResponse record {
+    ListLivePriceGridsResponseResponse response?;
+};
+
+# 
+public type ListUserRolesResponse record {
+    ListUsersUserGroupsResponseResponse response?;
+};
+
+public type GetClaimItemsSummaryResponseResponse record {
+    string node?;
+    GetClaimItemsSummaryResponseResponseData[] data?;
+    int status?;
+};
+
+public type ListClaimsResponse record {
+    ListClaimsResponseResponse response?;
+};
+
+# 
+public type ListDelegatedWorkflowsResponse record {
+    ListDelegatedWorkflowsResponseResponse response?;
+};
+
+public type RunDataLoadResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:Array {minLength: 1}
+    RunDataLoadResponseResponseData[] data?;
+    decimal status?;
+};
+
+public type AddDCRResponseResponse record {
+    string node?;
+    DataChangeRequest[] data?;
+    int status?;
+};
+
+# Represents the Queries record for the operation: recalculateQuoteContractRebate
+public type RecalculateQuoteContractRebateQueries record {
+    # Configures user inputs validation (if all required fields are filled in) when a quote or contract is recalculated.<p>Possible values:<br>`none` – Disables the validation.<br>`strict` – Prevents the action to be executed if the validation fails
+    string validationType?;
+};
+
+# 
+public type ListAllLookupTableValuesResponse record {
+    ListAllLookupTableValuesResponseResponse response?;
+};
+
+public type GetLivePriceGridResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node;
+    @constraint:String {minLength: 1}
+    string csrfToken;
+    @constraint:Array {minLength: 1}
+    GetLivePriceGridResponseResponseData[] data;
+    decimal status;
+};
+
+public type RebateagreementsaveDataRebateAgreementServerMessagesExtended record {
+    @constraint:String {minLength: 1}
+    string message?;
+    anydata 'key?;
+};
+
+public type DcrmanageraddmassopidData record {
+    DcrmanageraddmassopidDataFilterCriteria filterCriteria?;
+    DcrmanageraddmassopidDataMassEditRecords[] massEditRecords?;
+};
+
+public type DeleteCustomFormRequest record {
+    CustomformdeleteData data?;
+};
+
+public type LookuptablemanagermassedittableIdData record {
+    LookuptablemanagermassedittableIdDataFilterCriteria filterCriteria;
+    @constraint:Array {minLength: 1}
+    LookuptablemanagermassedittableIdDataMassEditRecords[] massEditRecords;
+};
+
+public type AddLookupTableValueResponseResponseData record {
+    decimal version;
+    @constraint:String {minLength: 1}
+    string typedId;
+    @constraint:String {minLength: 1}
+    string name;
+    @constraint:String {minLength: 1}
+    string value;
+    anydata lowerBound?;
+    anydata upperBound?;
+    @constraint:String {minLength: 1}
+    string lastUpdateByName;
+    @constraint:String {minLength: 1}
+    string createdByName;
+    decimal tableId;
+    @constraint:String {minLength: 1}
+    string valueType;
+    @constraint:String {minLength: 1}
+    string 'type;
+    @constraint:String {minLength: 1}
+    string rawValue;
+    @constraint:String {minLength: 1}
+    string createDate;
+    decimal createdBy;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate;
+    decimal lastUpdateBy;
+};
+
+# 
+public type UpdateLookupTableRequest record {
+    LookuptablemanagerupdateData data;
+    @constraint:String {minLength: 1}
+    string textMatchStyle?;
+    @constraint:String {minLength: 1}
+    string operationType?;
+    LookuptablemanagerupdateOldValues oldValues;
+};
+
+public type FetchCPRData record {
+    FetchAIData[] criteria?;
+    string operator?;
+};
+
+public type InlineResponse20045Response record {
+    string node?;
+    InlineResponse20045ResponseData[] data?;
+    int status?;
+};
+
+# 
+public type SearchProductResponse record {
+    SearchProductResponseResponse response?;
+};
+
+public type DatamartupdatedataloadDataCalculationConfig record {
+    record {}[] inputParams?;
+    record {}[] mappingParams?;
+    record {}[] feederInputParams?;
+    record {}[] outputElements?;
+};
+
+public type ListLoginsEnvelope record {
+    InlineResponse20059Response response?;
+};
+
+public type GetLivePriceGridResponseResponseData record {
+    decimal version?;
+    @constraint:String {minLength: 1}
+    string typedId?;
+    @constraint:String {minLength: 1}
+    string label?;
+    @constraint:String {minLength: 1}
+    string calculationMessages?;
+    decimal numberOfItems?;
+    boolean keepManualOverrides?;
+    boolean writeOnlyChangedItems?;
+    @constraint:String {minLength: 1}
+    string configuration?;
+    decimal numberOfApprovedItems?;
+    decimal numberOfOpenItems?;
+    decimal numberOfDeniedItems?;
+    decimal numberOfSubmittedItems?;
+    decimal numberOfAutoApprovedItems?;
+    @constraint:String {minLength: 1}
+    string priceGridType?;
+    @constraint:String {minLength: 1}
+    string createdByName?;
+    @constraint:String {minLength: 1}
+    string lastUpdateByName?;
+    @constraint:String {minLength: 1}
+    string updateDate?;
+    decimal updatedBy?;
+    @constraint:String {minLength: 1}
+    string createDate?;
+    decimal createdBy?;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate?;
+    decimal lastUpdateBy?;
+    @constraint:String {minLength: 1}
+    string status?;
+    @constraint:String {minLength: 1}
+    string calculationStartDate?;
+    @constraint:String {minLength: 1}
+    string calculationDate?;
+    @constraint:String {minLength: 1}
+    string partialCalculationDate?;
+    decimal id?;
+};
+
+# 
+public type UpsertObjectReturnOldDataRequest record {
+    IntegrateTypeCodereturnolddataData data;
+};
+
+public type DMDataLoadTestResult record {
+    record {|string...;|} alerts?;
+    record {}[] rowResult?;
+    record {|string...;|} outputRow?;
+    ContractOutputs[] initResult?;
+    record {}[] summaryResult?;
+    record {|string...;|} inputRow?;
+};
+
+public type BdmanagerupdatetypedIdData record {
+    string createdByName?;
+    string fileName?;
+    string typedId;
+    int createdBy?;
+    string lastUpdateDate?;
+    boolean sentViaEmail?;
+    int length?;
+    int latestUploadStatusId?;
+    int version;
+    string contentType?;
+    string createDate?;
+    int lastUpdateBy?;
+};
+
+public type ListCompensationTypesEnvelope record {
+    ListCompensationTypesResponse response?;
+};
+
+public type UpdateCLTData record {
+    string typedId;
+    UpdateCLTDataConfiguration configuration;
+};
+
+public type I18nmanagerDeleteKeysBody record {
+    I18nmanagerdeleteKeysData data?;
+};
+
+public type I18nmanagerputDataMessages record {
+    string testKey?;
+};
+
+public type GetCustomFormResponseResponseCustomFormTypeObjectConfigurationDefaultTabsDetails record {
+    @constraint:String {minLength: 1}
+    string translationKey;
+    @constraint:String {minLength: 1}
+    string icon;
+    @constraint:String {minLength: 1}
+    string name;
+    @constraint:String {minLength: 1}
+    string 'type;
+};
+
+# 
+public type ListAllLookupTablesResponse record {
+    ListAllLookupTablesResponseResponse response?;
+};
+
+# 
+public type DeleteDataManagerEntityRequest record {
+    DatamartdeletefcTypeCodeData data;
+};
+
+public type InlineResponse20070Response record {
+    string node?;
+    LivePriceGridType[] data?;
+    int status?;
+};
+
+public type UpdateCGData record {
+    string typedId?;
+    string label?;
+};
+
+public type DeleteConditionTypeEnvelope record {
+    DeleteConditionTypeResponse response?;
+};
+
+public type ListModelLogicParametersResponseResponseData record {
+    @constraint:Array {minLength: 1}
+    anydata[] contextParameters?;
+    @constraint:Array {minLength: 1}
+    anydata[] formulaParameterReference?;
+};
+
+public type AddLookupTableValueResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node;
+    @constraint:Array {minLength: 1}
+    AddLookupTableValueResponseResponseData[] data;
+    decimal status;
+};
+
+public type ContractmanageradditemsDataContractProductGroupProductFilterCriteria record {
+    @jsondata:Name {value: "_constructor"}
+    string constructor?;
+    @constraint:Array {minLength: 1}
+    ContractmanageradditemsDataContractProductGroupProductFilterCriteriaCriteria[] criteria?;
+    @constraint:String {minLength: 1}
+    string operator?;
+};
+
+public type SetClicLostReasonEnvelope record {
+    MarkOfferLostWithReasonResponse response?;
+};
+
+# 
+public type ConvertPriceListResponse record {
+    ConvertPriceListResponseResponse response?;
+};
+
+# 
+public type CreateUploadSlotResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    @constraint:String {minLength: 1}
+    string csrfToken?;
+    @constraint:Array {minLength: 1}
+    CreateUploadSlotResponseData[] data?;
+    decimal status?;
+};
+
+# Values before the update
+public type UpdateUOldValues record {
+    @constraint:String {minLength: 1}
+    string lastName;
+    anydata lastLogin?;
+    @constraint:String {minLength: 1}
+    string typedId;
+    boolean firstLogin?;
+    boolean noSession?;
+    record {}[] businessRoles?;
+    @jsondata:Name {value: "_key"}
+    string key;
+    anydata customerFilterCriteria?;
+    @constraint:String {minLength: 1}
+    string defaultUserGroupViewDetails;
+    @constraint:String {minLength: 1}
+    string loginName;
+    record {}[] allRoleNames;
+    boolean receiveAdminEmail?;
+    anydata wizardDashboardName?;
+    @constraint:String {minLength: 1}
+    string email;
+    @constraint:String {minLength: 1}
+    string createDate;
+    anydata additionalInfo4?;
+    anydata additionalInfo3?;
+    anydata additionalInfo2?;
+    anydata additionalInfo1?;
+    anydata passwordExpiry?;
+    record {}[] allGroups;
+    record {}[] groups?;
+    anydata productFilterCriteria?;
+    decimal version;
+    boolean ssoOnly?;
+    @constraint:String {minLength: 1}
+    string firstName;
+    @constraint:String {minLength: 1}
+    string defaultUserGroupEdit;
+    anydata emailLocale?;
+    boolean workflowEmailingActivated?;
+    decimal createdBy;
+    @jsondata:Name {value: "_level"}
+    decimal level;
+    record {}[] roleNames;
+    boolean requireTFA?;
+    boolean activated?;
+    decimal lastUpdateBy;
+    anydata extendedData?;
+};
+
+# 
+public type MassEditRequest record {
+    LookuptablemanagermassedittableIdData data;
+};
+
+public type CalculateCalculationGridRequest record {
+    # A user-defined priority
+    0|1|2|3|4|5|6|7|8|9 priority?;
+};
+
+public type GetSignatureStatusResponse record {
+    UpsertCompensationPlanResponseResponse response?;
+};
+
+public type QuotemanageraddproductsDataQuote record {
+    record {}[] outputs;
+    @constraint:String {minLength: 1}
+    string createdByName;
+    @constraint:String {minLength: 1}
+    string typedId;
+    @constraint:String {minLength: 1}
+    string headerText;
+    @constraint:String {minLength: 1}
+    string workflowStatus;
+    @constraint:Array {minLength: 1}
+    QuotemanagersaveDataQuoteInputs[] inputs;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate;
+    anydata serverMessagesExtended?;
+    anydata externalRef?;
+    anydata deniedByName?;
+    record {}[] lineItems;
+    anydata userGroupViewDetails?;
+    anydata approvedByName?;
+    anydata creationWorkflowCurrentStep?;
+    @constraint:String {minLength: 1}
+    string rootUniqueName;
+    @constraint:String {minLength: 1}
+    string targetDate;
+    anydata customerGroup?;
+    decimal version;
+    @constraint:String {minLength: 1}
+    string customerName;
+    @constraint:String {minLength: 1}
+    string uniqueName;
+    anydata serverMessages?;
+    anydata creationWorkflowStatus?;
+    anydata userGroupEdit?;
+    boolean hasWorkflowHistory;
+    anydata nodeId?;
+    @constraint:String {minLength: 1}
+    string status;
+    @constraint:String {minLength: 1}
+    string lastUpdateByName;
+    anydata renderInfo?;
+    anydata signature?;
+    anydata creationWorkflowStepCount?;
+    @constraint:String {minLength: 1}
+    string quoteType;
+    @constraint:String {minLength: 1}
+    string quoteStatus;
+    @constraint:String {minLength: 1}
+    string expiryDate;
+    anydata creationWorkflowStepLabel?;
+    @constraint:String {minLength: 1}
+    string customerId;
+    anydata submittedByName?;
+    @constraint:String {minLength: 1}
+    string createDate;
+    boolean dirty;
+    anydata additionalInfo4?;
+    anydata additionalInfo3?;
+    boolean refreshInputs;
+    anydata additionalInfo2?;
+    anydata additionalInfo1?;
+    decimal numberOfAttachments;
+    @constraint:String {minLength: 1}
+    string label;
+    decimal createdBy;
+    anydata approvalRequiredEmailAttachmentsJson?;
+    QuotemanageraddproductsDataQuoteViewState viewState;
+    anydata prevRev?;
+    decimal calculationStatus;
+    anydata supersededBy?;
+    decimal lastUpdateBy;
+};
+
+# 
+public type ExportExcelFileRequest record {
+    DatamartexportdataxlsxData data;
+};
+
+public type PricelistmanagerdeletePLidbatchDataFilterCriteria record {
+    @constraint:Array {minLength: 1}
+    PricelistmanagerdeletePLidbatchDataFilterCriteriaCriteria[] criteria;
+    @constraint:String {minLength: 1}
+    string operator;
+};
+
+public type CopyLookupTableResponseResponseData record {
+    decimal version;
+    @constraint:String {minLength: 1}
+    string typedId;
+    @constraint:String {minLength: 1}
+    string uniqueName;
+    anydata label?;
+    @constraint:String {minLength: 1}
+    string validAfter;
+    @constraint:String {minLength: 1}
+    string status;
+    anydata simulationSet?;
+    @constraint:String {minLength: 1}
+    string 'type;
+    @constraint:String {minLength: 1}
+    string valueType;
+    anydata nodeId?;
+    anydata userGroupEdit?;
+    anydata userGroupViewDetails?;
+    boolean hideWarnings;
+    anydata formatType?;
+    @constraint:String {minLength: 1}
+    string lastUpdateByName;
+    @constraint:String {minLength: 1}
+    string createdByName;
+    decimal numberOfKeyFields;
+    @constraint:String {minLength: 1}
+    string createDate;
+    decimal createdBy;
+    @constraint:String {minLength: 1}
+    string lastUpdateDate;
+    decimal lastUpdateBy;
+    decimal id;
+    boolean isPlasma;
+};
+
+public type RecalculateCalculationOfStepResponseResponseStateTwoTabsTab2 record {
+    @jsondata:Name {value: "StringEntry"}
+    string? stringEntry?;
+    @jsondata:Name {value: "OptionEntry"}
+    string optionEntry?;
+    @jsondata:Name {value: "MatrixEntry"}
+    RecalculateCalculationOfStepResponseResponseStateTwoTabsTab2MatrixEntry[] matrixEntry?;
+};
+
+public type InlineResponse2008ResponseJobs record {
+    int? processingStart?;
+    string targetObject?;
+    string typedId?;
+    string lastUpdateDate?;
+    string trackerType?;
+    int? threadId?;
+    InlineResponse2008ResponseJobSettings jobSettings?;
+    string calculationContext?;
+    int? threadUUID?;
+    int id?;
+    int? calculationResults?;
+    int? processingNode?;
+    string createDate?;
+    string jobName?;
+    string concurrencyKey?;
+    int priority?;
+    int version?;
+    int createdBy?;
+    int? processingEnd?;
+    int? progress?;
+    string? messages?;
+    int runNumber?;
+    boolean cancelRequested?;
+    string status?;
+    int lastUpdateBy?;
+};
+
+public type RecalculateCalculationOfStepResponseResponseStateTwoTabsTab1 record {
+    @jsondata:Name {value: "FailItemInParallel"}
+    string failItemInParallel?;
+    @jsondata:Name {value: "StringEntry"}
+    string stringEntry?;
+    @jsondata:Name {value: "OptionEntry"}
+    string optionEntry?;
+    @jsondata:Name {value: "Data"}
+    string data?;
+    @jsondata:Name {value: "QueryFail"}
+    boolean queryFail?;
+};
+
+public type InlineResponse20075Response record {
+    string node?;
+    CommentThread[] data?;
+    int status?;
+};
+
+# 
+public type ChangeCurrentUserPasswordRequest record {
+    AccountmanagerchangepasswordData data;
+};
+
+public type UpdateSXBody record {
+    UpdateSXData data?;
+    string textMatchStyle?;
+    string operationType;
+    UpdateSXOldValues oldValues?;
+};
+
+# Represents the Queries record for the operation: listEntityFields
+public type ListEntityFieldsQueries record {
+    # The ID of the Company Parameters table when retrieving MLTV (`MatrixLookupTableValue`)
+    string lookupTableId?;
+    # The name of the PX or CX category
+    string name?;
+};
+
+public type ManualPriceListResponse_response record {
+    @constraint:String {minLength: 1}
+    string node;
+    @constraint:String {minLength: 1}
+    string csrfToken?;
+    @constraint:Array {minLength: 1}
+    ManualPriceListResponse_response_data[] data;
+    decimal status;
+};
+
+# 
+public type DeleteManualPriceListRequest record {
+    DeleteTypeCodeData data;
+    @constraint:String {minLength: 1}
+    string textMatchStyle?;
+    @constraint:String {minLength: 1}
+    string operationType;
+    anydata oldValues?;
+};
+
+public type ListPendingApprovalsResponseResponse record {
+    @constraint:String {minLength: 1}
+    string node?;
+    decimal startRow?;
+    @constraint:Array {minLength: 1}
+    ListPendingApprovalsResponseResponseData[] data?;
+    decimal endRow?;
+    decimal status?;
+};
+
+public type DeleteUserGroupRequest record {
+    AccountmanagerdeletegroupData data;
+};
